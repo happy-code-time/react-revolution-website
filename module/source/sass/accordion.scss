@@ -1,0 +1,20 @@
+.rr-accordion{
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    .single-entry{
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid rgba(122,122,122, .33);
+        border-radius: 5px;
+
+        .data{
+            margin: 10px 0;
+        }
+
+        .text:hover{
+            cursor: pointer;
+        }
+    }
+}

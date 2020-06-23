@@ -1,0 +1,58 @@
+import * as React from 'react';
+
+import ReactDOM from 'react-dom';
+
+import Accordion from './module/source/Accordion';
+
+/**
+ * Render it to the html while testing
+ */
+
+import './module/source/sass/accordion.scss';
+
+class App extends React.Component
+{
+    constructor(props){
+        super(props);
+
+        this.state = {
+            data: [
+                {
+                    text: 'click me 1',
+                    dataToggle: 'child 1',
+                    dataToggleAttributes: {
+                        
+                    },
+                    classList: 'test1'
+                },
+                {
+                    text: 'click me 1',
+                    dataToggle: 'child 1',
+                    classList: 'test2',
+                    data: [
+                        {
+                            text: 'click me 2',
+                            dataToggle: 'child 2',
+                            dataToggleAttributes: {},
+                            classList: 'test3'
+                        },
+                    ]
+                }
+            ]
+        }
+    }
+
+    render(){
+        const { data } = this.state;
+
+        return(
+            <span>
+                <Accordion
+                    data={data}
+                />
+            </span>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
