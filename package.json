@@ -4,9 +4,9 @@
   "description": "Create fast modern responisive websites elements",
   "main": "index.jsx",
   "scripts": {
-    "build": "node node_modules/webpack/bin/webpack.js --mode production --module-bind js=babel-loader --progress --profile --colors",
-    "build:dev": "node node_modules/webpack/bin/webpack.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
-    "server": "lite-server"
+    "build": "node ./node_modules/.bin/webpack --config webpack.config.production.js --mode production",
+    "build:dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
+    "server": "lite-server -c bs-config.json"
   },
   "keywords": [],
   "author": "David Janitzek",

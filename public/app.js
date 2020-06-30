@@ -81,12 +81,12 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./index.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./development.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./index.jsx":
+/***/ "./development.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95,10 +95,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _module_source_GlobalMessages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./module/source/GlobalMessages/index.js");
-/* harmony import */ var _module_source_Functions_addGlobalMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./module/source/Functions/addGlobalMessage.js");
-/* harmony import */ var _module_source_sass_rr_global_messages_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./module/source/sass/rr-global-messages.scss");
-/* harmony import */ var _module_source_sass_rr_global_messages_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_module_source_sass_rr_global_messages_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _module_source_SourceCode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./module/source/SourceCode/index.jsx");
+/* harmony import */ var _module_source_sass_rr_sourcecode_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./module/source/sass/rr-sourcecode.scss");
+/* harmony import */ var _module_source_sass_rr_sourcecode_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_module_source_sass_rr_sourcecode_scss__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -125,7 +124,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 /**
  * Render it to the html while testing
  */
@@ -141,45 +139,47 @@ var App = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, App);
 
     _this = _super.call(this, props);
-    setTimeout(function () {
-      Object(_module_source_Functions_addGlobalMessage__WEBPACK_IMPORTED_MODULE_3__["default"])('messagesApp', 'aaaaaaaa', 1);
-      Object(_module_source_Functions_addGlobalMessage__WEBPACK_IMPORTED_MODULE_3__["default"])('messagesApp', 'bbbb', 1, 2000);
-      Object(_module_source_Functions_addGlobalMessage__WEBPACK_IMPORTED_MODULE_3__["default"])('messagesApp', 'cccc', 1, 5000);
-      Object(_module_source_Functions_addGlobalMessage__WEBPACK_IMPORTED_MODULE_3__["default"])('messagesApp', 'dddd', 1);
-    }, 100);
+    _this.state = {};
     return _this;
-  }
+  } // setValue(clickEvent, value) {
+  //     console.log(value);
+  // }
+  // toggleList() {
+  //     this.setState({ display: !this.state.display });
+  // }
+
 
   _createClass(App, [{
+    key: "filterCode",
+    value: function filterCode(event, inputValue, filteredCode) {
+      console.log(event, inputValue, filteredCode);
+    }
+  }, {
     key: "render",
     value: function render() {
-      // const { data } = this.state;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_module_source_GlobalMessages__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        messageKey: "messagesApp",
-        timer: 1000,
-        codeMapping: {
-          1: {
-            title: 'GLOBAL ERROR',
-            displayErrorCode: true,
-            text: {
-              prefix: 'prefix',
-              suffix: 'suffix',
-              attributes: {}
-            },
-            close: {
-              text: 'close',
-              attributes: {}
-            },
-            link: {
-              text: 'error',
-              useTagLink: false,
-              href: 'error-messages-learn-more',
-              attributes: {
-                target: '_blank'
-              }
-            }
-          }
-        }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_module_source_SourceCode__WEBPACK_IMPORTED_MODULE_2__["default"]
+      /*
+       * Code
+       */
+      , {
+        displayLineNumber: true
+        /*
+         * Input 
+         */
+        ,
+        inputActive: true,
+        inputPlaceholder: "Search...",
+        inputCallback: this.filterCode,
+        inputNoDataText: "\uD83E\uDD2F"
+        /*
+         * Loading
+         */
+        ,
+        loadingDisplay: true,
+        loadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "Loading...."),
+        layout: "dark" // dark, light
+        ,
+        code: "\nimport * as React from 'react';\n\nimport ReactDOM from 'react-dom';\n\nimport SourceCode from './module/source/SourceCode';\n\nimport './module/source/sass/rr-sourcecode.scss';\n\n/**\n * Render it to the html while testing\n */\n\nclass App extends React.Component {\n    constructor(props) {\n        super(props);\n\n\n        this.state = {\n\n        }\n    }\n\n    // setValue(clickEvent, value) {\n    //     console.log(value);\n    // }\n\n    // toggleList() {\n    //     this.setState({ display: !this.state.display });\n    // }\n\n    filterCode(event, inputValue, filteredCode) {\n        console.log(event, inputValue, filteredCode);\n    }\n\n    render() {\n\n        return (\n            <span>\n                <SourceCode\n                    /*\n                     * Code\n                     */\n                    displayLineNumber={true}\n                    /*\n                     * Input \n                     */\n                    inputActive={true}\n                    inputPlaceholder='Search...'\n                    inputCallback={this.filterCode}\n                    inputNoDataText='\uD83E\uDD2F'\n                    /*\n                     * Loading\n                     */\n                    loadingDisplay={true}\n                    loadingIcon={<p>Loading....</p>}\n                    layout='dark' // dark, light\n                    code={\n`\n.rr-sourcecode.dark{\n    background-color: #1E1E1E;\n\n    .attributeName{\n        color: #4EA4DE;\n    }\n    .tagStart,\n    .tagEnd,\n    .slash{\n        color: #586470\n    }\n    .tagName{\n        color: #255CB2;\n    }\n    .equal{\n        color: #C2C2C2;\n    }\n\n    .quote-double,\n    .quote-single,\n    .attributeValue{\n        color: #A75029;\n    }\n\n    .not-filtered,\n    .no-match,\n    .value{\n        color: rgb(255,2552,255);\n    }\n\n    .line-number{\n        color: #C2C2C2;\n    }\n    .variable-dollar{\n      color: #f4459f;\n    }\n}\n`\n                    }\n                />\n            </span>\n        )\n    }\n}\n\nReactDOM.render(<App />, document.getElementById('app'));\n"
       }));
     }
   }]);
@@ -191,45 +191,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 
 /***/ }),
 
-/***/ "./module/source/Functions/addGlobalMessage.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var addGlobalMessage = function addGlobalMessage() {
-  var messageKey = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var errorMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  var errorCode = arguments.length > 2 ? arguments[2] : undefined;
-  var disappear = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
-  var message = {
-    errorMessage: errorMessage,
-    errorCode: errorCode,
-    disappear: disappear
-  };
-
-  if (messageKey) {
-    var currentMessages = sessionStorage.getItem(messageKey);
-
-    try {
-      if (null !== currentMessages) {
-        currentMessages = JSON.parse(currentMessages);
-        currentMessages.push(message);
-        sessionStorage.setItem(messageKey, JSON.stringify(currentMessages));
-      } else {
-        sessionStorage.setItem(messageKey, JSON.stringify([message]));
-      }
-    } catch (e) {
-      console.log(e);
-      sessionStorage.setItem(messageKey, JSON.stringify([message]));
-    }
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (addGlobalMessage);
-
-/***/ }),
-
-/***/ "./module/source/GlobalMessages/index.js":
+/***/ "./module/source/SourceCode/index.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -238,171 +200,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _internalFunctions_uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./module/source/internalFunctions/uuid.jsx");
 /* harmony import */ var _internalFunctions_getDerivedStateFromPropsCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./module/source/internalFunctions/getDerivedStateFromPropsCheck.jsx");
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    return target;
-  };
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  return _extends.apply(this, arguments);
-}
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-  return _typeof(obj);
-}
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
 
 
 
-var GlobalMessages = /*#__PURE__*/function (_React$Component) {
-  _inherits(GlobalMessages, _React$Component);
+var ModuleSourceCode = /*#__PURE__*/function (_Component) {
+  _inherits(ModuleSourceCode, _Component);
 
-  var _super = _createSuper(GlobalMessages);
+  var _super = _createSuper(ModuleSourceCode);
 
-  function GlobalMessages(props) {
+  function ModuleSourceCode(props) {
     var _this;
 
-    _classCallCheck(this, GlobalMessages);
+    _classCallCheck(this, ModuleSourceCode);
 
     _this = _super.call(this, props);
-    _this.checkLocation = _this.checkLocation.bind(_assertThisInitialized(_this));
+    _this.generateCode = _this.generateCode.bind(_assertThisInitialized(_this));
+    _this.focusIn = _this.focusIn.bind(_assertThisInitialized(_this));
+    _this.focusOut = _this.focusOut.bind(_assertThisInitialized(_this));
     _this.state = {
-      defaultClass: props.defaultClass && _typeof('8') == _typeof(props.defaultClass) ? props.defaultClass : 'rr-global-messages',
-      messageKey: props.messageKey && _typeof('8') == _typeof(props.messageKey) ? props.messageKey : '',
-      codeMapping: props.codeMapping && _typeof({}) === _typeof(props.codeMapping) ? props.codeMapping : {},
-      timer: props.timer && _typeof(888) == _typeof(props.timer) ? props.timer : 2500,
+      /**
+       * App
+       */
+      searchValue: '',
+      plainValue: '',
+      lines: [],
 
       /**
-       * 
+       * User
        */
-      messagesApp: []
+      defaultClass: props.defaultClass && _typeof('8') == _typeof(props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
+      displayLineNumber: _typeof(true) === _typeof(props.displayLineNumber) ? props.displayLineNumber : false,
+      code: props.code && _typeof('8') == _typeof(props.code) ? props.code : undefined,
+      originalCode: props.code && _typeof('8') == _typeof(props.code) ? props.code : undefined,
+      inputActive: _typeof(true) == _typeof(props.inputActive) ? props.inputActive : false,
+      inputPlaceholder: props.inputPlaceholder && _typeof('8') == _typeof(props.inputPlaceholder) ? props.inputPlaceholder : undefined,
+      inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
+      inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
+      loadingDisplay: _typeof(true) == props.loadingDisplay ? props.loadingDisplay : false,
+      loadingIcon: props.loadingIcon ? props.loadingIcon : '',
+      layout: props.layout && _typeof('8') == _typeof(props.layout) && ['dark', 'light'].includes(props.layout) ? props.layout : undefined
     };
-    _this.removeMessage = _this.removeMessage.bind(_assertThisInitialized(_this));
-    _this.setIntervaller = _this.setIntervaller.bind(_assertThisInitialized(_this));
-    _this.href = window.location.href;
+    _this.loadingDisplay = _typeof(true) == _typeof(props.loadingDisplay) ? props.loadingDisplay : false;
+    _this.isFocus = false;
     return _this;
   }
   /**
@@ -413,218 +275,771 @@ var GlobalMessages = /*#__PURE__*/function (_React$Component) {
    */
 
 
-  _createClass(GlobalMessages, [{
+  _createClass(ModuleSourceCode, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setOnClickEventListenerToTheDom();
-      var messageKey = this.state.messageKey;
-
-      if ('' !== messageKey) {
-        this.setIntervaller();
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      document.removeEventListener('click', this.checkLocation);
-      clearInterval(this.globalMessagesIntervaller);
-    }
-    /**
-     * Check if the website using a react-router
-     * and if the url changed then reload the protector functionalitty
-     */
-
-  }, {
-    key: "setOnClickEventListenerToTheDom",
-    value: function setOnClickEventListenerToTheDom() {
-      document.removeEventListener('click', this.checkLocation);
-      document.addEventListener('click', this.checkLocation);
-    }
-    /**
-     * Check location, if the stored href are changed then
-     * reload the security context of this extension
-     * This feature needed for websites based on
-     * react framework
-     */
-
-  }, {
-    key: "checkLocation",
-    value: function checkLocation() {
-      var self = this;
-      var count = 5;
-      clearInterval(x);
-      var x = setInterval(function () {
-        /**
-         * If the current href changed
-         */
-        if (self.href !== window.location.href && count > 0) {
-          self.href = window.location.href;
-          self.clearStore();
-          return clearInterval(x);
-        }
-
-        if (!count) {
-          return clearInterval(x);
-        }
-
-        count--;
-      }, 100);
-    }
-    /**
-     * Read messages from store
-     */
-
-  }, {
-    key: "readStore",
-    value: function readStore() {
-      var messageKey = this.state.messageKey;
-
-      if (null !== sessionStorage.getItem(messageKey)) {
-        return JSON.parse(sessionStorage.getItem(messageKey));
-      }
-
-      return [];
-    }
-    /**
-     * Clear storage
-     */
-
-  }, {
-    key: "clearStore",
-    value: function clearStore() {
-      var messageKey = this.state.messageKey;
-      sessionStorage.removeItem(messageKey);
       this.setState({
-        messagesApp: []
-      });
+        loadingDisplay: this.loadingDisplay
+      }, this.generateCode);
+    }
+  }, {
+    key: "inputCallback",
+    value: function inputCallback(e, code) {
+      var _this$state = this.state,
+          inputCallback = _this$state.inputCallback,
+          searchValue = _this$state.searchValue;
+
+      if (inputCallback) {
+        inputCallback(e, searchValue, code);
+      }
+    }
+  }, {
+    key: "focusIn",
+    value: function focusIn() {
+      this.isFocus = true;
+    }
+  }, {
+    key: "focusOut",
+    value: function focusOut() {
+      this.isFocus = false;
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (this.isFocus && this.inputNode) {
+        this.inputNode.focus();
+      }
     }
     /**
-     * Looper
+     * Set value on change input field
      */
 
   }, {
-    key: "setIntervaller",
-    value: function setIntervaller() {
+    key: "setValue",
+    value: function setValue(e) {
       var _this2 = this;
 
-      var timer = this.state.timer;
-      clearInterval(this.globalMessagesIntervaller);
-      this.globalMessagesIntervaller = setInterval(function () {
-        var messagesApp = _this2.readStore();
+      e.persist();
+      var originalCode = this.state.originalCode;
+      var value = e.target.value;
+      var code = [];
+      this.setState({
+        searchValue: value,
+        loadingDisplay: this.loadingDisplay
+      }, function () {
+        if ('' == value) {
+          code = originalCode;
+        } else {
+          var lines = originalCode.split('\n');
+          value = value.trim();
 
-        if (0 !== messagesApp.length) {
-          _this2.clearStore();
-
-          var _loop = function _loop(x) {
-            messagesApp[x].unique = "".concat(Object(_internalFunctions_uuid__WEBPACK_IMPORTED_MODULE_1__["default"])());
-
-            if (messagesApp[x].disappear && _typeof(8) == _typeof(messagesApp[x].disappear)) {
-              setTimeout(function () {
-                _this2.setState({
-                  messagesApp: _this2.state.messagesApp.filter(function (item) {
-                    return messagesApp[x].unique !== item.unique;
-                  })
-                });
-              }, messagesApp[x].disappear);
+          for (var x = 0; x <= lines.length - 1; x++) {
+            if (-1 !== lines[x].indexOf(value)) {
+              code.push(lines[x]);
             }
-          };
-
-          for (var x = 0; x <= messagesApp.length - 1; x++) {
-            _loop(x);
           }
 
-          _this2.setState({
-            messagesApp: messagesApp
+          code = code.join('\n');
+        }
+        /**
+         * User inputCallback
+         */
+
+
+        _this2.inputCallback(e, code);
+
+        _this2.setState({
+          code: code
+        }, _this2.generateCode);
+      });
+    }
+  }, {
+    key: "generateCode",
+    value: function generateCode() {
+      var _this$state2 = this.state,
+          code = _this$state2.code,
+          inputNoDataText = _this$state2.inputNoDataText,
+          displayLineNumber = _this$state2.displayLineNumber;
+      var masterCode = [];
+
+      if (!code || 0 == code.length) {
+        return this.setState({
+          lines: inputNoDataText,
+          loadingDisplay: false
+        });
+      }
+
+      var codeViaLine = code.split('\n');
+      var singleLineData = [];
+
+      for (var x = 0; x < codeViaLine.length; x++) {
+        singleLineData = [];
+
+        if ('' !== codeViaLine[x]) {
+          var singleItems = codeViaLine[x].split(' ');
+          var attribute = null;
+
+          for (var mrx = 0; mrx < singleItems.length; mrx++) {
+            var characters = '';
+
+            if ('' !== singleItems[mrx]) {
+              var wordsCharacterSet = singleItems[mrx].split('');
+              characters = '';
+
+              for (var i = 0; i < wordsCharacterSet.length; i++) {
+                var nextCharacter = undefined !== wordsCharacterSet[i + 1] ? wordsCharacterSet[i + 1] : undefined;
+
+                if ('\t' == wordsCharacterSet[i]) {
+                  singleLineData.push({
+                    code: '\t',
+                    "class": 'tab'
+                  });
+                } else {
+                  characters += wordsCharacterSet[i];
+                  /**
+                   * Tags matcher
+                   */
+
+                  var tagMatcher = this.tagsMatcher(characters, singleLineData, nextCharacter, attribute);
+                  characters = tagMatcher.characters;
+                  singleLineData = tagMatcher.singleLineData;
+                  /**
+                   * Tags attributes
+                   */
+
+                  if (characters.length) {
+                    var attributesMatcher = this.attributesMatcher(characters, singleLineData, nextCharacter, attribute);
+                    characters = attributesMatcher.characters;
+                    singleLineData = attributesMatcher.singleLineData;
+                    attribute = attributesMatcher.attribute;
+                  }
+                }
+              }
+            }
+            /**
+             * No match
+             */
+
+
+            if (characters.length) {
+              /**
+               * PHP dollar character
+               */
+              if (-1 !== characters.indexOf('$')) {
+                singleLineData.push({
+                  code: characters.substring(0, characters.indexOf('$')),
+                  "class": 'no-match'
+                });
+                var variable = characters.substring(characters.indexOf('$') - 1, characters.length);
+                variable = variable.split('');
+                var items = '$';
+                var itemsMatch = 0;
+
+                for (var _x = 1; _x <= variable.length - 1; _x++) {
+                  if (/^[a-zA-Z]+$/.test(variable[_x])) {
+                    items += variable[_x];
+                  } else {
+                    itemsMatch = _x;
+                    break;
+                  }
+                }
+
+                if (items.length) {
+                  singleLineData.push({
+                    code: items,
+                    "class": 'variable-dollar'
+                  });
+                }
+
+                if (itemsMatch) {
+                  characters = characters.substring(itemsMatch, variable.length);
+                } else {
+                  characters = '';
+                }
+              }
+              /**
+               * Functions matcher
+               */
+
+
+              if (-1 !== characters.indexOf('(') && -1 !== characters.indexOf(')')) {
+                var fnName = characters.substring(0, characters.indexOf('('));
+                singleLineData.push({
+                  code: fnName,
+                  "class": 'functionName'
+                });
+                var attr = characters.substring(fnName.length + 1, characters.indexOf(')'));
+                singleLineData.push({
+                  code: '(',
+                  "class": 'bracket bracket-left'
+                });
+                singleLineData.push({
+                  code: attr,
+                  "class": 'functionAttributes'
+                });
+                singleLineData.push({
+                  code: ')',
+                  "class": 'bracket bracket-right'
+                });
+                characters = characters.substring(fnName.length + 1 + attr.length + 1, characters.length);
+              }
+
+              if (-1 !== characters.indexOf('(')) {
+                var _fnName = characters.substring(0, characters.indexOf('('));
+
+                singleLineData.push({
+                  code: _fnName,
+                  "class": 'functionName'
+                });
+
+                var _attr = characters.substring(_fnName.length + 1, characters.length);
+
+                singleLineData.push({
+                  code: '(',
+                  "class": 'bracket bracket-left'
+                });
+                singleLineData.push({
+                  code: _attr,
+                  "class": 'functionAttributes'
+                });
+                characters = '';
+              }
+
+              if (')' == characters.charAt(characters.length - 1)) {
+                var _attr2 = characters.substring(0, characters.length - 1);
+
+                if ('{' == characters.charAt(0)) {
+                  singleLineData.push({
+                    code: '}',
+                    "class": 'bracket bracket-left'
+                  });
+                  singleLineData.push({
+                    code: _attr2.substring(1, _attr2.length),
+                    "class": 'functionAttributes'
+                  });
+                  singleLineData.push({
+                    code: ')',
+                    "class": 'bracket bracket-right'
+                  });
+                } else {
+                  singleLineData.push({
+                    code: _attr2,
+                    "class": 'functionAttributes'
+                  });
+                  singleLineData.push({
+                    code: ')',
+                    "class": 'bracket bracket-right'
+                  });
+                }
+
+                characters = '';
+              }
+              /**
+               * Css or objects
+               */
+
+
+              if (-1 !== characters.indexOf('{')) {
+                var pref = characters.substring(0, characters.indexOf('{'));
+                var next = characters.substring(characters.indexOf('{') + 1, characters.length);
+                singleLineData.push({
+                  code: pref,
+                  "class": 'no-match'
+                });
+                singleLineData.push({
+                  code: '{',
+                  "class": 'bracket bracket-left'
+                });
+                singleLineData.push({
+                  code: next,
+                  "class": 'no-match'
+                });
+                characters = '';
+              }
+
+              if (-1 !== characters.indexOf('}')) {
+                var _pref = characters.substring(0, characters.indexOf('}'));
+
+                var _next = characters.substring(characters.indexOf('}') + 1, characters.length);
+
+                singleLineData.push({
+                  code: _pref,
+                  "class": 'no-match'
+                });
+                singleLineData.push({
+                  code: '}',
+                  "class": 'bracket bracket-right'
+                });
+                singleLineData.push({
+                  code: _next,
+                  "class": 'no-match'
+                });
+                characters = '';
+              }
+
+              if (characters.length) {
+                singleLineData.push({
+                  code: characters,
+                  "class": 'no-match'
+                });
+              }
+            }
+            /**
+             * Push the same char as splitted with
+             */
+
+
+            singleLineData.push({
+              code: ' ',
+              "class": 'space'
+            });
+          }
+        }
+        /**
+         * Push the same char as splitted with
+         */
+
+
+        singleLineData.push({
+          code: '\n',
+          "class": 'enter'
+        });
+        masterCode.push(singleLineData);
+      }
+
+      var codeJsx = [];
+
+      for (var _x2 = 0; _x2 < masterCode.length; _x2++) {
+        var singleLineArrays = masterCode[_x2];
+        var tempHolder = [];
+
+        for (var _mrx = 0; _mrx < singleLineArrays.length; _mrx++) {
+          tempHolder.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            key: Object(_internalFunctions_uuid__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+            className: singleLineArrays[_mrx]["class"] ? singleLineArrays[_mrx]["class"] : ''
+          }, singleLineArrays[_mrx].code));
+        }
+
+        codeJsx.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: Object(_internalFunctions_uuid__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+          className: displayLineNumber ? 'single-code-line flex' : 'single-code-line'
+        }, displayLineNumber && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "line-number"
+        }, _x2 + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "line-code"
+        }, tempHolder)));
+      }
+
+      this.setState({
+        loadingDisplay: false,
+        lines: codeJsx
+      });
+    }
+  }, {
+    key: "tagsMatcher",
+    value: function tagsMatcher(characters, singleLineData, nextCharacter) {
+      /**
+       * Unknown tag name check
+       * - possible match for </custom-tag-name>
+       */
+      if (0 === characters.indexOf('</') && '>' == nextCharacter) {
+        singleLineData.push({
+          code: '<',
+          "class": 'tagStart'
+        });
+        singleLineData.push({
+          code: '/',
+          "class": 'slash'
+        });
+        singleLineData.push({
+          code: characters.substring(2, characters.length),
+          "class": 'tagName'
+        });
+        characters = '';
+      }
+
+      if ('>' == characters.substring(characters.length - 1, characters.length) && !nextCharacter && -1 == characters.indexOf('<')) {
+        if ('=' == characters.substring(0, characters.length - 1)) {
+          singleLineData.push({
+            code: '=',
+            "class": 'equal'
+          });
+          singleLineData.push({
+            code: '>',
+            "class": 'tagEnd'
+          });
+        } else {
+          singleLineData.push({
+            code: characters.substring(0, characters.length - 1),
+            "class": 'tagName'
+          });
+          singleLineData.push({
+            code: '>',
+            "class": 'tagEnd'
           });
         }
-      }, timer);
-    }
-    /**
-     * Remove single message by index
-     */
 
+        characters = '';
+      }
+      /**
+       * Unknown tag name check
+       * - possible match for <custom-tag-name> without attributes
+       */
+
+
+      if ('<' == characters.charAt(0) && !nextCharacter) {
+        singleLineData.push({
+          code: '<',
+          "class": 'tagStart'
+        });
+
+        if ('>' == characters.substring(characters.length - 1, characters.length)) {
+          singleLineData.push({
+            code: characters.substring(1, characters.length - 1),
+            "class": 'tagName'
+          });
+          singleLineData.push({
+            code: '>',
+            "class": 'tagEnd'
+          });
+          characters = '';
+        } else {
+          singleLineData.push({
+            code: characters.substring(1, characters.length),
+            "class": 'tagName'
+          });
+          characters = '';
+        }
+      }
+
+      if ('<' == characters.charAt(0) && '>' == characters.charAt(characters.length - 1)) {
+        singleLineData.push({
+          code: '<',
+          "class": 'tagStart'
+        });
+        singleLineData.push({
+          code: characters.substring(1, characters.length - 1),
+          "class": 'tagName'
+        });
+        singleLineData.push({
+          code: '>',
+          "class": 'tagEnd'
+        });
+        characters = '';
+      }
+
+      if (-1 !== characters.indexOf('<') && '>' == characters.charAt(characters.length - 1)) {
+        var dataToCheck = characters.substring(0, characters.indexOf('<'));
+        singleLineData = this.extractNotFiltered(singleLineData, dataToCheck);
+        singleLineData.push({
+          code: '<',
+          "class": 'tagStart'
+        });
+        singleLineData.push({
+          code: characters.substring(characters.indexOf('<') + 1, characters.length - 1),
+          "class": 'tagName'
+        });
+        singleLineData.push({
+          code: '>',
+          "class": 'tagEnd'
+        });
+        characters = '';
+      }
+
+      if (-1 !== characters.indexOf('</') && '>' == characters.charAt(characters.length - 1)) {
+        singleLineData.push({
+          code: characters.substring(0, characters.indexOf('</') + 1),
+          "class": 'not-filtered-data'
+        });
+        singleLineData.push({
+          code: '</',
+          "class": 'tagStart'
+        });
+        singleLineData.push({
+          code: characters.substring(characters.indexOf('</') + 2, characters.length - 1),
+          "class": 'tagName'
+        });
+        singleLineData.push({
+          code: '>',
+          "class": 'tagEnd'
+        });
+        characters = '';
+      }
+      /**
+       * Tag check
+       * Check if is closing tag, and the closing tag are pushed previously 
+       */
+
+
+      if ('>' == characters) {
+        singleLineData.push({
+          code: '>',
+          "class": 'tagEnd'
+        });
+        characters = '';
+      }
+
+      return {
+        characters: characters,
+        singleLineData: singleLineData
+      };
+    }
   }, {
-    key: "removeMessage",
-    value: function removeMessage(unique) {
-      this.setState({
-        messagesApp: this.state.messagesApp.filter(function (item) {
-          return unique !== item.unique;
-        })
+    key: "extractNotFiltered",
+    value: function extractNotFiltered(singleLineData, dataToCheck) {
+      if (-1 !== dataToCheck.indexOf('="')) {
+        singleLineData.push({
+          code: dataToCheck.substring(0, dataToCheck.indexOf('="')),
+          "class": 'attributeName'
+        });
+        singleLineData.push({
+          code: '=',
+          "class": 'equal attribute-equal'
+        });
+        singleLineData.push({
+          code: '"',
+          "class": 'quote-double quote-double-start'
+        });
+
+        if ('">' == dataToCheck.substring(dataToCheck.length - 2, dataToCheck.length)) {
+          singleLineData.push({
+            code: dataToCheck.substring(dataToCheck.indexOf('="') + 2, dataToCheck.length - 2),
+            "class": 'value'
+          });
+          singleLineData.push({
+            code: "'",
+            "class": 'quote-single quote-single-end'
+          });
+          singleLineData.push({
+            code: ">",
+            "class": 'tagEnd'
+          });
+        } else {
+          singleLineData.push({
+            code: dataToCheck.substring(dataToCheck.indexOf('="'), dataToCheck.length),
+            "class": 'value'
+          });
+        }
+
+        return singleLineData;
+      }
+
+      if (-1 !== dataToCheck.indexOf("='")) {
+        singleLineData.push({
+          code: dataToCheck.substring(0, dataToCheck.indexOf("='")),
+          "class": 'attributeName'
+        });
+        singleLineData.push({
+          code: '=',
+          "class": 'equal attribute-equal'
+        });
+        singleLineData.push({
+          code: "'",
+          "class": 'quote-single quote-single-start'
+        });
+
+        if ("'>" == dataToCheck.substring(dataToCheck.length - 2, dataToCheck.length)) {
+          singleLineData.push({
+            code: dataToCheck.substring(dataToCheck.indexOf("='") + 2, dataToCheck.length - 2),
+            "class": 'value'
+          });
+          singleLineData.push({
+            code: "'",
+            "class": 'quote-single quote-single-end'
+          });
+          singleLineData.push({
+            code: ">",
+            "class": 'tagEnd'
+          });
+        } else {
+          singleLineData.push({
+            code: dataToCheck.substring(dataToCheck.indexOf("='"), dataToCheck.length),
+            "class": 'value'
+          });
+        }
+
+        return singleLineData;
+      }
+
+      if (-1 !== dataToCheck.indexOf('>')) {
+        singleLineData.push({
+          code: dataToCheck.substring(dataToCheck.indexOf(">"), dataToCheck.length - 1),
+          "class": 'value'
+        });
+        singleLineData.push({
+          code: ">",
+          "class": 'tagEnd'
+        });
+        return singleLineData;
+      }
+
+      singleLineData.push({
+        code: dataToCheck,
+        "class": 'not-filtered'
       });
+      return singleLineData;
+    }
+  }, {
+    key: "attributesMatcher",
+    value: function attributesMatcher(characters, singleLineData, nextCharacter, attribute) {
+      /**
+       * Check if is attribute or string assigment
+       * as variable
+       * 
+       * (attribute) href="fsdfdsfdfsd"
+       * (variable) x="dsadasdsadsa"
+       */
+      var value = characters.substring(0, characters.indexOf('='));
+
+      if (1 !== characters.indexOf('="') && '"' == nextCharacter && 'start' !== attribute && '' !== value) {
+        attribute = 'start';
+        singleLineData.push({
+          code: value,
+          "class": 'attributeName'
+        });
+        singleLineData.push({
+          code: '=',
+          "class": 'equal attribute-equal'
+        });
+        singleLineData.push({
+          code: '"',
+          "class": 'quote-double quote-double-start'
+        });
+        characters = '';
+      }
+      /**
+       * Example text: re a bug in some browsers where doing "Select ="" (CTRL+A and CMD+A) s
+       * 
+       * catching here: "Select ="" <- catching closing last tag
+       */
+
+
+      if ('"' == characters && undefined == nextCharacter) {
+        attribute = 'end';
+        singleLineData.push({
+          code: '"',
+          "class": 'quote-double quote-double-end'
+        });
+        characters = '';
+      }
+      /**
+       * If the attribute process started but not finished
+       * and is a space between attributes
+       */
+
+
+      if (undefined == nextCharacter && 'start' == attribute && '"' !== characters.substring(characters.length - 1, characters.length)) {
+        /**
+         * If the value has a quoute on the first place
+         * example: <meta name=""viewport" content=""width=device-width, initial-scale=1.0,  maximum-scale=5.0"> 
+         * 
+         * the: content=" are pushed as parent 
+         * 
+         * now the value "width=device-width has the 2 quote, we have to ignore this quote
+         */
+        if ('"' == characters.charAt(0)) {
+          characters = characters.substring(1, characters.length);
+        }
+
+        singleLineData.push({
+          code: characters,
+          "class": 'attributeValue'
+        });
+        characters = '';
+      }
+      /**
+       * Catching now values with space
+       * 
+       * title="David Janitzek"
+       * 
+       * catching value: Janitzek"
+       */
+
+
+      if ('"' == characters.substring(characters.length - 1, characters.length) && 2 <= characters.length && 'start' == attribute) {
+        attribute = 'end';
+
+        if ('"' == characters.charAt(0)) {
+          characters = characters.substring(1, characters.length);
+        }
+
+        singleLineData.push({
+          code: characters.substring(0, characters.length - 1),
+          "class": 'attributeValue'
+        });
+        singleLineData.push({
+          code: '"',
+          "class": 'quote-double quote-double-end'
+        });
+        characters = '';
+      }
+
+      return {
+        characters: characters,
+        singleLineData: singleLineData,
+        attribute: attribute
+      };
     }
   }, {
     key: "render",
     value: function render() {
       var _this3 = this;
 
-      var _this$state = this.state,
-          codeMapping = _this$state.codeMapping,
-          messagesApp = _this$state.messagesApp,
-          defaultClass = _this$state.defaultClass;
-      var mappingKeys = Object.getOwnPropertyNames(codeMapping);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
-        className: defaultClass
-      }, messagesApp.map(function (obj) {
-        var errorCode = obj.errorCode,
-            errorMessage = obj.errorMessage,
-            unique = obj.unique;
-        errorCode = JSON.stringify(errorCode);
+      var _this$state3 = this.state,
+          defaultClass = _this$state3.defaultClass,
+          layout = _this$state3.layout,
+          lines = _this$state3.lines,
+          loadingDisplay = _this$state3.loadingDisplay,
+          loadingIcon = _this$state3.loadingIcon,
+          inputActive = _this$state3.inputActive,
+          inputPlaceholder = _this$state3.inputPlaceholder,
+          searchValue = _this$state3.searchValue;
 
-        if (mappingKeys.includes(errorCode) && undefined !== codeMapping[errorCode]) {
-          var _codeMapping$errorCod = codeMapping[errorCode],
-              title = _codeMapping$errorCod.title,
-              displayErrorCode = _codeMapping$errorCod.displayErrorCode,
-              text = _codeMapping$errorCod.text,
-              close = _codeMapping$errorCod.close,
-              link = _codeMapping$errorCod.link;
-          var attributesText = {};
-          var attributesLink = {};
-          var attributesClose = {};
+      if (loadingDisplay) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "".concat(defaultClass, " ").concat(layout)
+        }, loadingIcon);
+      }
 
-          if (text && _typeof({}) === _typeof(text) && text.attributes && _typeof({}) === _typeof(text.attributes)) {
-            attributesText = text.attributes;
-          }
-
-          if (link && _typeof({}) === _typeof(link) && link.attributes && _typeof({}) === _typeof(link.attributes)) {
-            attributesLink = link.attributes;
-          }
-
-          if (close && _typeof({}) === _typeof(close) && close.attributes && _typeof({}) === _typeof(close.attributes)) {
-            attributesClose = close.attributes;
-          }
-
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
-            className: "single-error",
-            key: Object(_internalFunctions_uuid__WEBPACK_IMPORTED_MODULE_1__["default"])()
-          }, title && _typeof('000') === _typeof(title) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("h1", null, "".concat(title, " ").concat(displayErrorCode ? errorCode : '')), title && _typeof({}) === _typeof(title) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("h1", null, title, " ".concat(displayErrorCode ? errorCode : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", _extends({
-            className: "text"
-          }, attributesText), "".concat(text.prefix ? "".concat(text.prefix, " ") : '', " ").concat(errorMessage ? "".concat(errorMessage, " ") : '', " ").concat(text.suffix ? "".concat(text.suffix) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
-            className: "options"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", _extends({
-            onClick: function onClick(e) {
-              return _this3.removeMessage(unique);
-            },
-            className: "single-option"
-          }, attributesClose), "".concat(close.text ? "".concat(close.text, " ") : '')), link && _typeof({}) === _typeof(link) && link.text && _typeof('000') === _typeof(link.text) && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
-            className: "single-option"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("a", _extends({
-            rel: "noopener noreferrer",
-            href: "".concat(link.href ? link.href : '')
-          }, attributesLink), link.text))));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "".concat(defaultClass, " ").concat(layout)
+      }, inputActive && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input",
+        type: "text",
+        onChange: function onChange(e) {
+          return _this3.setValue(e);
+        },
+        value: searchValue,
+        placeholder: inputPlaceholder,
+        onFocus: function onFocus(e) {
+          return _this3.focusIn();
+        },
+        onBlur: function onBlur(e) {
+          return _this3.focusOut();
+        },
+        ref: function ref(node) {
+          return _this3.inputNode = node;
         }
-
-        return null;
-      }));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "code"
+      }, lines));
     }
   }], [{
     key: "getDerivedStateFromProps",
     value: function getDerivedStateFromProps(props, state) {
-      if (Object(_internalFunctions_getDerivedStateFromPropsCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(['defaultClass', 'codeMapping', 'timer', 'messageKey'], props, state)) {
+      if (Object(_internalFunctions_getDerivedStateFromPropsCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(['defaultClass', 'displayLineNumber', 'code', 'inputActive', 'inputPlaceholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
         return {
-          defaultClass: props.defaultClass && _typeof('8') == _typeof(props.defaultClass) ? props.defaultClass : 'rr-global-messages',
-          messageKey: props.messageKey && _typeof('8') == _typeof(props.messageKey) ? props.messageKey : '',
-          codeMapping: props.codeMapping && _typeof({}) === _typeof(props.codeMapping) ? props.codeMapping : {},
-          timer: props.timer && _typeof(888) == _typeof(props.timer) ? props.timer : 2500
+          defaultClass: props.defaultClass && _typeof('8') == _typeof(props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
+          displayLineNumber: _typeof(true) === _typeof(props.displayLineNumber) ? props.displayLineNumber : false,
+          inputActive: _typeof(true) == _typeof(props.inputActive) ? props.inputActive : false,
+          inputPlaceholder: props.inputPlaceholder && _typeof('8') == _typeof(props.inputPlaceholder) ? props.inputPlaceholder : undefined,
+          inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
+          inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
+          loadingDisplay: _typeof(true) == props.loadingDisplay ? props.loadingDisplay : false,
+          loadingIcon: props.loadingIcon ? props.loadingIcon : '',
+          layout: props.layout && _typeof('8') == _typeof(props.layout) && ['dark', 'light'].includes(props.layout) ? props.layout : undefined
         };
       }
 
@@ -632,10 +1047,10 @@ var GlobalMessages = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return GlobalMessages;
+  return ModuleSourceCode;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (GlobalMessages);
+/* harmony default export */ __webpack_exports__["default"] = (ModuleSourceCode);
 
 /***/ }),
 
@@ -674,11 +1089,11 @@ var uuid = function uuid() {
 
 /***/ }),
 
-/***/ "./module/source/sass/rr-global-messages.scss":
+/***/ "./module/source/sass/rr-sourcecode.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__("./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./module/source/sass/rr-global-messages.scss");
+var content = __webpack_require__("./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./module/source/sass/rr-sourcecode.scss");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -700,12 +1115,12 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./module/source/sass/rr-global-messages.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./module/source/sass/rr-sourcecode.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, ".rr-global-messages {\n  display: flex;\n  flex-direction: column;\n  position: fixed;\n  bottom: 20px;\n  left: 20px;\n  background-color: transpartent;\n  z-index: 10;\n  color: white; }\n  .rr-global-messages .single-error {\n    background-color: white;\n    border: 1px solid rgba(122, 122, 122, 0.33);\n    border-radius: 5px;\n    margin: 10px 0;\n    position: relative;\n    max-width: 350px;\n    min-width: 230px; }\n    .rr-global-messages .single-error h1 {\n      line-height: 30px;\n      color: #202124;\n      font-size: 0.91rem;\n      box-sizing: border-box;\n      padding: 0 20px; }\n    .rr-global-messages .single-error .text {\n      line-height: 22px;\n      color: rgba(69, 69, 69, 0.8);\n      font-size: 0.87rem;\n      text-align: justify;\n      box-sizing: border-box;\n      padding: 0 15px; }\n    .rr-global-messages .single-error .options {\n      width: 100%;\n      margin-top: 15px;\n      border-top: 1px solid rgba(122, 122, 122, 0.33);\n      box-sizing: border-box;\n      padding: 5px 0;\n      display: flex; }\n      .rr-global-messages .single-error .options .single-option {\n        width: 50%;\n        text-align: center;\n        height: 50px;\n        line-height: 50px;\n        transition-duration: 300ms; }\n      .rr-global-messages .single-error .options .single-option,\n      .rr-global-messages .single-error .options a {\n        color: rgba(39, 39, 39, 0.7);\n        font-size: 0.91rem;\n        text-decoration: none; }\n      .rr-global-messages .single-error .options .single-option:hover,\n      .rr-global-messages .single-error .options a:hover {\n        cursor: pointer;\n        color: #131313; }\n", ""]);
+exports.push([module.i, ".rr-sourcecode {\n  white-space: pre-wrap; }\n  .rr-sourcecode .search {\n    width: 100%;\n    margin-bottom: 20px; }\n    .rr-sourcecode .search input {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      border: 1px solid #dadce0;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      border-radius: 5px; }\n  .rr-sourcecode .single-code-line {\n    display: block; }\n    .rr-sourcecode .single-code-line .line-code {\n      width: 100%; }\n  .rr-sourcecode .single-code-line.flex {\n    display: flex; }\n    .rr-sourcecode .single-code-line.flex .line-number {\n      width: 50px;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      white-space: nowrap; }\n    .rr-sourcecode .single-code-line.flex .line-code {\n      width: calc(100% - 50px); }\n\n.rr-sourcecode.dark {\n  background-color: #1E1E1E; }\n  .rr-sourcecode.dark .attributeName {\n    color: #4EA4DE; }\n  .rr-sourcecode.dark .tagStart,\n  .rr-sourcecode.dark .tagEnd,\n  .rr-sourcecode.dark .slash {\n    color: #586470; }\n  .rr-sourcecode.dark .tagName {\n    color: #255CB2; }\n  .rr-sourcecode.dark .equal {\n    color: #C2C2C2; }\n  .rr-sourcecode.dark .quote-double,\n  .rr-sourcecode.dark .quote-single,\n  .rr-sourcecode.dark .attributeValue {\n    color: #A75029; }\n  .rr-sourcecode.dark .not-filtered,\n  .rr-sourcecode.dark .no-match,\n  .rr-sourcecode.dark .value {\n    color: white; }\n  .rr-sourcecode.dark .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode.dark .variable-dollar {\n    color: #f4459f; }\n  .rr-sourcecode.dark .bracket {\n    color: violet; }\n  .rr-sourcecode.dark .functionName {\n    color: yellow; }\n  .rr-sourcecode.dark .functionAttributes {\n    color: orange; }\n", ""]);
 
 
 

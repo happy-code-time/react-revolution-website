@@ -1,12 +1,8 @@
 const path = require('path');
 
-const TerserPlugin = require('terser-webpack-plugin');
-
-const MinifyPlugin = require("babel-minify-webpack-plugin");
-
 const WRITE_DIR = path.resolve(__dirname, './public/');
 
-const APP_DIR = path.resolve(__dirname, './index.jsx');
+const APP_DIR = path.resolve(__dirname, './development.jsx');
 
 module.exports = {
     devtool: 'source-map',
@@ -59,26 +55,5 @@ module.exports = {
                 loader: "file-loader"
             },
         ]
-    },
-    // Production
-    plugins: [
-        //new MinifyPlugin()
-    ],
-    externals: {
-        'cheerio': 'window',
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true,
-    },
-    optimization: {
-        minimizer: [
-            new TerserPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true, // Must be set to true if using source-maps in production
-                terserOptions: {
-                    // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-                }
-            }),
-        ],
     }
 };
