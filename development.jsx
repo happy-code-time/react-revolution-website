@@ -2,165 +2,140 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import SourceCode from './module/source/SourceCode';
+import CardsScrollCallback from './module/source/CardsScrollCallback';
 
-import './module/source/sass/rr-sourcecode.scss';
+import './module/source/sass/rr-cards.scss';
 
 /**
  * Render it to the html while testing
  */
 
+ /**
+  * Remember to install regenerator runtime
+  * 
+  * 
+  * npm install --save @babel/runtime 
+  * npm install --save-dev @babel/plugin-transform-runtime
+  *
+  * .babelrc file
+  * 
+  *  {
+  *      "presets": ["@babel/preset-env", "@babel/preset-react"],
+  *      "plugins": [
+  *          ["@babel/transform-runtime"]
+  *      ]
+  *  }
+  */
 class App extends React.Component {
     constructor(props) {
         super(props);
 
 
         this.state = {
-
+            moreData : [
+                
+            ]
         }
     }
 
-    // setValue(clickEvent, value) {
-    //     console.log(value);
-    // }
-
-    // toggleList() {
-    //     this.setState({ display: !this.state.display });
-    // }
-
-    filterCode(event, inputValue, filteredCode) {
-        console.log(event, inputValue, filteredCode);
+    async addItems() {
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                resolve(
+                    [
+                        {
+                            title: 1,
+                            content:  2,
+                        },
+                        {
+                            title: 2,
+                            content:  2,
+                        },
+                        {
+                            title: 3,
+                            content:  2,
+                        }, 
+                    ]
+                );
+            }, 500)
+        });
     }
 
     render() {
 
         return (
             <span>
-                <SourceCode
-                    /*
-                     * Code
-                     */
-                    displayLineNumber={true}
-                    /*
-                     * Input 
-                     */
-                    inputActive={true}
-                    inputPlaceholder='Search...'
-                    inputCallback={this.filterCode}
-                    inputNoDataText='🤯'
-                    /*
-                     * Loading
-                     */
-                    loadingDisplay={true}
-                    loadingIcon={<p>Loading....</p>}
-                    layout='dark' // dark, light
-                    code={
-`
-import * as React from 'react';
-
-import ReactDOM from 'react-dom';
-
-import SourceCode from './module/source/SourceCode';
-
-import './module/source/sass/rr-sourcecode.scss';
-
-/**
- * Render it to the html while testing
- */
-
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-
-        this.state = {
-
-        }
-    }
-
-    // setValue(clickEvent, value) {
-    //     console.log(value);
-    // }
-
-    // toggleList() {
-    //     this.setState({ display: !this.state.display });
-    // }
-
-    filterCode(event, inputValue, filteredCode) {
-        console.log(event, inputValue, filteredCode);
-    }
-
-    render() {
-
-        return (
-            <span>
-                <SourceCode
-                    /*
-                     * Code
-                     */
-                    displayLineNumber={true}
-                    /*
-                     * Input 
-                     */
-                    inputActive={true}
-                    inputPlaceholder='Search...'
-                    inputCallback={this.filterCode}
-                    inputNoDataText='🤯'
-                    /*
-                     * Loading
-                     */
-                    loadingDisplay={true}
-                    loadingIcon={<p>Loading....</p>}
-                    layout='dark' // dark, light
-                    code={
-\`
-.rr-sourcecode.dark{
-    background-color: #1E1E1E;
-
-    .attributeName{
-        color: #4EA4DE;
-    }
-    .tagStart,
-    .tagEnd,
-    .slash{
-        color: #586470
-    }
-    .tagName{
-        color: #255CB2;
-    }
-    .equal{
-        color: #C2C2C2;
-    }
-
-    .quote-double,
-    .quote-single,
-    .attributeValue{
-        color: #A75029;
-    }
-
-    .not-filtered,
-    .no-match,
-    .value{
-        color: rgb(255,2552,255);
-    }
-
-    .line-number{
-        color: #C2C2C2;
-    }
-    .variable-dollar{
-      color: #f4459f;
-    }
-}
-\`
+                <CardsScrollCallback
+                    itemsPerLine={3}
+                    data={
+                        [
+                            {
+                                title: 1,
+                                content:  2,
+                            },
+                            {
+                                title: 2,
+                                content:  2,
+                            },
+                            {
+                                title: 3,
+                                content:  2,
+                            },
+                            {
+                                title: 4,
+                                content:  2,
+                            },
+                            {
+                                title: 5,
+                                content:  2,
+                            },
+                            {
+                                title: 6,
+                                content:  2,
+                            },
+                            {
+                                title: 7,
+                                content:  2,
+                            },
+                            {
+                                title: 8,
+                                content:  2,
+                            },
+                            {
+                                title: 9,
+                                content:  2,
+                            },
+                            {
+                                title: 10,
+                                content:  2,
+                            },
+                            {
+                                title: 11,
+                                content:  2,
+                            },
+                            {
+                                title: 12,
+                                content:  2,
+                            },
+                            {
+                                title: 13,
+                                content:  2,
+                            },
+                            {
+                                title: 14,
+                                content:  2,
+                            },
+                            {
+                                title: 15,
+                                content:  2,
+                            }
+                        ]
                     }
-                />
-            </span>
-        )
-    }
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
-`
+                    loadMoreCallback={this.addItems}
+                    loadMoreLoadingIcon={
+                        <p>
+                            Loading
+                        </p>
                     }
                 />
             </span>

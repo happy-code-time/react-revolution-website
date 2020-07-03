@@ -43,9 +43,6 @@
 .rr-sourcecode.dark{
     background-color: #1E1E1E;
 
-    .attributeName{
-        color: #4EA4DE;
-    }
     .tagStart,
     .tagEnd,
     .slash{
@@ -80,12 +77,19 @@
     .bracket{
       color: violet;
     }
-
-    .functionName{
-      color: yellow;
-    }
-    .functionAttributes{
+    .functionArguments{
       color: orange;
+    }
+    .variableName,
+    .attributeName,
+    .functionName{
+      color: mediumseagreen;
+    }
+    .bracketValue{
+      color: pink;
+    }
+    .key{
+      color: dodgerblue
     }
 }
 

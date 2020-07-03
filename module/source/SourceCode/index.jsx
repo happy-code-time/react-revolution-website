@@ -154,6 +154,7 @@ class ModuleSourceCode extends Component {
 
                 const singleItems = codeViaLine[x].split(' ');
                 let attribute = null;
+                let previusType = '';
 
                 for (let mrx = 0; mrx < singleItems.length; mrx++) {
                     let characters = '';
@@ -178,7 +179,7 @@ class ModuleSourceCode extends Component {
                                 /**
                                  * Tags matcher
                                  */
-                                const tagMatcher = this.tagsMatcher(characters, singleLineData, nextCharacter, attribute);
+                                const tagMatcher = this.tagsMatcher(characters, singleLineData, nextCharacter);
                                 characters = tagMatcher.characters;
                                 singleLineData = tagMatcher.singleLineData;
 
@@ -208,11 +209,11 @@ class ModuleSourceCode extends Component {
                             singleLineData.push(
                                 {
                                     code: characters.substring(0, characters.indexOf('$')),
-                                    class: 'no-match'
+                                    class: 'no-match php'
                                 }
                             );
 
-                            let variable = characters.substring(characters.indexOf('$')-1, characters.length);
+                            let variable = characters.substring(characters.indexOf('$'), characters.length);
                             variable = variable.split('');
 
                             let items = '$';
@@ -244,6 +245,8 @@ class ModuleSourceCode extends Component {
                             else{
                                 characters = '';
                             }
+
+                            previusType = 'php';
                         }
 
                         /**
@@ -270,7 +273,7 @@ class ModuleSourceCode extends Component {
                             singleLineData.push(
                                 {
                                     code: attr,
-                                    class: 'functionAttributes'
+                                    class: 'functionArguments'
                                 }
                             );
 
@@ -286,7 +289,8 @@ class ModuleSourceCode extends Component {
 
                         if(-1 !== characters.indexOf('(')){
                             const fnName = characters.substring(0, characters.indexOf('('));
-                            
+                            previusType = 'function';
+
                             singleLineData.push(
                                 {
                                     code: fnName,
@@ -305,57 +309,66 @@ class ModuleSourceCode extends Component {
                             singleLineData.push(
                                 {
                                     code: attr,
-                                    class: 'functionAttributes'
+                                    class: 'functionArguments'
                                 }
                             );
 
                             characters = '';
                         }
 
-                        if(')' == characters.charAt(characters.length-1)){                       
-                            
-                            let attr = characters.substring(0, characters.length-1);
+                        /**
+                         * Match everything as function arguments to match ")"
+                         */
+                        if('function' == previusType){
 
-                            if('{' == characters.charAt(0)){
-                                
+                            if(-1 !== characters.indexOf('))')){
                                 singleLineData.push(
                                     {
-                                        code: '}',
-                                        class: 'bracket bracket-left'
+                                        code: characters.substring(0, characters.indexOf(')')+1),
+                                        class: 'functionArguments'
                                     }
                                 );
 
-                                singleLineData.push(
-                                    {
-                                        code: attr.substring(1, attr.length),
-                                        class: 'functionAttributes'
-                                    }
-                                );
-    
                                 singleLineData.push(
                                     {
                                         code: ')',
                                         class: 'bracket bracket-right'
                                     }
                                 );
+    
+                                characters = characters.substring(characters.indexOf(')')+2, characters.length);
+                                previusType = '';
+                            }
+                            
+                            if(-1 !== characters.indexOf(')')){
+                                singleLineData.push(
+                                    {
+                                        code: characters.substring(0, characters.indexOf(')')),
+                                        class: 'functionArguments'
+                                    }
+                                );
+
+                                singleLineData.push(
+                                    {
+                                        code: ')',
+                                        class: 'bracket bracket-right'
+                                    }
+                                );
+    
+                                characters = characters.substring(characters.indexOf(')')+1, characters.length);
+                                previusType = '';
                             }
                             else{
                                 singleLineData.push(
                                     {
-                                        code: attr,
-                                        class: 'functionAttributes'
+                                        code: characters,
+                                        class: 'functionArguments'
                                     }
                                 );
     
-                                singleLineData.push(
-                                    {
-                                        code: ')',
-                                        class: 'bracket bracket-right'
-                                    }
-                                );
+                                characters = '';
+                                previusType = 'function';
                             }
-
-                            characters = '';
                         }
 
                         /**
@@ -363,37 +376,66 @@ class ModuleSourceCode extends Component {
                          */
                         if(-1 !== characters.indexOf('{')){
                             const pref = characters.substring(0, characters.indexOf('{'));
-                            const next = characters.substring(characters.indexOf('{')+1, characters.length);
+                            characters = characters.substring(pref.length, characters.length);
+                            
+                            if(-1 !== pref.indexOf('=')){
 
-                            singleLineData.push(
-                                {
-                                    code: pref,
-                                    class: 'no-match'
-                                }
-                            );
-                            singleLineData.push(
-                                {
-                                    code: '{',
-                                    class: 'bracket bracket-left'
-                                }
-                            );
-                            singleLineData.push(
-                                {
-                                    code: next,
-                                    class: 'no-match'
-                                }
-                            );
+                                singleLineData.push(
+                                    {
+                                        code: pref.substring(0, pref.indexOf('=')),
+                                        class: 'variableName'
+                                    }
+                                );
+                    
+                                singleLineData.push(
+                                    {
+                                        code: '=',
+                                        class: 'equal'
+                                    }
+                                );
+                            }
 
-                            characters = '';
+                            if(-1 !== characters.indexOf('{')){
+                                singleLineData.push(
+                                    {
+                                        code: characters.substring(0, characters.indexOf('{')),
+                                        class: 'no-match'
+                                    }
+                                );
+                                singleLineData.push(
+                                    {
+                                        code: '{',
+                                        class: 'bracket bracket-left'
+                                    }
+                                );
+
+                                characters = characters.substring(characters.indexOf('{')+1, characters.length);
+                                previusType = 'bracketOpen';
+                            }
+
+                            if(-1 !== characters.indexOf('}') && 'bracketOpen' == previusType){
+                                singleLineData.push(
+                                    {
+                                        code: characters.substring(0, characters.indexOf('}')),
+                                        class: 'bracketValue'
+                                    }
+                                );
+                                singleLineData.push(
+                                    {
+                                        code: '}',
+                                        class: 'bracket bracket-right'
+                                    }
+                                );
+
+                                characters = characters.substring(characters.indexOf('}')+1, characters.length);
+                                previusType = '';
+                            }
                         }
 
                         if(-1 !== characters.indexOf('}')){
-                            const pref = characters.substring(0, characters.indexOf('}'));
-                            const next = characters.substring(characters.indexOf('}')+1, characters.length);
-
                             singleLineData.push(
                                 {
-                                    code: pref,
+                                    code: characters.substring(0, characters.indexOf('}')),
                                     class: 'no-match'
                                 }
                             );
@@ -403,23 +445,77 @@ class ModuleSourceCode extends Component {
                                     class: 'bracket bracket-right'
                                 }
                             );
+
+                            characters = characters.substring(characters.indexOf('}')+1, characters.length);
+                            previusType = '';
+                        }
+
+                        if(-1 !== characters.indexOf('=')){
+
                             singleLineData.push(
                                 {
-                                    code: next,
-                                    class: 'no-match'
+                                    code: characters.substring(0, characters.indexOf('=')),
+                                    class: 'variableName'
+                                }
+                            );
+                
+                            singleLineData.push(
+                                {
+                                    code: '=',
+                                    class: 'equal'
                                 }
                             );
 
+                            characters = characters.substring(characters.indexOf('=')+1, characters.length);
+                        }
+
+                        if(')' == characters){
+                            singleLineData.push(
+                                {
+                                    code: ')',
+                                    class: 'bracket bracket-right'
+                                }
+                            );
                             characters = '';
+                            previusType = '';
                         }
 
                         if(characters.length){
-                            singleLineData.push(
+
+                            const lastMatch = [
                                 {
-                                    code: characters,
-                                    class: 'no-match'
+                                    words: ['import', 'from', 'require', 'use', 'return', 'export', 'default', 'extends', 'interface'],
+                                    class: 'key'
                                 }
-                            );
+                            ];
+
+                            for(let x = 0; x <= lastMatch.length-1; x++){
+                                const wordsToCheck = lastMatch[x].words;
+
+                                for(let i = 0; i <= wordsToCheck.length-1; i++){
+                                    if(wordsToCheck[i] === characters){
+                                        singleLineData.push(
+                                            {
+                                                code: characters,
+                                                class: lastMatch[x].class
+                                            }
+                                        );   
+                                        characters = '';
+                                        break;                                     
+                                    }
+                                }
+                            }
+
+                            if(characters.length){
+                                singleLineData.push(
+                                    {
+                                        code: characters,
+                                        class: 'no-match'
+                                    }
+                                );
+                            }
+
+                            previusType = '';
                         }
                     }
 
@@ -802,12 +898,50 @@ class ModuleSourceCode extends Component {
             return singleLineData;
         }
 
-        singleLineData.push(
-            {
-                code: dataToCheck,
-                class: 'not-filtered'
-            }
-        );
+        if(-1 !== dataToCheck.indexOf('=')){
+
+            singleLineData.push(
+                {
+                    code: dataToCheck.substring(0, dataToCheck.indexOf('=')),
+                    class: 'variableName'
+                }
+            );
+
+            singleLineData.push(
+                {
+                    code: '=',
+                    class: 'equal'
+                }
+            );
+
+            dataToCheck = dataToCheck.substring(dataToCheck.indexOf('=')+1, dataToCheck.length);
+        }
+
+        if(-1 !== dataToCheck.indexOf('{')){
+            singleLineData.push(
+                {
+                    code: dataToCheck.substring(0, dataToCheck.indexOf('{')),
+                    class: 'no-match'
+                }
+            );
+            singleLineData.push(
+                {
+                    code: '{',
+                    class: 'bracket bracket-right'
+                }
+            );
+
+            dataToCheck = dataToCheck.substring(dataToCheck.indexOf('{')+1, dataToCheck.length);
+        }
+
+        if(dataToCheck.length){
+            singleLineData.push(
+                {
+                    code: dataToCheck,
+                    class: 'not-filtered'
+                }
+            );
+        }
 
         return singleLineData;
     }

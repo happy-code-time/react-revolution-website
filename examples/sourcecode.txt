@@ -1,0 +1,84 @@
+import * as React from 'react';
+
+import ReactDOM from 'react-dom';
+
+import SourceCode from './module/source/SourceCode';
+
+import './module/source/sass/rr-sourcecode.scss';
+
+/**
+ * Render it to the html while testing
+ */
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+
+        this.state = {
+
+        }
+    }
+
+    // setValue(clickEvent, value) {
+    //     console.log(value);
+    // }
+
+    // toggleList() {
+    //     this.setState({ display: !this.state.display });
+    // }
+
+    filterCode(event, inputValue, filteredCode) {
+        console.log(event, inputValue, filteredCode);
+    }
+
+    render() {
+
+        return (
+            <span>
+                <SourceCode
+                    /*
+                     * Code
+                     */
+                    displayLineNumber={true}
+                    /*
+                     * Input 
+                     */
+                    inputActive={true}
+                    inputPlaceholder='Search...'
+                    inputCallback={this.filterCode}
+                    inputNoDataText='🤯'
+                    /*
+                     * Loading
+                     */
+                    loadingDisplay={true}
+                    loadingIcon={<p>Loading....</p>}
+                    layout='dark' // dark, light
+                    code={
+`<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+    <link rel="canonical" href="http://react-revolution.j.pl/">
+    <link rel="alternate" href="http://react-revolution.j.pl/" hreflang="x-default">
+    <link rel="alternate" href="https://react-revolution.j.pl/" hreflang="en">
+    <meta name="description" content="React Revolution">
+    <meta name="keywords" content="React">
+    <meta name="author" content="David Janitzek">
+    <title>React Revolution</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script src='./public/app.js'></script> 
+</html>
+`
+                    }
+                />
+            </span>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));

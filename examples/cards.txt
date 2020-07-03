@@ -1,0 +1,82 @@
+import * as React from 'react';
+
+import ReactDOM from 'react-dom';
+
+import Cards from './module/source/Cards';
+
+import './module/source/sass/rr-cards.scss';
+
+/**
+ * Render it to the html while testing
+ */
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+
+        this.state = {
+
+        }
+    }
+
+    // setValue(clickEvent, value) {
+    //     console.log(value);
+    // }
+
+    render() {
+
+        return (
+            <span>
+                <Cards
+                    itemsPerLine={3}
+                    data={
+                        [
+                            {
+                                title: 1,
+                                content:  2,
+                            },
+                            {
+                                title: 2,
+                                content:  2,
+                            },
+                            {
+                                title: 3,
+                                content:  2,
+                            },
+                            {
+                                title: 4,
+                                content:  2,
+                            },
+                            {
+                                title: 5,
+                                content:  2,
+                            },
+                            {
+                                title: 6,
+                                content:  2,
+                            },
+                            {
+                                title: 7,
+                                content:  2,
+                            },
+                            {
+                                title: 8,
+                                content:  2,
+                            },
+                            {
+                                title: 9,
+                                content:  2,
+                            }
+                        ]
+                    }
+                    // loadMoreOnScroll={true}
+                    // loadMoreDefaultItems={15}
+                    // loadMoreAddItems={5}
+                />
+            </span>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
