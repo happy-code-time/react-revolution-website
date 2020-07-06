@@ -6,7 +6,7 @@ const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 const WRITE_DIR = path.resolve(__dirname, './public/');
 
-const APP_DIR = path.resolve(__dirname, './production.jsx');
+const APP_DIR = path.resolve(__dirname, './index.jsx');
 
 module.exports = {
     devtool: 'source-map',

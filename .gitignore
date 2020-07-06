@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
-.env
+react-revolution/node_modules
+react-revolution/package-lock.json
