@@ -1,0 +1,68 @@
+$default_transition: 300ms;
+
+.rr-popupbox {
+  position: relative;
+
+  .box {
+    @keyframes displayBoxEasyIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+  
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  
+    animation: displayBoxEasyIn $default_transition forwards ease-in;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(122, 122, 122, 0.44);
+    opacity: 0;
+    transition-duration: $default_transition;
+    overflow: hidden;
+    z-index: 2;
+    transform: scale(0);
+
+    h1 {
+      font-weight: bold;
+      color: #313435;
+      font-size: 0.97rem;
+      box-sizing: border-box;
+      padding: 5px;
+    }
+  }
+
+  .box.top-left{
+    transform-origin: top left;
+  }
+
+  .box.top-right{
+    transform-origin: top right;
+  }
+
+  .box.bottom-left{
+    transform-origin: bottom left;
+  }
+
+  .box.bottom-right{
+    transform-origin: bottom right;
+  }
+
+  .box.fade-out {
+    @keyframes displayBoxEasyOut {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+  
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+    animation: displayBoxEasyOut $default_transition forwards ease-in;
+  }
+  
+}

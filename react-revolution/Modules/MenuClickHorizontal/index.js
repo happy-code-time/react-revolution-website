@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React from 'react';
+
+import { Link } from 'react-router-dom';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
@@ -6,8 +8,7 @@ import uuid from '../internalFunctions/uuid';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
-class MenuClickHorizontal extends React.Component 
-{
+class MenuClickHorizontal extends React.Component {
 
     constructor(props) {
         super(props);
@@ -15,8 +16,14 @@ class MenuClickHorizontal extends React.Component
         this.toggle = this.toggle.bind(this);
 
         this.state = {
+            /**
+             * User
+             */
+
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+            reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false
         }
     }
 
@@ -27,54 +34,102 @@ class MenuClickHorizontal extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['data', 'defaultClass'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter'], props, state)) {
             return {
                 defaultClass: (props.class && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
-                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : []
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
+                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+                reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false
             };
         }
 
         return null;
     }
 
-    buildDataRecursive(data = []){
+    buildDataRecursive(data = []) {
+        const { reactRouter } = this.state;
         const jsx = [];
 
-        if(data && data.length){
-            for(let x = 0; x <= data.length-1; x++){
-                let { text, dataToggle, toggled, unique, dataToggleAttributes, classList } = data[x];
-                const dataChildren = data[x].data;
+        if (data && data.length) {
+            for (let x = 0; x <= data.length - 1; x++) {
+                let { text, dataToggle, toggled, unique, dataToggleAttributes, classList, href, icon } = data[x];
+                const dataChildren = data[x].data ? data[x].data : [];
+                const isLink = data[x].data ? true : false;
 
-                if(!classList){
+                if (!classList) {
                     classList = '';
                 }
 
-                if(!dataToggleAttributes || typeof dataToggleAttributes !== typeof {}){
+                if (!dataToggleAttributes || typeof dataToggleAttributes !== typeof {}) {
                     dataToggleAttributes = {};
                 }
 
-                try{
+                try {
                     Object.keys(dataToggleAttributes);
                 }
-                catch(e){
+                catch (e) {
                     dataToggleAttributes = {};
                 }
 
+                let dataLink = '';
+
+                if (reactRouter && dataChildren && 0 == dataChildren.length) {
+                    dataLink = (
+                        <Link
+                            to={href}
+                            className="text"
+                            onClick={() => this.toggle(unique, isLink)}
+                        >
+                            {
+                                icon && icon   
+                            }
+                            {
+                                text
+                            }
+                        </Link>
+                    );
+                }
+
+                if (!reactRouter && dataChildren && 0 == dataChildren.length) {
+                    dataLink = (
+                        <a
+                            href={href}
+                            className="text"
+                            onClick={() => this.toggle(unique, isLink)}
+                        >
+                            {
+                                icon && icon   
+                            }
+                            {
+                                text
+                            }
+                        </a>
+                    );
+                }
+
+                if (dataChildren && 0 !== dataChildren.length) {
+                    dataLink = (
+                        <div
+                            className="text children"
+                            onClick={() => this.toggle(unique, isLink)}
+                        >
+                            {
+                                icon && icon   
+                            }
+                            {
+                                text
+                            }
+                        </div>
+                    );
+                }
                 jsx.push(
-                    <div 
-                        key={uuid()} 
+                    <div
+                        key={uuid()}
                         className={`single-entry ${classList}`}
                         {...dataToggleAttributes}
                     >
                         {
-                            <div 
-                                className="text"
-                                onClick={ () => this.toggle(unique)}
-                            >
-                            {
-                                text
-                            }
-                            </div>
+                            dataLink
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
@@ -83,9 +138,9 @@ class MenuClickHorizontal extends React.Component
                         {
                             toggled && undefined == dataChildren &&
                             <div className="data">
-                            {
-                                dataToggle
-                            }
+                                {
+                                    dataToggle
+                                }
                             </div>
                         }
                     </div>
@@ -101,47 +156,51 @@ class MenuClickHorizontal extends React.Component
      * toggled key to the oposite oolean value
      * @param {string} uniqueId 
      */
-    toggle(uniqueId){
+    toggle(uniqueId, isLink = false) {
         const { data } = this.state;
 
+        if (!isLink) {
+            return null;
+        }
+
         const loop = (datas) => {
-            if(datas && datas.length){
-                for(let x = 0; x <= datas.length-1; x++){
+            if (datas && datas.length) {
+                for (let x = 0; x <= datas.length - 1; x++) {
                     let { unique } = datas[x];
                     const dataChildren = datas[x].data;
-    
-                    if(unique == uniqueId){
+
+                    if (unique == uniqueId) {
                         datas[x].toggled = !datas[x].toggled;
                         datas[x].classList = 'toggling';
 
-                        setTimeout( () => {
+                        setTimeout(() => {
                             datas[x].classList = datas[x].toggled ? 'toggled' : '';
                         }, 300);
                         break;
                     }
-    
-                    if(dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length){
+
+                    if (dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length) {
                         loop(dataChildren);
                     }
                 }
             }
         }
-        
+
         loop(data);
-        
-        this.setState({ 
-            data 
-        }, () => setTimeout( () => { this.setState({ data }); }, 300));
+
+        this.setState({
+            data
+        }, () => setTimeout(() => { this.setState({ data }); }, 300));
     }
 
     render() {
-        const { data, defaultClass } = this.state;
+        const { defaultClass, id, data } = this.state;
 
         return (
-            <div className={defaultClass}>
-            {
-                this.buildDataRecursive(data)
-            }  
+            <div className={defaultClass} id={id}>
+                {
+                    this.buildDataRecursive(data)
+                }
             </div>
         )
     }

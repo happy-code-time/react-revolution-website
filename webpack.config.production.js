@@ -9,7 +9,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 const APP_DIR = path.resolve(__dirname, './index.jsx');
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: false,
     resolve: {
         extensions: ['.js', '.jsx']
     },

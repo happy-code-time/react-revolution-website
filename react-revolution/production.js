@@ -13,11 +13,19 @@ import FullScreenListArray from './Modules/FullScreenListArray';
 
 import FullScreenListObjects from './Modules/FullScreenListObjects';
 
+import FullScreenOverlay from './Modules/FullScreenOverlay';
+
 import GlobalMessages from './Modules/GlobalMessages';
+
+import Icons from './Modules/Icons';
 
 import LoadingBoxTop from './Modules/LoadingBoxTop';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
+
+import PopupBox from './Modules/PopupBox';
+
+import SideBar from './Modules/SideBar';
 
 import SourceCode from './Modules/SourceCode';
 
@@ -40,8 +48,12 @@ export {
     CardsScrollCallback,
     FullScreenListArray,
     FullScreenListObjects,
+    FullScreenOverlay,
     GlobalMessages,
+    Icons,
     LoadingBoxTop,
     MenuClickHorizontal,
+    PopupBox,
+    SideBar,
     SourceCode
 };

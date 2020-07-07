@@ -1,0 +1,122 @@
+import * as React from 'react';
+
+import ReactDOM from 'react-dom';
+
+import { LoadingBoxTop } from './react-revolution/public/react-revolution';
+
+import './react-revolution/sass/rr-loadingboxtop.scss';
+
+/**
+ * Render it to the html while testing
+ */
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+
+
+        this.state = {
+            moreData: [
+
+            ]
+        }
+    }
+
+    async addItems() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(
+                    [
+                        {
+                            title: 1,
+                            content: 2,
+                        },
+                        {
+                            title: 2,
+                            content: 2,
+                        },
+                        {
+                            title: 3,
+                            content: 2,
+                        },
+                    ]
+                );
+            }, 1500)
+        });
+    }
+
+    render() {
+
+        return (
+            <span>
+                <WebsiteContainer
+                    persistUserSelection={false} // set local sotrage on click
+                    clearPersistUserSelection={true} // do not remove the local storage on component did mount
+                    sidebarMinifiedAt={720}
+                    sidebarMaxifiedAt={1024}
+                    displayMinifyMaxifyIcon={true}
+                    moduleSidebar={
+                        <ModuleSideBar
+                            image={<img alt="image" src='./public/images/chat-128.png' />}
+                            textLong={appNameShort}
+                            textShort={`v${version}`}
+                            moduleMenu={
+                                <Menu
+                                    reactRouter={false}
+                                    childrenPaddingX={18}
+                                    data={
+                                        [
+                                            {
+                                                attributes: {
+                                                    title: 'Menu entry 1 title',
+                                                },
+                                                text: 'Entry 1',
+                                                icon: <i className='fas fa-user' />,
+                                                href: `${process.env.REMOTE_HOST_HREF}#/account`,
+                                            },
+                                            {
+                                                attributes: {
+                                                    title: 'Menu entry 2 title',
+                                                },
+                                                text: 'Entry 2',
+                                                icon: <i className='fas fa-comments' />,
+                                                href: ``
+                                            },
+                                        ]
+                                    }
+                                />
+                            }
+                        />
+                    }
+                    headerData={
+                        <PopupBox
+                                icon={
+                                    <i className='fas fa-user-secret icon-chat popup-box-icon'></i>
+                                }
+                                data={
+                                    <span>
+                                        <h1>
+                                            <i className='fas fa-user-secret icon-chat' />
+                                            {
+                                                this.translations.popup_not_readed_title
+                                            }
+                                        </h1>
+
+                                        <div className="popup-box-list flex flex-column">
+                                            {
+                                                this.getLast3DataJsx(true)
+                                            }
+                                        </div>
+                                    </span>
+                                }
+                            />
+                    }
+                    contentData={
+                        <p>content data</p>
+                    }
+                />
+            </span>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
