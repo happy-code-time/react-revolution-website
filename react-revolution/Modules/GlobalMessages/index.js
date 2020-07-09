@@ -13,6 +13,7 @@ class GlobalMessages extends React.Component
 
         this.state = {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
             codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
             timer: (props.timer && typeof 888 == typeof props.timer) ? props.timer : 2500,
@@ -34,9 +35,10 @@ class GlobalMessages extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'codeMapping', 'timer', 'messageKey'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'codeMapping', 'timer', 'messageKey'], props, state)) {
             return {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
                 codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
                 timer: (props.timer && typeof 888 == typeof props.timer) ? props.timer : 2500
@@ -170,7 +172,7 @@ class GlobalMessages extends React.Component
         const mappingKeys = Object.getOwnPropertyNames(codeMapping);
 
         return (
-            <div className={defaultClass}>
+            <div className={defaultClass} id={id}>
                 {
                     messagesApp.map( obj => {
 

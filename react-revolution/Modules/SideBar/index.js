@@ -45,7 +45,7 @@ class SideBar extends React.Component {
     const { defaultClass, id, moduleMenu, image, textLong, textShort } = this.state;
 
     return (
-      <div id={id} className={defaultClass}>
+      <div className={defaultClass} id={id}>
         <div className="logo-text">
           {
             image &&

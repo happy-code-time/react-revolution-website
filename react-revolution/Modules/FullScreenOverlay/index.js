@@ -12,6 +12,7 @@ class FullScreenOverlay extends React.Component {
         super(props);
         this.closeClick = this.closeClick.bind(this);
         this.EscListener = this.EscListener.bind(this);
+        this.fadeOut = this.fadeOut.bind(this);
 
         this.state = {
             /**
@@ -30,6 +31,8 @@ class FullScreenOverlay extends React.Component {
             dimmed: (typeof true == typeof props.dimmed) ? props.dimmed : true,
             disableScroll: (typeof true == typeof props.disableScroll) ? props.disableScroll : true,
         };
+
+        this.animationBack = false;
     }
 
     /**
@@ -104,7 +107,7 @@ class FullScreenOverlay extends React.Component {
             if(closeCallback && 'function' == typeof closeCallback){
                 enableHtmlScroll();
                 window.removeEventListener("keydown", this.EscListener, false);
-                (closeCallback)();
+                this.fadeOut();
             }
         }
     }
@@ -115,12 +118,26 @@ class FullScreenOverlay extends React.Component {
         if(force || (closeOnClick && closeCallback && 'function' == typeof closeCallback) && this.contentReference && !e.target.contains(this.contentReference)){
             enableHtmlScroll();
             window.removeEventListener("keydown", this.EscListener, false);
-            (closeCallback)();
+            this.fadeOut();
         }
+    }
+
+    fadeOut(){
+        const { closeCallback, animation } = this.state;
+        const timeOut = animation ? 300 : 0;
+        this.animationBack = true;
+
+        this.setState({}, () => {
+            setTimeout( () => {
+                (closeCallback)();
+                this.animationBack = false;
+            }, timeOut);
+        });
     }
 
     getDefaultClass(){
         let { animation, animationType, defaultClass } = this.state;
+        const back = this.animationBack ? 'back' : '';
 
         if(animation){
             
@@ -137,15 +154,15 @@ class FullScreenOverlay extends React.Component {
             }
 
             if('right' == animationType){
-                defaultClass = `${defaultClass} rr-full-screen-overlay-right`;   
+                defaultClass = `${defaultClass} rr-full-screen-overlay-right`;
             }
 
             if('bottom' == animationType){
-                defaultClass = `${defaultClass} rr-full-screen-overlay-bottom`;   
+                defaultClass = `${defaultClass} rr-full-screen-overlay-bottom`;
             }
         }
 
-        return defaultClass
+        return `${defaultClass} ${back}`;
     }
     
     render() {

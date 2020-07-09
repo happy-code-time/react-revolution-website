@@ -24,6 +24,7 @@ class ModuleSourceCode extends Component
              * User
              */
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
             code: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
             originalCode: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
@@ -47,9 +48,10 @@ class ModuleSourceCode extends Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'displayLineNumber', 'code', 'inputActive', 'inputPlaceholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'displayLineNumber', 'code', 'inputActive', 'inputPlaceholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
             return {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
                 inputActive: typeof true == typeof props.inputActive ? props.inputActive : false,
                 inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : undefined,
@@ -1055,7 +1057,7 @@ class ModuleSourceCode extends Component
     }
 
     render() {
-        const { defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, inputPlaceholder, searchValue } = this.state;
+        const { defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, inputPlaceholder, searchValue, id } = this.state;
 
         if (loadingDisplay) {
             return (
@@ -1068,7 +1070,7 @@ class ModuleSourceCode extends Component
         }
 
         return (
-            <div className={`${defaultClass} ${layout}`}>
+            <div className={`${defaultClass} ${layout}`} id={id}>
                 {
                     inputActive &&
                     <div className="search">

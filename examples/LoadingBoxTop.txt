@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { LoadingBoxTop } from './react-revolution/public/react-revolution';
 
-import './react-revolution/sass/rr-loadingboxtop.scss';
+import './react-revolution/sass/rr-loading-box-top.scss';
 
 /**
  * Render it to the html while testing

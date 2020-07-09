@@ -42,7 +42,7 @@ class App extends React.Component {
                 closeOnClick={true}
                 closeOnEsc={true}
                 animation={true}
-                animationType='right' // scale, left, top, right, bottom, 
+                animationType='scale' // scale, left, top, right, bottom, 
                 dimmed={true}
                 closeCallback={this.toggleOverlay}
                 display={visible}

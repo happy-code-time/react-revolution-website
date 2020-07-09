@@ -1,13 +1,17 @@
 const path = require('path');
 
+const TerserPlugin = require('terser-webpack-plugin');
+
+const JavaScriptObfuscator = require('webpack-obfuscator');
+
 const WRITE_DIR = path.resolve(__dirname, './public/');
 
-const APP_DIR = path.resolve(__dirname, './index.jsx');
+const APP_DIR = path.resolve(__dirname, './website.jsx');
 
 module.exports = {
     devtool: false,
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: [ '.js', '.jsx' ],
     },
     cache: false,
     mode: 'development',
@@ -25,11 +29,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx)?$/,
+                use: 'babel-loader',
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
             },
             {
                 test: /\.css$/,
@@ -55,5 +57,32 @@ module.exports = {
                 loader: "file-loader"
             },
         ]
+    },
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+    },
+    plugins: [
+        new JavaScriptObfuscator({
+            rotateUnicodeArray: true
+        },
+            /**
+             * Exclude files
+             */
+            ['']
+        )
+    ],
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true, // Must be set to true if using source-maps in production
+                terserOptions: {
+                    // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+                }
+            }),
+        ],
     }
 };

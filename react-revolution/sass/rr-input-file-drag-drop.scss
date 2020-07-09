@@ -1,0 +1,28 @@
+.rr-input-file-drag-drop {
+  $border-color: #dadce0;
+  $dodgerblue: #1873cc;
+  $default_transition: 300ms;
+  $white: rgb(255,255,255);
+  $draggedColor: rgba(122,122,122,.74);
+
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  
+  .drag-drop{
+    width: 100%;
+    height: 100%;
+    border: 2px dashed $border-color;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    transition-duration: $default_transition;
+    background-color: $white;
+    color: $draggedColor;
+    position: relative;
+  }
+
+  .drag-drop.dragging{
+    border: 2px dashed $draggedColor;
+    background-color: rgba(222,222,222,.44);
+  }
+}

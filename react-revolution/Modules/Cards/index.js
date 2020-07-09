@@ -19,6 +19,7 @@ class Cards extends React.Component {
              * User
              */
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
         };
@@ -31,9 +32,10 @@ class Cards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'itemsPerLine', 'data'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data'], props, state)) {
             return {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
             };
@@ -113,10 +115,10 @@ class Cards extends React.Component {
     }
     
     render() {
-        let { dataJsx, defaultClass } = this.state;
+        let { dataJsx, defaultClass, id } = this.state;
 
         return (
-            <div className={defaultClass}>
+            <div className={defaultClass} id={id}>
                 {
                     dataJsx
                 }

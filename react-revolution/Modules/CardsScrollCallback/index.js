@@ -23,6 +23,7 @@ class CardsScrollCallback extends React.Component {
              * User
              */
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             loadMoreCallback: (props.loadMoreCallback && 'function' == typeof props.loadMoreCallback) ? props.loadMoreCallback : undefined,
@@ -37,9 +38,10 @@ class CardsScrollCallback extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'itemsPerLine', 'data', 'loadMoreCallback', 'loadMoreLoadingIcon'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'loadMoreCallback', 'loadMoreLoadingIcon'], props, state)) {
             return {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
                 loadMoreCallback: (props.loadMoreCallback && 'function' == typeof props.loadMoreCallback) ? props.loadMoreCallback : undefined,
@@ -186,12 +188,13 @@ class CardsScrollCallback extends React.Component {
 
     
     render() {
-        const { dataJsx, defaultClass, loading, loadMoreLoadingIcon } = this.state;
+        const { dataJsx, defaultClass, loading, loadMoreLoadingIcon, id } = this.state;
         
         return (
             <div 
                 ref={ node => this.cardsReference = node}
                 className={defaultClass}
+                id={id}
             >
                 {
                     loading && loadMoreLoadingIcon   

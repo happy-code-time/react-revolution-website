@@ -22,6 +22,7 @@ class FullScreenListObjects extends React.Component
              * User interaction
              */
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             animation: typeof '8' === typeof props.animation ? props.animation : '',
             data: (props.data && typeof [] === typeof props.data) ? props.data : [],
             display: typeof true === typeof props.display ? props.display : false,
@@ -49,8 +50,10 @@ class FullScreenListObjects extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['data', 'display', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'display', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc'], props, state)) {
             return {
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] === typeof props.data) ? props.data : [],
                 display: typeof true === typeof props.display ? props.display : false,
                 iconClose: props.iconClose ? props.iconClose : '',
@@ -242,14 +245,18 @@ class FullScreenListObjects extends React.Component
     }
 
     render(){
-        const { defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, inputPlaceholder } = this.state;
+        const { defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, inputPlaceholder, id } = this.state;
 
         if(!display){
             return null;
         }
 
         return (
-            <div className={defaultClass} ref={ (node) => this.FullSceenListNode = node }>
+            <div 
+                ref={ (node) => this.FullSceenListNode = node }
+                className={defaultClass}
+                id={id}
+            >
                 {
                     iconClose &&
                     <span className="span-close" onClick={(e) => this.callbackClose()}>

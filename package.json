@@ -1,11 +1,13 @@
 {
-  "name": "react-divcreator",
-  "version": "2.0.14",
+  "name": "react-revolution",
+  "version": "1.0.0",
   "description": "Create fast modern responisive websites elements",
   "main": "index.jsx",
   "scripts": {
-    "build": "node ./node_modules/.bin/webpack --config webpack.config.production.js --mode production",
-    "build:dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
+    "build:module": "node ./node_modules/.bin/webpack --config webpack.module.production.js --mode production",
+    "build:module:dev": "node node_modules/webpack/bin/webpack.js --config webpack.module.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
+    "build:website": "node ./node_modules/.bin/webpack --config webpack.website.production.js --mode production",
+    "build:website:dev": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
     "server": "lite-server -c bs-config.json"
   },
   "keywords": [],
@@ -33,17 +35,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
-    "apexcharts": "^3.8.5",
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-polyfill": "^6.26.0",
     "eslint": "^6.6.0",
     "eslint-plugin-react": "^7.16.0",
     "lite-server": "^2.5.4",
-    "terser-webpack-plugin": "^1.4.1",
-    "webpack-cli": "^3.3.10"
+    "source-map-loader": "^1.0.1",
+    "terser-webpack-plugin": "^1.4.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-obfuscator": "^1.4.0"
   }
 }

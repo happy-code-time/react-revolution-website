@@ -29,37 +29,3 @@ $border-color: #dadce0;
     text-decoration: none;
   }
 }
-
-// .SideBar.SideBar-min {
-//   width: $dashboard_menu-width-min;
-//   transition-duration: 200ms;
-
-//   .drop-down {
-//     opacity: 0;
-//   }
-// }
-
-// .SideBar.SideBar-min:hover {
-//   width: $dashboard_menu-width;
-//   z-index: 2;
-
-//   .drop-down {
-//     opacity: 1;
-//   }
-// }
-
-// /*
-//  * Minified second sidebar
-//  */
-// .SidebarMinified {
-//   width: $dashboard_menu-width;
-//   left: -300px;
-//   transition-duration: $default_transition;
-// }
-
-// .SidebarMinified.opened {
-//   width: $dashboard_menu-width;
-//   left: 0px;
-//   background-color:$white;
-//   z-index: 2;
-// }

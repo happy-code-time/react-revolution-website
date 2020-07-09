@@ -19,6 +19,14 @@ import GlobalMessages from './Modules/GlobalMessages';
 
 import Icons from './Modules/Icons';
 
+import InputAnimation from './Modules/InputAnimation';
+
+import InputFile from './Modules/InputFile';
+
+import InputFileDragDrop from './Modules/InputFileDragDrop';
+
+import InputSuggestion from './Modules/InputSuggestion';
+
 import LoadingBoxTop from './Modules/LoadingBoxTop';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
@@ -51,6 +59,10 @@ export {
     FullScreenOverlay,
     GlobalMessages,
     Icons,
+    InputAnimation,
+    InputFile,
+    InputFileDragDrop,
+    InputSuggestion,
     LoadingBoxTop,
     MenuClickHorizontal,
     PopupBox,

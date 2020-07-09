@@ -178,7 +178,7 @@ class Icons extends React.Component
         const { id, defaultClass, icons, displayTabs, iconsType, renderItems, translations } = this.state;
 
         return (
-            <div id={id} className={defaultClass}>
+            <div className={defaultClass} id={id}>
                 {
                     displayTabs &&
                     <div className="tabs">

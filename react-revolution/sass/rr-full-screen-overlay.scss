@@ -61,6 +61,26 @@
   animation: scaleIt 300ms forwards ease-in;
 }
 
+.rr-full-screen-overlay.rr-full-screen-overlay-scale.back {
+  @keyframes scaleItBack {
+    0% {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      transform: scale(1);
+    }
+    100% {
+      top: 50vh;
+      left: 50vw;
+      width: 0;
+      height: 0;
+      transform: scale(0);
+    }
+  }
+  animation: scaleItBack 300ms forwards ease-in;
+}
+
 .rr-full-screen-overlay.rr-full-screen-overlay-left {
   @keyframes fromLeft {
     0% {
@@ -78,6 +98,17 @@
   height: 100vh;
   overflow: hidden;
   animation: fromLeft 300ms forwards ease-in;
+}
+.rr-full-screen-overlay.rr-full-screen-overlay-left.back {
+  @keyframes fromLeftBack {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100vw;
+    }
+  }
+  animation: fromLeftBack 300ms forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-top {
@@ -98,11 +129,22 @@
   overflow: hidden;
   animation: fromTop 300ms forwards ease-in;
 }
+.rr-full-screen-overlay.rr-full-screen-overlay-top.back {
+  @keyframes fromTopBack {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: -100vh;
+    }
+  }
+  animation: fromTopBack 300ms forwards ease-in;
+}
 
 .rr-full-screen-overlay.rr-full-screen-overlay-right {
   @keyframes fromRight {
     0% {
-      right: 100vw;
+      right: -100vw;
     }
     100% {
       right: 0;
@@ -111,11 +153,24 @@
 
   position: fixed;
   top: 0;
-  right: 100vw;
+  right: -100vw;
+  left: auto;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   animation: fromRight 300ms forwards ease-in;
+}
+
+.rr-full-screen-overlay.rr-full-screen-overlay-right.back {
+  @keyframes fromRightBack {
+    0% {
+      right: 0;
+    }
+    100% {
+      right: -100vw;
+    }
+  }
+  animation: fromRightBack 300ms forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-bottom {
@@ -128,6 +183,7 @@
     }
   }
 
+  top: auto;
   position: fixed;
   bottom: -100vh;
   left: 0;
@@ -135,4 +191,15 @@
   height: 100vh;
   overflow: hidden;
   animation: fromBottom 300ms forwards ease-in;
+}
+.rr-full-screen-overlay.rr-full-screen-overlay-bottom.back {
+  @keyframes fromBottomBack {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: -100vh;
+    }
+  }
+  animation: fromBottomBack 300ms forwards ease-in;
 }
