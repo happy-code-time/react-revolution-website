@@ -1,5 +1,7 @@
 const path = require('path');
 
+const Dotenv = require('dotenv-webpack');
+
 const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './website.jsx');
@@ -53,6 +55,14 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader"
             },
+            {
+                test: /\.(png|jpg)$/,
+                include: path.join(__dirname, 'public/images'),
+                loader: 'url-loader?limit=10000'
+            }
         ]
-    }
+    },
+    plugins: [
+        new Dotenv()
+    ]
 };

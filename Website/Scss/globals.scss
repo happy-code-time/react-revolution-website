@@ -201,8 +201,10 @@ h1,
   cursor: pointer;
 }
 
-.single-entry,
-.popup-box-icon{
-  color: rgb(79, 79, 79) !important;
+.ellipsis{
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: none;
+  text-overflow: ellipsis;
 }
-

@@ -23,7 +23,8 @@ class MenuClickHorizontal extends React.Component {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
-            reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false
+            reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
+            animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
         }
     }
 
@@ -34,19 +35,20 @@ class MenuClickHorizontal extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation'], props, state)) {
             return {
                 defaultClass: (props.class && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
-                reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false
+                reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
+                animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
             };
         }
 
         return null;
     }
 
-    buildDataRecursive(data = []) {
+    buildDataRecursive(data = [], isChild = false) {
         const { reactRouter } = this.state;
         const jsx = [];
 
@@ -77,7 +79,7 @@ class MenuClickHorizontal extends React.Component {
                     dataLink = (
                         <Link
                             to={href}
-                            className="text"
+                            className={`text ${isChild ? 'child' : ''}`}
                             onClick={() => this.toggle(unique, isLink)}
                         >
                             {
@@ -94,7 +96,7 @@ class MenuClickHorizontal extends React.Component {
                     dataLink = (
                         <a
                             href={href}
-                            className="text"
+                            className={`text ${isChild ? 'child' : ''}`}
                             onClick={() => this.toggle(unique, isLink)}
                         >
                             {
@@ -110,7 +112,7 @@ class MenuClickHorizontal extends React.Component {
                 if (dataChildren && 0 !== dataChildren.length) {
                     dataLink = (
                         <div
-                            className="text children"
+                            className={`text ${isChild ? 'child' : ''}`}
                             onClick={() => this.toggle(unique, isLink)}
                         >
                             {
@@ -125,7 +127,7 @@ class MenuClickHorizontal extends React.Component {
                 jsx.push(
                     <div
                         key={uuid()}
-                        className={`single-entry ${classList}`}
+                        className={`single-entry ${classList} ${(dataChildren && 0 !== dataChildren.length) ? 'parent' : ''}`}
                         {...dataToggleAttributes}
                     >
                         {
@@ -133,7 +135,13 @@ class MenuClickHorizontal extends React.Component {
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
-                            this.buildDataRecursive(dataChildren)
+                            <div 
+                                id={`${dataChildren && 0 !== dataChildren.length ? `${unique}` : ''}`} 
+                                className={`children`}>
+                                {
+                                    this.buildDataRecursive(dataChildren, true)
+                                }
+                            </div>
                         }
                         {
                             toggled && undefined == dataChildren &&
@@ -157,7 +165,14 @@ class MenuClickHorizontal extends React.Component {
      * @param {string} uniqueId 
      */
     toggle(uniqueId, isLink = false) {
+        const allowedAnimations = ['height', 'scale', 'opacity'];
         const { data } = this.state;
+        let { animation } = this.state;
+        let timeouterForAnimationBack = 0;
+
+        if(!allowedAnimations.includes(animation)){
+            animation = undefined;
+        }
 
         if (!isLink) {
             return null;
@@ -170,17 +185,29 @@ class MenuClickHorizontal extends React.Component {
                     const dataChildren = datas[x].data;
 
                     if (unique == uniqueId) {
+
+                        const childrenNode = document.getElementById(uniqueId);
+
+                        if(childrenNode && animation){
+                            const cls = `${animation ? `animation-${animation}-back` : ''}`;
+                            childrenNode.classList.add(cls);
+                        }
+                        
                         datas[x].toggled = !datas[x].toggled;
-                        datas[x].classList = 'toggling';
+                        datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
+
+                        if(!datas[x].toggled && animation){
+                            timeouterForAnimationBack = 300;
+                        }
 
                         setTimeout(() => {
-                            datas[x].classList = datas[x].toggled ? 'toggled' : '';
+                            datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
                         }, 300);
                         break;
                     }
 
                     if (dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length) {
-                        loop(dataChildren);
+                       loop(dataChildren);
                     }
                 }
             }
@@ -188,9 +215,13 @@ class MenuClickHorizontal extends React.Component {
 
         loop(data);
 
-        this.setState({
-            data
-        }, () => setTimeout(() => { this.setState({ data }); }, 300));
+        setTimeout( () => {
+            this.setState({
+                data
+            }, () => setTimeout(() => { 
+                this.setState({ data }); 
+            }, 300));
+        }, timeouterForAnimationBack);
     }
 
     render() {

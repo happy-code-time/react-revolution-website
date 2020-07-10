@@ -31,6 +31,8 @@ import LoadingBoxTop from './Modules/LoadingBoxTop';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
 
+import TextWriter from './Modules/TextWriter';
+
 import PopupBox from './Modules/PopupBox';
 
 import SideBar from './Modules/SideBar';
@@ -42,11 +44,14 @@ import SourceCode from './Modules/SourceCode';
  */
 import addGlobalMessage from './Functions/addGlobalMessage';
 
+import uuid from './Functions/uuid';
+
 export {
     /**
      * Functions
      */
     addGlobalMessage,
+    uuid,
     /**
      * Modules
      */
@@ -65,6 +70,7 @@ export {
     InputSuggestion,
     LoadingBoxTop,
     MenuClickHorizontal,
+    TextWriter,
     PopupBox,
     SideBar,
     SourceCode

@@ -17,6 +17,7 @@ class Accordion extends React.Component {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+            animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
         }
     }
 
@@ -27,18 +28,19 @@ class Accordion extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['data', 'defaultClass', 'id'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['data', 'defaultClass', 'id', 'animation'], props, state)) {
             return {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : []
+                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+                animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
             };
         }
 
         return null;
     }
 
-    buildDataRecursive(data = []){
+    buildDataRecursive(data = [], isChild = false) {
         const jsx = [];
 
         if(data && data.length){
@@ -69,7 +71,7 @@ class Accordion extends React.Component {
                     >
                         {
                             <div 
-                                className="text"
+                                className={`text ${isChild ? 'child' : ''}`}
                                 onClick={ () => this.toggle(unique)}
                             >
                             {
@@ -79,7 +81,13 @@ class Accordion extends React.Component {
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
-                            this.buildDataRecursive(dataChildren)
+                            <div 
+                                id={`${dataChildren && 0 !== dataChildren.length ? `${unique}` : ''}`} 
+                                className={`children`}>
+                                {
+                                    this.buildDataRecursive(dataChildren, true)
+                                }
+                            </div>
                         }
                         {
                             toggled && undefined == dataChildren &&
@@ -102,37 +110,60 @@ class Accordion extends React.Component {
      * toggled key to the oposite oolean value
      * @param {string} uniqueId 
      */
-    toggle(uniqueId){
+    toggle(uniqueId) {
+        const allowedAnimations = ['height', 'scale', 'opacity'];
         const { data } = this.state;
+        let { animation } = this.state;
+        let timeouterForAnimationBack = 0;
+
+        if(!allowedAnimations.includes(animation)){
+            animation = undefined;
+        }
 
         const loop = (datas) => {
-            if(datas && datas.length){
-                for(let x = 0; x <= datas.length-1; x++){
+            if (datas && datas.length) {
+                for (let x = 0; x <= datas.length - 1; x++) {
                     let { unique } = datas[x];
                     const dataChildren = datas[x].data;
-    
-                    if(unique == uniqueId){
-                        datas[x].toggled = !datas[x].toggled;
-                        datas[x].classList = 'toggling';
 
-                        setTimeout( () => {
-                            datas[x].classList = datas[x].toggled ? 'toggled' : '';
+                    if (unique == uniqueId) {
+
+                        const childrenNode = document.getElementById(uniqueId);
+
+                        if(childrenNode && animation){
+                            const cls = `${animation ? `animation-${animation}-back` : ''}`;
+                            childrenNode.classList.add(cls);
+                        }
+                        
+                        datas[x].toggled = !datas[x].toggled;
+                        datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
+
+                        if(!datas[x].toggled && animation){
+                            timeouterForAnimationBack = 300;
+                        }
+
+                        setTimeout(() => {
+                            datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
                         }, 300);
                         break;
                     }
-    
-                    if(dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length){
-                        loop(dataChildren);
+
+                    if (dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length) {
+                       loop(dataChildren);
                     }
                 }
             }
         }
-        
+
         loop(data);
-        
-        this.setState({ 
-            data 
-        }, () => setTimeout( () => { this.setState({ data }); }, 300));
+
+        setTimeout( () => {
+            this.setState({
+                data
+            }, () => setTimeout(() => { 
+                this.setState({ data }); 
+            }, 300));
+        }, timeouterForAnimationBack);
     }
 
     render() {

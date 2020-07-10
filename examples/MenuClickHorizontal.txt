@@ -2,53 +2,73 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import MenuClickHorizontal from './module/source/MenuClickHorizontal';
+import { MenuClickHorizontal } from './react-revolution/public/react-revolution';
 
 /**
  * Render it to the html while testing
  */
 
-import './module/source/sass/rr-menu-click-horizontal.scss';
+import './react-revolution/sass/rr-menu-click-horizontal.scss';
 
-class App extends React.Component
-{
-    constructor(props){
+class App extends React.Component {
+    constructor(props) {
         super(props);
 
         this.state = {
             data: [
                 {
-                    text: 'click me 1',
-                    dataToggle: 'child 1',
-                    dataToggleAttributes: {
-                        
-                    },
-                    classList: 'test1'
-                },
-                {
-                    text: 'click me 1',
-                    dataToggle: 'child 1',
-                    classList: 'test2',
+                    text: 'Home',
+                    icon: <i className='fas fa-flag-checkered' />,
                     data: [
                         {
-                            text: 'click me 2',
-                            dataToggle: 'child 2',
-                            dataToggleAttributes: {},
-                            classList: 'test3'
+                            text: 'Home',
+                            href: `#/`,
                         },
+                        {
+                            text: 'Home',
+                            href: `#/home`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/ala`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/home`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/ala`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/home`,
+                        },
+                        {
+                            text: 'Home',
+                            href: `#/ala`,
+                        }
                     ]
                 }
             ]
         }
     }
 
-    render(){
+    render() {
         const { data } = this.state;
 
-        return(
+        return (
             <span>
                 <MenuClickHorizontal
-                    // defaultClass='default-class'
+                    animation='height' // height, scale, opacity
                     data={data}
                 />
             </span>

@@ -24,6 +24,7 @@ $default_transition: 300ms;
     overflow: hidden;
     z-index: 2;
     transform: scale(0);
+    position: absolute;
 
     h1 {
       font-weight: bold;
@@ -35,18 +36,22 @@ $default_transition: 300ms;
   }
 
   .box.top-left{
+    left:0;
     transform-origin: top left;
   }
 
   .box.top-right{
+    right:100%;
     transform-origin: top right;
   }
 
   .box.bottom-left{
+    left:0;
     transform-origin: bottom left;
   }
 
   .box.bottom-right{
+    right:100%;
     transform-origin: bottom right;
   }
 

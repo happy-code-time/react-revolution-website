@@ -1,11 +1,167 @@
-@import './colors.scss';
+@import "./reset.scss";
 
-@import './globals.scss';
+@import "./colors.scss";
 
-@import './keyframes.scss';
+@import "./globals.scss";
 
-@import './content.scss';
+@import "./keyframes.scss";
 
-@import './sidebar';
+@import "./content.scss";
 
-@import './menu.scss';
+@import "./sidebar";
+
+@import "./menu.scss";
+
+@import "./home.scss";
+
+* {
+  font-family: "open sans", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue",
+    Helvetica, Arial, sans-serif;
+}
+
+#app {
+
+  .rr-popupbox {
+    float: right;
+
+    .popup-box-icon{
+      color: $white;
+    }
+
+    .box.top-right{
+        width: 250px;
+        right: 20px;
+        top: 55px;
+        background-color: $white;
+  
+        h1 {
+          font-weight: 400;
+          color: #313435;
+          font-size: 0.97rem;
+          box-sizing: border-box;
+          padding: 15px 10px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
+  
+          i {
+            color: inherit;
+            font-size: 0.97rem;
+            margin-right: 10px;
+          }
+        }
+  
+        ul {
+          list-style: none;
+          margin: 0px;
+          padding: 0px;
+
+          li {
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+            font-size: 0.87rem;
+            color: $menu-color;
+            letter-spacing: 0.2px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
+            z-index: 1;
+            transition-duration: $default_transition;
+            height: 40px;
+            line-height: 30px;
+            box-sizing: border-box;
+            padding: 5px 10px;
+          }
+        }
+
+        li:hover{
+          background-color: $dodgerblue;
+          color: $white;
+          cursor: pointer;
+        }
+  
+        /* POPUP link to view all of current type */
+        .popup-box-all {
+          display: block;
+          height: 50px;
+          line-height: 30px;
+          color: #7c8695;
+          font-size: 0.923rem;
+          box-sizing: border-box;
+          padding: 10px 20px;
+          text-align: center;
+          transition-duration: $default_transition;
+          text-decoration: none;
+  
+          i {
+            font-size: 0.87rem;
+            margin-left: 20px;
+          }
+        }
+  
+        .popup-box-all:hover {
+          cursor: pointer;
+          background-color: $message-blue;
+          color: $white;
+        }
+    }
+  }
+
+  .rr-sidebar {
+    .logo-text {
+      display: flex;
+      height: 60px;
+
+      .logo {
+        margin: 5px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+
+        .long,
+        .short {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          word-wrap: none;
+          text-overflow: ellipsis;
+        }
+
+        .long {
+          margin: 10px 0 5px 5px;
+          font-size: 0.923rem;
+        }
+
+        .short {
+          margin-left: 5px;
+          font-size: 0.644rem;
+        }
+      }
+    }
+  }
+
+  .rr-menu-click-horizontal {
+    .single-entry {
+      border-radius: 0px;
+      margin: 5px 0px;
+      border: none;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      i {
+        margin: 0 20px 0 7px;
+      }
+    }
+
+    .child {
+      padding: 10px 0 10px 53px;
+    }
+  }
+}

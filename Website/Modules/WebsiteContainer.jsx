@@ -22,6 +22,7 @@ class WebsiteContainer extends React.Component
       sidebarMinifiedAt: (typeof 8 == typeof props.sidebarMinifiedAt) ? props.sidebarMinifiedAt: 720,
       sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt: 1024,
       displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon: undefined,
+      minify: props.minify,
       minifiedSecondSideBar: true
     };
   }
@@ -33,7 +34,28 @@ class WebsiteContainer extends React.Component
    * @param {object} state 
    */
   static getDerivedStateFromProps(props, state) {
-    if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon'], props, state)) {
+    if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify'], props, state)) {
+      
+      if(state.minify !== props.minify){
+        
+        if(props.minify){
+          return {
+            sidebarMin: true,
+            contentMin: true,
+            isMinified: true,
+            minify: true
+          };
+        }
+        else {
+          return {
+            sidebarMin: false,
+            contentMin: false,
+            isMinified: false,
+            minify: false
+          };
+        }
+      }
+
       return {
         moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
         headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
@@ -43,6 +65,7 @@ class WebsiteContainer extends React.Component
         sidebarMinifiedAt: (typeof 8 == typeof props.sidebarMinifiedAt) ? props.sidebarMinifiedAt: 720,
         sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt: 1024,
         displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon: undefined,
+        minify: props.minify,
       };
     }
 
@@ -83,7 +106,7 @@ class WebsiteContainer extends React.Component
   }
 
   resizeView() {
-    const { persistUserSelection, sidebarMinifiedAt, sidebarMaxifiedAt } = this.state;
+    const { persistUserSelection, sidebarMinifiedAt, sidebarMaxifiedAt, minify } = this.state;
 
     if(persistUserSelection && null !== localStorage.getItem('persistUserSelection')){
       try{
@@ -94,6 +117,14 @@ class WebsiteContainer extends React.Component
       catch(e){
         //
       }
+    }
+
+    if(minify){
+      return this.setState({
+        sidebarMin: true,
+        contentMin: true,
+        isMinified: true,
+      });
     }
 
     const documentWidth = document.documentElement.getBoundingClientRect().width;

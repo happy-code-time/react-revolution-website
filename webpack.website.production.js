@@ -4,6 +4,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 const JavaScriptObfuscator = require('webpack-obfuscator');
 
+const Dotenv = require('dotenv-webpack');
+
 const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './website.jsx');
@@ -11,7 +13,7 @@ const APP_DIR = path.resolve(__dirname, './website.jsx');
 module.exports = {
     devtool: false,
     resolve: {
-        extensions: [ '.js', '.jsx' ],
+        extensions: ['.js', '.jsx'],
     },
     cache: false,
     mode: 'development',
@@ -56,6 +58,11 @@ module.exports = {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader"
             },
+            {
+                test: /\.(png|jpg)$/,
+                include: path.join(__dirname, 'public/images'),
+                loader: 'url-loader?limit=10000'
+            }
         ]
     },
     externals: {
@@ -64,6 +71,7 @@ module.exports = {
         'react/lib/ReactContext': true,
     },
     plugins: [
+        new Dotenv(),
         new JavaScriptObfuscator({
             rotateUnicodeArray: true
         },

@@ -1,8 +1,8 @@
-const version = '4.0.0';
+const version = '1.0.0';
 
-const appName = 'Chat';
+const appName = 'React Revolution';
 
-const appNameShort = 'Chat';
+const appNameShort = 'React Revolution';
 
 export {
     version,
