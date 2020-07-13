@@ -187,13 +187,13 @@ class ModuleSourceCode extends Component
                                 singleLineData = tagMatcher.singleLineData;
 
                                 /**
-                                 * Tags attributes
+                                 * Tags props
                                  */
                                 if (characters.length) {
-                                    const attributesMatcher = this.attributesMatcher(characters, singleLineData, nextCharacter, attribute);
-                                    characters = attributesMatcher.characters;
-                                    singleLineData = attributesMatcher.singleLineData;
-                                    attribute = attributesMatcher.attribute;
+                                    const propsMatcher = this.propsMatcher(characters, singleLineData, nextCharacter, attribute);
+                                    characters = propsMatcher.characters;
+                                    singleLineData = propsMatcher.singleLineData;
+                                    attribute = propsMatcher.attribute;
                                 }
                             }
                         }
@@ -653,7 +653,7 @@ class ModuleSourceCode extends Component
 
         /**
          * Unknown tag name check
-         * - possible match for <custom-tag-name> without attributes
+         * - possible match for <custom-tag-name> without props
          */
         if ('<' == characters.charAt(0) && !nextCharacter) {
             singleLineData.push(
@@ -949,7 +949,7 @@ class ModuleSourceCode extends Component
         return singleLineData;
     }
 
-    attributesMatcher(characters, singleLineData, nextCharacter, attribute) {
+    propsMatcher(characters, singleLineData, nextCharacter, attribute) {
         /**
          * Check if is attribute or string assigment
          * as variable
@@ -998,7 +998,7 @@ class ModuleSourceCode extends Component
 
         /**
          * If the attribute process started but not finished
-         * and is a space between attributes
+         * and is a space between props
          */
         if (undefined == nextCharacter && 'start' == attribute && '"' !== characters.substring(characters.length - 1, characters.length)) {
 

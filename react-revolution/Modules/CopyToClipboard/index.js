@@ -4,7 +4,7 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class Cards extends React.Component {
+class CopyToClipboard extends React.Component {
     
     constructor(props) {
         super(props);
@@ -49,70 +49,6 @@ class Cards extends React.Component {
         this.buildData();
     }
 
-    buildData(){
-        let { data, dataJsx, itemsPerLine } = this.state;
-        let singleLines = [];
-        let c = 0;
-        data.map( singleData => {
-            const { title, content, footer, props } = singleData;
-            c++;
-
-            singleLines.push(
-                <div key={uuid()} className="card flex flex-column" {...props}>
-                    {
-                        title && 
-                        <div className="title">
-                            {
-                                title
-                            }
-                        </div>
-                    }
-                    {
-                        content && 
-                        <div className="content">
-                            {
-                                content
-                            }
-                        </div>
-                    }
-                    {
-                        footer && 
-                        <div className="footer">
-                            {
-                                footer
-                            }
-                        </div>
-                    }
-                </div>
-            );
-
-            if(c == itemsPerLine){
-
-                dataJsx.push(
-                    <div key={uuid()} className="cards-group flex">
-                        {
-                            singleLines
-                        }
-                    </div>
-                );
-
-                singleLines = [];
-                c = 0;
-            }
-        });
-
-        if(singleLines.length){
-            dataJsx.push(
-                <div key={uuid()} className="cards-group flex">
-                    {
-                        singleLines
-                    }
-                </div>
-            );
-        }
-
-        this.setState({ dataJsx });
-    }
     
     render() {
         let { dataJsx, defaultClass, id } = this.state;
@@ -127,4 +63,4 @@ class Cards extends React.Component {
     }
 }
 
-export default Cards;
+export default CopyToClipboard;

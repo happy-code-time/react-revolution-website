@@ -8,18 +8,18 @@
 .Home {
   width: 100vw;
   min-height: 100vh;
-  background-image: url("http://localhost:3000/public/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: $dodgerblue;
 
   .main-title-box {
     width: 100vw;
-    height: 50vh;
+    height: calc(100vh - 60px);
     display: flex;
+    background-image: url("http://localhost:3000/public/images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: $dodgerblue;
 
     .main-title {
-      margin: auto;
+      margin: 5vh auto;
 
       h1 {
         font-size: 2rem;
@@ -27,11 +27,94 @@
       }
 
       h1,
-      h2 {
+      h2,
+      i {
+        display: block;
         color: $white;
         margin: 20px auto;
         text-align: center;
       }
+
+      i{
+        margin: 10vh auto;
+        font-size: 6rem;
+      }
+    }
+  }
+
+  .rr-cards{
+    max-height: unset;
+    max-width: 1400px;
+
+    .cards-group{
+    
+      @media screen and (min-width: $media-break){
+        flex-direction: row;
+      }
+    
+      flex-direction: column;
+
+      .card{
+        transition-duration: $default_transition;
+        
+        @media screen and (min-width: $media-break){
+          width: 100%;        
+          margin: 30px auto;
+        }
+
+        width: calc(100% - 30px);
+        margin: 10px 15px;
+
+        .title{
+          color: $text-color;
+          text-align: center;
+          background-color: transparent;
+          line-height: 40px;
+          font-size: 1.46rem;
+          font-weight: 400;
+
+          i{
+
+            @media screen and (min-width: $media-break){
+              display: block;
+            }
+
+            display: none;
+            margin: 20px auto;
+          }
+        }
+
+        .content{
+          width: 90%;
+          margin: 0 5%;
+          color: $text-color;
+          text-align: justify;
+          font-size: 0.87rem;
+          letter-spacing: 0.122rem;
+          line-height: 30px;
+        }
+      }
+
+      .card-middle{
+        margin: 30px 5%;
+      }
+    }
+  }
+
+  .example{
+    max-width: 1400px;
+    margin: 20px auto;
+
+    h1{
+      margin: 10px 0;
+      color: $text-color;
+    }
+
+    .rr-sourcecode{
+      box-sizing: border-box;
+      padding:10px 20px;
+      border-radius: 5px;
+      border: 1px solid $border-color;
     }
   }
 }

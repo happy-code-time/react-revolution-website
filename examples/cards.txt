@@ -35,6 +35,9 @@ class App extends React.Component {
                             {
                                 title: 1,
                                 content:  2,
+                                props: {
+                                    class: 'dsa sad ds ad as d'
+                                }
                             },
                             {
                                 title: 2,

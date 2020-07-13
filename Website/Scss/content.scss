@@ -13,6 +13,23 @@
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;
     padding: 10px 20px;
+    position: fixed;
+    top:0;
+    left:0;
+
+    i{
+      transition-duration: $default_transition;
+    }
+
+    .rr-custom-suggestion{
+      .suggestions-area {
+        .ul {
+          .suggestions{
+            max-height: 50vh;
+          }
+        }
+      }
+    }
 
     /*
      * Minify or toggle menu icon
@@ -54,6 +71,14 @@
       cursor: pointer;
       color: rgba(69, 69, 69, 1);
     }
+  }
+
+  .head.scrolled{
+ 
+  }
+
+  .ContentBody{
+    padding-top: 60px;
   }
 }
 

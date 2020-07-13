@@ -174,7 +174,7 @@ class InputFile extends React.Component
 
     render() {
         const { label, placeholder, defaultClass, id, multiple } = this.state;
-        const attributes = {
+        const props = {
             multiple: multiple ? multiple : ''
         };
 
@@ -187,7 +187,7 @@ class InputFile extends React.Component
                     id={id}
                     type='file'
                     name='files[]'
-                    {...attributes}
+                    {...props}
                 />
                 <label className="label" htmlFor="files">
                     {

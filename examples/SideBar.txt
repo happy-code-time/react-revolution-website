@@ -39,7 +39,7 @@ class App extends React.Component {
                   data={
                     [
                       {
-                        attributes: {
+                        props: {
                           title: 'Entry 1 title',
                         },
                         text: 'Entry 1',

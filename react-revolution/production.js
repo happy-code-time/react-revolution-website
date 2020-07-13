@@ -9,6 +9,8 @@ import CardsScroll from './Modules/CardsScroll';
 
 import CardsScrollCallback from './Modules/CardsScrollCallback';
 
+import CustomSuggestion from './Modules/CustomSuggestion';
+
 import FullScreenListArray from './Modules/FullScreenListArray';
 
 import FullScreenListObjects from './Modules/FullScreenListObjects';
@@ -59,6 +61,7 @@ export {
     Cards,
     CardsScroll,
     CardsScrollCallback,
+    CustomSuggestion,
     FullScreenListArray,
     FullScreenListObjects,
     FullScreenOverlay,

@@ -181,20 +181,20 @@ class GlobalMessages extends React.Component
 
                         if (mappingKeys.includes(errorCode) && undefined !== codeMapping[errorCode]) {
                             const { title, displayErrorCode, text, close, link } = codeMapping[errorCode];
-                            let attributesText = {};
-                            let attributesLink = {};
-                            let attributesClose = {};
+                            let propsText = {};
+                            let propsLink = {};
+                            let propsClose = {};
 
-                            if (text && typeof {} === typeof text && text.attributes && typeof {} === typeof text.attributes) {
-                                attributesText = text.attributes;
+                            if (text && typeof {} === typeof text && text.props && typeof {} === typeof text.props) {
+                                propsText = text.props;
                             }
 
-                            if (link && typeof {} === typeof link && link.attributes && typeof {} === typeof link.attributes) {
-                                attributesLink = link.attributes;
+                            if (link && typeof {} === typeof link && link.props && typeof {} === typeof link.props) {
+                                propsLink = link.props;
                             }
 
-                            if (close && typeof {} === typeof close && close.attributes && typeof {} === typeof close.attributes) {
-                                attributesClose = close.attributes;
+                            if (close && typeof {} === typeof close && close.props && typeof {} === typeof close.props) {
+                                propsClose = close.props;
                             }
 
                             return (
@@ -218,7 +218,7 @@ class GlobalMessages extends React.Component
                                     }
                                     <div
                                         className="text"
-                                        {...attributesText}
+                                        {...propsText}
                                     >
                                         {`${text.prefix ? `${text.prefix} ` : ''} ${errorMessage ? `${errorMessage} ` : ''} ${text.suffix ? `${text.suffix}` : ''}`}
                                     </div>
@@ -227,7 +227,7 @@ class GlobalMessages extends React.Component
                                         <div
                                             onClick={e => this.removeMessage(unique)}
                                             className="single-option"
-                                            {...attributesClose}
+                                            {...propsClose}
                                         >
                                             {`${close.text ? `${close.text} ` : ''}`}
                                         </div>
@@ -237,7 +237,7 @@ class GlobalMessages extends React.Component
                                                 <a
                                                     rel="noopener noreferrer"
                                                     href={`${link.href ? link.href : ''}`}
-                                                    {...attributesLink}
+                                                    {...propsLink}
                                                 >
                                                     {
                                                         link.text

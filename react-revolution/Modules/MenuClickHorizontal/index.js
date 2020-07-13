@@ -54,7 +54,7 @@ class MenuClickHorizontal extends React.Component {
 
         if (data && data.length) {
             for (let x = 0; x <= data.length - 1; x++) {
-                let { text, dataToggle, toggled, unique, dataToggleAttributes, classList, href, icon } = data[x];
+                let { text, dataToggle, toggled, unique, props, classList, href, icon } = data[x];
                 const dataChildren = data[x].data ? data[x].data : [];
                 const isLink = data[x].data ? true : false;
 
@@ -62,15 +62,15 @@ class MenuClickHorizontal extends React.Component {
                     classList = '';
                 }
 
-                if (!dataToggleAttributes || typeof dataToggleAttributes !== typeof {}) {
-                    dataToggleAttributes = {};
+                if (!props || typeof props !== typeof {}) {
+                    props = {};
                 }
 
                 try {
-                    Object.keys(dataToggleAttributes);
+                    Object.keys(props);
                 }
                 catch (e) {
-                    dataToggleAttributes = {};
+                    props = {};
                 }
 
                 let dataLink = '';
@@ -128,7 +128,7 @@ class MenuClickHorizontal extends React.Component {
                     <div
                         key={uuid()}
                         className={`single-entry ${classList} ${(dataChildren && 0 !== dataChildren.length) ? 'parent' : ''}`}
-                        {...dataToggleAttributes}
+                        {...props}
                     >
                         {
                             dataLink

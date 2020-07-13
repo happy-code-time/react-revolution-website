@@ -66,7 +66,7 @@ class App extends React.Component {
                                     data={
                                         [
                                             {
-                                                attributes: {
+                                                props: {
                                                     title: 'Menu entry 1 title',
                                                 },
                                                 text: 'Entry 1',
@@ -74,7 +74,7 @@ class App extends React.Component {
                                                 href: `${process.env.REMOTE_HOST_HREF}#/account`,
                                             },
                                             {
-                                                attributes: {
+                                                props: {
                                                     title: 'Menu entry 2 title',
                                                 },
                                                 text: 'Entry 2',

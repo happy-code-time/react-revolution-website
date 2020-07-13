@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./Website/CodeExamples/homeExample.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var homeExample = "import { Cards } from 'react-revolution';\n\n<Cards\n    itemsPerLine={3}\n    data={\n        [\n            {\n                title: 1,\n                content:  2,\n                props: {\n                    class: 'my-custom-class'\n                }\n            },\n            {\n                title: 2,\n                content:  2,\n            },\n            {\n                title: 3,\n                content:  2,\n            }\n        ]\n    }\n/>";
+/* harmony default export */ __webpack_exports__["default"] = (homeExample);
+
+/***/ }),
+
+/***/ "./Website/Functions/getAllAvailableModulesNames.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getAllAvailableModulesNames = function getAllAvailableModulesNames() {
+  return ['Accordion', 'Cards', 'CustomSuggestion', 'FullScreenListArray', 'FullScreenListObject', 'FullScreenOverlay', 'GlobalMessages', 'Icons', 'InputAnimation', 'InputFile', 'InputFileDragDrop', 'InputSuggestion', 'LoadingBoxTop', 'MenuClickHorizontal', 'PopupBox', 'Sidebar', 'SourceCode', 'TextWriter'];
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (getAllAvailableModulesNames);
+
+/***/ }),
+
 /***/ "./Website/Functions/getDerivedStateFromPropsCheck.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -274,6 +297,7 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       moduleSidebar: props.moduleSidebar && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.moduleSidebar) ? props.moduleSidebar : undefined,
       headerData: props.headerData && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.headerData) ? props.headerData : undefined,
+      headerClassName: props.headerClassName && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()('8') == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.headerClassName) ? props.headerClassName : '',
       contentData: props.contentData && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.contentData) ? props.contentData : undefined,
       persistUserSelection: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.persistUserSelection) ? props.persistUserSelection : undefined,
       clearPersistUserSelection: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.clearPersistUserSelection) ? props.clearPersistUserSelection : undefined,
@@ -526,6 +550,7 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
       var _this$state4 = this.state,
           moduleSidebar = _this$state4.moduleSidebar,
           headerData = _this$state4.headerData,
+          headerClassName = _this$state4.headerClassName,
           contentData = _this$state4.contentData,
           displayMinifyMaxifyIcon = _this$state4.displayMinifyMaxifyIcon;
       var sidebarClassNames = this.getClassNamesSidebar();
@@ -545,7 +570,7 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
       }), moduleSidebar && moduleSidebar), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", {
         className: contentClassNames
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", {
-        className: "head"
+        className: "head ".concat(headerClassName)
       }, displayMinifyMaxifyIcon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("i", {
         onClick: function onClick(e) {
           return _this4.sideBar();
@@ -578,6 +603,7 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
         return {
           moduleSidebar: props.moduleSidebar && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.moduleSidebar) ? props.moduleSidebar : undefined,
           headerData: props.headerData && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.headerData) ? props.headerData : undefined,
+          headerClassName: props.headerClassName && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()('8') == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.headerClassName) ? props.headerClassName : '',
           contentData: props.contentData && _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()({}) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.contentData) ? props.contentData : undefined,
           persistUserSelection: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.persistUserSelection) ? props.persistUserSelection : undefined,
           clearPersistUserSelection: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.clearPersistUserSelection) ? props.clearPersistUserSelection : undefined,
@@ -619,6 +645,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/CodeExamples/homeExample.js");
 
 
 
@@ -628,6 +655,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -659,21 +687,43 @@ var Home = /*#__PURE__*/function (_React$Component) {
         className: "main-title-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
         className: "main-title"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", null, "React", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TextWriter"], {
-        text: " Divcreator",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
+        className: "fab fa-react"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", null, "React Revolution"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TextWriter"], {
+        text: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('openSourceText')),
         speed: 100,
         pipeDisplay: true,
         pipeChar: '',
         pipeSite: "right" // right, left
         ,
-        pipePersist: false,
-        timeout: 500,
-        replaces: [{
-          from: 1,
-          to: ' Divcreator'.length - 1,
-          replace: 'Revolution'
+        pipePersist: false
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Cards"], {
+        itemsPerLine: 3,
+        data: [{
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('fast'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
+            className: "far fa-clock"
+          })),
+          content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+        }, {
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('light'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
+            className: "fas fa-balance-scale-right"
+          })),
+          props: {
+            "class": 'card flex flex-column card-middle'
+          },
+          content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+        }, {
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('interactive'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
+            className: "fas fa-user-cog"
+          })),
+          content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
         }]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h2", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('openSourceText'))))));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+        className: "example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('exampleOfUsage')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+        displayLineNumber: true,
+        code: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }))));
     }
   }]);
 
@@ -764,7 +814,13 @@ var DE = {
   changeLanguageTitle: 'Sprache ändern',
   changeTintTitle: 'Webseiten Layout ändern',
   lightTheme: 'Hell',
-  darkTheme: 'Dunkel'
+  darkTheme: 'Dunkel',
+  searchForModule: 'Module Suche',
+  clickToNavToTheModule: 'Navigieren Sie zu diesem Modul',
+  fast: 'Schnell',
+  light: 'Leicht',
+  interactive: 'Interaktiv',
+  exampleOfUsage: 'Beispiel Benutzung'
 };
 /* harmony default export */ __webpack_exports__["default"] = (DE);
 
@@ -780,7 +836,13 @@ var EN = {
   changeLanguageTitle: 'Change language',
   changeTintTitle: 'Change website layout',
   lightTheme: 'Light',
-  darkTheme: 'Dark'
+  darkTheme: 'Dark',
+  searchForModule: 'Module search',
+  clickToNavToTheModule: 'Navigate to this module',
+  fast: 'Fast',
+  light: 'Light',
+  interactive: 'Interactive',
+  exampleOfUsage: 'Usage example'
 };
 /* harmony default export */ __webpack_exports__["default"] = (EN);
 
@@ -796,7 +858,13 @@ var PL = {
   changeLanguageTitle: 'Zmień język',
   changeTintTitle: 'Zmień wygląd strony',
   lightTheme: 'Jasny',
-  darkTheme: 'Ciemny'
+  darkTheme: 'Ciemny',
+  searchForModule: 'Szukanie modułu',
+  clickToNavToTheModule: 'Nawigacja do tego modułu',
+  fast: 'Szybki',
+  light: 'Lekki',
+  interactive: 'Interaktywny',
+  exampleOfUsage: 'Przykład użycia'
 };
 /* harmony default export */ __webpack_exports__["default"] = (PL);
 
@@ -12073,7 +12141,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n* {\n  font-family: Helvetica Neue,Arial,sans-serif; }\n\n.w-100 {\n  width: 100%; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.ff-title {\n  font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #DEB887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 350ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 350ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 350ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 350ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 350ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 350ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 350ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 350ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 350ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873CC;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh;\n  background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-color: #1873CC; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: 50vh;\n    display: flex; }\n    .Home .main-title-box .main-title {\n      margin: auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2 {\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 350ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 350ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .child {\n  padding: 10px 0 10px 53px; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n* {\n  font-family: Helvetica Neue,Arial,sans-serif; }\n\n.w-100 {\n  width: 100%; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.ff-title {\n  font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #DEB887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873CC;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px 15px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      .Home .rr-cards .cards-group .card-middle {\n        margin: 30px 5%; }\n  .Home .example {\n    max-width: 1400px;\n    margin: 20px auto; }\n    .Home .example h1 {\n      margin: 10px 0;\n      color: #72777a; }\n    .Home .example .rr-sourcecode {\n      box-sizing: border-box;\n      padding: 10px 20px;\n      border-radius: 5px;\n      border: 1px solid #dadce0; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .child {\n  padding: 10px 0 10px 53px; }\n", ""]);
 
 
 
@@ -27101,7 +27169,7 @@ module.exports = function (e) {
     function o(e, t, a, n) {
       var r = t && t.prototype instanceof u ? t : u,
           l = Object.create(r.prototype),
-          i = new x(n || []);
+          i = new E(n || []);
       return l._invoke = function (e, t, a) {
         var n = "suspendedStart";
         return function (r, l) {
@@ -27175,7 +27243,7 @@ module.exports = function (e) {
     };
 
     var h = Object.getPrototypeOf,
-        v = h && h(h(E([])));
+        v = h && h(h(x([])));
     v && v !== t && a.call(v, r) && (p = v);
     var m = f.prototype = u.prototype = Object.create(p);
 
@@ -27249,13 +27317,13 @@ module.exports = function (e) {
       t.type = "normal", delete t.arg, e.completion = t;
     }
 
-    function x(e) {
+    function E(e) {
       this.tryEntries = [{
         tryLoc: "root"
       }], e.forEach(k, this), this.reset(!0);
     }
 
-    function E(e) {
+    function x(e) {
       if (e) {
         var t = e[r];
         if (t) return t.call(e);
@@ -27323,8 +27391,8 @@ module.exports = function (e) {
 
         return a.done = !0, a;
       };
-    }, e.values = E, x.prototype = {
-      constructor: x,
+    }, e.values = x, E.prototype = {
+      constructor: E,
       reset: function reset(e) {
         if (this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(C), !e) for (var t in this) {
           "t" === t.charAt(0) && a.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0);
@@ -27409,7 +27477,7 @@ module.exports = function (e) {
       },
       delegateYield: function delegateYield(e, t, a) {
         return this.delegate = {
-          iterator: E(e),
+          iterator: x(e),
           resultName: t,
           nextLoc: a
         }, "next" === this.method && (this.arg = void 0), c;
@@ -27500,9 +27568,9 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Ie;
+    return Be;
   }), a.d(t, "uuid", function () {
-    return K;
+    return I;
   }), a.d(t, "Accordion", function () {
     return S;
   }), a.d(t, "Cards", function () {
@@ -27511,36 +27579,38 @@ module.exports = function (e) {
     return N;
   }), a.d(t, "CardsScrollCallback", function () {
     return A;
+  }), a.d(t, "CustomSuggestion", function () {
+    return B;
   }), a.d(t, "FullScreenListArray", function () {
-    return V;
+    return _;
   }), a.d(t, "FullScreenListObjects", function () {
-    return j;
+    return q;
   }), a.d(t, "FullScreenOverlay", function () {
-    return z;
+    return K;
   }), a.d(t, "GlobalMessages", function () {
-    return H;
+    return G;
   }), a.d(t, "Icons", function () {
-    return $;
-  }), a.d(t, "InputAnimation", function () {
     return Q;
+  }), a.d(t, "InputAnimation", function () {
+    return ee;
   }), a.d(t, "InputFile", function () {
-    return ae;
-  }), a.d(t, "InputFileDragDrop", function () {
     return re;
-  }), a.d(t, "InputSuggestion", function () {
+  }), a.d(t, "InputFileDragDrop", function () {
     return ie;
-  }), a.d(t, "LoadingBoxTop", function () {
+  }), a.d(t, "InputSuggestion", function () {
     return se;
+  }), a.d(t, "LoadingBoxTop", function () {
+    return ue;
   }), a.d(t, "MenuClickHorizontal", function () {
-    return Se;
+    return we;
   }), a.d(t, "TextWriter", function () {
-    return Ne;
-  }), a.d(t, "PopupBox", function () {
     return Te;
-  }), a.d(t, "SideBar", function () {
+  }), a.d(t, "PopupBox", function () {
     return Fe;
-  }), a.d(t, "SourceCode", function () {
+  }), a.d(t, "SideBar", function () {
     return Ae;
+  }), a.d(t, "SourceCode", function () {
+    return Ve;
   });
 
   var n = a(8),
@@ -27570,13 +27640,13 @@ module.exports = function (e) {
       a[e] !== t[e] && (n = !0);
     }), n;
   },
-      x = function x() {
+      E = function E() {
     return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   },
-      E = function e() {
+      x = function e() {
     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
     if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(x())), null == t[a].classList && (t[a].classList = ""), t[a].data && i()([]) == i()(t[a].data) && t[a].data.length && e(t[a].data);
+      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && i()([]) == i()(t[a].data) && t[a].data.length && e(t[a].data);
     }
     return t;
   };
@@ -27616,7 +27686,7 @@ module.exports = function (e) {
       return s()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
-        data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+        data: e.data && i()([]) == i()(e.data) ? x(e.data) : [],
         animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
     }
@@ -27635,7 +27705,7 @@ module.exports = function (e) {
               u = o.toggled,
               d = o.unique,
               f = o.classList,
-              p = o.dataToggleAttributes,
+              p = o.props,
               h = t[_l].data;
           f || (f = ""), p && i()(p) === i()({}) || (p = {});
 
@@ -27646,7 +27716,7 @@ module.exports = function (e) {
           }
 
           n.push(k.a.createElement("div", r()({
-            key: x(),
+            key: E(),
             className: "single-entry ".concat(f)
           }, p), k.a.createElement("div", {
             className: "text ".concat(a ? "child" : ""),
@@ -27724,7 +27794,7 @@ module.exports = function (e) {
         return C(["data", "defaultClass", "id", "animation"], e, t) ? {
           defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
-          data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+          data: e.data && i()([]) == i()(e.data) ? x(e.data) : [],
           animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
         } : null;
       }
@@ -27784,29 +27854,30 @@ module.exports = function (e) {
             t = e.data,
             a = e.dataJsx,
             n = e.itemsPerLine,
-            r = [],
-            l = 0;
+            l = [],
+            i = 0;
         t.map(function (e) {
           var t = e.title,
-              i = e.content,
-              o = e.footer;
-          l++, r.push(k.a.createElement("div", {
-            key: x(),
+              o = e.content,
+              s = e.footer,
+              c = e.props;
+          i++, l.push(k.a.createElement("div", r()({
+            key: E(),
             className: "card flex flex-column"
-          }, t && k.a.createElement("div", {
+          }, c), t && k.a.createElement("div", {
             className: "title"
-          }, t), i && k.a.createElement("div", {
+          }, t), o && k.a.createElement("div", {
             className: "content"
-          }, i), o && k.a.createElement("div", {
+          }, o), s && k.a.createElement("div", {
             className: "footer"
-          }, o))), l == n && (a.push(k.a.createElement("div", {
-            key: x(),
+          }, s))), i == n && (a.push(k.a.createElement("div", {
+            key: E(),
             className: "cards-group flex"
-          }, r)), r = [], l = 0);
-        }), r.length && a.push(k.a.createElement("div", {
-          key: x(),
+          }, l)), l = [], i = 0);
+        }), l.length && a.push(k.a.createElement("div", {
+          key: E(),
           className: "cards-group flex"
-        }, r)), this.setState({
+        }, l)), this.setState({
           dataJsx: a
         });
       }
@@ -27918,7 +27989,7 @@ module.exports = function (e) {
               h = f.content,
               v = f.footer;
           s++, o.push(k.a.createElement("div", {
-            key: x(),
+            key: E(),
             className: "card flex flex-column"
           }, p && k.a.createElement("div", {
             className: "title"
@@ -27927,13 +27998,13 @@ module.exports = function (e) {
           }, h), v && k.a.createElement("div", {
             className: "footer"
           }, v))), s == r && (n.push(k.a.createElement("div", {
-            key: x(),
+            key: E(),
             className: "cards-group flex"
           }, o)), o = [], s = 0);
         }
 
         o.length && n.push(k.a.createElement("div", {
-          key: x(),
+          key: E(),
           className: "cards-group flex"
         }, o)), this.setState({
           dataJsx: n
@@ -28078,7 +28149,7 @@ module.exports = function (e) {
               c = o.content,
               u = o.footer;
           l++, r.push(k.a.createElement("div", {
-            key: x(),
+            key: E(),
             className: "card flex flex-column"
           }, s && k.a.createElement("div", {
             className: "title"
@@ -28087,13 +28158,13 @@ module.exports = function (e) {
           }, c), u && k.a.createElement("div", {
             className: "footer"
           }, u))), l == n && (a.push(k.a.createElement("div", {
-            key: x(),
+            key: E(),
             className: "cards-group flex"
           }, r)), r = [], l = 0);
         }
 
         r.length && (a.push(k.a.createElement("div", {
-          key: x(),
+          key: E(),
           className: "cards-group flex"
         }, r)), r = [], l = 0), this.setState({
           dataJsx: a,
@@ -28139,9 +28210,12 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(k.a.Component);
+  }(k.a.Component),
+      I = function I() {
+    return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
+  };
 
-  function I(e) {
+  function V(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28167,9 +28241,184 @@ module.exports = function (e) {
     };
   }
 
-  var V = function (e) {
+  var B = function (e) {
     h()(a, e);
-    var t = I(a);
+    var t = V(a);
+
+    function a(e) {
+      var n;
+      return s()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.state = {
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        plainValue: e.value && i()("8") == i()(e.value) ? e.value : "",
+        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+        callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
+        suggestions: e.suggestions && i()([]) == i()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
+        inputProps: e.inputProps && i()({}) == i()(e.inputProps) ? e.inputProps : {},
+        inputType: e.inputType && i()("8") == i()(e.inputType) ? e.inputType : "text",
+        emptySuggestionAfterSelection: i()(!0) != i()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection
+      }, n.availableSorts = ["asc", "desc"], n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown);
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function value() {
+        document.removeEventListener("mousedown", this.handleMouseDown);
+      }
+    }, {
+      key: "setFocusUpdater",
+      value: function value() {
+        var e = this,
+            t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
+            a = t ? 100 : 0;
+        setTimeout(function () {
+          if (e.inputNode) {
+            var t = e.inputNode.value || e.inputNode.defaultValue;
+            e.setState({
+              plainValue: t
+            }, function () {
+              e.callback(t);
+            });
+          }
+        }, a);
+      }
+    }, {
+      key: "handleMouseDown",
+      value: function value(e) {
+        this.refNodeUl && !this.refNodeUl.contains(e.target) && this.setState({
+          suggestions: [],
+          setArrow: null
+        });
+      }
+    }, {
+      key: "callback",
+      value: function value() {
+        var e = this.state,
+            t = e.callback,
+            a = e.plainValue;
+        t && t(a);
+      }
+    }, {
+      key: "callbackEsc",
+      value: function value() {
+        this.setState({
+          suggestions: [],
+          setArrow: null
+        });
+      }
+    }, {
+      key: "setValue",
+      value: function value(e) {
+        var t = this,
+            a = e.target.value;
+        this.state.allowOnlyAZ && (a = (a = a.replace(/[^a-zA-Z- ]/gim, "")).trim()), this.setState({
+          plainValue: a
+        }, function () {
+          var e = t.state.plainValue;
+          t.callback(e);
+        });
+      }
+    }, {
+      key: "handleKeyDown",
+      value: function value(e) {
+        if (e.persist(), "Escape" === e.key) return this.callbackEsc();
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.defaultClass,
+            n = t.id,
+            l = t.inputProps,
+            i = t.suggestions,
+            o = t.plainValue,
+            s = t.placeholder,
+            c = t.inputType;
+        return b.createElement("div", {
+          className: a
+        }, b.createElement("div", {
+          className: "input"
+        }, b.createElement("input", r()({
+          type: c,
+          value: o,
+          onChange: function onChange(t) {
+            return e.setValue(t);
+          },
+          placeholder: s,
+          onKeyDown: function onKeyDown(t) {
+            return e.handleKeyDown(t);
+          },
+          id: n
+        }, l)), "" !== o && i && 0 !== i.length && b.createElement("div", {
+          className: "suggestions-area"
+        }, b.createElement("ul", {
+          className: "ul",
+          ref: function ref(t) {
+            return e.refNodeUl = t;
+          }
+        }, b.createElement("span", {
+          className: "suggestions",
+          ref: function ref(t) {
+            return e.suggestionsHolder = t;
+          }
+        }, i.map(function (e) {
+          var t = e.href,
+              a = e.props,
+              n = e.jsx;
+          return b.createElement("li", {
+            key: I()
+          }, b.createElement("a", r()({
+            href: t
+          }, a), n));
+        }))))));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return C(["value", "suggestions"], e, t) ? {
+          suggestions: e.suggestions,
+          plainValue: t.plainValue
+        } : null;
+      }
+    }]), a;
+  }(b.Component);
+
+  function j(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var r = y()(this).constructor;
+        a = Reflect.construct(n, arguments, r);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var _ = function (e) {
+    h()(a, e);
+    var t = j(a);
 
     function a(e) {
       var n;
@@ -28292,7 +28541,7 @@ module.exports = function (e) {
             a = this.state.displayLineNumber;
         return e.map(function (e, n) {
           return k.a.createElement("li", {
-            key: x(),
+            key: E(),
             className: "li",
             onClick: function onClick(a) {
               return t.callback(a, e);
@@ -28373,7 +28622,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function B(e) {
+  function U(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28399,9 +28648,9 @@ module.exports = function (e) {
     };
   }
 
-  var j = function (e) {
+  var q = function (e) {
     h()(a, e);
-    var t = B(a);
+    var t = U(a);
 
     function a(e) {
       var n;
@@ -28518,7 +28767,7 @@ module.exports = function (e) {
             a = this.state.displayEntryNumber;
         return e.map(function (e, n) {
           return k.a.createElement("li", {
-            key: x(),
+            key: E(),
             className: "li",
             onClick: function onClick(a) {
               return t.callback(a, e);
@@ -28597,14 +28846,14 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      _ = function _() {
+      z = function z() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      q = function q() {
+      J = function J() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function U(e) {
+  function H(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28630,9 +28879,9 @@ module.exports = function (e) {
     };
   }
 
-  var z = function (e) {
+  var K = function (e) {
     h()(a, e);
-    var t = U(a);
+    var t = H(a);
 
     function a(e) {
       var n;
@@ -28658,12 +28907,12 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        t && window.addEventListener("keydown", this.EscListener, !1), a && _();
+        t && window.addEventListener("keydown", this.EscListener, !1), a && z();
       }
     }, {
       key: "componentWillUnmount",
       value: function value() {
-        q(), window.removeEventListener("keydown", this.EscListener, !1);
+        J(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -28671,15 +28920,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), void (a && _());
-        q(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), void (a && z());
+        J(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
           var t = this.state.closeCallback;
-          t && "function" == typeof t && (q(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (J(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -28689,7 +28938,7 @@ module.exports = function (e) {
             a = this.state,
             n = a.closeOnClick,
             r = a.closeCallback;
-        (t || n && r && "function" == typeof r && this.contentReference && !e.target.contains(this.contentReference)) && (q(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+        (t || n && r && "function" == typeof r && this.contentReference && !e.target.contains(this.contentReference)) && (J(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -28766,7 +29015,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function J(e) {
+  function W(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28792,9 +29041,9 @@ module.exports = function (e) {
     };
   }
 
-  var H = function (e) {
+  var G = function (e) {
     h()(a, e);
-    var t = J(a);
+    var t = W(a);
 
     function a(e) {
       var n;
@@ -28859,7 +29108,7 @@ module.exports = function (e) {
             e.clearStore();
 
             for (var a = function a(_a) {
-              t[_a].unique = "".concat(x()), t[_a].disappear && i()(8) == i()(t[_a].disappear) && setTimeout(function () {
+              t[_a].unique = "".concat(E()), t[_a].disappear && i()(8) == i()(t[_a].disappear) && setTimeout(function () {
                 e.setState({
                   messagesApp: e.state.messagesApp.filter(function (e) {
                     return t[_a].unique !== e.unique;
@@ -28912,9 +29161,9 @@ module.exports = function (e) {
                 v = {},
                 m = {},
                 g = {};
-            return f && i()({}) === i()(f) && f.attributes && i()({}) === i()(f.attributes) && (v = f.attributes), h && i()({}) === i()(h) && h.attributes && i()({}) === i()(h.attributes) && (m = h.attributes), p && i()({}) === i()(p) && p.attributes && i()({}) === i()(p.attributes) && (g = p.attributes), k.a.createElement("div", {
+            return f && i()({}) === i()(f) && f.props && i()({}) === i()(f.props) && (v = f.props), h && i()({}) === i()(h) && h.props && i()({}) === i()(h.props) && (m = h.props), p && i()({}) === i()(p) && p.props && i()({}) === i()(p.props) && (g = p.props), k.a.createElement("div", {
               className: "single-error",
-              key: x()
+              key: E()
             }, u && i()("000") === i()(u) && k.a.createElement("h1", null, "".concat(u, " ").concat(d ? n : "")), u && i()({}) === i()(u) && k.a.createElement("h1", null, u, " ".concat(d ? n : "")), k.a.createElement("div", r()({
               className: "text"
             }, v), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(l ? "".concat(l, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), k.a.createElement("div", {
@@ -28947,12 +29196,9 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(k.a.Component),
-      K = function K() {
-    return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
-  };
+  }(k.a.Component);
 
-  function W(e) {
+  function Z(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28978,7 +29224,7 @@ module.exports = function (e) {
     };
   }
 
-  var G = {
+  var $ = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -29032,10 +29278,10 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      Z = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      $ = function (e) {
+      Y = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      Q = function (e) {
     h()(a, e);
-    var t = W(a);
+    var t = Z(a);
 
     function a(e) {
       var n;
@@ -29045,8 +29291,8 @@ module.exports = function (e) {
         iconsType: e.iconsType && i()("8") == i()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-        icons: e.icons && i()({}) == i()(e.icons) ? e.icons : G,
-        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Z,
+        icons: e.icons && i()({}) == i()(e.icons) ? e.icons : $,
+        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Y,
         translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0
       }, n;
     }
@@ -29089,19 +29335,19 @@ module.exports = function (e) {
             var c = i == n ? "single-tab active" : "single-tab";
             return a == o.length - 1 && (c += " single-tab-last"), k.a.createElement("div", {
               className: c,
-              key: K(),
+              key: I(),
               onClick: function onClick() {
                 return e.changeTab(n);
               }
             }, l);
           }
         })), i && void 0 !== r[i] && void 0 !== r[i].data && k.a.createElement("div", {
-          key: K(),
+          key: I(),
           className: "content"
         }, r[i].data.map(function (t) {
           return k.a.createElement("span", {
             className: "single-icon",
-            key: K(),
+            key: I(),
             onClick: function onClick() {
               return e.callback(t);
             }
@@ -29116,15 +29362,15 @@ module.exports = function (e) {
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-          icons: e.icons && i()({}) == i()(e.icons) ? e.icons : G,
-          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Z,
+          icons: e.icons && i()({}) == i()(e.icons) ? e.icons : $,
+          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Y,
           translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0
         } : null;
       }
     }]), a;
   }(k.a.Component);
 
-  function Y(e) {
+  function X(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29150,9 +29396,9 @@ module.exports = function (e) {
     };
   }
 
-  var Q = function (e) {
+  var ee = function (e) {
     h()(a, e);
-    var t = Y(a);
+    var t = X(a);
 
     function a(e) {
       var n;
@@ -29322,10 +29568,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      X = a(13),
-      ee = a.n(X);
+      te = a(13),
+      ae = a.n(te);
 
-  function te(e) {
+  function ne(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29351,9 +29597,9 @@ module.exports = function (e) {
     };
   }
 
-  var ae = function (e) {
+  var re = function (e) {
     h()(a, e);
-    var t = te(a);
+    var t = ne(a);
 
     function a(e) {
       var n;
@@ -29481,7 +29727,7 @@ module.exports = function (e) {
           },
           placeholder: l,
           id: o
-        }, ee()(e, "type", "file"), ee()(e, "name", "files[]"), e), c)), k.a.createElement("label", {
+        }, ae()(e, "type", "file"), ae()(e, "name", "files[]"), e), c)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, n));
@@ -29503,7 +29749,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function ne(e) {
+  function le(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29529,9 +29775,9 @@ module.exports = function (e) {
     };
   }
 
-  var re = function (e) {
+  var ie = function (e) {
     h()(a, e);
-    var t = ne(a);
+    var t = le(a);
 
     function a(e) {
       var n;
@@ -29697,7 +29943,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function le(e) {
+  function oe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29723,9 +29969,9 @@ module.exports = function (e) {
     };
   }
 
-  var ie = function (e) {
+  var se = function (e) {
     h()(a, e);
-    var t = le(a);
+    var t = oe(a);
 
     function a(e) {
       var n;
@@ -29918,7 +30164,7 @@ module.exports = function (e) {
           className: "choosed"
         }, a.map(function (t) {
           return b.createElement("div", {
-            key: K(),
+            key: I(),
             className: "item ff-title"
           }, b.createElement("div", {
             onClick: function onClick(a) {
@@ -29953,7 +30199,7 @@ module.exports = function (e) {
           var r = a.includes(t) ? "active" : "";
           return null !== d && void 0 !== o[d] && d == n && (r = "".concat(r, " selected")), b.createElement("li", {
             className: r,
-            key: K(),
+            key: I(),
             onClick: function onClick(a) {
               return e.toggleSelection(t);
             },
@@ -29975,7 +30221,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function oe(e) {
+  function ce(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30001,9 +30247,9 @@ module.exports = function (e) {
     };
   }
 
-  var se = function (e) {
+  var ue = function (e) {
     h()(a, e);
-    var t = oe(a);
+    var t = ce(a);
 
     function a(e) {
       var n;
@@ -30037,13 +30283,13 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      ce = a(9),
-      ue = a.n(ce),
-      de = a(14),
-      fe = a.n(de);
+      de = a(9),
+      fe = a.n(de),
+      pe = a(14),
+      he = a.n(pe);
 
-  function pe() {
-    return (pe = Object.assign || function (e) {
+  function ve() {
+    return (ve = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -30056,11 +30302,11 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function he(e) {
+  function me(e) {
     return "/" === e.charAt(0);
   }
 
-  function ve(e, t) {
+  function ge(e, t) {
     for (var a = t, n = a + 1, r = e.length; n < r; a += 1, n += 1) {
       e[a] = e[n];
     }
@@ -30068,15 +30314,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var me = function me(e, t) {
+  var ye = function ye(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         r = t && t.split("/") || [],
-        l = e && he(e),
-        i = t && he(t),
+        l = e && me(e),
+        i = t && me(t),
         o = l || i;
-    if (e && he(e) ? r = n : n.length && (r.pop(), r = r.concat(n)), !r.length) return "/";
+    if (e && me(e) ? r = n : n.length && (r.pop(), r = r.concat(n)), !r.length) return "/";
 
     if (r.length) {
       var s = r[r.length - 1];
@@ -30085,18 +30331,18 @@ module.exports = function (e) {
 
     for (var c = 0, u = r.length; u >= 0; u--) {
       var d = r[u];
-      "." === d ? ve(r, u) : ".." === d ? (ve(r, u), c++) : c && (ve(r, u), c--);
+      "." === d ? ge(r, u) : ".." === d ? (ge(r, u), c++) : c && (ge(r, u), c--);
     }
 
     if (!o) for (; c--; c) {
       r.unshift("..");
     }
-    !o || "" === r[0] || r[0] && he(r[0]) || r.unshift("");
+    !o || "" === r[0] || r[0] && me(r[0]) || r.unshift("");
     var f = r.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
-  function ge(e, t, a, n) {
+  function be(e, t, a, n) {
     var r;
     "string" == typeof e ? (r = function (e) {
       var t = e || "/",
@@ -30110,7 +30356,7 @@ module.exports = function (e) {
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (r = pe({}, e)).pathname && (r.pathname = ""), r.search ? "?" !== r.search.charAt(0) && (r.search = "?" + r.search) : r.search = "", r.hash ? "#" !== r.hash.charAt(0) && (r.hash = "#" + r.hash) : r.hash = "", void 0 !== t && void 0 === r.state && (r.state = t));
+    }(e)).state = t : (void 0 === (r = ve({}, e)).pathname && (r.pathname = ""), r.search ? "?" !== r.search.charAt(0) && (r.search = "?" + r.search) : r.search = "", r.hash ? "#" !== r.hash.charAt(0) && (r.hash = "#" + r.hash) : r.hash = "", void 0 !== t && void 0 === r.state && (r.state = t));
 
     try {
       r.pathname = decodeURI(r.pathname);
@@ -30118,12 +30364,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + r.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (r.key = a), n ? r.pathname ? "/" !== r.pathname.charAt(0) && (r.pathname = me(r.pathname, n.pathname)) : r.pathname = n.pathname : r.pathname || (r.pathname = "/"), r;
+    return a && (r.key = a), n ? r.pathname ? "/" !== r.pathname.charAt(0) && (r.pathname = ye(r.pathname, n.pathname)) : r.pathname = n.pathname : r.pathname || (r.pathname = "/"), r;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var ye = Object.assign || function (e) {
+  var ke = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -30135,29 +30381,29 @@ module.exports = function (e) {
     return e;
   };
 
-  function be(e, t) {
+  function Ce(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function ke(e, t) {
+  function Ee(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var Ce = function Ce(e) {
+  var xe = function xe(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
-      xe = function (e) {
+      De = function (e) {
     function t() {
       var a, n;
-      be(this, t);
+      Ce(this, t);
 
       for (var r = arguments.length, l = Array(r), i = 0; i < r; i++) {
         l[i] = arguments[i];
       }
 
-      return a = n = ke(this, e.call.apply(e, [this].concat(l))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Ce(e)) {
+      return a = n = Ee(this, e.call.apply(e, [this].concat(l))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !xe(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
@@ -30165,7 +30411,7 @@ module.exports = function (e) {
               l = a.to;
           r ? t.replace(l) : t.push(l);
         }
-      }, ke(n, a);
+      }, Ee(n, a);
     }
 
     return function (e, t) {
@@ -30192,11 +30438,11 @@ module.exports = function (e) {
         return a;
       }(e, ["replace", "to", "innerRef"]);
 
-      fe()(this.context.router, "You should not use <Link> outside a <Router>"), fe()(void 0 !== t, 'You must specify the "to" property');
+      he()(this.context.router, "You should not use <Link> outside a <Router>"), he()(void 0 !== t, 'You must specify the "to" property');
       var r = this.context.router.history,
-          l = "string" == typeof t ? ge(t, null, null, r.location) : t,
+          l = "string" == typeof t ? be(t, null, null, r.location) : t,
           i = r.createHref(l);
-      return k.a.createElement("a", ye({}, n, {
+      return k.a.createElement("a", ke({}, n, {
         onClick: this.handleClick,
         href: i,
         ref: a
@@ -30204,26 +30450,26 @@ module.exports = function (e) {
     }, t;
   }(k.a.Component);
 
-  xe.propTypes = {
-    onClick: ue.a.func,
-    target: ue.a.string,
-    replace: ue.a.bool,
-    to: ue.a.oneOfType([ue.a.string, ue.a.object]).isRequired,
-    innerRef: ue.a.oneOfType([ue.a.string, ue.a.func])
-  }, xe.defaultProps = {
+  De.propTypes = {
+    onClick: fe.a.func,
+    target: fe.a.string,
+    replace: fe.a.bool,
+    to: fe.a.oneOfType([fe.a.string, fe.a.object]).isRequired,
+    innerRef: fe.a.oneOfType([fe.a.string, fe.a.func])
+  }, De.defaultProps = {
     replace: !1
-  }, xe.contextTypes = {
-    router: ue.a.shape({
-      history: ue.a.shape({
-        push: ue.a.func.isRequired,
-        replace: ue.a.func.isRequired,
-        createHref: ue.a.func.isRequired
+  }, De.contextTypes = {
+    router: fe.a.shape({
+      history: fe.a.shape({
+        push: fe.a.func.isRequired,
+        replace: fe.a.func.isRequired,
+        createHref: fe.a.func.isRequired
       }).isRequired
     }).isRequired
   };
-  var Ee = xe;
+  var Se = De;
 
-  function De(e) {
+  function Oe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30249,16 +30495,16 @@ module.exports = function (e) {
     };
   }
 
-  var Se = function (e) {
+  var we = function (e) {
     h()(a, e);
-    var t = De(a);
+    var t = Oe(a);
 
     function a(e) {
       var n;
       return s()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
-        data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+        data: e.data && i()([]) == i()(e.data) ? x(e.data) : [],
         reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
         animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
@@ -30278,7 +30524,7 @@ module.exports = function (e) {
               u = s.dataToggle,
               d = s.toggled,
               f = s.unique,
-              p = s.dataToggleAttributes,
+              p = s.props,
               h = s.classList,
               v = s.href,
               m = s.icon,
@@ -30293,7 +30539,7 @@ module.exports = function (e) {
           }
 
           var b = "";
-          n && g && 0 == g.length && (b = k.a.createElement(Ee, {
+          n && g && 0 == g.length && (b = k.a.createElement(Se, {
             to: v,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
@@ -30311,7 +30557,7 @@ module.exports = function (e) {
               return e.toggle(f, y);
             }
           }, m && m, c)), l.push(k.a.createElement("div", r()({
-            key: x(),
+            key: E(),
             className: "single-entry ".concat(h, " ").concat(g && 0 !== g.length ? "parent" : "")
           }, p), b, d && g && 0 !== g.length && k.a.createElement("div", {
             id: "".concat(g && 0 !== g.length ? "".concat(f) : ""),
@@ -30389,17 +30635,17 @@ module.exports = function (e) {
         return C(["defaultClass", "id", "data", "reactRouter", "animation"], e, t) ? {
           defaultClass: e["class"] && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
-          data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+          data: e.data && i()([]) == i()(e.data) ? x(e.data) : [],
           reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
           animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
   }(k.a.Component),
-      Oe = a(12),
-      we = a.n(Oe);
+      Le = a(12),
+      Ne = a.n(Le);
 
-  function Le(e) {
+  function Pe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30425,15 +30671,15 @@ module.exports = function (e) {
     };
   }
 
-  var Ne = function (e) {
+  var Te = function (e) {
     h()(a, e);
-    var t = Le(a);
+    var t = Pe(a);
 
     function a(e) {
       var n;
       return s()(this, a), (n = t.call(this, e)).setText = n.setText.bind(f()(n)), n.state = {
         written: [],
-        uuid: "".concat(x()),
+        uuid: "".concat(E()),
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
         text: e.text && e.text.length ? e.text : "",
@@ -30562,7 +30808,7 @@ module.exports = function (e) {
                                       });
                                     }, r)), l.next = 4, e.writerPromise(h[p]).then(function (t) {
                                       v.push(t), e.setState({
-                                        written: [].concat(we()(o), v, we()(s), we()(f))
+                                        written: [].concat(Ne()(o), v, Ne()(s), Ne()(f))
                                       });
                                     });
 
@@ -30617,7 +30863,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Pe(e) {
+  function Re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30643,9 +30889,9 @@ module.exports = function (e) {
     };
   }
 
-  var Te = function (e) {
+  var Fe = function (e) {
     h()(a, e);
-    var t = Pe(a);
+    var t = Re(a);
 
     function a(e) {
       var n;
@@ -30761,7 +31007,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Re(e) {
+  function Me(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30787,9 +31033,9 @@ module.exports = function (e) {
     };
   }
 
-  var Fe = function (e) {
+  var Ae = function (e) {
     h()(a, e);
-    var t = Re(a);
+    var t = Me(a);
 
     function a(e) {
       var n;
@@ -30843,7 +31089,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Me(e) {
+  function Ie(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30869,9 +31115,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ae = function (e) {
+  var Ve = function (e) {
     h()(a, e);
-    var t = Me(a);
+    var t = Ie(a);
 
     function a(e) {
       var n;
@@ -30982,7 +31228,7 @@ module.exports = function (e) {
                   var m = this.tagsMatcher(f, i, v);
 
                   if (f = m.characters, i = m.singleLineData, f.length) {
-                    var g = this.attributesMatcher(f, i, v, c);
+                    var g = this.propsMatcher(f, i, v, c);
                     f = g.characters, i = g.singleLineData, c = g.attribute;
                   }
                 }
@@ -30998,13 +31244,13 @@ module.exports = function (e) {
                 var y = f.substring(f.indexOf("$"), f.length);
                 y = y.split("");
 
-                for (var b = "$", C = 0, E = 1; E <= y.length - 1; E++) {
-                  if (!/^[a-zA-Z]+$/.test(y[E])) {
-                    C = E;
+                for (var b = "$", C = 0, x = 1; x <= y.length - 1; x++) {
+                  if (!/^[a-zA-Z]+$/.test(y[x])) {
+                    C = x;
                     break;
                   }
 
-                  b += y[E];
+                  b += y[x];
                 }
 
                 b.length && i.push({
@@ -31138,13 +31384,13 @@ module.exports = function (e) {
         for (var F = [], M = 0; M < r.length; M++) {
           for (var A = r[M], I = [], V = 0; V < A.length; V++) {
             I.push(k.a.createElement("span", {
-              key: x(),
+              key: E(),
               className: A[V]["class"] ? A[V]["class"] : ""
             }, A[V].code));
           }
 
           F.push(k.a.createElement("div", {
-            key: x(),
+            key: E(),
             className: n ? "single-code-line flex" : "single-code-line"
           }, n && k.a.createElement("div", {
             className: "line-number"
@@ -31306,7 +31552,7 @@ module.exports = function (e) {
         }), e);
       }
     }, {
-      key: "attributesMatcher",
+      key: "propsMatcher",
       value: function value(e, t, a, n) {
         var r = e.substring(0, e.indexOf("="));
         return 1 !== e.indexOf('="') && '"' == a && "start" !== n && "" !== r && (n = "start", t.push({
@@ -31396,7 +31642,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Ie = function Ie() {
+      Be = function Be() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -31454,6 +31700,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./Website/Functions/possibleLayouts.js");
 /* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./Website/Scss/index.scss");
 /* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Functions/getAllAvailableModulesNames.js");
 
 
 
@@ -31464,6 +31711,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -31489,12 +31737,18 @@ var App = /*#__PURE__*/function (_React$Component) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, App);
 
     _this = _super.call(this, props);
+    _this.setOnClickEvent = _this.setOnClickEvent.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.setScrollEvent = _this.setScrollEvent.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.scrollEvent = _this.scrollEvent.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.checkLocation = _this.checkLocation.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
-    _this.setOnClickEventListenerToTheDom = _this.setOnClickEventListenerToTheDom.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.changeSidebarMinifiedState = _this.changeSidebarMinifiedState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
-      host: "http://localhost:3000/"
+      host: "http://localhost:3000/",
+      scrolled: document.documentElement.scrollTop,
+      suggestions: [],
+      inputValue: ''
     };
     _this.href = window.location.href;
     return _this;
@@ -31503,13 +31757,15 @@ var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.setOnClickEventListenerToTheDom();
+      this.setOnClickEvent();
+      this.setScrollEvent();
       this.changeSidebarMinifiedState();
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       document.removeEventListener('click', this.checkLocation);
+      document.removeEventListener('scroll', this.scrollEvent);
     }
     /**
     * Check if the website using a react-router
@@ -31517,10 +31773,16 @@ var App = /*#__PURE__*/function (_React$Component) {
     */
 
   }, {
-    key: "setOnClickEventListenerToTheDom",
-    value: function setOnClickEventListenerToTheDom() {
+    key: "setOnClickEvent",
+    value: function setOnClickEvent() {
       document.removeEventListener('click', this.checkLocation);
       document.addEventListener('click', this.checkLocation);
+    }
+  }, {
+    key: "setScrollEvent",
+    value: function setScrollEvent() {
+      document.removeEventListener('scroll', this.scrollEvent);
+      document.addEventListener('scroll', this.scrollEvent);
     }
     /**
      * Check location, if the stored href are changed then
@@ -31551,6 +31813,24 @@ var App = /*#__PURE__*/function (_React$Component) {
 
         count--;
       }, 100);
+    }
+  }, {
+    key: "scrollEvent",
+    value: function scrollEvent() {
+      var scrolled = this.state.scrolled;
+      var currentScrollPosition = document.documentElement.scrollTop;
+
+      if (50 <= currentScrollPosition) {
+        return this.setState({
+          scrolled: currentScrollPosition
+        });
+      }
+
+      if (50 >= currentScrollPosition && 0 !== scrolled) {
+        this.setState({
+          scrolled: 0
+        });
+      }
     }
   }, {
     key: "changeSidebarMinifiedState",
@@ -31589,14 +31869,39 @@ var App = /*#__PURE__*/function (_React$Component) {
       localStorage.setItem('layout', layout);
     }
   }, {
+    key: "searchForModule",
+    value: function searchForModule(inputValue) {
+      var host = this.state.host;
+      var allModules = Object(_Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__["default"])();
+      var suggestions = [];
+      allModules.map(function (i) {
+        if (i.toLowerCase().indexOf(inputValue.toLowerCase())) {
+          suggestions.push({
+            href: "".concat(host, "#/").concat(i),
+            jsx: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("p", null, i),
+            props: {
+              title: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('clickToNavToTheModule')
+            }
+          });
+        }
+      });
+      suggestions.sort();
+      this.setState({
+        suggestions: suggestions
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
       var _this$state = this.state,
           minifySidebard = _this$state.minifySidebard,
-          host = _this$state.host;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          host = _this$state.host,
+          scrolled = _this$state.scrolled,
+          suggestions = _this$state.suggestions,
+          inputValue = _this$state.inputValue;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
         persistUserSelection: false // set local sotrage on click
         ,
         clearPersistUserSelection: true // do not remove the local storage on component did mount
@@ -31633,6 +31938,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             }]
           })
         }),
+        headerClassName: "".concat(scrolled ? 'scrolled' : ''),
         headerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["PopupBox"], {
           defaultClass: false,
           id: false,
@@ -31643,7 +31949,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             className: "fas fa-globe-europe popup-box-icon"
           }),
           data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
-            clasName: "ellipsis"
+            className: "ellipsis"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
             className: "fas fa-globe-europe"
           }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('changeLanguageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("ul", null, _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_14__["default"].map(function (language) {
@@ -31665,7 +31971,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             className: "fas fa-tint popup-box-icon"
           }),
           data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
-            clasName: "ellipsis"
+            className: "ellipsis"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
             className: "fas fa-tint"
           }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('changeTintTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("li", {
@@ -31681,6 +31987,27 @@ var App = /*#__PURE__*/function (_React$Component) {
               return _this2.setLayout('dark');
             }
           }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('darkTheme'))))
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["PopupBox"], {
+          defaultClass: false,
+          id: false,
+          animationTime: 300,
+          animationType: "top-right" // top-left, top-right, bottom-left, bottom-right
+          ,
+          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+            className: "fas fa-search popup-box-icon"
+          }),
+          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+            className: "ellipsis"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+            className: "fas fa-search"
+          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('searchForModule')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["CustomSuggestion"], {
+            placeholder: "".concat(Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('searchForModule')),
+            suggestions: suggestions,
+            callback: this.searchForModule,
+            value: inputValue,
+            inputProps: {},
+            type: "text"
+          }))
         })),
         contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
@@ -31689,7 +32016,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Home__WEBPACK_IMPORTED_MODULE_9__["default"], props);
           }
         })))
-      }));
+      });
     }
   }]);
 

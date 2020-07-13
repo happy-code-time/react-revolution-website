@@ -39,17 +39,17 @@ class App extends React.Component {
                             text: {
                                 prefix: 'prefix',
                                 suffix: 'suffix',
-                                attributes: {},
+                                props: {},
                             },
                             close: {
                                 text: 'close',
-                                attributes: {},
+                                props: {},
                             },
                             link: {
                                 text: 'error',
                                 useTagLink: false,
                                 href: 'error-messages-learn-more',
-                                attributes: {
+                                props: {
                                     target: '_blank',
                                 },
                             },

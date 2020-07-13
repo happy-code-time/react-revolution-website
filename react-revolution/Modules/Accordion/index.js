@@ -45,29 +45,29 @@ class Accordion extends React.Component {
 
         if(data && data.length){
             for(let x = 0; x <= data.length-1; x++){
-                let { text, dataToggle, toggled, unique, classList, dataToggleAttributes } = data[x];
+                let { text, dataToggle, toggled, unique, classList, props } = data[x];
                 const dataChildren = data[x].data;
 
                 if(!classList){
                     classList = '';
                 }
 
-                if(!dataToggleAttributes || typeof dataToggleAttributes !== typeof {}){
-                    dataToggleAttributes = {};
+                if(!props || typeof props !== typeof {}){
+                    props = {};
                 }
 
                 try{
-                    Object.keys(dataToggleAttributes);
+                    Object.keys(props);
                 }
                 catch(e){
-                    dataToggleAttributes = {};
+                    props = {};
                 }
 
                 jsx.push(
                     <div 
                         key={uuid()} 
                         className={`single-entry ${classList}`}
-                        {...dataToggleAttributes}
+                        {...props}
                     >
                         {
                             <div 

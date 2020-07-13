@@ -4,6 +4,12 @@ const EN = {
     changeTintTitle: 'Change website layout',
     lightTheme: 'Light',
     darkTheme: 'Dark',
+    searchForModule: 'Module search',
+    clickToNavToTheModule: 'Navigate to this module',
+    fast: 'Fast',
+    light: 'Light',
+    interactive: 'Interactive',
+    exampleOfUsage: 'Usage example'
 };
 
 export default EN;

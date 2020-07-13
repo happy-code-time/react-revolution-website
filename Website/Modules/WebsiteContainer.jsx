@@ -16,6 +16,7 @@ class WebsiteContainer extends React.Component
     this.state = {
       moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
       headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
+      headerClassName: (props.headerClassName && typeof '8' == typeof props.headerClassName) ? props.headerClassName : '',
       contentData: (props.contentData && typeof {} == typeof props.contentData) ? props.contentData : undefined,
       persistUserSelection: (typeof true == typeof props.persistUserSelection) ? props.persistUserSelection: undefined,
       clearPersistUserSelection: (typeof true == typeof props.clearPersistUserSelection) ? props.clearPersistUserSelection: undefined,
@@ -59,6 +60,7 @@ class WebsiteContainer extends React.Component
       return {
         moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
         headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
+        headerClassName: (props.headerClassName && typeof '8' == typeof props.headerClassName) ? props.headerClassName : '',
         contentData: (props.contentData && typeof {} == typeof props.contentData) ? props.contentData : undefined,
         persistUserSelection: (typeof true == typeof props.persistUserSelection) ? props.persistUserSelection: undefined,
         clearPersistUserSelection: (typeof true == typeof props.clearPersistUserSelection) ? props.clearPersistUserSelection: undefined,
@@ -243,7 +245,7 @@ class WebsiteContainer extends React.Component
   }
 
   render() {
-    const { moduleSidebar, headerData, contentData, displayMinifyMaxifyIcon } = this.state;
+    const { moduleSidebar, headerData, headerClassName, contentData, displayMinifyMaxifyIcon } = this.state;
     const sidebarClassNames = this.getClassNamesSidebar();
     const contentClassNames = this.getClassNamesContent();
 
@@ -263,7 +265,7 @@ class WebsiteContainer extends React.Component
           }
         </div>
         <div className={contentClassNames}>
-          <div className="head">
+          <div className={`head ${headerClassName}`}>
             {
               displayMinifyMaxifyIcon && 
               <i onClick={e => this.sideBar()} className="fas fa-bars minify-menu" />
