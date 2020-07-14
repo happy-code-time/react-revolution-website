@@ -9,7 +9,9 @@ const DE = {
     fast: 'Schnell',
     light: 'Leicht',
     interactive: 'Interaktiv',
-    exampleOfUsage: 'Beispiel Benutzung'
+    exampleOfUsage: 'Beispiel Benutzung',
+    copyToClipboard: 'Zwischenspeichern',
+    installation: 'Installation',
 };
 
 export default DE;

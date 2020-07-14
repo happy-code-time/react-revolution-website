@@ -1,4 +1,4 @@
-const homeExample = 
+const exampleHome = 
 `import { Cards } from 'react-revolution';
 
 <Cards
@@ -24,4 +24,12 @@ const homeExample =
     }
 />`;
 
-export default homeExample;
+const exampleInstallationNpm = `npm install react-revolution`;
+
+const exampleInstallationYarn = `yarn add react-revolution`;
+
+export {
+    exampleHome,
+    exampleInstallationNpm,
+    exampleInstallationYarn
+};

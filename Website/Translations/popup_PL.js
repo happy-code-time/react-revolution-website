@@ -9,7 +9,9 @@ const PL = {
     fast: 'Szybki',
     light: 'Lekki',
     interactive: 'Interaktywny',
-    exampleOfUsage: 'Przykład użycia'
+    exampleOfUsage: 'Przykład użycia',
+    copyToClipboard: 'Kopiuj do schowka',
+    installation: 'Instalacja',
 };
 
 export default PL;

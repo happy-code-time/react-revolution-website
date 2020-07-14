@@ -34,7 +34,7 @@ class ModuleSourceCode extends Component
             inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
             loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
             loadingIcon: props.loadingIcon ? props.loadingIcon: '',
-            layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : undefined
+            layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : 'light'
         };
 
         this.loadingDisplay = (typeof true == typeof props.loadingDisplay) ? props.loadingDisplay : false;
@@ -59,7 +59,7 @@ class ModuleSourceCode extends Component
                 inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
                 loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
                 loadingIcon: props.loadingIcon ? props.loadingIcon: '',
-                layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : undefined
+                layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : 'light'
             };
         }
 

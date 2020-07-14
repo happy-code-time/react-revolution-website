@@ -104,17 +104,17 @@
   .example{
     max-width: 1400px;
     margin: 20px auto;
+  }
 
-    h1{
-      margin: 10px 0;
-      color: $text-color;
+  .section-install{
+    width: 100%;
+
+    .code{
+      display: inline-block;
     }
 
-    .rr-sourcecode{
-      box-sizing: border-box;
-      padding:10px 20px;
-      border-radius: 5px;
-      border: 1px solid $border-color;
+    .install{
+      width: 50%;
     }
   }
 }

@@ -11,6 +11,8 @@ import CardsScrollCallback from './Modules/CardsScrollCallback';
 
 import CustomSuggestion from './Modules/CustomSuggestion';
 
+import Clipboard from './Modules/Clipboard';
+
 import FullScreenListArray from './Modules/FullScreenListArray';
 
 import FullScreenListObjects from './Modules/FullScreenListObjects';
@@ -62,6 +64,7 @@ export {
     CardsScroll,
     CardsScrollCallback,
     CustomSuggestion,
+    Clipboard,
     FullScreenListArray,
     FullScreenListObjects,
     FullScreenOverlay,

@@ -91,8 +91,13 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var homeExample = "import { Cards } from 'react-revolution';\n\n<Cards\n    itemsPerLine={3}\n    data={\n        [\n            {\n                title: 1,\n                content:  2,\n                props: {\n                    class: 'my-custom-class'\n                }\n            },\n            {\n                title: 2,\n                content:  2,\n            },\n            {\n                title: 3,\n                content:  2,\n            }\n        ]\n    }\n/>";
-/* harmony default export */ __webpack_exports__["default"] = (homeExample);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exampleHome", function() { return exampleHome; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exampleInstallationNpm", function() { return exampleInstallationNpm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exampleInstallationYarn", function() { return exampleInstallationYarn; });
+var exampleHome = "import { Cards } from 'react-revolution';\n\n<Cards\n    itemsPerLine={3}\n    data={\n        [\n            {\n                title: 1,\n                content:  2,\n                props: {\n                    class: 'my-custom-class'\n                }\n            },\n            {\n                title: 2,\n                content:  2,\n            },\n            {\n                title: 3,\n                content:  2,\n            }\n        ]\n    }\n/>";
+var exampleInstallationNpm = "npm install react-revolution";
+var exampleInstallationYarn = "yarn add react-revolution";
+
 
 /***/ }),
 
@@ -690,7 +695,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
         className: "fab fa-react"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", null, "React Revolution"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TextWriter"], {
-        text: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('openSourceText')),
+        text: "by David Janitzek",
         speed: 100,
         pipeDisplay: true,
         pipeChar: '',
@@ -709,7 +714,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
             className: "fas fa-balance-scale-right"
           })),
           props: {
-            "class": 'card flex flex-column card-middle'
+            className: 'card flex flex-column card-middle'
           },
           content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
         }, {
@@ -720,10 +725,47 @@ var Home = /*#__PURE__*/function (_React$Component) {
         }]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
         className: "example"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", null, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('exampleOfUsage')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", {
+        className: "title-border"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('exampleOfUsage')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
         displayLineNumber: true,
-        code: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["default"]
-      }))));
+        code: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleHome"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Clipboard"], {
+        animation: "scale" // scale
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('copyToClipboard')),
+        clipboard: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleHome"]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("h1", {
+        className: "title-border"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('installation')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+        className: "section-install flex"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+        className: "install"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+        displayLineNumber: true,
+        code: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleInstallationNpm"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Clipboard"], {
+        animation: "scale" // scale
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('copyToClipboard')),
+        clipboard: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleInstallationNpm"]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+        className: "install"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+        displayLineNumber: true,
+        code: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleInstallationYarn"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Clipboard"], {
+        animation: "scale" // scale
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_6__["default"])('copyToClipboard')),
+        clipboard: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_8__["exampleInstallationYarn"]
+      })))))));
     }
   }]);
 
@@ -820,7 +862,9 @@ var DE = {
   fast: 'Schnell',
   light: 'Leicht',
   interactive: 'Interaktiv',
-  exampleOfUsage: 'Beispiel Benutzung'
+  exampleOfUsage: 'Beispiel Benutzung',
+  copyToClipboard: 'Zwischenspeichern',
+  installation: 'Installation'
 };
 /* harmony default export */ __webpack_exports__["default"] = (DE);
 
@@ -842,7 +886,9 @@ var EN = {
   fast: 'Fast',
   light: 'Light',
   interactive: 'Interactive',
-  exampleOfUsage: 'Usage example'
+  exampleOfUsage: 'Usage example',
+  copyToClipboard: 'Copy to clipboard',
+  installation: 'Installation'
 };
 /* harmony default export */ __webpack_exports__["default"] = (EN);
 
@@ -864,7 +910,9 @@ var PL = {
   fast: 'Szybki',
   light: 'Lekki',
   interactive: 'Interaktywny',
-  exampleOfUsage: 'Przykład użycia'
+  exampleOfUsage: 'Przykład użycia',
+  copyToClipboard: 'Kopiuj do schowka',
+  installation: 'Instalacja'
 };
 /* harmony default export */ __webpack_exports__["default"] = (PL);
 
@@ -12141,7 +12189,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n* {\n  font-family: Helvetica Neue,Arial,sans-serif; }\n\n.w-100 {\n  width: 100%; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.ff-title {\n  font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #DEB887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873CC;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px 15px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      .Home .rr-cards .cards-group .card-middle {\n        margin: 30px 5%; }\n  .Home .example {\n    max-width: 1400px;\n    margin: 20px auto; }\n    .Home .example h1 {\n      margin: 10px 0;\n      color: #72777a; }\n    .Home .example .rr-sourcecode {\n      box-sizing: border-box;\n      padding: 10px 20px;\n      border-radius: 5px;\n      border: 1px solid #dadce0; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .child {\n  padding: 10px 0 10px 53px; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n* {\n  font-family: Helvetica Neue,Arial,sans-serif; }\n\n.w-100 {\n  width: 100%; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.ff-title {\n  font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #DEB887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    border-radius: 5px;\n    border: 1px solid #dadce0;\n    background-color: rgba(222, 222, 222, 0.2);\n    overflow: hidden; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      margin-right: 10px;\n      background-color: #454545;\n      color: white;\n      font-size: 0.77rem; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 30px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873CC;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px 15px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      .Home .rr-cards .cards-group .card-middle {\n        margin: 30px 5%; }\n  .Home .example {\n    max-width: 1400px;\n    margin: 20px auto; }\n  .Home .section-install {\n    width: 100%; }\n    .Home .section-install .code {\n      display: inline-block; }\n    .Home .section-install .install {\n      width: 50%; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .child {\n  padding: 10px 0 10px 53px; }\n", ""]);
 
 
 
@@ -27568,49 +27616,51 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Be;
+    return _e;
   }), a.d(t, "uuid", function () {
     return I;
   }), a.d(t, "Accordion", function () {
     return S;
   }), a.d(t, "Cards", function () {
-    return w;
+    return O;
   }), a.d(t, "CardsScroll", function () {
-    return N;
+    return L;
   }), a.d(t, "CardsScrollCallback", function () {
-    return A;
+    return M;
   }), a.d(t, "CustomSuggestion", function () {
     return B;
-  }), a.d(t, "FullScreenListArray", function () {
+  }), a.d(t, "Clipboard", function () {
     return _;
-  }), a.d(t, "FullScreenListObjects", function () {
+  }), a.d(t, "FullScreenListArray", function () {
     return q;
+  }), a.d(t, "FullScreenListObjects", function () {
+    return J;
   }), a.d(t, "FullScreenOverlay", function () {
-    return K;
-  }), a.d(t, "GlobalMessages", function () {
     return G;
+  }), a.d(t, "GlobalMessages", function () {
+    return $;
   }), a.d(t, "Icons", function () {
-    return Q;
-  }), a.d(t, "InputAnimation", function () {
     return ee;
+  }), a.d(t, "InputAnimation", function () {
+    return ae;
   }), a.d(t, "InputFile", function () {
-    return re;
-  }), a.d(t, "InputFileDragDrop", function () {
     return ie;
-  }), a.d(t, "InputSuggestion", function () {
+  }), a.d(t, "InputFileDragDrop", function () {
     return se;
-  }), a.d(t, "LoadingBoxTop", function () {
+  }), a.d(t, "InputSuggestion", function () {
     return ue;
+  }), a.d(t, "LoadingBoxTop", function () {
+    return fe;
   }), a.d(t, "MenuClickHorizontal", function () {
-    return we;
+    return Le;
   }), a.d(t, "TextWriter", function () {
-    return Te;
-  }), a.d(t, "PopupBox", function () {
     return Fe;
+  }), a.d(t, "PopupBox", function () {
+    return Me;
   }), a.d(t, "SideBar", function () {
-    return Ae;
-  }), a.d(t, "SourceCode", function () {
     return Ve;
+  }), a.d(t, "SourceCode", function () {
+    return je;
   });
 
   var n = a(8),
@@ -27801,7 +27851,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function O(e) {
+  function w(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -27827,9 +27877,9 @@ module.exports = function (e) {
     };
   }
 
-  var w = function (e) {
+  var O = function (e) {
     h()(a, e);
-    var t = O(a);
+    var t = w(a);
 
     function a(e) {
       var n;
@@ -27906,7 +27956,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function L(e) {
+  function N(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -27932,9 +27982,9 @@ module.exports = function (e) {
     };
   }
 
-  var N = function (e) {
+  var L = function (e) {
     h()(a, e);
-    var t = L(a);
+    var t = N(a);
 
     function a(e) {
       var n;
@@ -28050,7 +28100,7 @@ module.exports = function (e) {
       R = a(11),
       F = a.n(R);
 
-  function M(e) {
+  function A(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28076,9 +28126,9 @@ module.exports = function (e) {
     };
   }
 
-  var A = function (e) {
+  var M = function (e) {
     h()(a, e);
-    var t = M(a);
+    var t = A(a);
 
     function a(e) {
       var n;
@@ -28422,6 +28472,117 @@ module.exports = function (e) {
 
     function a(e) {
       var n;
+      return s()(this, a), (n = t.call(this, e)).copyToClipboard = n.copyToClipboard.bind(f()(n)), n.copyToClipboardAction = n.copyToClipboardAction.bind(f()(n)), n.state = {
+        formStyle: {
+          display: "none !important",
+          opacity: 0,
+          width: 0,
+          height: 0,
+          overflow: "hidden"
+        },
+        uuid: "".concat(E()),
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+        data: e.data && i()([]) == i()(e.data) ? e.data : [],
+        clipboard: e.clipboard,
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "copyToClipboardAction",
+      value: function value(e) {
+        this.clipboardNode && (this.clipboardNode.value = e, this.clipboardNode.select(), document.execCommand("copy"), this.clipboardNode.value = "");
+      }
+    }, {
+      key: "copyToClipboard",
+      value: function value(e) {
+        var t = this,
+            a = this.state,
+            n = a.clipboard,
+            r = a.callback,
+            l = a.animation;
+        this.copyToClipboardAction(n), l && this.clipboardNodeForAnimation && (this.clipboardNodeForAnimation.classList.add("animation-scale"), setTimeout(function () {
+          l && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove("animation-scale");
+        }, 500)), r && r(e, n);
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.data,
+            n = t.defaultClass,
+            r = t.id,
+            l = t.formStyle,
+            i = t.uuid;
+        return k.a.createElement("div", {
+          ref: function ref(t) {
+            return e.clipboardNodeForAnimation = t;
+          },
+          className: n,
+          id: r,
+          onClick: function onClick(t) {
+            return e.copyToClipboard(t);
+          }
+        }, a, k.a.createElement("form", {
+          style: l
+        }, k.a.createElement("textarea", {
+          ref: function ref(t) {
+            return e.clipboardNode = t;
+          },
+          id: i,
+          value: "",
+          readOnly: !0
+        })));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return C(["defaultClass", "id", "callback", "data", "clipboard"], e, t) ? {
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+          data: e.data && i()([]) == i()(e.data) ? e.data : [],
+          clipboard: e.clipboard
+        } : null;
+      }
+    }]), a;
+  }(k.a.Component);
+
+  function U(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var r = y()(this).constructor;
+        a = Reflect.construct(n, arguments, r);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var q = function (e) {
+    h()(a, e);
+    var t = U(a);
+
+    function a(e) {
+      var n;
       return s()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
@@ -28622,7 +28783,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function U(e) {
+  function z(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28648,9 +28809,9 @@ module.exports = function (e) {
     };
   }
 
-  var q = function (e) {
+  var J = function (e) {
     h()(a, e);
-    var t = U(a);
+    var t = z(a);
 
     function a(e) {
       var n;
@@ -28846,14 +29007,14 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      z = function z() {
+      H = function H() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      J = function J() {
+      K = function K() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function H(e) {
+  function W(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28879,9 +29040,9 @@ module.exports = function (e) {
     };
   }
 
-  var K = function (e) {
+  var G = function (e) {
     h()(a, e);
-    var t = H(a);
+    var t = W(a);
 
     function a(e) {
       var n;
@@ -28907,12 +29068,12 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        t && window.addEventListener("keydown", this.EscListener, !1), a && z();
+        t && window.addEventListener("keydown", this.EscListener, !1), a && H();
       }
     }, {
       key: "componentWillUnmount",
       value: function value() {
-        J(), window.removeEventListener("keydown", this.EscListener, !1);
+        K(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -28920,15 +29081,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), void (a && z());
-        J(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), void (a && H());
+        K(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
           var t = this.state.closeCallback;
-          t && "function" == typeof t && (J(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -28938,7 +29099,7 @@ module.exports = function (e) {
             a = this.state,
             n = a.closeOnClick,
             r = a.closeCallback;
-        (t || n && r && "function" == typeof r && this.contentReference && !e.target.contains(this.contentReference)) && (J(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+        (t || n && r && "function" == typeof r && this.contentReference && !e.target.contains(this.contentReference)) && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -29015,7 +29176,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function W(e) {
+  function Z(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29041,9 +29202,9 @@ module.exports = function (e) {
     };
   }
 
-  var G = function (e) {
+  var $ = function (e) {
     h()(a, e);
-    var t = W(a);
+    var t = Z(a);
 
     function a(e) {
       var n;
@@ -29198,7 +29359,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Z(e) {
+  function Y(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29224,7 +29385,7 @@ module.exports = function (e) {
     };
   }
 
-  var $ = {
+  var Q = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -29278,10 +29439,10 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      Y = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      Q = function (e) {
+      X = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      ee = function (e) {
     h()(a, e);
-    var t = Z(a);
+    var t = Y(a);
 
     function a(e) {
       var n;
@@ -29291,8 +29452,8 @@ module.exports = function (e) {
         iconsType: e.iconsType && i()("8") == i()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-        icons: e.icons && i()({}) == i()(e.icons) ? e.icons : $,
-        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Y,
+        icons: e.icons && i()({}) == i()(e.icons) ? e.icons : Q,
+        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : X,
         translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0
       }, n;
     }
@@ -29362,15 +29523,15 @@ module.exports = function (e) {
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-          icons: e.icons && i()({}) == i()(e.icons) ? e.icons : $,
-          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : Y,
+          icons: e.icons && i()({}) == i()(e.icons) ? e.icons : Q,
+          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : X,
           translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0
         } : null;
       }
     }]), a;
   }(k.a.Component);
 
-  function X(e) {
+  function te(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29396,9 +29557,9 @@ module.exports = function (e) {
     };
   }
 
-  var ee = function (e) {
+  var ae = function (e) {
     h()(a, e);
-    var t = X(a);
+    var t = te(a);
 
     function a(e) {
       var n;
@@ -29568,10 +29729,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      te = a(13),
-      ae = a.n(te);
+      ne = a(13),
+      re = a.n(ne);
 
-  function ne(e) {
+  function le(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29597,9 +29758,9 @@ module.exports = function (e) {
     };
   }
 
-  var re = function (e) {
+  var ie = function (e) {
     h()(a, e);
-    var t = ne(a);
+    var t = le(a);
 
     function a(e) {
       var n;
@@ -29727,7 +29888,7 @@ module.exports = function (e) {
           },
           placeholder: l,
           id: o
-        }, ae()(e, "type", "file"), ae()(e, "name", "files[]"), e), c)), k.a.createElement("label", {
+        }, re()(e, "type", "file"), re()(e, "name", "files[]"), e), c)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, n));
@@ -29749,7 +29910,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function le(e) {
+  function oe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29775,9 +29936,9 @@ module.exports = function (e) {
     };
   }
 
-  var ie = function (e) {
+  var se = function (e) {
     h()(a, e);
-    var t = le(a);
+    var t = oe(a);
 
     function a(e) {
       var n;
@@ -29943,7 +30104,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function oe(e) {
+  function ce(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -29969,9 +30130,9 @@ module.exports = function (e) {
     };
   }
 
-  var se = function (e) {
+  var ue = function (e) {
     h()(a, e);
-    var t = oe(a);
+    var t = ce(a);
 
     function a(e) {
       var n;
@@ -30221,7 +30382,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function ce(e) {
+  function de(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30247,9 +30408,9 @@ module.exports = function (e) {
     };
   }
 
-  var ue = function (e) {
+  var fe = function (e) {
     h()(a, e);
-    var t = ce(a);
+    var t = de(a);
 
     function a(e) {
       var n;
@@ -30283,13 +30444,13 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      de = a(9),
-      fe = a.n(de),
-      pe = a(14),
-      he = a.n(pe);
+      pe = a(9),
+      he = a.n(pe),
+      ve = a(14),
+      me = a.n(ve);
 
-  function ve() {
-    return (ve = Object.assign || function (e) {
+  function ge() {
+    return (ge = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -30302,11 +30463,11 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function me(e) {
+  function ye(e) {
     return "/" === e.charAt(0);
   }
 
-  function ge(e, t) {
+  function be(e, t) {
     for (var a = t, n = a + 1, r = e.length; n < r; a += 1, n += 1) {
       e[a] = e[n];
     }
@@ -30314,15 +30475,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var ye = function ye(e, t) {
+  var ke = function ke(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         r = t && t.split("/") || [],
-        l = e && me(e),
-        i = t && me(t),
+        l = e && ye(e),
+        i = t && ye(t),
         o = l || i;
-    if (e && me(e) ? r = n : n.length && (r.pop(), r = r.concat(n)), !r.length) return "/";
+    if (e && ye(e) ? r = n : n.length && (r.pop(), r = r.concat(n)), !r.length) return "/";
 
     if (r.length) {
       var s = r[r.length - 1];
@@ -30331,18 +30492,18 @@ module.exports = function (e) {
 
     for (var c = 0, u = r.length; u >= 0; u--) {
       var d = r[u];
-      "." === d ? ge(r, u) : ".." === d ? (ge(r, u), c++) : c && (ge(r, u), c--);
+      "." === d ? be(r, u) : ".." === d ? (be(r, u), c++) : c && (be(r, u), c--);
     }
 
     if (!o) for (; c--; c) {
       r.unshift("..");
     }
-    !o || "" === r[0] || r[0] && me(r[0]) || r.unshift("");
+    !o || "" === r[0] || r[0] && ye(r[0]) || r.unshift("");
     var f = r.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
-  function be(e, t, a, n) {
+  function Ce(e, t, a, n) {
     var r;
     "string" == typeof e ? (r = function (e) {
       var t = e || "/",
@@ -30356,7 +30517,7 @@ module.exports = function (e) {
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (r = ve({}, e)).pathname && (r.pathname = ""), r.search ? "?" !== r.search.charAt(0) && (r.search = "?" + r.search) : r.search = "", r.hash ? "#" !== r.hash.charAt(0) && (r.hash = "#" + r.hash) : r.hash = "", void 0 !== t && void 0 === r.state && (r.state = t));
+    }(e)).state = t : (void 0 === (r = ge({}, e)).pathname && (r.pathname = ""), r.search ? "?" !== r.search.charAt(0) && (r.search = "?" + r.search) : r.search = "", r.hash ? "#" !== r.hash.charAt(0) && (r.hash = "#" + r.hash) : r.hash = "", void 0 !== t && void 0 === r.state && (r.state = t));
 
     try {
       r.pathname = decodeURI(r.pathname);
@@ -30364,12 +30525,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + r.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (r.key = a), n ? r.pathname ? "/" !== r.pathname.charAt(0) && (r.pathname = ye(r.pathname, n.pathname)) : r.pathname = n.pathname : r.pathname || (r.pathname = "/"), r;
+    return a && (r.key = a), n ? r.pathname ? "/" !== r.pathname.charAt(0) && (r.pathname = ke(r.pathname, n.pathname)) : r.pathname = n.pathname : r.pathname || (r.pathname = "/"), r;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var ke = Object.assign || function (e) {
+  var Ee = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -30381,29 +30542,29 @@ module.exports = function (e) {
     return e;
   };
 
-  function Ce(e, t) {
+  function xe(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function Ee(e, t) {
+  function De(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var xe = function xe(e) {
+  var Se = function Se(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
-      De = function (e) {
+      we = function (e) {
     function t() {
       var a, n;
-      Ce(this, t);
+      xe(this, t);
 
       for (var r = arguments.length, l = Array(r), i = 0; i < r; i++) {
         l[i] = arguments[i];
       }
 
-      return a = n = Ee(this, e.call.apply(e, [this].concat(l))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !xe(e)) {
+      return a = n = De(this, e.call.apply(e, [this].concat(l))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Se(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
@@ -30411,7 +30572,7 @@ module.exports = function (e) {
               l = a.to;
           r ? t.replace(l) : t.push(l);
         }
-      }, Ee(n, a);
+      }, De(n, a);
     }
 
     return function (e, t) {
@@ -30438,11 +30599,11 @@ module.exports = function (e) {
         return a;
       }(e, ["replace", "to", "innerRef"]);
 
-      he()(this.context.router, "You should not use <Link> outside a <Router>"), he()(void 0 !== t, 'You must specify the "to" property');
+      me()(this.context.router, "You should not use <Link> outside a <Router>"), me()(void 0 !== t, 'You must specify the "to" property');
       var r = this.context.router.history,
-          l = "string" == typeof t ? be(t, null, null, r.location) : t,
+          l = "string" == typeof t ? Ce(t, null, null, r.location) : t,
           i = r.createHref(l);
-      return k.a.createElement("a", ke({}, n, {
+      return k.a.createElement("a", Ee({}, n, {
         onClick: this.handleClick,
         href: i,
         ref: a
@@ -30450,26 +30611,26 @@ module.exports = function (e) {
     }, t;
   }(k.a.Component);
 
-  De.propTypes = {
-    onClick: fe.a.func,
-    target: fe.a.string,
-    replace: fe.a.bool,
-    to: fe.a.oneOfType([fe.a.string, fe.a.object]).isRequired,
-    innerRef: fe.a.oneOfType([fe.a.string, fe.a.func])
-  }, De.defaultProps = {
+  we.propTypes = {
+    onClick: he.a.func,
+    target: he.a.string,
+    replace: he.a.bool,
+    to: he.a.oneOfType([he.a.string, he.a.object]).isRequired,
+    innerRef: he.a.oneOfType([he.a.string, he.a.func])
+  }, we.defaultProps = {
     replace: !1
-  }, De.contextTypes = {
-    router: fe.a.shape({
-      history: fe.a.shape({
-        push: fe.a.func.isRequired,
-        replace: fe.a.func.isRequired,
-        createHref: fe.a.func.isRequired
+  }, we.contextTypes = {
+    router: he.a.shape({
+      history: he.a.shape({
+        push: he.a.func.isRequired,
+        replace: he.a.func.isRequired,
+        createHref: he.a.func.isRequired
       }).isRequired
     }).isRequired
   };
-  var Se = De;
+  var Oe = we;
 
-  function Oe(e) {
+  function Ne(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30495,9 +30656,9 @@ module.exports = function (e) {
     };
   }
 
-  var we = function (e) {
+  var Le = function (e) {
     h()(a, e);
-    var t = Oe(a);
+    var t = Ne(a);
 
     function a(e) {
       var n;
@@ -30539,7 +30700,7 @@ module.exports = function (e) {
           }
 
           var b = "";
-          n && g && 0 == g.length && (b = k.a.createElement(Se, {
+          n && g && 0 == g.length && (b = k.a.createElement(Oe, {
             to: v,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
@@ -30642,10 +30803,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      Le = a(12),
-      Ne = a.n(Le);
+      Pe = a(12),
+      Te = a.n(Pe);
 
-  function Pe(e) {
+  function Re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30671,9 +30832,9 @@ module.exports = function (e) {
     };
   }
 
-  var Te = function (e) {
+  var Fe = function (e) {
     h()(a, e);
-    var t = Pe(a);
+    var t = Re(a);
 
     function a(e) {
       var n;
@@ -30808,7 +30969,7 @@ module.exports = function (e) {
                                       });
                                     }, r)), l.next = 4, e.writerPromise(h[p]).then(function (t) {
                                       v.push(t), e.setState({
-                                        written: [].concat(Ne()(o), v, Ne()(s), Ne()(f))
+                                        written: [].concat(Te()(o), v, Te()(s), Te()(f))
                                       });
                                     });
 
@@ -30863,7 +31024,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Re(e) {
+  function Ae(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30889,9 +31050,9 @@ module.exports = function (e) {
     };
   }
 
-  var Fe = function (e) {
+  var Me = function (e) {
     h()(a, e);
-    var t = Re(a);
+    var t = Ae(a);
 
     function a(e) {
       var n;
@@ -31007,7 +31168,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Me(e) {
+  function Ie(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -31033,9 +31194,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ae = function (e) {
+  var Ve = function (e) {
     h()(a, e);
-    var t = Me(a);
+    var t = Ie(a);
 
     function a(e) {
       var n;
@@ -31089,7 +31250,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ie(e) {
+  function Be(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -31115,9 +31276,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ve = function (e) {
+  var je = function (e) {
     h()(a, e);
-    var t = Ie(a);
+    var t = Be(a);
 
     function a(e) {
       var n;
@@ -31136,7 +31297,7 @@ module.exports = function (e) {
         inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
         loadingDisplay: i()(!0) == e.loadingDisplay && e.loadingDisplay,
         loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-        layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : void 0
+        layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
       }, n.loadingDisplay = i()(!0) == i()(e.loadingDisplay) && e.loadingDisplay, n.isFocus = !1, n;
     }
 
@@ -31279,17 +31440,17 @@ module.exports = function (e) {
               }
 
               if (-1 !== f.indexOf("(")) {
-                var O = f.substring(0, f.indexOf("("));
+                var w = f.substring(0, f.indexOf("("));
                 u = "function", i.push({
-                  code: O,
+                  code: w,
                   "class": "functionName"
                 });
-                var w = f.substring(O.length + 1, f.length);
+                var O = f.substring(w.length + 1, f.length);
                 i.push({
                   code: "(",
                   "class": "bracket bracket-left"
                 }), i.push({
-                  code: w,
+                  code: O,
                   "class": "functionArguments"
                 }), f = "";
               }
@@ -31310,9 +31471,9 @@ module.exports = function (e) {
                 code: f,
                 "class": "functionArguments"
               }), f = "", u = "function")), -1 !== f.indexOf("{")) {
-                var L = f.substring(0, f.indexOf("{"));
-                f = f.substring(L.length, f.length), -1 !== L.indexOf("=") && (i.push({
-                  code: L.substring(0, L.indexOf("=")),
+                var N = f.substring(0, f.indexOf("{"));
+                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (i.push({
+                  code: N.substring(0, N.indexOf("=")),
                   "class": "variableName"
                 }), i.push({
                   code: "=",
@@ -31348,15 +31509,15 @@ module.exports = function (e) {
                 code: ")",
                 "class": "bracket bracket-right"
               }), f = "", u = ""), f.length) {
-                for (var N = [{
+                for (var L = [{
                   words: ["import", "from", "require", "use", "return", "export", "default", "extends", "interface"],
                   "class": "key"
-                }], P = 0; P <= N.length - 1; P++) {
-                  for (var T = N[P].words, R = 0; R <= T.length - 1; R++) {
+                }], P = 0; P <= L.length - 1; P++) {
+                  for (var T = L[P].words, R = 0; R <= T.length - 1; R++) {
                     if (T[R] === f) {
                       i.push({
                         code: f,
-                        "class": N[P]["class"]
+                        "class": L[P]["class"]
                       }), f = "";
                       break;
                     }
@@ -31381,12 +31542,12 @@ module.exports = function (e) {
           }), r.push(i);
         }
 
-        for (var F = [], M = 0; M < r.length; M++) {
-          for (var A = r[M], I = [], V = 0; V < A.length; V++) {
+        for (var F = [], A = 0; A < r.length; A++) {
+          for (var M = r[A], I = [], V = 0; V < M.length; V++) {
             I.push(k.a.createElement("span", {
               key: E(),
-              className: A[V]["class"] ? A[V]["class"] : ""
-            }, A[V].code));
+              className: M[V]["class"] ? M[V]["class"] : ""
+            }, M[V].code));
           }
 
           F.push(k.a.createElement("div", {
@@ -31394,7 +31555,7 @@ module.exports = function (e) {
             className: n ? "single-code-line flex" : "single-code-line"
           }, n && k.a.createElement("div", {
             className: "line-number"
-          }, M + 1), k.a.createElement("div", {
+          }, A + 1), k.a.createElement("div", {
             className: "line-code"
           }, I)));
         }
@@ -31637,12 +31798,12 @@ module.exports = function (e) {
           inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
           loadingDisplay: i()(!0) == e.loadingDisplay && e.loadingDisplay,
           loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-          layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : void 0
+          layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
         } : null;
       }
     }]), a;
   }(b.Component),
-      Be = function Be() {
+      _e = function _e() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,

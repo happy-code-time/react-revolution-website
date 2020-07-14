@@ -3,19 +3,21 @@ import * as React from 'react';
 
 import trans from '../Translations/trans';
 
-import { TextWriter, Cards, SourceCode } from '.././../react-revolution/public/react-revolution';
+import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/public/react-revolution';
 
-import homeExample from '../CodeExamples/homeExample';
+import { exampleHome, exampleInstallationNpm, exampleInstallationYarn } from '../CodeExamples/homeExample';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+
         };
     }
 
     render() {
+
         return (
             <div className="ContentBody">
                 <div className="Home">
@@ -27,7 +29,7 @@ class Home extends React.Component {
                             </h1>
                             <h2>
                                 <TextWriter
-                                    text={`${trans('openSourceText')}`}
+                                    text='by David Janitzek'
                                     speed={100}
                                     pipeDisplay={true}
                                     pipeChar={''}
@@ -47,7 +49,7 @@ class Home extends React.Component {
                                             {
                                                 trans('fast')
                                             }
-                                            <i className="far fa-clock"/>
+                                            <i className="far fa-clock" />
                                         </div>
                                     ),
                                     content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
@@ -62,7 +64,7 @@ class Home extends React.Component {
                                         </div>
                                     ),
                                     props: {
-                                        class: 'card flex flex-column card-middle'
+                                        className: 'card flex flex-column card-middle'
                                     },
                                     content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
                                 },
@@ -81,15 +83,71 @@ class Home extends React.Component {
                         }
                     />
                     <div className="example">
-                        <h1>
-                            {
-                                trans('exampleOfUsage')
-                            }
-                        </h1>
-                        <SourceCode
-                            displayLineNumber={true}
-                            code={homeExample}
-                        />
+                        <div>
+                            <h1 className="title-border">
+                                {
+                                    trans('exampleOfUsage')
+                                }
+                            </h1>
+                            <SourceCode
+                                displayLineNumber={true}
+                                code={exampleHome}
+                            />
+                            <Clipboard
+                                animation='scale' // scale
+                                data={(
+                                    <div className="button-action">
+                                        {
+                                            trans('copyToClipboard')
+                                        }
+                                    </div>
+                                )}
+                                clipboard={exampleHome}
+                            />
+                        </div>
+                        <div>
+                            <h1 className="title-border">
+                                {
+                                    trans('installation')
+                                }
+                            </h1>
+                            <div className="section-install flex">
+                                <div className="install">
+                                    <SourceCode
+                                        displayLineNumber={true}
+                                        code={exampleInstallationNpm}
+                                    />
+                                    <Clipboard
+                                        animation='scale' // scale
+                                        data={(
+                                            <div className="button-action">
+                                                {
+                                                    trans('copyToClipboard')
+                                                }
+                                            </div>
+                                        )}
+                                        clipboard={exampleInstallationNpm}
+                                    />
+                                </div>
+                                <div className="install">
+                                    <SourceCode
+                                        displayLineNumber={true}
+                                        code={exampleInstallationYarn}
+                                    />
+                                    <Clipboard
+                                        animation='scale' // scale
+                                        data={(
+                                            <div className="button-action">
+                                                {
+                                                    trans('copyToClipboard')
+                                                }
+                                            </div>
+                                        )}
+                                        clipboard={exampleInstallationYarn}
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

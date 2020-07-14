@@ -9,7 +9,9 @@ const EN = {
     fast: 'Fast',
     light: 'Light',
     interactive: 'Interactive',
-    exampleOfUsage: 'Usage example'
+    exampleOfUsage: 'Usage example',
+    copyToClipboard: 'Copy to clipboard',
+    installation: 'Installation',
 };
 
 export default EN;
