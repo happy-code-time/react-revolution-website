@@ -1,3 +1,5 @@
+@import './globals.scss';
+
 .rr-fullscreenlist {
   position: fixed;
   width: 100vw;
@@ -116,7 +118,7 @@
   left: 50vw;
   width: 0;
   height: 0;
-  animation: scaleIt 300ms forwards ease-in;
+  animation: scaleIt $default_transition forwards ease-in;
 }
 
 .rr-fullscreenlist.scale-back {
@@ -136,7 +138,7 @@
       transform: scale(0);
     }
   }
-  animation: scaleItBack 300ms forwards ease-in;
+  animation: scaleItBack $default_transition forwards ease-in;
 }
 
 // Animation top
@@ -154,7 +156,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  animation: topIt 300ms forwards ease-in;
+  animation: topIt $default_transition forwards ease-in;
 }
 
 
@@ -167,7 +169,7 @@
       top: -100vh;
     }
   }
-  animation: topItBack 300ms forwards ease-in;
+  animation: topItBack $default_transition forwards ease-in;
 }
 
 // Animation right
@@ -185,7 +187,7 @@
   right: -100vw;
   width: 100vw;
   height: 100vh;
-  animation: rightIt 300ms forwards ease-in;
+  animation: rightIt $default_transition forwards ease-in;
 }
 
 
@@ -198,7 +200,7 @@
       right: -100vw;
     }
   }
-  animation: rightItBack 300ms forwards ease-in;
+  animation: rightItBack $default_transition forwards ease-in;
 }
 
 // Animation bottom
@@ -216,7 +218,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  animation: bottomIt 300ms forwards ease-in;
+  animation: bottomIt $default_transition forwards ease-in;
 }
 
 
@@ -229,7 +231,7 @@
       bottom: -100vh;
     }
   }
-  animation: bottomItBack 300ms forwards ease-in;
+  animation: bottomItBack $default_transition forwards ease-in;
 }
 
 // Animation right
@@ -247,7 +249,7 @@
   left: -100vw;
   width: 100vw;
   height: 100vh;
-  animation: leftIt 300ms forwards ease-in;
+  animation: leftIt $default_transition forwards ease-in;
 }
 
 
@@ -260,5 +262,5 @@
       left: -100vw;
     }
   }
-  animation: leftItBack 300ms forwards ease-in;
+  animation: leftItBack $default_transition forwards ease-in;
 }

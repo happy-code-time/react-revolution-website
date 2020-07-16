@@ -11,6 +11,7 @@ class SideBar extends React.Component {
       /**
        * User
        */
+      addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
       defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sidebar',
       id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
       image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
@@ -29,6 +30,7 @@ class SideBar extends React.Component {
   static getDerivedStateFromProps(props, state) {
     if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'image', 'moduleMenu', 'textLong', 'textShort'], props, state)) {
       return {
+        addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
         defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sidebar',
         id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
         image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
@@ -42,10 +44,10 @@ class SideBar extends React.Component {
   }
 
   render() {
-    const { defaultClass, id, moduleMenu, image, textLong, textShort } = this.state;
+    const { addClass, defaultClass, id, moduleMenu, image, textLong, textShort } = this.state;
 
     return (
-      <div className={defaultClass} id={id}>
+      <div className={`${defaultClass} ${addClass}`} id={id}>
         <div className="logo-text">
           {
             image &&

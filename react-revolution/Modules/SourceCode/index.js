@@ -23,6 +23,7 @@ class ModuleSourceCode extends Component
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
@@ -50,6 +51,7 @@ class ModuleSourceCode extends Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'displayLineNumber', 'code', 'inputActive', 'inputPlaceholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
@@ -562,10 +564,12 @@ class ModuleSourceCode extends Component
                 );
             }
 
+            const baseClass = `single-code-line single-code-line-${x+1} ${x+1 == 1 ? ' single-code-line-first' : ''} ${x+1 == masterCode.length ? ' single-code-line-last' : ''}`;
+
             codeJsx.push(
-                <div
+                <li
                     key={uuid()}
-                    className={displayLineNumber ? 'single-code-line flex' : 'single-code-line'}
+                    className={displayLineNumber ? `${baseClass} flex` : baseClass}
                 >
                     {
                         displayLineNumber &&
@@ -580,7 +584,7 @@ class ModuleSourceCode extends Component
                             tempHolder
                         }
                     </div>
-                </div>
+                </li>
             );
         }
 
@@ -1057,7 +1061,7 @@ class ModuleSourceCode extends Component
     }
 
     render() {
-        const { defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, inputPlaceholder, searchValue, id } = this.state;
+        const { addClass, defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, inputPlaceholder, searchValue, id } = this.state;
 
         if (loadingDisplay) {
             return (
@@ -1070,7 +1074,7 @@ class ModuleSourceCode extends Component
         }
 
         return (
-            <div className={`${defaultClass} ${layout}`} id={id}>
+            <div className={`${defaultClass} ${layout} ${addClass}`} id={id}>
                 {
                     inputActive &&
                     <div className="search">
@@ -1086,11 +1090,11 @@ class ModuleSourceCode extends Component
                         />
                     </div>
                 }
-                <div className='code'>
+                <ul className='code'>
                     {
                         lines
                     }
-                </div>
+                </ul>
             </div>
         );
     }

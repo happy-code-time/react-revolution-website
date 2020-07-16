@@ -12,6 +12,10 @@ class GlobalMessages extends React.Component
         this.checkLocation = this.checkLocation.bind(this);
 
         this.state = {
+            /**
+             * User
+             */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
@@ -37,6 +41,7 @@ class GlobalMessages extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'codeMapping', 'timer', 'messageKey'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
@@ -168,11 +173,11 @@ class GlobalMessages extends React.Component
     }
 
     render() {
-        const { codeMapping, messagesApp, defaultClass } = this.state;
+        const { addClass, codeMapping, messagesApp, defaultClass } = this.state;
         const mappingKeys = Object.getOwnPropertyNames(codeMapping);
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     messagesApp.map( obj => {
 

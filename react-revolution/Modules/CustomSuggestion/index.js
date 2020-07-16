@@ -18,6 +18,7 @@ class CustomSuggestion extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-custom-suggestion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
@@ -141,10 +142,10 @@ class CustomSuggestion extends React.Component {
     }
 
     render() {
-        const { defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType } = this.state;
+        const { addClass, defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType } = this.state;
 
         return (
-            <div className={defaultClass}>
+            <div className={`${defaultClass} ${addClass}`}>
                 <div className="input">
                     <input
                         type={inputType}

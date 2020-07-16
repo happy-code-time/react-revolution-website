@@ -25,6 +25,7 @@ class InputSuggestion extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
@@ -343,10 +344,10 @@ class InputSuggestion extends React.Component {
     }
 
     render() {
-        const { selected, defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType, selectedArrow } = this.state;
+        const { addClass, selected, defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType, selectedArrow } = this.state;
 
         return (
-            <div className={defaultClass}>
+            <div className={`${defaultClass} ${addClass}`}>
                 <div className="input">
                     {
                         0 !== selected.length &&

@@ -1,6 +1,8 @@
 
 import * as React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import trans from '../Translations/trans';
 
 import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/public/react-revolution';
@@ -82,19 +84,21 @@ class Home extends React.Component {
                             ]
                         }
                     />
-                    <div className="example">
-                        <div>
+                    <div className="example flex">
+                        <div className="example-1">
                             <h1 className="title-border">
+                                <i className="fas fa-laptop-code"></i>
                                 {
                                     trans('exampleOfUsage')
                                 }
                             </h1>
                             <SourceCode
+                                layout='dark'
                                 displayLineNumber={true}
                                 code={exampleHome}
                             />
                             <Clipboard
-                                animation='scale' // scale
+                                animation='jump' // scale, jump
                                 data={(
                                     <div className="button-action">
                                         {
@@ -105,22 +109,23 @@ class Home extends React.Component {
                                 clipboard={exampleHome}
                             />
                         </div>
-                        <div>
-                            <h1 className="title-border">
-                                {
-                                    trans('installation')
-                                }
-                            </h1>
-                            <div className="section-install flex">
-                                <div className="install">
+                        <div className="example-2 flex flex-column flex-space-between">
+
+                            <div className="install-buttons flex flex-column">
+                                <h1 className="title-border">
+                                    <i className="fab fa-npm"></i>
+                                    {`${trans('installation')} NPM`}
+                                </h1>
+                                <div className="install flex flex-space-between w-100">
                                     <SourceCode
-                                        displayLineNumber={true}
+                                        addClass='rr-sourcecode-install'
+                                        displayLineNumber={false}
                                         code={exampleInstallationNpm}
                                     />
                                     <Clipboard
-                                        animation='scale' // scale
+                                        animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action">
+                                            <div className="button-action margin-0">
                                                 {
                                                     trans('copyToClipboard')
                                                 }
@@ -129,15 +134,23 @@ class Home extends React.Component {
                                         clipboard={exampleInstallationNpm}
                                     />
                                 </div>
-                                <div className="install">
+                            </div>
+
+                            <div className="install-buttons flex flex-column mt-3">
+                                <h1 className="title-border">
+                                    <i className="fab fa-yarn"></i>
+                                    {`${trans('installation')} YARN`}
+                                </h1>
+                                <div className="install flex flex-space-between w-100">
                                     <SourceCode
-                                        displayLineNumber={true}
+                                        addClass='rr-sourcecode-install'
+                                        displayLineNumber={false}
                                         code={exampleInstallationYarn}
                                     />
                                     <Clipboard
-                                        animation='scale' // scale
+                                        animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action">
+                                            <div className="button-action margin-0">
                                                 {
                                                     trans('copyToClipboard')
                                                 }
@@ -146,6 +159,20 @@ class Home extends React.Component {
                                         clipboard={exampleInstallationYarn}
                                     />
                                 </div>
+                            </div>
+
+                            <div className="documentation mt-3">
+                                <h1 className="title-border">
+                                    <i className="fas fa-book-reader"></i>
+                                    {
+                                        trans('documentation')
+                                    }
+                                </h1>
+                                <Link to='#' className='button-action'>
+                                    {
+                                        trans('documentation')
+                                    }
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -23,6 +23,7 @@ class InputFile extends React.Component
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             allowedFileSize: props.allowedFileSize,
@@ -46,6 +47,7 @@ class InputFile extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['label', 'errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'multiple'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 label: (props.label && typeof '8' == typeof props.label) ? props.label : '',
@@ -173,13 +175,13 @@ class InputFile extends React.Component
     }
 
     render() {
-        const { label, placeholder, defaultClass, id, multiple } = this.state;
+        const { addClass, label, placeholder, defaultClass, id, multiple } = this.state;
         const props = {
             multiple: multiple ? multiple : ''
         };
 
         return (
-            <div className={defaultClass}>
+            <div className={`${defaultClass} ${addClass}`}>
                 <input
                     type="file"
                     onChange={(e) => this.handleFileUpload(e)}

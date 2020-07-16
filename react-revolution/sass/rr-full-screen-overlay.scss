@@ -1,3 +1,5 @@
+@import './globals.scss';
+
 .rr-full-screen-overlay {
   position: fixed;
   top: 0;
@@ -58,7 +60,7 @@
   height: 0;
   transform: scale(0);
   overflow: hidden;
-  animation: scaleIt 300ms forwards ease-in;
+  animation: scaleIt $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-scale.back {
@@ -78,7 +80,7 @@
       transform: scale(0);
     }
   }
-  animation: scaleItBack 300ms forwards ease-in;
+  animation: scaleItBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-left {
@@ -97,7 +99,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromLeft 300ms forwards ease-in;
+  animation: fromLeft $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-left.back {
   @keyframes fromLeftBack {
@@ -108,7 +110,7 @@
       left: -100vw;
     }
   }
-  animation: fromLeftBack 300ms forwards ease-in;
+  animation: fromLeftBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-top {
@@ -127,7 +129,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromTop 300ms forwards ease-in;
+  animation: fromTop $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-top.back {
   @keyframes fromTopBack {
@@ -138,7 +140,7 @@
       top: -100vh;
     }
   }
-  animation: fromTopBack 300ms forwards ease-in;
+  animation: fromTopBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-right {
@@ -158,7 +160,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromRight 300ms forwards ease-in;
+  animation: fromRight $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-right.back {
@@ -170,7 +172,7 @@
       right: -100vw;
     }
   }
-  animation: fromRightBack 300ms forwards ease-in;
+  animation: fromRightBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-bottom {
@@ -190,7 +192,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromBottom 300ms forwards ease-in;
+  animation: fromBottom $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-bottom.back {
   @keyframes fromBottomBack {
@@ -201,5 +203,5 @@
       bottom: -100vh;
     }
   }
-  animation: fromBottomBack 300ms forwards ease-in;
+  animation: fromBottomBack $default_transition forwards ease-in;
 }

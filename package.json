@@ -10,7 +10,9 @@
     "build:website:dev": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
     "server": "lite-server -c bs-config.json",
     "compile": "./node_modules/.bin/gulp compile",
-    "chmod:2775": "sudo chmod 2775 -R public/*"
+    "watch:sass": "./node_modules/.bin/gulp watch:sass",
+    "chmod:2775": "sudo chmod 2775 -R public/*",
+    "watch": "npm run server & npm run build:website:dev & npm run watch:sass"
   },
   "keywords": [],
   "author": "David Janitzek",

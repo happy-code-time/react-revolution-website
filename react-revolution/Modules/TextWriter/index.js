@@ -17,6 +17,7 @@ class TextWriter extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-text-writer',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             text: (props.text && props.text.length) ? props.text : '',
@@ -180,10 +181,10 @@ class TextWriter extends React.Component {
     }
 
     render() {
-        const { defaultClass, id, uuid, written, pipeDisplay, pipeChar, pipeSite } = this.state;
+        const { addClass, defaultClass, id, uuid, written, pipeDisplay, pipeChar, pipeSite } = this.state;
 
         return (
-            <span className={defaultClass} id={id}>
+            <span className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     'left' == pipeSite && pipeDisplay &&
                     <span className="pipe">

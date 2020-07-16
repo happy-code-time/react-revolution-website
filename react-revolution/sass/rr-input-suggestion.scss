@@ -1,10 +1,6 @@
+@import './globals.scss';
+
 .rr-input-suggestion {
-  $dodgerblue: #1873cc;
-  $default_transition: 300ms;
-  $dodgerblue-light-xl: rgba(30, 144, 255, 0.1);
-  $orange: rgba(248, 165, 27, 1);
-  $white: rgb(255,255,255);
-  $border-color: #dadce0;
   width: 100%;
 
   .input{

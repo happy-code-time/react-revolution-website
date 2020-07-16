@@ -1,3 +1,5 @@
+@import './globals.scss';
+
 .rr-menu-click-horizontal{
     box-sizing: border-box;
     padding: 5px 10px;
@@ -36,7 +38,7 @@
 
         max-height: 0px;
         overflow: hidden;
-        animation: toggleMenuEntriesHeight 300ms ease-in forwards;
+        animation: toggleMenuEntriesHeight $default_transition ease-in forwards;
     }
 
     .animation-height .children{
@@ -53,7 +55,7 @@
             }
         }
         overflow: hidden;
-        animation: toggleMenuEntriesHeightBack 300ms ease-in forwards;
+        animation: toggleMenuEntriesHeightBack $default_transition ease-in forwards;
     }
 
     // Animation: scale
@@ -69,7 +71,7 @@
         }
         transform-origin: top;
         transform: scaleY(0);
-        animation: toggleMenuEntriesScale 300ms ease-in forwards;
+        animation: toggleMenuEntriesScale $default_transition ease-in forwards;
     }
 
     .animation-scale .children{
@@ -87,7 +89,7 @@
         }
         transform-origin: top;
         transform: scaleY(1);
-        animation: toggleMenuEntriesScaleBack 300ms ease-in forwards;
+        animation: toggleMenuEntriesScaleBack $default_transition ease-in forwards;
     }
 
     // Animation: opacity
@@ -102,7 +104,7 @@
             }
         }
         opacity: 0;
-        animation: toggleMenuEntriesOpacity 300ms ease-in forwards;
+        animation: toggleMenuEntriesOpacity $default_transition ease-in forwards;
     }
 
     .animation-opacity .children{
@@ -119,6 +121,6 @@
             }
         }
         opacity: 1;
-        animation: toggleMenuEntriesOpacityBack 300ms ease-in forwards;
+        animation: toggleMenuEntriesOpacityBack $default_transition ease-in forwards;
     }
 }

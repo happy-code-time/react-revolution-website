@@ -14,6 +14,7 @@ class Accordion extends React.Component {
         this.toggle = this.toggle.bind(this);
 
         this.state = {
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
@@ -30,6 +31,7 @@ class Accordion extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['data', 'defaultClass', 'id', 'animation'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
@@ -167,10 +169,10 @@ class Accordion extends React.Component {
     }
 
     render() {
-        const { data, defaultClass, id } = this.state;
+        const { addClass, data, defaultClass, id } = this.state;
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
             {
                 this.buildDataRecursive(data)
             }  

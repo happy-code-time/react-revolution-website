@@ -12,6 +12,7 @@ const EN = {
     exampleOfUsage: 'Usage example',
     copyToClipboard: 'Copy to clipboard',
     installation: 'Installation',
+    documentation: 'Documentation',
 };
 
 export default EN;

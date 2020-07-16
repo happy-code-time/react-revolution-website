@@ -20,6 +20,7 @@ class CardsScroll extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
@@ -38,6 +39,7 @@ class CardsScroll extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'loadMoreDefaultItems', 'loadMoreAddItems'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
@@ -167,12 +169,12 @@ class CardsScroll extends React.Component {
 
     
     render() {
-        let { dataJsx, defaultClass, id } = this.state;
+        const { addClass, dataJsx, defaultClass, id } = this.state;
 
         return (
             <div 
                 ref={ node => this.cardsReference = node}
-                className={defaultClass}
+                className={`${defaultClass} ${addClass}`}
                 id={id}
             >
                 {

@@ -17,6 +17,7 @@ class InputAnimation extends React.Component
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-animation',
             defaultClassOrigin: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-animation',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -44,7 +45,7 @@ class InputAnimation extends React.Component
 
             if(getValueFromCallback){
                 return {
-                    plainValue: props.value                    
+                    plainValue: props.value
                 }
             }
 
@@ -191,10 +192,10 @@ class InputAnimation extends React.Component
     }
 
     render() {
-        const { animatePlaceholder, placeholder, id, defaultClass, inputType, inputProps, plainValue } = this.state;
+        const { addClass, animatePlaceholder, placeholder, id, defaultClass, inputType, inputProps, plainValue } = this.state;
 
         return (
-            <div className={defaultClass}>
+            <div className={`${defaultClass} ${addClass}`}>
                 {
                     animatePlaceholder &&
                     <div className="font-input title">

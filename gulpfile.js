@@ -60,7 +60,7 @@ gulp.task('copy:ff', function (done) {
  * Compile single scss for modules
  */
 gulp.task('build:css:modules', function (done) {
-    gulp.src("react-revolution/sass/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/css"));
+    gulp.src("react-revolution/sass/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css/react-revolution"));
     done();
 });
 
@@ -68,7 +68,7 @@ gulp.task('build:css:modules', function (done) {
  * Compile all scss from modules to single css file
  */
 gulp.task('build:css:all', function (done) {
-    gulp.src("react-revolution/sass/react-revolution.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/css"));
+    gulp.src("react-revolution/sass/react-revolution.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css/react-revolution"));
     done();
 });
 
@@ -90,4 +90,16 @@ gulp.task('compile', function (callback) {
             'set:rights'
         ],
         callback);
+});
+
+/**
+ * Websites scss watcher
+ */
+gulp.task('buildSassWebsite', function () {
+    return gulp.src(['Website/Scss/index.scss'])
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(gulp.dest('public/css'))
+});
+gulp.task('watch:sass', function () {
+    gulp.watch('Website/Scss/**/*', gulp.series('buildSassWebsite'));
 });

@@ -19,7 +19,7 @@ class MenuClickHorizontal extends React.Component {
             /**
              * User
              */
-
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
@@ -37,6 +37,7 @@ class MenuClickHorizontal extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.class && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
@@ -225,10 +226,10 @@ class MenuClickHorizontal extends React.Component {
     }
 
     render() {
-        const { defaultClass, id, data } = this.state;
+        const { addClass, defaultClass, id, data } = this.state;
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     this.buildDataRecursive(data)
                 }

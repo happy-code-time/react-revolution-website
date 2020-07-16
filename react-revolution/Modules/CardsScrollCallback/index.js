@@ -22,6 +22,7 @@ class CardsScrollCallback extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
@@ -40,6 +41,7 @@ class CardsScrollCallback extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'loadMoreCallback', 'loadMoreLoadingIcon'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
@@ -188,12 +190,12 @@ class CardsScrollCallback extends React.Component {
 
     
     render() {
-        const { dataJsx, defaultClass, loading, loadMoreLoadingIcon, id } = this.state;
+        const { addClass, dataJsx, defaultClass, loading, loadMoreLoadingIcon, id } = this.state;
         
         return (
             <div 
                 ref={ node => this.cardsReference = node}
-                className={defaultClass}
+                className={`${defaultClass} ${addClass}`}
                 id={id}
             >
                 {

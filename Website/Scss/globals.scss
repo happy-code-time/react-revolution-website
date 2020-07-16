@@ -1,4 +1,4 @@
-$default_transition: 200ms;
+$default_transition: 200ms !default;
 
 $default_transition_popup_boxes: 250ms;
 
@@ -6,11 +6,11 @@ $menu-messages-width: 220px;
 
 $menu-messages-width-min: 190px;
 
-
-
 // MEDIA
 
 $media-break: 1024px;
+
+$media-break-s: 720px;
 
 // Dashboard
 
@@ -32,81 +32,103 @@ $popupMenuWidth: 150px;
 
 $popupMenuWidth-min: 50px;
 
-*{
-  font-family: Helvetica Neue,Arial,sans-serif;
+* {
+  font-family: Helvetica Neue, Arial, sans-serif;
 }
 
-.w-100{
-  width: 100%;
+.w-100 {
+  width: 100% !important;
 }
 
-.block{
+.block {
   display: block;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.flex-row{
+.flex-row {
   flex-direction: row;
 }
 
-.flex-column{
+.flex-column {
   flex-direction: column;
 }
 
-.flex-start{
+.flex-start {
   justify-content: flex-start;
 }
 
-.flex-space-around{
+.flex-space-around {
   justify-content: space-around;
 }
 
-.flex-space-between{
+.flex-space-between {
   justify-content: space-between;
 }
 
-.relative{
+.relative {
   position: relative;
 }
 
-.font-input{
+.margin-0{
+  margin: 0 !important;
+}
+
+.mt-1{
+  margin-top:10px;
+}
+
+.mt-2{
+  margin-top:20px;
+}
+
+.mt-3{
+  margin-top:30px;
+}
+
+.mt-4{
+  margin-top:40px;
+}
+
+.font-input {
   font-weight: 400;
   font-size: 1rem;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
-.ff-title{
-  font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
+.ff-title {
+  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial,
+    sans-serif;
 }
 
-.h1-title{
-  color:#202124;
+.h1-title {
+  color: #202124;
   font-size: 24px;
   font-weight: 400;
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
-.text-center{
-  text-align:center;
+.text-center {
+  text-align: center;
 }
 
 .ff-roboto {
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
 
-.buttons-group{
+.buttons-group {
   box-sizing: border-box;
-  padding:10px;
+  padding: 10px;
   max-width: 90%;
   margin: 20px 5%;
 }
 
-.buttons-group-delete-account{
+.buttons-group-delete-account {
   box-sizing: border-box;
-  padding:10px;
+  padding: 10px;
   max-width: 90%;
   margin: 0 5%;
 }
@@ -127,7 +149,7 @@ $popupMenuWidth-min: 50px;
   color: $lime;
 }
 
-.dodgerblue{
+.dodgerblue {
   color: $dodgerblue;
 }
 
@@ -148,60 +170,60 @@ $popupMenuWidth-min: 50px;
   display: none !important;
 }
 
-.py-2{
-  padding:20px 0;
+.py-2 {
+  padding: 20px 0;
 }
 
-.my-2{
-  margin:20px 0;
+.my-2 {
+  margin: 20px 0;
 }
 
-.my-0{
+.my-0 {
   margin: 0px 0 !important;
 }
 
-.no-padding{
+.no-padding {
   padding: 0px !important;
 }
 
-.mr-2{
+.mr-2 {
   margin-right: 20px;
 }
 
 h1,
-.h1{
+.h1 {
   color: rgba(0, 0, 0, 0.77);
 }
 
-.text-center{
-  text-align:center;
+.text-center {
+  text-align: center;
 }
 
-.icon-security{
+.icon-security {
   color: $orange-light;
 }
 
-.icon-images{
+.icon-images {
   color: $dodgerblue-light;
 }
 
-.icon-messages{
-  color: rgb(122,122,122);
+.icon-messages {
+  color: rgb(122, 122, 122);
 }
 
-.icon-iframes{
+.icon-iframes {
   color: $green-light;
 }
 
-.icon-cookies{
-  color: #DEB887;
+.icon-cookies {
+  color: #deb887;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
-.ellipsis{
+.ellipsis {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
@@ -209,7 +231,7 @@ h1,
   text-overflow: ellipsis;
 }
 
-.button-action{
+.button-action {
   box-sizing: border-box;
   padding: 10px 15px;
   border-radius: 3px;
@@ -221,32 +243,46 @@ h1,
   border: 1px solid transparent;
   display: inline-block;
   margin: 10px 0;
+  text-decoration: none;
 }
 
-.button-action:hover{
-  border:1px solid $dodgerblue;
+.button-action:hover {
+  border: 1px solid $dodgerblue;
   cursor: pointer;
 }
 
-.rr-sourcecode{
+.rr-sourcecode {
   border-radius: 5px;
-  
-  .code{
-    border-radius: 5px;
-    border: 1px solid $border-color;
-    background-color: rgba(222,222,222,.2);
-    overflow: hidden;
 
-    .line-number{
+  .code {
+    background-color: #2D3748;
+    overflow: hidden;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    .single-code-line-first {
+      .line-number,
+      .line-code {
+        padding-top: 10px;
+      }
+    }
+
+    .single-code-line-last {
+      .line-number,
+      .line-code {
+        padding-bottom: 10px;
+      }
+    }
+
+    .line-number {
       box-sizing: border-box;
       padding: 3px 0 3px 7px;
-      margin-right: 10px;
-      background-color: rgba(69,69,69,1);
-      color: $white;
+      color: #718096;
       font-size: 0.77rem;
+      margin-right: 10px;
     }
-    
-    .line-code{
+
+    .line-code {
       box-sizing: border-box;
       padding: 3px 0;
       letter-spacing: 0.077rem;
@@ -255,11 +291,15 @@ h1,
   }
 }
 
-.title-border{
+.title-border {
   box-sizing: border-box;
   padding: 10px 0;
-  margin: 10px 0 30px 0;
+  margin: 10px 0 20px 0;
   color: $text-color;
   border-bottom: 1px solid $border-color;
   font-size: 1.1rem;
+
+  i{
+    margin: 0 10px;
+  }
 }

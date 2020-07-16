@@ -1,5 +1,13 @@
+@import './globals.scss';
+
 .rr-sourcecode {
   white-space: pre-wrap;
+
+  ul,
+  ul li {
+    list-style: none;
+    list-style-type: none;
+  }
 
   .search {
     width: 100%;
@@ -9,7 +17,7 @@
       width: 100%;
       min-height: 30px;
       line-height: 30px;
-      border: 1px solid #dadce0;
+      border: 1px solid $border-color;
       box-sizing: border-box;
       padding: 10px 20px;
       border-radius: 5px;
@@ -32,6 +40,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      user-select: none;
     }
 
     .line-code {
@@ -45,20 +54,19 @@
 
     .tagStart,
     .tagEnd,
-    .slash{
-        color: #586470
+    .slash,
+    .equal,
+    .quote-double,
+    .quote-single {
+        color: #93DDF7
     }
-    .tagName{
-        color: #255CB2;
-    }
-    .equal{
-        color: #C2C2C2;
+    .tagName,
+    .key{
+        color: #FF7767;
     }
 
-    .quote-double,
-    .quote-single,
     .attributeValue{
-        color: #A75029;
+        color: #B5EE85;
     }
 
     .not-filtered,
@@ -87,9 +95,6 @@
     }
     .bracketValue{
       color: pink;
-    }
-    .key{
-      color: dodgerblue
     }
 }
 

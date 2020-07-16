@@ -21,6 +21,7 @@ class FullScreenListObjects extends React.Component
             /**
              * User interaction
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             animation: typeof '8' === typeof props.animation ? props.animation : '',
@@ -52,6 +53,7 @@ class FullScreenListObjects extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'display', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] === typeof props.data) ? props.data : [],
@@ -245,7 +247,7 @@ class FullScreenListObjects extends React.Component
     }
 
     render(){
-        const { defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, inputPlaceholder, id } = this.state;
+        const { addClass, defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, inputPlaceholder, id } = this.state;
 
         if(!display){
             return null;
@@ -254,7 +256,7 @@ class FullScreenListObjects extends React.Component
         return (
             <div 
                 ref={ (node) => this.FullSceenListNode = node }
-                className={defaultClass}
+                className={`${defaultClass} ${addClass}`}
                 id={id}
             >
                 {

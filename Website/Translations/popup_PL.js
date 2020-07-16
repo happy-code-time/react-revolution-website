@@ -12,6 +12,7 @@ const PL = {
     exampleOfUsage: 'Przykład użycia',
     copyToClipboard: 'Kopiuj do schowka',
     installation: 'Instalacja',
+    documentation: 'Dokumentacja',
 };
 
 export default PL;

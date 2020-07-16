@@ -1,7 +1,6 @@
-.rr-input-animation {
-  $default_transition: 300ms;
-  $white: white;
+@import './globals.scss';
 
+.rr-input-animation {
   position: relative;
   box-sizing: border-box;
   padding: 10px;

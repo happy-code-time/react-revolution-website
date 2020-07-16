@@ -18,6 +18,7 @@ class FullScreenOverlay extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-full-screen-overlay',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             closeOnClick: (typeof true == typeof props.closeOnClick) ? props.closeOnClick : true,
@@ -44,6 +45,7 @@ class FullScreenOverlay extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'disableScroll', 'closeCallback', 'animation', 'closeOnClick', 'closeOnEsc', 'data', 'iconClose', 'display'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-full-screen-overlay',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 closeOnClick: (typeof true == typeof props.closeOnClick) ? props.closeOnClick : true,
@@ -166,7 +168,7 @@ class FullScreenOverlay extends React.Component {
     }
     
     render() {
-        let { display, iconClose, data, dimmed, id } = this.state;
+        const { addClass, display, iconClose, data, dimmed, id } = this.state;
         const defaultClass = this.getDefaultClass();
 
         if(!display){
@@ -174,7 +176,7 @@ class FullScreenOverlay extends React.Component {
         }
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     iconClose &&
                     <div className="icon-close" onClick={(e) => this.closeClick(e, true)}>

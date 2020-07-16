@@ -8,6 +8,10 @@ class LoadingBoxTop extends React.Component
         super(props);
 
         this.state = {
+            /**
+             * User
+             */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-loading-box-top',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             text: (props.text && typeof '8' == typeof props.text) ? props.text : ''
@@ -23,6 +27,7 @@ class LoadingBoxTop extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'text'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-loading-box-top',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 text: (props.text && typeof '8' == typeof props.text) ? props.text : ''
@@ -33,10 +38,10 @@ class LoadingBoxTop extends React.Component
     }
 
     render(){
-        const { text, defaultClass, id } = this.state;
+        const { addClass, text, defaultClass, id } = this.state;
 
         return(
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     text
                 }

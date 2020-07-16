@@ -12,6 +12,7 @@ const DE = {
     exampleOfUsage: 'Beispiel Benutzung',
     copyToClipboard: 'Zwischenspeichern',
     installation: 'Installation',
+    documentation: 'Dokumenation',
 };
 
 export default DE;

@@ -1,10 +1,6 @@
-.rr-input-file-drag-drop {
-  $border-color: #dadce0;
-  $dodgerblue: #1873cc;
-  $default_transition: 300ms;
-  $white: rgb(255,255,255);
-  $draggedColor: rgba(122,122,122,.74);
+@import './globals.scss';
 
+.rr-input-file-drag-drop {
   width: 100%;
   position: relative;
   overflow: hidden;

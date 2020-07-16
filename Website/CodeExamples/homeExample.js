@@ -9,7 +9,7 @@ const exampleHome =
                 title: 1,
                 content:  2,
                 props: {
-                    class: 'my-custom-class'
+                    class: "my-custom-class"
                 }
             },
             {
@@ -24,7 +24,7 @@ const exampleHome =
     }
 />`;
 
-const exampleInstallationNpm = `npm install react-revolution`;
+const exampleInstallationNpm = `npm i react-revolution`;
 
 const exampleInstallationYarn = `yarn add react-revolution`;
 

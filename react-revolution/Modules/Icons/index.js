@@ -126,6 +126,7 @@ class Icons extends React.Component
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             iconsType: (props.iconsType && typeof '8' == typeof props.iconsType) ? props.iconsType : 'Smileys',
@@ -146,6 +147,7 @@ class Icons extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id','callback', 'displayTabs', 'icons', 'renderItems', 'translations'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
@@ -175,10 +177,10 @@ class Icons extends React.Component
     }
 
     render() {
-        const { id, defaultClass, icons, displayTabs, iconsType, renderItems, translations } = this.state;
+        const { addClass, id, defaultClass, icons, displayTabs, iconsType, renderItems, translations } = this.state;
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     displayTabs &&
                     <div className="tabs">

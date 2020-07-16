@@ -22,6 +22,7 @@ class InputFileDragDrop extends React.Component
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file-drag-drop',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             allowedFileSize: props.allowedFileSize,
@@ -46,6 +47,7 @@ class InputFileDragDrop extends React.Component
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'isDraggingData'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file-drag-drop',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 readFileCallback: (props.readFileCallback && 'function' == typeof props.readFileCallback) ? props.readFileCallback : undefined,
@@ -216,10 +218,10 @@ class InputFileDragDrop extends React.Component
     }
 
     render() {
-        const { placeholder, defaultClass, id, isDragging, isDraggingData } = this.state;
+        const { addClass, placeholder, defaultClass, id, isDragging, isDraggingData } = this.state;
 
         return (
-            <div className={defaultClass} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 <div
                     className={`drag-drop ${isDragging ? 'dragging' : ''}`}
                     onDragEnter={this.onDragEnter}

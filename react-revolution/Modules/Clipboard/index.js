@@ -26,6 +26,7 @@ class Clipboard extends React.Component {
             /**
              * User
              */
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
@@ -44,6 +45,7 @@ class Clipboard extends React.Component {
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'callback', 'data', 'clipboard'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
@@ -69,13 +71,30 @@ class Clipboard extends React.Component {
         this.copyToClipboardAction(clipboard);
 
         if(animation && this.clipboardNodeForAnimation){
-            this.clipboardNodeForAnimation.classList.add('animation-scale');
+            const classToToggle = `animation-${animation}`;
+            this.clipboardNodeForAnimation.classList.add(classToToggle);
 
-            setTimeout( () => {
-                if(animation && this.clipboardNodeForAnimation){
-                    this.clipboardNodeForAnimation.classList.remove('animation-scale');
-                }
-            }, 500);
+            if('scale' == animation){
+                return setTimeout( () => {
+                    if(animation && this.clipboardNodeForAnimation){
+                        this.clipboardNodeForAnimation.classList.remove(classToToggle);
+                    }
+                }, 500);
+            }
+
+            if('jump' == animation){
+
+                setTimeout( () => {
+                    this.clipboardNodeForAnimation.classList.add(`${classToToggle}-back`);
+                }, 200);
+
+                return setTimeout( () => {
+                    if(animation && this.clipboardNodeForAnimation){
+                        this.clipboardNodeForAnimation.classList.remove(classToToggle);
+                        this.clipboardNodeForAnimation.classList.remove(`${classToToggle}-back`);
+                    }
+                }, 400);
+            }
         }
 
         if(callback){
@@ -84,12 +103,12 @@ class Clipboard extends React.Component {
     }
     
     render() {
-        let { data, defaultClass, id, formStyle, uuid } = this.state;
+        const { addClass, data, defaultClass, id, formStyle, uuid } = this.state;
 
         return (
             <div 
                 ref={ node => this.clipboardNodeForAnimation = node}
-                className={defaultClass} 
+                className={`${defaultClass} ${addClass}`} 
                 id={id}
                 onClick={ (e) => this.copyToClipboard(e)}
             >

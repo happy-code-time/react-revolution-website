@@ -1,6 +1,6 @@
-.Content{
-  .head{
-    background-color: #1873CC;
+.Content {
+  .head {
+    background-color: #1873cc;
     border-bottom: none;
   }
 }
@@ -35,37 +35,36 @@
         text-align: center;
       }
 
-      i{
+      i {
         margin: 10vh auto;
         font-size: 6rem;
       }
     }
   }
 
-  .rr-cards{
+  .rr-cards {
     max-height: unset;
     max-width: 1400px;
 
-    .cards-group{
-    
-      @media screen and (min-width: $media-break){
+    .cards-group {
+      @media screen and (min-width: $media-break) {
         flex-direction: row;
       }
-    
+
       flex-direction: column;
 
-      .card{
+      .card {
         transition-duration: $default_transition;
-        
-        @media screen and (min-width: $media-break){
-          width: 100%;        
+
+        @media screen and (min-width: $media-break) {
+          width: 100%;
           margin: 30px auto;
         }
 
         width: calc(100% - 30px);
-        margin: 10px 15px;
+        margin: 10px;
 
-        .title{
+        .title {
           color: $text-color;
           text-align: center;
           background-color: transparent;
@@ -73,9 +72,8 @@
           font-size: 1.46rem;
           font-weight: 400;
 
-          i{
-
-            @media screen and (min-width: $media-break){
+          i {
+            @media screen and (min-width: $media-break) {
               display: block;
             }
 
@@ -84,7 +82,7 @@
           }
         }
 
-        .content{
+        .content {
           width: 90%;
           margin: 0 5%;
           color: $text-color;
@@ -95,26 +93,89 @@
         }
       }
 
-      .card-middle{
-        margin: 30px 5%;
+      .card-middle {
+        @media screen and (min-width: $media-break) {
+          margin: 30px 5%;
+        }
       }
     }
   }
 
-  .example{
+  .example {
+    @media screen and (min-width: $media-break) {
+      flex-direction: row;
+    }
+    flex-direction: column;
     max-width: 1400px;
     margin: 20px auto;
+
+    .example-1,
+    .example-2 {
+      @media screen and (min-width: $media-break) {
+        width: 50%;
+        margin: 20px 0;
+      }
+
+      width: calc(100% - 40px);
+      margin: 20px;
+      transition-duration: $default_transition;
+    }
+
+    .example-2 {
+      @media screen and (min-width: $media-break) {
+        margin-left: 50px;
+        margin-right: 0px;
+      }
+
+      margin: 20px;
+      transition-duration: $default_transition;
+    }
   }
 
-  .section-install{
+  .install-buttons {
+
+    .install {
+      @media screen and (min-width: $media-break-s) {
+        width: 50%;
+        flex-direction: row;
+      }
+
+      width: 100%;
+      height: auto;
+      flex-direction: column;
+
+      .code {
+        display: inline-block;
+        padding: 3px 0;
+      }
+
+      .rr-sourcecode-install {
+        .line-number,
+        .line-code {
+          min-height: 30px;
+          line-height: 30px;
+          margin: 0;
+        }
+
+        .line-code {
+          width: 100%;
+          padding: 0 20px;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .documentation {
     width: 100%;
 
-    .code{
-      display: inline-block;
-    }
+    .button-action{
+      background-color: $green;
+      box-shadow: 0px 0px 3px $green;
+    } 
 
-    .install{
-      width: 50%;
-    }
+    .button-action:hover{
+      border: 1px solid $green;
+    } 
   }
 }
