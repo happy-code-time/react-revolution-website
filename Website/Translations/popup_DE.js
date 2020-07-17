@@ -13,6 +13,16 @@ const DE = {
     copyToClipboard: 'Zwischenspeichern',
     installation: 'Installation',
     documentation: 'Dokumenation',
+    modules: 'Module',
+    getStarted: 'Anfangen',
+    installation: 'Installation',
+    feedback: 'Feedback',
+    usefullLinks: 'Nützliche Links',
+    rights: 'Rechte',
+    rigthsText: 'Alle Rechte vorbehalten',
+    author: 'Author',
+    exampleTitle: 'Beispiel',
+    reactCodeTitle: 'React Kod',
 };
 
 export default DE;

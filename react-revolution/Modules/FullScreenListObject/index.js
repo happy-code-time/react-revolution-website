@@ -4,7 +4,7 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class FullScreenListObjects extends React.Component
+class FullScreenListObject extends React.Component
 {
     constructor(props){
         super(props);
@@ -294,4 +294,4 @@ class FullScreenListObjects extends React.Component
     }
 }
 
-export default FullScreenListObjects;
+export default FullScreenListObject;

@@ -9,12 +9,14 @@ class Cards extends React.Component {
     constructor(props) {
         super(props);
         this.buildData = this.buildData.bind(this);
+        this.resize = this.resize.bind(this);
 
         this.state = {
             /**
              * App
              */
             dataJsx: [],
+            isMinified: false,
             /**
              * User
              */
@@ -23,6 +25,7 @@ class Cards extends React.Component {
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
+            mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
         };
     }
 
@@ -46,21 +49,70 @@ class Cards extends React.Component {
         return null;
     }
 
-
     componentDidMount(){
+        const { mediaBreak } = this.state;
         this.buildData();
+
+        if(mediaBreak){
+            window.addEventListener('resize', this.resize);
+            this.resize();
+        }
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener('resize', this.resize);
+    }
+
+    resize(){
+        const { mediaBreak, isMinified } = this.state;
+
+        /**
+         * Media break
+         */
+        if(document.documentElement.getBoundingClientRect().width <= mediaBreak){
+            if(!isMinified){
+                this.setState({ 
+                    isMinified: true 
+                }, this.buildData);
+            }
+        }
+        /**
+         * Default
+         */
+        else{
+            if(isMinified){
+                this.setState({ 
+                    isMinified: false 
+                }, this.buildData);
+            }
+        }
     }
 
     buildData(){
-        let { data, dataJsx, itemsPerLine } = this.state;
+        const dataJsx = [];
+        let { data, itemsPerLine, isMinified } = this.state;
+
         let singleLines = [];
         let c = 0;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+
         data.map( singleData => {
             const { title, content, footer, props } = singleData;
             c++;
 
+            let cls = 'card flex flex-column';
+
+            if(props){
+                const { className } = props;
+
+                if(className && typeof '8' == typeof className){
+                    cls = `${cls} ${className}`;
+                    delete props.className;
+                }
+            }
+            
             singleLines.push(
-                <div key={uuid()} className="card flex flex-column" {...props}>
+                <div key={uuid()} className={cls} {...props}>
                     {
                         title && 
                         <div className="title">
@@ -91,7 +143,7 @@ class Cards extends React.Component {
             if(c == itemsPerLine){
 
                 dataJsx.push(
-                    <div key={uuid()} className="cards-group flex">
+                    <div key={uuid()} className={`${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -105,7 +157,7 @@ class Cards extends React.Component {
 
         if(singleLines.length){
             dataJsx.push(
-                <div key={uuid()} className="cards-group flex">
+                <div key={uuid()} className={`${clsCardsHolder}`}>
                     {
                         singleLines
                     }

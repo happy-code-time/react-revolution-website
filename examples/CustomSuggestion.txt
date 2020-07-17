@@ -32,5 +32,6 @@
                     callback={this.searchForModule}
                     value={inputValue}
                     inputProps={{}}
+                    callbackRerender={false} // false == use data from callback, do not use data from callback, only from props.suggestions
                     type='text'
                   />

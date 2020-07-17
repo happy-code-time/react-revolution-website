@@ -25,6 +25,7 @@ class MenuClickHorizontal extends React.Component {
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
             reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
+            dropDown: props.dropDown
         }
     }
 
@@ -50,12 +51,17 @@ class MenuClickHorizontal extends React.Component {
     }
 
     buildDataRecursive(data = [], isChild = false) {
-        const { reactRouter } = this.state;
+        const { reactRouter, dropDown } = this.state;
         const jsx = [];
 
         if (data && data.length) {
             for (let x = 0; x <= data.length - 1; x++) {
-                let { text, dataToggle, toggled, unique, props, classList, href, icon } = data[x];
+                let { text, dataToggle, toggled, unique, props, classList, href, icon, iconId, iconClass } = data[x];
+                
+                if(href && typeof '8' == typeof href){
+                    href = href.toLowerCase();
+                }
+
                 const dataChildren = data[x].data ? data[x].data : [];
                 const isLink = data[x].data ? true : false;
 
@@ -111,9 +117,10 @@ class MenuClickHorizontal extends React.Component {
                 }
 
                 if (dataChildren && 0 !== dataChildren.length) {
+
                     dataLink = (
                         <div
-                            className={`text ${isChild ? 'child' : ''}`}
+                            className={`text hasChildren ${isChild ? ' child' : ''}`}
                             onClick={() => this.toggle(unique, isLink)}
                         >
                             {
@@ -121,6 +128,14 @@ class MenuClickHorizontal extends React.Component {
                             }
                             {
                                 text
+                            }
+                            {
+                                dropDown &&
+                                <span id={`${toggled ? iconId : ''}`} className={`icon-down ${iconClass ? iconClass : ''}`}>
+                                {
+                                    dropDown
+                                }
+                                </span>
                             }
                         </div>
                     );
@@ -138,7 +153,8 @@ class MenuClickHorizontal extends React.Component {
                             toggled && dataChildren && 0 !== dataChildren.length &&
                             <div 
                                 id={`${dataChildren && 0 !== dataChildren.length ? `${unique}` : ''}`} 
-                                className={`children`}>
+                                className={`children`}
+                            >
                                 {
                                     this.buildDataRecursive(dataChildren, true)
                                 }
@@ -179,31 +195,48 @@ class MenuClickHorizontal extends React.Component {
             return null;
         }
 
+        
         const loop = (datas) => {
+
             if (datas && datas.length) {
+            
                 for (let x = 0; x <= datas.length - 1; x++) {
-                    let { unique } = datas[x];
+                    let { unique, iconId } = datas[x];
                     const dataChildren = datas[x].data;
 
                     if (unique == uniqueId) {
 
+                        /**
+                         * Uniue id only available of rendered child elements
+                         */
                         const childrenNode = document.getElementById(uniqueId);
+                        const iconNode = document.getElementById(iconId);
 
                         if(childrenNode && animation){
                             const cls = `${animation ? `animation-${animation}-back` : ''}`;
                             childrenNode.classList.add(cls);
                         }
+
+                        if(iconNode){
+                            const clsIcon = `${animation ? `icon-down-animation-back` : ''}`;
+                            iconNode.classList.add(clsIcon);
+                        }
                         
                         datas[x].toggled = !datas[x].toggled;
                         datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
+                        datas[x].iconClass = datas[x].toggled ? 'icon-down-animation' : '';
 
+                        /**
+                         * Animation
+                         */
                         if(!datas[x].toggled && animation){
                             timeouterForAnimationBack = 300;
                         }
 
                         setTimeout(() => {
                             datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
-                        }, 300);
+                            datas[x].iconClass = datas[x].toggled ? 'icon-down-animation-persist' : '';
+                        }, 100);
                         break;
                     }
 

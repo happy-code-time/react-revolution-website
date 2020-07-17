@@ -1,0 +1,16 @@
+.Generator{
+    margin-top: 70px;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    .h1-example{
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 10px 0;
+        margin: 10px 0;
+        border-bottom: 1px solid $border-color;
+    }
+}

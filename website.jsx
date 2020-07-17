@@ -20,9 +20,15 @@ import setLanguage from './Website/Functions/language/setLanguage';
 
 import possibleLayouts from './Website/Functions/possibleLayouts';
 
-import './Website/Scss/index.scss';
 import getAllAvailableModulesNames from './Website/Functions/getAllAvailableModulesNames';
 
+import './Website/Scss/index.scss';
+
+
+/**
+ * React Revolution Modules
+ */
+import RR_Accordion from './Website/Pages/Modules/RR_Accordion';
 
 class App extends React.Component {
 
@@ -66,7 +72,7 @@ class App extends React.Component {
     document.addEventListener('click', this.checkLocation);
   }
 
-  setScrollEvent(){
+  setScrollEvent() {
     document.removeEventListener('scroll', this.scrollEvent);
     document.addEventListener('scroll', this.scrollEvent);
   }
@@ -100,17 +106,17 @@ class App extends React.Component {
     }, 100);
   }
 
-  scrollEvent(){
+  scrollEvent() {
     const { scrolled } = this.state;
     const currentScrollPosition = document.documentElement.scrollTop;
-    
-    if(50 <= currentScrollPosition){
+
+    if (50 <= currentScrollPosition) {
       return this.setState({
         scrolled: currentScrollPosition
       });
     }
 
-    if(50 >= currentScrollPosition && 0 !== scrolled){
+    if (50 >= currentScrollPosition && 0 !== scrolled) {
       this.setState({
         scrolled: 0
       });
@@ -143,13 +149,13 @@ class App extends React.Component {
     localStorage.setItem('layout', layout);
   }
 
-  searchForModule(inputValue){
+  searchForModule(inputValue) {
     const { host } = this.state;
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
 
-    allModules.map( i => {
-      if(i.toLowerCase().indexOf(inputValue.toLowerCase())){
+    allModules.map(i => {
+      if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
         suggestions.push(
           {
             href: `${host}#/${i}`,
@@ -169,7 +175,7 @@ class App extends React.Component {
     });
 
     suggestions.sort();
-    this.setState({ suggestions });
+    return suggestions;
   }
 
   render() {
@@ -188,27 +194,142 @@ class App extends React.Component {
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong={appNameShort}
             textShort={`v${version}`}
+            href={`${host}`}
             moduleMenu={
               <MenuClickHorizontal
                 reactRouter={false}
                 animation='height'
+                dropDown={
+                  (
+                    <i className="fas fa-angle-down dropDownIcon"></i>
+                  )
+                }
                 data={
                   [
                     {
-                      text: 'Home',
-                      icon: <i className='fas fa-flag-checkered' />,
+                      text: trans('getStarted'),
+                      // icon: <i className='fas fa-flag-checkered' />,
                       data: [
                         {
-                          text: 'Home',
-                          href: `${host}#/`,
+                          text: trans('installation'),
+                          href: `${host}#/installation`,
                         },
                         {
-                          text: 'Home',
-                          href: `${host}#/home`,
+                          text: trans('documentation'),
+                          href: `${host}#/documentation`,
+                        }
+                      ]
+                    },
+                    {
+                      text: trans('modules'),
+                      // icon: <i className='fas fa-flag-checkered' />,
+                      data: [
+                        {
+                          text: 'Accordion',
+                          href: `${host}#/Accordion`,
                         },
                         {
-                          text: 'Home',
-                          href: `${host}#/ala`,
+                          text: 'Breadcrumbs',
+                          href: `${host}#/Breadcrumbs`,
+                        },
+                        {
+                          text: 'Cards',
+                          data: [
+                            {
+                              text: 'Cards',
+                              href: `${host}#/Cards`,
+                            },
+                            {
+                              text: 'CardsScroll',
+                              href: `${host}#/CardsScroll`,
+                            },
+                            {
+                              text: 'CardsScrollCallback',
+                              href: `${host}#/CardsScrollCallback`,
+                            },
+                          ]
+                        },
+                        {
+                          text: 'Clipboard',
+                          href: `${host}#/Clipboard`,
+                        },
+                        {
+                          text: 'CustomSuggestion',
+                          href: `${host}#/CustomSuggestion`,
+                        },
+                        {
+                          text: 'FullScreen',
+                          data: [
+                            {
+                              text: 'FullScreenListArray',
+                              href: `${host}#/FullScreenListArray`,
+                            },
+                            {
+                              text: 'FullScreenListObject',
+                              href: `${host}#/FullScreenListObject`,
+                            },
+                            {
+                              text: 'FullScreenOverlay',
+                              href: `${host}#/FullScreenOverlay`,
+                            }
+                          ]
+                        },
+                        {
+                          text: 'GlobalMessages',
+                          href: `${host}#/GlobalMessages`,
+                        },
+                        {
+                          text: 'Icons',
+                          href: `${host}#/Icons`,
+                        },
+                        {
+                          text: 'Input',
+                          data: [
+                            {
+                              text: 'InputAnimation',
+                              href: `${host}#/InputAnimation`,
+                            },
+                            {
+                              text: 'InputAnimation',
+                              href: `${host}#/InputAnimation`,
+                            },
+                            {
+                              text: 'InputFile',
+                              href: `${host}#/InputFile`,
+                            },
+                            {
+                              text: 'InputFileDragDrop',
+                              href: `${host}#/InputFileDragDrop`,
+                            },
+                            {
+                              text: 'InputSuggestion',
+                              href: `${host}#/InputSuggestion`,
+                            }
+                          ]
+                        },
+                        {
+                          text: 'LoadingBoxTop',
+                          href: `${host}#/LoadingBoxTop`,
+                        },
+                        {
+                          text: 'MenuClickHorizontal',
+                          href: `${host}#/MenuClickHorizontal`,
+                        },
+                        {
+                          text: 'PopupBox',
+                          href: `${host}#/PopupBox`,
+                        },
+                        {
+                          text: 'SideBar',
+                          href: `${host}#/SideBar`,
+                        },
+                        {
+                          text: 'SourceCode',
+                          href: `${host}#/SourceCode`,
+                        },
+                        {
+                          text: 'TextWriter',
+                          href: `${host}#/TextWriter`,
                         }
                       ]
                     }
@@ -304,6 +425,7 @@ class App extends React.Component {
                     placeholder={`${trans('searchForModule')}`}
                     suggestions={suggestions}
                     callback={this.searchForModule}
+                    callbackRerender={true}
                     value={inputValue}
                     inputProps={{}}
                     type='text'
@@ -317,9 +439,11 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" render={(props) => (<Home {...props} />)} />
+              <Route exact path="/accordion" render={(props) => (<RR_Accordion {...props} />)} />
             </Switch>
           </Router>
         }
+        footerData={''}
       />
     );
   }

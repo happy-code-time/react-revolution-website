@@ -101,6 +101,54 @@ var exampleInstallationYarn = "yarn add react-revolution";
 
 /***/ }),
 
+/***/ "./Website/Functions/buildModulesJsx.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./Website/Translations/trans.js");
+
+
+
+
+var buildModulesJsx = function buildModulesJsx() {
+  var object = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var react = object.react,
+      js = object.js,
+      css = object.css,
+      html = object.html,
+      description = object.description,
+      live = object.live;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "code-example"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "h1-example"
+  }, "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle'), " ").concat(count)), live, description && description, react && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "h1-example"
+  }, "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactCodeTitle'), " ").concat(count)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
+    layout: "light",
+    code: react
+  })), js && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
+    layout: "light",
+    code: js
+  }), html && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
+    layout: "light",
+    code: html
+  }), css && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
+    layout: "light",
+    code: css
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (buildModulesJsx);
+
+/***/ }),
+
 /***/ "./Website/Functions/getAllAvailableModulesNames.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -236,13 +284,142 @@ var possibleLayouts = [['dark', 'light']];
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "author", function() { return author; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appName", function() { return appName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appNameShort", function() { return appNameShort; });
 var version = '1.0.0';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
+var author = "David Janitzek";
 
+
+/***/ }),
+
+/***/ "./Website/Modules/Footer.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Globals__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./Website/Globals/index.jsx");
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+var Footer = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Footer, _React$Component);
+
+  var _super = _createSuper(Footer);
+
+  function Footer(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Footer);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      host: "http://localhost:3000/"
+    };
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Footer, [{
+    key: "getCurrentYearText",
+    value: function getCurrentYearText() {
+      var DATE = new Date();
+      var year = DATE.getFullYear();
+
+      if (2020 !== year) {
+        return "2020 - ".concat(year);
+      }
+
+      return '2020';
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var host = this.state.host;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "Footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Cards"], {
+        itemsPerLine: 4,
+        mediaBreak: 1024,
+        data: [{
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+            className: "fas fa-user"
+          }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('author')),
+          content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+            className: "text text-center"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, _Globals__WEBPACK_IMPORTED_MODULE_7__["author"]))
+        }, {
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+            className: "fas fa-comment-dots"
+          }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('feedback')),
+          content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
+            animation: "jump" // scale, jump
+            ,
+            data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
+              layout: "dark",
+              code: 'david.janitzek@gmail.com'
+            }),
+            clipboard: "david.janitzek@gmail.com"
+          })
+        }, {
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+            className: "fas fa-comment-dots"
+          }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('usefullLinks')),
+          content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+            className: "button-action"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
+            href: "".concat(host, "#/installation")
+          }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('installation'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+            className: "button-action"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("a", {
+            href: "".concat(host, "#/documentation")
+          }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('documentation'))))
+        }, {
+          title: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+            className: "fas fa-gavel"
+          }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('rights')),
+          content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+            className: "text text-center"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, "\u24B8 ".concat(this.getCurrentYearText(), " ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('rigthsText'))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", null, _Globals__WEBPACK_IMPORTED_MODULE_7__["author"]))
+        }]
+      }));
+    }
+  }]);
+
+  return Footer;
+}(react__WEBPACK_IMPORTED_MODULE_5___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (Footer);
 
 /***/ }),
 
@@ -310,7 +487,8 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
       sidebarMaxifiedAt: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(8) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt : 1024,
       displayMinifyMaxifyIcon: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
       minify: props.minify,
-      minifiedSecondSideBar: true
+      minifiedSecondSideBar: true,
+      footerData: props.footerData
     };
     return _this;
   }
@@ -557,7 +735,8 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
           headerData = _this$state4.headerData,
           headerClassName = _this$state4.headerClassName,
           contentData = _this$state4.contentData,
-          displayMinifyMaxifyIcon = _this$state4.displayMinifyMaxifyIcon;
+          displayMinifyMaxifyIcon = _this$state4.displayMinifyMaxifyIcon,
+          footerData = _this$state4.footerData;
       var sidebarClassNames = this.getClassNamesSidebar();
       var contentClassNames = this.getClassNamesContent();
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", {
@@ -581,12 +760,12 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
           return _this4.sideBar();
         },
         className: "fas fa-bars minify-menu"
-      }), headerData && headerData), contentData && contentData));
+      }), headerData && headerData), contentData && contentData, footerData && footerData));
     }
   }], [{
     key: "getDerivedStateFromProps",
     value: function getDerivedStateFromProps(props, state) {
-      if (Object(_Functions_getDerivedStateFromPropsCheck__WEBPACK_IMPORTED_MODULE_8__["default"])(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify'], props, state)) {
+      if (Object(_Functions_getDerivedStateFromPropsCheck__WEBPACK_IMPORTED_MODULE_8__["default"])(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify', 'footerData'], props, state)) {
         if (state.minify !== props.minify) {
           if (props.minify) {
             return {
@@ -615,7 +794,8 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
           sidebarMinifiedAt: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(8) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.sidebarMinifiedAt) ? props.sidebarMinifiedAt : 720,
           sidebarMaxifiedAt: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(8) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt : 1024,
           displayMinifyMaxifyIcon: _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(true) == _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
-          minify: props.minify
+          minify: props.minify,
+          footerData: props.footerData
         };
       }
 
@@ -652,6 +832,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/CodeExamples/homeExample.js");
+/* harmony import */ var _Modules_Footer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Modules/Footer.jsx");
 
 
 
@@ -661,6 +842,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -762,7 +944,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         animation: "jump" // scale, jump
         ,
         data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
-          className: "button-action margin-0"
+          className: "button-action m0"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
         clipboard: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_9__["exampleInstallationNpm"]
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
@@ -781,7 +963,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
         animation: "jump" // scale, jump
         ,
         data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
-          className: "button-action margin-0"
+          className: "button-action m0"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
         clipboard: _CodeExamples_homeExample__WEBPACK_IMPORTED_MODULE_9__["exampleInstallationYarn"]
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("div", {
@@ -791,9 +973,9 @@ var Home = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"]("i", {
         className: "fas fa-book-reader"
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('documentation')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
-        to: "#",
+        to: "documentation",
         className: "button-action"
-      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('documentation')))))));
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('documentation')))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__["createElement"](_Modules_Footer__WEBPACK_IMPORTED_MODULE_10__["default"], null));
     }
   }]);
 
@@ -801,6 +983,194 @@ var Home = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/RR_Accordion.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "\n<Accordion\n    animation='height' // height, scale, opacity\n    data={\n        [\n            {\n                text: 'Home',\n                icon: <i className='fas fa-flag-checkered' />,\n                data: [\n                    {\n                        text: 'Home',\n                        href: '#/',\n                    },\n                    {\n                        text: 'Home',\n                        href: '#/home',\n                    },\n                ]\n            }\n        ]\n    }\n/>\n";
+var examples = [{
+  react: codeExample1,
+  js: '',
+  css: '',
+  html: '',
+  description: '',
+  live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Accordion"], {
+    animation: "height" // height, scale, opacity
+    ,
+    data: [{
+      text: 'Home',
+      icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+        className: "fas fa-flag-checkered"
+      }),
+      data: [{
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }, {
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }, {
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }]
+    }]
+  })
+}, {
+  react: codeExample1,
+  js: '',
+  css: '',
+  html: '',
+  description: '',
+  live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Accordion"], {
+    animation: "height" // height, scale, opacity
+    ,
+    data: [{
+      text: 'Home',
+      icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+        className: "fas fa-flag-checkered"
+      }),
+      data: [{
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }, {
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }, {
+        text: 'Home',
+        href: "#/"
+      }, {
+        text: 'Home',
+        href: "#/home"
+      }, {
+        text: 'Home',
+        href: "#/ala"
+      }]
+    }]
+  })
+}];
+
+var RR_Accordion = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(RR_Accordion, _React$Component);
+
+  var _super = _createSuper(RR_Accordion);
+
+  function RR_Accordion(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, RR_Accordion);
+
+    _this = _super.call(this, props);
+    _this.callback = _this.callback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(RR_Accordion, [{
+    key: "callback",
+    value: function callback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1 h1-title text-center"
+      }, "Accordion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.callback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return RR_Accordion;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (RR_Accordion);
 
 /***/ }),
 
@@ -879,7 +1249,13 @@ var getTranslations = function getTranslations() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var DE = {
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _DE;
+
+var DE = (_DE = {
   openSourceText: 'Ein kostenloses Open Source Projekt',
   changeLanguageTitle: 'Sprache ändern',
   changeTintTitle: 'Webseiten Layout ändern',
@@ -893,8 +1269,10 @@ var DE = {
   exampleOfUsage: 'Beispiel Benutzung',
   copyToClipboard: 'Zwischenspeichern',
   installation: 'Installation',
-  documentation: 'Dokumenation'
-};
+  documentation: 'Dokumenation',
+  modules: 'Module',
+  getStarted: 'Anfangen'
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Beispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'React Kod'), _DE);
 /* harmony default export */ __webpack_exports__["default"] = (DE);
 
 /***/ }),
@@ -904,7 +1282,13 @@ var DE = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var EN = {
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _EN;
+
+var EN = (_EN = {
   openSourceText: 'A Free Open Source Project',
   changeLanguageTitle: 'Change language',
   changeTintTitle: 'Change website layout',
@@ -918,8 +1302,10 @@ var EN = {
   exampleOfUsage: 'Usage example',
   copyToClipboard: 'Copy to clipboard',
   installation: 'Installation',
-  documentation: 'Documentation'
-};
+  documentation: 'Documentation',
+  modules: 'Modules',
+  getStarted: 'Get started'
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "usefullLinks", 'Useful Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rights", 'Rights'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rigthsText", 'All rights reserved'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "exampleTitle", 'Example'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactCodeTitle", 'React Code'), _EN);
 /* harmony default export */ __webpack_exports__["default"] = (EN);
 
 /***/ }),
@@ -929,7 +1315,13 @@ var EN = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var PL = {
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var _PL;
+
+var PL = (_PL = {
   openSourceText: 'Darmowy projekt Open Source',
   changeLanguageTitle: 'Zmień język',
   changeTintTitle: 'Zmień wygląd strony',
@@ -943,8 +1335,10 @@ var PL = {
   exampleOfUsage: 'Przykład użycia',
   copyToClipboard: 'Kopiuj do schowka',
   installation: 'Instalacja',
-  documentation: 'Dokumentacja'
-};
+  documentation: 'Dokumentacja',
+  modules: 'Moduły',
+  getStarted: 'Początek'
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "installation", 'Instalacja'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "usefullLinks", 'Użyteczne linki'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rights", 'Prawa'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rigthsText", 'Wszystkie prawa zastrzeżone'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "author", 'Autor'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "exampleTitle", 'Przykład'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactCodeTitle", 'Kod React'), _PL);
 /* harmony default export */ __webpack_exports__["default"] = (PL);
 
 /***/ }),
@@ -1020,6 +1414,28 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 module.exports = _createClass;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
 
 /***/ }),
 
@@ -12220,7 +12636,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.margin-0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .child {\n  padding: 10px 0 10px 53px; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  top: 0;\n  min-height: 100vh;\n  left: 250px;\n  z-index: 0;\n  width: calc(100% - 250px);\n  overflow-x: hidden; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: transparent; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 25%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 5px 0;\n    padding: 1px 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: #72777a;\n    line-height: 25px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0;\n    border-bottom: 1px solid #dadce0; }\n\n* {\n  font-family: \"open sans\", \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\nbody {\n  min-height: 100vh;\n  height: auto;\n  overflow: auto; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal .single-entry {\n  border-radius: 0px;\n  margin: 5px 0px;\n  border: none;\n  display: block;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n  #app .rr-menu-click-horizontal .single-entry a {\n    color: #7c8695; }\n  #app .rr-menu-click-horizontal .single-entry i {\n    margin: 0 20px 0 7px; }\n\n#app .rr-menu-click-horizontal .icon-down {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  text-align: center;\n  line-height: 35px;\n  transition-duration: 200ms;\n  margin: 0 !important; }\n\n#app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n  animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n\n#app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n  transform: rotateZ(90deg); }\n\n#app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n  animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n", ""]);
 
 
 
@@ -27148,9 +27564,9 @@ module.exports = function (e) {
 
   e.exports = a;
 }, function (e, t, a) {
-  e.exports = a(18)();
-}, function (e, t, a) {
   e.exports = a(17);
+}, function (e, t, a) {
+  e.exports = a(18)();
 }, function (e, t) {
   function a(e, t, a, n, l, s, r) {
     try {
@@ -27647,24 +28063,28 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return _e;
+    return qe;
   }), a.d(t, "uuid", function () {
     return I;
+  }), a.d(t, "disableHtmlScroll", function () {
+    return H;
+  }), a.d(t, "enableHtmlScroll", function () {
+    return K;
   }), a.d(t, "Accordion", function () {
     return S;
   }), a.d(t, "Cards", function () {
     return O;
   }), a.d(t, "CardsScroll", function () {
-    return L;
+    return N;
   }), a.d(t, "CardsScrollCallback", function () {
-    return M;
+    return A;
   }), a.d(t, "CustomSuggestion", function () {
     return B;
   }), a.d(t, "Clipboard", function () {
     return _;
   }), a.d(t, "FullScreenListArray", function () {
     return q;
-  }), a.d(t, "FullScreenListObjects", function () {
+  }), a.d(t, "FullScreenListObject", function () {
     return J;
   }), a.d(t, "FullScreenOverlay", function () {
     return G;
@@ -27682,16 +28102,18 @@ module.exports = function (e) {
     return ue;
   }), a.d(t, "LoadingBoxTop", function () {
     return fe;
+  }), a.d(t, "LoadOnScroll", function () {
+    return he;
   }), a.d(t, "MenuClickHorizontal", function () {
-    return Le;
+    return Pe;
   }), a.d(t, "TextWriter", function () {
-    return Fe;
+    return Ae;
   }), a.d(t, "PopupBox", function () {
-    return Me;
-  }), a.d(t, "SideBar", function () {
     return Ve;
-  }), a.d(t, "SourceCode", function () {
+  }), a.d(t, "SideBar", function () {
     return je;
+  }), a.d(t, "SourceCode", function () {
+    return Ue;
   });
 
   var n = a(8),
@@ -27727,7 +28149,7 @@ module.exports = function (e) {
       x = function e() {
     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
     if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && r()([]) == r()(t[a].data) && t[a].data.length && e(t[a].data);
+      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && r()([]) == r()(t[a].data) && t[a].data.length && e(t[a].data);
     }
     return t;
   };
@@ -27917,53 +28339,83 @@ module.exports = function (e) {
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.state = {
+      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
+        isMinified: !1,
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
         itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        data: e.data && r()([]) == r()(e.data) ? e.data : []
+        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.buildData();
+        var e = this.state.mediaBreak;
+        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize());
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function value() {
+        window.removeEventListener("resize", this.resize);
+      }
+    }, {
+      key: "resize",
+      value: function value() {
+        var e = this.state,
+            t = e.mediaBreak,
+            a = e.isMinified;
+        document.documentElement.getBoundingClientRect().width <= t ? a || this.setState({
+          isMinified: !0
+        }, this.buildData) : a && this.setState({
+          isMinified: !1
+        }, this.buildData);
       }
     }, {
       key: "buildData",
       value: function value() {
-        var e = this.state,
-            t = e.data,
-            a = e.dataJsx,
-            n = e.itemsPerLine,
-            s = [],
-            r = 0;
-        t.map(function (e) {
-          var t = e.title,
-              i = e.content,
-              o = e.footer,
-              c = e.props;
-          r++, s.push(b.a.createElement("div", l()({
+        var e = [],
+            t = this.state,
+            a = t.data,
+            n = t.itemsPerLine,
+            s = t.isMinified,
+            i = [],
+            o = 0,
+            c = "cards-group flex ".concat(s ? "flex-column" : "flex-row");
+        a.map(function (t) {
+          var a = t.title,
+              s = t.content,
+              u = t.footer,
+              d = t.props;
+          o++;
+          var f = "card flex flex-column";
+
+          if (d) {
+            var p = d.className;
+            p && r()("8") == r()(p) && (f = "".concat(f, " ").concat(p), delete d.className);
+          }
+
+          i.push(b.a.createElement("div", l()({
             key: E(),
-            className: "card flex flex-column"
-          }, c), t && b.a.createElement("div", {
+            className: f
+          }, d), a && b.a.createElement("div", {
             className: "title"
-          }, t), i && b.a.createElement("div", {
+          }, a), s && b.a.createElement("div", {
             className: "content"
-          }, i), o && b.a.createElement("div", {
+          }, s), u && b.a.createElement("div", {
             className: "footer"
-          }, o))), r == n && (a.push(b.a.createElement("div", {
+          }, u))), o == n && (e.push(b.a.createElement("div", {
             key: E(),
-            className: "cards-group flex"
-          }, s)), s = [], r = 0);
-        }), s.length && a.push(b.a.createElement("div", {
+            className: "".concat(c)
+          }, i)), i = [], o = 0);
+        }), i.length && e.push(b.a.createElement("div", {
           key: E(),
-          className: "cards-group flex"
-        }, s)), this.setState({
-          dataJsx: a
+          className: "".concat(c)
+        }, i)), this.setState({
+          dataJsx: e
         });
       }
     }, {
@@ -27993,7 +28445,7 @@ module.exports = function (e) {
     }]), a;
   }(b.a.Component);
 
-  function N(e) {
+  function L(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28019,9 +28471,9 @@ module.exports = function (e) {
     };
   }
 
-  var L = function (e) {
+  var N = function (e) {
     h()(a, e);
-    var t = N(a);
+    var t = L(a);
 
     function a(e) {
       var n;
@@ -28135,12 +28587,12 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.a.Component),
-      P = a(10),
-      T = a.n(P),
-      R = a(11),
-      F = a.n(R);
+      R = a(9),
+      P = a.n(R),
+      T = a(11),
+      F = a.n(T);
 
-  function A(e) {
+  function M(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -28166,9 +28618,9 @@ module.exports = function (e) {
     };
   }
 
-  var M = function (e) {
+  var A = function (e) {
     h()(a, e);
-    var t = A(a);
+    var t = M(a);
 
     function a(e) {
       var n;
@@ -28209,8 +28661,8 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, F()(T.a.mark(function n() {
-          return T.a.wrap(function (n) {
+        }, F()(P.a.mark(function n() {
+          return P.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
                 case 0:
@@ -28305,7 +28757,8 @@ module.exports = function (e) {
     }]), a;
   }(b.a.Component),
       I = function I() {
-    return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
+    var e = Math.floor(Date.now() / 1e3);
+    return "".concat(e).concat(Math.floor(1e6 * Math.random()));
   };
 
   function V(e) {
@@ -28335,12 +28788,13 @@ module.exports = function (e) {
   }
 
   var B = function (e) {
-    h()(a, e);
-    var t = V(a);
+    h()(n, e);
+    var t,
+        a = V(n);
 
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.state = {
+    function n(e) {
+      var t;
+      return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEsc = t.callbackEsc.bind(f()(t)), t.handleMouseDown = t.handleMouseDown.bind(f()(t)), t.setFocusUpdater = t.setFocusUpdater.bind(f()(t)), t.state = {
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -28351,11 +28805,11 @@ module.exports = function (e) {
         placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
         inputProps: e.inputProps && r()({}) == r()(e.inputProps) ? e.inputProps : {},
         inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
-        emptySuggestionAfterSelection: r()(!0) != r()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection
-      }, n.availableSorts = ["asc", "desc"], n;
+        callbackRerender: r()(!0) == r()(e.callbackRerender) && e.callbackRerender
+      }, t.availableSorts = ["asc", "desc"], t;
     }
 
-    return u()(a, [{
+    return u()(n, [{
       key: "componentDidMount",
       value: function value() {
         this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown);
@@ -28386,24 +28840,43 @@ module.exports = function (e) {
       key: "handleMouseDown",
       value: function value(e) {
         this.refNodeUl && !this.refNodeUl.contains(e.target) && this.setState({
-          suggestions: [],
-          setArrow: null
+          suggestions: []
         });
       }
     }, {
       key: "callback",
-      value: function value() {
-        var e = this.state,
-            t = e.callback,
-            a = e.plainValue;
-        t && t(a);
-      }
+      value: (t = F()(P.a.mark(function e(t) {
+        var a, n;
+        return P.a.wrap(function (e) {
+          for (;;) {
+            switch (e.prev = e.next) {
+              case 0:
+                if (!(a = this.state.callback)) {
+                  e.next = 7;
+                  break;
+                }
+
+                return e.next = 4, a(t);
+
+              case 4:
+                n = e.sent, console.log(n), this.setState({
+                  suggestions: n
+                });
+
+              case 7:
+              case "end":
+                return e.stop();
+            }
+          }
+        }, e, this);
+      })), function (e) {
+        return t.apply(this, arguments);
+      })
     }, {
       key: "callbackEsc",
       value: function value() {
         this.setState({
-          suggestions: [],
-          setArrow: null
+          suggestions: []
         });
       }
     }, {
@@ -28477,12 +28950,14 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["value", "suggestions"], e, t) ? {
+        return k(["value", "suggestions"], e, t) ? t.callbackRerender ? {
+          suggestions: t.suggestions
+        } : {
           suggestions: e.suggestions,
           plainValue: t.plainValue
         } : null;
       }
-    }]), a;
+    }]), n;
   }(C.Component);
 
   function j(e) {
@@ -30530,14 +31005,188 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(b.a.Component),
-      pe = a(9),
-      he = a.n(pe),
-      ve = a(14),
-      me = a.n(ve);
+  }(b.a.Component);
 
-  function ge() {
-    return (ge = Object.assign || function (e) {
+  function pe(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var he = function (e) {
+    h()(a, e);
+    var t = pe(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.buildData = n.buildData.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.state = {
+        dataJsx: [],
+        loading: !1,
+        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+        loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
+        minify: r()(8) == r()(e.minify) ? e.minify : 0,
+        scrollReference: r()(!0) != r()(e.scrollReference) || e.scrollReference
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        var e = this.state,
+            t = e.data,
+            a = e.scrollReference;
+        this.scrollReference && a && (this.scrollReference.removeEventListener("scroll", this.scrollEvent), this.scrollReference.addEventListener("scroll", this.scrollEvent)), a || (document.removeEventListener("scroll", this.scrollEvent), document.addEventListener("scroll", this.scrollEvent)), this.buildData(t);
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function value() {
+        this.removeScrollEvent();
+      }
+    }, {
+      key: "removeScrollEvent",
+      value: function value() {
+        var e = this.state.scrollReference;
+        this.scrollReference && this.scrollReference.removeEventListener("scroll", this.scrollEvent), e || document.removeEventListener("scroll", this.scrollEvent);
+      }
+    }, {
+      key: "loadMore",
+      value: function value() {
+        var e = this,
+            t = this.state.callback,
+            a = [];
+        t ? this.setState({
+          loading: !0
+        }, F()(P.a.mark(function n() {
+          return P.a.wrap(function (n) {
+            for (;;) {
+              switch (n.prev = n.next) {
+                case 0:
+                  return n.next = 2, t();
+
+                case 2:
+                  if ("break" != (a = n.sent)) {
+                    n.next = 6;
+                    break;
+                  }
+
+                  return e.removeScrollEvent(), n.abrupt("return", e.setState({
+                    loading: !1
+                  }));
+
+                case 6:
+                  a ? e.buildData(a) : (e.removeScrollEvent(), e.setState({
+                    loading: !1
+                  }));
+
+                case 7:
+                case "end":
+                  return n.stop();
+              }
+            }
+          }, n);
+        }))) : (this.removeScrollEvent(), this.setState({
+          loading: !1
+        }));
+      }
+    }, {
+      key: "buildData",
+      value: function value() {
+        var e = this,
+            t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+            a = this.state.dataJsx;
+        a.push(b.a.createElement("div", {
+          key: E(),
+          className: "section"
+        }, t)), this.setState({
+          dataJsx: a,
+          loading: !1
+        }, function () {
+          e.callbackRendered = !0;
+        });
+      }
+    }, {
+      key: "scrollEvent",
+      value: function value(e) {
+        var t = this.state,
+            a = t.minify,
+            n = t.scrollReference,
+            l = parseInt(a);
+
+        if (this.scrollReference && this.callbackRendered && n && this.scrollReference.offsetHeight + this.scrollReference.scrollTop >= this.scrollReference.scrollHeight - l && (this.callbackRendered = !1, this.loadMore()), !n) {
+          var s = document.documentElement;
+          s.scrollTop >= s.offsetHeight - l && (this.callbackRendered = !1, this.loadMore());
+        }
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.addClass,
+            n = t.dataJsx,
+            l = t.defaultClass,
+            s = t.loading,
+            r = t.loadMoreLoadingIcon,
+            i = t.id,
+            o = t.scrollReference;
+        return b.a.createElement("div", {
+          ref: function ref(t) {
+            return e.scrollReference = t;
+          },
+          className: "".concat(l, " ").concat(a, " ").concat(o ? "" : "ignore"),
+          id: i
+        }, s && r, n && n.map(function (e) {
+          return e;
+        }));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "data", "callback", "loadMoreLoadingIcon", "minify", "scrollReference"], e, t) ? {
+          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          data: e.data && r()([]) == r()(e.data) ? e.data : [],
+          callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+          loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
+          dataJsx: t.dataJsx,
+          minify: r()(8) == r()(e.minify) ? e.minify : 0,
+          scrollReference: r()(!0) != r()(e.scrollReference) || e.scrollReference
+        } : null;
+      }
+    }]), a;
+  }(b.a.Component),
+      ve = a(10),
+      me = a.n(ve),
+      ge = a(14),
+      ye = a.n(ge);
+
+  function Ce() {
+    return (Ce = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -30550,11 +31199,11 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function ye(e) {
+  function be(e) {
     return "/" === e.charAt(0);
   }
 
-  function Ce(e, t) {
+  function ke(e, t) {
     for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) {
       e[a] = e[n];
     }
@@ -30562,15 +31211,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var be = function be(e, t) {
+  var Ee = function Ee(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         l = t && t.split("/") || [],
-        s = e && ye(e),
-        r = t && ye(t),
+        s = e && be(e),
+        r = t && be(t),
         i = s || r;
-    if (e && ye(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
+    if (e && be(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
     if (l.length) {
       var o = l[l.length - 1];
@@ -30579,18 +31228,18 @@ module.exports = function (e) {
 
     for (var c = 0, u = l.length; u >= 0; u--) {
       var d = l[u];
-      "." === d ? Ce(l, u) : ".." === d ? (Ce(l, u), c++) : c && (Ce(l, u), c--);
+      "." === d ? ke(l, u) : ".." === d ? (ke(l, u), c++) : c && (ke(l, u), c--);
     }
 
     if (!i) for (; c--; c) {
       l.unshift("..");
     }
-    !i || "" === l[0] || l[0] && ye(l[0]) || l.unshift("");
+    !i || "" === l[0] || l[0] && be(l[0]) || l.unshift("");
     var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
-  function ke(e, t, a, n) {
+  function xe(e, t, a, n) {
     var l;
     "string" == typeof e ? (l = function (e) {
       var t = e || "/",
@@ -30604,7 +31253,7 @@ module.exports = function (e) {
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (l = ge({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
+    }(e)).state = t : (void 0 === (l = Ce({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
 
     try {
       l.pathname = decodeURI(l.pathname);
@@ -30612,12 +31261,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = be(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = Ee(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var Ee = Object.assign || function (e) {
+  var De = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -30629,29 +31278,29 @@ module.exports = function (e) {
     return e;
   };
 
-  function xe(e, t) {
+  function Se(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function De(e, t) {
+  function we(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var Se = function Se(e) {
+  var Oe = function Oe(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
-      we = function (e) {
+      Le = function (e) {
     function t() {
       var a, n;
-      xe(this, t);
+      Se(this, t);
 
       for (var l = arguments.length, s = Array(l), r = 0; r < l; r++) {
         s[r] = arguments[r];
       }
 
-      return a = n = De(this, e.call.apply(e, [this].concat(s))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Se(e)) {
+      return a = n = we(this, e.call.apply(e, [this].concat(s))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Oe(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
@@ -30659,7 +31308,7 @@ module.exports = function (e) {
               s = a.to;
           l ? t.replace(s) : t.push(s);
         }
-      }, De(n, a);
+      }, we(n, a);
     }
 
     return function (e, t) {
@@ -30686,11 +31335,11 @@ module.exports = function (e) {
         return a;
       }(e, ["replace", "to", "innerRef"]);
 
-      me()(this.context.router, "You should not use <Link> outside a <Router>"), me()(void 0 !== t, 'You must specify the "to" property');
+      ye()(this.context.router, "You should not use <Link> outside a <Router>"), ye()(void 0 !== t, 'You must specify the "to" property');
       var l = this.context.router.history,
-          s = "string" == typeof t ? ke(t, null, null, l.location) : t,
+          s = "string" == typeof t ? xe(t, null, null, l.location) : t,
           r = l.createHref(s);
-      return b.a.createElement("a", Ee({}, n, {
+      return b.a.createElement("a", De({}, n, {
         onClick: this.handleClick,
         href: r,
         ref: a
@@ -30698,26 +31347,26 @@ module.exports = function (e) {
     }, t;
   }(b.a.Component);
 
-  we.propTypes = {
-    onClick: he.a.func,
-    target: he.a.string,
-    replace: he.a.bool,
-    to: he.a.oneOfType([he.a.string, he.a.object]).isRequired,
-    innerRef: he.a.oneOfType([he.a.string, he.a.func])
-  }, we.defaultProps = {
+  Le.propTypes = {
+    onClick: me.a.func,
+    target: me.a.string,
+    replace: me.a.bool,
+    to: me.a.oneOfType([me.a.string, me.a.object]).isRequired,
+    innerRef: me.a.oneOfType([me.a.string, me.a.func])
+  }, Le.defaultProps = {
     replace: !1
-  }, we.contextTypes = {
-    router: he.a.shape({
-      history: he.a.shape({
-        push: he.a.func.isRequired,
-        replace: he.a.func.isRequired,
-        createHref: he.a.func.isRequired
+  }, Le.contextTypes = {
+    router: me.a.shape({
+      history: me.a.shape({
+        push: me.a.func.isRequired,
+        replace: me.a.func.isRequired,
+        createHref: me.a.func.isRequired
       }).isRequired
     }).isRequired
   };
-  var Oe = we;
+  var Ne = Le;
 
-  function Ne(e) {
+  function Re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30743,9 +31392,9 @@ module.exports = function (e) {
     };
   }
 
-  var Le = function (e) {
+  var Pe = function (e) {
     h()(a, e);
-    var t = Ne(a);
+    var t = Re(a);
 
     function a(e) {
       var n;
@@ -30755,7 +31404,8 @@ module.exports = function (e) {
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
         data: e.data && r()([]) == r()(e.data) ? x(e.data) : [],
         reactRouter: r()(!0) == r()(e.reactRouter) && e.reactRouter,
-        animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+        animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0,
+        dropDown: e.dropDown
       }, n;
     }
 
@@ -30765,59 +31415,67 @@ module.exports = function (e) {
         var e = this,
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-            n = this.state.reactRouter,
-            s = [];
-        if (t && t.length) for (var i = function i(_i) {
-          var o = t[_i],
-              c = o.text,
-              u = o.dataToggle,
-              d = o.toggled,
-              f = o.unique,
-              p = o.props,
-              h = o.classList,
-              v = o.href,
-              m = o.icon,
-              g = t[_i].data ? t[_i].data : [],
-              y = !!t[_i].data;
-          h || (h = ""), p && r()(p) === r()({}) || (p = {});
+            n = this.state,
+            s = n.reactRouter,
+            i = n.dropDown,
+            o = [];
+        if (t && t.length) for (var c = function c(n) {
+          var c = t[n],
+              u = c.text,
+              d = c.dataToggle,
+              f = c.toggled,
+              p = c.unique,
+              h = c.props,
+              v = c.classList,
+              m = c.href,
+              g = c.icon,
+              y = c.iconId,
+              C = c.iconClass;
+          m && r()("8") == r()(m) && (m = m.toLowerCase());
+          var k = t[n].data ? t[n].data : [],
+              x = !!t[n].data;
+          v || (v = ""), h && r()(h) === r()({}) || (h = {});
 
           try {
-            Object.keys(p);
+            Object.keys(h);
           } catch (e) {
-            p = {};
+            h = {};
           }
 
-          var C = "";
-          n && g && 0 == g.length && (C = b.a.createElement(Oe, {
-            to: v,
+          var D = "";
+          s && k && 0 == k.length && (D = b.a.createElement(Ne, {
+            to: m,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
-              return e.toggle(f, y);
+              return e.toggle(p, x);
             }
-          }, m && m, c)), !n && g && 0 == g.length && (C = b.a.createElement("a", {
-            href: v,
+          }, g && g, u)), !s && k && 0 == k.length && (D = b.a.createElement("a", {
+            href: m,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
-              return e.toggle(f, y);
+              return e.toggle(p, x);
             }
-          }, m && m, c)), g && 0 !== g.length && (C = b.a.createElement("div", {
-            className: "text ".concat(a ? "child" : ""),
+          }, g && g, u)), k && 0 !== k.length && (D = b.a.createElement("div", {
+            className: "text hasChildren ".concat(a ? " child" : ""),
             onClick: function onClick() {
-              return e.toggle(f, y);
+              return e.toggle(p, x);
             }
-          }, m && m, c)), s.push(b.a.createElement("div", l()({
+          }, g && g, u, i && b.a.createElement("span", {
+            id: "".concat(f ? y : ""),
+            className: "icon-down ".concat(C || "")
+          }, i))), o.push(b.a.createElement("div", l()({
             key: E(),
-            className: "single-entry ".concat(h, " ").concat(g && 0 !== g.length ? "parent" : "")
-          }, p), C, d && g && 0 !== g.length && b.a.createElement("div", {
-            id: "".concat(g && 0 !== g.length ? "".concat(f) : ""),
+            className: "single-entry ".concat(v, " ").concat(k && 0 !== k.length ? "parent" : "")
+          }, h), D, f && k && 0 !== k.length && b.a.createElement("div", {
+            id: "".concat(k && 0 !== k.length ? "".concat(p) : ""),
             className: "children"
-          }, e.buildDataRecursive(g, !0)), d && null == g && b.a.createElement("div", {
+          }, e.buildDataRecursive(k, !0)), f && null == k && b.a.createElement("div", {
             className: "data"
-          }, u)));
-        }, o = 0; o <= t.length - 1; o++) {
-          i(o);
+          }, d)));
+        }, u = 0; u <= t.length - 1; u++) {
+          c(u);
         }
-        return s;
+        return o;
       }
     }, {
       key: "toggle",
@@ -30832,23 +31490,31 @@ module.exports = function (e) {
 
         var o = function t(a) {
           if (a && a.length) for (var n = function n(_n) {
-            var l = a[_n].unique,
-                o = a[_n].data;
+            var l = a[_n],
+                o = l.unique,
+                c = l.iconId,
+                u = a[_n].data;
 
-            if (l == e) {
-              var c = document.getElementById(e);
+            if (o == e) {
+              var d = document.getElementById(e),
+                  f = document.getElementById(c);
 
-              if (c && s) {
-                var u = "".concat(s ? "animation-".concat(s, "-back") : "");
-                c.classList.add(u);
+              if (d && s) {
+                var p = "".concat(s ? "animation-".concat(s, "-back") : "");
+                d.classList.add(p);
               }
 
-              return a[_n].toggled = !a[_n].toggled, a[_n].classList = a[_n].toggled ? "toggling ".concat(s ? "animation-".concat(s) : "") : "toggled", !a[_n].toggled && s && (i = 300), setTimeout(function () {
-                a[_n].classList = a[_n].toggled ? "toggled ".concat(s ? "animation-".concat(s) : "") : "";
-              }, 300), "break";
+              if (f) {
+                var h = "".concat(s ? "icon-down-animation-back" : "");
+                f.classList.add(h);
+              }
+
+              return a[_n].toggled = !a[_n].toggled, a[_n].classList = a[_n].toggled ? "toggling ".concat(s ? "animation-".concat(s) : "") : "toggled", a[_n].iconClass = a[_n].toggled ? "icon-down-animation" : "", !a[_n].toggled && s && (i = 300), setTimeout(function () {
+                a[_n].classList = a[_n].toggled ? "toggled ".concat(s ? "animation-".concat(s) : "") : "", a[_n].iconClass = a[_n].toggled ? "icon-down-animation-persist" : "";
+              }, 100), "break";
             }
 
-            o && r()([]) == r()(o) && 0 !== o.length && t(o);
+            u && r()([]) == r()(u) && 0 !== u.length && t(u);
           }, l = 0; l <= a.length - 1; l++) {
             if ("break" === n(l)) break;
           }
@@ -30893,10 +31559,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.a.Component),
-      Pe = a(12),
-      Te = a.n(Pe);
+      Te = a(12),
+      Fe = a.n(Te);
 
-  function Re(e) {
+  function Me(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -30922,9 +31588,9 @@ module.exports = function (e) {
     };
   }
 
-  var Fe = function (e) {
+  var Ae = function (e) {
     h()(a, e);
-    var t = Re(a);
+    var t = Me(a);
 
     function a(e) {
       var n;
@@ -30986,8 +31652,8 @@ module.exports = function (e) {
             i = t.split(""),
             o = -1;
         !function (t) {
-          a.writerInterval = setInterval(F()(T.a.mark(function n() {
-            return T.a.wrap(function (n) {
+          a.writerInterval = setInterval(F()(P.a.mark(function n() {
+            return P.a.wrap(function (n) {
               for (;;) {
                 switch (n.prev = n.next) {
                   case 0:
@@ -31026,9 +31692,9 @@ module.exports = function (e) {
               c = o.from,
               u = o.to,
               d = o.replace;
-          e.removeIntervaller = setInterval(F()(T.a.mark(function o() {
+          e.removeIntervaller = setInterval(F()(P.a.mark(function o() {
             var f, p;
-            return T.a.wrap(function (o) {
+            return P.a.wrap(function (o) {
               for (;;) {
                 switch (o.prev = o.next) {
                   case 0:
@@ -31049,8 +31715,8 @@ module.exports = function (e) {
                           var p = -1,
                               h = d.split(""),
                               v = [];
-                          e.writerInterval = setInterval(F()(T.a.mark(function s() {
-                            return T.a.wrap(function (s) {
+                          e.writerInterval = setInterval(F()(P.a.mark(function s() {
+                            return P.a.wrap(function (s) {
                               for (;;) {
                                 switch (s.prev = s.next) {
                                   case 0:
@@ -31060,7 +31726,7 @@ module.exports = function (e) {
                                       });
                                     }, l)), s.next = 4, e.writerPromise(h[p]).then(function (t) {
                                       v.push(t), e.setState({
-                                        written: [].concat(Te()(i), v, Te()(o), Te()(f))
+                                        written: [].concat(Fe()(i), v, Fe()(o), Fe()(f))
                                       });
                                     });
 
@@ -31116,7 +31782,7 @@ module.exports = function (e) {
     }]), a;
   }(b.a.Component);
 
-  function Ae(e) {
+  function Ie(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -31142,9 +31808,9 @@ module.exports = function (e) {
     };
   }
 
-  var Me = function (e) {
+  var Ve = function (e) {
     h()(a, e);
-    var t = Ae(a);
+    var t = Ie(a);
 
     function a(e) {
       var n;
@@ -31263,91 +31929,6 @@ module.exports = function (e) {
     }]), a;
   }(b.a.Component);
 
-  function Ie(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var Ve = function (e) {
-    h()(a, e);
-    var t = Ie(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
-        moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
-        textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
-        textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.defaultClass,
-            n = e.id,
-            l = e.moduleMenu,
-            s = e.image,
-            r = e.textLong,
-            i = e.textShort;
-        return b.a.createElement("div", {
-          className: "".concat(a, " ").concat(t),
-          id: n
-        }, b.a.createElement("div", {
-          className: "logo-text"
-        }, s && b.a.createElement("div", {
-          className: "logo"
-        }, s), b.a.createElement("div", {
-          className: "text"
-        }, r && b.a.createElement("span", {
-          className: "long"
-        }, r), i && b.a.createElement("span", {
-          className: "short"
-        }, i))), l && l);
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
-          moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
-          textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
-          textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0
-        } : null;
-      }
-    }]), a;
-  }(b.a.Component);
-
   function Be(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
@@ -31377,6 +31958,98 @@ module.exports = function (e) {
   var je = function (e) {
     h()(a, e);
     var t = Be(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
+        moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
+        textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
+        textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0,
+        href: e.href && r()("8") == r()(e.href) ? e.href : void 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.defaultClass,
+            n = e.id,
+            l = e.moduleMenu,
+            s = e.image,
+            r = e.textLong,
+            i = e.textShort,
+            o = e.href;
+        return b.a.createElement("div", {
+          className: "".concat(a, " ").concat(t),
+          id: n
+        }, b.a.createElement("div", {
+          className: "logo-text"
+        }, o && b.a.createElement("a", {
+          href: o,
+          className: "logo-text"
+        }, s && b.a.createElement("div", {
+          className: "logo"
+        }, s), b.a.createElement("div", {
+          className: "text"
+        }, r && b.a.createElement("span", {
+          className: "long"
+        }, r), i && b.a.createElement("span", {
+          className: "short"
+        }, i)))), l && l);
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href"], e, t) ? {
+          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
+          moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
+          textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
+          textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0,
+          href: e.href && r()("8") == r()(e.href) ? e.href : void 0
+        } : null;
+      }
+    }]), a;
+  }(b.a.Component);
+
+  function _e(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var Ue = function (e) {
+    h()(a, e);
+
+    var t = _e(a);
 
     function a(e) {
       var n;
@@ -31570,9 +32243,9 @@ module.exports = function (e) {
                 code: f,
                 "class": "functionArguments"
               }), f = "", u = "function")), -1 !== f.indexOf("{")) {
-                var N = f.substring(0, f.indexOf("{"));
-                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (r.push({
-                  code: N.substring(0, N.indexOf("=")),
+                var L = f.substring(0, f.indexOf("{"));
+                f = f.substring(L.length, f.length), -1 !== L.indexOf("=") && (r.push({
+                  code: L.substring(0, L.indexOf("=")),
                   "class": "variableName"
                 }), r.push({
                   code: "=",
@@ -31608,15 +32281,15 @@ module.exports = function (e) {
                 code: ")",
                 "class": "bracket bracket-right"
               }), f = "", u = ""), f.length) {
-                for (var L = [{
+                for (var N = [{
                   words: ["import", "from", "require", "use", "return", "export", "default", "extends", "interface"],
                   "class": "key"
-                }], P = 0; P <= L.length - 1; P++) {
-                  for (var T = L[P].words, R = 0; R <= T.length - 1; R++) {
-                    if (T[R] === f) {
+                }], R = 0; R <= N.length - 1; R++) {
+                  for (var P = N[R].words, T = 0; T <= P.length - 1; T++) {
+                    if (P[T] === f) {
                       r.push({
                         code: f,
-                        "class": L[P]["class"]
+                        "class": N[R]["class"]
                       }), f = "";
                       break;
                     }
@@ -31641,21 +32314,21 @@ module.exports = function (e) {
           }), l.push(r);
         }
 
-        for (var F = [], A = 0; A < l.length; A++) {
-          for (var M = l[A], I = [], V = 0; V < M.length; V++) {
+        for (var F = [], M = 0; M < l.length; M++) {
+          for (var A = l[M], I = [], V = 0; V < A.length; V++) {
             I.push(b.a.createElement("span", {
               key: E(),
-              className: M[V]["class"] ? M[V]["class"] : ""
-            }, M[V].code));
+              className: A[V]["class"] ? A[V]["class"] : ""
+            }, A[V].code));
           }
 
-          var B = "single-code-line single-code-line-".concat(A + 1, " ").concat(A + 1 == 1 ? " single-code-line-first" : "", " ").concat(A + 1 == l.length ? " single-code-line-last" : "");
+          var B = "single-code-line single-code-line-".concat(M + 1, " ").concat(M + 1 == 1 ? " single-code-line-first" : "", " ").concat(M + 1 == l.length ? " single-code-line-last" : "");
           F.push(b.a.createElement("li", {
             key: E(),
             className: n ? "".concat(B, " flex") : B
           }, n && b.a.createElement("div", {
             className: "line-number"
-          }, A + 1), b.a.createElement("div", {
+          }, M + 1), b.a.createElement("div", {
             className: "line-code"
           }, I)));
         }
@@ -31905,7 +32578,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.Component),
-      _e = function _e() {
+      qe = function qe() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -31961,9 +32634,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./Website/Functions/language/possibleLanguagesLong.js");
 /* harmony import */ var _Website_Functions_language_setLanguage__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./Website/Functions/language/setLanguage.js");
 /* harmony import */ var _Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./Website/Functions/possibleLayouts.js");
-/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./Website/Scss/index.scss");
-/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Functions/getAllAvailableModulesNames.js");
+/* harmony import */ var _Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./Website/Functions/getAllAvailableModulesNames.js");
+/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Scss/index.scss");
+/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _Website_Pages_Modules_RR_Accordion__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./Website/Pages/Modules/RR_Accordion.jsx");
 
 
 
@@ -31986,6 +32660,11 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
+
+/**
+ * React Revolution Modules
+ */
 
 
 
@@ -32135,10 +32814,10 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "searchForModule",
     value: function searchForModule(inputValue) {
       var host = this.state.host;
-      var allModules = Object(_Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__["default"])();
+      var allModules = Object(_Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_17__["default"])();
       var suggestions = [];
       allModules.map(function (i) {
-        if (i.toLowerCase().indexOf(inputValue.toLowerCase())) {
+        if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
           suggestions.push({
             href: "".concat(host, "#/").concat(i),
             jsx: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("p", null, i),
@@ -32149,9 +32828,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         }
       });
       suggestions.sort();
-      this.setState({
-        suggestions: suggestions
-      });
+      return suggestions;
     }
   }, {
     key: "render",
@@ -32180,23 +32857,104 @@ var App = /*#__PURE__*/function (_React$Component) {
           }),
           textLong: _Website_Globals__WEBPACK_IMPORTED_MODULE_12__["appNameShort"],
           textShort: "v".concat(_Website_Globals__WEBPACK_IMPORTED_MODULE_12__["version"]),
+          href: "".concat(host),
           moduleMenu: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["MenuClickHorizontal"], {
             reactRouter: false,
             animation: "height",
+            dropDown: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+              className: "fas fa-angle-down dropDownIcon"
+            }),
             data: [{
-              text: 'Home',
-              icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
-                className: "fas fa-flag-checkered"
-              }),
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('getStarted'),
+              // icon: <i className='fas fa-flag-checkered' />,
               data: [{
-                text: 'Home',
-                href: "".concat(host, "#/")
+                text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('installation'),
+                href: "".concat(host, "#/installation")
               }, {
-                text: 'Home',
-                href: "".concat(host, "#/home")
+                text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('documentation'),
+                href: "".concat(host, "#/documentation")
+              }]
+            }, {
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('modules'),
+              // icon: <i className='fas fa-flag-checkered' />,
+              data: [{
+                text: 'Accordion',
+                href: "".concat(host, "#/Accordion")
               }, {
-                text: 'Home',
-                href: "".concat(host, "#/ala")
+                text: 'Breadcrumbs',
+                href: "".concat(host, "#/Breadcrumbs")
+              }, {
+                text: 'Cards',
+                data: [{
+                  text: 'Cards',
+                  href: "".concat(host, "#/Cards")
+                }, {
+                  text: 'CardsScroll',
+                  href: "".concat(host, "#/CardsScroll")
+                }, {
+                  text: 'CardsScrollCallback',
+                  href: "".concat(host, "#/CardsScrollCallback")
+                }]
+              }, {
+                text: 'Clipboard',
+                href: "".concat(host, "#/Clipboard")
+              }, {
+                text: 'CustomSuggestion',
+                href: "".concat(host, "#/CustomSuggestion")
+              }, {
+                text: 'FullScreen',
+                data: [{
+                  text: 'FullScreenListArray',
+                  href: "".concat(host, "#/FullScreenListArray")
+                }, {
+                  text: 'FullScreenListObject',
+                  href: "".concat(host, "#/FullScreenListObject")
+                }, {
+                  text: 'FullScreenOverlay',
+                  href: "".concat(host, "#/FullScreenOverlay")
+                }]
+              }, {
+                text: 'GlobalMessages',
+                href: "".concat(host, "#/GlobalMessages")
+              }, {
+                text: 'Icons',
+                href: "".concat(host, "#/Icons")
+              }, {
+                text: 'Input',
+                data: [{
+                  text: 'InputAnimation',
+                  href: "".concat(host, "#/InputAnimation")
+                }, {
+                  text: 'InputAnimation',
+                  href: "".concat(host, "#/InputAnimation")
+                }, {
+                  text: 'InputFile',
+                  href: "".concat(host, "#/InputFile")
+                }, {
+                  text: 'InputFileDragDrop',
+                  href: "".concat(host, "#/InputFileDragDrop")
+                }, {
+                  text: 'InputSuggestion',
+                  href: "".concat(host, "#/InputSuggestion")
+                }]
+              }, {
+                text: 'LoadingBoxTop',
+                href: "".concat(host, "#/LoadingBoxTop")
+              }, {
+                text: 'MenuClickHorizontal',
+                href: "".concat(host, "#/MenuClickHorizontal")
+              }, {
+                text: 'PopupBox',
+                href: "".concat(host, "#/PopupBox")
+              }, {
+                text: 'SideBar',
+                href: "".concat(host, "#/SideBar")
+              }, {
+                text: 'SourceCode',
+                href: "".concat(host, "#/SourceCode")
+              }, {
+                text: 'TextWriter',
+                href: "".concat(host, "#/TextWriter")
               }]
             }]
           })
@@ -32267,6 +33025,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             placeholder: "".concat(Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('searchForModule')),
             suggestions: suggestions,
             callback: this.searchForModule,
+            callbackRerender: true,
             value: inputValue,
             inputProps: {},
             type: "text"
@@ -32278,7 +33037,14 @@ var App = /*#__PURE__*/function (_React$Component) {
           render: function render(props) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Home__WEBPACK_IMPORTED_MODULE_9__["default"], props);
           }
-        })))
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/accordion",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_RR_Accordion__WEBPACK_IMPORTED_MODULE_19__["default"], props);
+          }
+        }))),
+        footerData: ''
       });
     }
   }]);

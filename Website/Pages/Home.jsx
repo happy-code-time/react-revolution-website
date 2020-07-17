@@ -9,6 +9,8 @@ import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revoluti
 
 import { exampleHome, exampleInstallationNpm, exampleInstallationYarn } from '../CodeExamples/homeExample';
 
+import Footer from '../Modules/Footer';
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -125,7 +127,7 @@ class Home extends React.Component {
                                     <Clipboard
                                         animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action margin-0">
+                                            <div className="button-action m0">
                                                 {
                                                     trans('copyToClipboard')
                                                 }
@@ -150,7 +152,7 @@ class Home extends React.Component {
                                     <Clipboard
                                         animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action margin-0">
+                                            <div className="button-action m0">
                                                 {
                                                     trans('copyToClipboard')
                                                 }
@@ -168,7 +170,7 @@ class Home extends React.Component {
                                         trans('documentation')
                                     }
                                 </h1>
-                                <Link to='#' className='button-action'>
+                                <Link to='documentation' className='button-action'>
                                     {
                                         trans('documentation')
                                     }
@@ -177,6 +179,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

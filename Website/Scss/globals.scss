@@ -72,7 +72,7 @@ $popupMenuWidth-min: 50px;
   position: relative;
 }
 
-.margin-0{
+.m0{
   margin: 0 !important;
 }
 
@@ -164,6 +164,10 @@ $popupMenuWidth-min: 50px;
 
 .action-icon:hover {
   cursor: pointer;
+}
+
+.d-block {
+  display: block !important;
 }
 
 .d-none {

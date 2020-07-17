@@ -13,6 +13,16 @@ const EN = {
     copyToClipboard: 'Copy to clipboard',
     installation: 'Installation',
     documentation: 'Documentation',
+    modules: 'Modules',
+    getStarted: 'Get started',
+    installation: 'Installation',
+    feedback: 'Feedback',
+    usefullLinks: 'Useful Links',
+    rights: 'Rights',
+    rigthsText: 'All rights reserved',
+    author: 'Author',
+    exampleTitle: 'Example',
+    reactCodeTitle: 'React Code',
 };
 
 export default EN;

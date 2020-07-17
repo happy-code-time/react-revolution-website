@@ -4,18 +4,31 @@
     box-sizing: border-box;
     padding: 5px 10px;
 
+    .parent .hasChildren{
+        position: relative;
+        user-select: none;
+    }
+
+    .parent .children {
+        padding-left: 20px;
+    }
+
     .single-entry{
         box-sizing: border-box;
         border: 1px solid rgba(122,122,122, .33);
         border-radius: 5px;
         margin: 10px 0;
+
+        a{
+            text-decoration: none;
+        }
         
         .data{
             margin: 10px 0;
         }
 
         .text{
-            padding: 10px;
+            padding: 7px 10px;
         }
 
         .text:hover{

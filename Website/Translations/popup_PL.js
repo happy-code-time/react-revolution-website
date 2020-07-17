@@ -13,6 +13,16 @@ const PL = {
     copyToClipboard: 'Kopiuj do schowka',
     installation: 'Instalacja',
     documentation: 'Dokumentacja',
+    modules: 'Moduły',
+    getStarted: 'Początek',
+    installation: 'Instalacja',
+    feedback: 'Feedback',
+    usefullLinks: 'Użyteczne linki',
+    rights: 'Prawa',
+    rigthsText: 'Wszystkie prawa zastrzeżone',
+    author: 'Autor',
+    exampleTitle: 'Przykład',
+    reactCodeTitle: 'Kod React',
 };
 
 export default PL;

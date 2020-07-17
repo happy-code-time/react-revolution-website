@@ -24,7 +24,8 @@ class WebsiteContainer extends React.Component
       sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt: 1024,
       displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon: undefined,
       minify: props.minify,
-      minifiedSecondSideBar: true
+      minifiedSecondSideBar: true,
+      footerData: props.footerData
     };
   }
 
@@ -35,7 +36,7 @@ class WebsiteContainer extends React.Component
    * @param {object} state 
    */
   static getDerivedStateFromProps(props, state) {
-    if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify'], props, state)) {
+    if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify', 'footerData'], props, state)) {
       
       if(state.minify !== props.minify){
         
@@ -68,6 +69,7 @@ class WebsiteContainer extends React.Component
         sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt: 1024,
         displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon: undefined,
         minify: props.minify,
+        footerData: props.footerData
       };
     }
 
@@ -245,7 +247,7 @@ class WebsiteContainer extends React.Component
   }
 
   render() {
-    const { moduleSidebar, headerData, headerClassName, contentData, displayMinifyMaxifyIcon } = this.state;
+    const { moduleSidebar, headerData, headerClassName, contentData, displayMinifyMaxifyIcon, footerData } = this.state;
     const sidebarClassNames = this.getClassNamesSidebar();
     const contentClassNames = this.getClassNamesContent();
 
@@ -276,6 +278,9 @@ class WebsiteContainer extends React.Component
           </div>
           {
             contentData && contentData
+          }
+          {
+            footerData && footerData
           }
         </div>
       </div>

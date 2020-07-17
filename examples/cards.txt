@@ -30,6 +30,7 @@ class App extends React.Component {
             <span>
                 <Cards
                     itemsPerLine={3}
+                    mediaBreak={1140}
                     data={
                         [
                             {

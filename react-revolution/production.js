@@ -15,7 +15,7 @@ import Clipboard from './Modules/Clipboard';
 
 import FullScreenListArray from './Modules/FullScreenListArray';
 
-import FullScreenListObjects from './Modules/FullScreenListObjects';
+import FullScreenListObject from './Modules/FullScreenListObject';
 
 import FullScreenOverlay from './Modules/FullScreenOverlay';
 
@@ -32,6 +32,8 @@ import InputFileDragDrop from './Modules/InputFileDragDrop';
 import InputSuggestion from './Modules/InputSuggestion';
 
 import LoadingBoxTop from './Modules/LoadingBoxTop';
+
+import LoadOnScroll from './Modules/LoadOnScroll';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
 
@@ -50,12 +52,18 @@ import addGlobalMessage from './Functions/addGlobalMessage';
 
 import uuid from './Functions/uuid';
 
+import disableHtmlScroll from './Functions/disableHtmlScroll';
+
+import enableHtmlScroll from './Functions/enableHtmlScroll';
+
 export {
     /**
      * Functions
      */
     addGlobalMessage,
     uuid,
+    disableHtmlScroll,
+    enableHtmlScroll,
     /**
      * Modules
      */
@@ -66,7 +74,7 @@ export {
     CustomSuggestion,
     Clipboard,
     FullScreenListArray,
-    FullScreenListObjects,
+    FullScreenListObject,
     FullScreenOverlay,
     GlobalMessages,
     Icons,
@@ -75,6 +83,7 @@ export {
     InputFileDragDrop,
     InputSuggestion,
     LoadingBoxTop,
+    LoadOnScroll,
     MenuClickHorizontal,
     TextWriter,
     PopupBox,

@@ -28,7 +28,7 @@ class CustomSuggestion extends React.Component {
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
             inputProps: (props.inputProps && typeof {} == typeof props.inputProps) ? props.inputProps : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
-            emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
+            callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -42,6 +42,14 @@ class CustomSuggestion extends React.Component {
      */
     static getDerivedStateFromProps(props, state) {
         if (getDerivedStateFromPropsCheck(['value', 'suggestions'], props, state)) {
+            const { callbackRerender } = state;
+
+            if(callbackRerender){
+                return {
+                    suggestions: state.suggestions,
+                };
+            }
+
             return {
                 suggestions: props.suggestions,
                 plainValue: state.plainValue
@@ -87,7 +95,6 @@ class CustomSuggestion extends React.Component {
         if (this.refNodeUl && !this.refNodeUl.contains(e.target)) {
             this.setState({
                 suggestions: [],
-                setArrow: null
             });
         }
     }
@@ -95,11 +102,17 @@ class CustomSuggestion extends React.Component {
     /**
      * On state change callback
      */
-    callback(val = null) {
-        const { callback, plainValue } = this.state;
+    async callback(plainValue) {
+        const { callback } = this.state;
 
         if (callback) {
-            (callback)(plainValue);
+            const suggestions = await (callback)(plainValue);
+
+            console.log(suggestions);
+
+            this.setState({
+                suggestions
+            }); 
         }
     }
 
@@ -109,7 +122,6 @@ class CustomSuggestion extends React.Component {
     callbackEsc() {
         this.setState({
             suggestions: [],
-            setArrow: null
         });
     }
 

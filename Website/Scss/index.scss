@@ -1,22 +1,32 @@
-@import "./reset.scss";
+@import "./reset";
 
-@import "./colors.scss";
+@import "./colors";
 
-@import "./globals.scss";
+@import "./globals";
 
-@import "./keyframes.scss";
+@import "./keyframes";
 
-@import "./content.scss";
+@import "./content";
 
 @import "./sidebar";
 
-@import "./menu.scss";
+@import "./menu";
 
-@import "./home.scss";
+@import "./home";
+
+@import "./footer";
+
+@import "./generator";
 
 * {
   font-family: "open sans", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue",
     Helvetica, Arial, sans-serif;
+}
+
+body{
+  min-height: 100vh;
+  height: auto;
+  overflow: auto;
 }
 
 #app {
@@ -155,13 +165,53 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
+      a{
+        color: #7c8695;
+      }
+
       i {
         margin: 0 20px 0 7px;
       }
     }
 
-    .child {
-      padding: 10px 0 10px 53px;
+    .icon-down{
+      position: absolute;
+      display: block;
+      top:0;
+      right:0;
+      text-align: center;
+
+      line-height: 35px;
+      transition-duration: $default_transition;
+      margin:0 !important;
+    }
+
+    .icon-down-animation .dropDownIcon{
+      @keyframes rotate90Deg {
+        0%{
+          transform: rotateZ(0deg);
+        }
+        100%{
+          transform: rotateZ(90deg);
+        }
+      }
+      animation: rotate90Deg 300ms ease-in forwards;
+    }
+
+    .icon-down-animation-persist .dropDownIcon{
+      transform: rotateZ(90deg);
+    }
+
+    .icon-down-animation-back .dropDownIcon{
+      @keyframes rotate90DegBack {
+        0%{
+          transform: rotateZ(90deg);
+        }
+        100%{
+          transform: rotateZ(0deg);
+        }
+      }
+      animation: rotate90DegBack 300ms ease-in forwards;
     }
   }
 }
