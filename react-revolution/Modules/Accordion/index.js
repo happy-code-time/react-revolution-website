@@ -68,12 +68,12 @@ class Accordion extends React.Component {
                 jsx.push(
                     <div 
                         key={uuid()} 
-                        className={`single-entry ${classList}`}
+                        className={`single-entry ${classList} ${(dataChildren && 0 !== dataChildren.length) ? 'hasChildren' : ''}`}
                         {...props}
                     >
                         {
                             <div 
-                                className={`text ${isChild ? 'child' : ''}`}
+                                className={`text ${isChild ? 'child' : ''} ${(dataChildren && 0 !== dataChildren.length) ? 'hasChildren' : ''} ${(dataToggle) ? 'hasData' : ''}`}
                                 onClick={ () => this.toggle(unique)}
                             >
                             {
@@ -83,16 +83,14 @@ class Accordion extends React.Component {
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
-                            <div 
-                                id={`${dataChildren && 0 !== dataChildren.length ? `${unique}` : ''}`} 
-                                className={`children`}>
+                            <div className={`children`}>
                                 {
                                     this.buildDataRecursive(dataChildren, true)
                                 }
                             </div>
                         }
                         {
-                            toggled && undefined == dataChildren &&
+                            toggled && undefined == dataChildren && dataToggle &&
                             <div className="data">
                             {
                                 dataToggle
@@ -117,6 +115,7 @@ class Accordion extends React.Component {
         const { data } = this.state;
         let { animation } = this.state;
         let timeouterForAnimationBack = 0;
+        let closing = false;
 
         if(!allowedAnimations.includes(animation)){
             animation = undefined;
@@ -130,23 +129,28 @@ class Accordion extends React.Component {
 
                     if (unique == uniqueId) {
 
-                        const childrenNode = document.getElementById(uniqueId);
-
-                        if(childrenNode && animation){
-                            const cls = `${animation ? `animation-${animation}-back` : ''}`;
-                            childrenNode.classList.add(cls);
-                        }
-                        
-                        datas[x].toggled = !datas[x].toggled;
-                        datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
-
-                        if(!datas[x].toggled && animation){
+                        if(false == !datas[x].toggled && animation){
                             timeouterForAnimationBack = 300;
                         }
 
-                        setTimeout(() => {
-                            datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
-                        }, 300);
+                        const toggleEntry = () => {
+                            datas[x].toggled = !datas[x].toggled;
+                            datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
+    
+                            setTimeout(() => {
+                                datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
+                            }, 300);
+                        }
+
+                        if(false == !datas[x].toggled){
+                            datas[x].classList = `${datas[x].classList} ${animation ? `animation-${animation}-back` : ''}`;
+
+                            return this.setState({
+                                data
+                            }, toggleEntry);
+                        }
+
+                        toggleEntry(); 
                         break;
                     }
 
@@ -159,13 +163,25 @@ class Accordion extends React.Component {
 
         loop(data);
 
+        /**
+         * Opening entry
+         */
+        if(!closing){
+            return setTimeout( () => {
+                this.setState({
+                    data
+                }, () => setTimeout(() => { 
+                    this.setState({ data }); 
+                }, 300));
+            }, timeouterForAnimationBack);
+        }
+
+        /**
+         * Closing entry
+         */
         setTimeout( () => {
-            this.setState({
-                data
-            }, () => setTimeout(() => { 
-                this.setState({ data }); 
-            }, 300));
-        }, timeouterForAnimationBack);
+            this.setState({ data }); 
+        }, timeouterForAnimationBack*2);
     }
 
     render() {

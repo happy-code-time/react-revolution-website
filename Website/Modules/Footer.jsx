@@ -32,105 +32,79 @@ class Footer extends React.Component {
         return (
             <div className="Footer">
 
-                <Cards
-                    itemsPerLine={4}
-                    mediaBreak={1024}
-                    data={
-                        [
-                            {
-                                title: (
-                                    <span>
-                                        <i className="fas fa-user" />
-                                        {
-                                            trans('author')
-                                        }
-                                    </span>
-                                ),
-                                content: (
-                                    <div className='text text-center'>
-                                        <div>
+                <div className="content">
+                    <Cards
+                        itemsPerLine={4}
+                        mediaBreak={1024}
+                        data={
+                            [
+                                {
+                                    title: (
+                                        <span>
+                                            <i className="fas fa-user" />
                                             {
-                                                author
+                                                trans('author')
                                             }
-                                        </div>
-                                    </div>
-                                )
-                            },
-                            {
-                                title: (
-                                    <span>
-                                        <i className="fas fa-comment-dots" />
-                                        {
-                                            trans('feedback')
-                                        }
-                                    </span>
-                                ),
-                                content: (
-                                    <Clipboard
-                                        animation='jump' // scale, jump
-                                        data={(
-                                            <SourceCode
-                                                layout='dark'
-                                                code={'david.janitzek@gmail.com'}
-                                            />
-                                        )}
-                                        clipboard='david.janitzek@gmail.com'
-                                    />
-                                ),
-                            },
-                            {
-                                title: (
-                                    <span>
-                                        <i className="fas fa-comment-dots" />
-                                        {
-                                            trans('usefullLinks')
-                                        }
-                                    </span>
-                                ),
-                                content: (
-                                    <span>
-                                        <div className="button-action">
-                                            <a href={`${host}#/installation`}>
+                                        </span>
+                                    ),
+                                    content: (
+                                        <div className='text text-center'>
+                                            <div>
                                                 {
-                                                    trans('installation')
+                                                    author
                                                 }
-                                            </a>
+                                            </div>
                                         </div>
-                                        <div className="button-action">
-                                            <a href={`${host}#/documentation`}>
-                                                {
-                                                    trans('documentation')
-                                                }
-                                            </a>
-                                        </div>
-                                    </span>
-                                ),
-                            },
-                            {
-                                title: (
-                                    <span>
-                                        <i className="fas fa-gavel" />
-                                        {
-                                            trans('rights')
-                                        }
-                                    </span>
-                                ),
-                                content: (
-                                    <div className='text text-center'>
-                                        <div>
-                                            {`Ⓒ ${this.getCurrentYearText()} ${trans('rigthsText')}`}
-                                        </div>
-                                        <div>
+                                    )
+                                },
+                                {
+                                    title: (
+                                        <span>
+                                            <i className="fas fa-comment-dots" />
                                             {
-                                                author
+                                                trans('feedback')
                                             }
+                                        </span>
+                                    ),
+                                    content: (
+                                        <Clipboard
+                                            animation='jump' // scale, jump
+                                            data={(
+                                                <SourceCode
+                                                    layout='dark'
+                                                    code={'david.janitzek@gmail.com'}
+                                                />
+                                            )}
+                                            clipboard='david.janitzek@gmail.com'
+                                        />
+                                    ),
+                                },
+                                {
+                                    title: (
+                                        <span>
+                                            <i className="fas fa-gavel" />
+                                            {
+                                                trans('rights')
+                                            }
+                                        </span>
+                                    ),
+                                    content: (
+                                        <div className='text text-center'>
+                                            <div>
+                                                {`Ⓒ ${this.getCurrentYearText()} ${trans('rigthsText')}`}
+                                            </div>
+                                            <div>
+                                                {
+                                                    author
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
-                                ),
-                            }
-                        ]
-                    }
-                />
+                                    ),
+                                }
+                            ]
+                        }
+                    />
+                </div>
             </div>
         );
     }

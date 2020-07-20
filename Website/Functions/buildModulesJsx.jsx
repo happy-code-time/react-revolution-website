@@ -1,35 +1,73 @@
 import React from 'react';
 
-import { SourceCode } from '../../react-revolution/public/react-revolution';
+import { Clipboard, SourceCode } from '../../react-revolution/public/react-revolution';
 
 import trans from '../Translations/trans';
 
 const buildModulesJsx = (object = {}, count = 1) => {
-    const { react, js, css, html, description, live } = object;
+    const { reactTextBefore, react, reactTextAfter, js, css, html, description, live } = object;
 
     return (
         <div className="code-example">
-            <h1 className="h1-example">
-                {`${trans('exampleTitle')} ${count}`}
+            {
+                description &&
+                <p className="description">
+                    {
+                        description
+                    }
+                </p>
+            }
+            <h1
+                title={`${trans('exampleTitle')} ${count}`}
+                className="h1-example"
+            >
+                <i className="fas fa-user" />
             </h1>
             {
                 live
             }
             {
-                description &&
-                description
+                reactTextBefore && 
+                <p className="description">
+                    {
+                        reactTextBefore
+                    }
+                </p>
             }
             {
                 react &&
                 <span>
-                    <h1 className="h1-example">
-                        {`${trans('reactCodeTitle')} ${count}`}
+                    <h1
+                        title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} ${count}`}
+                        className="h1-example"
+                    >
+                        <i className="fas fa-atom" />
                     </h1>
                     <SourceCode
-                        layout='light'
+                        displayLineNumber={true}
+                        layout='dark'
                         code={react}
                     />
+                    <Clipboard
+                        animation='jump' // scale, jump
+                        data={(
+                            <div className="button-action">
+                                {
+                                    trans('copyToClipboard')
+                                }
+                            </div>
+                        )}
+                        clipboard={react}
+                    />
                 </span>
+            }
+            {
+                reactTextAfter && 
+                <p className="description">
+                    {
+                        reactTextAfter
+                    }
+                </p>
             }
             {
                 js &&
@@ -57,3 +95,4 @@ const buildModulesJsx = (object = {}, count = 1) => {
 };
 
 export default buildModulesJsx;
+

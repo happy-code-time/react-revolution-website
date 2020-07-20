@@ -11,22 +11,27 @@ class CardsScroll extends React.Component {
         this.scrollEvent = this.scrollEvent.bind(this);
         this.loadMore = this.loadMore.bind(this);
         this.removeScrollEvent = this.removeScrollEvent.bind(this);
+        this.resize = this.resize.bind(this);
+        this.rerenderItems = this.rerenderItems.bind(this);
 
         this.state = {
             /**
              * App
              */
             dataJsx: [],
+            start: 0,
+            end: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
+            isMinified: false,
             /**
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
-            loadMoreDefaultItems: props.loadMoreDefaultItems && typeof 8 == typeof props.loadMoreDefaultItems ? props.loadMoreDefaultItems : 3,
-            loadMoreAddItems: props.loadMoreAddItems && typeof 8 == typeof props.loadMoreAddItems ? props.loadMoreAddItems : 3,
+            defaultItems: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
+            mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
         };
     }
 
@@ -37,15 +42,15 @@ class CardsScroll extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'loadMoreDefaultItems', 'loadMoreAddItems'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'defaultItems', 'mediaBreak'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
-                loadMoreDefaultItems: props.loadMoreDefaultItems && typeof 8 == typeof props.loadMoreDefaultItems ? props.loadMoreDefaultItems : 3,
-                loadMoreAddItems: props.loadMoreAddItems && typeof 8 == typeof props.loadMoreAddItems ? props.loadMoreAddItems : 3,
+                defaultItems: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
+                mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
             };
         }
 
@@ -54,18 +59,49 @@ class CardsScroll extends React.Component {
 
 
     componentDidMount(){
+        const { mediaBreak } = this.state;
+
         if (this.cardsReference) {
             this.cardsReference.removeEventListener('scroll', this.scrollEvent);
             this.cardsReference.addEventListener('scroll', this.scrollEvent);
         }
 
         this.loadMore();
+
+        if(mediaBreak){
+            window.addEventListener('resize', this.resize);
+        }
     }
 
     componentWillUnmount(){
         this.removeScrollEvent();
+        window.removeEventListener('resize', this.resize);
     }
 
+    resize(){
+        const { mediaBreak, isMinified } = this.state;
+        /**
+         * Media break
+         */
+        if(document.documentElement.getBoundingClientRect().width <= mediaBreak){
+            if(!isMinified){
+                this.setState({ 
+                    isMinified: true 
+                }, this.rerenderItems);
+            }
+        }
+        /**
+         * Default
+         */
+        else{
+            if(isMinified){
+                this.setState({ 
+                    isMinified: false 
+                }, this.rerenderItems);
+            }
+        }
+    }
+    
     removeScrollEvent(){
         if (this.cardsReference) {
             this.cardsReference.removeEventListener('scroll', this.scrollEvent);
@@ -73,15 +109,15 @@ class CardsScroll extends React.Component {
     }
 
     loadMore(isScrollEvent = false){
-        let { data, dataJsx, itemsPerLine, loadMoreDefaultItems, loadMoreAddItems } = this.state;
+        let { data, dataJsx, itemsPerLine, isMinified, start, end } = this.state;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+
         let singleLines = [];
         let c = 0;
 
-        if(isScrollEvent){
-            const start = dataJsx.length*itemsPerLine;
-            const end = start + loadMoreAddItems;
-            data = data.slice(start, end);
+        data = data.slice(start, end);
 
+        if(isScrollEvent){
             /**
              * No more items to load
              */
@@ -91,8 +127,85 @@ class CardsScroll extends React.Component {
         }
 
         for(let x = 0; x <= data.length-1; x++){
+            const { title, content, footer } = data[x];
+            c++;
 
-            if(x >= loadMoreDefaultItems){
+            singleLines.push(
+                <div key={uuid()} className="card flex flex-column">
+                    {
+                        title && 
+                        <div className="title">
+                            {
+                                title
+                            }
+                        </div>
+                    }
+                    {
+                        content && 
+                        <div className="content">
+                            {
+                                content
+                            }
+                        </div>
+                    }
+                    {
+                        footer && 
+                        <div className="footer">
+                            {
+                                footer
+                            }
+                        </div>
+                    }
+                </div>
+            );
+
+            if(c == itemsPerLine){
+
+                dataJsx.push(
+                    <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                        {
+                            singleLines
+                        }
+                    </div>
+                );
+
+                singleLines = [];
+                c = 0;
+            }
+        }
+
+        if(singleLines.length){
+            dataJsx.push(
+                <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                    {
+                        singleLines
+                    }
+                </div>
+            );
+        }
+
+        this.setState({ 
+            dataJsx,
+            start: end,
+            end: end+itemsPerLine
+        }, () => {
+            if(0 == start){
+                this.resize();
+            }
+        });
+    }
+
+    rerenderItems(){
+        const { data, start, itemsPerLine, isMinified } = this.state;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+
+        let newDataJsx = [];
+        let singleLines = [];
+        let c = 0;
+
+        for(let x = 0; x <= data.length-1; x++){
+
+            if(x >= start){
                 break;
             }
 
@@ -130,8 +243,8 @@ class CardsScroll extends React.Component {
 
             if(c == itemsPerLine){
 
-                dataJsx.push(
-                    <div key={uuid()} className="cards-group flex">
+                newDataJsx.push(
+                    <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -144,8 +257,8 @@ class CardsScroll extends React.Component {
         }
 
         if(singleLines.length){
-            dataJsx.push(
-                <div key={uuid()} className="cards-group flex">
+            newDataJsx.push(
+                <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
                     {
                         singleLines
                     }
@@ -153,7 +266,9 @@ class CardsScroll extends React.Component {
             );
         }
 
-        this.setState({ dataJsx });
+        this.setState({ 
+            dataJsx: newDataJsx 
+        });
     }
 
     scrollEvent(e){

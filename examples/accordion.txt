@@ -69,7 +69,38 @@ class App extends React.Component {
             <span>
                 <Accordion
                     animation='height' // height, scale, opacity
-                    data={data}
+                    data={
+                        [
+                            {
+                                text: 'Accordion',
+                                icon: <i className='fas fa-flag-checkered' />,
+                                data: [
+                                    {
+                                        text: 'Child 1',
+                                        dataToggle: '"dataToggle" - without nested data'
+                                    },
+                                    {
+                                        text: 'Child 2',
+                                        data: [
+                                            {
+                                                text: 'Child 3',
+                                                dataToggle: '"dataToggle" - without nested data'
+                                            },
+                                            {
+                                                text: 'Child 3',
+                                                data: [
+                                                    {
+                                                        text: 'Child 4',
+                                                        dataToggle: '"dataToggle" - without nested data'
+                                                    },
+                                                ]
+                                            },
+                                        ]
+                                    },
+                                ]
+                            }
+                        ]
+                    }
                 />
             </span>
         )

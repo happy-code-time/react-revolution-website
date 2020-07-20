@@ -1,0 +1,48 @@
+.Generator{
+    // Cards
+    .rr-cards {
+        max-width: 1140px;
+        margin: 0 auto;
+        
+        .card{
+            width: calc(100% - 20px);
+            margin: 10px;
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .rr-cards {
+            .card{
+                width: 25% !important;
+                margin: 30px calc(4% - 2px) !important;
+            }
+        }
+    }
+    // Cards scroll
+    .section-cards-scroll{
+        height: 300px;
+
+        .rr-cards-scroll {
+            max-width: 1140px;
+            margin: 0 auto;
+            
+            .card{
+                width: calc(100% - 20px);
+                margin: 10px;
+                
+                .content{
+                    height: 100px;
+                }
+            }
+        }
+    
+        @media screen and (min-width: 1024px){
+            .rr-cards-scroll {
+                .card{
+                    width: 25% !important;
+                    margin: 30px calc(4% - 2px) !important;
+                }
+            }
+        }
+    }
+}

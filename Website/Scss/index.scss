@@ -18,15 +18,10 @@
 
 @import "./generator";
 
-* {
-  font-family: "open sans", "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue",
-    Helvetica, Arial, sans-serif;
-}
+@import "./rr-examples-website";
 
-body{
-  min-height: 100vh;
-  height: auto;
-  overflow: auto;
+* {
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
 }
 
 #app {
@@ -155,9 +150,13 @@ body{
   }
 
   .rr-menu-click-horizontal {
+    height: calc(100% - 60px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+
     .single-entry {
       border-radius: 0px;
-      margin: 5px 0px;
+      margin: 10px;
       border: none;
       display: block;
       width: 100%;
@@ -213,5 +212,9 @@ body{
       }
       animation: rotate90DegBack 300ms ease-in forwards;
     }
+  }
+
+  .rr-menu-click-horizontal:hover {
+    overflow-y: auto;
   }
 }

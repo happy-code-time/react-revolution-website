@@ -1,21 +1,28 @@
 .Footer{
     width: 100%;
     min-height: 50px;
-    background-color: transparent;
+    background-color: #2D3748;
+
+    .content{
+        margin: 0 auto;
+        max-width: 1400px;
+    }
 
     .card{
 
         @media screen and (min-width: $media-break){
-            width: 25%;
+            width: 33%;
             margin: 30px calc(1.5% - 2px);            
         }
 
         width: calc(100% - 20px);
         margin: 10px;
         min-height: unset;
+        border: none;
 
         .title{
             border-bottom: 1px solid $white;
+            background-color: transparent;
 
             i{
                 margin-right: 10px;

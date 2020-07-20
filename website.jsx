@@ -28,15 +28,17 @@ import './Website/Scss/index.scss';
 /**
  * React Revolution Modules
  */
-import RR_Accordion from './Website/Pages/Modules/RR_Accordion';
+import ReactRevolutionAccordion from './Website/Pages/Modules/ReactRevolutionAccordion';
+
+import ReactRevolutionCards from './Website/Pages/Modules/ReactRevolutionCards';
+
+import ReactRevolutionCardsScroll from './Website/Pages/Modules/ReactRevolutionCardsScroll';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.setOnClickEvent = this.setOnClickEvent.bind(this);
-    this.setScrollEvent = this.setScrollEvent.bind(this);
-    this.scrollEvent = this.scrollEvent.bind(this);
     this.checkLocation = this.checkLocation.bind(this);
     this.changeSidebarMinifiedState = this.changeSidebarMinifiedState.bind(this);
     this.searchForModule = this.searchForModule.bind(this);
@@ -44,7 +46,6 @@ class App extends React.Component {
     this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
       host: process.env.HOST,
-      scrolled: document.documentElement.scrollTop,
       suggestions: [],
       inputValue: ''
     };
@@ -54,13 +55,11 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setOnClickEvent();
-    this.setScrollEvent();
     this.changeSidebarMinifiedState();
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.checkLocation);
-    document.removeEventListener('scroll', this.scrollEvent);
   }
 
   /**
@@ -70,11 +69,6 @@ class App extends React.Component {
   setOnClickEvent() {
     document.removeEventListener('click', this.checkLocation);
     document.addEventListener('click', this.checkLocation);
-  }
-
-  setScrollEvent() {
-    document.removeEventListener('scroll', this.scrollEvent);
-    document.addEventListener('scroll', this.scrollEvent);
   }
 
   /**
@@ -104,23 +98,6 @@ class App extends React.Component {
 
       count--;
     }, 100);
-  }
-
-  scrollEvent() {
-    const { scrolled } = this.state;
-    const currentScrollPosition = document.documentElement.scrollTop;
-
-    if (50 <= currentScrollPosition) {
-      return this.setState({
-        scrolled: currentScrollPosition
-      });
-    }
-
-    if (50 >= currentScrollPosition && 0 !== scrolled) {
-      this.setState({
-        scrolled: 0
-      });
-    }
   }
 
   changeSidebarMinifiedState() {
@@ -179,7 +156,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { minifySidebard, host, scrolled, suggestions, inputValue } = this.state;
+    const { minifySidebard, host, suggestions, inputValue } = this.state;
 
     return (
       <WebsiteContainer
@@ -207,131 +184,111 @@ class App extends React.Component {
                 data={
                   [
                     {
-                      text: trans('getStarted'),
-                      // icon: <i className='fas fa-flag-checkered' />,
+                      text: 'Accordion',
+                      href: `${host}#/react-revolution-accordion`,
+                    },
+                    {
+                      text: 'Breadcrumbs',
+                      href: `${host}#/breadcrumbs`,
+                    },
+                    {
+                      text: 'Cards',
                       data: [
                         {
-                          text: trans('installation'),
-                          href: `${host}#/installation`,
+                          text: 'Cards',
+                          href: `${host}#/react-revolution-cards`,
                         },
                         {
-                          text: trans('documentation'),
-                          href: `${host}#/documentation`,
+                          text: 'CardsScroll',
+                          href: `${host}#/react-revolution-cards-scroll`,
+                        },
+                        {
+                          text: 'CardsScrollCallback',
+                          href: `${host}#/CardsScrollCallback`,
+                        },
+                      ]
+                    },
+                    {
+                      text: 'Clipboard',
+                      href: `${host}#/Clipboard`,
+                    },
+                    {
+                      text: 'CustomSuggestion',
+                      href: `${host}#/CustomSuggestion`,
+                    },
+                    {
+                      text: 'FullScreen',
+                      data: [
+                        {
+                          text: 'FullScreenListArray',
+                          href: `${host}#/FullScreenListArray`,
+                        },
+                        {
+                          text: 'FullScreenListObject',
+                          href: `${host}#/FullScreenListObject`,
+                        },
+                        {
+                          text: 'FullScreenOverlay',
+                          href: `${host}#/FullScreenOverlay`,
                         }
                       ]
                     },
                     {
-                      text: trans('modules'),
-                      // icon: <i className='fas fa-flag-checkered' />,
+                      text: 'GlobalMessages',
+                      href: `${host}#/GlobalMessages`,
+                    },
+                    {
+                      text: 'Icons',
+                      href: `${host}#/Icons`,
+                    },
+                    {
+                      text: 'Input',
                       data: [
                         {
-                          text: 'Accordion',
-                          href: `${host}#/Accordion`,
+                          text: 'InputAnimation',
+                          href: `${host}#/InputAnimation`,
                         },
                         {
-                          text: 'Breadcrumbs',
-                          href: `${host}#/Breadcrumbs`,
+                          text: 'InputAnimation',
+                          href: `${host}#/InputAnimation`,
                         },
                         {
-                          text: 'Cards',
-                          data: [
-                            {
-                              text: 'Cards',
-                              href: `${host}#/Cards`,
-                            },
-                            {
-                              text: 'CardsScroll',
-                              href: `${host}#/CardsScroll`,
-                            },
-                            {
-                              text: 'CardsScrollCallback',
-                              href: `${host}#/CardsScrollCallback`,
-                            },
-                          ]
+                          text: 'InputFile',
+                          href: `${host}#/InputFile`,
                         },
                         {
-                          text: 'Clipboard',
-                          href: `${host}#/Clipboard`,
+                          text: 'InputFileDragDrop',
+                          href: `${host}#/InputFileDragDrop`,
                         },
                         {
-                          text: 'CustomSuggestion',
-                          href: `${host}#/CustomSuggestion`,
-                        },
-                        {
-                          text: 'FullScreen',
-                          data: [
-                            {
-                              text: 'FullScreenListArray',
-                              href: `${host}#/FullScreenListArray`,
-                            },
-                            {
-                              text: 'FullScreenListObject',
-                              href: `${host}#/FullScreenListObject`,
-                            },
-                            {
-                              text: 'FullScreenOverlay',
-                              href: `${host}#/FullScreenOverlay`,
-                            }
-                          ]
-                        },
-                        {
-                          text: 'GlobalMessages',
-                          href: `${host}#/GlobalMessages`,
-                        },
-                        {
-                          text: 'Icons',
-                          href: `${host}#/Icons`,
-                        },
-                        {
-                          text: 'Input',
-                          data: [
-                            {
-                              text: 'InputAnimation',
-                              href: `${host}#/InputAnimation`,
-                            },
-                            {
-                              text: 'InputAnimation',
-                              href: `${host}#/InputAnimation`,
-                            },
-                            {
-                              text: 'InputFile',
-                              href: `${host}#/InputFile`,
-                            },
-                            {
-                              text: 'InputFileDragDrop',
-                              href: `${host}#/InputFileDragDrop`,
-                            },
-                            {
-                              text: 'InputSuggestion',
-                              href: `${host}#/InputSuggestion`,
-                            }
-                          ]
-                        },
-                        {
-                          text: 'LoadingBoxTop',
-                          href: `${host}#/LoadingBoxTop`,
-                        },
-                        {
-                          text: 'MenuClickHorizontal',
-                          href: `${host}#/MenuClickHorizontal`,
-                        },
-                        {
-                          text: 'PopupBox',
-                          href: `${host}#/PopupBox`,
-                        },
-                        {
-                          text: 'SideBar',
-                          href: `${host}#/SideBar`,
-                        },
-                        {
-                          text: 'SourceCode',
-                          href: `${host}#/SourceCode`,
-                        },
-                        {
-                          text: 'TextWriter',
-                          href: `${host}#/TextWriter`,
+                          text: 'InputSuggestion',
+                          href: `${host}#/InputSuggestion`,
                         }
                       ]
+                    },
+                    {
+                      text: 'LoadingBoxTop',
+                      href: `${host}#/LoadingBoxTop`,
+                    },
+                    {
+                      text: 'MenuClickHorizontal',
+                      href: `${host}#/MenuClickHorizontal`,
+                    },
+                    {
+                      text: 'PopupBox',
+                      href: `${host}#/PopupBox`,
+                    },
+                    {
+                      text: 'SideBar',
+                      href: `${host}#/SideBar`,
+                    },
+                    {
+                      text: 'SourceCode',
+                      href: `${host}#/SourceCode`,
+                    },
+                    {
+                      text: 'TextWriter',
+                      href: `${host}#/TextWriter`,
                     }
                   ]
                 }
@@ -339,7 +296,7 @@ class App extends React.Component {
             }
           />
         }
-        headerClassName={`${scrolled ? 'scrolled' : ''}`}
+        headerClassName={''}
         headerData={
           <span>
             <PopupBox
@@ -439,7 +396,9 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" render={(props) => (<Home {...props} />)} />
-              <Route exact path="/accordion" render={(props) => (<RR_Accordion {...props} />)} />
+              <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
+              <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
+              <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
             </Switch>
           </Router>
         }

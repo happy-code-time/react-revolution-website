@@ -11,6 +11,21 @@
         font-size: 1.1rem;
         padding: 10px 0;
         margin: 10px 0;
-        border-bottom: 1px solid $border-color;
+
+        i{
+            margin: 0 20px 0 10px;
+        }
+    }
+
+    .code{
+        padding: 10px;
+    }
+
+    .description{
+        color: $text-color;
+        font-size: 0.87rem;
+        letter-spacing: 0.078rem;
+        box-sizing: border-box;
+        padding: 10px;
     }
 }

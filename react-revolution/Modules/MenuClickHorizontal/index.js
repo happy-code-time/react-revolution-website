@@ -25,7 +25,6 @@ class MenuClickHorizontal extends React.Component {
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
             reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
-            dropDown: props.dropDown
         }
     }
 
@@ -56,7 +55,7 @@ class MenuClickHorizontal extends React.Component {
 
         if (data && data.length) {
             for (let x = 0; x <= data.length - 1; x++) {
-                let { text, dataToggle, toggled, unique, props, classList, href, icon, iconId, iconClass } = data[x];
+                let { text, toggled, unique, props, classList, href, icon } = data[x];
                 
                 if(href && typeof '8' == typeof href){
                     href = href.toLowerCase();
@@ -129,14 +128,6 @@ class MenuClickHorizontal extends React.Component {
                             {
                                 text
                             }
-                            {
-                                dropDown &&
-                                <span id={`${toggled ? iconId : ''}`} className={`icon-down ${iconClass ? iconClass : ''}`}>
-                                {
-                                    dropDown
-                                }
-                                </span>
-                            }
                         </div>
                     );
                 }
@@ -151,20 +142,9 @@ class MenuClickHorizontal extends React.Component {
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
-                            <div 
-                                id={`${dataChildren && 0 !== dataChildren.length ? `${unique}` : ''}`} 
-                                className={`children`}
-                            >
+                            <div className={`children`}>
                                 {
                                     this.buildDataRecursive(dataChildren, true)
-                                }
-                            </div>
-                        }
-                        {
-                            toggled && undefined == dataChildren &&
-                            <div className="data">
-                                {
-                                    dataToggle
                                 }
                             </div>
                         }
@@ -181,62 +161,47 @@ class MenuClickHorizontal extends React.Component {
      * toggled key to the oposite oolean value
      * @param {string} uniqueId 
      */
-    toggle(uniqueId, isLink = false) {
+    toggle(uniqueId) {
         const allowedAnimations = ['height', 'scale', 'opacity'];
         const { data } = this.state;
         let { animation } = this.state;
         let timeouterForAnimationBack = 0;
+        let closing = false;
 
         if(!allowedAnimations.includes(animation)){
             animation = undefined;
         }
 
-        if (!isLink) {
-            return null;
-        }
-
-        
         const loop = (datas) => {
-
             if (datas && datas.length) {
-            
                 for (let x = 0; x <= datas.length - 1; x++) {
-                    let { unique, iconId } = datas[x];
+                    let { unique } = datas[x];
                     const dataChildren = datas[x].data;
 
                     if (unique == uniqueId) {
 
-                        /**
-                         * Uniue id only available of rendered child elements
-                         */
-                        const childrenNode = document.getElementById(uniqueId);
-                        const iconNode = document.getElementById(iconId);
-
-                        if(childrenNode && animation){
-                            const cls = `${animation ? `animation-${animation}-back` : ''}`;
-                            childrenNode.classList.add(cls);
-                        }
-
-                        if(iconNode){
-                            const clsIcon = `${animation ? `icon-down-animation-back` : ''}`;
-                            iconNode.classList.add(clsIcon);
-                        }
-                        
-                        datas[x].toggled = !datas[x].toggled;
-                        datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
-                        datas[x].iconClass = datas[x].toggled ? 'icon-down-animation' : '';
-
-                        /**
-                         * Animation
-                         */
-                        if(!datas[x].toggled && animation){
+                        if(false == !datas[x].toggled && animation){
                             timeouterForAnimationBack = 300;
                         }
 
-                        setTimeout(() => {
-                            datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
-                            datas[x].iconClass = datas[x].toggled ? 'icon-down-animation-persist' : '';
-                        }, 100);
+                        const toggleEntry = () => {
+                            datas[x].toggled = !datas[x].toggled;
+                            datas[x].classList = !datas[x].toggled ? `toggled` : `toggling ${animation ? `animation-${animation}` : ''}`;
+    
+                            setTimeout(() => {
+                                datas[x].classList = datas[x].toggled ? `toggled ${animation ? `animation-${animation}` : ''}` : '';
+                            }, 300);
+                        }
+
+                        if(false == !datas[x].toggled){
+                            datas[x].classList = `${datas[x].classList} ${animation ? `animation-${animation}-back` : ''}`;
+
+                            return this.setState({
+                                data
+                            }, toggleEntry);
+                        }
+
+                        toggleEntry(); 
                         break;
                     }
 
@@ -249,13 +214,25 @@ class MenuClickHorizontal extends React.Component {
 
         loop(data);
 
+        /**
+         * Opening entry
+         */
+        if(!closing){
+            return setTimeout( () => {
+                this.setState({
+                    data
+                }, () => setTimeout(() => { 
+                    this.setState({ data }); 
+                }, 300));
+            }, timeouterForAnimationBack);
+        }
+
+        /**
+         * Closing entry
+         */
         setTimeout( () => {
-            this.setState({
-                data
-            }, () => setTimeout(() => { 
-                this.setState({ data }); 
-            }, 300));
-        }, timeouterForAnimationBack);
+            this.setState({ data }); 
+        }, timeouterForAnimationBack*2);
     }
 
     render() {

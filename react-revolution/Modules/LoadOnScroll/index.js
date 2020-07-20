@@ -166,13 +166,11 @@ class LoadOnScroll extends React.Component {
         /**
          * Document listener
          */
-        if(!scrollReference){
-            const scrollReference = document.documentElement;
-
+        if(!scrollReference && document.body){
             /**
              * Scrolled to bottom - min
              */
-            if (scrollReference.scrollTop >= scrollReference.offsetHeight - min) {
+            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - min) {
                 this.callbackRendered = false;
                 this.loadMore(); 
             }

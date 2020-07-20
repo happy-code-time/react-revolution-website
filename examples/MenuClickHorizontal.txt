@@ -63,14 +63,130 @@ class App extends React.Component {
     }
 
     render() {
-        const { data } = this.state;
+        const host = '';
 
         return (
             <span>
-                <MenuClickHorizontal
-                    animation='height' // height, scale, opacity
-                    data={data}
-                />
+              <MenuClickHorizontal
+                reactRouter={false}
+                animation='height'
+                dropDown={
+                  (
+                    <i className="fas fa-angle-down dropDownIcon"></i>
+                  )
+                }
+                data={
+                  [
+                    {
+                      text: 'Accordion',
+                      href: `${host}#/Accordion`,
+                    },
+                    {
+                      text: 'Breadcrumbs',
+                      href: `${host}#/Breadcrumbs`,
+                    },
+                    {
+                      text: 'Cards',
+                      data: [
+                        {
+                          text: 'Cards',
+                          href: `${host}#/Cards`,
+                        },
+                        {
+                          text: 'CardsScroll',
+                          href: `${host}#/CardsScroll`,
+                        },
+                        {
+                          text: 'CardsScrollCallback',
+                          href: `${host}#/CardsScrollCallback`,
+                        },
+                      ]
+                    },
+                    {
+                      text: 'Clipboard',
+                      href: `${host}#/Clipboard`,
+                    },
+                    {
+                      text: 'CustomSuggestion',
+                      href: `${host}#/CustomSuggestion`,
+                    },
+                    {
+                      text: 'FullScreen',
+                      data: [
+                        {
+                          text: 'FullScreenListArray',
+                          href: `${host}#/FullScreenListArray`,
+                        },
+                        {
+                          text: 'FullScreenListObject',
+                          href: `${host}#/FullScreenListObject`,
+                        },
+                        {
+                          text: 'FullScreenOverlay',
+                          href: `${host}#/FullScreenOverlay`,
+                        }
+                      ]
+                    },
+                    {
+                      text: 'GlobalMessages',
+                      href: `${host}#/GlobalMessages`,
+                    },
+                    {
+                      text: 'Icons',
+                      href: `${host}#/Icons`,
+                    },
+                    {
+                      text: 'Input',
+                      data: [
+                        {
+                          text: 'InputAnimation',
+                          href: `${host}#/InputAnimation`,
+                        },
+                        {
+                          text: 'InputAnimation',
+                          href: `${host}#/InputAnimation`,
+                        },
+                        {
+                          text: 'InputFile',
+                          href: `${host}#/InputFile`,
+                        },
+                        {
+                          text: 'InputFileDragDrop',
+                          href: `${host}#/InputFileDragDrop`,
+                        },
+                        {
+                          text: 'InputSuggestion',
+                          href: `${host}#/InputSuggestion`,
+                        }
+                      ]
+                    },
+                    {
+                      text: 'LoadingBoxTop',
+                      href: `${host}#/LoadingBoxTop`,
+                    },
+                    {
+                      text: 'MenuClickHorizontal',
+                      href: `${host}#/MenuClickHorizontal`,
+                    },
+                    {
+                      text: 'PopupBox',
+                      href: `${host}#/PopupBox`,
+                    },
+                    {
+                      text: 'SideBar',
+                      href: `${host}#/SideBar`,
+                    },
+                    {
+                      text: 'SourceCode',
+                      href: `${host}#/SourceCode`,
+                    },
+                    {
+                      text: 'TextWriter',
+                      href: `${host}#/TextWriter`,
+                    }
+                  ]
+                }
+              />
             </span>
         )
     }

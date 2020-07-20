@@ -57,9 +57,10 @@ class App extends React.Component {
         return (
             <span>
                 <LoadOnScroll
-                    minify={30}
+                    minify={0}
                     callback={this.callback}
                     loadMoreLoadingIcon={<LoadingBoxTop text='Loading...'/>}
+                    scrollReference={false}
                     data={
                         <div>
                             {
