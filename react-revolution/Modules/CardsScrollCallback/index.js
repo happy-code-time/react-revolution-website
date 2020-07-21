@@ -19,16 +19,17 @@ class CardsScrollCallback extends React.Component {
              */
             dataJsx: [],
             loading: false,
+            isMinified: false,
             /**
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll-callback',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             loadMoreCallback: (props.loadMoreCallback && 'function' == typeof props.loadMoreCallback) ? props.loadMoreCallback : undefined,
-            loadMoreLoadingIcon: props.loadMoreLoadingIcon ? props.loadMoreLoadingIcon : ''
+            loadMoreLoadingIcon: props.loadMoreLoadingIcon ? props.loadMoreLoadingIcon : '',
         };
     }
 
@@ -42,7 +43,7 @@ class CardsScrollCallback extends React.Component {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'loadMoreCallback', 'loadMoreLoadingIcon'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll-callback',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
@@ -87,10 +88,13 @@ class CardsScrollCallback extends React.Component {
                 loading: true
             }, async () => {
                 data = await (loadMoreCallback)();
+
+                console.log(data);
+
                 /**
                  * No more items to load
                  */
-                if(!data || 0 == data.length){
+                if(!data || 0 == data.length || 'break' == data){
                     this.removeScrollEvent();
                     this.setState({ loading: false });
                 }
@@ -107,6 +111,7 @@ class CardsScrollCallback extends React.Component {
 
     buildData(data = []){
         let { dataJsx, itemsPerLine } = this.state;
+        const clsCardsHolder = 'cards-group flex';
         let singleLines = [];
         let c = 0;
 
@@ -147,7 +152,7 @@ class CardsScrollCallback extends React.Component {
             if(c == itemsPerLine){
 
                 dataJsx.push(
-                    <div key={uuid()} className="cards-group flex">
+                    <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -161,7 +166,7 @@ class CardsScrollCallback extends React.Component {
 
         if(singleLines.length){
             dataJsx.push(
-                <div key={uuid()} className="cards-group flex">
+                <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
                     {
                         singleLines
                     }
@@ -188,7 +193,6 @@ class CardsScrollCallback extends React.Component {
         }
     }
 
-    
     render() {
         const { addClass, dataJsx, defaultClass, loading, loadMoreLoadingIcon, id } = this.state;
         

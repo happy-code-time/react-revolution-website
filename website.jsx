@@ -8,7 +8,7 @@ import Home from './Website/Pages/Home';
 
 import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
-import { MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution/public/react-revolution';
+import { scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution/public/react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -34,6 +34,10 @@ import ReactRevolutionCards from './Website/Pages/Modules/ReactRevolutionCards';
 
 import ReactRevolutionCardsScroll from './Website/Pages/Modules/ReactRevolutionCardsScroll';
 
+import ReactRevolutionCardsScrollCallback from './Website/Pages/Modules/ReactRevolutionCardsScrollCallback';
+
+import ReactRevolutionClipboard from './Website/Pages/Modules/ReactRevolutionClipboard';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -54,6 +58,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    scrollTopListener(300);
     this.setOnClickEvent();
     this.changeSidebarMinifiedState();
   }
@@ -204,13 +209,13 @@ class App extends React.Component {
                         },
                         {
                           text: 'CardsScrollCallback',
-                          href: `${host}#/CardsScrollCallback`,
+                          href: `${host}#/react-revolution-cards-scroll-callback`,
                         },
                       ]
                     },
                     {
                       text: 'Clipboard',
-                      href: `${host}#/Clipboard`,
+                      href: `${host}#/react-revolution-clipboard`,
                     },
                     {
                       text: 'CustomSuggestion',
@@ -399,6 +404,8 @@ class App extends React.Component {
               <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
               <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
+              <Route exact path="/react-revolution-cards-scroll-callback" render={(props) => (<ReactRevolutionCardsScrollCallback {...props} />)} />
+              <Route exact path="/react-revolution-clipboard" render={(props) => (<ReactRevolutionClipboard {...props} />)} />
             </Switch>
           </Router>
         }

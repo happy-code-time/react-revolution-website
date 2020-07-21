@@ -85,10 +85,30 @@ const buildModulesJsx = (object = {}, count = 1) => {
             }
             {
                 css &&
-                <SourceCode
-                    layout='light'
-                    code={css}
-                />
+                <span>
+                    <h1
+                        title={`${trans('cssCodeTitle')} - ${trans('exampleTitle')} ${count}`}
+                        className="h1-example"
+                    >
+                        <i className="fab fa-css3" />
+                    </h1>
+                    <SourceCode
+                        displayLineNumber={true}
+                        layout='dark'
+                        code={css}
+                    />
+                    <Clipboard
+                        animation='jump' // scale, jump
+                        data={(
+                            <div className="button-action">
+                                {
+                                    trans('copyToClipboard')
+                                }
+                            </div>
+                        )}
+                        clipboard={css}
+                    />
+                </span>
             }
         </div>
     );

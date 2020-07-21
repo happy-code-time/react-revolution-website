@@ -23,6 +23,7 @@ const DE = {
     author: 'Author',
     exampleTitle: 'Beispiel',
     reactCodeTitle: 'React Kod',
+    cssCodeTitle: 'Css Kod',
 };
 
 export default DE;

@@ -6,137 +6,190 @@ import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
-const codeExample1 = `import { Cards } from 'react-revolution';
+const codeExample1 = `import { CardsScroll } from 'react-revolution';
 
-<Cards
-    itemsPerLine={3}
-    mediaBreak={1140}
-    data={
-        [
-            {
-                title: 'Title',
-                content: 'Content',
-                props: {
-                    className: 'dsa sad ds ad as d'
-                }
-            },
-            {
-                title: 'Title',
-                content: 'Content',
-            },
-            {
-                title: 'Title',
-                content: 'Content',
-            },
-            {
-                title: 'Title',
-                content: 'Content',
-            },
-            {
-                title: 'Title',
-                content: 'Content',
-            },
-            {
-                title: 'Title',
-                content: 'Content',
-            },
-        ]
-    }
-/>`;
-
-const examples = [
-    {
-        description: 'The Cards module will load more items, if the bottom of the parent div are reached.',
-        reactTextBefore: '',
-        react: codeExample1,
-        reactTextAfter: '',
-        js: '',
-        css: '',
-        html: '',
-        live: (
-            <div className="section-cards-scroll">
-                <CardsScroll
-                    itemsPerLine={3}
-                    defaultItems={6}
-                    mediaBreak={1140}
-                    data={
-                        [
-                            {
-                                title: 'Title - 1',
-                                content: 'Content',
-                                props: {
-                                    className: 'dsa sad ds ad as d'
-                                }
-                            },
-                            {
-                                title: 'Title - 2',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 3',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 4',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 5',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 6',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 7',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 8',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 9',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 10',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 11',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title - 12',
-                                content: 'Content',
-                            },
-                        ]
+<div className="section-cards-scroll">
+    <CardsScroll
+        itemsPerLine={3}
+        defaultItems={6}
+        mediaBreak={1140}
+        data={
+            [
+                {
+                    title: 'Title - 1',
+                    content: 'Content',
+                    props: {
+                        className: 'dsa sad ds ad as d'
                     }
-                />
-            </div>
-        )
-    }
-];
+                },
+                {
+                    title: 'Title - 2',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 3',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 4',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 5',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 6',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 7',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 8',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 9',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 10',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 11',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title - 12',
+                    content: 'Content',
+                },
+            ]
+        }
+    />
+</div>`;
 
+const cssExample1 =  `.section-cards-scroll{
+    height: 300px;
+
+    .rr-cards-scroll {
+        max-width: 1140px;
+        margin: 0 auto;
+        
+        .card{
+            width: calc(100% - 20px);
+            margin: 10px;
+            
+            .content{
+                height: 100px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .rr-cards-scroll {
+            .card{
+                width: 25% !important;
+                margin: 30px calc(4% - 2px) !important;
+            }
+        }
+    }
+}`;
 
 class ReactRevolutionCardsScroll extends React.Component {
     constructor(props) {
         super(props);
-        this.callback = this.callback.bind(this);
+        this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
         this.countCallbacks = 0;
+
+        this.examples = [
+            {
+                description: 'The Cards module will load more items, if the bottom of the parent div are reached.',
+                reactTextBefore: '',
+                react: codeExample1,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <div className="section-cards-scroll">
+                        <CardsScroll
+                            itemsPerLine={3}
+                            defaultItems={6}
+                            mediaBreak={1140}
+                            data={
+                                [
+                                    {
+                                        title: 'Title - 1',
+                                        content: 'Content',
+                                        props: {
+                                            className: 'dsa sad ds ad as d'
+                                        }
+                                    },
+                                    {
+                                        title: 'Title - 2',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 3',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 4',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 5',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 6',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 7',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 8',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 9',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 10',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 11',
+                                        content: 'Content',
+                                    },
+                                    {
+                                        title: 'Title - 12',
+                                        content: 'Content',
+                                    },
+                                ]
+                            }
+                        />
+                    </div>
+                )
+            }
+        ];
     }
 
-    callback() {
+    loadOnScrollCallback() {
         this.countCallbacks += 1;
 
-        if (this.countCallbacks === examples.length) {
+        if (this.countCallbacks === this.examples.length) {
             return 'break';
         }
 
         return new Promise(resolve => {
-            resolve(buildModulesJsx(examples[this.countCallbacks]), this.countCallbacks + 1);
+            resolve(buildModulesJsx(this.examples[this.countCallbacks]), this.countCallbacks + 1);
         });
     }
 
@@ -149,9 +202,9 @@ class ReactRevolutionCardsScroll extends React.Component {
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}
-                    callback={this.callback}
+                    callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
-                    data={buildModulesJsx(examples[0], 1)} // Default as the first example 
+                    data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
             </div>
         );

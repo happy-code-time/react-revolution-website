@@ -22,7 +22,8 @@ const PL = {
     rigthsText: 'Wszystkie prawa zastrzeżone',
     author: 'Autor',
     exampleTitle: 'Przykład',
-    reactCodeTitle: 'Kod React',
+    reactCodeTitle: 'Kod react',
+    cssCodeTitle: 'Kod css',
 };
 
 export default PL;

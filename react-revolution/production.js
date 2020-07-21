@@ -56,6 +56,8 @@ import disableHtmlScroll from './Functions/disableHtmlScroll';
 
 import enableHtmlScroll from './Functions/enableHtmlScroll';
 
+import scrollTopListener from './Functions/scrollTopListener';
+
 export {
     /**
      * Functions
@@ -64,6 +66,7 @@ export {
     uuid,
     disableHtmlScroll,
     enableHtmlScroll,
+    scrollTopListener,
     /**
      * Modules
      */

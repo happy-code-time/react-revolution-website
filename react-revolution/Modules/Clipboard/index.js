@@ -59,6 +59,11 @@ class Clipboard extends React.Component {
 
     copyToClipboardAction(data){
         if(this.clipboardNode){
+
+            if(typeof [] == typeof data){
+                data = JSON.stringify(data);
+            }
+
             this.clipboardNode.value = data;
             this.clipboardNode.select();
             document.execCommand('copy');

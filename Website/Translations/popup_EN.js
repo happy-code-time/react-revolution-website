@@ -22,7 +22,8 @@ const EN = {
     rigthsText: 'All rights reserved',
     author: 'Author',
     exampleTitle: 'Example',
-    reactCodeTitle: 'React Code',
+    reactCodeTitle: 'React code',
+    cssCodeTitle: 'Css code',
 };
 
 export default EN;
