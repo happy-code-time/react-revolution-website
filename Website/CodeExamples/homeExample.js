@@ -8,9 +8,6 @@ const exampleHome =
             {
                 title: 1,
                 content:  2,
-                props: {
-                    class: "my-custom-class"
-                }
             },
             {
                 title: 2,

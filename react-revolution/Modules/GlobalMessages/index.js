@@ -13,6 +13,10 @@ class GlobalMessages extends React.Component
 
         this.state = {
             /**
+             * App
+             */
+            messagesApp: [],
+            /**
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
@@ -21,10 +25,6 @@ class GlobalMessages extends React.Component
             messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
             codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
             timer: (props.timer && typeof 888 == typeof props.timer) ? props.timer : 2500,
-            /**
-             * 
-             */
-            messagesApp: [],
         };
 
         this.removeMessage = this.removeMessage.bind(this);
@@ -173,7 +173,7 @@ class GlobalMessages extends React.Component
     }
 
     render() {
-        const { addClass, codeMapping, messagesApp, defaultClass } = this.state;
+        const { addClass, codeMapping, messagesApp, defaultClass, id } = this.state;
         const mappingKeys = Object.getOwnPropertyNames(codeMapping);
 
         return (

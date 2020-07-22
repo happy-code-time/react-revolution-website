@@ -24,6 +24,7 @@ const PL = {
     exampleTitle: 'Przykład',
     reactCodeTitle: 'Kod react',
     cssCodeTitle: 'Kod css',
+    jsCodeTitle: 'Kod javascript'
 };
 
 export default PL;

@@ -6,6 +6,7 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 class FullScreenListObject extends React.Component
 {
+    
     constructor(props){
         super(props);
         this.callback = this.callback.bind(this);
@@ -19,29 +20,31 @@ class FullScreenListObject extends React.Component
 
         this.state = {
             /**
-             * User interaction
+             * App
+             */
+            filteredData: [],
+            inputValue: '',
+            /**
+             * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            animation: typeof '8' === typeof props.animation ? props.animation : '',
+            animation: typeof '8' === typeof props.animation ? props.animation.toLowerCase() : '',
             data: (props.data && typeof [] === typeof props.data) ? props.data : [],
             display: typeof true === typeof props.display ? props.display : false,
+            displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
             iconClose: props.iconClose ? props.iconClose : '',
             inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
-            noDataText: (props.noDataText && typeof 'react' === typeof props.noDataText) ? props.noDataText : 'No data found',
-            inputPlaceholder: (props.inputPlaceholder && typeof 'react' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
+            noDataText: (props.noDataText && typeof '8' === typeof props.noDataText) ? props.noDataText : 'No data found',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
             callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
             callbackClose: props.callbackClose && 'function' == typeof props.callbackClose ? props.callbackClose : undefined,
             closeOnCallback: typeof true === typeof props.closeOnCallback ? props.closeOnCallback : false,
             closeOnDimmedClick: typeof true === typeof props.closeOnDimmedClick ? props.closeOnDimmedClick : false,
             closeOnEsc: typeof true === typeof props.closeOnEsc ? props.closeOnEsc : false,
-            /**
-             * Module interaction
-             */
-            filteredData: [],
-            inputValue: ''
-        }
+            inputEmptyOnCallback: typeof true === typeof props.inputEmptyOnCallback ? props.inputEmptyOnCallback : false,
+        };
     }
 
     /**
@@ -51,23 +54,24 @@ class FullScreenListObject extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'display', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['id', 'data', 'display', 'displayLineNumber', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc', 'inputEmptyOnCallback'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] === typeof props.data) ? props.data : [],
                 display: typeof true === typeof props.display ? props.display : false,
+                displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
                 iconClose: props.iconClose ? props.iconClose : '',
                 inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
-                noDataText: (props.noDataText && typeof 'react' === typeof props.noDataText) ? props.noDataText : 'No data found',
-                inputPlaceholder: (props.inputPlaceholder && typeof 'react' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
-                animation: typeof '8' === typeof props.animation ? props.animation : '',
+                noDataText: (props.noDataText && typeof '8' === typeof props.noDataText) ? props.noDataText : 'No data found',
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
+                animation: typeof '8' === typeof props.animation ? props.animation.toLowerCase() : '',
                 callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
                 callbackClose: props.callbackClose && 'function' == typeof props.callbackClose ? props.callbackClose : undefined,
                 closeOnCallback: typeof true === typeof props.closeOnCallback ? props.closeOnCallback : false,
                 closeOnDimmedClick: typeof true === typeof props.closeOnDimmedClick ? props.closeOnDimmedClick : false,
                 closeOnEsc: typeof true === typeof props.closeOnEsc ? props.closeOnEsc : false,
+                inputEmptyOnCallback: typeof true === typeof props.inputEmptyOnCallback ? props.inputEmptyOnCallback : false,
             };
         }
 
@@ -96,14 +100,33 @@ class FullScreenListObject extends React.Component
         }
     }
 
-    getDefaultClass(props){
-        const { animation, defaultClass } = props;
+    getAvailableAnimationTypes(){
+        return [
+            'scale',
+            'top',
+            'right',
+            'bottom',
+            'left'
+        ];
+    }
 
-        if(props.defaultClass && typeof '8' == typeof props.defaultClass){
-            return `${defaultClass} ${animation}`;
+    getDefaultClass(props){
+        const { defaultClass } = props;
+        let { animation } = props;
+
+        if(typeof '8' === typeof props.animation){
+            animation = animation.toLowerCase();
         }
 
-        return `rr-fullscreenlist ${animation}`;
+        if(!this.getAvailableAnimationTypes().includes(animation)){
+            animation = 'none';
+        }
+
+        if(props.defaultClass && typeof '8' == typeof props.defaultClass){
+            return `${defaultClass} ${animation ? `${animation}` : ''}`;
+        }
+
+        return `rr-fullscreenlist ${animation ? `${animation}` : ''}`;
     }
 
     /**
@@ -154,19 +177,24 @@ class FullScreenListObject extends React.Component
     }
 
     callbackClose(isDimmed = false){
-        const { defaultClass, callbackClose, animation, closeOnDimmedClick } = this.state;
+        const { defaultClass, callbackClose, closeOnDimmedClick, closeOnCallback, inputEmptyOnCallback, inputValue, filteredData } = this.state;
+        let { animation } = this.state;
         let timeouter = 0;
-
-        if(animation){
-            timeouter = 300;
-        }
 
         if(isDimmed && !closeOnDimmedClick){
             return null;
         }
+        
+        if(!this.getAvailableAnimationTypes().includes(animation)){
+            animation = 'none';
+        }
+
+        if(animation && 'none' !== animation){
+            timeouter = 300;
+        }
 
         this.setState({
-            defaultClass: `${defaultClass} ${animation}-back`
+            defaultClass: `${defaultClass} ${animation ? `${animation}-back` : ''}`,
         }, () => {
             setTimeout( () => {
 
@@ -175,7 +203,10 @@ class FullScreenListObject extends React.Component
                 }
 
                 this.setState({
-                    defaultClass: this.getDefaultClass(this.props)
+                    defaultClass: this.getDefaultClass(this.props),
+                    display: closeOnCallback ? false : true,
+                    inputValue: inputEmptyOnCallback ? '' : inputValue,
+                    filteredData: inputEmptyOnCallback ? [] : filteredData
                 });
 
             }, timeouter);
@@ -189,15 +220,22 @@ class FullScreenListObject extends React.Component
      * @param event 
      */
     callback(event, entry){
-        const { closeOnCallback } = this.state;
+        const { closeOnCallback, inputEmptyOnCallback, inputValue, filteredData } = this.state;
         const { callback } = this.props;
 
         if(callback && 'function' === typeof callback){
 
             (callback)(event, entry);
-            
+
             if(closeOnCallback){
                 return this.callbackClose();
+            }
+            else{
+                this.setState({
+                    display: closeOnCallback ? false : true,
+                    inputValue: inputEmptyOnCallback ? '' : inputValue,
+                    filteredData: inputEmptyOnCallback ? [] : filteredData
+                });
             }
         }
     }
@@ -223,13 +261,13 @@ class FullScreenListObject extends React.Component
      * @param array 
      */
     buildListJsx(array){
-        const { displayEntryNumber } = this.state;
+        const { displayLineNumber } = this.state;
 
         return array.map( (entry, index) => {
             return (
                 <li key={uuid()} className="li" onClick={ (e) => this.callback(e, entry)}>
                     {
-                        displayEntryNumber &&
+                        displayLineNumber &&
                         <span className="index">
                             {
                                 index+1

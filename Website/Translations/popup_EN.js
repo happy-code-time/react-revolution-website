@@ -24,6 +24,7 @@ const EN = {
     exampleTitle: 'Example',
     reactCodeTitle: 'React code',
     cssCodeTitle: 'Css code',
+    jsCodeTitle: 'Javascript code'
 };
 
 export default EN;

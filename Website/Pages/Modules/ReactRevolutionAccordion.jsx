@@ -81,6 +81,7 @@ class ReactRevolutionAccordion extends React.Component {
 
         this.examples = [
             {
+                title: 'Accordion',
                 description: 'The Accordion module has no limits in child nesting.',
                 reactTextBefore: '',
                 react: codeExample1,
@@ -118,6 +119,7 @@ class ReactRevolutionAccordion extends React.Component {
                 )
             },
             {
+                title: 'Accordion',
                 description: '',
                 reactTextBefore: '',
                 react: codeExample2,
@@ -181,9 +183,6 @@ class ReactRevolutionAccordion extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
-                    Accordion
-                </h1>
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}

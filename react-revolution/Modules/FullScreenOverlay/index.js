@@ -65,13 +65,13 @@ class FullScreenOverlay extends React.Component {
     }
 
     componentDidMount(){
-        const { closeOnEsc, disableScroll } = this.state;
+        const { closeOnEsc, disableScroll, display } = this.state;
 
         if(closeOnEsc){
             window.addEventListener("keydown", this.EscListener, false);
         }
 
-        if(disableScroll){
+        if(display && disableScroll){
             disableHtmlScroll();
         }
     }
@@ -91,6 +91,10 @@ class FullScreenOverlay extends React.Component {
     
             if(disableScroll){
                 disableHtmlScroll();
+            }
+
+            if(disableScroll){
+                enableHtmlScroll();
             }
 
             return;

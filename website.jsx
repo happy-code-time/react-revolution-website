@@ -38,6 +38,16 @@ import ReactRevolutionCardsScrollCallback from './Website/Pages/Modules/ReactRev
 
 import ReactRevolutionClipboard from './Website/Pages/Modules/ReactRevolutionClipboard';
 
+import ReactRevolutionCustomSuggestion from './Website/Pages/Modules/ReactRevolutionCustomSuggestion';
+
+import ReactRevolutionFullScreenListArray from './Website/Pages/Modules/ReactRevolutionFullScreenListArray';
+
+import ReactRevolutionFullScreenListObject from './Website/Pages/Modules/ReactRevolutionFullScreenListObject';
+
+import ReactRevolutionFullScreenOverlay from './Website/Pages/Modules/ReactRevolutionFullScreenOverlay';
+
+import ReactRevolutionGlobalMessages from './Website/Pages/Modules/ReactRevolutionGlobalMessages';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -219,28 +229,28 @@ class App extends React.Component {
                     },
                     {
                       text: 'CustomSuggestion',
-                      href: `${host}#/CustomSuggestion`,
+                      href: `${host}#/react-revolution-custom-suggestion`,
                     },
                     {
                       text: 'FullScreen',
                       data: [
                         {
                           text: 'FullScreenListArray',
-                          href: `${host}#/FullScreenListArray`,
+                          href: `${host}#/react-revolution-fullscreen-list-array`,
                         },
                         {
                           text: 'FullScreenListObject',
-                          href: `${host}#/FullScreenListObject`,
+                          href: `${host}#/react-revolution-fullscreen-list-object`,
                         },
                         {
                           text: 'FullScreenOverlay',
-                          href: `${host}#/FullScreenOverlay`,
+                          href: `${host}#/react-revolution-fullscreen-overlay`,
                         }
                       ]
                     },
                     {
                       text: 'GlobalMessages',
-                      href: `${host}#/GlobalMessages`,
+                      href: `${host}#/react-revolution-global-essages`,
                     },
                     {
                       text: 'Icons',
@@ -406,6 +416,11 @@ class App extends React.Component {
               <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll-callback" render={(props) => (<ReactRevolutionCardsScrollCallback {...props} />)} />
               <Route exact path="/react-revolution-clipboard" render={(props) => (<ReactRevolutionClipboard {...props} />)} />
+              <Route exact path="/react-revolution-custom-suggestion" render={(props) => (<ReactRevolutionCustomSuggestion {...props} />)} />
+              <Route exact path="/react-revolution-fullscreen-list-array" render={(props) => (<ReactRevolutionFullScreenListArray {...props} />)} />
+              <Route exact path="/react-revolution-fullscreen-list-object" render={(props) => (<ReactRevolutionFullScreenListObject {...props} />)} />
+              <Route exact path="/react-revolution-fullscreen-overlay" render={(props) => (<ReactRevolutionFullScreenOverlay {...props} />)} />
+              <Route exact path="/react-revolution-global-essages" render={(props) => (<ReactRevolutionGlobalMessages {...props} />)} />
             </Switch>
           </Router>
         }

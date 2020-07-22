@@ -6,7 +6,7 @@ import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
-const codeExample1 = `import { Cards } from 'react-revolution';
+const codeExample = `import { Cards } from 'react-revolution';
 
 <Cards
     itemsPerLine={3}
@@ -44,7 +44,7 @@ const codeExample1 = `import { Cards } from 'react-revolution';
     }
 />`;
 
-const cssExample1 =  `.rr-cards {
+const cssExample =  `.rr-cards {
     max-width: 1140px;
     margin: 0 auto;
     
@@ -71,12 +71,13 @@ class ReactRevolutionCards extends React.Component {
 
         this.examples = [
             {
+                title: 'Cards',
                 description: 'The Accordion module has no limits in child nesting.',
                 reactTextBefore: '',
-                react: codeExample1,
+                react: codeExample,
                 reactTextAfter: '',
                 js: '',
-                css: cssExample1,
+                css: cssExample,
                 html: '',
                 live: (
                     <Cards
@@ -134,9 +135,6 @@ class ReactRevolutionCards extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
-                    Cards
-                </h1>
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}

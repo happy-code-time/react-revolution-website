@@ -13,6 +13,7 @@ class CustomSuggestion extends React.Component {
         this.callbackEsc = this.callbackEsc.bind(this);
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.setFocusUpdater = this.setFocusUpdater.bind(this);
+        this.setValueToInputField = this.setValueToInputField.bind(this);
 
         this.state = {
             /**
@@ -29,6 +30,7 @@ class CustomSuggestion extends React.Component {
             inputProps: (props.inputProps && typeof {} == typeof props.inputProps) ? props.inputProps : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
+            allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -102,16 +104,14 @@ class CustomSuggestion extends React.Component {
     /**
      * On state change callback
      */
-    async callback(plainValue) {
+    async callback(plainValue, emptySuggestions = false) {
         const { callback } = this.state;
 
         if (callback) {
-            const suggestions = await (callback)(plainValue);
-
-            console.log(suggestions);
+            const suggestions = await (callback)(plainValue, emptySuggestions);
 
             this.setState({
-                suggestions
+                suggestions: emptySuggestions ? [] : suggestions
             }); 
         }
     }
@@ -129,20 +129,8 @@ class CustomSuggestion extends React.Component {
      * Set value on change input field
      */
     setValue(e) {
-        let val = e.target.value;
-
-        if (this.state.allowOnlyAZ) {
-            val = val.replace(/[^a-zA-Z- ]/gmi, '');
-            val = val.trim();
-        }
-
-        this.setState({
-            plainValue: val
-        }, () => {
-            const { plainValue } = this.state;
-
-            this.callback(plainValue);
-        });
+        let value = e.target.value;
+        this.setValueToInputField(value);
     }
 
     handleKeyDown(event){
@@ -151,6 +139,27 @@ class CustomSuggestion extends React.Component {
         if (event.key === 'Escape') {
             return this.callbackEsc();
         }
+    }
+
+    setInputValue(value, emptySuggestions = false){
+        this.setValueToInputField(value, emptySuggestions);
+    }
+
+    setValueToInputField(value, emptySuggestions = false){
+        const { allowOnlyAZ } = this.state;
+
+        if (allowOnlyAZ) {
+            value = value.replace(/[^a-zA-Z- ]/gmi, '');
+            value = value.trim();
+        }
+
+        this.setState({
+            plainValue: value
+        }, () => {
+            const { plainValue } = this.state;
+
+            this.callback(plainValue, emptySuggestions);
+        });
     }
 
     render() {
@@ -178,11 +187,12 @@ class CustomSuggestion extends React.Component {
                                 <span className="suggestions" ref={ node => this.suggestionsHolder = node}>
                                     {
                                         suggestions.map( suggestion => {
-                                            const { href, props, jsx } = suggestion;
+                                            const { href, props, jsx, onClickValue } = suggestion;
 
                                             return (
                                                 <li 
                                                     key={uuid()}
+                                                    onClick={ () => this.setInputValue(onClickValue, true)}
                                                 >
                                                     <a href={href} {...props}>
                                                     {

@@ -6,11 +6,58 @@ import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
-const codeExample1 = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
+const codeExample = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
 
-class CardsExample extends React.Component{
+<div className="section-cards-scroll-callback">
+    <CardsScrollCallback
+        itemsPerLine={3}
+        mediaBreak={1140}
+        data={
+            [
+                {
+                    title: 'Title 1',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 2',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 3',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 4',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 5',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 6',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 7',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 8',
+                    content: 'Content',
+                },
+                {
+                    title: 'Title 9',
+                    content: 'Content',
+                },
+            ]
+        }
+        loadMoreCallback={this.addItems}
+        loadMoreLoadingIcon={<LoadingBoxTop text='Loading...' />}
+    />
+</div>`;
 
-    constructor(props) {
+const jsExample = `constructor(props) {
         super(props);
         this.addItems = this.addItems.bind(this);
 
@@ -22,21 +69,21 @@ class CardsExample extends React.Component{
             count: 0
         };
     }
-    
+
     /**
      * Async function to simulate an DB/ API request
      */
     async addItems() {
         const { count } = this.state;
-    
+
         if(3 <= count){
             return 'break';
         }
-    
+
         this.setState({
             count: this.state.count+1
         });
-    
+
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(
@@ -57,68 +104,9 @@ class CardsExample extends React.Component{
                 );
             }, 500);
         });
-    }
-    
-    render(){
-        return (
-            {/* 
-                Main div have to have setted the css style "height" 
-                to be able to scroll (fire scroll event if the bottom are reached) 
-                inside the "CardsScrollCallback"
-            */}
-            <div className="section-cards-scroll-callback">
-                <CardsScrollCallback
-                    itemsPerLine={3}
-                    mediaBreak={1140}
-                    data={
-                        [
-                            {
-                                title: 'Title 1',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 2',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 3',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 4',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 5',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 6',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 7',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 8',
-                                content: 'Content',
-                            },
-                            {
-                                title: 'Title 9',
-                                content: 'Content',
-                            },
-                        ]
-                    }
-                    loadMoreCallback={this.addItems}
-                    loadMoreLoadingIcon={<LoadingBoxTop text='Loading...' />}
-                />
-            </div>
-        );
-    }
 }`;
 
-const cssExample1 = `.section-cards-scroll-callback{
+const cssExample = `.section-cards-scroll-callback{
     height: 500px;
 
     .rr-cards-scroll-callback {
@@ -160,12 +148,13 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
 
         this.examples = [
             {
+                title: 'CardsScrollCallback',
                 description: 'The Cards module will load more items, if the bottom of the parent div are reached.',
                 reactTextBefore: '',
-                react: codeExample1,
+                react: codeExample,
                 reactTextAfter: '',
-                js: '',
-                css: cssExample1,
+                js: jsExample,
+                css: cssExample,
                 html: '',
                 live: (
                     <div className="section-cards-scroll-callback">
@@ -273,9 +262,6 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
-                    CardsScrollCallback
-                </h1>
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}

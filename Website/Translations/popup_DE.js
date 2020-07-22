@@ -24,6 +24,7 @@ const DE = {
     exampleTitle: 'Beispiel',
     reactCodeTitle: 'React Kod',
     cssCodeTitle: 'Css Kod',
+    jsCodeTitle: 'Javascript Kod'
 };
 
 export default DE;

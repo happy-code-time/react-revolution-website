@@ -6,7 +6,7 @@ import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
-const codeExample1 = `import { CardsScroll } from 'react-revolution';
+const codeExample = `import { CardsScroll } from 'react-revolution';
 
 <div className="section-cards-scroll">
     <CardsScroll
@@ -71,7 +71,7 @@ const codeExample1 = `import { CardsScroll } from 'react-revolution';
     />
 </div>`;
 
-const cssExample1 =  `.section-cards-scroll{
+const cssExample =  `.section-cards-scroll{
     height: 300px;
 
     .rr-cards-scroll {
@@ -106,12 +106,13 @@ class ReactRevolutionCardsScroll extends React.Component {
 
         this.examples = [
             {
+                title: 'CardsScroll',
                 description: 'The Cards module will load more items, if the bottom of the parent div are reached.',
                 reactTextBefore: '',
-                react: codeExample1,
+                react: codeExample,
                 reactTextAfter: '',
                 js: '',
-                css: '',
+                css: cssExample,
                 html: '',
                 live: (
                     <div className="section-cards-scroll">
@@ -196,9 +197,6 @@ class ReactRevolutionCardsScroll extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
-                    CardsScroll
-                </h1>
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}

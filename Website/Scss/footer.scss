@@ -31,8 +31,8 @@
     }
 
     .code{
-        margin: 5px 0;
-        padding: 1px 10px;
+        margin: 0;
+        padding: 0 10px;
     }
 
     .button-action{
@@ -52,7 +52,7 @@
 
     .text{
         font-size: 0.87rem;
-        color: $text-color;
-        line-height: 25px;
+        color: $white;
+        line-height: 35px;
     }
 }

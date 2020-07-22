@@ -89,4 +89,20 @@
         font-size: 0.87rem;
         color: rgb(255,255,255);
     }
+
+    .fullscreen-overlay-example{
+        position: absolute; // important
+        top: 20vh; // important
+        left: 35vw; // important
+        width: 30vw;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 3px;
+        background-color: rgb(255,255,255);
+
+        p{
+            margin: auto;
+        }
+    }
 }

@@ -8,11 +8,6 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 const codeExample1 = `import { Clipboard } from 'react-revolution';
 
-copiedToClipboard(event, data){
-    console.info(event);
-    console.info(data);
-}
-
 <Clipboard
     animation='scale' // scale, jump
     data={(
@@ -32,11 +27,6 @@ copiedToClipboard(event, data){
 
 const codeExample2 = `import { Clipboard } from 'react-revolution';
 
-copiedToClipboard(event, data){
-    console.info(event);
-    console.info(data);
-}
-
 <Clipboard
     animation='jump' // scale, jump
     data={(
@@ -55,6 +45,22 @@ copiedToClipboard(event, data){
     callback={this.copiedToClipboard}
 />`;
 
+const jsExample = `copiedToClipboard(event, data){
+    console.info(event);
+    console.info(data);
+}`;
+
+const cssExample = `.rr-revolution-button-clipboard{
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-radius: 3px;
+    margin: 0 auto;
+    background-color: rgb(244,69,89);
+    box-shadow: 0px 0px 3px rgb(244,69,89);
+    font-size: 0.87rem;
+    color: rgb(255,255,255);
+}`;
+
 class ReactRevolutionClipboard extends React.Component {
     constructor(props) {
         super(props);
@@ -63,12 +69,13 @@ class ReactRevolutionClipboard extends React.Component {
 
         this.examples = [
             {
+                title: 'Clipboard',
                 description: '',
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
-                js: '',
-                css: '',
+                js: jsExample,
+                css: cssExample,
                 html: '',
                 live: (
                     <Clipboard
@@ -90,12 +97,13 @@ class ReactRevolutionClipboard extends React.Component {
                 )
             },
             {
+                title: 'Clipboard',
                 description: '',
                 reactTextBefore: '',
                 react: codeExample2,
                 reactTextAfter: '',
-                js: '',
-                css: '',
+                js: jsExample,
+                css: cssExample,
                 html: '',
                 live: (
                     <Clipboard
@@ -135,9 +143,6 @@ class ReactRevolutionClipboard extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
-                    Clipboard
-                </h1>
                 <LoadOnScroll
                     scrollReference={false}
                     minify={40}

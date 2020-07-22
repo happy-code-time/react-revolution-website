@@ -29,14 +29,14 @@
   }
 
   .content {
-    display: block;
+    display: inline-block;
     position: relative;
     z-index: 3;
   }
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-scale {
-  @keyframes scaleIt {
+  @keyframes scaleFullScreenOverlay {
     0% {
       top: 50vh;
       left: 50vw;
@@ -60,11 +60,11 @@
   height: 0;
   transform: scale(0);
   overflow: hidden;
-  animation: scaleIt $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlay $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-scale.back {
-  @keyframes scaleItBack {
+  @keyframes scaleFullScreenOverlayBack {
     0% {
       top: 0;
       left: 0;
@@ -80,11 +80,11 @@
       transform: scale(0);
     }
   }
-  animation: scaleItBack $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-left {
-  @keyframes fromLeft {
+  @keyframes scaleFullScreenOverlayfromLeft {
     0% {
       left: -100vw;
     }
@@ -99,10 +99,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromLeft $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromLeft $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-left.back {
-  @keyframes fromLeftBack {
+  @keyframes scaleFullScreenOverlayfromLeftBack {
     0% {
       left: 0;
     }
@@ -110,11 +110,11 @@
       left: -100vw;
     }
   }
-  animation: fromLeftBack $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromLeftBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-top {
-  @keyframes fromTop {
+  @keyframes scaleFullScreenOverlayfromTop {
     0% {
       top: -100vh;
     }
@@ -129,10 +129,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromTop $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromTop $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-top.back {
-  @keyframes fromTopBack {
+  @keyframes scaleFullScreenOverlayfromTopBack {
     0% {
       top: 0;
     }
@@ -140,11 +140,11 @@
       top: -100vh;
     }
   }
-  animation: fromTopBack $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromTopBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-right {
-  @keyframes fromRight {
+  @keyframes scaleFullScreenOverlayfromRight {
     0% {
       right: -100vw;
     }
@@ -160,11 +160,11 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromRight $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromRight $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-right.back {
-  @keyframes fromRightBack {
+  @keyframes scaleFullScreenOverlayfromRightBack {
     0% {
       right: 0;
     }
@@ -172,11 +172,11 @@
       right: -100vw;
     }
   }
-  animation: fromRightBack $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromRightBack $default_transition forwards ease-in;
 }
 
 .rr-full-screen-overlay.rr-full-screen-overlay-bottom {
-  @keyframes fromBottom {
+  @keyframes scaleFullScreenOverlayfromBottom {
     0% {
       bottom: -100vh;
     }
@@ -192,10 +192,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fromBottom $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromBottom $default_transition forwards ease-in;
 }
 .rr-full-screen-overlay.rr-full-screen-overlay-bottom.back {
-  @keyframes fromBottomBack {
+  @keyframes scaleFullScreenOverlayfromBottomBack {
     0% {
       bottom: 0;
     }
@@ -203,5 +203,5 @@
       bottom: -100vh;
     }
   }
-  animation: fromBottomBack $default_transition forwards ease-in;
+  animation: scaleFullScreenOverlayfromBottomBack $default_transition forwards ease-in;
 }
