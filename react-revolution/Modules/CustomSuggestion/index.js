@@ -27,7 +27,7 @@ class CustomSuggestion extends React.Component {
             callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
             suggestions: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
-            inputProps: (props.inputProps && typeof {} == typeof props.inputProps) ? props.inputProps : {},
+            props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
             allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
@@ -163,7 +163,7 @@ class CustomSuggestion extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType } = this.state;
+        const { addClass, defaultClass, id, props, suggestions, plainValue, placeholder, inputType } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -175,7 +175,7 @@ class CustomSuggestion extends React.Component {
                         placeholder={placeholder}
                         onKeyDown={ (e) => this.handleKeyDown(e) }
                         id={id}
-                        {...inputProps}
+                        {...props}
                     />
                     {
                         '' !== plainValue && suggestions && 0 !== suggestions.length &&

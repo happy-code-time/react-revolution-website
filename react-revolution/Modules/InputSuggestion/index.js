@@ -34,7 +34,7 @@ class InputSuggestion extends React.Component {
             selected: (props.selected && typeof [] == typeof props.selected) ? props.selected : [],
             suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
-            inputProps: (props.inputProps && typeof {} == typeof props.inputProps) ? props.inputProps : {},
+            props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
             emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
@@ -344,7 +344,7 @@ class InputSuggestion extends React.Component {
     }
 
     render() {
-        const { addClass, selected, defaultClass, id, inputProps, suggestions, plainValue, placeholder, inputType, selectedArrow } = this.state;
+        const { addClass, selected, defaultClass, id, props, suggestions, plainValue, placeholder, inputType, selectedArrow } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -380,7 +380,7 @@ class InputSuggestion extends React.Component {
                         placeholder={placeholder}
                         onKeyDown={ (e) => this.handleKeyDown(e) }
                         id={id}
-                        {...inputProps}
+                        {...props}
                     />
                     {
                         '' !== plainValue && suggestions && 0 !== suggestions.length &&

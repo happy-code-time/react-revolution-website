@@ -32,28 +32,8 @@ class GlobalMessages extends React.Component
         this.href = window.location.href;
     }
 
-    /**
-     * Force re-rendering of this component based
-     * on keysChangeListners keys
-     * @param {object} props 
-     * @param {object} state 
-     */
-    static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'codeMapping', 'timer', 'messageKey'], props, state)) {
-            return {
-                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
-                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
-                codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
-                timer: (props.timer && typeof 888 == typeof props.timer) ? props.timer : 2500
-            };
-        }
-
-        return null;
-    }
-
     componentDidMount() {
+        this.clearStore(true);
         this.setOnClickEventListenerToTheDom();
 
         const { messageKey } = this.state;
@@ -94,7 +74,7 @@ class GlobalMessages extends React.Component
              */            
              if (self.href !== window.location.href && count > 0) {
                 self.href = window.location.href;
-                self.clearStore();
+                self.clearStore(true);
                 return clearInterval(x);
             }
 
@@ -122,12 +102,16 @@ class GlobalMessages extends React.Component
     /**
      * Clear storage
      */
-    clearStore() {
+    clearStore(resetMessages = false) {
         const { messageKey } = this.state;
+
         sessionStorage.removeItem(messageKey);
-        this.setState({
-            messagesApp: []
-        });
+        
+        if(resetMessages){
+            this.setState({
+                messagesApp: []
+            });
+        }
     }
 
     /**
@@ -138,25 +122,26 @@ class GlobalMessages extends React.Component
         clearInterval(this.globalMessagesIntervaller);
 
         this.globalMessagesIntervaller = setInterval(() => {
-            let messagesApp = this.readStore();
+            const { messagesApp } = this.state;
+            let newMessagesApp = this.readStore();
 
-            if (0 !== messagesApp.length) {
-                this.clearStore();
+            if (0 !== newMessagesApp.length) {
+                this.clearStore(false);
 
-                for(let x = 0; x <= messagesApp.length-1; x++){
-                    messagesApp[x].unique = `${uuid()}`;
+                for(let x = 0; x <= newMessagesApp.length-1; x++){
+                    newMessagesApp[x].unique = `${uuid()}`;
 
-                    if(messagesApp[x].disappear && typeof 8 == typeof messagesApp[x].disappear){
+                    if(newMessagesApp[x].disappear && typeof 8 == typeof newMessagesApp[x].disappear){
                         setTimeout( () => {
                             this.setState({ 
-                                messagesApp: this.state.messagesApp.filter( item => messagesApp[x].unique !== item.unique),
+                                messagesApp: this.state.messagesApp.filter( item => newMessagesApp[x].unique !== item.unique),
                             });
-                        }, messagesApp[x].disappear);
+                        }, newMessagesApp[x].disappear);
                     }
                 }
 
                 this.setState({ 
-                    messagesApp 
+                    messagesApp: [...messagesApp, ...newMessagesApp]
                 });
             }
 

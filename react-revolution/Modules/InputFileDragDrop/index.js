@@ -2,8 +2,7 @@ import React from 'react';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class InputFileDragDrop extends React.Component 
-{
+class InputFileDragDrop extends React.Component {
     constructor(props) {
         super(props);
         this.handleDroppedFiles = this.handleDroppedFiles.bind(this);
@@ -13,12 +12,21 @@ class InputFileDragDrop extends React.Component
         this.onDragLeave = this.onDragLeave.bind(this);
         this.onDragOver = this.onDragOver.bind(this);
         this.handleDrop = this.handleDrop.bind(this);
+        this.handleFileUploadInputFiled = this.handleFileUploadInputFiled.bind(this);
+        this.handleSingleFile = this.handleSingleFile.bind(this);
 
         this.state = {
             /**
              * App
              */
             isDragging: false,
+            hiddenInputStyle: {
+                display: 'none',
+                opacity: 0,
+                width: 0,
+                height: 0,
+                overflow: 'hidden'
+            },
             /**
              * User
              */
@@ -32,7 +40,9 @@ class InputFileDragDrop extends React.Component
             errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
             errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
-            isDraggingData: props.isDraggingData
+            isDraggingData: props.isDraggingData,
+            multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
+            uploadOnClick: (typeof true == typeof props.uploadOnClick) ? props.uploadOnClick : false,
         };
 
         this.dragCounter = 0;
@@ -45,7 +55,7 @@ class InputFileDragDrop extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'isDraggingData'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'isDraggingData', 'multiple', 'uploadOnClick'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file-drag-drop',
@@ -54,7 +64,9 @@ class InputFileDragDrop extends React.Component
                 errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
                 placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
                 errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
-                isDraggingData: props.isDraggingData
+                isDraggingData: props.isDraggingData,
+                multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
+                uploadOnClick: (typeof true == typeof props.uploadOnClick) ? props.uploadOnClick : false,
             };
         }
 
@@ -217,25 +229,85 @@ class InputFileDragDrop extends React.Component
         }
     }
 
+    handleClick() {
+        if (this.inputNode) {
+            this.inputNode.click();
+        }
+    }
+
+    /**
+     * Handle file upload
+     */
+    handleFileUploadInputFiled(e) {
+        e.preventDefault();
+        const files = e.target.files;
+        this.handleSingleFile(files);
+    }
+
+
+    handleSingleFile(files) {
+        const { readFileCallback, errorCallbackCustomData } = this.state;
+
+        if (files) {
+
+            for (let x = 0; x <= files.length - 1; x++) {
+                const file = files[x];
+
+                try {
+                    const { type } = file;
+
+                    if (this.validateObjectValues(file) && readFileCallback) {
+                        (readFileCallback)(file, type);
+                    }
+                }
+                catch (error) {
+                    this.errorCallback(error, errorCallbackCustomData);
+                }
+            }
+        }
+    }
+
     render() {
-        const { addClass, placeholder, defaultClass, id, isDragging, isDraggingData } = this.state;
+        const { addClass, placeholder, defaultClass, id, isDragging, isDraggingData, multiple, hiddenInputStyle, uploadOnClick } = this.state;
+
+        const props = {
+            multiple: multiple ? multiple : '',
+            style: hiddenInputStyle
+        };
 
         return (
             <div className={`${defaultClass} ${addClass}`} id={id}>
-                <div
-                    className={`drag-drop ${isDragging ? 'dragging' : ''}`}
-                    onDragEnter={this.onDragEnter}
-                    onDragLeave={this.onDragLeave}
-                    onDragOver={this.onDragOver}
-                    onDrop={this.handleDrop}
-                >
-                    {
-                        placeholder
-                    }
-                    {
-                        isDragging && isDraggingData && isDraggingData
-                    }
-                </div>
+
+                {
+                    uploadOnClick &&
+                    <input
+                        ref={node => this.inputNode = node}
+                        type="file"
+                        onChange={(e) => this.handleFileUploadInputFiled(e)}
+                        placeholder={placeholder}
+                        id={id}
+                        type='file'
+                        name='files[]'
+                        {...props}
+                    />
+                }
+                <label className="label" htmlFor="files">
+                    <div
+                        onClick={() => this.handleClick()}
+                        className={`drag-drop ${isDragging ? 'dragging' : ''} ${uploadOnClick ? 'cursor-pointer' : ''}`}
+                        onDragEnter={this.onDragEnter}
+                        onDragLeave={this.onDragLeave}
+                        onDragOver={this.onDragOver}
+                        onDrop={this.handleDrop}
+                    >
+                        {
+                            placeholder
+                        }
+                        {
+                            isDragging && isDraggingData && isDraggingData
+                        }
+                    </div>
+                </label>
             </div>
         );
     }

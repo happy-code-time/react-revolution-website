@@ -105,4 +105,18 @@
             margin: auto;
         }
     }
+
+    .rr-icons{
+        width: 50vw;
+        min-width: 500px;
+        margin: 0 auto;
+        border: 1px solid rgb(222,222,222);
+        border-radius: 3px;
+    }
+
+    .rr-input-file {        
+        .label {
+          margin: 0 8px;
+        }
+    }
 }

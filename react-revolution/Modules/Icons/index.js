@@ -1,3 +1,4 @@
+import { type } from 'os';
 import React from 'react';
 
 import uuid from '../../Functions/uuid';
@@ -124,6 +125,10 @@ class Icons extends React.Component
 
         this.state = {
             /**
+             * App
+             */
+            icons: defaultIcons,
+            /**
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
@@ -132,10 +137,10 @@ class Icons extends React.Component
             iconsType: (props.iconsType && typeof '8' == typeof props.iconsType) ? props.iconsType : 'Smileys',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             displayTabs: (typeof true == typeof props.displayTabs) ? props.displayTabs : true,
-            icons: (props.icons && typeof {} == typeof props.icons) ? props.icons : defaultIcons,
             renderItems: (props.renderItems && typeof [] == typeof props.renderItems) ? props.renderItems : renderDefaultItems,
             translations: (props.translations && typeof {} == typeof props.translations) ? props.translations : undefined,
-        }
+            custom: (props.custom && typeof [] == typeof props.custom) ? props.custom : undefined,
+        };
     }
 
     /**
@@ -145,30 +150,54 @@ class Icons extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id','callback', 'displayTabs', 'icons', 'renderItems', 'translations'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id','callback', 'displayTabs', 'renderItems', 'translations', 'custom'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
                 displayTabs: (typeof true == typeof props.displayTabs) ? props.displayTabs : true,
-                icons: (props.icons && typeof {} == typeof props.icons) ? props.icons : defaultIcons,
                 renderItems: (props.renderItems && typeof [] == typeof props.renderItems) ? props.renderItems : renderDefaultItems,
                 translations: (props.translations && typeof {} == typeof props.translations) ? props.translations : undefined,
+                custom: (props.custom && typeof {} == typeof props.custom) ? props.custom : undefined,
             };
         }
 
         return null;
     }
 
+    componentDidMount(){
+        const { custom, icons } = this.state;
+        let addedItems = 0;
+
+        if(custom && typeof [] == typeof custom && custom.length){
+
+            custom.map( object => {
+                const { title, data } = object;
+    
+                if(title && typeof '8' == typeof title && data && typeof [] == typeof data && data.length){
+                   
+                    if(undefined == icons[title]){
+                        icons[title] = object;
+                        addedItems += 1;
+                    }
+                }
+            });
+
+            if(addedItems){
+                this.setState({ icons });
+            }
+        }
+    }
+
     /**
      * User callback
      */
-    callback(icon) {
+    callback(event, icon) {
         const { callback } = this.state;
 
         if (callback && 'function' == typeof callback) {
-            (callback)(icon);
+            (callback)(event, icon);
         }
     }
 
@@ -229,7 +258,7 @@ class Icons extends React.Component
                                     <span
                                         className='single-icon'
                                         key={uuid()}
-                                        onClick={() => this.callback(i)}
+                                        onClick={(e) => this.callback(e,i)}
                                     >
                                         {
                                             i

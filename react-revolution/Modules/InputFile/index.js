@@ -10,6 +10,7 @@ class InputFile extends React.Component
         this.handleSingleFile = this.handleSingleFile.bind(this);
         this.errorCallback = this.errorCallback.bind(this);
         this.calculatedFileSize = this.calculatedFileSize.bind(this);
+        this.handleClick = this.handleClick.bind(this);
 
         this.state = {
             /**
@@ -20,6 +21,13 @@ class InputFile extends React.Component
             fileSize: 0,
             calculatedFileSize: 0,
             fileType: '',
+            hiddenInputStyle: {
+                display: 'none',
+                opacity: 0,
+                width: 0,
+                height: 0,
+                overflow: 'hidden'
+            },
             /**
              * User
              */
@@ -174,15 +182,23 @@ class InputFile extends React.Component
         }
     }
 
+    handleClick() {
+        if (this.inputNode) {
+            this.inputNode.click();
+        }
+    }
+
     render() {
-        const { addClass, label, placeholder, defaultClass, id, multiple } = this.state;
+        const { addClass, label, placeholder, defaultClass, id, multiple, hiddenInputStyle } = this.state;
         const props = {
-            multiple: multiple ? multiple : ''
+            multiple: multiple ? multiple : '',
+            style: hiddenInputStyle
         };
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
                 <input
+                    ref={node => this.inputNode = node}
                     type="file"
                     onChange={(e) => this.handleFileUpload(e)}
                     placeholder={placeholder}
@@ -191,7 +207,11 @@ class InputFile extends React.Component
                     name='files[]'
                     {...props}
                 />
-                <label className="label" htmlFor="files">
+                <label 
+                    className="label" 
+                    htmlFor="files"
+                    onClick={() => this.handleClick()}
+                >
                     {
                         label
                     }

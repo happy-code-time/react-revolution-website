@@ -174,8 +174,6 @@ class ScrollToTop
      * Main scroll to top interval
      */
     setScrollTopInterval(currentScrollTop, intervalTime){
-        
-        console.log(intervalTime);
 
         if(0 == intervalTime){
             return document.documentElement.scrollTop = 0;

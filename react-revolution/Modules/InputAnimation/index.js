@@ -24,7 +24,7 @@ class InputAnimation extends React.Component
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             inputType: (props.type && typeof '8' == typeof props.type) ? props.type : 'text',
-            inputProps: (props.inputProps && typeof {} == typeof props.inputProps) ? props.inputProps : {},
+            props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
             animatePlaceholder: (typeof true == typeof props.animatePlaceholder) ? props.animatePlaceholder : true,
             onEnter: (props.onEnter && 'function' == typeof props.onEnter) ? props.onEnter : undefined,
@@ -33,29 +33,29 @@ class InputAnimation extends React.Component
         }
     }
 
-    /**
-     * Force re-rendering of this component based
-     * on keysChangeListners keys
-     * @param {object} props 
-     * @param {object} state 
-     */
-    static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value'], props, state)) {
-            const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
+    // /**
+    //  * Force re-rendering of this component based
+    //  * on keysChangeListners keys
+    //  * @param {object} props 
+    //  * @param {object} state 
+    //  */
+    // static getDerivedStateFromProps(props, state) {
+    //     if (getDerivedStateFromPropsCheck(['value'], props, state)) {
+    //         const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
-            if(getValueFromCallback){
-                return {
-                    plainValue: props.value
-                }
-            }
+    //         // if(getValueFromCallback){
+    //         //     return {
+    //         //         plainValue: props.value
+    //         //     }
+    //         // }
 
-            return {
-                plainValue: state.plainValue
-            };
-        }
+    //         return {
+    //             plainValue: state.plainValue
+    //         };
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 
     componentDidMount(){
         this.setFocus();
@@ -99,13 +99,20 @@ class InputAnimation extends React.Component
     /**
      * On state change callback
      */
-    callback(val = null) {
+    async callback(val = null) {
         const { getValueFromCallback } = this.state;
         
         if (this.props.callback&&'function'==typeof this.props.callback) {
             
             if(getValueFromCallback){
-                (this.props.callback)(val);
+                const plainValue = await (this.props.callback)(val);
+
+                if(typeof '8' == typeof plainValue){
+                    this.setState({
+                        plainValue
+                    });
+                }
+
             }
             else{
                 const { plainValue }=this.state;
@@ -157,8 +164,9 @@ class InputAnimation extends React.Component
      */
     setFocus(){
         const { defaultClass, animatePlaceholder, defaultClassOrigin, plainValue } = this.state;
-        
-        if (animatePlaceholder && '' !== plainValue && -1 !== defaultClass.indexOf('focus')) {
+    
+        if (animatePlaceholder && '' !== plainValue && -1 == defaultClass.indexOf('focus')) {
+
             this.setState({
                 defaultClass: `${defaultClassOrigin} focus`,
             });
@@ -192,7 +200,7 @@ class InputAnimation extends React.Component
     }
 
     render() {
-        const { addClass, animatePlaceholder, placeholder, id, defaultClass, inputType, inputProps, plainValue } = this.state;
+        const { addClass, animatePlaceholder, placeholder, id, defaultClass, inputType, props, plainValue } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -215,7 +223,7 @@ class InputAnimation extends React.Component
                         onChange={ (e) => this.setValue(e) }
                         placeholder={animatePlaceholder ? '' : placeholder}
                         id={id}
-                        { ...inputProps }
+                        { ...props }
                     />
                 }
                 {
@@ -235,7 +243,7 @@ class InputAnimation extends React.Component
                         ref={ (node) => this.inputNode = node }
                         placeholder={animatePlaceholder ? '' : placeholder}
                         id={id}
-                        { ...inputProps }
+                        { ...props }
                     />
                 }
             </div>

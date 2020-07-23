@@ -48,6 +48,14 @@ import ReactRevolutionFullScreenOverlay from './Website/Pages/Modules/ReactRevol
 
 import ReactRevolutionGlobalMessages from './Website/Pages/Modules/ReactRevolutionGlobalMessages';
 
+import ReactRevolutionIcons from './Website/Pages/Modules/ReactRevolutionIcons';
+
+import ReactRevolutionInputAnimation from './Website/Pages/Modules/ReactRevolutionInputAnimation';
+
+import ReactRevolutionInputFile from './Website/Pages/Modules/ReactRevolutionInputFile';
+
+import ReactRevolutionInputFileDragDrop from './Website/Pages/Modules/ReactRevolutionInputFileDragDrop';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -250,30 +258,26 @@ class App extends React.Component {
                     },
                     {
                       text: 'GlobalMessages',
-                      href: `${host}#/react-revolution-global-essages`,
+                      href: `${host}#/react-revolution-global-messages`,
                     },
                     {
                       text: 'Icons',
-                      href: `${host}#/Icons`,
+                      href: `${host}#/react-revolution-icons`,
                     },
                     {
                       text: 'Input',
                       data: [
                         {
                           text: 'InputAnimation',
-                          href: `${host}#/InputAnimation`,
-                        },
-                        {
-                          text: 'InputAnimation',
-                          href: `${host}#/InputAnimation`,
+                          href: `${host}#/react-revolution-input-animation`,
                         },
                         {
                           text: 'InputFile',
-                          href: `${host}#/InputFile`,
+                          href: `${host}#/react-revolution-input-file`,
                         },
                         {
                           text: 'InputFileDragDrop',
-                          href: `${host}#/InputFileDragDrop`,
+                          href: `${host}#/react-revolution-input-file-drag-drop`,
                         },
                         {
                           text: 'InputSuggestion',
@@ -420,7 +424,11 @@ class App extends React.Component {
               <Route exact path="/react-revolution-fullscreen-list-array" render={(props) => (<ReactRevolutionFullScreenListArray {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-object" render={(props) => (<ReactRevolutionFullScreenListObject {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-overlay" render={(props) => (<ReactRevolutionFullScreenOverlay {...props} />)} />
-              <Route exact path="/react-revolution-global-essages" render={(props) => (<ReactRevolutionGlobalMessages {...props} />)} />
+              <Route exact path="/react-revolution-global-messages" render={(props) => (<ReactRevolutionGlobalMessages {...props} />)} />
+              <Route exact path="/react-revolution-icons" render={(props) => (<ReactRevolutionIcons {...props} />)} />
+              <Route exact path="/react-revolution-input-animation" render={(props) => (<ReactRevolutionInputAnimation {...props} />)} />
+              <Route exact path="/react-revolution-input-file" render={(props) => (<ReactRevolutionInputFile {...props} />)} />
+              <Route exact path="/react-revolution-input-file-drag-drop" render={(props) => (<ReactRevolutionInputFileDragDrop {...props} />)} />
             </Switch>
           </Router>
         }

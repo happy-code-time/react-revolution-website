@@ -2592,9 +2592,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var codeExample = "import { GlobalMessages, addGlobalMessage } from 'react-revolution';\n\n<div\n    className=\"button-action rr-revolution-button-clipboard\"\n    onClick={(e) => this.generateMessage()}\n>\n    generate message\n</div>\n\n<GlobalMessages\n    messageKey='messagesApp'\n    timer={1000}\n    codeMapping={{\n        1: {\n            title: 'GLOBAL ERROR',\n            displayErrorCode: true,\n            text: {\n                prefix: 'prefix',\n                suffix: 'suffix',\n                props: {},\n            },\n            close: {\n                text: 'close',\n                props: {},\n            },\n            link: {\n                text: 'error',\n                useTagLink: false,\n                href: 'error-messages-learn-more',\n                props: {\n                    target: '_blank',\n                },\n            },\n        },\n    }}\n/>";
-var jsExample = "generateMessage() {\n    addGlobalMessage('messagesApp', 'dddd', 1);\n}";
-var cssExample = ".fullscreen-overlay-example{\n\n}";
+var codeExample1 = "import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';\n\n    <div\n        className=\"button-action rr-revolution-button-clipboard\"\n        onClick={(e) => this.generateMessage()}\n    >\n        generate message\n    </div>\n    <GlobalMessages\n    messageKey='messagesApp'\n    timer={1000}\n    codeMapping={{\n        1: {\n            title: 'GLOBAL ERROR',\n            displayErrorCode: true,\n            text: {\n                prefix: 'prefix',\n                suffix: 'suffix',\n                props: {},\n            },\n            close: {\n                text: 'close',\n                props: {},\n            },\n            link: {\n                text: 'error',\n                useTagLink: false,\n                href: 'error-messages-learn-more',\n                props: {\n                    target: '_blank',\n                },\n            },\n        },\n    }}\n/>";
+var codeExample2 = "import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';\n\n    <div\n        className=\"button-action rr-revolution-button-clipboard\"\n        onClick={(e) => this.generateMessage(2000)}\n    >\n        generate message\n    </div>\n    <GlobalMessages\n    messageKey='messagesApp'\n    timer={1000}\n    codeMapping={{\n        1: {\n            title: 'GLOBAL ERROR',\n            displayErrorCode: true,\n            text: {\n                prefix: 'prefix',\n                suffix: 'suffix',\n                props: {},\n            },\n            close: {\n                text: 'close',\n                props: {},\n            },\n            link: {\n                text: 'error',\n                useTagLink: false,\n                href: 'error-messages-learn-more',\n                props: {\n                    target: '_blank',\n                },\n            },\n        },\n    }}\n/>";
+var jsExample = "generateMessage(timeout = undefined) {\n    addGlobalMessage('messagesApp', uuid(), 1, timeout);\n}";
 
 var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(ReactRevolutionGlobalMessages, _React$Component);
@@ -2610,7 +2610,8 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionGlobalMessages, [{
     key: "generateMessage",
     value: function generateMessage() {
-      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["addGlobalMessage"])('messagesApp', 'dddd', 1);
+      var timeout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["addGlobalMessage"])('messagesApp', Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["uuid"])(), 1, timeout);
     }
   }, {
     key: "render",
@@ -2667,14 +2668,14 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('reactCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
         displayLineNumber: true,
         layout: "dark",
-        code: codeExample
+        code: codeExample1
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
         animation: "jump" // scale, jump
         ,
         data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
-        clipboard: codeExample
+        clipboard: codeExample1
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
         title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('jsCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle'), " 1"),
         className: "h1-example"
@@ -2699,14 +2700,102 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('cssCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
         displayLineNumber: true,
         layout: "dark",
-        code: cssExample
+        code: ""
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
         animation: "jump" // scale, jump
         ,
         data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
-        clipboard: cssExample
+        clipboard: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "code-example mt-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        className: "h1-title border-none text-center"
+      }, "GlobalMessages"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fas fa-user"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        className: "button-action rr-revolution-button-clipboard",
+        onClick: function onClick(e) {
+          return _this.generateMessage(2000);
+        }
+      }, "generate message"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["GlobalMessages"], {
+        messageKey: "messagesApp",
+        timer: 1000,
+        codeMapping: {
+          1: {
+            title: 'GLOBAL ERROR',
+            displayErrorCode: true,
+            text: {
+              prefix: 'prefix',
+              suffix: 'suffix',
+              props: {}
+            },
+            close: {
+              text: 'close',
+              props: {}
+            },
+            link: {
+              text: 'error',
+              useTagLink: false,
+              href: 'error-messages-learn-more',
+              props: {
+                target: '_blank'
+              }
+            }
+          }
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('reactCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fas fa-atom"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('reactCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
+        displayLineNumber: true,
+        layout: "dark",
+        code: codeExample2
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
+        animation: "jump" // scale, jump
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
+        clipboard: codeExample2
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('jsCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fab fa-node-js"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('jsCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
+        displayLineNumber: true,
+        layout: "dark",
+        code: jsExample
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
+        animation: "jump" // scale, jump
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
+        clipboard: jsExample
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('cssCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("i", {
+        className: "fab fa-css3"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('cssCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["SourceCode"], {
+        displayLineNumber: true,
+        layout: "dark",
+        code: ""
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Clipboard"], {
+        animation: "jump" // scale, jump
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
+        clipboard: ""
       })));
     }
   }]);
@@ -2716,6 +2805,856 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionGlobalMessages);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/ReactRevolutionIcons.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { Icons } from 'react-revolution';\n\n<Icons\n    displayTabs={true}\n    iconsType='Smileys'\n    callback={this.callback}\n    renderItems='all'\n/>";
+var codeExample2 = "import { Icons } from 'react-revolution';\n\n<Icons\n    displayTabs={true}\n    iconsType='Activity'\n    callback={this.setIcon}\n    renderItems={\n        [\n            'Smileys',\n            'Activity',\n            'Travel',\n            'Peoples',\n            'Objects'\n        ]\n    }\n/>";
+var codeExample3 = "import { Icons } from 'react-revolution';\n\n<Icons\n    displayTabs={true}\n    iconsType='Smileys'\n    callback={this.setIcon}\n    renderItems={\n        [\n            'Smileys',\n            'Activity',\n            'Travel',\n            'Peoples',\n            'Objects'\n        ]\n    }\n    translations={\n        {\n            'Smileys': 'Smile',\n            'Activity': 'Sport',\n            // 'Peoples': this.translations.Peoples,\n            // 'Animals': this.translations.Animals,\n            // 'Plants': this.translations.Plants,\n            // 'Nature': this.translations.Nature,\n            // 'Food': this.translations.Food,\n            // 'Travel': this.translations.Travel,\n            // 'Objects': this.translations.Objects,\n            // 'Symbols': this.translations.Symbols,\n            // 'Currency': this.translations.Currency\n        }\n    }\n/>";
+var jsExample = "callback(clickEvent, icon){\n    console.log(icon);\n}";
+var cssExample = ".rr-icons{\n    width: 50vw;\n    min-width: 500px;\n    margin: 0 auto;\n    border: 1px solid rgb(222,222,222);\n    border-radius: 3px;\n}";
+
+var ReactRevolutionIcons = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionIcons, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionIcons);
+
+  function ReactRevolutionIcons(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionIcons);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'Icons',
+      description: 'Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample,
+      css: cssExample,
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Icons"], {
+        displayTabs: true,
+        iconsType: "Smileys",
+        callback: _this.callback,
+        renderItems: "all"
+      })
+    }, {
+      title: 'Icons',
+      description: 'Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.',
+      reactTextBefore: '',
+      react: codeExample2,
+      reactTextAfter: '',
+      js: jsExample,
+      css: cssExample,
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Icons"], {
+        displayTabs: true,
+        iconsType: "Activity",
+        callback: _this.callback,
+        renderItems: ['Smileys', 'Activity', 'Travel', 'Peoples', 'Objects']
+      })
+    }, {
+      title: 'Icons',
+      description: 'Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.',
+      reactTextBefore: '',
+      react: codeExample3,
+      reactTextAfter: '',
+      js: jsExample,
+      css: cssExample,
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Icons"], {
+        displayTabs: true,
+        iconsType: "Smileys",
+        callback: _this.callback,
+        renderItems: ['Smileys', 'Activity', 'Travel', 'Peoples', 'Objects'],
+        translations: {
+          'Smileys': 'Smile',
+          'Activity': 'Sport' // 'Peoples': this.translations.Peoples,
+          // 'Animals': this.translations.Animals,
+          // 'Plants': this.translations.Plants,
+          // 'Nature': this.translations.Nature,
+          // 'Food': this.translations.Food,
+          // 'Travel': this.translations.Travel,
+          // 'Objects': this.translations.Objects,
+          // 'Symbols': this.translations.Symbols,
+          // 'Currency': this.translations.Currency
+
+        }
+      })
+    }, {
+      title: 'Icons',
+      description: 'Icons module with custom icons set. Please remember to add your custom defined "title" into the "renderItems" list. After the click event, look into the console for an icon.',
+      reactTextBefore: '',
+      react: codeExample3,
+      reactTextAfter: '',
+      js: jsExample,
+      css: cssExample,
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Icons"], {
+        displayTabs: true,
+        iconsType: "Smileys",
+        callback: _this.callback,
+        custom: [{
+          title: 'Love',
+          data: ['😍', '😘', '💕', '💞', '💘']
+        }, {
+          title: 'Cash',
+          data: ['💴', '💷', '💶', '💵']
+        }, {
+          title: 'Clothes',
+          data: ['👔', '👕', '👖', '🧣', '🧤', '🧥', '🧦', '👗', '👘', '👙', '👚']
+        }],
+        renderItems: ['Love', // custom defined
+        'Cash', // custom defined
+        'Activity', 'Clothes', // custom defined
+        'Travel']
+      })
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionIcons, [{
+    key: "callback",
+    value: function callback(clickEvent, icon) {
+      console.log(icon);
+    }
+  }, {
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return ReactRevolutionIcons;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionIcons);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/ReactRevolutionInputAnimation.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { InputAnimation } from 'react-revolution';\n\n<InputAnimation\n    placeholder='Placeholder'\n    type=\"text\"\n    props={{\n        autoComplete: \"username\"\n    }}\n    callback={this.callback}\n    onEnter={this.enter}\n    allowOnlyAZ={true}\n    getValueFromCallback={false}\n    animatePlaceholder={true}\n/>";
+var codeExample2 = "import { InputAnimation } from 'react-revolution';\n\n<InputAnimation\n    placeholder='Placeholder'\n    type=\"text\"\n    props={{\n        autoComplete: \"username\"\n    }}\n    onEnter={this.enter}\n    value={this.state.inputValue}\n    allowOnlyAZ={false}\n    animatePlaceholder={true}\n    callback={this.callbackOnInput}\n    getValueFromCallback={true}\n/>";
+var jsExample1 = "callback(inputValue) {\n    console.info(inputValue);\n}";
+var jsExample2 = "constructor(props) {\n    super(props);\n    this.callbackOnInput = this.callbackOnInput.bind(this);\n\n    this.state = {\n        inputValue: 'a'\n    }\n}\n\ncallbackOnInput(inputValue) {\n    /**\n     * Internal state\n     */\n    this.setState({\n        inputValue\n    });\n    /**\n     * Callback to the module to update \n     * the state inside the module\n     */\n    return inputValue;\n}";
+
+var ReactRevolutionInputAnimation = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionInputAnimation, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionInputAnimation);
+
+  function ReactRevolutionInputAnimation(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionInputAnimation);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.callbackOnInput = _this.callbackOnInput.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'InputAnimation',
+      description: '',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["InputAnimation"], {
+        placeholder: "Placeholder",
+        type: "text",
+        props: {
+          autoComplete: "username"
+        },
+        callback: _this.callback,
+        onEnter: _this.enter,
+        allowOnlyAZ: true,
+        getValueFromCallback: false,
+        animatePlaceholder: true
+      })
+    }];
+    _this.state = {
+      inputValue: 'a'
+    };
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionInputAnimation, [{
+    key: "callback",
+    value: function callback(inputValue) {
+      console.info(inputValue);
+    }
+  }, {
+    key: "callbackOnInput",
+    value: function callbackOnInput(inputValue) {
+      /**
+       * Internal state
+       */
+      this.setState({
+        inputValue: inputValue
+      });
+      /**
+       * Callback to the module to update 
+       * the state inside the module
+       */
+
+      return inputValue;
+    }
+  }, {
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "code-example mt-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center"
+      }, "InputAnimation"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+        className: "fas fa-user"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["InputAnimation"], {
+        placeholder: "Placeholder",
+        type: "text",
+        props: {
+          autoComplete: "username"
+        },
+        onEnter: this.enter,
+        value: this.state.inputValue,
+        allowOnlyAZ: false,
+        animatePlaceholder: true,
+        callback: this.callbackOnInput,
+        getValueFromCallback: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('reactCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+        className: "fas fa-atom"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('reactCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+        displayLineNumber: true,
+        layout: "dark",
+        code: codeExample2
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Clipboard"], {
+        animation: "jump" // scale, jump
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
+        clipboard: codeExample2
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('jsCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle'), " 1"),
+        className: "h1-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+        className: "fab fa-node-js"
+      }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('jsCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SourceCode"], {
+        displayLineNumber: true,
+        layout: "dark",
+        code: jsExample2
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Clipboard"], {
+        animation: "jump" // scale, jump
+        ,
+        data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+          className: "button-action"
+        }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
+        clipboard: jsExample2
+      })));
+    }
+  }]);
+
+  return ReactRevolutionInputAnimation;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionInputAnimation);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/ReactRevolutionInputFile.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { InputFile } from 'react-revolution';\n\n<InputFile\n    allowedFileSize={2}\n    sizeDescriptor={\"MB\"}\n    allowedFiles={['text/csv', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']}\n    errorCallback={this.errorHandler}\n    errorCallbackCustomData={'custom data for callback'}\n    readFileCallback={this.callback}\n    label={'Please select a CSV or XLS file...'}\n    multiple={true}\n/>";
+var jsExample1 = "errorHandler(messageType, customData){\n\n    /**\n     * Error handler\n     * @param {string} messageType\n     * @param {any} customData\n     */\n    errorHandler(messageType, customData){\n        switch(messageType){\n            case 'empty_filename' : {\n                console.error(`Filename empty ${customData ? customData : ''}`);\n                break;\n            }\n            case 'empty_filecontent' : {\n                console.error(`File empty ${customData ? customData : ''}`);\n                break;\n            }\n            case 'unrecognized_filetype' : {\n                console.error(`Unrecognized filetype ${customData ? customData : ''}`);\n                break;\n            }\n            case 'maximum_filesize_reached' : {\n                console.error(`Filesize to big ${customData ? customData : ''}`);\n                break;\n            }\n            case 'unsupported_filetype' : {\n                console.error(`Unsupported filetype ${customData ? customData : ''}`);\n                break;\n            }\n            default : {\n                console.error(`Unknown error ${customData ? customData : ''}`);\n                break;\n            }\n        }\n    }\n}\n\n/**\n * Switch file type\n * @param {object} file\n * @param {string} type\n */\ncallback(file, type) {\n    switch (type) {\n        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': {\n            console.info('Reading as XSLX file type');\n            break;\n        }\n        case 'text/csv': {\n            console.info('Reading as CSV file type');\n            break;\n        }\n        default: {\n            console.error(`File type not supported: ${type}`);\n        }\n    }\n\n    console.info(`File type: ${type}`);\n    console.info(file);\n}";
+
+var ReactRevolutionInputFile = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionInputFile, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionInputFile);
+
+  function ReactRevolutionInputFile(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionInputFile);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'InputFile',
+      description: '',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["InputFile"], {
+        allowedFileSize: 2,
+        sizeDescriptor: "MB",
+        allowedFiles: ['text/csv', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+        errorCallback: _this.errorHandler,
+        errorCallbackCustomData: 'custom data for callback',
+        readFileCallback: _this.callback,
+        label: 'Please select a CSV or XLS file...',
+        multiple: true
+      })
+    }];
+    return _this;
+  }
+  /**
+   * Error handler
+   * @param {string} messageType
+   * @param {any} customData
+   */
+
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionInputFile, [{
+    key: "errorHandler",
+    value: function errorHandler(messageType, customData) {
+      var errorMessage = '';
+
+      switch (messageType) {
+        case 'empty_filename':
+          {
+            errorMessage = "Filename empty ".concat(customData ? customData : '');
+            break;
+          }
+
+        case 'empty_filecontent':
+          {
+            errorMessage = "File empty ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'unrecognized_filetype':
+          {
+            errorMessage = "Unrecognized filetype ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'maximum_filesize_reached':
+          {
+            errorMessage = "Filesize to big ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'unsupported_filetype':
+          {
+            errorMessage = "Unsupported filetype ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        default:
+          {
+            errorMessage = "Unknown error ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+      }
+
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["addGlobalMessage"])('messagesApp', errorMessage, 1, 5000);
+    }
+    /**
+     * Switch file type
+     * @param {object} file
+     * @param {string} type
+     */
+
+  }, {
+    key: "callback",
+    value: function callback(file, type) {
+      var message = '';
+
+      switch (type) {
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          {
+            message = 'Reading as XSL file type';
+            console.info(message);
+            break;
+          }
+
+        case 'text/csv':
+          {
+            message = 'Reading as CSV file type';
+            console.info(message);
+            break;
+          }
+
+        default:
+          {
+            message = "File type not supported: ".concat(type);
+            console.error(message);
+          }
+      }
+
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["addGlobalMessage"])('messagesApp', message, 1, 5000);
+      console.info(file);
+    }
+  }, {
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["GlobalMessages"], {
+        messageKey: "messagesApp",
+        timer: 1000,
+        codeMapping: {
+          1: {
+            title: 'Upload',
+            displayErrorCode: false,
+            text: {
+              prefix: '',
+              suffix: '',
+              props: {}
+            },
+            close: {
+              text: 'close',
+              props: {}
+            }
+          }
+        }
+      }));
+    }
+  }]);
+
+  return ReactRevolutionInputFile;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionInputFile);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/ReactRevolutionInputFileDragDrop.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { InputFileDragDrop } from 'react-revolution';\n\n<InputFileDragDrop\n    placeholder='Drag Drop your CSV or XLS files here...'\n    allowedFileSize={2}\n    sizeDescriptor={\"MB\"}\n    allowedFiles={['text/csv', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']}\n    errorCallback={this.errorHandler}\n    errorCallbackCustomData={'------'}\n    readFileCallback={this.callback}\n    multiple={true}\n    uploadOnClick={true}\n/>";
+var jsExample1 = "errorHandler(messageType, customData){\n\n    /**\n     * Error handler\n     * @param {string} messageType\n     * @param {any} customData\n     */\n    errorHandler(messageType, customData) {\n        switch(messageType){\n            case 'empty_filename' : {\n                console.error(`Filename empty ${customData ? customData : ''}`);\n                break;\n            }\n            case 'empty_filecontent' : {\n                console.error(`File empty ${customData ? customData : ''}`);\n                break;\n            }\n            case 'unrecognized_filetype' : {\n                console.error(`Unrecognized filetype ${customData ? customData : ''}`);\n                break;\n            }\n            case 'maximum_filesize_reached' : {\n                console.error(`Filesize to big ${customData ? customData : ''}`);\n                break;\n            }\n            case 'unsupported_filetype' : {\n                console.error(`Unsupported filetype ${customData ? customData : ''}`);\n                break;\n            }\n            default : {\n                console.error(`Unknown error ${customData ? customData : ''}`);\n                break;\n            }\n        }\n    }\n}\n\n/**\n * Switch file type\n * @param {object} file\n * @param {string} type\n */\ncallback(file, type) {\n    switch (type) {\n        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': {\n            console.info('Reading as XSLX file type');\n            break;\n        }\n        case 'text/csv': {\n            console.info('Reading as CSV file type');\n            break;\n        }\n        default: {\n            console.error(`File type not supported: ${type}`);\n        }\n    }\n\n    console.info(`File type: ${type}`);\n    console.info(file);\n}";
+
+var ReactRevolutionInputFileDragDrop = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionInputFileDragDrop, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionInputFileDragDrop);
+
+  function ReactRevolutionInputFileDragDrop(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionInputFileDragDrop);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'InputFileDragDrop',
+      description: '',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["InputFileDragDrop"], {
+        placeholder: "Drag Drop your CSV or XLS files here...",
+        allowedFileSize: 2,
+        sizeDescriptor: "MB",
+        allowedFiles: ['text/csv', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+        errorCallback: _this.errorHandler,
+        errorCallbackCustomData: '------',
+        readFileCallback: _this.callback,
+        uploadOnClick: true,
+        multiple: true
+      })
+    }];
+    return _this;
+  }
+  /**
+   * Error handler
+   * @param {string} messageType
+   * @param {any} customData
+   */
+
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionInputFileDragDrop, [{
+    key: "errorHandler",
+    value: function errorHandler(messageType, customData) {
+      var errorMessage = '';
+
+      switch (messageType) {
+        case 'empty_filename':
+          {
+            errorMessage = "Filename empty ".concat(customData ? customData : '');
+            break;
+          }
+
+        case 'empty_filecontent':
+          {
+            errorMessage = "File empty ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'unrecognized_filetype':
+          {
+            errorMessage = "Unrecognized filetype ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'maximum_filesize_reached':
+          {
+            errorMessage = "Filesize to big ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        case 'unsupported_filetype':
+          {
+            errorMessage = "Unsupported filetype ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+
+        default:
+          {
+            errorMessage = "Unknown error ".concat(customData ? customData : '');
+            console.error(errorMessage);
+            break;
+          }
+      }
+
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["addGlobalMessage"])('messagesApp', errorMessage, 1, 5000);
+    }
+    /**
+     * Switch file type
+     * @param {object} file
+     * @param {string} type
+     */
+
+  }, {
+    key: "callback",
+    value: function callback(file, type) {
+      var message = '';
+
+      switch (type) {
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          {
+            message = 'Reading as XSL file type';
+            console.info(message);
+            break;
+          }
+
+        case 'text/csv':
+          {
+            message = 'Reading as CSV file type';
+            console.info(message);
+            break;
+          }
+
+        default:
+          {
+            message = "File type not supported: ".concat(type);
+            console.error(message);
+          }
+      }
+
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["addGlobalMessage"])('messagesApp', message, 1, 5000);
+      console.info(file);
+    }
+  }, {
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["GlobalMessages"], {
+        messageKey: "messagesApp",
+        timer: 1000,
+        codeMapping: {
+          1: {
+            title: 'Upload',
+            displayErrorCode: false,
+            text: {
+              prefix: '',
+              suffix: '',
+              props: {}
+            },
+            close: {
+              text: 'close',
+              props: {}
+            }
+          }
+        }
+      }));
+    }
+  }]);
+
+  return ReactRevolutionInputFileDragDrop;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionInputFileDragDrop);
 
 /***/ }),
 
@@ -14231,7 +15170,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: relative;\n  left: 250px;\n  width: calc(100% - 250px); }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 1; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n\n.Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n.Generator .section-cards-scroll {\n  height: 300px; }\n  .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n.Generator .section-cards-scroll-callback {\n  height: 500px; }\n  .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n.Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n.Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: relative;\n  left: 250px;\n  width: calc(100% - 250px);\n  z-index: 1; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 3; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n\n.Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n.Generator .section-cards-scroll {\n  height: 300px; }\n  .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n.Generator .section-cards-scroll-callback {\n  height: 500px; }\n  .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n.Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n.Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n\n.Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n.Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
 
 
 
@@ -30370,7 +31309,7 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Ue;
+    return ze;
   }), a.d(t, "uuid", function () {
     return M;
   }), a.d(t, "disableHtmlScroll", function () {
@@ -30392,29 +31331,29 @@ module.exports = function (e) {
   }), a.d(t, "Clipboard", function () {
     return _;
   }), a.d(t, "FullScreenListArray", function () {
-    return U;
+    return z;
   }), a.d(t, "FullScreenListObject", function () {
     return q;
   }), a.d(t, "FullScreenOverlay", function () {
     return Z;
   }), a.d(t, "GlobalMessages", function () {
-    return $;
+    return X;
   }), a.d(t, "Icons", function () {
-    return ee;
-  }), a.d(t, "InputAnimation", function () {
     return ae;
+  }), a.d(t, "InputAnimation", function () {
+    return le;
   }), a.d(t, "InputFile", function () {
-    return re;
-  }), a.d(t, "InputFileDragDrop", function () {
     return oe;
-  }), a.d(t, "InputSuggestion", function () {
+  }), a.d(t, "InputFileDragDrop", function () {
     return ue;
-  }), a.d(t, "LoadingBoxTop", function () {
+  }), a.d(t, "InputSuggestion", function () {
     return fe;
-  }), a.d(t, "LoadOnScroll", function () {
+  }), a.d(t, "LoadingBoxTop", function () {
     return he;
+  }), a.d(t, "LoadOnScroll", function () {
+    return me;
   }), a.d(t, "MenuClickHorizontal", function () {
-    return Re;
+    return Pe;
   }), a.d(t, "TextWriter", function () {
     return Ae;
   }), a.d(t, "PopupBox", function () {
@@ -30422,7 +31361,7 @@ module.exports = function (e) {
   }), a.d(t, "SideBar", function () {
     return je;
   }), a.d(t, "SourceCode", function () {
-    return ze;
+    return Ue;
   });
 
   var n = a(8),
@@ -30960,8 +31899,8 @@ module.exports = function (e) {
   }(C.a.Component),
       T = a(9),
       R = a.n(T),
-      P = a(11),
-      F = a.n(P);
+      F = a(11),
+      P = a.n(F);
 
   function I(e) {
     var t = function () {
@@ -31033,7 +31972,7 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, F()(R.a.mark(function n() {
+        }, P()(R.a.mark(function n() {
           return R.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
@@ -31041,11 +31980,11 @@ module.exports = function (e) {
                   return n.next = 2, t();
 
                 case 2:
-                  a = n.sent, console.log(a), a && 0 != a.length && "break" != a ? e.buildData(a) : (e.removeScrollEvent(), e.setState({
+                  (a = n.sent) && 0 != a.length && "break" != a ? e.buildData(a) : (e.removeScrollEvent(), e.setState({
                     loading: !1
                   }));
 
-                case 5:
+                case 4:
                 case "end":
                   return n.stop();
               }
@@ -31130,7 +32069,7 @@ module.exports = function (e) {
   }(C.a.Component),
       M = function M() {
     var e = Math.floor(Date.now() / 1e3);
-    return "".concat(e).concat(Math.floor(1e6 * Math.random()));
+    return "".concat(e).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   };
 
   function V(e) {
@@ -31175,7 +32114,7 @@ module.exports = function (e) {
         callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
         suggestions: e.suggestions && r()([]) == r()(e.suggestions) ? e.suggestions : [],
         placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        inputProps: e.inputProps && r()({}) == r()(e.inputProps) ? e.inputProps : {},
+        props: e.props && r()({}) == r()(e.props) ? e.props : {},
         inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
         callbackRerender: r()(!0) == r()(e.callbackRerender) && e.callbackRerender,
         allowOnlyAZ: r()(!0) == r()(e.allowOnlyAZ) && e.allowOnlyAZ
@@ -31218,7 +32157,7 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = F()(R.a.mark(function e(t) {
+      value: (t = P()(R.a.mark(function e(t) {
         var a,
             n,
             l,
@@ -31293,7 +32232,7 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             i = t.id,
-            r = t.inputProps,
+            r = t.props,
             s = t.suggestions,
             o = t.plainValue,
             c = t.placeholder,
@@ -31478,7 +32417,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function z(e) {
+  function U(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -31504,9 +32443,9 @@ module.exports = function (e) {
     };
   }
 
-  var U = function (e) {
+  var z = function (e) {
     h()(a, e);
-    var t = z(a);
+    var t = U(a);
 
     function a(e) {
       var n;
@@ -32158,9 +33097,11 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(b.Component);
+  }(b.Component),
+      G = a(13),
+      $ = a.n(G);
 
-  function G(e) {
+  function Y(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -32186,9 +33127,9 @@ module.exports = function (e) {
     };
   }
 
-  var $ = function (e) {
+  var X = function (e) {
     h()(a, e);
-    var t = G(a);
+    var t = Y(a);
 
     function a(e) {
       var n;
@@ -32206,7 +33147,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller();
+        this.clearStore(!0), this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller();
       }
     }, {
       key: "componentWillUnmount",
@@ -32225,7 +33166,7 @@ module.exports = function (e) {
             t = 5;
         clearInterval(a);
         var a = setInterval(function () {
-          return e.href !== window.location.href && t > 0 ? (e.href = window.location.href, e.clearStore(), clearInterval(a)) : t ? void t-- : clearInterval(a);
+          return e.href !== window.location.href && t > 0 ? (e.href = window.location.href, e.clearStore(!0), clearInterval(a)) : t ? void t-- : clearInterval(a);
         }, 100);
       }
     }, {
@@ -32237,8 +33178,9 @@ module.exports = function (e) {
     }, {
       key: "clearStore",
       value: function value() {
-        var e = this.state.messageKey;
-        sessionStorage.removeItem(e), this.setState({
+        var e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
+            t = this.state.messageKey;
+        sessionStorage.removeItem(t), e && this.setState({
           messagesApp: []
         });
       }
@@ -32248,25 +33190,26 @@ module.exports = function (e) {
         var e = this,
             t = this.state.timer;
         clearInterval(this.globalMessagesIntervaller), this.globalMessagesIntervaller = setInterval(function () {
-          var t = e.readStore();
+          var t = e.state.messagesApp,
+              a = e.readStore();
 
-          if (0 !== t.length) {
-            e.clearStore();
+          if (0 !== a.length) {
+            e.clearStore(!1);
 
-            for (var a = function a(_a) {
-              t[_a].unique = "".concat(E()), t[_a].disappear && r()(8) == r()(t[_a].disappear) && setTimeout(function () {
+            for (var n = function n(t) {
+              a[t].unique = "".concat(E()), a[t].disappear && r()(8) == r()(a[t].disappear) && setTimeout(function () {
                 e.setState({
                   messagesApp: e.state.messagesApp.filter(function (e) {
-                    return t[_a].unique !== e.unique;
+                    return a[t].unique !== e.unique;
                   })
                 });
-              }, t[_a].disappear);
-            }, n = 0; n <= t.length - 1; n++) {
-              a(n);
+              }, a[t].disappear);
+            }, l = 0; l <= a.length - 1; l++) {
+              n(l);
             }
 
             e.setState({
-              messagesApp: t
+              messagesApp: [].concat($()(t), $()(a))
             });
           }
         }, t);
@@ -32332,22 +33275,12 @@ module.exports = function (e) {
           return null;
         }));
       }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "codeMapping", "timer", "messageKey"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          messageKey: e.messageKey && r()("8") == r()(e.messageKey) ? e.messageKey : "",
-          codeMapping: e.codeMapping && r()({}) === r()(e.codeMapping) ? e.codeMapping : {},
-          timer: e.timer && r()(888) == r()(e.timer) ? e.timer : 2500
-        } : null;
-      }
     }]), a;
   }(C.a.Component);
 
-  function Y(e) {
+  a(54);
+
+  function Q(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -32373,7 +33306,7 @@ module.exports = function (e) {
     };
   }
 
-  var Q = {
+  var ee = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -32427,31 +33360,47 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      X = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      ee = function (e) {
+      te = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      ae = function (e) {
     h()(a, e);
-    var t = Y(a);
+    var t = Q(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
+        icons: ee,
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
         iconsType: e.iconsType && r()("8") == r()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-        icons: e.icons && r()({}) == r()(e.icons) ? e.icons : Q,
-        renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : X,
-        translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0
+        renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : te,
+        translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
+        custom: e.custom && r()([]) == r()(e.custom) ? e.custom : void 0
       }, n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        var e = this.state,
+            t = e.custom,
+            a = e.icons,
+            n = 0;
+        t && r()([]) == r()(t) && t.length && (t.map(function (e) {
+          var t = e.title,
+              l = e.data;
+          t && r()("8") == r()(t) && l && r()([]) == r()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
+        }), n && this.setState({
+          icons: a
+        }));
+      }
+    }, {
       key: "callback",
-      value: function value(e) {
-        var t = this.state.callback;
-        t && "function" == typeof t && t(e);
+      value: function value(e, t) {
+        var a = this.state.callback;
+        a && "function" == typeof a && a(e, t);
       }
     }, {
       key: "changeTab",
@@ -32499,8 +33448,8 @@ module.exports = function (e) {
           return C.a.createElement("span", {
             className: "single-icon",
             key: M(),
-            onClick: function onClick() {
-              return e.callback(t);
+            onClick: function onClick(a) {
+              return e.callback(a, t);
             }
           }, t);
         })));
@@ -32508,21 +33457,21 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["defaultClass", "id", "callback", "displayTabs", "icons", "renderItems", "translations"], e, t) ? {
+        return k(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-          icons: e.icons && r()({}) == r()(e.icons) ? e.icons : Q,
-          renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : X,
-          translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0
+          renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : te,
+          translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
+          custom: e.custom && r()({}) == r()(e.custom) ? e.custom : void 0
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function te(e) {
+  function ne(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -32548,13 +33497,14 @@ module.exports = function (e) {
     };
   }
 
-  var ae = function (e) {
-    h()(a, e);
-    var t = te(a);
+  var le = function (e) {
+    h()(n, e);
+    var t,
+        a = ne(n);
 
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.onFocus = n.onFocus.bind(f()(n)), n.onBlur = n.onBlur.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEnter = n.callbackEnter.bind(f()(n)), n.setFocus = n.setFocus.bind(f()(n)), n.state = {
+    function n(e) {
+      var t;
+      return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.onFocus = t.onFocus.bind(f()(t)), t.onBlur = t.onBlur.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEnter = t.callbackEnter.bind(f()(t)), t.setFocus = t.setFocus.bind(f()(t)), t.state = {
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
         defaultClassOrigin: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
@@ -32562,16 +33512,16 @@ module.exports = function (e) {
         plainValue: e.value && r()("8") == r()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         inputType: e.type && r()("8") == r()(e.type) ? e.type : "text",
-        inputProps: e.inputProps && r()({}) == r()(e.inputProps) ? e.inputProps : {},
+        props: e.props && r()({}) == r()(e.props) ? e.props : {},
         placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
         animatePlaceholder: r()(!0) != r()(e.animatePlaceholder) || e.animatePlaceholder,
         onEnter: e.onEnter && "function" == typeof e.onEnter ? e.onEnter : void 0,
         allowOnlyAZ: r()(!0) == r()(e.allowOnlyAZ) && e.allowOnlyAZ,
         getValueFromCallback: r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback
-      }, n;
+      }, t;
     }
 
-    return u()(a, [{
+    return u()(n, [{
       key: "componentDidMount",
       value: function value() {
         this.setFocus(), this.setFocusUpdater(!0);
@@ -32602,14 +33552,46 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: function value() {
-        var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null,
-            t = this.state.getValueFromCallback;
-        if (this.props.callback && "function" == typeof this.props.callback) if (t) this.props.callback(e);else {
-          var a = this.state.plainValue;
-          this.props.callback(a);
-        }
-      }
+      value: (t = P()(R.a.mark(function e() {
+        var t,
+            a,
+            n,
+            l,
+            i = arguments;
+        return R.a.wrap(function (e) {
+          for (;;) {
+            switch (e.prev = e.next) {
+              case 0:
+                if (t = i.length > 0 && void 0 !== i[0] ? i[0] : null, a = this.state.getValueFromCallback, !this.props.callback || "function" != typeof this.props.callback) {
+                  e.next = 12;
+                  break;
+                }
+
+                if (!a) {
+                  e.next = 10;
+                  break;
+                }
+
+                return e.next = 6, this.props.callback(t);
+
+              case 6:
+                n = e.sent, r()("8") == r()(n) && this.setState({
+                  plainValue: n
+                }), e.next = 12;
+                break;
+
+              case 10:
+                l = this.state.plainValue, this.props.callback(l);
+
+              case 12:
+              case "end":
+                return e.stop();
+            }
+          }
+        }, e, this);
+      })), function () {
+        return t.apply(this, arguments);
+      })
     }, {
       key: "callbackEnter",
       value: function value() {
@@ -32648,7 +33630,7 @@ module.exports = function (e) {
             a = e.animatePlaceholder,
             n = e.defaultClassOrigin,
             l = e.plainValue;
-        a && "" !== l && -1 !== t.indexOf("focus") && this.setState({
+        a && "" !== l && -1 == t.indexOf("focus") && this.setState({
           defaultClass: "".concat(n, " focus")
         });
       }
@@ -32675,7 +33657,7 @@ module.exports = function (e) {
             r = t.id,
             s = t.defaultClass,
             o = t.inputType,
-            c = t.inputProps,
+            c = t.props,
             u = t.plainValue;
         return b.createElement("div", {
           className: "".concat(s, " ").concat(a)
@@ -32711,21 +33693,12 @@ module.exports = function (e) {
           id: r
         }, c)));
       }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
-          plainValue: e.value
-        } : {
-          plainValue: t.plainValue
-        } : null;
-      }
-    }]), a;
+    }]), n;
   }(b.Component),
-      ne = a(12),
-      le = a.n(ne);
+      ie = a(12),
+      re = a.n(ie);
 
-  function ie(e) {
+  function se(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -32751,18 +33724,25 @@ module.exports = function (e) {
     };
   }
 
-  var re = function (e) {
+  var oe = function (e) {
     h()(a, e);
-    var t = ie(a);
+    var t = se(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).handleFileUpload = n.handleFileUpload.bind(f()(n)), n.handleSingleFile = n.handleSingleFile.bind(f()(n)), n.errorCallback = n.errorCallback.bind(f()(n)), n.calculatedFileSize = n.calculatedFileSize.bind(f()(n)), n.state = {
+      return o()(this, a), (n = t.call(this, e)).handleFileUpload = n.handleFileUpload.bind(f()(n)), n.handleSingleFile = n.handleSingleFile.bind(f()(n)), n.errorCallback = n.errorCallback.bind(f()(n)), n.calculatedFileSize = n.calculatedFileSize.bind(f()(n)), n.handleClick = n.handleClick.bind(f()(n)), n.state = {
         file: {},
         fileName: "",
         fileSize: 0,
         calculatedFileSize: 0,
         fileType: "",
+        hiddenInputStyle: {
+          display: "none",
+          opacity: 0,
+          width: 0,
+          height: 0,
+          overflow: "hidden"
+        },
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -32860,6 +33840,11 @@ module.exports = function (e) {
         a && a(e, t);
       }
     }, {
+      key: "handleClick",
+      value: function value() {
+        this.inputNode && this.inputNode.click();
+      }
+    }, {
       key: "render",
       value: function value() {
         var e,
@@ -32872,20 +33857,27 @@ module.exports = function (e) {
             o = a.id,
             c = a.multiple,
             u = {
-          multiple: c || ""
+          multiple: c || "",
+          style: a.hiddenInputStyle
         };
         return C.a.createElement("div", {
           className: "".concat(s, " ").concat(n)
         }, C.a.createElement("input", l()((e = {
+          ref: function ref(e) {
+            return t.inputNode = e;
+          },
           type: "file",
           onChange: function onChange(e) {
             return t.handleFileUpload(e);
           },
           placeholder: r,
           id: o
-        }, le()(e, "type", "file"), le()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
+        }, re()(e, "type", "file"), re()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
           className: "label",
-          htmlFor: "files"
+          htmlFor: "files",
+          onClick: function onClick() {
+            return t.handleClick();
+          }
         }, i));
       }
     }], [{
@@ -32906,7 +33898,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function se(e) {
+  function ce(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -32932,14 +33924,21 @@ module.exports = function (e) {
     };
   }
 
-  var oe = function (e) {
+  var ue = function (e) {
     h()(a, e);
-    var t = se(a);
+    var t = ce(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).handleDroppedFiles = n.handleDroppedFiles.bind(f()(n)), n.errorCallback = n.errorCallback.bind(f()(n)), n.calculatedFileSize = n.calculatedFileSize.bind(f()(n)), n.onDragEnter = n.onDragEnter.bind(f()(n)), n.onDragLeave = n.onDragLeave.bind(f()(n)), n.onDragOver = n.onDragOver.bind(f()(n)), n.handleDrop = n.handleDrop.bind(f()(n)), n.state = {
+      return o()(this, a), (n = t.call(this, e)).handleDroppedFiles = n.handleDroppedFiles.bind(f()(n)), n.errorCallback = n.errorCallback.bind(f()(n)), n.calculatedFileSize = n.calculatedFileSize.bind(f()(n)), n.onDragEnter = n.onDragEnter.bind(f()(n)), n.onDragLeave = n.onDragLeave.bind(f()(n)), n.onDragOver = n.onDragOver.bind(f()(n)), n.handleDrop = n.handleDrop.bind(f()(n)), n.handleFileUploadInputFiled = n.handleFileUploadInputFiled.bind(f()(n)), n.handleSingleFile = n.handleSingleFile.bind(f()(n)), n.state = {
         isDragging: !1,
+        hiddenInputStyle: {
+          display: "none",
+          opacity: 0,
+          width: 0,
+          height: 0,
+          overflow: "hidden"
+        },
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -32950,7 +33949,9 @@ module.exports = function (e) {
         errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
         placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
         errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-        isDraggingData: e.isDraggingData
+        isDraggingData: e.isDraggingData,
+        multiple: r()(!0) == r()(e.multiple) && e.multiple,
+        uploadOnClick: r()(!0) == r()(e.uploadOnClick) && e.uploadOnClick
       }, n.dragCounter = 0, n;
     }
 
@@ -33066,30 +34067,84 @@ module.exports = function (e) {
         a && a(e, t);
       }
     }, {
+      key: "handleClick",
+      value: function value() {
+        this.inputNode && this.inputNode.click();
+      }
+    }, {
+      key: "handleFileUploadInputFiled",
+      value: function value(e) {
+        e.preventDefault();
+        var t = e.target.files;
+        this.handleSingleFile(t);
+      }
+    }, {
+      key: "handleSingleFile",
+      value: function value(e) {
+        var t = this.state,
+            a = t.readFileCallback,
+            n = t.errorCallbackCustomData;
+        if (e) for (var l = 0; l <= e.length - 1; l++) {
+          var i = e[l];
+
+          try {
+            var r = i.type;
+            this.validateObjectValues(i) && a && a(i, r);
+          } catch (e) {
+            this.errorCallback(e, n);
+          }
+        }
+      }
+    }, {
       key: "render",
       value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.placeholder,
-            n = e.defaultClass,
-            l = e.id,
-            i = e.isDragging,
-            r = e.isDraggingData;
+        var e,
+            t = this,
+            a = this.state,
+            n = a.addClass,
+            i = a.placeholder,
+            r = a.defaultClass,
+            s = a.id,
+            o = a.isDragging,
+            c = a.isDraggingData,
+            u = a.multiple,
+            d = a.hiddenInputStyle,
+            f = a.uploadOnClick,
+            p = {
+          multiple: u || "",
+          style: d
+        };
         return C.a.createElement("div", {
-          className: "".concat(n, " ").concat(t),
-          id: l
+          className: "".concat(r, " ").concat(n),
+          id: s
+        }, f && C.a.createElement("input", l()((e = {
+          ref: function ref(e) {
+            return t.inputNode = e;
+          },
+          type: "file",
+          onChange: function onChange(e) {
+            return t.handleFileUploadInputFiled(e);
+          },
+          placeholder: i,
+          id: s
+        }, re()(e, "type", "file"), re()(e, "name", "files[]"), e), p)), C.a.createElement("label", {
+          className: "label",
+          htmlFor: "files"
         }, C.a.createElement("div", {
-          className: "drag-drop ".concat(i ? "dragging" : ""),
+          onClick: function onClick() {
+            return t.handleClick();
+          },
+          className: "drag-drop ".concat(o ? "dragging" : "", " ").concat(f ? "cursor-pointer" : ""),
           onDragEnter: this.onDragEnter,
           onDragLeave: this.onDragLeave,
           onDragOver: this.onDragOver,
           onDrop: this.handleDrop
-        }, a, i && r && r));
+        }, i, o && c && c)));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "isDraggingData"], e, t) ? {
+        return k(["errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -33097,13 +34152,15 @@ module.exports = function (e) {
           errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
           placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
           errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-          isDraggingData: e.isDraggingData
+          isDraggingData: e.isDraggingData,
+          multiple: r()(!0) == r()(e.multiple) && e.multiple,
+          uploadOnClick: r()(!0) == r()(e.uploadOnClick) && e.uploadOnClick
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function ce(e) {
+  function de(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33129,9 +34186,9 @@ module.exports = function (e) {
     };
   }
 
-  var ue = function (e) {
+  var fe = function (e) {
     h()(a, e);
-    var t = ce(a);
+    var t = de(a);
 
     function a(e) {
       var n;
@@ -33147,7 +34204,7 @@ module.exports = function (e) {
         selected: e.selected && r()([]) == r()(e.selected) ? e.selected : [],
         suggestionsToFilter: e.suggestions && r()([]) == r()(e.suggestions) ? e.suggestions : [],
         placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        inputProps: e.inputProps && r()({}) == r()(e.inputProps) ? e.inputProps : {},
+        props: e.props && r()({}) == r()(e.props) ? e.props : {},
         inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
         getValueFromCallback: r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback,
         emptySuggestionAfterSelection: r()(!0) != r()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
@@ -33312,7 +34369,7 @@ module.exports = function (e) {
             n = t.selected,
             i = t.defaultClass,
             r = t.id,
-            s = t.inputProps,
+            s = t.props,
             o = t.suggestions,
             c = t.plainValue,
             u = t.placeholder,
@@ -33383,7 +34440,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function de(e) {
+  function pe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33409,9 +34466,9 @@ module.exports = function (e) {
     };
   }
 
-  var fe = function (e) {
+  var he = function (e) {
     h()(a, e);
-    var t = de(a);
+    var t = pe(a);
 
     function a(e) {
       var n;
@@ -33449,7 +34506,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function pe(e) {
+  function ve(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33475,9 +34532,9 @@ module.exports = function (e) {
     };
   }
 
-  var he = function (e) {
+  var me = function (e) {
     h()(a, e);
-    var t = pe(a);
+    var t = ve(a);
 
     function a(e) {
       var n;
@@ -33522,7 +34579,7 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, F()(R.a.mark(function n() {
+        }, P()(R.a.mark(function n() {
           return R.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
@@ -33618,13 +34675,13 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.a.Component),
-      ve = a(10),
-      me = a.n(ve),
-      ge = a(14),
-      ye = a.n(ge);
+      ge = a(10),
+      ye = a.n(ge),
+      be = a(14),
+      Ce = a.n(be);
 
-  function be() {
-    return (be = Object.assign || function (e) {
+  function ke() {
+    return (ke = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -33637,11 +34694,11 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function Ce(e) {
+  function Ee(e) {
     return "/" === e.charAt(0);
   }
 
-  function ke(e, t) {
+  function xe(e, t) {
     for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) {
       e[a] = e[n];
     }
@@ -33649,15 +34706,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var Ee = function Ee(e, t) {
+  var Se = function Se(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         l = t && t.split("/") || [],
-        i = e && Ce(e),
-        r = t && Ce(t),
+        i = e && Ee(e),
+        r = t && Ee(t),
         s = i || r;
-    if (e && Ce(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
+    if (e && Ee(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
     if (l.length) {
       var o = l[l.length - 1];
@@ -33666,18 +34723,18 @@ module.exports = function (e) {
 
     for (var c = 0, u = l.length; u >= 0; u--) {
       var d = l[u];
-      "." === d ? ke(l, u) : ".." === d ? (ke(l, u), c++) : c && (ke(l, u), c--);
+      "." === d ? xe(l, u) : ".." === d ? (xe(l, u), c++) : c && (xe(l, u), c--);
     }
 
     if (!s) for (; c--; c) {
       l.unshift("..");
     }
-    !s || "" === l[0] || l[0] && Ce(l[0]) || l.unshift("");
+    !s || "" === l[0] || l[0] && Ee(l[0]) || l.unshift("");
     var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
-  function xe(e, t, a, n) {
+  function De(e, t, a, n) {
     var l;
     "string" == typeof e ? (l = function (e) {
       var t = e || "/",
@@ -33691,7 +34748,7 @@ module.exports = function (e) {
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (l = be({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
+    }(e)).state = t : (void 0 === (l = ke({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
 
     try {
       l.pathname = decodeURI(l.pathname);
@@ -33699,12 +34756,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = Ee(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = Se(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var Se = Object.assign || function (e) {
+  var we = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -33716,29 +34773,29 @@ module.exports = function (e) {
     return e;
   };
 
-  function De(e, t) {
+  function Oe(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function we(e, t) {
+  function Le(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var Oe = function Oe(e) {
+  var Ne = function Ne(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
-      Le = function (e) {
+      Te = function (e) {
     function t() {
       var a, n;
-      De(this, t);
+      Oe(this, t);
 
       for (var l = arguments.length, i = Array(l), r = 0; r < l; r++) {
         i[r] = arguments[r];
       }
 
-      return a = n = we(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Oe(e)) {
+      return a = n = Le(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Ne(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
@@ -33746,7 +34803,7 @@ module.exports = function (e) {
               i = a.to;
           l ? t.replace(i) : t.push(i);
         }
-      }, we(n, a);
+      }, Le(n, a);
     }
 
     return function (e, t) {
@@ -33773,11 +34830,11 @@ module.exports = function (e) {
         return a;
       }(e, ["replace", "to", "innerRef"]);
 
-      ye()(this.context.router, "You should not use <Link> outside a <Router>"), ye()(void 0 !== t, 'You must specify the "to" property');
+      Ce()(this.context.router, "You should not use <Link> outside a <Router>"), Ce()(void 0 !== t, 'You must specify the "to" property');
       var l = this.context.router.history,
-          i = "string" == typeof t ? xe(t, null, null, l.location) : t,
+          i = "string" == typeof t ? De(t, null, null, l.location) : t,
           r = l.createHref(i);
-      return C.a.createElement("a", Se({}, n, {
+      return C.a.createElement("a", we({}, n, {
         onClick: this.handleClick,
         href: r,
         ref: a
@@ -33785,26 +34842,26 @@ module.exports = function (e) {
     }, t;
   }(C.a.Component);
 
-  Le.propTypes = {
-    onClick: me.a.func,
-    target: me.a.string,
-    replace: me.a.bool,
-    to: me.a.oneOfType([me.a.string, me.a.object]).isRequired,
-    innerRef: me.a.oneOfType([me.a.string, me.a.func])
-  }, Le.defaultProps = {
+  Te.propTypes = {
+    onClick: ye.a.func,
+    target: ye.a.string,
+    replace: ye.a.bool,
+    to: ye.a.oneOfType([ye.a.string, ye.a.object]).isRequired,
+    innerRef: ye.a.oneOfType([ye.a.string, ye.a.func])
+  }, Te.defaultProps = {
     replace: !1
-  }, Le.contextTypes = {
-    router: me.a.shape({
-      history: me.a.shape({
-        push: me.a.func.isRequired,
-        replace: me.a.func.isRequired,
-        createHref: me.a.func.isRequired
+  }, Te.contextTypes = {
+    router: ye.a.shape({
+      history: ye.a.shape({
+        push: ye.a.func.isRequired,
+        replace: ye.a.func.isRequired,
+        createHref: ye.a.func.isRequired
       }).isRequired
     }).isRequired
   };
-  var Ne = Le;
+  var Re = Te;
 
-  function Te(e) {
+  function Fe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33830,9 +34887,9 @@ module.exports = function (e) {
     };
   }
 
-  var Re = function (e) {
+  var Pe = function (e) {
     h()(a, e);
-    var t = Te(a);
+    var t = Fe(a);
 
     function a(e) {
       var n;
@@ -33876,7 +34933,7 @@ module.exports = function (e) {
           }
 
           var y = "";
-          i && m && 0 == m.length && (y = C.a.createElement(Ne, {
+          i && m && 0 == m.length && (y = C.a.createElement(Re, {
             to: h,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
@@ -33987,9 +35044,7 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(C.a.Component),
-      Pe = a(13),
-      Fe = a.n(Pe);
+  }(C.a.Component);
 
   function Ie(e) {
     var t = function () {
@@ -34081,7 +35136,7 @@ module.exports = function (e) {
             s = t.split(""),
             o = -1;
         !function (t) {
-          a.writerInterval = setInterval(F()(R.a.mark(function n() {
+          a.writerInterval = setInterval(P()(R.a.mark(function n() {
             return R.a.wrap(function (n) {
               for (;;) {
                 switch (n.prev = n.next) {
@@ -34121,7 +35176,7 @@ module.exports = function (e) {
               c = o.from,
               u = o.to,
               d = o.replace;
-          e.removeIntervaller = setInterval(F()(R.a.mark(function o() {
+          e.removeIntervaller = setInterval(P()(R.a.mark(function o() {
             var f, p;
             return R.a.wrap(function (o) {
               for (;;) {
@@ -34144,7 +35199,7 @@ module.exports = function (e) {
                           var p = -1,
                               h = d.split(""),
                               v = [];
-                          e.writerInterval = setInterval(F()(R.a.mark(function i() {
+                          e.writerInterval = setInterval(P()(R.a.mark(function i() {
                             return R.a.wrap(function (i) {
                               for (;;) {
                                 switch (i.prev = i.next) {
@@ -34155,7 +35210,7 @@ module.exports = function (e) {
                                       });
                                     }, l)), i.next = 4, e.writerPromise(h[p]).then(function (t) {
                                       v.push(t), e.setState({
-                                        written: [].concat(Fe()(s), v, Fe()(o), Fe()(f))
+                                        written: [].concat($()(s), v, $()(o), $()(f))
                                       });
                                     });
 
@@ -34475,7 +35530,7 @@ module.exports = function (e) {
     };
   }
 
-  var ze = function (e) {
+  var Ue = function (e) {
     h()(a, e);
 
     var t = _e(a);
@@ -34714,8 +35769,8 @@ module.exports = function (e) {
                   words: ["import", "from", "require", "use", "return", "export", "default", "extends", "interface"],
                   "class": "key"
                 }], T = 0; T <= N.length - 1; T++) {
-                  for (var R = N[T].words, P = 0; P <= R.length - 1; P++) {
-                    if (R[P] === f) {
+                  for (var R = N[T].words, F = 0; F <= R.length - 1; F++) {
+                    if (R[F] === f) {
                       r.push({
                         code: f,
                         "class": N[T]["class"]
@@ -34743,7 +35798,7 @@ module.exports = function (e) {
           }), l.push(r);
         }
 
-        for (var F = [], I = 0; I < l.length; I++) {
+        for (var P = [], I = 0; I < l.length; I++) {
           for (var A = l[I], M = [], V = 0; V < A.length; V++) {
             M.push(C.a.createElement("span", {
               key: E(),
@@ -34752,7 +35807,7 @@ module.exports = function (e) {
           }
 
           var B = "single-code-line single-code-line-".concat(I + 1, " ").concat(I + 1 == 1 ? " single-code-line-first" : "", " ").concat(I + 1 == l.length ? " single-code-line-last" : "");
-          F.push(C.a.createElement("li", {
+          P.push(C.a.createElement("li", {
             key: E(),
             className: n ? "".concat(B, " flex") : B
           }, n && C.a.createElement("div", {
@@ -34764,7 +35819,7 @@ module.exports = function (e) {
 
         this.setState({
           loadingDisplay: !1,
-          lines: F
+          lines: P
         });
       }
     }, {
@@ -35007,7 +36062,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Ue = function Ue() {
+      ze = function ze() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -35024,13 +36079,13 @@ module.exports = function (e) {
       try {
         null !== i ? ((i = JSON.parse(i)).push(l), sessionStorage.setItem(e, JSON.stringify(i))) : sessionStorage.setItem(e, JSON.stringify([l]));
       } catch (t) {
-        sessionStorage.setItem(e, JSON.stringify([l]));
+        console.log(t), sessionStorage.setItem(e, JSON.stringify([l]));
       }
     }
   },
       He = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = le()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = re()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -35120,7 +36175,7 @@ module.exports = function (e) {
       key: "setScrollTopInterval",
       value: function value(e, t) {
         var a = this;
-        return console.log(t), 0 == t ? document.documentElement.scrollTop = 0 : this.getScrollBehavior() ? (document.documentElement.scrollTop = 0, setTimeout(function () {
+        return 0 == t ? document.documentElement.scrollTop = 0 : this.getScrollBehavior() ? (document.documentElement.scrollTop = 0, setTimeout(function () {
           a.cutStringFromAttributeValue(document.documentElement, "style", "scroll-behavior: ".concat(a.getScrollBehavior(), ";"));
         }, 500)) : void (this.scrollTopInterval = setInterval(function () {
           -50 >= (e -= 5) && (a.cutStringFromAttributeValue(document.documentElement, "style", "scroll-behavior: ".concat(a.getScrollBehavior(), ";")), a.clearScrollTopInterval()), document.documentElement.scrollTop = e;
@@ -35150,6 +36205,36 @@ module.exports = function (e) {
     };
 
     document.documentElement && (a.setCurrentHref(window.location.href), document.documentElement.removeEventListener("click", n, !1), document.documentElement.addEventListener("click", n, !1));
+  };
+},,,,,,,,,,,,,,,,,,,,,,,,,,,,,, function (e, t) {
+  t.endianness = function () {
+    return "LE";
+  }, t.hostname = function () {
+    return "undefined" != typeof location ? location.hostname : "";
+  }, t.loadavg = function () {
+    return [];
+  }, t.uptime = function () {
+    return 0;
+  }, t.freemem = function () {
+    return Number.MAX_VALUE;
+  }, t.totalmem = function () {
+    return Number.MAX_VALUE;
+  }, t.cpus = function () {
+    return [];
+  }, t.type = function () {
+    return "Browser";
+  }, t.release = function () {
+    return "undefined" != typeof navigator ? navigator.appVersion : "";
+  }, t.networkInterfaces = t.getNetworkInterfaces = function () {
+    return {};
+  }, t.arch = function () {
+    return "javascript";
+  }, t.platform = function () {
+    return "browser";
+  }, t.tmpdir = t.tmpDir = function () {
+    return "/tmp";
+  }, t.EOL = "\n", t.homedir = function () {
+    return "/";
   };
 }]);
 
@@ -35199,6 +36284,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenListObject.jsx");
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenOverlay.jsx");
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionGlobalMessages.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionIcons.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputAnimation.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFile.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFileDragDrop.jsx");
 
 
 
@@ -35226,6 +36315,10 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 /**
  * React Revolution Modules
  */
+
+
+
+
 
 
 
@@ -35443,24 +36536,21 @@ var App = /*#__PURE__*/function (_React$Component) {
               }]
             }, {
               text: 'GlobalMessages',
-              href: "".concat(host, "#/react-revolution-global-essages")
+              href: "".concat(host, "#/react-revolution-global-messages")
             }, {
               text: 'Icons',
-              href: "".concat(host, "#/Icons")
+              href: "".concat(host, "#/react-revolution-icons")
             }, {
               text: 'Input',
               data: [{
                 text: 'InputAnimation',
-                href: "".concat(host, "#/InputAnimation")
-              }, {
-                text: 'InputAnimation',
-                href: "".concat(host, "#/InputAnimation")
+                href: "".concat(host, "#/react-revolution-input-animation")
               }, {
                 text: 'InputFile',
-                href: "".concat(host, "#/InputFile")
+                href: "".concat(host, "#/react-revolution-input-file")
               }, {
                 text: 'InputFileDragDrop',
-                href: "".concat(host, "#/InputFileDragDrop")
+                href: "".concat(host, "#/react-revolution-input-file-drag-drop")
               }, {
                 text: 'InputSuggestion',
                 href: "".concat(host, "#/InputSuggestion")
@@ -35620,9 +36710,33 @@ var App = /*#__PURE__*/function (_React$Component) {
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
-          path: "/react-revolution-global-essages",
+          path: "/react-revolution-global-messages",
           render: function render(props) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_28__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-icons",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_29__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-input-animation",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_30__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-input-file",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_31__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-input-file-drag-drop",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_32__["default"], props);
           }
         }))),
         footerData: ''

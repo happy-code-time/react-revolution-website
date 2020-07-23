@@ -89,8 +89,6 @@ class CardsScrollCallback extends React.Component {
             }, async () => {
                 data = await (loadMoreCallback)();
 
-                console.log(data);
-
                 /**
                  * No more items to load
                  */
