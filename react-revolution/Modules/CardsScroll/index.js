@@ -70,6 +70,7 @@ class CardsScroll extends React.Component {
 
         if(mediaBreak){
             window.addEventListener('resize', this.resize);
+            this.resize();
         }
     }
 
@@ -110,7 +111,7 @@ class CardsScroll extends React.Component {
 
     loadMore(isScrollEvent = false){
         let { data, dataJsx, itemsPerLine, isMinified, start, end } = this.state;
-        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
         let singleLines = [];
         let c = 0;
@@ -197,7 +198,7 @@ class CardsScroll extends React.Component {
 
     rerenderItems(){
         const { data, start, itemsPerLine, isMinified } = this.state;
-        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
         let newDataJsx = [];
         let singleLines = [];

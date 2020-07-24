@@ -180,7 +180,7 @@ class LoadOnScroll extends React.Component {
     
     render() {
         const { addClass, dataJsx, defaultClass, loading, loadMoreLoadingIcon, id, scrollReference } = this.state;
-        
+
         return (
             <div 
                 ref={ node => this.scrollReference = node}

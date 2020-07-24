@@ -43,7 +43,7 @@ class TextWriter extends React.Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(char);
-            }, 10);
+            }, 1);
         });
     }
 
@@ -51,7 +51,7 @@ class TextWriter extends React.Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(written);
-            }, 10);
+            }, 1);
         });
     }
 

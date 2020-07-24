@@ -4,7 +4,7 @@ import uuid from '../../Functions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class InputSuggestion extends React.Component {
+class InputSuggestionObject extends React.Component {
 
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ class InputSuggestion extends React.Component {
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion',
+            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion-array',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
@@ -74,7 +74,7 @@ class InputSuggestion extends React.Component {
         document.addEventListener('mousedown', this.handleMouseDown);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         document.removeEventListener('mousedown', this.handleMouseDown);
     }
 
@@ -181,20 +181,21 @@ class InputSuggestion extends React.Component {
         /**
          * Sort if user wish
          */
-        if(sortSuggestions && this.availableSorts.includes(sortSuggestions)){
-            if('asc' == sortSuggestions){
-                suggestionsToFilter.sort();
+        if (sortSuggestions && this.availableSorts.includes(sortSuggestions)) {
+            if ('asc' == sortSuggestions) {
+                suggestionsToFilter.sort( (a, b) => a.text > b.text ? 1 : -1);
             }
-            if('desc' == sortSuggestions){
-                suggestionsToFilter = suggestionsToFilter.sort();
-                suggestionsToFilter = suggestionsToFilter.reverse();
+            if ('desc' == sortSuggestions) {
+                suggestionsToFilter.sort( (a, b) => a.text > b.text ? -1 : 1);
             }
         }
 
         if (plainValue.length) {
 
             for (let x = 0; x <= suggestionsToFilter.length - 1; x++) {
-                if (suggestionsToFilter[x] && -1 !== suggestionsToFilter[x].indexOf(plainValue)) {
+                const { text } = suggestionsToFilter[x];
+
+                if (text && -1 !== text.indexOf(plainValue)) {
                     filteredSuggestions.push(suggestionsToFilter[x]);
                 }
             }
@@ -207,7 +208,9 @@ class InputSuggestion extends React.Component {
                  * Get unique email addresses
                  */
                 for (let x = 0; x <= filteredSuggestions.length - 1; x++) {
-                    if (!data.includes(filteredSuggestions[x])) {
+                    const { text } = filteredSuggestions[x];
+
+                    if (!data.includes(text)) {
                         data.push(filteredSuggestions[x]);
                         indexes.push(x);
                     }
@@ -242,26 +245,40 @@ class InputSuggestion extends React.Component {
     /**
      * Append choosed user
      */
-    toggleSelection(email) {
+    toggleSelection(object) {
         let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected } = this.state;
 
-        if (!selected.includes(email)) {
-            selected.push(email);
-        }
-        else {
-            selected = selected.filter(entry => entry !== email);
+        const { text } = object;
+
+        if (text) {
+            let included = false;
+
+            selected.map( obj => {
+                const textToMatch = obj.text;
+
+                if(textToMatch && textToMatch == text){
+                    included = true;
+                }
+            });
+
+            if (!included) {
+                selected.push(object);
+            }
+            else {
+                selected = selected.filter(entry => entry.text !== text);
+            }
+
         }
 
         /**
          * Sort if user wish
          */
-        if(sortSelected && this.availableSorts.includes(sortSelected)){
-            if('asc' == sortSelected){
-                selected.sort();
+        if (sortSelected && this.availableSorts.includes(sortSelected)) {
+            if ('asc' == sortSelected) {
+                selected.sort( (a, b) => a.text > b.text ? 1 : -1);
             }
-            if('desc' == sortSelected){
-                selected = selected.sort();
-                selected = selected.reverse();
+            if ('desc' == sortSelected) {
+                selected.sort( (a, b) => a.text > b.text ? -1 : 1);
             }
         }
 
@@ -272,7 +289,7 @@ class InputSuggestion extends React.Component {
         this.setState({
             selected
         }, () => {
-            if(emptySuggestionAfterSelection){
+            if (emptySuggestionAfterSelection) {
                 this.setState({
                     filter: '',
                     suggestions: [],
@@ -282,11 +299,11 @@ class InputSuggestion extends React.Component {
         });
     }
 
-    handleKeyDown(event){
+    handleKeyDown(event) {
         let { selectedArrow, suggestions, plainValue } = this.state;
         event.persist();
 
-        if(null == selectedArrow && event.key === 'ArrowDown'){
+        if (null == selectedArrow && event.key === 'ArrowDown') {
             selectedArrow = -1;
         }
 
@@ -301,45 +318,45 @@ class InputSuggestion extends React.Component {
         if (event.key === 'ArrowDown' && suggestions.length) {
             selectedArrow += 1;
 
-            if(selectedArrow >= suggestions.length-1){
-                selectedArrow = suggestions.length-1;
+            if (selectedArrow >= suggestions.length - 1) {
+                selectedArrow = suggestions.length - 1;
             }
         }
 
         if (event.key === 'ArrowUp' && suggestions.length) {
             selectedArrow -= 1;
 
-            if(selectedArrow <= 0){
+            if (selectedArrow <= 0) {
                 selectedArrow = 0;
             }
         }
 
-        if('' == plainValue || !suggestions.length){
+        if ('' == plainValue || !suggestions.length) {
             selectedArrow = null;
         }
 
-        this.setState({ 
-            selectedArrow 
+        this.setState({
+            selectedArrow
         }, () => {
-            if(this.suggestionsHolder){
+            if (this.suggestionsHolder) {
                 const { selectedArrow } = this.state;
                 const singleLiHeight = 40;
                 const height = this.suggestionsHolder.getBoundingClientRect().height;
-                
-                if(event.key === 'ArrowDown' && (selectedArrow*singleLiHeight)+(singleLiHeight*2) > height){
-                    return this.suggestionsHolder.scrollTop = this.suggestionsHolder.scrollTop+singleLiHeight;
+
+                if (event.key === 'ArrowDown' && (selectedArrow * singleLiHeight) + (singleLiHeight * 2) > height) {
+                    return this.suggestionsHolder.scrollTop = this.suggestionsHolder.scrollTop + singleLiHeight;
                 }
 
-                if(event.key === 'ArrowUp' && this.suggestionsHolder.scrollTop > selectedArrow*singleLiHeight-singleLiHeight){
+                if (event.key === 'ArrowUp' && this.suggestionsHolder.scrollTop > selectedArrow * singleLiHeight - singleLiHeight) {
                     this.suggestionsHolder.scrollTop = this.suggestionsHolder.scrollTop - singleLiHeight;
                 }
             }
         });
     }
 
-    setArrow(index){
-        this.setState({ 
-            selectedArrow: index 
+    setArrow(index) {
+        this.setState({
+            selectedArrow: index
         });
     }
 
@@ -354,21 +371,25 @@ class InputSuggestion extends React.Component {
                         <div className="choosed">
                             {
                                 selected.map(data => {
-                                    return (
-                                        <div
-                                            key={uuid()}
-                                            className="item ff-title"
-                                        >
+                                    const { text } = data;
+
+                                    if (text) {
+                                        return (
                                             <div
-                                                onClick={(e) => this.toggleSelection(data)}
-                                                className="remove">
-                                                x
+                                                key={uuid()}
+                                                className="item ff-title"
+                                            >
+                                                <div
+                                                    onClick={(e) => this.toggleSelection(data)}
+                                                    className="remove">
+                                                    x
                                             </div>
-                                            {
-                                                data
-                                            }
-                                        </div>
-                                    )
+                                                {
+                                                    text
+                                                }
+                                            </div>
+                                        )
+                                    }
                                 })
                             }
                         </div>
@@ -378,7 +399,7 @@ class InputSuggestion extends React.Component {
                         value={plainValue}
                         onChange={(e) => this.setValue(e)}
                         placeholder={placeholder}
-                        onKeyDown={ (e) => this.handleKeyDown(e) }
+                        onKeyDown={(e) => this.handleKeyDown(e)}
                         id={id}
                         {...props}
                     />
@@ -389,27 +410,31 @@ class InputSuggestion extends React.Component {
                                 className="ul"
                                 ref={(node) => this.refNodeUl = node}
                             >
-                                <span className="suggestions" ref={ node => this.suggestionsHolder = node}>
+                                <span className="suggestions" ref={node => this.suggestionsHolder = node}>
                                     {
-                                        suggestions.map( (suggestion, i) => {
+                                        suggestions.map((suggestion, i) => {
                                             let liClassname = selected.includes(suggestion) ? 'active' : ''
 
-                                            if(null !== selectedArrow && undefined !== suggestions[selectedArrow] && selectedArrow == i){
+                                            if (null !== selectedArrow && undefined !== suggestions[selectedArrow] && selectedArrow == i) {
                                                 liClassname = `${liClassname} selected`;
                                             }
 
-                                            return (
-                                                <li
-                                                    className={liClassname}
-                                                    key={uuid()}
-                                                    onClick={(e) => this.toggleSelection(suggestion)}
-                                                    onMouseOver={ () => this.setArrow(i) }
-                                                >
-                                                    {
-                                                        suggestion
-                                                    }
-                                                </li>
-                                            )
+                                            const { text } = suggestion;
+
+                                            if (text) {
+                                                return (
+                                                    <li
+                                                        className={liClassname}
+                                                        key={uuid()}
+                                                        onClick={(e) => this.toggleSelection(suggestion)}
+                                                        onMouseOver={() => this.setArrow(i)}
+                                                    >
+                                                        {
+                                                            text
+                                                        }
+                                                    </li>
+                                                )
+                                            }
                                         })
                                     }
                                 </span>
@@ -422,4 +447,4 @@ class InputSuggestion extends React.Component {
     }
 }
 
-export default InputSuggestion;
+export default InputSuggestionObject;

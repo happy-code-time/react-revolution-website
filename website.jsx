@@ -56,6 +56,24 @@ import ReactRevolutionInputFile from './Website/Pages/Modules/ReactRevolutionInp
 
 import ReactRevolutionInputFileDragDrop from './Website/Pages/Modules/ReactRevolutionInputFileDragDrop';
 
+import ReactRevolutionInputSuggestionArray from './Website/Pages/Modules/ReactRevolutionInputSuggestionArray';
+
+import ReactRevolutionInputSuggestionObject from './Website/Pages/Modules/ReactRevolutionInputSuggestionObject';
+
+import ReactRevolutionLoadingBoxTop from './Website/Pages/Modules/ReactRevolutionLoadingBoxTop';
+
+import ReactRevolutionMenuClickHorizontal from './Website/Pages/Modules/ReactRevolutionMenuClickHorizontal';
+
+import ReactRevolutionPopupBox from './Website/Pages/Modules/ReactRevolutionPopupBox';
+
+import ReactRevolutionSidebar from './Website/Pages/Modules/ReactRevolutionSidebar';
+
+import ReactRevolutionTextWriter from './Website/Pages/Modules/ReactRevolutionTextWriter';
+
+import ReactRevolutionLoadOnScroll from './Website/Pages/Modules/ReactRevolutionLoadOnScroll';
+
+import ReactRevolutionTableKeyValue from './Website/Pages/Modules/ReactRevolutionTableKeyValue';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -280,34 +298,42 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-input-file-drag-drop`,
                         },
                         {
-                          text: 'InputSuggestion',
-                          href: `${host}#/InputSuggestion`,
+                          text: 'InputSuggestionArray',
+                          href: `${host}#/react-revolution-input-suggestion-array`,
+                        },
+                        {
+                          text: 'InputSuggestionObject',
+                          href: `${host}#/react-revolution-input-suggestion-object`,
                         }
                       ]
                     },
                     {
                       text: 'LoadingBoxTop',
-                      href: `${host}#/LoadingBoxTop`,
+                      href: `${host}#/react-revolution-loading-box-top`,
+                    },
+                    {
+                      text: 'LoadOnScroll',
+                      href: `${host}#/react-revolution-load-on-scroll`,
                     },
                     {
                       text: 'MenuClickHorizontal',
-                      href: `${host}#/MenuClickHorizontal`,
+                      href: `${host}#/react-revolution-menu-click-horizontal`,
                     },
                     {
                       text: 'PopupBox',
-                      href: `${host}#/PopupBox`,
+                      href: `${host}#/react-revolution-popup-box`,
                     },
                     {
                       text: 'SideBar',
-                      href: `${host}#/SideBar`,
+                      href: `${host}#/react-revolution-sidebar`,
                     },
                     {
-                      text: 'SourceCode',
-                      href: `${host}#/SourceCode`,
+                      text: 'TableKeyValue',
+                      href: `${host}#/react-revolution-table-key-value`,
                     },
                     {
                       text: 'TextWriter',
-                      href: `${host}#/TextWriter`,
+                      href: `${host}#/react-revolution-text-writer`,
                     }
                   ]
                 }
@@ -318,97 +344,99 @@ class App extends React.Component {
         headerClassName={''}
         headerData={
           <span>
-            <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
-              animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-              icon={
-                <i className='fas fa-globe-europe popup-box-icon'></i>
-              }
-              data={
-                <span>
-                  <h1 className="ellipsis">
-                    <i className='fas fa-globe-europe' />
-                    {
-                      trans('changeLanguageTitle')
-                    }
-                  </h1>
-                  <ul>
-                    {
-                      possibleLanguagesLong.map(language => {
-                        return (
-                          <li className="ellipsis" key={uuid()} onClick={() => this.setLanguage(language)}>
-                            {
-                              language
-                            }
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                </span>
-              }
-            />
-            <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
-              animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-              icon={
-                <i className='fas fa-tint popup-box-icon'></i>
-              }
-              data={
-                <span>
-                  <h1 className="ellipsis">
-                    <i className='fas fa-tint' />
-                    {
-                      trans('changeTintTitle')
-                    }
-                  </h1>
-                  <ul>
-                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('light')}>
+            <span className="icon-container">
+              <PopupBox
+                defaultClass={false}
+                id={false}
+                animationTime={300}
+                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
+                icon={
+                  <i className='fas fa-globe-europe popup-box-icon'></i>
+                }
+                data={
+                  <span>
+                    <h1 className="ellipsis">
+                      <i className='fas fa-globe-europe' />
                       {
-                        trans('lightTheme')
+                        trans('changeLanguageTitle')
                       }
-                    </li>
-                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('dark')}>
+                    </h1>
+                    <ul>
                       {
-                        trans('darkTheme')
+                        possibleLanguagesLong.map(language => {
+                          return (
+                            <li className="ellipsis" key={uuid()} onClick={() => this.setLanguage(language)}>
+                              {
+                                language
+                              }
+                            </li>
+                          )
+                        })
                       }
-                    </li>
-                  </ul>
-                </span>
-              }
-            />
-            <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
-              animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-              icon={
-                <i className='fas fa-search popup-box-icon'></i>
-              }
-              data={
-                <span>
-                  <h1 className="ellipsis">
-                    <i className='fas fa-search' />
-                    {
-                      trans('searchForModule')
-                    }
-                  </h1>
-                  <CustomSuggestion
-                    placeholder={`${trans('searchForModule')}`}
-                    suggestions={suggestions}
-                    callback={this.searchForModule}
-                    callbackRerender={true}
-                    value={inputValue}
-                    inputProps={{}}
-                    type='text'
-                  />
-                </span>
-              }
-            />
+                    </ul>
+                  </span>
+                }
+              />
+              <PopupBox
+                defaultClass={false}
+                id={false}
+                animationTime={300}
+                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
+                icon={
+                  <i className='fas fa-tint popup-box-icon'></i>
+                }
+                data={
+                  <span>
+                    <h1 className="ellipsis">
+                      <i className='fas fa-tint' />
+                      {
+                        trans('changeTintTitle')
+                      }
+                    </h1>
+                    <ul>
+                      <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('light')}>
+                        {
+                          trans('lightTheme')
+                        }
+                      </li>
+                      <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('dark')}>
+                        {
+                          trans('darkTheme')
+                        }
+                      </li>
+                    </ul>
+                  </span>
+                }
+              />
+              <PopupBox
+                defaultClass={false}
+                id={false}
+                animationTime={300}
+                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
+                icon={
+                  <i className='fas fa-search popup-box-icon'></i>
+                }
+                data={
+                  <span>
+                    <h1 className="ellipsis">
+                      <i className='fas fa-search' />
+                      {
+                        trans('searchForModule')
+                      }
+                    </h1>
+                    <CustomSuggestion
+                      placeholder={`${trans('searchForModule')}`}
+                      suggestions={suggestions}
+                      callback={this.searchForModule}
+                      callbackRerender={true}
+                      value={inputValue}
+                      inputProps={{}}
+                      type='text'
+                    />
+                  </span>
+                }
+              />
+            </span>
           </span>
         }
         contentData={
@@ -429,6 +457,15 @@ class App extends React.Component {
               <Route exact path="/react-revolution-input-animation" render={(props) => (<ReactRevolutionInputAnimation {...props} />)} />
               <Route exact path="/react-revolution-input-file" render={(props) => (<ReactRevolutionInputFile {...props} />)} />
               <Route exact path="/react-revolution-input-file-drag-drop" render={(props) => (<ReactRevolutionInputFileDragDrop {...props} />)} />
+              <Route exact path="/react-revolution-input-suggestion-array" render={(props) => (<ReactRevolutionInputSuggestionArray {...props} />)} />
+              <Route exact path="/react-revolution-input-suggestion-object" render={(props) => (<ReactRevolutionInputSuggestionObject {...props} />)} />
+              <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
+              <Route exact path="/react-revolution-menu-click-horizontal" render={(props) => (<ReactRevolutionMenuClickHorizontal {...props} />)} />
+              <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
+              <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
+              <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
+              <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
+              <Route exact path="/react-revolution-table-key-value" render={(props) => (<ReactRevolutionTableKeyValue {...props} />)} />
             </Switch>
           </Router>
         }

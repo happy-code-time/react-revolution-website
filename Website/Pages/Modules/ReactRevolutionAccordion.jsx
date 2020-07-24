@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Accordion, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { TableKeyValue, Accordion, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
@@ -189,6 +189,30 @@ class ReactRevolutionAccordion extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <TableKeyValue
+                    mediaBreak={1024}
+                    data={
+                        [
+                            {
+                                key: 'id',
+                                value: trans('id')
+                            },
+                            {
+                                key: 'class',
+                                value: trans('class')
+                            },
+                            {
+                                key: 'addClass',
+                                value: trans('addClass')
+                            },
+                        ]
+                    }
                 />
             </div>
         );

@@ -21,24 +21,26 @@
 @import "./rr-examples-website";
 
 * {
-  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica,
+    Arial, sans-serif;
 }
 
 #app {
-
   .rr-popupbox {
     float: right;
 
-    .popup-box-icon{
+    .popup-box-icon {
       color: $white;
     }
+    
+    .icon-container {
 
-    .box.top-right{
+      .box.top-right {
         width: 250px;
         right: 20px;
         top: 55px;
         background-color: $white;
-  
+
         h1 {
           font-weight: 400;
           color: #313435;
@@ -46,14 +48,14 @@
           box-sizing: border-box;
           padding: 15px 10px;
           border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
-  
+
           i {
             color: inherit;
             font-size: 0.97rem;
             margin-right: 10px;
           }
         }
-  
+
         ul {
           list-style: none;
           margin: 0px;
@@ -76,12 +78,12 @@
           }
         }
 
-        li:hover{
+        li:hover {
           background-color: $dodgerblue;
           color: $white;
           cursor: pointer;
         }
-  
+
         /* POPUP link to view all of current type */
         .popup-box-all {
           display: block;
@@ -94,18 +96,19 @@
           text-align: center;
           transition-duration: $default_transition;
           text-decoration: none;
-  
+
           i {
             font-size: 0.87rem;
             margin-left: 20px;
           }
         }
-  
+
         .popup-box-all:hover {
           cursor: pointer;
           background-color: $message-blue;
           color: $white;
         }
+      }
     }
   }
 
@@ -164,7 +167,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      a{
+      a {
         color: #7c8695;
       }
 
@@ -173,40 +176,40 @@
       }
     }
 
-    .icon-down{
+    .icon-down {
       position: absolute;
       display: block;
-      top:0;
-      right:0;
+      top: 0;
+      right: 0;
       text-align: center;
 
       line-height: 35px;
       transition-duration: $default_transition;
-      margin:0 !important;
+      margin: 0 !important;
     }
 
-    .icon-down-animation .dropDownIcon{
+    .icon-down-animation .dropDownIcon {
       @keyframes rotate90Deg {
-        0%{
+        0% {
           transform: rotateZ(0deg);
         }
-        100%{
+        100% {
           transform: rotateZ(90deg);
         }
       }
       animation: rotate90Deg 300ms ease-in forwards;
     }
 
-    .icon-down-animation-persist .dropDownIcon{
+    .icon-down-animation-persist .dropDownIcon {
       transform: rotateZ(90deg);
     }
 
-    .icon-down-animation-back .dropDownIcon{
+    .icon-down-animation-back .dropDownIcon {
       @keyframes rotate90DegBack {
-        0%{
+        0% {
           transform: rotateZ(90deg);
         }
-        100%{
+        100% {
           transform: rotateZ(0deg);
         }
       }

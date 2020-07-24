@@ -24,7 +24,15 @@ const PL = {
     exampleTitle: 'Przykład',
     reactCodeTitle: 'Kod react',
     cssCodeTitle: 'Kod css',
-    jsCodeTitle: 'Kod javascript'
+    jsCodeTitle: 'Kod javascript',
+    loading: 'Ładowanie...',
+    keyUsageTitle: 'Wyjaśnienia Kluczy',
+    /**
+     * Module keys
+     */
+    id: 'Ustaw identyfikator id dla głównego elementu tego modułu.',
+    class: 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które zapewnia moduł, nie mają już zastosowania.',
+    addClass: 'Ustaw dodatkową klasę dla głównego elementu tego modułu.',
 };
 
 export default PL;

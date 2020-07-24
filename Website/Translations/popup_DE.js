@@ -24,7 +24,16 @@ const DE = {
     exampleTitle: 'Beispiel',
     reactCodeTitle: 'React Kod',
     cssCodeTitle: 'Css Kod',
-    jsCodeTitle: 'Javascript Kod'
+    jsCodeTitle: 'Javascript Kod',
+    loading: 'Laden...',
+    keyUsageTitle: 'Keys Erläuterungen',
+    /**
+     * Module keys
+     */
+    id: 'Setzte eine id für das Root Element dieses Modules.',
+    class: 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
+    addClass: 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
+
 };
 
 export default DE;

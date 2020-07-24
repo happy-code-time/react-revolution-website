@@ -35,12 +35,14 @@
   }
 
   .box.top-left{
+    top: 100%;
     left:0;
     transform-origin: top left;
   }
 
   .box.top-right{
-    right:100%;
+    top: 100%;
+    right: 0;
     transform-origin: top right;
   }
 
@@ -50,7 +52,7 @@
   }
 
   .box.bottom-right{
-    right:100%;
+    right: 0;
     transform-origin: bottom right;
   }
 

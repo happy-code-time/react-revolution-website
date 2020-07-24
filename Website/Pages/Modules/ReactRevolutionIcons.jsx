@@ -64,6 +64,45 @@ const codeExample3 = `import { Icons } from 'react-revolution';
     }
 />`;
 
+const codeExample4 = `import { Icons } from 'react-revolution';
+
+<Icons
+    displayTabs={true}
+    iconsType='Smileys'
+    callback={this.callback}
+    custom={
+        [
+            {
+                title: 'Love',
+                data: [
+                    '😍', '😘', '💕', '💞', '💘'
+                ]
+            },
+            {
+                title: 'Cash',
+                data: [
+                    '💴', '💷', '💶', '💵'
+                ]
+            },
+            {
+                title: 'Clothes',
+                data: [
+                    '👔', '👕', '👖', '🧣', '🧤', '🧥', '🧦', '👗', '👘', '👙', '👚'
+                ]
+            },
+        ]
+    }
+    renderItems={
+        [
+            'Love', // custom defined
+            'Cash', // custom defined
+            'Activity',
+            'Clothes', // custom defined
+            'Travel',
+        ]
+    }
+/>`;
+
 const jsExample = `callback(clickEvent, icon){
     console.log(icon);
 }`;
@@ -172,7 +211,7 @@ class ReactRevolutionIcons extends React.Component {
                 title: 'Icons',
                 description: 'Icons module with custom icons set. Please remember to add your custom defined "title" into the "renderItems" list. After the click event, look into the console for an icon.',
                 reactTextBefore: '',
-                react: codeExample3,
+                react: codeExample4,
                 reactTextAfter: '',
                 js: jsExample,
                 css: cssExample,

@@ -26,7 +26,9 @@
 
 @import './rr-input-file-drag-drop.scss';
 
-@import './rr-input-suggestion.scss';
+@import './rr-input-suggestion-array.scss';
+
+@import './rr-input-suggestion-object.scss';
 
 @import './rr-loading-box-top.scss';
 
@@ -39,3 +41,5 @@
 @import './rr-sidebar.scss';
 
 @import './rr-sourcecode.scss';
+
+@import './rr-table-key-value.scss';

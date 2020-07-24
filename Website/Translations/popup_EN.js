@@ -24,7 +24,15 @@ const EN = {
     exampleTitle: 'Example',
     reactCodeTitle: 'React code',
     cssCodeTitle: 'Css code',
-    jsCodeTitle: 'Javascript code'
+    jsCodeTitle: 'Javascript code',
+    loading: 'Loading...',
+    keyUsageTitle: 'Keys Explanations',
+    /**
+     * Module keys
+     */
+    id: 'Set an id for the root element of this module.',
+    class: 'Replace the main class with your own. If this is used, the standard styles that the module brings with it no longer apply.',
+    addClass: 'Set an additional class for the root element of this module.',
 };
 
 export default EN;

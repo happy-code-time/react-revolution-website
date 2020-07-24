@@ -94,7 +94,7 @@ class Cards extends React.Component {
 
         let singleLines = [];
         let c = 0;
-        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`;
+        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
         data.map( singleData => {
             const { title, content, footer, props } = singleData;

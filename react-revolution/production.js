@@ -29,13 +29,17 @@ import InputFile from './Modules/InputFile';
 
 import InputFileDragDrop from './Modules/InputFileDragDrop';
 
-import InputSuggestion from './Modules/InputSuggestion';
+import InputSuggestionArray from './Modules/InputSuggestionArray';
+
+import InputSuggestionObject from './Modules/InputSuggestionObject';
 
 import LoadingBoxTop from './Modules/LoadingBoxTop';
 
 import LoadOnScroll from './Modules/LoadOnScroll';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
+
+import TableKeyValue from './Modules/TableKeyValue';
 
 import TextWriter from './Modules/TextWriter';
 
@@ -84,10 +88,12 @@ export {
     InputAnimation,
     InputFile,
     InputFileDragDrop,
-    InputSuggestion,
+    InputSuggestionArray,
+    InputSuggestionObject,
     LoadingBoxTop,
     LoadOnScroll,
     MenuClickHorizontal,
+    TableKeyValue,
     TextWriter,
     PopupBox,
     SideBar,
