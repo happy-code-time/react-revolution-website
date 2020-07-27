@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TableKeyValue, Accordion, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, Accordion, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
@@ -195,21 +195,44 @@ class ReactRevolutionAccordion extends React.Component {
                         trans('keyUsageTitle')
                     }
                 </h1>
-                <TableKeyValue
+                <Table
                     mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'type', 'default', 'value'
+                        ]
+                    }
                     data={
                         [
                             {
                                 key: 'id',
-                                value: trans('id')
+                                value: trans('id').description,
+                                type: trans('id').type,
+                                default: trans('id').default
                             },
                             {
                                 key: 'class',
-                                value: trans('class')
+                                value: trans('class').description,
+                                type: trans('class').type,
+                                default: trans('class').default
                             },
                             {
                                 key: 'addClass',
-                                value: trans('addClass')
+                                value: trans('addClass').description,
+                                type: trans('addClass').type,
+                                default: trans('addClass').default
+                            },
+                            {
+                                key: 'animation',
+                                value: trans('accordion.animation').description,
+                                type: trans('accordion.animation').type,
+                                default: trans('accordion.animation').default
+                            },
+                            {
+                                key: 'data',
+                                value: trans('accordion.data').description,
+                                type: trans('accordion.data').type,
+                                default: trans('accordion.data').default
                             },
                         ]
                     }

@@ -24,7 +24,6 @@ class CustomSuggestion extends React.Component {
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
-            callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
             suggestions: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
             placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
@@ -149,7 +148,7 @@ class CustomSuggestion extends React.Component {
         const { allowOnlyAZ } = this.state;
 
         if (allowOnlyAZ) {
-            value = value.replace(/[^a-zA-Z- ]/gmi, '');
+            value = value.replace(/[^a-zA-Z ]/gmi, '');
             value = value.trim();
         }
 

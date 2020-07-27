@@ -30,7 +30,7 @@ class PopupBox extends React.Component
             icon: props.icon ? props.icon : '',
             iconCallback: (props.iconCallback && 'function' == typeof props.iconCallback) ? props.iconCallback : undefined,
             animationTime: (props.animationTime && typeof 8 == typeof props.animationTime) ? props.animationTime : 300,
-            animationType: (props.animationType && typeof '8' == typeof props.animationType && defaultAnimationTypes.includes(props.animationType)) ? props.animationType : 'top-left',
+            animation: (props.animation && typeof '8' == typeof props.animation && defaultAnimationTypes.includes(props.animation)) ? props.animation : 'top-left',
         };
     }
 
@@ -43,7 +43,7 @@ class PopupBox extends React.Component
     static getDerivedStateFromProps(props, state) {
         const defaultAnimationTypes = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'icon', 'iconCallback', 'animationTime', 'animationType'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'icon', 'iconCallback', 'animationTime', 'animation'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-popupbox',
@@ -52,7 +52,7 @@ class PopupBox extends React.Component
                 icon: props.icon ? props.icon : '',
                 iconCallback: (props.iconCallback && 'function' == typeof props.iconCallback) ? props.iconCallback : undefined,
                 animationTime: (props.animationTime && typeof 8 == typeof props.animationTime) ? props.animationTime : 300,
-                animationType: (props.animationType && typeof '8' == typeof props.animationType && defaultAnimationTypes.includes(props.animationType)) ? props.animationType : 'top-left',
+                animation: (props.animation && typeof '8' == typeof props.animation && defaultAnimationTypes.includes(props.animation)) ? props.animation : 'top-left',
             };
         }
 
@@ -135,7 +135,7 @@ class PopupBox extends React.Component
     }
 
     render() {
-        const { addClass, defaultClass, id, displayBoxClassNames, animationType, icon, displayBox, data } = this.state;
+        const { addClass, defaultClass, id, displayBoxClassNames, animation, icon, displayBox, data } = this.state;
 
         return (
             <span ref={node => (this.nodeData = node)} id={id} className={`${defaultClass} ${addClass}`}>
@@ -146,7 +146,7 @@ class PopupBox extends React.Component
                 </span>
                 {
                     displayBox && 
-                    <div className={`${displayBoxClassNames} ${animationType}`}>
+                    <div className={`${displayBoxClassNames} ${animation}`}>
                         {
                             data
                         }

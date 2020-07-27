@@ -30,7 +30,7 @@ class ModuleSourceCode extends Component
             code: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
             originalCode: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
             inputActive: typeof true == typeof props.inputActive ? props.inputActive : false,
-            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : undefined,
+            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : undefined,
             inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
             inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
             loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
@@ -49,14 +49,14 @@ class ModuleSourceCode extends Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'displayLineNumber', 'code', 'inputActive', 'inputPlaceholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'displayLineNumber', 'code', 'inputActive', 'placeholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
                 inputActive: typeof true == typeof props.inputActive ? props.inputActive : false,
-                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : undefined,
+                placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : undefined,
                 inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
                 inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
                 loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
@@ -1061,7 +1061,7 @@ class ModuleSourceCode extends Component
     }
 
     render() {
-        const { addClass, defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, inputPlaceholder, searchValue, id } = this.state;
+        const { addClass, defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, placeholder, searchValue, id } = this.state;
 
         if (loadingDisplay) {
             return (
@@ -1083,7 +1083,7 @@ class ModuleSourceCode extends Component
                             type='text'
                             onChange={(e) => this.setValue(e)}
                             value={searchValue}
-                            placeholder={inputPlaceholder}
+                            placeholder={placeholder}
                             onFocus={(e) => this.focusIn()}
                             onBlur={(e) => this.focusOut()}
                             ref={node => this.inputNode = node}

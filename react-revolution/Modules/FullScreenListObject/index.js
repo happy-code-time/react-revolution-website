@@ -37,7 +37,7 @@ class FullScreenListObject extends React.Component
             iconClose: props.iconClose ? props.iconClose : '',
             inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
             noDataText: (props.noDataText && typeof '8' === typeof props.noDataText) ? props.noDataText : 'No data found',
-            inputPlaceholder: (props.inputPlaceholder && typeof '8' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
+            placeholder: (props.placeholder && typeof '8' === typeof props.placeholder) ? props.placeholder : 'Search here...',
             callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
             callbackClose: props.callbackClose && 'function' == typeof props.callbackClose ? props.callbackClose : undefined,
             closeOnCallback: typeof true === typeof props.closeOnCallback ? props.closeOnCallback : false,
@@ -54,7 +54,7 @@ class FullScreenListObject extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['id', 'data', 'display', 'displayLineNumber', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'inputPlaceholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc', 'inputEmptyOnCallback'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['id', 'data', 'display', 'displayLineNumber', 'iconClose', 'inputActive', 'closeOnDimmed', 'noDataText', 'placeholder', 'animation', 'callback', 'callbackClose', 'closeOnEsc', 'inputEmptyOnCallback'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -64,7 +64,7 @@ class FullScreenListObject extends React.Component
                 iconClose: props.iconClose ? props.iconClose : '',
                 inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
                 noDataText: (props.noDataText && typeof '8' === typeof props.noDataText) ? props.noDataText : 'No data found',
-                inputPlaceholder: (props.inputPlaceholder && typeof '8' === typeof props.inputPlaceholder) ? props.inputPlaceholder : 'Search here...',
+                placeholder: (props.placeholder && typeof '8' === typeof props.placeholder) ? props.placeholder : 'Search here...',
                 animation: typeof '8' === typeof props.animation ? props.animation.toLowerCase() : '',
                 callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
                 callbackClose: props.callbackClose && 'function' == typeof props.callbackClose ? props.callbackClose : undefined,
@@ -285,7 +285,7 @@ class FullScreenListObject extends React.Component
     }
 
     render(){
-        const { addClass, defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, inputPlaceholder, id } = this.state;
+        const { addClass, defaultClass, iconClose, data, display, filteredData, inputActive, inputValue, noDataText, placeholder, id } = this.state;
 
         if(!display){
             return null;
@@ -308,7 +308,7 @@ class FullScreenListObject extends React.Component
                 <div className='dimmed' onClick={(e) => this.callbackClose(true)}></div>
                 <div className="content">
                     {
-                        inputActive && <input value={inputValue} placeholder={inputPlaceholder} onChange={(e) => this.setValue(e)}/>
+                        inputActive && <input value={inputValue} placeholder={placeholder} onChange={(e) => this.setValue(e)}/>
                     }
                     <ul className="ul">
                         {

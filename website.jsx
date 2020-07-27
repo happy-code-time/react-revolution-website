@@ -72,7 +72,7 @@ import ReactRevolutionTextWriter from './Website/Pages/Modules/ReactRevolutionTe
 
 import ReactRevolutionLoadOnScroll from './Website/Pages/Modules/ReactRevolutionLoadOnScroll';
 
-import ReactRevolutionTableKeyValue from './Website/Pages/Modules/ReactRevolutionTableKeyValue';
+import ReactRevolutionTable from './Website/Pages/Modules/ReactRevolutionTable';
 
 class App extends React.Component {
 
@@ -328,8 +328,8 @@ class App extends React.Component {
                       href: `${host}#/react-revolution-sidebar`,
                     },
                     {
-                      text: 'TableKeyValue',
-                      href: `${host}#/react-revolution-table-key-value`,
+                      text: 'Table',
+                      href: `${host}#/react-revolution-table`,
                     },
                     {
                       text: 'TextWriter',
@@ -465,7 +465,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
               <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
-              <Route exact path="/react-revolution-table-key-value" render={(props) => (<ReactRevolutionTableKeyValue {...props} />)} />
+              <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
             </Switch>
           </Router>
         }

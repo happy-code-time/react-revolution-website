@@ -1178,17 +1178,34 @@ var ReactRevolutionAccordion = /*#__PURE__*/function (_React$Component) {
 
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
         className: "h1-title border-none text-center mb-4"
-      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TableKeyValue"], {
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
+        keysToRead: ['key', 'type', 'default', 'value'],
         data: [{
           key: 'id',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id')
+          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id').description,
+          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id').type,
+          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id')["default"]
         }, {
           key: 'class',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class')
+          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class').description,
+          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class').type,
+          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class')["default"]
         }, {
           key: 'addClass',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass')
+          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass').description,
+          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass').type,
+          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass')["default"]
+        }, {
+          key: 'animation',
+          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation').description,
+          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation').type,
+          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation')["default"]
+        }, {
+          key: 'data',
+          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data').description,
+          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data').type,
+          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data')["default"]
         }]
       }));
     }
@@ -4785,7 +4802,7 @@ var ReactRevolutionSidebar = /*#__PURE__*/function (_React$Component) {
 
 /***/ }),
 
-/***/ "./Website/Pages/Modules/ReactRevolutionTableKeyValue.jsx":
+/***/ "./Website/Pages/Modules/ReactRevolutionTable.jsx":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4823,24 +4840,24 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var codeExample1 = "import { TableKeyValue } from 'react-revolution';\n\n<TableKeyValue\n    mediaBreak={1024}\n    title={\n        {\n            left: 'Title',\n            right: 'Description'\n        }\n    }\n    data={\n        [\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            }\n        ]\n    }\n/>";
+var codeExample1 = "import { Table } from 'react-revolution';\n\n<Table\n    mediaBreak={1024}\n    title={\n        {\n            left: 'Title',\n            right: 'Description'\n        }\n    }\n    data={\n        [\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            }\n        ]\n    }\n/>";
 var cssExample = ".rr-table-key-value{\n    .title{\n        background-color: #1873cc;\n\n        .key,\n        .value{\n            color: rgb(255,255,255);\n        }\n\n        .value{\n            border-left: unset;\n        }\n    }\n\n    .key{\n        width: 70px;\n    }\n\n    .value{\n        @media screen and (min-width: 1024px){\n            padding-left: 20px;                \n        }\n        box-sizing: border-box;\n        padding-left: 5px;\n        width: calc(100% - 70px);\n    }\n}";
 
-var ReactRevolutionTableKeyValue = /*#__PURE__*/function (_React$Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionTableKeyValue, _React$Component);
+var ReactRevolutionTable = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionTable, _React$Component);
 
-  var _super = _createSuper(ReactRevolutionTableKeyValue);
+  var _super = _createSuper(ReactRevolutionTable);
 
-  function ReactRevolutionTableKeyValue(props) {
+  function ReactRevolutionTable(props) {
     var _this;
 
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionTableKeyValue);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionTable);
 
     _this = _super.call(this, props);
     _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.countCallbacks = 0;
     _this.examples = [{
-      title: 'TableKeyValue',
+      title: 'Table',
       description: '',
       reactTextBefore: '',
       react: codeExample1,
@@ -4848,7 +4865,7 @@ var ReactRevolutionTableKeyValue = /*#__PURE__*/function (_React$Component) {
       js: '',
       css: cssExample,
       html: '',
-      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TableKeyValue"], {
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
         title: {
           left: 'Title',
@@ -4872,7 +4889,7 @@ var ReactRevolutionTableKeyValue = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionTableKeyValue, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionTable, [{
     key: "loadOnScrollCallback",
     value: function loadOnScrollCallback() {
       var _this2 = this;
@@ -4903,7 +4920,7 @@ var ReactRevolutionTableKeyValue = /*#__PURE__*/function (_React$Component) {
 
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
         className: "h1-title border-none text-center mb-4"
-      }, "Key usage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["TableKeyValue"], {
+      }, "Key usage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
         data: [{
           key: 'id',
@@ -4913,11 +4930,11 @@ var ReactRevolutionTableKeyValue = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return ReactRevolutionTableKeyValue;
+  return ReactRevolutionTable;
 }(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionTableKeyValue);
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionTable);
 
 /***/ }),
 
@@ -5193,7 +5210,463 @@ var DE = (_DE = {
   documentation: 'Dokumenation',
   modules: 'Module',
   getStarted: 'Anfangen'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Beispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'React Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "cssCodeTitle", 'Css Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "jsCodeTitle", 'Javascript Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loading", 'Laden...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "keyUsageTitle", 'Keys Erläuterungen'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "id", 'Setzte eine id für das Root Element dieses Modules.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "class", 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "addClass", 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.'), _DE);
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Beispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'React Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "cssCodeTitle", 'Css Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "jsCodeTitle", 'Javascript Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loading", 'Laden...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "keyUsageTitle", 'Keys Erläuterungen'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "id", {
+  "description": 'Setzte eine id für das Root Element dieses Modules.',
+  "type": 'String',
+  "default": '<empty string>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "class", {
+  "description": 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
+  "type": 'String',
+  "default": ''
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "addClass", {
+  "description": 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
+  "type": 'String',
+  "default": '<empty string>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "accordion.animation", {
+  "description": "Eine Animation wärend des aufklappens und zuklappens des Accordions. Animationen die verwendet werden können: 'height', 'scale', 'opacity'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "accordion.data", {
+  "description": "Hauptdaten",
+  "type": "Array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.text', {
+  "description": "Der anzuzeigende Text bevor ein Kind Element aufgeklappt wird.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.dataToggle', {
+  "description": "Der anzuzeigende Inhalt eines Elementes nachdem das Mutter Element aufgeklappt wurde.",
+  "type": "String | JSX ",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.toggled', {
+  "description": "Ist das Element ge-toggelt order nicht.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'props', {
+  "description": "Die HTML Eigenschaften des HTML Elementes.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "itemsPerLine", {
+  "description": "Wie viele Elemente sollen in einer Zeile angezeigt werden.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "mediaBreak", {
+  "description": "Falls dieser Wert mitgegeben wird, wird das Module interaktiv. Standard mäßig wird das Mutter Element mit der Klasse gerendert: 'flex-row'. Bei der Erreichung des Media Break Points, wird das Mutter Element neu gerender mit der Klasse: flex-column.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "defaultItems", {
+  "description": "Wie viele Elemente sollen direkt beim Laden angezeigt werden.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loadMoreCallback", {
+  "description": "Falls das Root Element bis ganz nach unten ge-scrollt wurde, können Daten nachgeladen werden. Falls der Callback 'break' als Antwort liefert, wird der Scroll Event von dem Root Element entfernt.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loadMoreLoadingIcon", {
+  "description": "Wärend zusätzliche Elemente geladen werden, kann ein eigen definiertes JSX Element gerendert werden.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.callback", {
+  "description": "Nachdem eine Änderung im Input Feld statt findet, wird diese Übergebene Funktion aufgerufen mit 1 Paramater: Wert des Input Feldes. Der Callback muss eine Liste and Objecten zurück liefern. Die Struktur ist im 'suggestions' Key beschrieben.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.suggestions", {
+  "description": "Liste von Objecten",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.suggestions.href", {
+  "description": "Der Benutzerdefinierte Vorschlag wird mit einem A Tag umfasst, damit der Benutzer direkt einem Vorschlag folgen kann.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.suggestions.jsx", {
+  "description": "Benutzerdefiniertes HTML das der Endanwender sieht.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.suggestions.props", {
+  "description": "Die HTML Eigenschaften des HTML Elementes.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.suggestions.onClickValue", {
+  "description": "Wert, der in das Input Feld geschrieben werden soll, wenn ein Click Event statt findet.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "clipboard", {
+  "description": "Daten die in den Cipboard zwischen gespeichert werden sollen. Wenn diese Daten vom Typ kein String sind, werden diese in den Zwischenspeicher mit JSON.strigify gespeichert.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "plainValue", {
+  "description": "Der Wert des Input Feldes.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputsuggestionarray.callbackSelection", {
+  "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputsuggestionobject.callbackSelection", {
+  "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "placeholder", {
+  "description": "Platzhalter.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputType", {
+  "description": "Typ eines Inptu Feldes.",
+  "type": "String",
+  "default": "text"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "callbackRerender", {
+  "description": "Wenn true, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn false, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "allowOnlyAZ", {
+  "description": "Falls true, dann wird folgendes Regex auf den Wert der Input Feldes angewandt: (/[^a-zA-Z ]/gmi).",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "display", {
+  "description": "Soll das Element angezeigt werden oder nicht.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "displayLineNumber", {
+  "description": "Erlaube das rendern, auf der Linken Seite, jeder Zeilen Nummer.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "iconClose", {
+  "description": "Benutzer definiertes HTML mit der Aktion das Module 'zu schließenden'.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputActive", {
+  "description": "Soll das Input feld mit angezeigt werden oder nicht.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "noDataText", {
+  "description": "Falls keine Elemente gefunden wurden, dann wird dieser Text angezeigt.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "callbackClose", {
+  "description": "Benutzer definierte Funktion, die ohne Argumente aufgerufen wird, nachdem dass Element geschlossen wurde.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnCallback", {
+  "description": "Falls ein Element aus der List ausgewählt wird, soll das Modul auch geschlossen werden oder soll die Anzeige des Modules beibehaltet werden.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnDimmedClick", {
+  "description": "Bei dem Anklicken des 'dunklen' HTML`s, das ausserum des Content Bereiches sicht befindet, wird das Module icht mehr angezeigt.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnEsc", {
+  "description": "Beim Drücken der 'Escape' Taste, soll das Module eiterhin angezeigt werden oder die Anzeige soll unterbrochen werden.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputEmptyOnCallback", {
+  "description": "Nachdem ein Element aus der List ausgewählt wurde, soll das Input Feld gelehrt werden oder der Wert des Input Feldes soll unverändert bleiben.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnClick", {
+  "description": "",
+  "type": "String",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "fullscreenOverlay.animation", {
+  "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'scale','left','top','right', 'bottom'.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "popupbox.animation", {
+  "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.",
+  "type": "String",
+  "default": "top-left"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "fullscreenoverlay.dimmed", {
+  "description": "Soll die leicht gedunkelte Bereich angezeigt werden oder nicht.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "disableScroll", {
+  "description": "Während der Anzeige des Modules, soll das HTML Element (Tag) scrollbar sein oder nicht.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "messageKey", {
+  "description": "Ein unique string.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping", {
+  "description": "Object",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.title", {
+  "description": "Title der Meldung",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.displayErrorCode", {
+  "description": "Soll der Kod der Übergebenene Meldung auch angezeigt werden oder nicht.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.text", {
+  "description": "Object - Anzuzeigender Text als Meldung.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.text.prefix", {
+  "description": "Prefix - Text vor der eigentlichen Medlung.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.text.suffix", {
+  "description": "Suffix - Text nach der eigentlichen Medlung.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.text.props", {
+  "description": "Die HTML Eigenschaften des HTML Elementes.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.close", {
+  "description": "Object - Text um die Mitteilungs Box zu schließen.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.close.text", {
+  "description": "Text zur Schließung der angezeigt werden soll. Auf diesem Text ist ein 'click close Event' beigefügt.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.close.props", {
+  "description": "Die HTML Eigenschaften des HTML Elementes.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link", {
+  "description": "Object - Externer Link.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.text", {
+  "description": "Der anzuzeigender Text.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.text", {
+  "description": "Object",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.useTagLink", {
+  "description": "Soll der Tag <Link> benutzt werden, falls sich das Modul innerhalb eines Routes beweget oder standartmäßig eine <a> Tag.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.href", {
+  "description": "Das Attribut 'to' im <Link> Tag oder 'href' im <a> Tag.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "timer", {
+  "description": "Interval um Fehlermeldungen anzuzeigen.",
+  "type": "Number",
+  "default": "2500"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "iconsType", {
+  "description": "Standard angeklicktes Icons Set beim ersten rendern des Modules.",
+  "type": "String",
+  "default": "Smileys"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "displayTabs", {
+  "description": "Sollen die Überschriften aller anzuzeigenden Icons Sets eingeblender oder ausgeblendet werden.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "renderItems", {
+  "description": "Welche Elemente sollen standardmäßig angezeigt werden.",
+  "type": "Array",
+  "default": "'Smileys', 'Peoples','Animals', 'Plants', 'Nature', 'Food', 'Activity', 'Travel', 'Objects','Symbols', 'Currency', 'Arrows', 'Html'"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "translations", {
+  "description": "Übersetzungen für die jeweiligen Überschriften der Icons Sets.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom", {
+  "description": "Benutzer definierte Icons Sets.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom", {
+  "description": "Benutzer definierte Icons Sets als Array aus Objekten.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom.title", {
+  "description": "Titel des Icons Set als unique Key.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom.data", {
+  "description": "Array aus Strings mit benutzerdefinierten Icons.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "defaultClassOrigin", {
+  "description": "",
+  "type": "String",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "animatePlaceholder", {
+  "description": "Platzhalter (der dann auch animiert wird).",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "onEnter", {
+  "description": "Benutzerdefinierte Funktion wenn der Benutzer Enter drückt innerhalb des Input Feldes. Diese Funktion liefert 1 Argument: der aktuelle Wert des Input Feldes.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "getValueFromCallback", {
+  "description": "Wenn false, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn true, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "allowedFileSize", {
+  "description": "Maximale Größe einer Datei.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "allowedFileSizeDescriptor", {
+  "description": "Größen Vektor: B, KB, MB, GB, TB oder PT.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "allowedFiles", {
+  "description": "Datei Typen die erlaubt sind.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "label", {
+  "description": "Das anzuzeigende JSX innerhalb eine <label> Tags",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "readFileCallback", {
+  "description": "",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "errorCallback", {
+  "description": "Benutzerdefiniertes Callback wärend eines Fehlers beim Datei Handling. Es übergibt 2 Argumente. Argument 1: Fehlertyp (unsupported_filetype, maximum_filesize_reached, unrecognized_filetype, empty_filecontent, empty_filename), Argumnt 2: 'errorCallbackCustomData'",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "errorCallbackCustomData", {
+  "description": "Benutzerdefinierter Wert für den 2 Argument der Funktion: 'errorCallback'.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "multiple", {
+  "description": "Erlaube mehrere Dateien auf einmal.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "isDraggingData", {
+  "description": "Wenn ein Benutzer aktuell im Status 'dragging' ist, dann kann eine Benutzerdefiniertes JSX angezeigt werden.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "uploadOnClick", {
+  "description": "Erlaube auch das Verarbeiten von Dateien wenn der Benutzer auf den 'Drag & Drop' Bereich ein Klick Event durchführt.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "selected", {
+  "description": "Ein Array mit ausgewählten Elementen aus der Liste.",
+  "type": "Array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "suggestionsToFilter", {
+  "description": "Ein Array aus Elementen die danach zur Auswahl für den Benutzer erscheinen.",
+  "type": "Array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "emptySuggestionAfterSelection", {
+  "description": "Leehre die Vorschläge nachdem der Benutzer ein Element angeklickt hat.",
+  "type": "Boolen",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "sortSelected", {
+  "description": "Sollen die ausgewählten Elemente Alphabetisch sortiert werden. Erlaubte Sortierungs Möglichkeiten: 'asc', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "sortSuggestions", {
+  "description": "Sollen die anzuzeigenden Elemente Alphabetisch sortiert werden. Erlaubte Sortierungs Möglichkeiten: 'asc', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "text", {
+  "description": "Der anzuzeigende Text.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "scrollReference", {
+  "description": "Wenn true, dann wird das Root Element des Modules als Referenz genommen ansonsten das HTML document Elment.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactRouter", {
+  "description": "Wenn true - (dann bewegt sich das Module innerhalb eines Rect Router) wird ein <Link> Tag gerendert, wenn false wird ein <a> Tag gerendert.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "icon", {
+  "description": "Benutzerdefiniertes JSX um das Modul zu schließen.",
+  "type": "String | JSX",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "iconCallback", {
+  "description": "Benutzerdefiniertes Callback wenn das 'icon' angeglickt wrid.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "animationTime", {
+  "description": "Zeit der Animation in ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "image", {
+  "description": "JSX des Images/ Icons.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "moduleMenu", {
+  "description": "Das eingebetete 'MenuClickHorizontal' Modul.",
+  "type": "JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "textLong", {
+  "description": "Langer Text als Überschrift neben dem Foto.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "textShort", {
+  "description": "Kurzer Text unter der Überschrift und auch neben dem Foto.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "href", {
+  "description": "Wenn href gesetzt ist, dann wird um das Foto und den Text ein <a> gespannt.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "hrefProps", {
+  "description": "Die HTML Eigenschaften des <a> Tags.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title", {
+  "description": "Object - Überschrift der Tabelle",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title.left", {
+  "description": "Überschrift der Tabelle auf der linken Seite",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title.right", {
+  "description": "Überschrift der Tabelle auf der rechten Seite",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "speed", {
+  "description": "Speed of the text writer in ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipeDisplay", {
+  "description": "Display the pipe while writing.",
+  "type": "Boolen",
+  "default": "true"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipeChar", {
+  "description": "Charachter of the pipe",
+  "type": "String | JSX",
+  "default": "|"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipeSite", {
+  "description": "",
+  "type": "String",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipePersist", {
+  "description": "Persist the pipe after the text was written.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "replaces", {
+  "description": "Object - Replace Text after, the text was written.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "replaces.from", {
+  "description": "Start replacement on this char.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "replaces.to", {
+  "description": "End replacement on this char.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "replaces.replace", {
+  "description": "Text to write as replacement.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "timeout", {
+  "description": "Start writing text after this time in ms.",
+  "type": "Number",
+  "default": "0"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.data", {
+  "description": "Array aus Objekten.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.keysToRead", {
+  "description": "Array aus String - welche Keys sollen aus dem Object ausgelesen werden.",
+  "type": "Array",
+  "default": "undefined"
+}), _DE);
 /* harmony default export */ __webpack_exports__["default"] = (DE);
 
 /***/ }),
@@ -16607,7 +17080,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: relative;\n  left: 250px;\n  width: calc(100% - 250px);\n  z-index: 1; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 3; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .icon-container .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .icon-container .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .icon-container .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .icon-container .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .icon-container .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .icon-container .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .icon-container .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: relative;\n  left: 250px;\n  width: calc(100% - 250px);\n  z-index: 1; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 3; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n  .Generator .rr-table .ul {\n    width: 100%; }\n    .Generator .rr-table .ul li {\n      width: 100%; }\n  .Generator .rr-table .span {\n    display: block; }\n  .Generator .rr-table .span-1 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-2 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-3 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-4 {\n    width: 70%; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .icon-container .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .icon-container .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .icon-container .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .icon-container .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .icon-container .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .icon-container .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .icon-container .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
 
 
 
@@ -32251,15 +32724,15 @@ module.exports = function (e) {
 }, function (e, t, a) {
   e.exports = a(23)();
 }, function (e, t) {
-  function a(e, t, a, n, l, i, r) {
+  function a(e, t, a, n, l, i, s) {
     try {
-      var s = e[i](r),
-          o = s.value;
+      var r = e[i](s),
+          o = r.value;
     } catch (e) {
       return void a(e);
     }
 
-    s.done ? t(o) : Promise.resolve(o).then(n, l);
+    r.done ? t(o) : Promise.resolve(o).then(n, l);
   }
 
   e.exports = function (e) {
@@ -32267,17 +32740,17 @@ module.exports = function (e) {
       var t = this,
           n = arguments;
       return new Promise(function (l, i) {
-        var r = e.apply(t, n);
+        var s = e.apply(t, n);
 
-        function s(e) {
-          a(r, l, i, s, o, "next", e);
+        function r(e) {
+          a(s, l, i, r, o, "next", e);
         }
 
         function o(e) {
-          a(r, l, i, s, o, "throw", e);
+          a(s, l, i, r, o, "throw", e);
         }
 
-        s(void 0);
+        r(void 0);
       });
     };
   };
@@ -32294,19 +32767,19 @@ module.exports = function (e) {
   var n = a(18),
       l = a(19),
       i = a(20),
-      r = a(21);
+      s = a(21);
 
   e.exports = function (e) {
-    return n(e) || l(e) || i(e) || r();
+    return n(e) || l(e) || i(e) || s();
   };
 }, function (e, t, a) {
   "use strict";
 
-  e.exports = function (e, t, a, n, l, i, r, s) {
+  e.exports = function (e, t, a, n, l, i, s, r) {
     if (!e) {
       var o;
       if (void 0 === t) o = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
-        var c = [a, n, l, i, r, s],
+        var c = [a, n, l, i, s, r],
             u = 0;
         (o = new Error(t.replace(/%s/g, function () {
           return c[u++];
@@ -32342,12 +32815,12 @@ module.exports = function (e) {
         n = "function" == typeof Symbol ? Symbol : {},
         l = n.iterator || "@@iterator",
         i = n.asyncIterator || "@@asyncIterator",
-        r = n.toStringTag || "@@toStringTag";
+        s = n.toStringTag || "@@toStringTag";
 
-    function s(e, t, a, n) {
+    function r(e, t, a, n) {
       var l = t && t.prototype instanceof u ? t : u,
           i = Object.create(l.prototype),
-          r = new E(n || []);
+          s = new E(n || []);
       return i._invoke = function (e, t, a) {
         var n = "suspendedStart";
         return function (l, i) {
@@ -32359,14 +32832,14 @@ module.exports = function (e) {
           }
 
           for (a.method = l, a.arg = i;;) {
-            var r = a.delegate;
+            var s = a.delegate;
 
-            if (r) {
-              var s = b(r, a);
+            if (s) {
+              var r = b(s, a);
 
-              if (s) {
-                if (s === c) continue;
-                return s;
+              if (r) {
+                if (r === c) continue;
+                return r;
               }
             }
 
@@ -32388,7 +32861,7 @@ module.exports = function (e) {
             "throw" === u.type && (n = "completed", a.method = "throw", a.arg = u.arg);
           }
         };
-      }(e, a, r), i;
+      }(e, a, s), i;
     }
 
     function o(e, t, a) {
@@ -32405,7 +32878,7 @@ module.exports = function (e) {
       }
     }
 
-    e.wrap = s;
+    e.wrap = r;
     var c = {};
 
     function u() {}
@@ -32437,31 +32910,31 @@ module.exports = function (e) {
       var n;
 
       this._invoke = function (l, i) {
-        function r() {
-          return new t(function (n, r) {
-            !function n(l, i, r, s) {
+        function s() {
+          return new t(function (n, s) {
+            !function n(l, i, s, r) {
               var c = o(e[l], e, i);
 
               if ("throw" !== c.type) {
                 var u = c.arg,
                     d = u.value;
                 return d && "object" == _typeof(d) && a.call(d, "__await") ? t.resolve(d.__await).then(function (e) {
-                  n("next", e, r, s);
+                  n("next", e, s, r);
                 }, function (e) {
-                  n("throw", e, r, s);
+                  n("throw", e, s, r);
                 }) : t.resolve(d).then(function (e) {
-                  u.value = e, r(u);
+                  u.value = e, s(u);
                 }, function (e) {
-                  return n("throw", e, r, s);
+                  return n("throw", e, s, r);
                 });
               }
 
-              s(c.arg);
-            }(l, i, n, r);
+              r(c.arg);
+            }(l, i, n, s);
           });
         }
 
-        return n = n ? n.then(r, r) : r();
+        return n = n ? n.then(s, s) : s();
       };
     }
 
@@ -32533,11 +33006,11 @@ module.exports = function (e) {
       };
     }
 
-    return d.prototype = m.constructor = f, f.constructor = d, f[r] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
+    return d.prototype = m.constructor = f, f.constructor = d, f[s] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
       var t = "function" == typeof e && e.constructor;
       return !!t && (t === d || "GeneratorFunction" === (t.displayName || t.name));
     }, e.mark = function (e) {
-      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, r in e || (e[r] = "GeneratorFunction")), e.prototype = Object.create(m), e;
+      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, s in e || (e[s] = "GeneratorFunction")), e.prototype = Object.create(m), e;
     }, e.awrap = function (e) {
       return {
         __await: e
@@ -32546,11 +33019,11 @@ module.exports = function (e) {
       return this;
     }, e.AsyncIterator = y, e.async = function (t, a, n, l, i) {
       void 0 === i && (i = Promise);
-      var r = new y(s(t, a, n, l), i);
-      return e.isGeneratorFunction(a) ? r : r.next().then(function (e) {
-        return e.done ? e.value : r.next();
+      var s = new y(r(t, a, n, l), i);
+      return e.isGeneratorFunction(a) ? s : s.next().then(function (e) {
+        return e.done ? e.value : s.next();
       });
-    }, g(m), m[r] = "Generator", m[l] = function () {
+    }, g(m), m[s] = "Generator", m[l] = function () {
       return this;
     }, m.toString = function () {
       return "[object Generator]";
@@ -32587,22 +33060,22 @@ module.exports = function (e) {
         var t = this;
 
         function n(a, n) {
-          return r.type = "throw", r.arg = e, t.next = a, n && (t.method = "next", t.arg = void 0), !!n;
+          return s.type = "throw", s.arg = e, t.next = a, n && (t.method = "next", t.arg = void 0), !!n;
         }
 
         for (var l = this.tryEntries.length - 1; l >= 0; --l) {
           var i = this.tryEntries[l],
-              r = i.completion;
+              s = i.completion;
           if ("root" === i.tryLoc) return n("end");
 
           if (i.tryLoc <= this.prev) {
-            var s = a.call(i, "catchLoc"),
+            var r = a.call(i, "catchLoc"),
                 o = a.call(i, "finallyLoc");
 
-            if (s && o) {
+            if (r && o) {
               if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
               if (this.prev < i.finallyLoc) return n(i.finallyLoc);
-            } else if (s) {
+            } else if (r) {
               if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
             } else {
               if (!o) throw new Error("try statement without catch or finally");
@@ -32622,8 +33095,8 @@ module.exports = function (e) {
         }
 
         i && ("break" === e || "continue" === e) && i.tryLoc <= t && t <= i.finallyLoc && (i = null);
-        var r = i ? i.completion : {};
-        return r.type = e, r.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, c) : this.complete(r);
+        var s = i ? i.completion : {};
+        return s.type = e, s.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, c) : this.complete(s);
       },
       complete: function complete(e, t) {
         if ("throw" === e.type) throw e.arg;
@@ -32732,10 +33205,10 @@ module.exports = function (e) {
   function i() {}
 
   i.resetWarningCache = l, e.exports = function () {
-    function e(e, t, a, l, i, r) {
-      if (r !== n) {
-        var s = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
-        throw s.name = "Invariant Violation", s;
+    function e(e, t, a, l, i, s) {
+      if (s !== n) {
+        var r = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+        throw r.name = "Invariant Violation", r;
       }
     }
 
@@ -32823,7 +33296,7 @@ module.exports = function (e) {
     return ye;
   }), a.d(t, "MenuClickHorizontal", function () {
     return Ie;
-  }), a.d(t, "TableKeyValue", function () {
+  }), a.d(t, "Table", function () {
     return Ve;
   }), a.d(t, "TextWriter", function () {
     return Ue;
@@ -32838,9 +33311,9 @@ module.exports = function (e) {
   var n = a(8),
       l = a.n(n),
       i = a(0),
-      r = a.n(i),
-      s = a(4),
-      o = a.n(s),
+      s = a.n(i),
+      r = a(4),
+      o = a.n(r),
       c = a(5),
       u = a.n(c),
       d = a(2),
@@ -32868,7 +33341,7 @@ module.exports = function (e) {
       S = function e() {
     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
     if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && r()([]) == r()(t[a].data) && t[a].data.length && e(t[a].data);
+      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && s()([]) == s()(t[a].data) && t[a].data.length && e(t[a].data);
     }
     return t;
   };
@@ -32906,11 +33379,11 @@ module.exports = function (e) {
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-accordion",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        data: e.data && r()([]) == r()(e.data) ? S(e.data) : [],
-        animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-accordion",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
+        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
       }, n;
     }
 
@@ -32922,15 +33395,15 @@ module.exports = function (e) {
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = [];
         if (t && t.length) for (var i = function i(_i) {
-          var s = t[_i],
-              o = s.text,
-              c = s.dataToggle,
-              u = s.toggled,
-              d = s.unique,
-              f = s.classList,
-              p = s.props,
+          var r = t[_i],
+              o = r.text,
+              c = r.dataToggle,
+              u = r.toggled,
+              d = r.unique,
+              f = r.classList,
+              p = r.props,
               h = t[_i].data;
-          f || (f = ""), p && r()(p) === r()({}) || (p = {});
+          f || (f = ""), p && s()(p) === s()({}) || (p = {});
 
           try {
             Object.keys(p);
@@ -32951,8 +33424,8 @@ module.exports = function (e) {
           }, e.buildDataRecursive(h, !0)), u && null == h && c && C.a.createElement("div", {
             className: "data"
           }, c)));
-        }, s = 0; s <= t.length - 1; s++) {
-          i(s);
+        }, r = 0; r <= t.length - 1; r++) {
+          i(r);
         }
         return n;
       }
@@ -32964,32 +33437,32 @@ module.exports = function (e) {
             n = this.state.animation,
             l = 0;
         ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function i(s) {
-          if (s && s.length) {
+        return function i(r) {
+          if (r && r.length) {
             var o = function o(_o) {
-              var c = s[_o].unique,
-                  u = s[_o].data;
+              var c = r[_o].unique,
+                  u = r[_o].data;
 
               if (c == e) {
-                0 == !s[_o].toggled && n && (l = 300);
+                0 == !r[_o].toggled && n && (l = 300);
 
                 var d = function d() {
-                  s[_o].toggled = !s[_o].toggled, s[_o].classList = s[_o].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
-                    s[_o].classList = s[_o].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
+                  r[_o].toggled = !r[_o].toggled, r[_o].classList = r[_o].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
+                    r[_o].classList = r[_o].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
                   }, 300);
                 };
 
-                return 0 == !s[_o].toggled ? (s[_o].classList = "".concat(s[_o].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
+                return 0 == !r[_o].toggled ? (r[_o].classList = "".concat(r[_o].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
                   v: t.setState({
                     data: a
                   }, d)
                 }) : (d(), "break");
               }
 
-              u && r()([]) == r()(u) && 0 !== u.length && i(u);
+              u && s()([]) == s()(u) && 0 !== u.length && i(u);
             };
 
-            e: for (var c = 0; c <= s.length - 1; c++) {
+            e: for (var c = 0; c <= r.length - 1; c++) {
               var u = o(c);
 
               switch (u) {
@@ -32997,7 +33470,7 @@ module.exports = function (e) {
                   break e;
 
                 default:
-                  if ("object" === r()(u)) return u.v;
+                  if ("object" === s()(u)) return u.v;
               }
             }
           }
@@ -33030,11 +33503,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["data", "defaultClass", "id", "animation"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-accordion",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          data: e.data && r()([]) == r()(e.data) ? S(e.data) : [],
-          animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-accordion",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
+          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
@@ -33075,12 +33548,12 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
         isMinified: !1,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        data: e.data && r()([]) == r()(e.data) ? e.data : [],
-        mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        data: e.data && s()([]) == s()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
       }, n;
     }
 
@@ -33115,7 +33588,7 @@ module.exports = function (e) {
             a = t.data,
             n = t.itemsPerLine,
             i = t.isMinified,
-            s = [],
+            r = [],
             o = 0,
             c = "cards-group flex ".concat(i ? "flex-column isMinified" : "flex-row");
         a.map(function (t) {
@@ -33128,10 +33601,10 @@ module.exports = function (e) {
 
           if (d) {
             var p = d.className;
-            p && r()("8") == r()(p) && (f = "".concat(f, " ").concat(p), delete d.className);
+            p && s()("8") == s()(p) && (f = "".concat(f, " ").concat(p), delete d.className);
           }
 
-          s.push(C.a.createElement("div", l()({
+          r.push(C.a.createElement("div", l()({
             key: E(),
             className: f
           }, d), a && C.a.createElement("div", {
@@ -33143,11 +33616,11 @@ module.exports = function (e) {
           }, u))), o == n && (e.push(C.a.createElement("div", {
             key: E(),
             className: "".concat(c)
-          }, s)), s = [], o = 0);
-        }), s.length && e.push(C.a.createElement("div", {
+          }, r)), r = [], o = 0);
+        }), r.length && e.push(C.a.createElement("div", {
           key: E(),
           className: "".concat(c)
-        }, s)), this.setState({
+        }, r)), this.setState({
           dataJsx: e
         });
       }
@@ -33168,11 +33641,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "itemsPerLine", "data"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          data: e.data && r()([]) == r()(e.data) ? e.data : []
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          data: e.data && s()([]) == s()(e.data) ? e.data : []
         } : null;
       }
     }]), a;
@@ -33213,15 +33686,15 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.rerenderItems = n.rerenderItems.bind(f()(n)), n.state = {
         dataJsx: [],
         start: 0,
-        end: e.defaultItems && r()(8) == r()(e.defaultItems) ? e.defaultItems : 3,
+        end: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
         isMinified: !1,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        defaultItems: e.defaultItems && r()(8) == r()(e.defaultItems) ? e.defaultItems : 3,
-        data: e.data && r()([]) == r()(e.data) ? e.data : [],
-        mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        defaultItems: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
+        data: e.data && s()([]) == s()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
       }, n;
     }
 
@@ -33262,13 +33735,13 @@ module.exports = function (e) {
             n = a.data,
             l = a.dataJsx,
             i = a.itemsPerLine,
-            r = a.isMinified,
-            s = a.start,
+            s = a.isMinified,
+            r = a.start,
             o = a.end,
-            c = "cards-group flex ".concat(r ? "flex-column isMinified" : "flex-row"),
+            c = "cards-group flex ".concat(s ? "flex-column isMinified" : "flex-row"),
             u = [],
             d = 0;
-        if (n = n.slice(s, o), t && 0 == n.length && this.cardsReference) return this.removeScrollEvent();
+        if (n = n.slice(r, o), t && 0 == n.length && this.cardsReference) return this.removeScrollEvent();
 
         for (var f = 0; f <= n.length - 1; f++) {
           var p = n[f],
@@ -33298,18 +33771,18 @@ module.exports = function (e) {
           start: o,
           end: o + i
         }, function () {
-          0 == s && e.resize();
+          0 == r && e.resize();
         });
       }
     }, {
       key: "rerenderItems",
       value: function value() {
-        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, l = e.isMinified, i = "cards-group flex ".concat(l ? "flex-column isMinified" : "flex-row"), r = [], s = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
+        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, l = e.isMinified, i = "cards-group flex ".concat(l ? "flex-column isMinified" : "flex-row"), s = [], r = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
           var u = t[c],
               d = u.title,
               f = u.content,
               p = u.footer;
-          o++, s.push(C.a.createElement("div", {
+          o++, r.push(C.a.createElement("div", {
             key: E(),
             className: "card flex flex-column"
           }, d && C.a.createElement("div", {
@@ -33318,17 +33791,17 @@ module.exports = function (e) {
             className: "content"
           }, f), p && C.a.createElement("div", {
             className: "footer"
-          }, p))), o == n && (r.push(C.a.createElement("div", {
+          }, p))), o == n && (s.push(C.a.createElement("div", {
             key: E(),
             className: "cards-group ".concat(i)
-          }, s)), s = [], o = 0);
+          }, r)), r = [], o = 0);
         }
 
-        s.length && r.push(C.a.createElement("div", {
+        r.length && s.push(C.a.createElement("div", {
           key: E(),
           className: "cards-group ".concat(i)
-        }, s)), this.setState({
-          dataJsx: r
+        }, r)), this.setState({
+          dataJsx: s
         });
       }
     }, {
@@ -33357,13 +33830,13 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "itemsPerLine", "data", "defaultItems", "mediaBreak"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          defaultItems: e.defaultItems && r()(8) == r()(e.defaultItems) ? e.defaultItems : 3,
-          data: e.data && r()([]) == r()(e.data) ? e.data : [],
-          mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          defaultItems: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
+          data: e.data && s()([]) == s()(e.data) ? e.data : [],
+          mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
         } : null;
       }
     }]), a;
@@ -33371,9 +33844,9 @@ module.exports = function (e) {
       T = a(9),
       R = a.n(T),
       F = a(11),
-      P = a.n(F);
+      A = a.n(F);
 
-  function A(e) {
+  function P(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33401,7 +33874,7 @@ module.exports = function (e) {
 
   var I = function (e) {
     h()(a, e);
-    var t = A(a);
+    var t = P(a);
 
     function a(e) {
       var n;
@@ -33409,11 +33882,11 @@ module.exports = function (e) {
         dataJsx: [],
         loading: !1,
         isMinified: !1,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        data: e.data && s()([]) == s()(e.data) ? e.data : [],
         loadMoreCallback: e.loadMoreCallback && "function" == typeof e.loadMoreCallback ? e.loadMoreCallback : void 0,
         loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : ""
       }, n;
@@ -33443,7 +33916,7 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, P()(R.a.mark(function n() {
+        }, A()(R.a.mark(function n() {
           return R.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
@@ -33468,12 +33941,12 @@ module.exports = function (e) {
     }, {
       key: "buildData",
       value: function value() {
-        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], t = this.state, a = t.dataJsx, n = t.itemsPerLine, l = "cards-group flex", i = [], r = 0, s = 0; s <= e.length - 1; s++) {
-          var o = e[s],
+        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], t = this.state, a = t.dataJsx, n = t.itemsPerLine, l = "cards-group flex", i = [], s = 0, r = 0; r <= e.length - 1; r++) {
+          var o = e[r],
               c = o.title,
               u = o.content,
               d = o.footer;
-          r++, i.push(C.a.createElement("div", {
+          s++, i.push(C.a.createElement("div", {
             key: E(),
             className: "card flex flex-column"
           }, c && C.a.createElement("div", {
@@ -33482,16 +33955,16 @@ module.exports = function (e) {
             className: "content"
           }, u), d && C.a.createElement("div", {
             className: "footer"
-          }, d))), r == n && (a.push(C.a.createElement("div", {
+          }, d))), s == n && (a.push(C.a.createElement("div", {
             key: E(),
             className: "cards-group ".concat(l)
-          }, i)), i = [], r = 0);
+          }, i)), i = [], s = 0);
         }
 
         i.length && (a.push(C.a.createElement("div", {
           key: E(),
           className: "cards-group ".concat(l)
-        }, i)), i = [], r = 0), this.setState({
+        }, i)), i = [], s = 0), this.setState({
           dataJsx: a,
           loading: !1
         });
@@ -33510,15 +33983,15 @@ module.exports = function (e) {
             n = t.dataJsx,
             l = t.defaultClass,
             i = t.loading,
-            r = t.loadMoreLoadingIcon,
-            s = t.id;
+            s = t.loadMoreLoadingIcon,
+            r = t.id;
         return C.a.createElement("div", {
           ref: function ref(t) {
             return e.cardsReference = t;
           },
           className: "".concat(l, " ").concat(a),
-          id: s
-        }, i && r, n && n.map(function (e) {
+          id: r
+        }, i && s, n && n.map(function (e) {
           return e;
         }));
       }
@@ -33526,11 +33999,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "itemsPerLine", "data", "loadMoreCallback", "loadMoreLoadingIcon"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && r()(8) == r()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          data: e.data && r()([]) == r()(e.data) ? e.data : [],
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          data: e.data && s()([]) == s()(e.data) ? e.data : [],
           loadMoreCallback: e.loadMoreCallback && "function" == typeof e.loadMoreCallback ? e.loadMoreCallback : void 0,
           loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
           dataJsx: t.dataJsx
@@ -33577,18 +34050,17 @@ module.exports = function (e) {
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEsc = t.callbackEsc.bind(f()(t)), t.handleMouseDown = t.handleMouseDown.bind(f()(t)), t.setFocusUpdater = t.setFocusUpdater.bind(f()(t)), t.setValueToInputField = t.setValueToInputField.bind(f()(t)), t.state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        plainValue: e.value && r()("8") == r()(e.value) ? e.value : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
-        suggestions: e.suggestions && r()([]) == r()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        props: e.props && r()({}) == r()(e.props) ? e.props : {},
-        inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
-        callbackRerender: r()(!0) == r()(e.callbackRerender) && e.callbackRerender,
-        allowOnlyAZ: r()(!0) == r()(e.allowOnlyAZ) && e.allowOnlyAZ
+        suggestions: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        props: e.props && s()({}) == s()(e.props) ? e.props : {},
+        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
+        callbackRerender: s()(!0) == s()(e.callbackRerender) && e.callbackRerender,
+        allowOnlyAZ: s()(!0) == s()(e.allowOnlyAZ) && e.allowOnlyAZ
       }, t.availableSorts = ["asc", "desc"], t;
     }
 
@@ -33628,7 +34100,7 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = P()(R.a.mark(function e(t) {
+      value: (t = A()(R.a.mark(function e(t) {
         var a,
             n,
             l,
@@ -33688,7 +34160,7 @@ module.exports = function (e) {
         var t = this,
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = this.state.allowOnlyAZ;
-        n && (e = (e = e.replace(/[^a-zA-Z- ]/gim, "")).trim()), this.setState({
+        n && (e = (e = e.replace(/[^a-zA-Z ]/gim, "")).trim()), this.setState({
           plainValue: e
         }, function () {
           var e = t.state.plainValue;
@@ -33703,8 +34175,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             i = t.id,
-            r = t.props,
-            s = t.suggestions,
+            s = t.props,
+            r = t.suggestions,
             o = t.plainValue,
             c = t.placeholder,
             u = t.inputType;
@@ -33723,7 +34195,7 @@ module.exports = function (e) {
             return e.handleKeyDown(t);
           },
           id: i
-        }, r)), "" !== o && s && 0 !== s.length && b.createElement("div", {
+        }, s)), "" !== o && r && 0 !== r.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
           className: "ul",
@@ -33735,15 +34207,15 @@ module.exports = function (e) {
           ref: function ref(t) {
             return e.suggestionsHolder = t;
           }
-        }, s.map(function (t) {
+        }, r.map(function (t) {
           var a = t.href,
               n = t.props,
               i = t.jsx,
-              r = t.onClickValue;
+              s = t.onClickValue;
           return b.createElement("li", {
             key: M(),
             onClick: function onClick() {
-              return e.setInputValue(r, !0);
+              return e.setInputValue(s, !0);
             }
           }, b.createElement("a", l()({
             href: a
@@ -33804,20 +34276,20 @@ module.exports = function (e) {
           overflow: "hidden"
         },
         uuid: "".concat(E()),
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        data: e.data && s()([]) == s()(e.data) ? e.data : [],
         clipboard: e.clipboard,
-        animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
       }, n;
     }
 
     return u()(a, [{
       key: "copyToClipboardAction",
       value: function value(e) {
-        this.clipboardNode && (r()([]) == r()(e) && (e = JSON.stringify(e)), this.clipboardNode.value = e, this.clipboardNode.select(), document.execCommand("copy"), this.clipboardNode.value = "");
+        this.clipboardNode && (s()([]) == s()(e) && (e = JSON.stringify(e)), this.clipboardNode.value = e, this.clipboardNode.select(), document.execCommand("copy"), this.clipboardNode.value = "");
       }
     }, {
       key: "copyToClipboard",
@@ -33829,14 +34301,14 @@ module.exports = function (e) {
             i = a.animation;
 
         if (this.copyToClipboardAction(n), i && this.clipboardNodeForAnimation) {
-          var r = "animation-".concat(i);
-          if (this.clipboardNodeForAnimation.classList.add(r), "scale" == i) return setTimeout(function () {
-            i && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove(r);
+          var s = "animation-".concat(i);
+          if (this.clipboardNodeForAnimation.classList.add(s), "scale" == i) return setTimeout(function () {
+            i && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove(s);
           }, 500);
           if ("jump" == i) return setTimeout(function () {
-            t.clipboardNodeForAnimation.classList.add("".concat(r, "-back"));
+            t.clipboardNodeForAnimation.classList.add("".concat(s, "-back"));
           }, 200), setTimeout(function () {
-            i && t.clipboardNodeForAnimation && (t.clipboardNodeForAnimation.classList.remove(r), t.clipboardNodeForAnimation.classList.remove("".concat(r, "-back")));
+            i && t.clipboardNodeForAnimation && (t.clipboardNodeForAnimation.classList.remove(s), t.clipboardNodeForAnimation.classList.remove("".concat(s, "-back")));
           }, 400);
         }
 
@@ -33851,8 +34323,8 @@ module.exports = function (e) {
             n = t.data,
             l = t.defaultClass,
             i = t.id,
-            r = t.formStyle,
-            s = t.uuid;
+            s = t.formStyle,
+            r = t.uuid;
         return C.a.createElement("div", {
           ref: function ref(t) {
             return e.clipboardNodeForAnimation = t;
@@ -33863,12 +34335,12 @@ module.exports = function (e) {
             return e.copyToClipboard(t);
           }
         }, n, C.a.createElement("form", {
-          style: r
+          style: s
         }, C.a.createElement("textarea", {
           ref: function ref(t) {
             return e.clipboardNode = t;
           },
-          id: s,
+          id: r,
           value: "",
           readOnly: !0
         })));
@@ -33877,11 +34349,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "callback", "data", "clipboard"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-          data: e.data && r()([]) == r()(e.data) ? e.data : [],
+          data: e.data && s()([]) == s()(e.data) ? e.data : [],
           clipboard: e.clipboard
         } : null;
       }
@@ -33923,23 +34395,23 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: (e.defaultClass && (r()("8"), r()(e.defaultClass)), n.getDefaultClass(e)),
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        animation: r()("8") === r()(e.animation) ? e.animation.toLowerCase() : "",
-        data: e.data && r()([]) === r()(e.data) ? e.data : [],
-        display: r()(!0) === r()(e.display) && e.display,
-        displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: (e.defaultClass && (s()("8"), s()(e.defaultClass)), n.getDefaultClass(e)),
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
+        data: e.data && s()([]) === s()(e.data) ? e.data : [],
+        display: s()(!0) === s()(e.display) && e.display,
+        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
         iconClose: e.iconClose ? e.iconClose : "",
-        inputActive: r()(!0) === r()(e.inputActive) && e.inputActive,
-        noDataText: e.noDataText && r()("8") === r()(e.noDataText) ? e.noDataText : "No data found",
-        inputPlaceholder: e.inputPlaceholder && r()("8") === r()(e.inputPlaceholder) ? e.inputPlaceholder : "Search here...",
+        inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
+        noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
+        placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-        closeOnCallback: r()(!0) === r()(e.closeOnCallback) && e.closeOnCallback,
-        closeOnDimmedClick: r()(!0) === r()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-        closeOnEsc: r()(!0) === r()(e.closeOnEsc) && e.closeOnEsc,
-        inputEmptyOnCallback: r()(!0) === r()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+        closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
+        closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+        closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
+        inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
       }, n;
     }
 
@@ -33963,7 +34435,7 @@ module.exports = function (e) {
       value: function value(e) {
         var t = e.defaultClass,
             a = e.animation;
-        return r()("8") === r()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && r()("8") == r()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
+        return s()("8") === s()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && s()("8") == s()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
       }
     }, {
       key: "componentDidUpdate",
@@ -33997,8 +34469,8 @@ module.exports = function (e) {
             n = a.defaultClass,
             l = a.callbackClose,
             i = a.closeOnDimmedClick,
-            r = a.closeOnCallback,
-            s = a.inputEmptyOnCallback,
+            s = a.closeOnCallback,
+            r = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
@@ -34010,9 +34482,9 @@ module.exports = function (e) {
           setTimeout(function () {
             l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
-              display: !r,
-              inputValue: s ? "" : o,
-              filteredData: s ? [] : c
+              display: !s,
+              inputValue: r ? "" : o,
+              filteredData: r ? [] : c
             });
           }, d);
         });
@@ -34024,15 +34496,15 @@ module.exports = function (e) {
             n = a.closeOnCallback,
             l = a.inputEmptyOnCallback,
             i = a.inputValue,
-            r = a.filteredData,
-            s = this.props.callback;
+            s = a.filteredData,
+            r = this.props.callback;
 
-        if (s && "function" == typeof s) {
-          if (s(e, t), n) return this.callbackClose();
+        if (r && "function" == typeof r) {
+          if (r(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
             inputValue: l ? "" : i,
-            filteredData: l ? [] : r
+            filteredData: l ? [] : s
           });
         }
       }
@@ -34081,14 +34553,14 @@ module.exports = function (e) {
             n = t.defaultClass,
             l = t.iconClose,
             i = t.data,
-            r = t.display,
-            s = t.filteredData,
+            s = t.display,
+            r = t.filteredData,
             o = t.inputActive,
             c = t.inputValue,
             u = t.noDataText,
-            d = t.inputPlaceholder,
+            d = t.placeholder,
             f = t.id;
-        return r ? C.a.createElement("div", {
+        return s ? C.a.createElement("div", {
           ref: function ref(t) {
             return e.FullSceenListNode = t;
           },
@@ -34114,30 +34586,30 @@ module.exports = function (e) {
           }
         }), C.a.createElement("ul", {
           className: "ul"
-        }, 0 !== s.length && this.buildListJsx(s), 0 === s.length && 0 !== c.length && C.a.createElement("div", {
+        }, 0 !== r.length && this.buildListJsx(r), 0 === r.length && 0 !== c.length && C.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(i)))) : null;
+        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(i)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          data: e.data && r()([]) === r()(e.data) ? e.data : [],
-          display: r()(!0) === r()(e.display) && e.display,
-          displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
+        return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "placeholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          data: e.data && s()([]) === s()(e.data) ? e.data : [],
+          display: s()(!0) === s()(e.display) && e.display,
+          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
           iconClose: e.iconClose ? e.iconClose : "",
-          inputActive: r()(!0) === r()(e.inputActive) && e.inputActive,
-          noDataText: e.noDataText && r()("8") === r()(e.noDataText) ? e.noDataText : "No data found",
-          inputPlaceholder: e.inputPlaceholder && r()("8") === r()(e.inputPlaceholder) ? e.inputPlaceholder : "Search here...",
-          animation: r()("8") === r()(e.animation) ? e.animation.toLowerCase() : "",
+          inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
+          noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
+          placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
+          animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-          closeOnCallback: r()(!0) === r()(e.closeOnCallback) && e.closeOnCallback,
-          closeOnDimmedClick: r()(!0) === r()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-          closeOnEsc: r()(!0) === r()(e.closeOnEsc) && e.closeOnEsc,
-          inputEmptyOnCallback: r()(!0) === r()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+          closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
+          closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+          closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
+          inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
         } : null;
       }
     }]), a;
@@ -34178,23 +34650,23 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: (e.defaultClass && (r()("8"), r()(e.defaultClass)), n.getDefaultClass(e)),
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        animation: r()("8") === r()(e.animation) ? e.animation.toLowerCase() : "",
-        data: e.data && r()([]) === r()(e.data) ? e.data : [],
-        display: r()(!0) === r()(e.display) && e.display,
-        displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: (e.defaultClass && (s()("8"), s()(e.defaultClass)), n.getDefaultClass(e)),
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
+        data: e.data && s()([]) === s()(e.data) ? e.data : [],
+        display: s()(!0) === s()(e.display) && e.display,
+        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
         iconClose: e.iconClose ? e.iconClose : "",
-        inputActive: r()(!0) === r()(e.inputActive) && e.inputActive,
-        noDataText: e.noDataText && r()("8") === r()(e.noDataText) ? e.noDataText : "No data found",
-        inputPlaceholder: e.inputPlaceholder && r()("8") === r()(e.inputPlaceholder) ? e.inputPlaceholder : "Search here...",
+        inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
+        noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
+        placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-        closeOnCallback: r()(!0) === r()(e.closeOnCallback) && e.closeOnCallback,
-        closeOnDimmedClick: r()(!0) === r()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-        closeOnEsc: r()(!0) === r()(e.closeOnEsc) && e.closeOnEsc,
-        inputEmptyOnCallback: r()(!0) === r()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+        closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
+        closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+        closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
+        inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
       }, n;
     }
 
@@ -34218,7 +34690,7 @@ module.exports = function (e) {
       value: function value(e) {
         var t = e.defaultClass,
             a = e.animation;
-        return r()("8") === r()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && r()("8") == r()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
+        return s()("8") === s()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && s()("8") == s()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
       }
     }, {
       key: "componentDidUpdate",
@@ -34252,8 +34724,8 @@ module.exports = function (e) {
             n = a.defaultClass,
             l = a.callbackClose,
             i = a.closeOnDimmedClick,
-            r = a.closeOnCallback,
-            s = a.inputEmptyOnCallback,
+            s = a.closeOnCallback,
+            r = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
@@ -34265,9 +34737,9 @@ module.exports = function (e) {
           setTimeout(function () {
             l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
-              display: !r,
-              inputValue: s ? "" : o,
-              filteredData: s ? [] : c
+              display: !s,
+              inputValue: r ? "" : o,
+              filteredData: r ? [] : c
             });
           }, d);
         });
@@ -34279,15 +34751,15 @@ module.exports = function (e) {
             n = a.closeOnCallback,
             l = a.inputEmptyOnCallback,
             i = a.inputValue,
-            r = a.filteredData,
-            s = this.props.callback;
+            s = a.filteredData,
+            r = this.props.callback;
 
-        if (s && "function" == typeof s) {
-          if (s(e, t), n) return this.callbackClose();
+        if (r && "function" == typeof r) {
+          if (r(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
             inputValue: l ? "" : i,
-            filteredData: l ? [] : r
+            filteredData: l ? [] : s
           });
         }
       }
@@ -34336,14 +34808,14 @@ module.exports = function (e) {
             n = t.defaultClass,
             l = t.iconClose,
             i = t.data,
-            r = t.display,
-            s = t.filteredData,
+            s = t.display,
+            r = t.filteredData,
             o = t.inputActive,
             c = t.inputValue,
             u = t.noDataText,
-            d = t.inputPlaceholder,
+            d = t.placeholder,
             f = t.id;
-        return r ? C.a.createElement("div", {
+        return s ? C.a.createElement("div", {
           ref: function ref(t) {
             return e.FullSceenListNode = t;
           },
@@ -34369,30 +34841,30 @@ module.exports = function (e) {
           }
         }), C.a.createElement("ul", {
           className: "ul"
-        }, 0 !== s.length && this.buildListJsx(s), 0 === s.length && 0 !== c.length && C.a.createElement("div", {
+        }, 0 !== r.length && this.buildListJsx(r), 0 === r.length && 0 !== c.length && C.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(i)))) : null;
+        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(i)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          data: e.data && r()([]) === r()(e.data) ? e.data : [],
-          display: r()(!0) === r()(e.display) && e.display,
-          displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
+        return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "placeholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          data: e.data && s()([]) === s()(e.data) ? e.data : [],
+          display: s()(!0) === s()(e.display) && e.display,
+          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
           iconClose: e.iconClose ? e.iconClose : "",
-          inputActive: r()(!0) === r()(e.inputActive) && e.inputActive,
-          noDataText: e.noDataText && r()("8") === r()(e.noDataText) ? e.noDataText : "No data found",
-          inputPlaceholder: e.inputPlaceholder && r()("8") === r()(e.inputPlaceholder) ? e.inputPlaceholder : "Search here...",
-          animation: r()("8") === r()(e.animation) ? e.animation.toLowerCase() : "",
+          inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
+          noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
+          placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
+          animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-          closeOnCallback: r()(!0) === r()(e.closeOnCallback) && e.closeOnCallback,
-          closeOnDimmedClick: r()(!0) === r()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-          closeOnEsc: r()(!0) === r()(e.closeOnEsc) && e.closeOnEsc,
-          inputEmptyOnCallback: r()(!0) === r()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+          closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
+          closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+          closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
+          inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
         } : null;
       }
     }]), a;
@@ -34437,19 +34909,18 @@ module.exports = function (e) {
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).closeClick = n.closeClick.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.fadeOut = n.fadeOut.bind(f()(n)), n.state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        closeOnClick: r()(!0) != r()(e.closeOnClick) || e.closeOnClick,
-        closeOnEsc: r()(!0) != r()(e.closeOnEsc) || e.closeOnEsc,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        closeOnClick: s()(!0) != s()(e.closeOnClick) || e.closeOnClick,
+        closeOnEsc: s()(!0) != s()(e.closeOnEsc) || e.closeOnEsc,
         data: e.data ? e.data : "",
-        animation: r()(!0) != r()(e.animation) || e.animation,
-        animationType: e.animationType && r()("8") == r()(e.animationType) ? e.animationType : "",
-        closeCallback: "function" == typeof e.closeCallback ? e.closeCallback : void 0,
-        display: r()(!0) == r()(e.display) && e.display,
+        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : "",
+        callbackClose: "function" == typeof e.callbackClose ? e.callbackClose : void 0,
+        display: s()(!0) == s()(e.display) && e.display,
         iconClose: e.iconClose ? e.iconClose : void 0,
-        dimmed: r()(!0) != r()(e.dimmed) || e.dimmed,
-        disableScroll: r()(!0) != r()(e.disableScroll) || e.disableScroll
+        dimmed: s()(!0) == s()(e.dimmed) && e.dimmed,
+        disableScroll: s()(!0) == s()(e.disableScroll) && e.disableScroll
       }, n.animationBack = !1, n;
     }
 
@@ -34480,7 +34951,7 @@ module.exports = function (e) {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
-          var t = this.state.closeCallback;
+          var t = this.state.callbackClose;
           t && "function" == typeof t && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
@@ -34490,7 +34961,7 @@ module.exports = function (e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             a = this.state,
             n = a.closeOnClick,
-            l = a.closeCallback;
+            l = a.callbackClose;
         (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
@@ -34498,7 +34969,7 @@ module.exports = function (e) {
       value: function value() {
         var e = this,
             t = this.state,
-            a = t.closeCallback,
+            a = t.callbackClose,
             n = t.animation ? 300 : 0;
         this.animationBack = !0, this.setState({}, function () {
           setTimeout(function () {
@@ -34511,10 +34982,9 @@ module.exports = function (e) {
       value: function value() {
         var e = this.state,
             t = e.animation,
-            a = e.animationType,
-            n = e.defaultClass,
-            l = this.animationBack ? "back" : "";
-        return t && ("scale" == a && (n = "".concat(n, " rr-full-screen-overlay-scale")), "left" == a && (n = "".concat(n, " rr-full-screen-overlay-left")), "top" == a && (n = "".concat(n, " rr-full-screen-overlay-top")), "right" == a && (n = "".concat(n, " rr-full-screen-overlay-right")), "bottom" == a && (n = "".concat(n, " rr-full-screen-overlay-bottom"))), "".concat(n, " ").concat(l);
+            a = e.defaultClass,
+            n = this.animationBack ? "back" : "";
+        return t && ("scale" == t && (a = "".concat(a, " rr-full-screen-overlay-scale")), "left" == t && (a = "".concat(a, " rr-full-screen-overlay-left")), "top" == t && (a = "".concat(a, " rr-full-screen-overlay-top")), "right" == t && (a = "".concat(a, " rr-full-screen-overlay-right")), "bottom" == t && (a = "".concat(a, " rr-full-screen-overlay-bottom"))), "".concat(a, " ").concat(n);
       }
     }, {
       key: "render",
@@ -34525,18 +34995,18 @@ module.exports = function (e) {
             n = t.display,
             l = t.iconClose,
             i = t.data,
-            r = t.dimmed,
-            s = t.id,
+            s = t.dimmed,
+            r = t.id,
             o = this.getDefaultClass();
         return n ? b.createElement("div", {
           className: "".concat(o, " ").concat(a),
-          id: s
+          id: r
         }, l && b.createElement("div", {
           className: "icon-close",
           onClick: function onClick(t) {
             return e.closeClick(t, !0);
           }
-        }, l), r && b.createElement("div", {
+        }, l), s && b.createElement("div", {
           className: "close-area",
           onClick: function onClick(t) {
             return e.closeClick(t);
@@ -34551,20 +35021,19 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["defaultClass", "id", "disableScroll", "closeCallback", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          closeOnClick: r()(!0) != r()(e.closeOnClick) || e.closeOnClick,
-          closeOnEsc: r()(!0) != r()(e.closeOnEsc) || e.closeOnEsc,
+        return k(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          closeOnClick: s()(!0) != s()(e.closeOnClick) || e.closeOnClick,
+          closeOnEsc: s()(!0) != s()(e.closeOnEsc) || e.closeOnEsc,
           data: e.data ? e.data : "",
-          animation: r()(!0) != r()(e.animation) || e.animation,
-          animationType: e.animationType && r()("8") == r()(e.animationType) ? e.animationType : "",
-          closeCallback: "function" == typeof e.closeCallback ? e.closeCallback : void 0,
-          display: r()(!0) == r()(e.display) && e.display,
+          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : "",
+          callbackClose: "function" == typeof e.callbackClose ? e.callbackClose : void 0,
+          display: s()(!0) == s()(e.display) && e.display,
           iconClose: e.iconClose ? e.iconClose : void 0,
-          dimmed: r()(!0) != r()(e.dimmed) || e.dimmed,
-          disableScroll: r()(!0) != r()(e.disableScroll) || e.disableScroll
+          dimmed: s()(!0) != s()(e.dimmed) || e.dimmed,
+          disableScroll: s()(!0) != s()(e.disableScroll) || e.disableScroll
         } : null;
       }
     }]), a;
@@ -34606,12 +35075,12 @@ module.exports = function (e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).checkLocation = n.checkLocation.bind(f()(n)), n.state = {
         messagesApp: [],
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        messageKey: e.messageKey && r()("8") == r()(e.messageKey) ? e.messageKey : "",
-        codeMapping: e.codeMapping && r()({}) === r()(e.codeMapping) ? e.codeMapping : {},
-        timer: e.timer && r()(888) == r()(e.timer) ? e.timer : 2500
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        messageKey: e.messageKey && s()("8") == s()(e.messageKey) ? e.messageKey : "",
+        codeMapping: e.codeMapping && s()({}) === s()(e.codeMapping) ? e.codeMapping : {},
+        timer: e.timer && s()(888) == s()(e.timer) ? e.timer : 2500
       }, n.removeMessage = n.removeMessage.bind(f()(n)), n.setIntervaller = n.setIntervaller.bind(f()(n)), n.href = window.location.href, n;
     }
 
@@ -34668,7 +35137,7 @@ module.exports = function (e) {
             e.clearStore(!1);
 
             for (var n = function n(t) {
-              a[t].unique = "".concat(E()), a[t].disappear && r()(8) == r()(a[t].disappear) && setTimeout(function () {
+              a[t].unique = "".concat(E()), a[t].disappear && s()(8) == s()(a[t].disappear) && setTimeout(function () {
                 e.setState({
                   messagesApp: e.state.messagesApp.filter(function (e) {
                     return a[t].unique !== e.unique;
@@ -34702,16 +35171,16 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.codeMapping,
             i = t.messagesApp,
-            s = t.defaultClass,
+            r = t.defaultClass,
             o = t.id,
             c = Object.getOwnPropertyNames(n);
         return C.a.createElement("div", {
-          className: "".concat(s, " ").concat(a),
+          className: "".concat(r, " ").concat(a),
           id: o
         }, i.map(function (t) {
           var a = t.errorCode,
               i = t.errorMessage,
-              s = t.unique;
+              r = t.unique;
 
           if (a = JSON.stringify(a), c.includes(a) && void 0 !== n[a]) {
             var o = n[a],
@@ -34723,19 +35192,19 @@ module.exports = function (e) {
                 v = {},
                 m = {},
                 g = {};
-            return f && r()({}) === r()(f) && f.props && r()({}) === r()(f.props) && (v = f.props), h && r()({}) === r()(h) && h.props && r()({}) === r()(h.props) && (m = h.props), p && r()({}) === r()(p) && p.props && r()({}) === r()(p.props) && (g = p.props), C.a.createElement("div", {
+            return f && s()({}) === s()(f) && f.props && s()({}) === s()(f.props) && (v = f.props), h && s()({}) === s()(h) && h.props && s()({}) === s()(h.props) && (m = h.props), p && s()({}) === s()(p) && p.props && s()({}) === s()(p.props) && (g = p.props), C.a.createElement("div", {
               className: "single-error",
               key: E()
-            }, u && r()("000") === r()(u) && C.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && r()({}) === r()(u) && C.a.createElement("h1", null, u, " ".concat(d ? a : "")), C.a.createElement("div", l()({
+            }, u && s()("000") === s()(u) && C.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && s()({}) === s()(u) && C.a.createElement("h1", null, u, " ".concat(d ? a : "")), C.a.createElement("div", l()({
               className: "text"
             }, v), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(i ? "".concat(i, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), C.a.createElement("div", {
               className: "options"
             }, C.a.createElement("div", l()({
               onClick: function onClick(t) {
-                return e.removeMessage(s);
+                return e.removeMessage(r);
               },
               className: "single-option"
-            }, g), "".concat(p.text ? "".concat(p.text, " ") : "")), h && r()({}) === r()(h) && h.text && r()("000") === r()(h.text) && C.a.createElement("div", {
+            }, g), "".concat(p.text ? "".concat(p.text, " ") : "")), h && s()({}) === s()(h) && h.text && s()("000") === s()(h.text) && C.a.createElement("div", {
               className: "single-option"
             }, C.a.createElement("a", l()({
               rel: "noopener noreferrer",
@@ -34840,15 +35309,15 @@ module.exports = function (e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
         icons: ee,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        iconsType: e.iconsType && r()("8") == r()(e.iconsType) ? e.iconsType : "Smileys",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-icons",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        iconsType: e.iconsType && s()("8") == s()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-        renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : te,
-        translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
-        custom: e.custom && r()([]) == r()(e.custom) ? e.custom : void 0
+        displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
+        renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : te,
+        translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
+        custom: e.custom && s()([]) == s()(e.custom) ? e.custom : void 0
       }, n;
     }
 
@@ -34859,10 +35328,10 @@ module.exports = function (e) {
             t = e.custom,
             a = e.icons,
             n = 0;
-        t && r()([]) == r()(t) && t.length && (t.map(function (e) {
+        t && s()([]) == s()(t) && t.length && (t.map(function (e) {
           var t = e.title,
               l = e.data;
-          t && r()("8") == r()(t) && l && r()([]) == r()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
+          t && s()("8") == s()(t) && l && s()([]) == s()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
         }), n && this.setState({
           icons: a
         }));
@@ -34889,33 +35358,33 @@ module.exports = function (e) {
             n = t.id,
             l = t.defaultClass,
             i = t.icons,
-            r = t.displayTabs,
-            s = t.iconsType,
+            s = t.displayTabs,
+            r = t.iconsType,
             o = t.renderItems,
             c = t.translations;
         return C.a.createElement("div", {
           className: "".concat(l, " ").concat(a),
           id: n
-        }, r && C.a.createElement("div", {
+        }, s && C.a.createElement("div", {
           className: "tabs"
         }, o.map(function (t, a) {
           if (void 0 !== i[t]) {
             var n = i[t].title,
                 l = i[t].title;
             c && void 0 !== c[t] && (l = c[t]);
-            var r = s == n ? "single-tab active" : "single-tab";
-            return a == o.length - 1 && (r += " single-tab-last"), C.a.createElement("div", {
-              className: r,
+            var s = r == n ? "single-tab active" : "single-tab";
+            return a == o.length - 1 && (s += " single-tab-last"), C.a.createElement("div", {
+              className: s,
               key: M(),
               onClick: function onClick() {
                 return e.changeTab(n);
               }
             }, l);
           }
-        })), s && void 0 !== i[s] && void 0 !== i[s].data && C.a.createElement("div", {
+        })), r && void 0 !== i[r] && void 0 !== i[r].data && C.a.createElement("div", {
           key: M(),
           className: "content"
-        }, i[s].data.map(function (t) {
+        }, i[r].data.map(function (t) {
           return C.a.createElement("span", {
             className: "single-icon",
             key: M(),
@@ -34929,14 +35398,14 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-icons",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-          displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-          renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : te,
-          translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
-          custom: e.custom && r()({}) == r()(e.custom) ? e.custom : void 0
+          displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
+          renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : te,
+          translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
+          custom: e.custom && s()({}) == s()(e.custom) ? e.custom : void 0
         } : null;
       }
     }]), a;
@@ -34976,19 +35445,19 @@ module.exports = function (e) {
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.onFocus = t.onFocus.bind(f()(t)), t.onBlur = t.onBlur.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEnter = t.callbackEnter.bind(f()(t)), t.setFocus = t.setFocus.bind(f()(t)), t.state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
-        defaultClassOrigin: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        plainValue: e.value && r()("8") == r()(e.value) ? e.value : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
+        defaultClassOrigin: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        inputType: e.type && r()("8") == r()(e.type) ? e.type : "text",
-        props: e.props && r()({}) == r()(e.props) ? e.props : {},
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        animatePlaceholder: r()(!0) != r()(e.animatePlaceholder) || e.animatePlaceholder,
+        inputType: e.type && s()("8") == s()(e.type) ? e.type : "text",
+        props: e.props && s()({}) == s()(e.props) ? e.props : {},
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        animatePlaceholder: s()(!0) != s()(e.animatePlaceholder) || e.animatePlaceholder,
         onEnter: e.onEnter && "function" == typeof e.onEnter ? e.onEnter : void 0,
-        allowOnlyAZ: r()(!0) == r()(e.allowOnlyAZ) && e.allowOnlyAZ,
-        getValueFromCallback: r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback
+        allowOnlyAZ: s()(!0) == s()(e.allowOnlyAZ) && e.allowOnlyAZ,
+        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback
       }, t;
     }
 
@@ -35023,7 +35492,7 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = P()(R.a.mark(function e() {
+      value: (t = A()(R.a.mark(function e() {
         var t,
             a,
             n,
@@ -35046,7 +35515,7 @@ module.exports = function (e) {
                 return e.next = 6, this.props.callback(t);
 
               case 6:
-                n = e.sent, r()("8") == r()(n) && this.setState({
+                n = e.sent, s()("8") == s()(n) && this.setState({
                   plainValue: n
                 }), e.next = 12;
                 break;
@@ -35111,7 +35580,7 @@ module.exports = function (e) {
         var t = this,
             a = this.state.getValueFromCallback,
             n = e.target.value;
-        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z- ]/gim, "")).trim()), a ? (this.callback(n), this.setFocus()) : this.setState({
+        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z ]/gim, "")).trim()), a ? (this.callback(n), this.setFocus()) : this.setState({
           plainValue: n
         }, function () {
           t.callback(), t.setFocus();
@@ -35125,13 +35594,13 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.animatePlaceholder,
             i = t.placeholder,
-            r = t.id,
-            s = t.defaultClass,
+            s = t.id,
+            r = t.defaultClass,
             o = t.inputType,
             c = t.props,
             u = t.plainValue;
         return b.createElement("div", {
-          className: "".concat(s, " ").concat(a)
+          className: "".concat(r, " ").concat(a)
         }, n && b.createElement("div", {
           className: "font-input title"
         }, i), "textarea" == o && b.createElement("textarea", l()({
@@ -35144,7 +35613,7 @@ module.exports = function (e) {
             return e.setValue(t);
           },
           placeholder: n ? "" : i,
-          id: r
+          id: s
         }, c)), "textarea" !== o && b.createElement("input", l()({
           className: "font-input",
           onFocus: this.onFocus,
@@ -35161,15 +35630,15 @@ module.exports = function (e) {
             return e.inputNode = t;
           },
           placeholder: n ? "" : i,
-          id: r
+          id: s
         }, c)));
       }
     }]), n;
   }(b.Component),
       ie = a(12),
-      re = a.n(ie);
+      se = a.n(ie);
 
-  function se(e) {
+  function re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35197,7 +35666,7 @@ module.exports = function (e) {
 
   var oe = function (e) {
     h()(a, e);
-    var t = se(a);
+    var t = re(a);
 
     function a(e) {
       var n;
@@ -35214,18 +35683,18 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
         allowedFileSize: e.allowedFileSize,
         allowedFileSizeDescriptor: e.sizeDescriptor,
         allowedFiles: e.allowedFiles,
-        label: e.label && r()("8") == r()(e.label) ? e.label : "",
+        label: e.label && s()("8") == s()(e.label) ? e.label : "",
         readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
         errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
         errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-        multiple: r()(!0) == r()(e.multiple) && e.multiple
+        multiple: s()(!0) == s()(e.multiple) && e.multiple
       }, n;
     }
 
@@ -35246,8 +35715,8 @@ module.exports = function (e) {
           var i = e[l];
 
           try {
-            var r = i.type;
-            this.validateObjectValues(i) && a && a(i, r);
+            var s = i.type;
+            this.validateObjectValues(i) && a && a(i, s);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -35261,11 +35730,11 @@ module.exports = function (e) {
             n = e.type,
             l = this.calculatedFileSize(a),
             i = this.state,
-            r = i.allowedFileSize,
-            s = i.allowedFiles,
+            s = i.allowedFileSize,
+            r = i.allowedFiles,
             o = i.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= s && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -35323,8 +35792,8 @@ module.exports = function (e) {
             a = this.state,
             n = a.addClass,
             i = a.label,
-            r = a.placeholder,
-            s = a.defaultClass,
+            s = a.placeholder,
+            r = a.defaultClass,
             o = a.id,
             c = a.multiple,
             u = {
@@ -35332,7 +35801,7 @@ module.exports = function (e) {
           style: a.hiddenInputStyle
         };
         return C.a.createElement("div", {
-          className: "".concat(s, " ").concat(n)
+          className: "".concat(r, " ").concat(n)
         }, C.a.createElement("input", l()((e = {
           ref: function ref(e) {
             return t.inputNode = e;
@@ -35341,9 +35810,9 @@ module.exports = function (e) {
           onChange: function onChange(e) {
             return t.handleFileUpload(e);
           },
-          placeholder: r,
+          placeholder: s,
           id: o
-        }, re()(e, "type", "file"), re()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
+        }, se()(e, "type", "file"), se()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files",
           onClick: function onClick() {
@@ -35355,15 +35824,15 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["label", "errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "multiple"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          label: e.label && r()("8") == r()(e.label) ? e.label : "",
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          label: e.label && s()("8") == s()(e.label) ? e.label : "",
           readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
           errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-          placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
+          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
           errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-          multiple: r()(!0) == r()(e.multiple) && e.multiple
+          multiple: s()(!0) == s()(e.multiple) && e.multiple
         } : null;
       }
     }]), a;
@@ -35410,19 +35879,19 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
         allowedFileSize: e.allowedFileSize,
         allowedFileSizeDescriptor: e.sizeDescriptor,
         allowedFiles: e.allowedFiles,
         readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
         errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
         errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
         isDraggingData: e.isDraggingData,
-        multiple: r()(!0) == r()(e.multiple) && e.multiple,
-        uploadOnClick: r()(!0) == r()(e.uploadOnClick) && e.uploadOnClick
+        multiple: s()(!0) == s()(e.multiple) && e.multiple,
+        uploadOnClick: s()(!0) == s()(e.uploadOnClick) && e.uploadOnClick
       }, n.dragCounter = 0, n;
     }
 
@@ -35473,8 +35942,8 @@ module.exports = function (e) {
           var i = e[l];
 
           try {
-            var r = i.type;
-            this.validateObjectValues(i) && a && a(i, r);
+            var s = i.type;
+            this.validateObjectValues(i) && a && a(i, s);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -35488,11 +35957,11 @@ module.exports = function (e) {
             n = e.type,
             l = this.calculatedFileSize(a),
             i = this.state,
-            r = i.allowedFileSize,
-            s = i.allowedFiles,
+            s = i.allowedFileSize,
+            r = i.allowedFiles,
             o = i.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= s && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -35559,8 +36028,8 @@ module.exports = function (e) {
           var i = e[l];
 
           try {
-            var r = i.type;
-            this.validateObjectValues(i) && a && a(i, r);
+            var s = i.type;
+            this.validateObjectValues(i) && a && a(i, s);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -35574,8 +36043,8 @@ module.exports = function (e) {
             a = this.state,
             n = a.addClass,
             i = a.placeholder,
-            r = a.defaultClass,
-            s = a.id,
+            s = a.defaultClass,
+            r = a.id,
             o = a.isDragging,
             c = a.isDraggingData,
             u = a.multiple,
@@ -35586,8 +36055,8 @@ module.exports = function (e) {
           style: d
         };
         return C.a.createElement("div", {
-          className: "".concat(r, " ").concat(n),
-          id: s
+          className: "".concat(s, " ").concat(n),
+          id: r
         }, f && C.a.createElement("input", l()((e = {
           ref: function ref(e) {
             return t.inputNode = e;
@@ -35597,8 +36066,8 @@ module.exports = function (e) {
             return t.handleFileUploadInputFiled(e);
           },
           placeholder: i,
-          id: s
-        }, re()(e, "type", "file"), re()(e, "name", "files[]"), e), p)), C.a.createElement("label", {
+          id: r
+        }, se()(e, "type", "file"), se()(e, "name", "files[]"), e), p)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, C.a.createElement("div", {
@@ -35616,16 +36085,16 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
           readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
           errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-          placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
+          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
           errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
           isDraggingData: e.isDraggingData,
-          multiple: r()(!0) == r()(e.multiple) && e.multiple,
-          uploadOnClick: r()(!0) == r()(e.uploadOnClick) && e.uploadOnClick
+          multiple: s()(!0) == s()(e.multiple) && e.multiple,
+          uploadOnClick: s()(!0) == s()(e.uploadOnClick) && e.uploadOnClick
         } : null;
       }
     }]), a;
@@ -35666,21 +36135,21 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        plainValue: e.value && r()("8") == r()(e.value) ? e.value : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
-        selected: e.selected && r()([]) == r()(e.selected) ? e.selected : [],
-        suggestionsToFilter: e.suggestions && r()([]) == r()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        props: e.props && r()({}) == r()(e.props) ? e.props : {},
-        inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
-        getValueFromCallback: r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback,
-        emptySuggestionAfterSelection: r()(!0) != r()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
-        sortSelected: e.sortSelected && r()("8") == r()(e.sortSelected) ? e.sortSelected : void 0,
-        sortSuggestions: e.sortSuggestions && r()("8") == r()(e.sortSuggestions) ? e.sortSuggestions : void 0
+        selected: e.selected && s()([]) == s()(e.selected) ? e.selected : [],
+        suggestionsToFilter: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        props: e.props && s()({}) == s()(e.props) ? e.props : {},
+        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
+        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback,
+        emptySuggestionAfterSelection: s()(!0) != s()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
+        sortSelected: e.sortSelected && s()("8") == s()(e.sortSelected) ? e.sortSelected : void 0,
+        sortSuggestions: e.sortSuggestions && s()("8") == s()(e.sortSuggestions) ? e.sortSuggestions : void 0
       }, n.availableSorts = ["asc", "desc"], n;
     }
 
@@ -35745,7 +36214,7 @@ module.exports = function (e) {
         var t = this,
             a = this.state.getValueFromCallback,
             n = e.target.value;
-        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z- ]/gim, "")).trim()), a ? (this.callback(n), this.showSuggestions()) : this.setState({
+        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z ]/gim, "")).trim()), a ? (this.callback(n), this.showSuggestions()) : this.setState({
           plainValue: n
         }, function () {
           t.callback(), t.showSuggestions();
@@ -35766,12 +36235,12 @@ module.exports = function (e) {
           }
 
           if (e.length) {
-            for (var r = [], s = [], o = 0; o <= e.length - 1; o++) {
-              r.includes(e[o]) || (r.push(e[o]), s.push(o));
+            for (var s = [], r = [], o = 0; o <= e.length - 1; o++) {
+              s.includes(e[o]) || (s.push(e[o]), r.push(o));
             }
 
-            for (var c = [], u = 0; u <= s.length - 1; u++) {
-              c.push(e[s[u]]);
+            for (var c = [], u = 0; u <= r.length - 1; u++) {
+              c.push(e[r[u]]);
             }
 
             this.setState({
@@ -35792,10 +36261,10 @@ module.exports = function (e) {
             n = a.selected,
             l = a.callbackSelection,
             i = a.emptySuggestionAfterSelection,
-            r = a.sortSelected;
+            s = a.sortSelected;
         n.includes(e) ? n = n.filter(function (t) {
           return t !== e;
-        }) : n.push(e), r && this.availableSorts.includes(r) && ("asc" == r && n.sort(), "desc" == r && (n = (n = n.sort()).reverse())), l && l(n), this.setState({
+        }) : n.push(e), s && this.availableSorts.includes(s) && ("asc" == s && n.sort(), "desc" == s && (n = (n = n.sort()).reverse())), l && l(n), this.setState({
           selected: n
         }, function () {
           i && t.setState({
@@ -35839,8 +36308,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.selected,
             i = t.defaultClass,
-            r = t.id,
-            s = t.props,
+            s = t.id,
+            r = t.props,
             o = t.suggestions,
             c = t.plainValue,
             u = t.placeholder,
@@ -35872,8 +36341,8 @@ module.exports = function (e) {
           onKeyDown: function onKeyDown(t) {
             return e.handleKeyDown(t);
           },
-          id: r
-        }, s)), "" !== c && o && 0 !== o.length && b.createElement("div", {
+          id: s
+        }, r)), "" !== c && o && 0 !== o.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
           className: "ul",
@@ -35902,7 +36371,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return k(["value"], e, t) ? s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -35946,21 +36415,21 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        plainValue: e.value && r()("8") == r()(e.value) ? e.value : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
-        selected: e.selected && r()([]) == r()(e.selected) ? e.selected : [],
-        suggestionsToFilter: e.suggestions && r()([]) == r()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && r()("8") == r()(e.placeholder) ? e.placeholder : "",
-        props: e.props && r()({}) == r()(e.props) ? e.props : {},
-        inputType: e.inputType && r()("8") == r()(e.inputType) ? e.inputType : "text",
-        getValueFromCallback: r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback,
-        emptySuggestionAfterSelection: r()(!0) != r()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
-        sortSelected: e.sortSelected && r()("8") == r()(e.sortSelected) ? e.sortSelected : void 0,
-        sortSuggestions: e.sortSuggestions && r()("8") == r()(e.sortSuggestions) ? e.sortSuggestions : void 0
+        selected: e.selected && s()([]) == s()(e.selected) ? e.selected : [],
+        suggestionsToFilter: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        props: e.props && s()({}) == s()(e.props) ? e.props : {},
+        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
+        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback,
+        emptySuggestionAfterSelection: s()(!0) != s()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
+        sortSelected: e.sortSelected && s()("8") == s()(e.sortSelected) ? e.sortSelected : void 0,
+        sortSuggestions: e.sortSuggestions && s()("8") == s()(e.sortSuggestions) ? e.sortSuggestions : void 0
       }, n.availableSorts = ["asc", "desc"], n;
     }
 
@@ -36025,7 +36494,7 @@ module.exports = function (e) {
         var t = this,
             a = this.state.getValueFromCallback,
             n = e.target.value;
-        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z- ]/gim, "")).trim()), a ? (this.callback(n), this.showSuggestions()) : this.setState({
+        this.state.allowOnlyAZ && (n = (n = n.replace(/[^a-zA-Z ]/gim, "")).trim()), a ? (this.callback(n), this.showSuggestions()) : this.setState({
           plainValue: n
         }, function () {
           t.callback(), t.showSuggestions();
@@ -36046,14 +36515,14 @@ module.exports = function (e) {
           return e.text > t.text ? -1 : 1;
         })), n.length) {
           for (var i = 0; i <= a.length - 1; i++) {
-            var r = a[i].text;
-            r && -1 !== r.indexOf(n) && e.push(a[i]);
+            var s = a[i].text;
+            s && -1 !== s.indexOf(n) && e.push(a[i]);
           }
 
           if (e.length) {
-            for (var s = [], o = [], c = 0; c <= e.length - 1; c++) {
+            for (var r = [], o = [], c = 0; c <= e.length - 1; c++) {
               var u = e[c].text;
-              s.includes(u) || (s.push(e[c]), o.push(c));
+              r.includes(u) || (r.push(e[c]), o.push(c));
             }
 
             for (var d = [], f = 0; f <= o.length - 1; f++) {
@@ -36078,22 +36547,22 @@ module.exports = function (e) {
             n = a.selected,
             l = a.callbackSelection,
             i = a.emptySuggestionAfterSelection,
-            r = a.sortSelected,
-            s = e.text;
+            s = a.sortSelected,
+            r = e.text;
 
-        if (s) {
+        if (r) {
           var o = !1;
           n.map(function (e) {
             var t = e.text;
-            t && t == s && (o = !0);
+            t && t == r && (o = !0);
           }), o ? n = n.filter(function (e) {
-            return e.text !== s;
+            return e.text !== r;
           }) : n.push(e);
         }
 
-        r && this.availableSorts.includes(r) && ("asc" == r && n.sort(function (e, t) {
+        s && this.availableSorts.includes(s) && ("asc" == s && n.sort(function (e, t) {
           return e.text > t.text ? 1 : -1;
-        }), "desc" == r && n.sort(function (e, t) {
+        }), "desc" == s && n.sort(function (e, t) {
           return e.text > t.text ? -1 : 1;
         })), l && l(n), this.setState({
           selected: n
@@ -36139,8 +36608,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.selected,
             i = t.defaultClass,
-            r = t.id,
-            s = t.props,
+            s = t.id,
+            r = t.props,
             o = t.suggestions,
             c = t.plainValue,
             u = t.placeholder,
@@ -36173,8 +36642,8 @@ module.exports = function (e) {
           onKeyDown: function onKeyDown(t) {
             return e.handleKeyDown(t);
           },
-          id: r
-        }, s)), "" !== c && o && 0 !== o.length && b.createElement("div", {
+          id: s
+        }, r)), "" !== c && o && 0 !== o.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
           className: "ul",
@@ -36205,7 +36674,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return k(["value"], e, t) ? s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -36247,11 +36716,11 @@ module.exports = function (e) {
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        text: e.text && r()("8") == r()(e.text) ? e.text : "",
-        display: r()(!0) == r()(e.display) && e.display
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        text: e.text && s()("8") == s()(e.text) ? e.text : "",
+        display: s()(!0) == s()(e.display) && e.display
       }, n;
     }
 
@@ -36272,11 +36741,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "text", "display"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          text: e.text && r()("8") == r()(e.text) ? e.text : "",
-          display: r()(!0) == r()(e.display) && e.display
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          text: e.text && s()("8") == s()(e.text) ? e.text : "",
+          display: s()(!0) == s()(e.display) && e.display
         } : null;
       }
     }]), a;
@@ -36317,14 +36786,14 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.buildData = n.buildData.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.state = {
         dataJsx: [],
         loading: !1,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        data: e.data && s()([]) == s()(e.data) ? e.data : [],
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
-        minify: r()(8) == r()(e.minify) ? e.minify : 0,
-        scrollReference: r()(!0) != r()(e.scrollReference) || e.scrollReference
+        minify: s()(8) == s()(e.minify) ? e.minify : 0,
+        scrollReference: s()(!0) != s()(e.scrollReference) || e.scrollReference
       }, n;
     }
 
@@ -36355,7 +36824,7 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, P()(R.a.mark(function n() {
+        }, A()(R.a.mark(function n() {
           return R.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
@@ -36421,16 +36890,16 @@ module.exports = function (e) {
             n = t.dataJsx,
             l = t.defaultClass,
             i = t.loading,
-            r = t.loadMoreLoadingIcon,
-            s = t.id,
+            s = t.loadMoreLoadingIcon,
+            r = t.id,
             o = t.scrollReference;
         return C.a.createElement("div", {
           ref: function ref(t) {
             return e.scrollReference = t;
           },
           className: "".concat(l, " ").concat(a, " ").concat(o ? "" : "ignore"),
-          id: s
-        }, i && r, n && n.map(function (e) {
+          id: r
+        }, i && s, n && n.map(function (e) {
           return e;
         }));
       }
@@ -36438,15 +36907,15 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "data", "callback", "loadMoreLoadingIcon", "minify", "scrollReference"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          data: e.data && r()([]) == r()(e.data) ? e.data : [],
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          data: e.data && s()([]) == s()(e.data) ? e.data : [],
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
           dataJsx: t.dataJsx,
-          minify: r()(8) == r()(e.minify) ? e.minify : 0,
-          scrollReference: r()(!0) != r()(e.scrollReference) || e.scrollReference
+          minify: s()(8) == s()(e.minify) ? e.minify : 0,
+          scrollReference: s()(!0) != s()(e.scrollReference) || e.scrollReference
         } : null;
       }
     }]), a;
@@ -36488,8 +36957,8 @@ module.exports = function (e) {
         n = e && e.split("/") || [],
         l = t && t.split("/") || [],
         i = e && xe(e),
-        r = t && xe(t),
-        s = i || r;
+        s = t && xe(t),
+        r = i || s;
     if (e && xe(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
     if (l.length) {
@@ -36502,10 +36971,10 @@ module.exports = function (e) {
       "." === d ? we(l, u) : ".." === d ? (we(l, u), c++) : c && (we(l, u), c--);
     }
 
-    if (!s) for (; c--; c) {
+    if (!r) for (; c--; c) {
       l.unshift("..");
     }
-    !s || "" === l[0] || l[0] && xe(l[0]) || l.unshift("");
+    !r || "" === l[0] || l[0] && xe(l[0]) || l.unshift("");
     var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
@@ -36566,8 +37035,8 @@ module.exports = function (e) {
       var a, n;
       Le(this, t);
 
-      for (var l = arguments.length, i = Array(l), r = 0; r < l; r++) {
-        i[r] = arguments[r];
+      for (var l = arguments.length, i = Array(l), s = 0; s < l; s++) {
+        i[s] = arguments[s];
       }
 
       return a = n = Te(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
@@ -36609,10 +37078,10 @@ module.exports = function (e) {
       Ee()(this.context.router, "You should not use <Link> outside a <Router>"), Ee()(void 0 !== t, 'You must specify the "to" property');
       var l = this.context.router.history,
           i = "string" == typeof t ? Oe(t, null, null, l.location) : t,
-          r = l.createHref(i);
+          s = l.createHref(i);
       return C.a.createElement("a", Ne({}, n, {
         onClick: this.handleClick,
-        href: r,
+        href: s,
         ref: a
       }));
     }, t;
@@ -36635,9 +37104,9 @@ module.exports = function (e) {
       }).isRequired
     }).isRequired
   };
-  var Pe = Fe;
+  var Ae = Fe;
 
-  function Ae(e) {
+  function Pe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36665,17 +37134,17 @@ module.exports = function (e) {
 
   var Ie = function (e) {
     h()(a, e);
-    var t = Ae(a);
+    var t = Pe(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        data: e.data && r()([]) == r()(e.data) ? S(e.data) : [],
-        reactRouter: r()(!0) == r()(e.reactRouter) && e.reactRouter,
-        animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
+        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
+        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
       }, n;
     }
 
@@ -36687,7 +37156,7 @@ module.exports = function (e) {
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = this.state,
             i = n.reactRouter,
-            s = (n.dropDown, []);
+            r = (n.dropDown, []);
         if (t && t.length) for (var o = function o(n) {
           var o = t[n],
               c = o.text,
@@ -36697,10 +37166,10 @@ module.exports = function (e) {
               p = o.classList,
               h = o.href,
               v = o.icon;
-          h && r()("8") == r()(h) && (h = h.toLowerCase());
+          h && s()("8") == s()(h) && (h = h.toLowerCase());
           var m = t[n].data ? t[n].data : [],
               g = !!t[n].data;
-          p || (p = ""), f && r()(f) === r()({}) || (f = {});
+          p || (p = ""), f && s()(f) === s()({}) || (f = {});
 
           try {
             Object.keys(f);
@@ -36709,7 +37178,7 @@ module.exports = function (e) {
           }
 
           var y = "";
-          i && m && 0 == m.length && (y = C.a.createElement(Pe, {
+          i && m && 0 == m.length && (y = C.a.createElement(Ae, {
             to: h,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
@@ -36726,7 +37195,7 @@ module.exports = function (e) {
             onClick: function onClick() {
               return e.toggle(d, g);
             }
-          }, v && v, c)), s.push(C.a.createElement("div", l()({
+          }, v && v, c)), r.push(C.a.createElement("div", l()({
             key: E(),
             className: "single-entry ".concat(p, " ").concat(m && 0 !== m.length ? "parent" : "")
           }, f), y, u && m && 0 !== m.length && C.a.createElement("div", {
@@ -36735,7 +37204,7 @@ module.exports = function (e) {
         }, c = 0; c <= t.length - 1; c++) {
           o(c);
         }
-        return s;
+        return r;
       }
     }, {
       key: "toggle",
@@ -36745,32 +37214,32 @@ module.exports = function (e) {
             n = this.state.animation,
             l = 0;
         ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function i(s) {
-          if (s && s.length) {
+        return function i(r) {
+          if (r && r.length) {
             var o = function o(_o2) {
-              var c = s[_o2].unique,
-                  u = s[_o2].data;
+              var c = r[_o2].unique,
+                  u = r[_o2].data;
 
               if (c == e) {
-                0 == !s[_o2].toggled && n && (l = 300);
+                0 == !r[_o2].toggled && n && (l = 300);
 
                 var d = function d() {
-                  s[_o2].toggled = !s[_o2].toggled, s[_o2].classList = s[_o2].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
-                    s[_o2].classList = s[_o2].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
+                  r[_o2].toggled = !r[_o2].toggled, r[_o2].classList = r[_o2].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
+                    r[_o2].classList = r[_o2].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
                   }, 300);
                 };
 
-                return 0 == !s[_o2].toggled ? (s[_o2].classList = "".concat(s[_o2].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
+                return 0 == !r[_o2].toggled ? (r[_o2].classList = "".concat(r[_o2].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
                   v: t.setState({
                     data: a
                   }, d)
                 }) : (d(), "break");
               }
 
-              u && r()([]) == r()(u) && 0 !== u.length && i(u);
+              u && s()([]) == s()(u) && 0 !== u.length && i(u);
             };
 
-            e: for (var c = 0; c <= s.length - 1; c++) {
+            e: for (var c = 0; c <= r.length - 1; c++) {
               var u = o(c);
 
               switch (u) {
@@ -36778,7 +37247,7 @@ module.exports = function (e) {
                   break e;
 
                 default:
-                  if ("object" === r()(u)) return u.v;
+                  if ("object" === s()(u)) return u.v;
               }
             }
           }
@@ -36811,12 +37280,12 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "data", "reactRouter", "animation"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e["class"] && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          data: e.data && r()([]) == r()(e.data) ? S(e.data) : [],
-          reactRouter: r()(!0) == r()(e.reactRouter) && e.reactRouter,
-          animation: e.animation && r()("8") == r()(e.animation) ? e.animation : void 0
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e["class"] && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
+          reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
+          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
@@ -36857,12 +37326,13 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
         isMinified: !1,
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-table-key-value",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        title: e.title && r()({}) == r()(e.title) ? e.title : void 0,
-        data: e.data && r()([]) == r()(e.data) ? e.data : void 0,
-        mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-table",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        title: e.title && s()({}) == s()(e.title) ? e.title : void 0,
+        data: e.data && s()([]) == s()(e.data) ? e.data : void 0,
+        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0,
+        keysToRead: e.keysToRead && s()([]) == s()(e.keysToRead) ? e.keysToRead : void 0
       }, n;
     }
 
@@ -36896,36 +37366,42 @@ module.exports = function (e) {
             t = e.data,
             a = e.isMinified,
             n = e.title,
-            l = [],
-            i = "".concat(a ? "flex-column isMinified" : "flex-row");
+            l = e.keysToRead,
+            i = [],
+            r = "".concat(a ? "flex-column isMinified" : "flex-row");
 
         if (t && t.length) {
           if (n) {
-            var s = n.left,
-                o = n.right;
-            s && r()("8") == r()(s) && o && r()("8") == r()(o) && l.push(C.a.createElement("li", {
+            var o = n.left,
+                c = n.right;
+            o && s()("8") == s()(o) && c && s()("8") == s()(c) && i.push(C.a.createElement("li", {
               key: E(),
-              className: "".concat(i, " title")
+              className: "".concat(r, " title")
             }, C.a.createElement("span", {
               className: "key"
-            }, s), C.a.createElement("span", {
+            }, o), C.a.createElement("span", {
               className: "value"
-            }, o)));
+            }, c)));
           }
 
           t.map(function (e) {
-            var t = e.key,
-                a = e.value;
-            l.push(C.a.createElement("li", {
-              key: E(),
-              className: i
-            }, C.a.createElement("span", {
-              className: "key"
-            }, t), C.a.createElement("span", {
-              className: "value"
-            }, a)));
+            if (l && l.length) {
+              var t = [];
+              l.map(function (a, n) {
+                if (void 0 !== e[a]) {
+                  var l = e[a] ? e[a] : "";
+                  t.push(C.a.createElement("span", {
+                    key: E(),
+                    className: "span span-".concat(n + 1)
+                  }, l));
+                }
+              }), t && t.length && (i.push(C.a.createElement("li", {
+                key: E(),
+                className: r
+              }, t)), t = []);
+            }
           }), this.setState({
-            dataJsx: l
+            dataJsx: i
           });
         }
       }
@@ -36947,13 +37423,15 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["addClass", "defaultClass", "id", "data", "mediaBreak", "title"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-table-key-value",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          title: e.title && r()({}) == r()(e.title) ? e.title : void 0,
-          data: e.data && r()([]) == r()(e.data) ? e.data : void 0,
-          mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0
+        return k(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-table",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          title: e.title && s()({}) == s()(e.title) ? e.title : void 0,
+          data: e.data && s()([]) == s()(e.data) ? e.data : void 0,
+          mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0,
+          keysToRead: e.keysToRead && s()([]) == s()(e.keysToRead) ? e.keysToRead : void 0,
+          dataJsx: t.dataJsx
         } : null;
       }
     }]), a;
@@ -36994,17 +37472,17 @@ module.exports = function (e) {
       return o()(this, a), (n = t.call(this, e)).setText = n.setText.bind(f()(n)), n.state = {
         written: [],
         uuid: "".concat(E()),
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
         text: e.text && e.text.length ? e.text : "",
-        speed: e.speed && r()(8) == r()(e.speed) ? e.speed : 300,
-        pipeDisplay: r()(!0) != r()(e.pipeDisplay) || e.pipeDisplay,
+        speed: e.speed && s()(8) == s()(e.speed) ? e.speed : 300,
+        pipeDisplay: s()(!0) != s()(e.pipeDisplay) || e.pipeDisplay,
         pipeChar: e.pipeChar ? e.pipeChar : "|",
-        pipeSite: e.pipeSite && r()("8") == r()(e.pipeSite) ? e.pipeSite : "right",
-        pipePersist: r()(!0) == r()(e.pipePersist) && e.pipePersist,
-        replaces: e.replaces && r()([]) == r()(e.replaces) ? e.replaces : void 0,
-        timeout: e.timeout && r()(8) == r()(e.timeout) ? e.timeout : 0
+        pipeSite: e.pipeSite && s()("8") == s()(e.pipeSite) ? e.pipeSite : "right",
+        pipePersist: s()(!0) == s()(e.pipePersist) && e.pipePersist,
+        replaces: e.replaces && s()([]) == s()(e.replaces) ? e.replaces : void 0,
+        timeout: e.timeout && s()(8) == s()(e.timeout) ? e.timeout : 0
       }, n;
     }
 
@@ -37045,16 +37523,16 @@ module.exports = function (e) {
             n = this.state,
             l = n.speed,
             i = n.pipePersist,
-            r = n.replaces,
-            s = t.split(""),
+            s = n.replaces,
+            r = t.split(""),
             o = -1;
         !function (t) {
-          a.writerInterval = setInterval(P()(R.a.mark(function n() {
+          a.writerInterval = setInterval(A()(R.a.mark(function n() {
             return R.a.wrap(function (n) {
               for (;;) {
                 switch (n.prev = n.next) {
                   case 0:
-                    return ++o > t.length - 1 && (clearInterval(a.writerInterval), r && r.length ? a.runReplacer() : setTimeout(function () {
+                    return ++o > t.length - 1 && (clearInterval(a.writerInterval), s && s.length ? a.runReplacer() : setTimeout(function () {
                       a.setState({
                         pipeDisplay: i
                       });
@@ -37071,7 +37549,7 @@ module.exports = function (e) {
               }
             }, n);
           })), l);
-        }(s);
+        }(r);
       }
     }, {
       key: "runReplacer",
@@ -37082,22 +37560,22 @@ module.exports = function (e) {
             n = t.pipePersist,
             l = t.speed,
             i = t.uuid,
-            r = 0,
-            s = function t() {
-          var s = e.state.written,
-              o = a[r],
+            s = 0,
+            r = function t() {
+          var r = e.state.written,
+              o = a[s],
               c = o.from,
               u = o.to,
               d = o.replace;
-          e.removeIntervaller = setInterval(P()(R.a.mark(function o() {
+          e.removeIntervaller = setInterval(A()(R.a.mark(function o() {
             var f, p;
             return R.a.wrap(function (o) {
               for (;;) {
                 switch (o.prev = o.next) {
                   case 0:
                     if (c > u) {
-                      for (clearInterval(e.removeIntervaller), f = [], p = 0; p <= s.length - 1; p++) {
-                        i !== s[p] && f.push(s[p]);
+                      for (clearInterval(e.removeIntervaller), f = [], p = 0; p <= r.length - 1; p++) {
+                        i !== r[p] && f.push(r[p]);
                       }
 
                       e.setState({
@@ -37105,25 +37583,25 @@ module.exports = function (e) {
                       }, function () {
                         if (d && d.length) {
                           var i = e.state.written,
-                              s = i.slice(0, c),
+                              r = i.slice(0, c),
                               o = i.slice(c, u),
                               f = i.slice(u, i.length - 1);
                           f[0] && " " == f[0] && (f[0] = "");
                           var p = -1,
                               h = d.split(""),
                               v = [];
-                          e.writerInterval = setInterval(P()(R.a.mark(function i() {
+                          e.writerInterval = setInterval(A()(R.a.mark(function i() {
                             return R.a.wrap(function (i) {
                               for (;;) {
                                 switch (i.prev = i.next) {
                                   case 0:
-                                    return ++p > h.length - 1 && (clearInterval(e.writerInterval), void 0 !== a[r += 1] ? t() : setTimeout(function () {
+                                    return ++p > h.length - 1 && (clearInterval(e.writerInterval), void 0 !== a[s += 1] ? t() : setTimeout(function () {
                                       e.setState({
                                         pipeDisplay: n
                                       });
                                     }, l)), i.next = 4, e.writerPromise(h[p]).then(function (t) {
                                       v.push(t), e.setState({
-                                        written: [].concat($()(s), v, $()(o), $()(f))
+                                        written: [].concat($()(r), v, $()(o), $()(f))
                                       });
                                     });
 
@@ -37136,8 +37614,8 @@ module.exports = function (e) {
                           })), l);
                         }
                       });
-                    } else s[u] = i, e.setState({
-                      written: s
+                    } else r[u] = i, e.setState({
+                      written: r
                     });
 
                     u -= 1;
@@ -37151,7 +37629,7 @@ module.exports = function (e) {
           })), l);
         };
 
-        s();
+        r();
       }
     }, {
       key: "render",
@@ -37162,19 +37640,19 @@ module.exports = function (e) {
             n = e.id,
             l = e.uuid,
             i = e.written,
-            r = e.pipeDisplay,
-            s = e.pipeChar,
+            s = e.pipeDisplay,
+            r = e.pipeChar,
             o = e.pipeSite;
         return C.a.createElement("span", {
           className: "".concat(a, " ").concat(t),
           id: n
-        }, "left" == o && r && C.a.createElement("span", {
+        }, "left" == o && s && C.a.createElement("span", {
           className: "pipe"
-        }, s), i.map(function (e) {
+        }, r), i.map(function (e) {
           if (l !== e) return e;
-        }), "right" == o && r && C.a.createElement("span", {
+        }), "right" == o && s && C.a.createElement("span", {
           className: "pipe"
-        }, s));
+        }, r));
       }
     }]), a;
   }(C.a.Component);
@@ -37215,14 +37693,14 @@ module.exports = function (e) {
       return n.state = {
         displayBox: !1,
         displayBoxClassNames: "box",
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
         data: e.data ? e.data : "",
         icon: e.icon ? e.icon : "",
         iconCallback: e.iconCallback && "function" == typeof e.iconCallback ? e.iconCallback : void 0,
-        animationTime: e.animationTime && r()(8) == r()(e.animationTime) ? e.animationTime : 300,
-        animationType: e.animationType && r()("8") == r()(e.animationType) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animationType) ? e.animationType : "top-left"
+        animationTime: e.animationTime && s()(8) == s()(e.animationTime) ? e.animationTime : 300,
+        animation: e.animation && s()("8") == s()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
       }, n;
     }
 
@@ -37290,8 +37768,8 @@ module.exports = function (e) {
             n = t.defaultClass,
             l = t.id,
             i = t.displayBoxClassNames,
-            r = t.animationType,
-            s = t.icon,
+            s = t.animation,
+            r = t.icon,
             o = t.displayBox,
             c = t.data;
         return C.a.createElement("span", {
@@ -37305,22 +37783,22 @@ module.exports = function (e) {
           onClick: function onClick(t) {
             return e.togglePopupBox();
           }
-        }, s), o && C.a.createElement("div", {
-          className: "".concat(i, " ").concat(r)
+        }, r), o && C.a.createElement("div", {
+          className: "".concat(i, " ").concat(s)
         }, c));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animationType"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        return k(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
           data: e.data ? e.data : "",
           icon: e.icon ? e.icon : "",
           iconCallback: e.iconCallback && "function" == typeof e.iconCallback ? e.iconCallback : void 0,
-          animationTime: e.animationTime && r()(8) == r()(e.animationTime) ? e.animationTime : 300,
-          animationType: e.animationType && r()("8") == r()(e.animationType) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animationType) ? e.animationType : "top-left"
+          animationTime: e.animationTime && s()(8) == s()(e.animationTime) ? e.animationTime : 300,
+          animation: e.animation && s()("8") == s()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
         } : null;
       }
     }]), a;
@@ -37360,15 +37838,15 @@ module.exports = function (e) {
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).state = {
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
-        moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
-        textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
-        textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0,
-        href: e.href && r()("8") == r()(e.href) ? e.href : void 0,
-        hrefProps: e.hrefProps && r()({}) == r()(e.hrefProps) ? e.hrefProps : void 0
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        image: e.image && s()({}) == s()(e.image) ? e.image : void 0,
+        moduleMenu: e.moduleMenu && s()({}) == s()(e.moduleMenu) ? e.moduleMenu : void 0,
+        textLong: e.textLong && s()("8") == s()(e.textLong) ? e.textLong : void 0,
+        textShort: e.textShort && s()("8") == s()(e.textShort) ? e.textShort : void 0,
+        href: e.href && s()("8") == s()(e.href) ? e.href : void 0,
+        hrefProps: e.hrefProps && s()({}) == s()(e.hrefProps) ? e.hrefProps : void 0
       }, n;
     }
 
@@ -37380,8 +37858,8 @@ module.exports = function (e) {
             a = e.defaultClass,
             n = e.id,
             i = e.moduleMenu,
-            r = e.image,
-            s = e.textLong,
+            s = e.image,
+            r = e.textLong,
             o = e.textShort,
             c = e.href,
             u = e.hrefProps;
@@ -37393,23 +37871,23 @@ module.exports = function (e) {
         }, c && C.a.createElement("a", l()({
           href: c,
           className: "logo-text"
-        }, u), r && C.a.createElement("div", {
+        }, u), s && C.a.createElement("div", {
           className: "logo"
-        }, r), C.a.createElement("div", {
+        }, s), C.a.createElement("div", {
           className: "text"
-        }, s && C.a.createElement("span", {
+        }, r && C.a.createElement("span", {
           className: "long"
-        }, s), o && C.a.createElement("span", {
+        }, r), o && C.a.createElement("span", {
           className: "short"
         }, o))), !c && C.a.createElement("div", {
           className: "logo-text"
-        }, r && C.a.createElement("div", {
+        }, s && C.a.createElement("div", {
           className: "logo"
-        }, r), C.a.createElement("div", {
+        }, s), C.a.createElement("div", {
           className: "text"
-        }, s && C.a.createElement("span", {
+        }, r && C.a.createElement("span", {
           className: "long"
-        }, s), o && C.a.createElement("span", {
+        }, r), o && C.a.createElement("span", {
           className: "short"
         }, o)))), i && i);
       }
@@ -37417,15 +37895,15 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          image: e.image && r()({}) == r()(e.image) ? e.image : void 0,
-          moduleMenu: e.moduleMenu && r()({}) == r()(e.moduleMenu) ? e.moduleMenu : void 0,
-          textLong: e.textLong && r()("8") == r()(e.textLong) ? e.textLong : void 0,
-          textShort: e.textShort && r()("8") == r()(e.textShort) ? e.textShort : void 0,
-          href: e.href && r()("8") == r()(e.href) ? e.href : void 0,
-          hrefProps: e.hrefProps && r()({}) == r()(e.hrefProps) ? e.hrefProps : void 0
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          image: e.image && s()({}) == s()(e.image) ? e.image : void 0,
+          moduleMenu: e.moduleMenu && s()({}) == s()(e.moduleMenu) ? e.moduleMenu : void 0,
+          textLong: e.textLong && s()("8") == s()(e.textLong) ? e.textLong : void 0,
+          textShort: e.textShort && s()("8") == s()(e.textShort) ? e.textShort : void 0,
+          href: e.href && s()("8") == s()(e.href) ? e.href : void 0,
+          hrefProps: e.hrefProps && s()({}) == s()(e.hrefProps) ? e.hrefProps : void 0
         } : null;
       }
     }]), a;
@@ -37467,20 +37945,20 @@ module.exports = function (e) {
         searchValue: "",
         plainValue: "",
         lines: [],
-        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
-        id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
-        code: e.code && r()("8") == r()(e.code) ? e.code : void 0,
-        originalCode: e.code && r()("8") == r()(e.code) ? e.code : void 0,
-        inputActive: r()(!0) == r()(e.inputActive) && e.inputActive,
-        inputPlaceholder: e.inputPlaceholder && r()("8") == r()(e.inputPlaceholder) ? e.inputPlaceholder : void 0,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
+        code: e.code && s()("8") == s()(e.code) ? e.code : void 0,
+        originalCode: e.code && s()("8") == s()(e.code) ? e.code : void 0,
+        inputActive: s()(!0) == s()(e.inputActive) && e.inputActive,
+        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : void 0,
         inputCallback: e.inputCallback && "function" == typeof e.inputCallback ? e.inputCallback : void 0,
         inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
-        loadingDisplay: r()(!0) == e.loadingDisplay && e.loadingDisplay,
+        loadingDisplay: s()(!0) == e.loadingDisplay && e.loadingDisplay,
         loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-        layout: e.layout && r()("8") == r()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
-      }, n.loadingDisplay = r()(!0) == r()(e.loadingDisplay) && e.loadingDisplay, n.isFocus = !1, n;
+        layout: e.layout && s()("8") == s()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
+      }, n.loadingDisplay = s()(!0) == s()(e.loadingDisplay) && e.loadingDisplay, n.isFocus = !1, n;
     }
 
     return u()(a, [{
@@ -37529,8 +38007,8 @@ module.exports = function (e) {
             var i = a.split("\n");
             n = n.trim();
 
-            for (var r = 0; r <= i.length - 1; r++) {
-              -1 !== i[r].indexOf(n) && l.push(i[r]);
+            for (var s = 0; s <= i.length - 1; s++) {
+              -1 !== i[s].indexOf(n) && l.push(i[s]);
             }
 
             l = l.join("\n");
@@ -37553,8 +38031,8 @@ module.exports = function (e) {
           loadingDisplay: !1
         });
 
-        for (var i = t.split("\n"), r = [], s = 0; s < i.length; s++) {
-          if (r = [], "" !== i[s]) for (var o = i[s].split(" "), c = null, u = "", d = 0; d < o.length; d++) {
+        for (var i = t.split("\n"), s = [], r = 0; r < i.length; r++) {
+          if (s = [], "" !== i[r]) for (var o = i[r].split(" "), c = null, u = "", d = 0; d < o.length; d++) {
             var f = "";
 
             if ("" !== o[d]) {
@@ -37563,16 +38041,16 @@ module.exports = function (e) {
 
               for (var h = 0; h < p.length; h++) {
                 var v = void 0 !== p[h + 1] ? p[h + 1] : void 0;
-                if ("\t" == p[h]) r.push({
+                if ("\t" == p[h]) s.push({
                   code: "\t",
                   "class": "tab"
                 });else {
                   f += p[h];
-                  var m = this.tagsMatcher(f, r, v);
+                  var m = this.tagsMatcher(f, s, v);
 
-                  if (f = m.characters, r = m.singleLineData, f.length) {
-                    var g = this.propsMatcher(f, r, v, c);
-                    f = g.characters, r = g.singleLineData, c = g.attribute;
+                  if (f = m.characters, s = m.singleLineData, f.length) {
+                    var g = this.propsMatcher(f, s, v, c);
+                    f = g.characters, s = g.singleLineData, c = g.attribute;
                   }
                 }
               }
@@ -37580,7 +38058,7 @@ module.exports = function (e) {
 
             if (f.length) {
               if (-1 !== f.indexOf("$")) {
-                r.push({
+                s.push({
                   code: f.substring(0, f.indexOf("$")),
                   "class": "no-match php"
                 });
@@ -37596,7 +38074,7 @@ module.exports = function (e) {
                   b += y[S];
                 }
 
-                b.length && r.push({
+                b.length && s.push({
                   code: b,
                   "class": "variable-dollar"
                 }), f = k ? f.substring(k, y.length) : "", u = "php";
@@ -37604,18 +38082,18 @@ module.exports = function (e) {
 
               if (-1 !== f.indexOf("(") && -1 !== f.indexOf(")")) {
                 var x = f.substring(0, f.indexOf("("));
-                r.push({
+                s.push({
                   code: x,
                   "class": "functionName"
                 });
                 var w = f.substring(x.length + 1, f.indexOf(")"));
-                r.push({
+                s.push({
                   code: "(",
                   "class": "bracket bracket-left"
-                }), r.push({
+                }), s.push({
                   code: w,
                   "class": "functionArguments"
-                }), r.push({
+                }), s.push({
                   code: ")",
                   "class": "bracket bracket-right"
                 }), f = f.substring(x.length + 1 + w.length + 1, f.length);
@@ -37623,71 +38101,71 @@ module.exports = function (e) {
 
               if (-1 !== f.indexOf("(")) {
                 var D = f.substring(0, f.indexOf("("));
-                u = "function", r.push({
+                u = "function", s.push({
                   code: D,
                   "class": "functionName"
                 });
                 var O = f.substring(D.length + 1, f.length);
-                r.push({
+                s.push({
                   code: "(",
                   "class": "bracket bracket-left"
-                }), r.push({
+                }), s.push({
                   code: O,
                   "class": "functionArguments"
                 }), f = "";
               }
 
-              if ("function" == u && (-1 !== f.indexOf("))") && (r.push({
+              if ("function" == u && (-1 !== f.indexOf("))") && (s.push({
                 code: f.substring(0, f.indexOf(")") + 1),
                 "class": "functionArguments"
-              }), r.push({
+              }), s.push({
                 code: ")",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf(")") + 2, f.length), u = ""), -1 !== f.indexOf(")") ? (r.push({
+              }), f = f.substring(f.indexOf(")") + 2, f.length), u = ""), -1 !== f.indexOf(")") ? (s.push({
                 code: f.substring(0, f.indexOf(")")),
                 "class": "functionArguments"
-              }), r.push({
+              }), s.push({
                 code: ")",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf(")") + 1, f.length), u = "") : (r.push({
+              }), f = f.substring(f.indexOf(")") + 1, f.length), u = "") : (s.push({
                 code: f,
                 "class": "functionArguments"
               }), f = "", u = "function")), -1 !== f.indexOf("{")) {
                 var N = f.substring(0, f.indexOf("{"));
-                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (r.push({
+                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (s.push({
                   code: N.substring(0, N.indexOf("=")),
                   "class": "variableName"
-                }), r.push({
+                }), s.push({
                   code: "=",
                   "class": "equal"
-                })), -1 !== f.indexOf("{") && (r.push({
+                })), -1 !== f.indexOf("{") && (s.push({
                   code: f.substring(0, f.indexOf("{")),
                   "class": "no-match"
-                }), r.push({
+                }), s.push({
                   code: "{",
                   "class": "bracket bracket-left"
-                }), f = f.substring(f.indexOf("{") + 1, f.length), u = "bracketOpen"), -1 !== f.indexOf("}") && "bracketOpen" == u && (r.push({
+                }), f = f.substring(f.indexOf("{") + 1, f.length), u = "bracketOpen"), -1 !== f.indexOf("}") && "bracketOpen" == u && (s.push({
                   code: f.substring(0, f.indexOf("}")),
                   "class": "bracketValue"
-                }), r.push({
+                }), s.push({
                   code: "}",
                   "class": "bracket bracket-right"
                 }), f = f.substring(f.indexOf("}") + 1, f.length), u = "");
               }
 
-              if (-1 !== f.indexOf("}") && (r.push({
+              if (-1 !== f.indexOf("}") && (s.push({
                 code: f.substring(0, f.indexOf("}")),
                 "class": "no-match"
-              }), r.push({
+              }), s.push({
                 code: "}",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf("}") + 1, f.length), u = ""), -1 !== f.indexOf("=") && (r.push({
+              }), f = f.substring(f.indexOf("}") + 1, f.length), u = ""), -1 !== f.indexOf("=") && (s.push({
                 code: f.substring(0, f.indexOf("=")),
                 "class": "variableName"
-              }), r.push({
+              }), s.push({
                 code: "=",
                 "class": "equal"
-              }), f = f.substring(f.indexOf("=") + 1, f.length)), ")" == f && (r.push({
+              }), f = f.substring(f.indexOf("=") + 1, f.length)), ")" == f && (s.push({
                 code: ")",
                 "class": "bracket bracket-right"
               }), f = "", u = ""), f.length) {
@@ -37697,7 +38175,7 @@ module.exports = function (e) {
                 }], T = 0; T <= L.length - 1; T++) {
                   for (var R = L[T].words, F = 0; F <= R.length - 1; F++) {
                     if (R[F] === f) {
-                      r.push({
+                      s.push({
                         code: f,
                         "class": L[T]["class"]
                       }), f = "";
@@ -37706,46 +38184,46 @@ module.exports = function (e) {
                   }
                 }
 
-                f.length && r.push({
+                f.length && s.push({
                   code: f,
                   "class": "no-match"
                 }), u = "";
               }
             }
 
-            r.push({
+            s.push({
               code: " ",
               "class": "space"
             });
           }
-          r.push({
+          s.push({
             code: "\n",
             "class": "enter"
-          }), l.push(r);
+          }), l.push(s);
         }
 
-        for (var P = [], A = 0; A < l.length; A++) {
-          for (var I = l[A], M = [], V = 0; V < I.length; V++) {
+        for (var A = [], P = 0; P < l.length; P++) {
+          for (var I = l[P], M = [], V = 0; V < I.length; V++) {
             M.push(C.a.createElement("span", {
               key: E(),
               className: I[V]["class"] ? I[V]["class"] : ""
             }, I[V].code));
           }
 
-          var B = "single-code-line single-code-line-".concat(A + 1, " ").concat(A + 1 == 1 ? " single-code-line-first" : "", " ").concat(A + 1 == l.length ? " single-code-line-last" : "");
-          P.push(C.a.createElement("li", {
+          var B = "single-code-line single-code-line-".concat(P + 1, " ").concat(P + 1 == 1 ? " single-code-line-first" : "", " ").concat(P + 1 == l.length ? " single-code-line-last" : "");
+          A.push(C.a.createElement("li", {
             key: E(),
             className: n ? "".concat(B, " flex") : B
           }, n && C.a.createElement("div", {
             className: "line-number"
-          }, A + 1), C.a.createElement("div", {
+          }, P + 1), C.a.createElement("div", {
             className: "line-code"
           }, M)));
         }
 
         this.setState({
           loadingDisplay: !1,
-          lines: P
+          lines: A
         });
       }
     }, {
@@ -37935,15 +38413,15 @@ module.exports = function (e) {
             n = t.defaultClass,
             l = t.layout,
             i = t.lines,
-            r = t.loadingDisplay,
-            s = t.loadingIcon,
+            s = t.loadingDisplay,
+            r = t.loadingIcon,
             o = t.inputActive,
-            c = t.inputPlaceholder,
+            c = t.placeholder,
             u = t.searchValue,
             d = t.id;
-        return r ? C.a.createElement("div", {
+        return s ? C.a.createElement("div", {
           className: "".concat(n, " ").concat(l)
-        }, s) : C.a.createElement("div", {
+        }, r) : C.a.createElement("div", {
           className: "".concat(n, " ").concat(l, " ").concat(a),
           id: d
         }, o && C.a.createElement("div", {
@@ -37972,18 +38450,18 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["defaultClass", "id", "displayLineNumber", "code", "inputActive", "inputPlaceholder", "inputCallback", "inputNoDataText", "loadingDisplay", "loadingIcon", "layout"], e, t) ? {
-          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
-          id: e.id && r()("8") == r()(e.id) ? e.id : "",
-          displayLineNumber: r()(!0) === r()(e.displayLineNumber) && e.displayLineNumber,
-          inputActive: r()(!0) == r()(e.inputActive) && e.inputActive,
-          inputPlaceholder: e.inputPlaceholder && r()("8") == r()(e.inputPlaceholder) ? e.inputPlaceholder : void 0,
+        return k(["defaultClass", "id", "displayLineNumber", "code", "inputActive", "placeholder", "inputCallback", "inputNoDataText", "loadingDisplay", "loadingIcon", "layout"], e, t) ? {
+          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
+          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
+          inputActive: s()(!0) == s()(e.inputActive) && e.inputActive,
+          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : void 0,
           inputCallback: e.inputCallback && "function" == typeof e.inputCallback ? e.inputCallback : void 0,
           inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
-          loadingDisplay: r()(!0) == e.loadingDisplay && e.loadingDisplay,
+          loadingDisplay: s()(!0) == e.loadingDisplay && e.loadingDisplay,
           loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-          layout: e.layout && r()("8") == r()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
+          layout: e.layout && s()("8") == s()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
         } : null;
       }
     }]), a;
@@ -38011,7 +38489,7 @@ module.exports = function (e) {
   },
       We = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = re()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = se()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -38067,10 +38545,10 @@ module.exports = function (e) {
           for (var n = e.attributes, l = 0; l <= n.length - 1; l++) {
             if (t == n[l].name && -1 !== n[l].value.indexOf(a)) {
               var i = n[l].value,
-                  r = i.indexOf(a),
-                  s = r + a.length,
-                  o = i.substring(0, r),
-                  c = i.substring(s, i.length);
+                  s = i.indexOf(a),
+                  r = s + a.length,
+                  o = i.substring(0, s),
+                  c = i.substring(r, i.length);
               n[l].value = "".concat(o).concat(c), "" === n[l].value && e.removeAttribute(t);
               break;
             }
@@ -38124,7 +38602,7 @@ module.exports = function (e) {
   }(),
       Ze = function Ze(e, t) {
     var a = new We();
-    e && r()(8) == r()(e) && a.setScrollTime(e), t && r()("8") == r()(t) && a.setScrollBehavior(t);
+    e && s()(8) == s()(e) && a.setScrollTime(e), t && s()("8") == s()(t) && a.setScrollBehavior(t);
 
     var n = function n() {
       a.scrollTop();
@@ -38192,7 +38670,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionSidebar.jsx");
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTextWriter.jsx");
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionLoadOnScroll.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTableKeyValue__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTableKeyValue.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTable.jsx");
 
 
 
@@ -38488,8 +38966,8 @@ var App = /*#__PURE__*/function (_React$Component) {
               text: 'SideBar',
               href: "".concat(host, "#/react-revolution-sidebar")
             }, {
-              text: 'TableKeyValue',
-              href: "".concat(host, "#/react-revolution-table-key-value")
+              text: 'Table',
+              href: "".concat(host, "#/react-revolution-table")
             }, {
               text: 'TextWriter',
               href: "".concat(host, "#/react-revolution-text-writer")
@@ -38710,9 +39188,9 @@ var App = /*#__PURE__*/function (_React$Component) {
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
-          path: "/react-revolution-table-key-value",
+          path: "/react-revolution-table",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTableKeyValue__WEBPACK_IMPORTED_MODULE_41__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_41__["default"], props);
           }
         }))),
         footerData: ''

@@ -2,8 +2,6 @@ import React from 'react';
 
 import uuid from '../internalFunctions/uuid';
 
-import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 class GlobalMessages extends React.Component 
 {
 

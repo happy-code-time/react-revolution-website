@@ -4,7 +4,7 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class TableKeyValue extends React.Component {
+class Table extends React.Component {
 
     constructor(props) {
         super(props);
@@ -21,11 +21,12 @@ class TableKeyValue extends React.Component {
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table-key-value',
+            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             title: (props.title && typeof {} == typeof props.title) ? props.title : undefined,
             data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
+            keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined
         };
     }
 
@@ -36,14 +37,16 @@ class TableKeyValue extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'mediaBreak', 'title'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'mediaBreak', 'title', 'keysToRead'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table-key-value',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 title: (props.title && typeof {} == typeof props.title) ? props.title : undefined,
                 data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
                 mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
+                keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined,
+                dataJsx: state.dataJsx
             };
         }
 
@@ -90,7 +93,7 @@ class TableKeyValue extends React.Component {
     }
 
     buildData() {
-        const { data, isMinified, title } = this.state;
+        const { data, isMinified, title, keysToRead } = this.state;
         const dataJsx = [];
         const clsCardsHolder = `${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
@@ -119,26 +122,45 @@ class TableKeyValue extends React.Component {
                     );
                 }
             }
-            data.map(object => {
-                const { key, value } = object;
 
-                dataJsx.push(
-                    <li 
-                        key={uuid()}
-                        className={clsCardsHolder}
-                    >
-                        <span className="key">
-                            {
-                                key
-                            }
-                        </span>
-                        <span className="value">
-                            {
-                                value
-                            }
-                        </span>
-                    </li>
-                );
+            data.map(object => {
+
+                if(keysToRead && keysToRead.length){
+                    let dataInsideJsx = [];
+
+                    keysToRead.map( (key, i) => {
+
+                        if(undefined !== object[key]){
+                            const value = object[key] ? object[key] : '';
+
+                            dataInsideJsx.push(
+                                <span 
+                                    key={uuid()}
+                                    className={`span span-${i+1}`}>
+                                    {
+                                        value
+                                    }
+                                </span>
+                            );
+                        }
+                    });
+
+                    if(dataInsideJsx && dataInsideJsx.length){
+
+                        dataJsx.push(
+                            <li 
+                                key={uuid()}
+                                className={clsCardsHolder}
+                            >
+                                {
+                                    dataInsideJsx
+                                }
+                            </li>
+                        );
+
+                        dataInsideJsx = [];
+                    }
+                }
             });
 
             this.setState({ dataJsx });
@@ -158,4 +180,4 @@ class TableKeyValue extends React.Component {
     }
 }
 
-export default TableKeyValue;
+export default Table;

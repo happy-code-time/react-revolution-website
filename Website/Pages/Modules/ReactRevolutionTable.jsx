@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { TableKeyValue, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import trans from '../../Translations/trans';
 
-const codeExample1 = `import { TableKeyValue } from 'react-revolution';
+const codeExample1 = `import { Table } from 'react-revolution';
 
-<TableKeyValue
+<Table
     mediaBreak={1024}
     title={
         {
@@ -66,7 +66,7 @@ const cssExample = `.rr-table-key-value{
     }
 }`;
 
-class ReactRevolutionTableKeyValue extends React.Component {
+class ReactRevolutionTable extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -74,7 +74,7 @@ class ReactRevolutionTableKeyValue extends React.Component {
 
         this.examples = [
             {
-                title: 'TableKeyValue',
+                title: 'Table',
                 description: '',
                 reactTextBefore: '',
                 react: codeExample1,
@@ -83,7 +83,7 @@ class ReactRevolutionTableKeyValue extends React.Component {
                 css: cssExample,
                 html: '',
                 live: (
-                    <TableKeyValue
+                    <Table
                         mediaBreak={1024}
                         title={
                             {
@@ -143,7 +143,7 @@ class ReactRevolutionTableKeyValue extends React.Component {
                 <h1 className="h1-title border-none text-center mb-4">
                     Key usage
                 </h1>
-                <TableKeyValue
+                <Table
                     mediaBreak={1024}
                     data={
                         [
@@ -159,5 +159,5 @@ class ReactRevolutionTableKeyValue extends React.Component {
     }
 };
 
-export default ReactRevolutionTableKeyValue;
+export default ReactRevolutionTable;
 

@@ -153,7 +153,7 @@ class InputSuggestionArray extends React.Component {
         let val = e.target.value;
 
         if (this.state.allowOnlyAZ) {
-            val = val.replace(/[^a-zA-Z- ]/gmi, '');
+            val = val.replace(/[^a-zA-Z ]/gmi, '');
             val = val.trim();
         }
 

@@ -1,6 +1,6 @@
 @import './globals.scss';
 
-.rr-table-key-value{
+.rr-table{
     width: calc(100% - 2px);
     height: calc(100% - 2px);
     list-style: none;
@@ -20,20 +20,5 @@
 
     li:last-child{
         border-bottom: unset;
-    }
-
-    .key,
-    .value{
-        box-sizing: border-box;
-        padding: 5px;
-    }
-    .value{
-        border-left: 1px solid $border-color;
-    }
-
-    .isMinified{
-        .value{
-            border-left: unset;
-        }
     }
 }

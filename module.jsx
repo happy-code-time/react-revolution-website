@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { TableKeyValue } from './react-revolution/public/react-revolution';
+import { Table } from './react-revolution/public/react-revolution';
 
 /**
  * Render it to the html while testing
@@ -20,7 +20,7 @@ class App extends React.Component {
 
         return (
             <span>
-              <TableKeyValue
+              <Table
                 mediaBreak={1024}
                 title={
                   {

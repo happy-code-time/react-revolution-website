@@ -39,7 +39,7 @@ import LoadOnScroll from './Modules/LoadOnScroll';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
 
-import TableKeyValue from './Modules/TableKeyValue';
+import Table from './Modules/Table';
 
 import TextWriter from './Modules/TextWriter';
 
@@ -93,7 +93,7 @@ export {
     LoadingBoxTop,
     LoadOnScroll,
     MenuClickHorizontal,
-    TableKeyValue,
+    Table,
     TextWriter,
     PopupBox,
     SideBar,

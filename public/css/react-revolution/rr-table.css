@@ -1,0 +1,1 @@
+.flex{display:flex}.flex-row{flex-direction:row}.flex-column{flex-direction:column}.rr-table{width:calc(100% - 2px);height:calc(100% - 2px);list-style:none;margin:0;padding:0;border:1px solid #dadce0;border-radius:3px}.rr-table li{display:flex;list-style:none;margin:0;box-sizing:border-box;padding:5px;border-bottom:1px solid #dadce0}.rr-table li:last-child{border-bottom:unset}
