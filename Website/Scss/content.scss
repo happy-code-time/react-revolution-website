@@ -1,8 +1,9 @@
 .Content {
-  position: relative;
+  position: absolute;
   left: $dashboard_menu-width;
   width: calc(100% - #{$dashboard_menu-width});
-  z-index:1;
+  top:0;
+  z-index:2;
 
   .head {
     width: 100%;
@@ -10,10 +11,10 @@
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;
     padding: 10px 20px;
-    position: fixed;
-    top:0;
+    position: absolute;
+    top: 0;
     left:0;
-    z-index:2;
+    z-index:3;
 
     i{
       transition-duration: $default_transition;

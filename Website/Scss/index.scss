@@ -26,14 +26,13 @@
 }
 
 #app {
-  .rr-popupbox {
-    float: right;
+  .icon-container {
+    .rr-popupbox {
+      float: right;
 
-    .popup-box-icon {
-      color: $white;
-    }
-    
-    .icon-container {
+      .popup-box-icon {
+        color: $white;
+      }
 
       .box.top-right {
         width: 250px;

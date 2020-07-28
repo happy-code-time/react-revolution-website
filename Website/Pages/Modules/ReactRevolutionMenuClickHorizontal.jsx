@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
 
@@ -172,6 +174,66 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'reactRouter',
+                                    values: 'reactRouter'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'accordion.animation'
+                                },
+                                {
+                                    key: 'data.text',
+                                    values: 'accordion.data.text'
+                                },
+                                {
+                                    key: 'data.toggled',
+                                    values: 'accordion.data.toggled'
+                                },
+                                {
+                                    key: 'data.href',
+                                    values: 'accordion.data.href'
+                                },
+                                {
+                                    key: 'data.icon',
+                                    values: 'accordion.data.icon'
+                                },
+                                {
+                                    key: 'data.props',
+                                    values: 'props'
+                                }
+                            ],
+                            'rr-menu-click-horizontal'
+                        )
+                    }
                 />
             </div>
         );

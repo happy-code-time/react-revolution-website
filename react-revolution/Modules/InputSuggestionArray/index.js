@@ -4,6 +4,10 @@ import uuid from '../../Functions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class InputSuggestionArray extends React.Component {
 
     constructor(props) {
@@ -25,6 +29,7 @@ class InputSuggestionArray extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion-array',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -43,6 +48,10 @@ class InputSuggestionArray extends React.Component {
         };
 
         this.availableSorts = ['asc', 'desc'];
+    }
+
+    componentDidMount(){
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**

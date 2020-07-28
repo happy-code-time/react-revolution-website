@@ -1,8 +1,12 @@
 import React from 'react';
 
-import { FullScreenOverlay, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
+import { Table, FullScreenOverlay, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
+
+import toggleZindex from '../../Functions/toggleZindex';
 
 const codeExample = `import { FullScreenOverlay } from 'react-revolution';
 <div
@@ -15,10 +19,9 @@ const codeExample = `import { FullScreenOverlay } from 'react-revolution';
 <FullScreenOverlay
     closeOnClick={true}
     closeOnEsc={true}
-    animation={true}
-    animationType='scale' // scale, left, top, right, bottom, 
+    animation='scale' // scale, left, top, right, bottom, 
     dimmed={true}
-    closeCallback={this.toggleOverlay}
+    callbackClose={this.toggleOverlay}
     display={this.state.display}
     disableScroll={true}
     iconClose={true}
@@ -75,9 +78,15 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
         };
     }
 
+    componentDidMount(){
+        toggleZindex(this.state.display);        
+    }
+    
     toggleOverlay() {
-        this.setState({
-            display: !this.state.display
+        this.setState({ 
+            display: !this.state.display 
+        }, () => {
+            toggleZindex(this.state.display);
         });
     }
 
@@ -110,10 +119,9 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
                     <FullScreenOverlay
                         closeOnClick={true}
                         closeOnEsc={true}
-                        animation={true}
-                        animationType='scale' // scale, left, top, right, bottom, 
+                        animation='scale' // scale, left, top, right, bottom, 
                         dimmed={true}
-                        closeCallback={this.toggleOverlay}
+                        callbackClose={this.toggleOverlay}
                         display={this.state.display}
                         disableScroll={true}
                         iconClose={true}
@@ -201,6 +209,74 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
                         clipboard={cssExample}
                     />
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'fullscreenOverlay.animation'
+                                },
+                                {
+                                    key: 'closeOnClick',
+                                    values: 'closeOnClick'
+                                },
+                                {
+                                    key: 'closeOnEsc',
+                                    values: 'closeOnEsc'
+                                },
+                                {
+                                    key: 'callbackClose',
+                                    values: 'callbackClose'
+                                },
+                                {
+                                    key: 'display',
+                                    values: 'display'
+                                },
+                                {
+                                    key: 'iconClose',
+                                    values: 'iconClose'
+                                },
+                                {
+                                    key: 'dimmed',
+                                    values: 'fullscreenoverlay.dimmed'
+                                },
+                                {
+                                    key: 'disableScroll',
+                                    values: 'disableScroll'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'fullscreenoverlay.data'
+                                },
+                            ],
+                            'rr-full-screen-overlay'
+                        )
+                    }
+                />
             </div>
         );
     }

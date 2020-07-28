@@ -41,10 +41,9 @@ class App extends React.Component {
              <FullScreenOverlay
                 closeOnClick={true}
                 closeOnEsc={true}
-                animation={true}
-                animationType='scale' // scale, left, top, right, bottom, 
+                animation='scale' // scale, left, top, right, bottom, 
                 dimmed={true}
-                closeCallback={this.toggleOverlay}
+                callbackClose={this.toggleOverlay}
                 display={visible}
                 disableScroll={true}
                 iconClose={true}

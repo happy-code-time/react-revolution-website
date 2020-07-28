@@ -6,6 +6,10 @@ import uuid from '../internalFunctions/uuid';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class Accordion extends React.Component {
 
     constructor(props) {
@@ -14,12 +18,17 @@ class Accordion extends React.Component {
         this.toggle = this.toggle.bind(this);
 
         this.state = {
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
         }
+    }
+
+    componentDidMount(){
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**

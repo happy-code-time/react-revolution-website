@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Icons, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, Icons, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { Icons } from 'react-revolution';
 
@@ -283,6 +285,66 @@ class ReactRevolutionIcons extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'iconsType',
+                                    values: 'iconsType'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'iconCallback'
+                                },
+                                {
+                                    key: 'renderItems',
+                                    values: 'renderItems'
+                                },
+                                {
+                                    key: 'translations',
+                                    values: 'translations'
+                                },
+                                {
+                                    key: 'custom',
+                                    values: 'custom'
+                                },
+                                {
+                                    key: 'custom.title',
+                                    values: 'custom.title'
+                                },
+                                {
+                                    key: 'custom.data',
+                                    values: 'custom.data'
+                                },
+                            ],
+                            'rr-icons'
+                        )
+                    }
                 />
             </div>
         );

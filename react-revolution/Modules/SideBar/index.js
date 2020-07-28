@@ -2,6 +2,10 @@ import React from 'react';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class SideBar extends React.Component {
 
   constructor(props) {
@@ -11,6 +15,7 @@ class SideBar extends React.Component {
       /**
        * User
        */
+      style: (typeof true == typeof props.style) ? props.style : true,
       addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
       defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sidebar',
       id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -21,6 +26,10 @@ class SideBar extends React.Component {
       href: (props.href && typeof '8' == typeof props.href) ? props.href : undefined,
       hrefProps: (props.hrefProps && typeof {} == typeof props.hrefProps) ? props.hrefProps : undefined,
     };
+  }
+
+  componentDidMount(){
+    loadStyle(this.state.style, this.state.defaultClass);
   }
 
   /**

@@ -6,6 +6,8 @@ import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
+
 const codeExample1 = `import { Accordion } from 'react-revolution';
 
 <Accordion
@@ -199,42 +201,51 @@ class ReactRevolutionAccordion extends React.Component {
                     mediaBreak={1024}
                     keysToRead={
                         [
-                            'key', 'type', 'default', 'value'
+                            'key', 'value', 'type', 'default'
                         ]
                     }
                     data={
-                        [
-                            {
-                                key: 'id',
-                                value: trans('id').description,
-                                type: trans('id').type,
-                                default: trans('id').default
-                            },
-                            {
-                                key: 'class',
-                                value: trans('class').description,
-                                type: trans('class').type,
-                                default: trans('class').default
-                            },
-                            {
-                                key: 'addClass',
-                                value: trans('addClass').description,
-                                type: trans('addClass').type,
-                                default: trans('addClass').default
-                            },
-                            {
-                                key: 'animation',
-                                value: trans('accordion.animation').description,
-                                type: trans('accordion.animation').type,
-                                default: trans('accordion.animation').default
-                            },
-                            {
-                                key: 'data',
-                                value: trans('accordion.data').description,
-                                type: trans('accordion.data').type,
-                                default: trans('accordion.data').default
-                            },
-                        ]
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'accordion.animation'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'accordion.data'
+                                },
+                                {
+                                    key: 'data.text',
+                                    values: 'accordion.data.text'
+                                },
+                                {
+                                    key: 'data.dataToggle',
+                                    values: 'accordion.data.dataToggle'
+                                },
+                                {
+                                    key: 'data.toggled',
+                                    values: 'accordion.data.toggled'
+                                },
+                                {
+                                    key: 'data.props',
+                                    values: 'props'
+                                }
+                            ],
+                            'rr-accordion'
+                        )
                     }
                 />
             </div>

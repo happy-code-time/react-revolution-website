@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Clipboard, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { Clipboard } from 'react-revolution';
 
@@ -149,6 +151,54 @@ class ReactRevolutionClipboard extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'callback'
+                                },
+                                {
+                                    key: 'clipboard',
+                                    values: 'clipboard'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'clipboard.animation'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'clipboard.data'
+                                },
+                            ],
+                            'rr-clipboard'
+                        )
+                    }
                 />
             </div>
         );

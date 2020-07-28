@@ -6,15 +6,22 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import trans from '../../Translations/trans';
 
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
+
 const codeExample1 = `import { Table } from 'react-revolution';
 
 <Table
     mediaBreak={1024}
     title={
-        {
-            left: 'Title',
-            right: 'Description'
-        }
+        [
+            'Title',
+            'Description'
+        ]
+    }
+    keysToRead={
+        [
+            'key', 'value'
+        ]
     }
     data={
         [
@@ -86,10 +93,15 @@ class ReactRevolutionTable extends React.Component {
                     <Table
                         mediaBreak={1024}
                         title={
-                            {
-                                left: 'Title',
-                                right: 'Description'
-                            }
+                            [
+                                'Title',
+                                'Description'
+                            ]
+                        }
+                        keysToRead={
+                            [
+                                'key', 'value'
+                            ]
                         }
                         data={
                             [
@@ -141,17 +153,52 @@ class ReactRevolutionTable extends React.Component {
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
                 <h1 className="h1-title border-none text-center mb-4">
-                    Key usage
+                    {
+                        trans('keyUsageTitle')
+                    }
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    data={
+                    title={
                         [
-                            {
-                                key: 'id',
-                                value: 'dsad asd asd sad '
-                            },
+                            'key', 'description', 'type', 'default'
                         ]
+                    }
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'title',
+                                    values: 'title'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'table.data'
+                                },
+                                {
+                                    key: 'keysToRead',
+                                    values: 'table.keysToRead'
+                                },
+                            ],
+                            'rr-table'
+                        )
                     }
                 />
             </div>

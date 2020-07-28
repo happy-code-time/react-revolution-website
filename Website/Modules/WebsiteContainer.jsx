@@ -266,8 +266,8 @@ class WebsiteContainer extends React.Component
             moduleSidebar && moduleSidebar
           }
         </div>
-        <div className={contentClassNames}>
-          <div className={`head ${headerClassName}`}>
+        <div id="Content" className={contentClassNames}>
+          <div id="Head" className={`head ${headerClassName}`}>
             {
               displayMinifyMaxifyIcon && 
               <i onClick={e => this.sideBar()} className="fas fa-bars minify-menu" />

@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { TextWriter, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, TextWriter, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { TextWriter } from 'react-revolution';
 <TextWriter
@@ -171,6 +173,91 @@ class ReactRevolutionTextWriter extends React.Component {
                         clipboard={codeExample2}
                     />
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    title={
+                        [
+                            'key', 'description', 'type', 'default'
+                        ]
+                    }
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'text',
+                                    values: 'writer.text'
+                                },
+                                {
+                                    key: 'speed',
+                                    values: 'speed'
+                                },
+                                {
+                                    key: 'pipeDisplay',
+                                    values: 'pipeDisplay'
+                                },
+                                {
+                                    key: 'pipeChar',
+                                    values: 'pipeChar'
+                                },
+                                {
+                                    key: 'pipeSite',
+                                    values: 'pipeSite'
+                                },
+                                {
+                                    key: 'pipePersist',
+                                    values: 'pipePersist'
+                                },
+                                {
+                                    key: 'replaces',
+                                    values: 'replaces'
+                                },
+                                {
+                                    key: 'timeout',
+                                    values: 'writer.timeout'
+                                },
+                                {
+                                    key: 'replaces',
+                                    values: 'replaces'
+                                },
+                                {
+                                    key: 'replaces.from',
+                                    values: 'replaces.from'
+                                },
+                                {
+                                    key: 'replaces.to',
+                                    values: 'replaces.to'
+                                },
+                                {
+                                    key: 'replaces.replace',
+                                    values: 'replaces.replace'
+                                },
+                            ],
+                            'rr-text-writer'
+                        )
+                    }
+                />
             </div>
         );
     }

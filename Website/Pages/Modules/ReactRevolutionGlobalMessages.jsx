@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { GlobalMessages, addGlobalMessage, SourceCode, Clipboard, uuid } from '../../../react-revolution/public/react-revolution';
+import { Table, GlobalMessages, addGlobalMessage, SourceCode, Clipboard, uuid } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
 
@@ -342,6 +344,102 @@ class ReactRevolutionGlobalMessages extends React.Component
                         clipboard={``}
                     />
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'messageKey',
+                                    values: 'messageKey'
+                                },
+                                {
+                                    key: 'timer',
+                                    values: 'timer'
+                                },
+                                {
+                                    key: 'codeMapping',
+                                    values: 'codeMapping'
+                                },
+                                {
+                                    key: 'title',
+                                    values: 'codeMapping.title'
+                                },
+                                {
+                                    key: 'displayErrorCode',
+                                    values: 'codeMapping.displayErrorCode'
+                                },
+                                {
+                                    key: 'text',
+                                    values: 'codeMapping.text'
+                                },
+                                {
+                                    key: 'text.prefix',
+                                    values: 'codeMapping.text.prefix'
+                                },
+                                {
+                                    key: 'text.suffix',
+                                    values: 'codeMapping.text.suffix'
+                                },
+                                {
+                                    key: 'text.props',
+                                    values: 'codeMapping.text.props'
+                                },
+                                {
+                                    key: 'close',
+                                    values: 'codeMapping.close'
+                                },
+                                {
+                                    key: 'close.text',
+                                    values: 'codeMapping.close.text'
+                                },
+                                {
+                                    key: 'close.props',
+                                    values: 'codeMapping.close.props'
+                                },
+                                {
+                                    key: 'link',
+                                    values: 'codeMapping.link'
+                                },
+                                {
+                                    key: 'link.text',
+                                    values: 'codeMapping.link.text'
+                                },
+                                {
+                                    key: 'link.useTagLink',
+                                    values: 'codeMapping.link.useTagLink'
+                                },
+                                {
+                                    key: 'link.href',
+                                    values: 'codeMapping.link.href'
+                                },
+                            ],
+                            'rr-global-messages'
+                        )
+                    }
+                />
             </div>
         );
     }

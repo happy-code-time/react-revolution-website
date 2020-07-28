@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Cards, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, Cards, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample = `import { Cards } from 'react-revolution';
 
@@ -141,6 +143,66 @@ class ReactRevolutionCards extends React.Component {
                     callback={this.LoadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'itemsPerLine',
+                                    values: 'itemsPerLine'
+                                },
+                                {
+                                    key: 'mediaBreak',
+                                    values: 'mediaBreak'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'cards.data'
+                                },
+                                {
+                                    key: 'data.title',
+                                    values: 'cards.data.title'
+                                },
+                                {
+                                    key: 'data.content',
+                                    values: 'cards.data.content'
+                                },
+                                {
+                                    key: 'data.footer',
+                                    values: 'cards.data.footer'
+                                },
+                                {
+                                    key: 'data.props',
+                                    values: 'props'
+                                }
+                            ],
+                            'rr-cards'
+                        )
+                    }
                 />
             </div>
         );

@@ -91,16 +91,18 @@ class App extends React.Component {
     };
 
     this.href = window.location.href;
+    this.locationCheck = '';
   }
 
   componentDidMount() {
-    scrollTopListener(300);
+    scrollTopListener(0);
     this.setOnClickEvent();
     this.changeSidebarMinifiedState();
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.checkLocation);
+    clearInterval(this.locationCheck);
   }
 
   /**
@@ -110,6 +112,11 @@ class App extends React.Component {
   setOnClickEvent() {
     document.removeEventListener('click', this.checkLocation);
     document.addEventListener('click', this.checkLocation);
+    clearInterval(this.locationCheck);
+
+    this.locationCheck = setInterval( () => {
+      this.checkLocation();
+    }, 2000);
   }
 
   /**
@@ -204,7 +211,8 @@ class App extends React.Component {
         persistUserSelection={false} // set local sotrage on click
         clearPersistUserSelection={true} // do not remove the local storage on component did mount
         sidebarMinifiedAt={720}
-        sidebarMaxifiedAt={1024}
+        ignoreMinify={true} // ignore to render the small (60px width menu on resize)
+        sidebarMaxifiedAt={720}
         displayMinifyMaxifyIcon={true}
         minify={minifySidebard}
         moduleSidebar={
@@ -343,100 +351,98 @@ class App extends React.Component {
         }
         headerClassName={''}
         headerData={
-          <span>
-            <span className="icon-container">
-              <PopupBox
-                defaultClass={false}
-                id={false}
-                animationTime={300}
-                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-                icon={
-                  <i className='fas fa-globe-europe popup-box-icon'></i>
-                }
-                data={
-                  <span>
-                    <h1 className="ellipsis">
-                      <i className='fas fa-globe-europe' />
+          <span className="icon-container">
+            <PopupBox
+              defaultClass={false}
+              id={false}
+              animationTime={300}
+              animation='top-right' // top-left, top-right, bottom-left, bottom-right
+              icon={
+                <i className='fas fa-globe-europe popup-box-icon'></i>
+              }
+              data={
+                <span>
+                  <h1 className="ellipsis">
+                    <i className='fas fa-globe-europe' />
+                    {
+                      trans('changeLanguageTitle')
+                    }
+                  </h1>
+                  <ul>
+                    {
+                      possibleLanguagesLong.map(language => {
+                        return (
+                          <li className="ellipsis" key={uuid()} onClick={() => this.setLanguage(language)}>
+                            {
+                              language
+                            }
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                </span>
+              }
+            />
+            <PopupBox
+              defaultClass={false}
+              id={false}
+              animationTime={300}
+              animation='top-right' // top-left, top-right, bottom-left, bottom-right
+              icon={
+                <i className='fas fa-tint popup-box-icon'></i>
+              }
+              data={
+                <span>
+                  <h1 className="ellipsis">
+                    <i className='fas fa-tint' />
+                    {
+                      trans('changeTintTitle')
+                    }
+                  </h1>
+                  <ul>
+                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('light')}>
                       {
-                        trans('changeLanguageTitle')
+                        trans('lightTheme')
                       }
-                    </h1>
-                    <ul>
+                    </li>
+                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('dark')}>
                       {
-                        possibleLanguagesLong.map(language => {
-                          return (
-                            <li className="ellipsis" key={uuid()} onClick={() => this.setLanguage(language)}>
-                              {
-                                language
-                              }
-                            </li>
-                          )
-                        })
+                        trans('darkTheme')
                       }
-                    </ul>
-                  </span>
-                }
-              />
-              <PopupBox
-                defaultClass={false}
-                id={false}
-                animationTime={300}
-                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-                icon={
-                  <i className='fas fa-tint popup-box-icon'></i>
-                }
-                data={
-                  <span>
-                    <h1 className="ellipsis">
-                      <i className='fas fa-tint' />
-                      {
-                        trans('changeTintTitle')
-                      }
-                    </h1>
-                    <ul>
-                      <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('light')}>
-                        {
-                          trans('lightTheme')
-                        }
-                      </li>
-                      <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('dark')}>
-                        {
-                          trans('darkTheme')
-                        }
-                      </li>
-                    </ul>
-                  </span>
-                }
-              />
-              <PopupBox
-                defaultClass={false}
-                id={false}
-                animationTime={300}
-                animationType='top-right' // top-left, top-right, bottom-left, bottom-right
-                icon={
-                  <i className='fas fa-search popup-box-icon'></i>
-                }
-                data={
-                  <span>
-                    <h1 className="ellipsis">
-                      <i className='fas fa-search' />
-                      {
-                        trans('searchForModule')
-                      }
-                    </h1>
-                    <CustomSuggestion
-                      placeholder={`${trans('searchForModule')}`}
-                      suggestions={suggestions}
-                      callback={this.searchForModule}
-                      callbackRerender={true}
-                      value={inputValue}
-                      inputProps={{}}
-                      type='text'
-                    />
-                  </span>
-                }
-              />
-            </span>
+                    </li>
+                  </ul>
+                </span>
+              }
+            />
+            <PopupBox
+              defaultClass={false}
+              id={false}
+              animationTime={300}
+              animation='top-right' // top-left, top-right, bottom-left, bottom-right
+              icon={
+                <i className='fas fa-search popup-box-icon'></i>
+              }
+              data={
+                <span>
+                  <h1 className="ellipsis">
+                    <i className='fas fa-search' />
+                    {
+                      trans('searchForModule')
+                    }
+                  </h1>
+                  <CustomSuggestion
+                    placeholder={`${trans('searchForModule')}`}
+                    suggestions={suggestions}
+                    callback={this.searchForModule}
+                    callbackRerender={true}
+                    value={inputValue}
+                    inputProps={{}}
+                    type='text'
+                  />
+                </span>
+              }
+            />
           </span>
         }
         contentData={

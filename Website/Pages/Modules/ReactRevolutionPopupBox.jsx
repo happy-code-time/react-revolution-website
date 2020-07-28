@@ -1,17 +1,19 @@
 import React from 'react';
 
-import { PopupBox, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, PopupBox, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { PopupBox } from 'react-revolution';
 
 <div className="rr-revolution-popupbox-example">
     <PopupBox
         animationTime={300}
-        animationType='top-left' // top-left, top-right, bottom-left, bottom-right
+        animation='top-left' // top-left, top-right, bottom-left, bottom-right
         icon={
             <i className='fas fa-user-secret'></i>
         }
@@ -30,7 +32,7 @@ const codeExample2 = `import { PopupBox } from 'react-revolution';
 <div className="rr-revolution-popupbox-example">
     <PopupBox
         animationTime={300}
-        animationType='bottom-left' // top-left, top-right, bottom-left, bottom-right
+        animation='bottom-left' // top-left, top-right, bottom-left, bottom-right
         icon={
             <i className='fas fa-user-secret'></i>
         }
@@ -49,7 +51,7 @@ const codeExample3 = `import { PopupBox } from 'react-revolution';
 <div className="rr-revolution-popupbox-example">
     <PopupBox
         animationTime={300}
-        animationType='top-right' // top-left, top-right, bottom-left, bottom-right
+        animation='top-right' // top-left, top-right, bottom-left, bottom-right
         icon={
             <i className='fas fa-user-secret'></i>
         }
@@ -68,7 +70,7 @@ const codeExample4 = `import { PopupBox } from 'react-revolution';
 <div className="rr-revolution-popupbox-example">
     <PopupBox
         animationTime={300}
-        animationType='bottom-right' // top-left, top-right, bottom-left, bottom-right
+        animation='bottom-right' // top-left, top-right, bottom-left, bottom-right
         icon={
             <i className='fas fa-user-secret'></i>
         }
@@ -124,7 +126,7 @@ class ReactRevolutionPopupBox extends React.Component {
                     <div className="rr-revolution-popupbox-example">
                         <PopupBox
                             animationTime={300}
-                            animationType='top-left' // top-left, top-right, bottom-left, bottom-right
+                            animation='top-left' // top-left, top-right, bottom-left, bottom-right
                             icon={
                                 <i className='fas fa-user-secret'></i>
                             }
@@ -152,7 +154,7 @@ class ReactRevolutionPopupBox extends React.Component {
                     <div className="rr-revolution-popupbox-example">
                         <PopupBox
                             animationTime={300}
-                            animationType='bottom-left' // top-left, top-right, bottom-left, bottom-right
+                            animation='bottom-left' // top-left, top-right, bottom-left, bottom-right
                             icon={
                                 <i className='fas fa-user-secret'></i>
                             }
@@ -180,7 +182,7 @@ class ReactRevolutionPopupBox extends React.Component {
                     <div className="rr-revolution-popupbox-example">
                         <PopupBox
                             animationTime={300}
-                            animationType='top-right' // top-left, top-right, bottom-left, bottom-right
+                            animation='top-right' // top-left, top-right, bottom-left, bottom-right
                             icon={
                                 <i className='fas fa-user-secret'></i>
                             }
@@ -208,7 +210,7 @@ class ReactRevolutionPopupBox extends React.Component {
                     <div className="rr-revolution-popupbox-example">
                         <PopupBox
                             animationTime={300}
-                            animationType='bottom-right' // top-left, top-right, bottom-left, bottom-right
+                            animation='bottom-right' // top-left, top-right, bottom-left, bottom-right
                             icon={
                                 <i className='fas fa-user-secret'></i>
                             }
@@ -251,6 +253,58 @@ class ReactRevolutionPopupBox extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'popupbox.animation'
+                                },
+                                {
+                                    key: 'animationTime',
+                                    values: 'animationTime'
+                                },
+                                {
+                                    key: 'icon',
+                                    values: 'icon'
+                                },
+                                {
+                                    key: 'iconCallback',
+                                    values: 'iconCallback'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'popupbox.data'
+                                },
+                            ],
+                            'rr-popupbox'
+                        )
+                    }
                 />
             </div>
         );

@@ -4,6 +4,10 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class LoadOnScroll extends React.Component {
 
     constructor(props) {
@@ -22,10 +26,11 @@ class LoadOnScroll extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-load-on-scroll',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            data: props.data && typeof [] == typeof props.data ? props.data : [],
+            data: props.data && typeof [] == typeof props.data ? props.data : '',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             loadMoreLoadingIcon: props.loadMoreLoadingIcon ? props.loadMoreLoadingIcon : '',
             minify: typeof 8 == typeof props.minify ? props.minify : 0,
@@ -45,7 +50,7 @@ class LoadOnScroll extends React.Component {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-load-on-scroll',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: props.data && typeof [] == typeof props.data ? props.data : [],
+                data: props.data && typeof [] == typeof props.data ? props.data : '',
                 callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
                 loadMoreLoadingIcon: props.loadMoreLoadingIcon ? props.loadMoreLoadingIcon : '',
                 dataJsx: state.dataJsx,
@@ -72,6 +77,7 @@ class LoadOnScroll extends React.Component {
         }
 
         this.buildData(data);
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     componentWillUnmount(){

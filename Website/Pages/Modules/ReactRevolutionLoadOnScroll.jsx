@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { LoadOnScroll, LoadingBoxTop, uuid } from '../../../react-revolution/public/react-revolution';
+import { Table, LoadOnScroll, LoadingBoxTop, uuid } from '../../../react-revolution/public/react-revolution';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample = `import { LoadOnScroll, LoadingBoxTop, uuid } from 'react-revolution';
 
@@ -194,6 +196,59 @@ class ReactRevolutionLoadOnScroll extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'loadonscroll.data'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'loadMoreCallback'
+                                },
+
+                                {
+                                    key: 'loadMoreLoadingIcon',
+                                    values: 'loadMoreLoadingIcon'
+                                },
+                                {
+                                    key: 'minify',
+                                    values: 'minify'
+                                },
+                                {
+                                    key: 'scrollReference',
+                                    values: 'scrollReference'
+                                },
+                            ],
+                            'rr-load-on-scroll'
+                        )
+                    }
                 />
             </div>
         );

@@ -2,6 +2,10 @@ import React from 'react';
 
 import uuid from '../internalFunctions/uuid';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class TextWriter extends React.Component {
 
     constructor(props) {
@@ -17,6 +21,7 @@ class TextWriter extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-text-writer',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -37,6 +42,8 @@ class TextWriter extends React.Component {
         setTimeout( () => {
             this.setText(written, text);
         }, timeout);
+
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     writerPromise(char) {

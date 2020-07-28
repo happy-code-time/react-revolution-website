@@ -1,8 +1,12 @@
 import React from 'react';
 
-import { FullScreenListArray, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
+import { Table, FullScreenListArray, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
+
+import toggleZindex from '../../Functions/toggleZindex';
 
 const codeExample = `import { FullScreenListArray } from 'react-revolution';
 
@@ -74,6 +78,10 @@ class ReactRevolutionFullScreenListArray extends React.Component {
         };
     }
 
+    componentDidMount(){
+        toggleZindex(this.state.display);        
+    }
+    
     callback(clickEvent, choosedValue) {
         this.setState({ 
             choosedValue 
@@ -81,7 +89,11 @@ class ReactRevolutionFullScreenListArray extends React.Component {
     }
 
     toggleList() {
-        this.setState({ display: !this.state.display });
+        this.setState({ 
+            display: !this.state.display 
+        }, () => {
+            toggleZindex(this.state.display);
+        });
     }
 
     render() {
@@ -190,6 +202,95 @@ class ReactRevolutionFullScreenListArray extends React.Component {
                         />
                     </span>
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'animation',
+                                    values: 'fullscreenOverlay.animation'
+                                },
+
+                                {
+                                    key: 'display',
+                                    values: 'display'
+                                },
+                                {
+                                    key: 'displayLineNumber',
+                                    values: 'displayLineNumber'
+                                },
+                                {
+                                    key: 'iconClose',
+                                    values: 'iconClose'
+                                },
+                                {
+                                    key: 'inputActive',
+                                    values: 'inputActive'
+                                },
+                                {
+                                    key: 'noDataText',
+                                    values: 'noDataText'
+                                },
+                                {
+                                    key: 'placeholder',
+                                    values: 'placeholder'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'listarray.callback'
+                                },
+                                {
+                                    key: 'callbackClose',
+                                    values: 'callbackClose'
+                                },
+                                {
+                                    key: 'closeOnCallback',
+                                    values: 'closeOnCallback'
+                                },
+                                {
+                                    key: 'closeOnDimmedClick',
+                                    values: 'closeOnDimmedClick'
+                                },
+                                {
+                                    key: 'closeOnEsc',
+                                    values: 'closeOnEsc'
+                                },
+                                {
+                                    key: 'inputEmptyOnCallback',
+                                    values: 'inputEmptyOnCallback'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'listarray.data'
+                                },
+                            ],
+                            'rr-fullscreenlist'
+                        )
+                    }
+                />
             </div>
         );
     }

@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { addGlobalMessage, GlobalMessages, InputFileDragDrop, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, addGlobalMessage, GlobalMessages, InputFileDragDrop, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { InputFileDragDrop } from 'react-revolution';
 
@@ -226,6 +228,78 @@ class ReactRevolutionInputFileDragDrop extends React.Component {
                             }
                         },
                     }}
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'allowedFileSize',
+                                    values: 'allowedFileSize'
+                                },
+                                {
+                                    key: 'allowedFileSizeDescriptor',
+                                    values: 'allowedFileSizeDescriptor'
+                                },
+                                {
+                                    key: 'allowedFiles',
+                                    values: 'allowedFiles'
+                                },
+                                {
+                                    key: 'readFileCallback',
+                                    values: 'readFileCallback'
+                                },
+                                {
+                                    key: 'errorCallback',
+                                    values: 'errorCallback'
+                                },
+                                {
+                                    key: 'placeholder',
+                                    values: 'placeholder'
+                                },
+                                {
+                                    key: 'errorCallbackCustomData',
+                                    values: 'errorCallbackCustomData'
+                                },
+                                {
+                                    key: 'multiple',
+                                    values: 'multiple'
+                                },
+                                {
+                                    key: 'isDraggingData',
+                                    values: 'isDraggingData'
+                                },
+                                {
+                                    key: 'uploadOnClick',
+                                    values: 'uploadOnClick'
+                                },
+                            ],
+                            'rr-input-file'
+                        )
+                    }
                 />
             </div>
         );

@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { CustomSuggestion, LoadOnScroll, LoadingBoxTop, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
+import { Table, CustomSuggestion, LoadOnScroll, LoadingBoxTop, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { CustomSuggestion } from 'react-revolution';
 
@@ -399,6 +401,91 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                         />
                     </span>
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'plainValue',
+                                    values: 'plainValue'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'customsuggestion.callback'
+                                },
+                                {
+                                    key: 'placeholder',
+                                    values: 'placeholder'
+                                },
+                                {
+                                    key: 'props',
+                                    values: 'props'
+                                },
+                                {
+                                    key: 'inputType',
+                                    values: 'inputType'
+                                },
+                                {
+                                    key: 'allowOnlyAZ',
+                                    values: 'allowOnlyAZ'
+                                },
+                                {
+                                    key: 'callbackRerender',
+                                    values: 'callbackRerender'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'customsuggestion.callback'
+                                },
+                                {
+                                    key: 'suggestions',
+                                    values: 'customsuggestion.suggestions'
+                                },
+                                {
+                                    key: 'suggestions.href',
+                                    values: 'customsuggestion.suggestions.href'
+                                },
+
+                                {
+                                    key: 'suggestions.jsx',
+                                    values: 'customsuggestion.suggestions.jsx'
+                                },
+                                {
+                                    key: 'suggestions.props',
+                                    values: 'customsuggestion.suggestions.props'
+                                },
+                                {
+                                    key: 'suggestions.onClickValue',
+                                    values: 'customsuggestion.suggestions.onClickValue'
+                                },
+                            ],
+                            'rr-custom-suggestion'
+                        )
+                    }
+                />
             </div>
         );
     }

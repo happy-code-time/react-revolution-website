@@ -11,7 +11,7 @@
   overflow: hidden;
   transition-duration: $default_transition;
   background-color: $white;
-  z-index: 3;
+  z-index: 2;
 
   .title-logo {
     width: 100%;
@@ -65,7 +65,7 @@
 
 .SideBar.SideBar-min:hover {
   width: $dashboard_menu-width;
-  z-index: 2;
+  z-index: 3;
 
   .drop-down {
     opacity: 1;
@@ -85,5 +85,5 @@
   width: $dashboard_menu-width;
   left: 0px;
   background-color:$white;
-  z-index: 2;
+  z-index: 3;
 }

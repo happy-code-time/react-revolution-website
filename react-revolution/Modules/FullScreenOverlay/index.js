@@ -6,6 +6,10 @@ import disableHtmlScroll from '../../Functions/disableHtmlScroll';
 
 import enableHtmlScroll from '../../Functions/enableHtmlScroll';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class FullScreenOverlay extends React.Component {
 
     constructor(props) {
@@ -18,6 +22,7 @@ class FullScreenOverlay extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-full-screen-overlay',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -72,6 +77,8 @@ class FullScreenOverlay extends React.Component {
         if(display && disableScroll){
             disableHtmlScroll();
         }
+
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     componentWillUnmount(){
@@ -189,7 +196,7 @@ class FullScreenOverlay extends React.Component {
                 }
                 {
                     dimmed &&
-                    <div className="close-area" onClick={(e) => this.closeClick(e)}></div>
+                    <div className="dimmed" onClick={(e) => this.closeClick(e)}></div>
                 }
                 <div ref={ node => this.contentReference = node } className="content">
                     {

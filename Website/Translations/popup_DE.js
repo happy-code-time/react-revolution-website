@@ -33,7 +33,7 @@ const DE = {
     "id": {
         "description": 'Setzte eine id für das Root Element dieses Modules.',
         "type": 'String',
-        "default": '<empty string>'
+        "default": '<leere Zeichenfolge>'
     },
     "class": {
         "description": 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
@@ -43,7 +43,12 @@ const DE = {
     "addClass": {
         "description": 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
         "type": 'String',
-        "default": '<empty string>'
+        "default": '<leere Zeichenfolge>'
+    },
+    "inputanimation.callback": {
+        "description": "Benutzerdefinierte definierte Funktionen werden jedes Mal aufgerufen, wenn sich die Eingabe geändert hat. Diese Funktion gibt 1 Argument zurück - den aktuellen Wert des Eingabefelds.",
+        "Typ": "Funktion",
+        "default": "undefined"
     },
     "accordion.animation": {
         "description": "Eine Animation wärend des aufklappens und zuklappens des Accordions. Animationen die verwendet werden können: 'height', 'scale', 'opacity'.",
@@ -51,19 +56,29 @@ const DE = {
         "default": "undefined"
     },
     "accordion.data": {
-        "description": "Hauptdaten",
+        "description": "Hauptdaten.",
         "type": "Array",
         "default": "[]"
+    },
+    'accordion.data.href': {
+        "description": "Ein <a> - oder <Link> -Tag umgibt die Texteingabe, um den Benutzer in Ihrer App zu navigieren.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'accordion.data.icon': {
+        "description": "Benutzerdefinierte JSX-Daten auf der linken Seite der Texteingabe.",
+        "Typ": "JSX | String",
+        "default": "undefined"
     },
     'accordion.data.text' : {
         "description": "Der anzuzeigende Text bevor ein Kind Element aufgeklappt wird.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     'accordion.data.dataToggle' : {
         "description": "Der anzuzeigende Inhalt eines Elementes nachdem das Mutter Element aufgeklappt wurde.",
         "type": "String | JSX ",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     'accordion.data.toggled' : {
         "description": "Ist das Element ge-toggelt order nicht.",
@@ -85,10 +100,45 @@ const DE = {
         "type": "Number",
         "default": "undefined"
     },
+    "data": {
+        "description": "Hauptdaten - Array von Objekten.",
+        "Typ": "Array",
+        "Standard": "[]"
+    },
+    "card.data": {
+        "description": "Hauptdaten - Array von Objekten.",
+        "Typ": "Array",
+        "Standard": "[]"
+    },
+    "card.data.title": {
+        "description": "Benutzerdefinierte Kartenkopfdaten.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "card.data.content": {
+        "description": "Inhaltsdaten für benutzerdefinierte Karten.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "card.data.footer": {
+        "description": "Fußzeilendaten für benutzerdefinierte Karten.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
     "defaultItems": {
-        "description": "Wie viele Elemente sollen direkt beim Laden angezeigt werden.",
+        "description": "Wie viele Elemente sollen direkt beim ersten Laden angezeigt werden.",
         "type": "Number",
         "default": "3"
+    },
+    "loadonscroll.data": {
+        "description": "Benutzerdefinierte Daten, die beim ersten Mal gerendert werden sollen.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "minify": {
+        "description": "Wenn der Benutzer nach unten scrollt, werden Daten nachgeladen. Das NAchladen der Daten kann beschläunigt werden, in dem man hier einen PIXEL Wert hinzufügt.",
+        "type": "Number",
+        "default": "0"
     },
     "loadMoreCallback": {
         "description": "Falls das Root Element bis ganz nach unten ge-scrollt wurde, können Daten nachgeladen werden. Falls der Callback 'break' als Antwort liefert, wird der Scroll Event von dem Root Element entfernt.",
@@ -98,7 +148,7 @@ const DE = {
     "loadMoreLoadingIcon": {
         "description": "Wärend zusätzliche Elemente geladen werden, kann ein eigen definiertes JSX Element gerendert werden.",
         "type": "String | JSX",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "customsuggestion.callback": {
         "description": "Nachdem eine Änderung im Input Feld statt findet, wird diese Übergebene Funktion aufgerufen mit 1 Paramater: Wert des Input Feldes. Der Callback muss eine Liste and Objecten zurück liefern. Die Struktur ist im 'suggestions' Key beschrieben.",
@@ -135,12 +185,21 @@ const DE = {
         "type": "String | Array | Object | Number",
         "default": "undefined"
     },
+    "clipboard.data": {
+        "description": "Custom JSX.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "clipboard.animation": {
+        "description": "Eine Animation, wenn ein Klickereignis für die benutzerdefinierten 'Daten' ausgelöst wird. Animationen, die verwendet werden können: 'skalieren', 'springen'.",
+        "type": "String",
+        "default": "undefined"
+    },
     "plainValue": {
         "description": "Der Wert des Input Feldes.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
-
     "inputsuggestionarray.callbackSelection": {
         "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
         "type": "Function",
@@ -154,7 +213,7 @@ const DE = {
     "placeholder": {
         "description": "Platzhalter.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "inputType": {
         "description": "Typ eines Inptu Feldes.",
@@ -184,7 +243,7 @@ const DE = {
     "iconClose": {
         "description": "Benutzer definiertes HTML mit der Aktion das Module 'zu schließenden'.",
         "type": "String | JSX",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "inputActive": {
         "description": "Soll das Input feld mit angezeigt werden oder nicht.",
@@ -194,11 +253,16 @@ const DE = {
     "noDataText": {
         "description": "Falls keine Elemente gefunden wurden, dann wird dieser Text angezeigt.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "callbackClose": {
         "description": "Benutzer definierte Funktion, die ohne Argumente aufgerufen wird, nachdem dass Element geschlossen wurde.",
         "type": "Function",
+        "default": "undefined"
+    },
+    "listarray.callback": {
+        "description": "Benutzerdefinierte Rückruffunktionen werden ausgelöst, wenn der Benutzer auf ein Listenelement klickt. Die Funktion gibt 2 Argumente zurück. Argument 1: Klickereignis, Argument 2: geklickter Eintrag.",
+        "Typ": "Funktion",
         "default": "undefined"
     },
     "closeOnCallback": {
@@ -222,14 +286,19 @@ const DE = {
         "default": "False"
     },
     "closeOnClick": {
-        "description": "",
-        "type": "String",
-        "default": ""
+        "description": "Wenn die verdunkelte HTML Area angeklickt wird, wird das Modul nicht mehr angezeigt.",
+        "type": "Boolean",
+        "default": "True"
     },
     "fullscreenOverlay.animation": {
         "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'scale','left','top','right', 'bottom'.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
+    },
+    "popupbox.data": {
+        "description": "Benutzerdefinierte JSX-Daten in der umgeschalteten Box.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
     },
     "popupbox.animation": {
         "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.",
@@ -241,6 +310,11 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
+    "fullscreenoverlay.data": {
+        "description": "Benutzerdefinierte JSX-Daten, die im Overlay angezeigt werden sollen.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
     "disableScroll": {
         "description": "Während der Anzeige des Modules, soll das HTML Element (Tag) scrollbar sein oder nicht.",
         "type": "Boolean",
@@ -249,7 +323,7 @@ const DE = {
     "messageKey": {
         "description": "Ein unique string.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "codeMapping": {
         "description": "Object",
@@ -306,16 +380,10 @@ const DE = {
         "type": "Object",
         "default": "{}"
     },
-
     "codeMapping.link.text": {
         "description": "Der anzuzeigender Text.",
         "type": "String",
         "default": "undefined"
-    },
-    "codeMapping.link.text": {
-        "description": "Object",
-        "type": "Object",
-        "default": "{}"
     },
     "codeMapping.link.useTagLink": {
         "description": "Soll der Tag <Link> benutzt werden, falls sich das Modul innerhalb eines Routes beweget oder standartmäßig eine <a> Tag.",
@@ -353,11 +421,6 @@ const DE = {
         "default": "undefined"
     },
     "custom": {
-        "description": "Benutzer definierte Icons Sets.",
-        "type": "Array",
-        "default": "undefined"
-    },
-    "custom": {
         "description": "Benutzer definierte Icons Sets als Array aus Objekten.",
         "type": "Array",
         "default": "undefined"
@@ -380,7 +443,7 @@ const DE = {
     "animatePlaceholder": {
         "description": "Platzhalter (der dann auch animiert wird).",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "onEnter": {
         "description": "Benutzerdefinierte Funktion wenn der Benutzer Enter drückt innerhalb des Input Feldes. Diese Funktion liefert 1 Argument: der aktuelle Wert des Input Feldes.",
@@ -410,10 +473,10 @@ const DE = {
     "label": {
         "description": "Das anzuzeigende JSX innerhalb eine <label> Tags",
         "type": "String | JSX",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "readFileCallback": {
-        "description": "",
+        "description": "Benutzerdefinierte Funktion um eine Datei zu verarbeiten. Es werden 2 Argumente übergeben: Argument 1: Die Datei, Argument 2: Der Dateityp.",
         "type": "Function",
         "default": "undefined"
     },
@@ -435,7 +498,7 @@ const DE = {
     "isDraggingData": {
         "description": "Wenn ein Benutzer aktuell im Status 'dragging' ist, dann kann eine Benutzerdefiniertes JSX angezeigt werden.",
         "type": "String | JSX",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "uploadOnClick": {
         "description": "Erlaube auch das Verarbeiten von Dateien wenn der Benutzer auf den 'Drag & Drop' Bereich ein Klick Event durchführt.",
@@ -448,7 +511,7 @@ const DE = {
         "default": "[]"
     },
     "suggestionsToFilter": {
-        "description": "Ein Array aus Elementen die danach zur Auswahl für den Benutzer erscheinen.",
+        "description": "Ein Array aus Elementen (Strings) die danach zur Auswahl für den Benutzer erscheinen.",
         "type": "Array",
         "default": "[]"
     },
@@ -470,7 +533,7 @@ const DE = {
     "text": {
         "description": "Der anzuzeigende Text.",
         "type": "String",
-        "default": "<empty string>"
+        "default": "<leere Zeichenfolge>"
     },
     "scrollReference": {
         "description": "Wenn true, dann wird das Root Element des Modules als Referenz genommen ansonsten das HTML document Elment.",
@@ -528,19 +591,14 @@ const DE = {
         "default": "{}"
     },
     "title": {
-        "description": "Object - Überschrift der Tabelle",
-        "type": "Object",
+        "description": "Array von Strings - Tabellenüberschrift.",
+        "Typ": "Array",
         "default": "undefined"
     },
-    "title.left": {
-        "description": "Überschrift der Tabelle auf der linken Seite",
+    "writer.text": {
+        "description": "Zu schreibender Text.",
         "type": "String",
-        "default": "undefined"
-    },
-    "title.right": {
-        "description": "Überschrift der Tabelle auf der rechten Seite",
-        "type": "String",
-        "default": "undefined"
+        "default": "<leere Zeichenfolge>"
     },
     "speed": {
         "description": "Speed of the text writer in ms.",
@@ -558,9 +616,9 @@ const DE = {
         "default": "|"
     },
     "pipeSite": {
-        "description": "",
+        "description": "Pipe auf der Site anzeigen: 'left', 'right'",
         "type": "String",
-        "default": ""
+        "default": "right"
     },
     "pipePersist": {
         "description": "Persist the pipe after the text was written.",
@@ -572,7 +630,6 @@ const DE = {
         "type": "Object",
         "default": "undefined"
     },
-
     "replaces.from": {
         "description": "Start replacement on this char.",
         "type": "Number",
@@ -588,7 +645,7 @@ const DE = {
         "type": "String",
         "default": "undefined"
     },
-    "timeout": {
+    "writer.timeout": {
         "description": "Start writing text after this time in ms.",
         "type": "Number",
         "default": "0"
@@ -599,7 +656,7 @@ const DE = {
         "default": "undefined"
     },
     "table.keysToRead": {
-        "description": "Array aus String - welche Keys sollen aus dem Object ausgelesen werden.",
+        "description": "Array aus Strings - welche Keys sollen aus dem Object ausgelesen werden.",
         "type": "Array",
         "default": "undefined"
     },

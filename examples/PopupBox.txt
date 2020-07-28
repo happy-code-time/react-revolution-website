@@ -29,7 +29,7 @@ class App extends React.Component {
                     defaultClass={false}
                     id={false}
                     animationTime={300}
-                    animationType='top-left' // top-left, top-right, bottom-left, bottom-right
+                    animation='top-left' // top-left, top-right, bottom-left, bottom-right
                     icon={
                         <i className='fas fa-user-secret icon-chat popup-box-icon'></i>
                     }

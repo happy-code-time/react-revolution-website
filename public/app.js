@@ -200,6 +200,33 @@ var buildModulesJsx = function buildModulesJsx() {
 
 /***/ }),
 
+/***/ "./Website/Functions/buildTableKeysStructure.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./Website/Translations/trans.js");
+
+
+var buildTableKeysStructure = function buildTableKeysStructure(keys, defaultClass) {
+  var structure = [];
+  keys.map(function (object) {
+    var key = object.key,
+        values = object.values;
+    structure.push({
+      key: key,
+      value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_0__["default"])(values).description,
+      type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_0__["default"])(values).type,
+      "default": key == 'class' ? defaultClass : Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_0__["default"])(values)["default"]
+    });
+  });
+  return structure;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (buildTableKeysStructure);
+
+/***/ }),
+
 /***/ "./Website/Functions/getAllAvailableModulesNames.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -327,6 +354,30 @@ var setLanguage = function setLanguage() {
 __webpack_require__.r(__webpack_exports__);
 var possibleLayouts = [['dark', 'light']];
 /* harmony default export */ __webpack_exports__["default"] = (possibleLayouts);
+
+/***/ }),
+
+/***/ "./Website/Functions/toggleZindex.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var toggleZindex = function toggleZindex(show) {
+  var content = document.getElementById('Content');
+  var head = document.getElementById('Head');
+
+  if (content && head) {
+    if (show) {
+      head.style.zIndex = 0;
+      return content.style.zIndex = 4;
+    }
+
+    head.style.zIndex = 3;
+    return content.style.zIndex = 2;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (toggleZindex);
 
 /***/ }),
 
@@ -792,8 +843,10 @@ var WebsiteContainer = /*#__PURE__*/function (_React$Component) {
           return _this4.sideBar();
         }
       }), moduleSidebar && moduleSidebar), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", {
+        id: "Content",
         className: contentClassNames
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("div", {
+        id: "Head",
         className: "head ".concat(headerClassName)
       }, displayMinifyMaxifyIcon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__["createElement"]("i", {
         onClick: function onClick(e) {
@@ -1049,6 +1102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1059,6 +1113,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -1180,33 +1235,35 @@ var ReactRevolutionAccordion = /*#__PURE__*/function (_React$Component) {
         className: "h1-title border-none text-center mb-4"
       }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
-        keysToRead: ['key', 'type', 'default', 'value'],
-        data: [{
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
           key: 'id',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id').description,
-          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id').type,
-          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('id')["default"]
+          values: 'id'
         }, {
           key: 'class',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class').description,
-          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class').type,
-          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('class')["default"]
+          values: 'class'
         }, {
           key: 'addClass',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass').description,
-          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass').type,
-          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('addClass')["default"]
+          values: 'addClass'
         }, {
           key: 'animation',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation').description,
-          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation').type,
-          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.animation')["default"]
+          values: 'accordion.animation'
         }, {
           key: 'data',
-          value: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data').description,
-          type: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data').type,
-          "default": Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.data')["default"]
-        }]
+          values: 'accordion.data'
+        }, {
+          key: 'data.text',
+          values: 'accordion.data.text'
+        }, {
+          key: 'data.dataToggle',
+          values: 'accordion.data.dataToggle'
+        }, {
+          key: 'data.toggled',
+          values: 'accordion.data.toggled'
+        }, {
+          key: 'data.props',
+          values: 'props'
+        }], 'rr-accordion')
       }));
     }
   }]);
@@ -1242,6 +1299,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1252,6 +1310,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -1341,6 +1400,42 @@ var ReactRevolutionCards = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'itemsPerLine',
+          values: 'itemsPerLine'
+        }, {
+          key: 'mediaBreak',
+          values: 'mediaBreak'
+        }, {
+          key: 'data',
+          values: 'cards.data'
+        }, {
+          key: 'data.title',
+          values: 'cards.data.title'
+        }, {
+          key: 'data.content',
+          values: 'cards.data.content'
+        }, {
+          key: 'data.footer',
+          values: 'cards.data.footer'
+        }, {
+          key: 'data.props',
+          values: 'props'
+        }], 'rr-cards')
       }));
     }
   }]);
@@ -1376,6 +1471,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1386,6 +1482,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -1496,6 +1593,45 @@ var ReactRevolutionCardsScroll = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'itemsPerLine',
+          values: 'itemsPerLine'
+        }, {
+          key: 'mediaBreak',
+          values: 'mediaBreak'
+        }, {
+          key: 'defaultItems',
+          values: 'defaultItems'
+        }, {
+          key: 'data',
+          values: 'cards.data'
+        }, {
+          key: 'data.title',
+          values: 'cards.data.title'
+        }, {
+          key: 'data.content',
+          values: 'cards.data.content'
+        }, {
+          key: 'data.footer',
+          values: 'cards.data.footer'
+        }, {
+          key: 'data.props',
+          values: 'props'
+        }], 'rr-cards-scroll')
       }));
     }
   }]);
@@ -1535,6 +1671,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1547,6 +1684,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -1704,6 +1842,48 @@ var ReactRevolutionCardsScrollCallback = /*#__PURE__*/function (_React$Component
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_11__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_10__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_12__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'itemsPerLine',
+          values: 'itemsPerLine'
+        }, {
+          key: 'mediaBreak',
+          values: 'mediaBreak'
+        }, {
+          key: 'loadMoreCallback',
+          values: 'loadMoreCallback'
+        }, {
+          key: 'loadMoreLoadingIcon',
+          values: 'loadMoreLoadingIcon'
+        }, {
+          key: 'data',
+          values: 'cards.data'
+        }, {
+          key: 'data.title',
+          values: 'cards.data.title'
+        }, {
+          key: 'data.content',
+          values: 'cards.data.content'
+        }, {
+          key: 'data.footer',
+          values: 'cards.data.footer'
+        }, {
+          key: 'data.props',
+          values: 'props'
+        }], 'rr-cards-scroll-callback')
       }));
     }
   }]);
@@ -1739,6 +1919,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1749,6 +1930,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -1841,6 +2023,33 @@ var ReactRevolutionClipboard = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'callback',
+          values: 'callback'
+        }, {
+          key: 'clipboard',
+          values: 'clipboard'
+        }, {
+          key: 'animation',
+          values: 'clipboard.animation'
+        }, {
+          key: 'data',
+          values: 'clipboard.data'
+        }], 'rr-clipboard')
       }));
     }
   }]);
@@ -1880,6 +2089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -1892,6 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -2102,7 +2313,61 @@ var ReactRevolutionCustomSuggestion = /*#__PURE__*/function (_React$Component) {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_10__["default"])('copyToClipboard')),
         clipboard: jsExample2
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_10__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_9__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_12__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'plainValue',
+          values: 'plainValue'
+        }, {
+          key: 'callback',
+          values: 'customsuggestion.callback'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'props',
+          values: 'props'
+        }, {
+          key: 'inputType',
+          values: 'inputType'
+        }, {
+          key: 'allowOnlyAZ',
+          values: 'allowOnlyAZ'
+        }, {
+          key: 'callbackRerender',
+          values: 'callbackRerender'
+        }, {
+          key: 'callback',
+          values: 'customsuggestion.callback'
+        }, {
+          key: 'suggestions',
+          values: 'customsuggestion.suggestions'
+        }, {
+          key: 'suggestions.href',
+          values: 'customsuggestion.suggestions.href'
+        }, {
+          key: 'suggestions.jsx',
+          values: 'customsuggestion.suggestions.jsx'
+        }, {
+          key: 'suggestions.props',
+          values: 'customsuggestion.suggestions.props'
+        }, {
+          key: 'suggestions.onClickValue',
+          values: 'customsuggestion.suggestions.onClickValue'
+        }], 'rr-custom-suggestion')
+      }));
     }
   }]);
 
@@ -2136,6 +2401,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
+/* harmony import */ var _Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/toggleZindex.js");
 
 
 
@@ -2146,6 +2413,8 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
 
 
 
@@ -2174,6 +2443,11 @@ var ReactRevolutionFullScreenListArray = /*#__PURE__*/function (_React$Component
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFullScreenListArray, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(this.state.display);
+    }
+  }, {
     key: "callback",
     value: function callback(clickEvent, choosedValue) {
       this.setState({
@@ -2183,14 +2457,18 @@ var ReactRevolutionFullScreenListArray = /*#__PURE__*/function (_React$Component
   }, {
     key: "toggleList",
     value: function toggleList() {
+      var _this2 = this;
+
       this.setState({
         display: !this.state.display
+      }, function () {
+        Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(_this2.state.display);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "Generator"
@@ -2206,7 +2484,7 @@ var ReactRevolutionFullScreenListArray = /*#__PURE__*/function (_React$Component
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "button-action rr-revolution-button-clipboard",
         onClick: function onClick() {
-          return _this2.toggleList();
+          return _this3.toggleList();
         }
       }, "Click to toggle list (", this.state.choosedValue, ")"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["FullScreenListArray"], {
         display: this.state.display,
@@ -2255,7 +2533,64 @@ var ReactRevolutionFullScreenListArray = /*#__PURE__*/function (_React$Component
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'animation',
+          values: 'fullscreenOverlay.animation'
+        }, {
+          key: 'display',
+          values: 'display'
+        }, {
+          key: 'displayLineNumber',
+          values: 'displayLineNumber'
+        }, {
+          key: 'iconClose',
+          values: 'iconClose'
+        }, {
+          key: 'inputActive',
+          values: 'inputActive'
+        }, {
+          key: 'noDataText',
+          values: 'noDataText'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'callback',
+          values: 'listarray.callback'
+        }, {
+          key: 'callbackClose',
+          values: 'callbackClose'
+        }, {
+          key: 'closeOnCallback',
+          values: 'closeOnCallback'
+        }, {
+          key: 'closeOnDimmedClick',
+          values: 'closeOnDimmedClick'
+        }, {
+          key: 'closeOnEsc',
+          values: 'closeOnEsc'
+        }, {
+          key: 'inputEmptyOnCallback',
+          values: 'inputEmptyOnCallback'
+        }, {
+          key: 'data',
+          values: 'listarray.data'
+        }], 'rr-fullscreenlist')
+      }));
     }
   }]);
 
@@ -2289,6 +2624,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
+/* harmony import */ var _Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/toggleZindex.js");
 
 
 
@@ -2299,6 +2636,8 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
 
 
 
@@ -2327,6 +2666,11 @@ var ReactRevolutionFullScreenListObject = /*#__PURE__*/function (_React$Componen
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFullScreenListObject, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(this.state.display);
+    }
+  }, {
     key: "callback",
     value: function callback(clickEvent, choosedObject) {
       this.setState({
@@ -2336,14 +2680,18 @@ var ReactRevolutionFullScreenListObject = /*#__PURE__*/function (_React$Componen
   }, {
     key: "toggleList",
     value: function toggleList() {
+      var _this2 = this;
+
       this.setState({
         display: !this.state.display
+      }, function () {
+        Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(_this2.state.display);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "Generator"
@@ -2359,7 +2707,7 @@ var ReactRevolutionFullScreenListObject = /*#__PURE__*/function (_React$Componen
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "button-action rr-revolution-button-clipboard",
         onClick: function onClick() {
-          return _this2.toggleList();
+          return _this3.toggleList();
         }
       }, "Click to toggle list (", this.state.choosedValue, ")"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["FullScreenListObject"], {
         display: this.state.display,
@@ -2418,7 +2766,67 @@ var ReactRevolutionFullScreenListObject = /*#__PURE__*/function (_React$Componen
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'animation',
+          values: 'fullscreenOverlay.animation'
+        }, {
+          key: 'display',
+          values: 'display'
+        }, {
+          key: 'displayLineNumber',
+          values: 'displayLineNumber'
+        }, {
+          key: 'iconClose',
+          values: 'iconClose'
+        }, {
+          key: 'inputActive',
+          values: 'inputActive'
+        }, {
+          key: 'noDataText',
+          values: 'noDataText'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'callback',
+          values: 'listarray.callback'
+        }, {
+          key: 'callbackClose',
+          values: 'callbackClose'
+        }, {
+          key: 'closeOnCallback',
+          values: 'closeOnCallback'
+        }, {
+          key: 'closeOnDimmedClick',
+          values: 'closeOnDimmedClick'
+        }, {
+          key: 'closeOnEsc',
+          values: 'closeOnEsc'
+        }, {
+          key: 'inputEmptyOnCallback',
+          values: 'inputEmptyOnCallback'
+        }, {
+          key: 'data',
+          values: 'listobject.data'
+        }, {
+          key: 'data.text',
+          values: 'listobject.data.text'
+        }], 'rr-fullscreenlist')
+      }));
     }
   }]);
 
@@ -2452,6 +2860,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
+/* harmony import */ var _Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/toggleZindex.js");
 
 
 
@@ -2466,7 +2876,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var codeExample = "import { FullScreenOverlay } from 'react-revolution';\n<div\n    className=\"button-action rr-revolution-button-clipboard\"\n    onClick={(e) => this.toggleOverlay()}\n>\n    toggle\n</div>\n\n<FullScreenOverlay\n    closeOnClick={true}\n    closeOnEsc={true}\n    animation={true}\n    animationType='scale' // scale, left, top, right, bottom, \n    dimmed={true}\n    closeCallback={this.toggleOverlay}\n    display={this.state.display}\n    disableScroll={true}\n    iconClose={true}\n    data={\n        <div className=\"fullscreen-overlay-example\">\n            <p>\n                Custom data\n            </p>\n        </div>\n    }\n/>";
+
+
+var codeExample = "import { FullScreenOverlay } from 'react-revolution';\n<div\n    className=\"button-action rr-revolution-button-clipboard\"\n    onClick={(e) => this.toggleOverlay()}\n>\n    toggle\n</div>\n\n<FullScreenOverlay\n    closeOnClick={true}\n    closeOnEsc={true}\n    animation='scale' // scale, left, top, right, bottom, \n    dimmed={true}\n    callbackClose={this.toggleOverlay}\n    display={this.state.display}\n    disableScroll={true}\n    iconClose={true}\n    data={\n        <div className=\"fullscreen-overlay-example\">\n            <p>\n                Custom data\n            </p>\n        </div>\n    }\n/>";
 var jsExample = "constructor(props) {\n        super(props);\n\n        this.toggleOverlay = this.toggleOverlay.bind(this);\n\n        this.state = {\n            display: false,\n        };\n    }\n\n    toggleOverlay() {\n        this.setState({\n            display: !this.state.display\n        });\n    }\n}";
 var cssExample = ".fullscreen-overlay-example{\n    position: absolute; // important\n    top: 20vh; // important\n    left: 35vw; // important\n    width: 30vw;\n    height: 30vh;\n    display: flex;\n    flex-direction: column;\n    border-radius: 3px;\n    background-color: rgb(255,255,255);\n\n    p{\n        margin: auto;\n    }\n}";
 
@@ -2489,16 +2901,25 @@ var ReactRevolutionFullScreenOverlay = /*#__PURE__*/function (_React$Component) 
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFullScreenOverlay, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(this.state.display);
+    }
+  }, {
     key: "toggleOverlay",
     value: function toggleOverlay() {
+      var _this2 = this;
+
       this.setState({
         display: !this.state.display
+      }, function () {
+        Object(_Functions_toggleZindex__WEBPACK_IMPORTED_MODULE_10__["default"])(_this2.state.display);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "Generator"
@@ -2514,16 +2935,15 @@ var ReactRevolutionFullScreenOverlay = /*#__PURE__*/function (_React$Component) 
       }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('exampleTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "button-action rr-revolution-button-clipboard",
         onClick: function onClick(e) {
-          return _this2.toggleOverlay();
+          return _this3.toggleOverlay();
         }
       }, "toggle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["FullScreenOverlay"], {
         closeOnClick: true,
         closeOnEsc: true,
-        animation: true,
-        animationType: "scale" // scale, left, top, right, bottom, 
+        animation: "scale" // scale, left, top, right, bottom, 
         ,
         dimmed: true,
-        closeCallback: this.toggleOverlay,
+        callbackClose: this.toggleOverlay,
         display: this.state.display,
         disableScroll: true,
         iconClose: true,
@@ -2578,7 +2998,49 @@ var ReactRevolutionFullScreenOverlay = /*#__PURE__*/function (_React$Component) 
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: cssExample
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'animation',
+          values: 'fullscreenOverlay.animation'
+        }, {
+          key: 'closeOnClick',
+          values: 'closeOnClick'
+        }, {
+          key: 'closeOnEsc',
+          values: 'closeOnEsc'
+        }, {
+          key: 'callbackClose',
+          values: 'callbackClose'
+        }, {
+          key: 'display',
+          values: 'display'
+        }, {
+          key: 'iconClose',
+          values: 'iconClose'
+        }, {
+          key: 'dimmed',
+          values: 'fullscreenoverlay.dimmed'
+        }, {
+          key: 'disableScroll',
+          values: 'disableScroll'
+        }, {
+          key: 'data',
+          values: 'fullscreenoverlay.data'
+        }], 'rr-full-screen-overlay')
+      }));
     }
   }]);
 
@@ -2610,6 +3072,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -2619,6 +3082,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -2827,7 +3291,70 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('copyToClipboard')),
         clipboard: ""
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_7__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_6__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_8__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'messageKey',
+          values: 'messageKey'
+        }, {
+          key: 'timer',
+          values: 'timer'
+        }, {
+          key: 'codeMapping',
+          values: 'codeMapping'
+        }, {
+          key: 'title',
+          values: 'codeMapping.title'
+        }, {
+          key: 'displayErrorCode',
+          values: 'codeMapping.displayErrorCode'
+        }, {
+          key: 'text',
+          values: 'codeMapping.text'
+        }, {
+          key: 'text.prefix',
+          values: 'codeMapping.text.prefix'
+        }, {
+          key: 'text.suffix',
+          values: 'codeMapping.text.suffix'
+        }, {
+          key: 'text.props',
+          values: 'codeMapping.text.props'
+        }, {
+          key: 'close',
+          values: 'codeMapping.close'
+        }, {
+          key: 'close.text',
+          values: 'codeMapping.close.text'
+        }, {
+          key: 'close.props',
+          values: 'codeMapping.close.props'
+        }, {
+          key: 'link',
+          values: 'codeMapping.link'
+        }, {
+          key: 'link.text',
+          values: 'codeMapping.link.text'
+        }, {
+          key: 'link.useTagLink',
+          values: 'codeMapping.link.useTagLink'
+        }, {
+          key: 'link.href',
+          values: 'codeMapping.link.href'
+        }], 'rr-global-messages')
+      }));
     }
   }]);
 
@@ -2862,6 +3389,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -2872,6 +3400,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -3021,6 +3550,42 @@ var ReactRevolutionIcons = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'iconsType',
+          values: 'iconsType'
+        }, {
+          key: 'callback',
+          values: 'iconCallback'
+        }, {
+          key: 'renderItems',
+          values: 'renderItems'
+        }, {
+          key: 'translations',
+          values: 'translations'
+        }, {
+          key: 'custom',
+          values: 'custom'
+        }, {
+          key: 'custom.title',
+          values: 'custom.title'
+        }, {
+          key: 'custom.data',
+          values: 'custom.data'
+        }], 'rr-icons')
       }));
     }
   }]);
@@ -3056,6 +3621,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -3066,6 +3632,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -3221,7 +3788,49 @@ var ReactRevolutionInputAnimation = /*#__PURE__*/function (_React$Component) {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample2
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'callback',
+          values: 'inputanimation.callback'
+        }, {
+          key: 'plainValue',
+          values: 'plainValue'
+        }, {
+          key: 'inputType',
+          values: 'inputType'
+        }, {
+          key: 'props',
+          values: 'props'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'animatePlaceholder',
+          values: 'animatePlaceholder'
+        }, {
+          key: 'onEnter',
+          values: 'onEnter'
+        }, {
+          key: 'allowOnlyAZ',
+          values: 'allowOnlyAZ'
+        }, {
+          key: 'getValueFromCallback',
+          values: 'getValueFromCallback'
+        }], 'rr-input-animation')
+      }));
     }
   }]);
 
@@ -3256,6 +3865,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -3266,6 +3876,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -3449,6 +4060,48 @@ var ReactRevolutionInputFile = /*#__PURE__*/function (_React$Component) {
             }
           }
         }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'allowedFileSize',
+          values: 'allowedFileSize'
+        }, {
+          key: 'allowedFileSizeDescriptor',
+          values: 'allowedFileSizeDescriptor'
+        }, {
+          key: 'allowedFiles',
+          values: 'allowedFiles'
+        }, {
+          key: 'label',
+          values: 'label'
+        }, {
+          key: 'readFileCallback',
+          values: 'readFileCallback'
+        }, {
+          key: 'errorCallback',
+          values: 'errorCallback'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'errorCallbackCustomData',
+          values: 'errorCallbackCustomData'
+        }, {
+          key: 'multiple',
+          values: 'multiple'
+        }], 'rr-input-file')
       }));
     }
   }]);
@@ -3484,6 +4137,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -3494,6 +4148,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -3678,6 +4333,51 @@ var ReactRevolutionInputFileDragDrop = /*#__PURE__*/function (_React$Component) 
             }
           }
         }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'allowedFileSize',
+          values: 'allowedFileSize'
+        }, {
+          key: 'allowedFileSizeDescriptor',
+          values: 'allowedFileSizeDescriptor'
+        }, {
+          key: 'allowedFiles',
+          values: 'allowedFiles'
+        }, {
+          key: 'readFileCallback',
+          values: 'readFileCallback'
+        }, {
+          key: 'errorCallback',
+          values: 'errorCallback'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'errorCallbackCustomData',
+          values: 'errorCallbackCustomData'
+        }, {
+          key: 'multiple',
+          values: 'multiple'
+        }, {
+          key: 'isDraggingData',
+          values: 'isDraggingData'
+        }, {
+          key: 'uploadOnClick',
+          values: 'uploadOnClick'
+        }], 'rr-input-file')
       }));
     }
   }]);
@@ -3712,6 +4412,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -3722,6 +4423,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -3840,7 +4542,55 @@ var ReactRevolutionInputSuggestionArray = /*#__PURE__*/function (_React$Componen
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'plainValue',
+          values: 'plainValue'
+        }, {
+          key: 'callback',
+          values: 'customsuggestion.callback'
+        }, {
+          key: 'selected',
+          values: 'selected'
+        }, {
+          key: 'suggestionsToFilter',
+          values: 'suggestionsToFilter'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'props',
+          values: 'props'
+        }, {
+          key: 'inputType',
+          values: 'inputType'
+        }, {
+          key: 'getValueFromCallback',
+          values: 'getValueFromCallback'
+        }, {
+          key: 'emptySuggestionAfterSelection',
+          values: 'emptySuggestionAfterSelection'
+        }, {
+          key: 'sortSelected',
+          values: 'sortSelected'
+        }, {
+          key: 'sortSuggestions',
+          values: 'sortSuggestions'
+        }], 'rr-input-suggestion-array')
+      }));
     }
   }]);
 
@@ -3874,6 +4624,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -3884,6 +4635,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -4006,7 +4758,70 @@ var ReactRevolutionInputSuggestionObject = /*#__PURE__*/function (_React$Compone
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'plainValue',
+          values: 'plainValue'
+        }, {
+          key: 'callback',
+          values: 'customsuggestion.callback'
+        }, {
+          key: 'selected',
+          values: 'selected'
+        }, {
+          key: 'suggestionsToFilter',
+          values: 'suggestionsToFilter'
+        }, {
+          key: 'placeholder',
+          values: 'placeholder'
+        }, {
+          key: 'props',
+          values: 'props'
+        }, {
+          key: 'inputType',
+          values: 'inputType'
+        }, {
+          key: 'getValueFromCallback',
+          values: 'getValueFromCallback'
+        }, {
+          key: 'emptySuggestionAfterSelection',
+          values: 'emptySuggestionAfterSelection'
+        }, {
+          key: 'sortSelected',
+          values: 'sortSelected'
+        }, {
+          key: 'sortSuggestions',
+          values: 'sortSuggestions'
+        }, {
+          key: 'suggestions',
+          values: 'customsuggestion.suggestions'
+        }, {
+          key: 'suggestions.href',
+          values: 'customsuggestion.suggestions.href'
+        }, {
+          key: 'suggestions.jsx',
+          values: 'customsuggestion.suggestions.jsx'
+        }, {
+          key: 'suggestions.props',
+          values: 'customsuggestion.suggestions.props'
+        }, {
+          key: 'suggestions.onClickValue',
+          values: 'customsuggestion.suggestions.onClickValue'
+        }], 'rr-input-suggestion-object')
+      }));
     }
   }]);
 
@@ -4041,6 +4856,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4051,6 +4867,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -4149,6 +4966,36 @@ var ReactRevolutionLoadOnScroll = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_8__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_9__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'data',
+          values: 'loadonscroll.data'
+        }, {
+          key: 'callback',
+          values: 'loadMoreCallback'
+        }, {
+          key: 'loadMoreLoadingIcon',
+          values: 'loadMoreLoadingIcon'
+        }, {
+          key: 'minify',
+          values: 'minify'
+        }, {
+          key: 'scrollReference',
+          values: 'scrollReference'
+        }], 'rr-load-on-scroll')
       }));
     }
   }]);
@@ -4183,6 +5030,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4193,6 +5041,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -4281,7 +5130,28 @@ var ReactRevolutionLoadingBoxTop = /*#__PURE__*/function (_React$Component) {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('copyToClipboard')),
         clipboard: jsExample
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_9__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'text',
+          values: 'text'
+        }, {
+          key: 'display',
+          values: 'display'
+        }], 'rr-loading-box-top')
+      }));
     }
   }]);
 
@@ -4316,6 +5186,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4326,6 +5197,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -4435,6 +5307,42 @@ var ReactRevolutionMenuClickHorizontal = /*#__PURE__*/function (_React$Component
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'reactRouter',
+          values: 'reactRouter'
+        }, {
+          key: 'animation',
+          values: 'accordion.animation'
+        }, {
+          key: 'data.text',
+          values: 'accordion.data.text'
+        }, {
+          key: 'data.toggled',
+          values: 'accordion.data.toggled'
+        }, {
+          key: 'data.href',
+          values: 'accordion.data.href'
+        }, {
+          key: 'data.icon',
+          values: 'accordion.data.icon'
+        }, {
+          key: 'data.props',
+          values: 'props'
+        }], 'rr-menu-click-horizontal')
       }));
     }
   }]);
@@ -4470,6 +5378,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4485,10 +5394,11 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var codeExample1 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animationType='top-left' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
-var codeExample2 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animationType='bottom-left' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
-var codeExample3 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animationType='top-right' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
-var codeExample4 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animationType='bottom-right' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
+
+var codeExample1 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animation='top-left' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
+var codeExample2 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animation='bottom-left' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
+var codeExample3 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animation='top-right' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
+var codeExample4 = "import { PopupBox } from 'react-revolution';\n\n<div className=\"rr-revolution-popupbox-example\">\n    <PopupBox\n        animationTime={300}\n        animation='bottom-right' // top-left, top-right, bottom-left, bottom-right\n        icon={\n            <i className='fas fa-user-secret'></i>\n        }\n        data={\n            <span>\n                <h1>\n                    content\n                </h1>\n            </span>\n        }\n    />\n</div>";
 var cssExample = ".rr-revolution-popupbox-example{\n    width: 50px;\n    height: 50px;\n    margin:0 auto;\n    text-align: center;\n\n    .rr-popupbox{\n        float: left;\n    }\n    .icon{\n        color: rgb(69,69,69);\n    }\n    .icon:hover{\n        cursor: pointer;\n    }\n    .box{\n        width: 200px;\n        height: 100px;\n        background-color: rgb(255,255,255);\n    }\n}";
 
 var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
@@ -4517,7 +5427,7 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
         className: "rr-revolution-popupbox-example"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["PopupBox"], {
         animationTime: 300,
-        animationType: "top-left" // top-left, top-right, bottom-left, bottom-right
+        animation: "top-left" // top-left, top-right, bottom-left, bottom-right
         ,
         icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
           className: "fas fa-user-secret"
@@ -4537,7 +5447,7 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
         className: "rr-revolution-popupbox-example"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["PopupBox"], {
         animationTime: 300,
-        animationType: "bottom-left" // top-left, top-right, bottom-left, bottom-right
+        animation: "bottom-left" // top-left, top-right, bottom-left, bottom-right
         ,
         icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
           className: "fas fa-user-secret"
@@ -4557,7 +5467,7 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
         className: "rr-revolution-popupbox-example"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["PopupBox"], {
         animationTime: 300,
-        animationType: "top-right" // top-left, top-right, bottom-left, bottom-right
+        animation: "top-right" // top-left, top-right, bottom-left, bottom-right
         ,
         icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
           className: "fas fa-user-secret"
@@ -4577,7 +5487,7 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
         className: "rr-revolution-popupbox-example"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["PopupBox"], {
         animationTime: 300,
-        animationType: "bottom-right" // top-left, top-right, bottom-left, bottom-right
+        animation: "bottom-right" // top-left, top-right, bottom-left, bottom-right
         ,
         icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
           className: "fas fa-user-secret"
@@ -4622,6 +5532,36 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'animation',
+          values: 'popupbox.animation'
+        }, {
+          key: 'animationTime',
+          values: 'animationTime'
+        }, {
+          key: 'icon',
+          values: 'icon'
+        }, {
+          key: 'iconCallback',
+          values: 'iconCallback'
+        }, {
+          key: 'data',
+          values: 'popupbox.data'
+        }], 'rr-popupbox')
       }));
     }
   }]);
@@ -4657,6 +5597,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4667,6 +5608,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -4790,6 +5732,39 @@ var ReactRevolutionSidebar = /*#__PURE__*/function (_React$Component) {
         }),
         data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
 
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'image',
+          values: 'image'
+        }, {
+          key: 'moduleMenu',
+          values: 'moduleMenu'
+        }, {
+          key: 'textLong',
+          values: 'textLong'
+        }, {
+          key: 'textShort',
+          values: 'textShort'
+        }, {
+          key: 'href',
+          values: 'href'
+        }, {
+          key: 'hrefProps',
+          values: 'hrefProps'
+        }], 'rr-sidebar')
       }));
     }
   }]);
@@ -4825,6 +5800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4840,7 +5816,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var codeExample1 = "import { Table } from 'react-revolution';\n\n<Table\n    mediaBreak={1024}\n    title={\n        {\n            left: 'Title',\n            right: 'Description'\n        }\n    }\n    data={\n        [\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            }\n        ]\n    }\n/>";
+
+var codeExample1 = "import { Table } from 'react-revolution';\n\n<Table\n    mediaBreak={1024}\n    title={\n        [\n            'Title',\n            'Description'\n        ]\n    }\n    keysToRead={\n        [\n            'key', 'value'\n        ]\n    }\n    data={\n        [\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            },\n            {\n                key: 'key',\n                value: 'value'\n            }\n        ]\n    }\n/>";
 var cssExample = ".rr-table-key-value{\n    .title{\n        background-color: #1873cc;\n\n        .key,\n        .value{\n            color: rgb(255,255,255);\n        }\n\n        .value{\n            border-left: unset;\n        }\n    }\n\n    .key{\n        width: 70px;\n    }\n\n    .value{\n        @media screen and (min-width: 1024px){\n            padding-left: 20px;                \n        }\n        box-sizing: border-box;\n        padding-left: 5px;\n        width: calc(100% - 70px);\n    }\n}";
 
 var ReactRevolutionTable = /*#__PURE__*/function (_React$Component) {
@@ -4867,10 +5844,8 @@ var ReactRevolutionTable = /*#__PURE__*/function (_React$Component) {
       html: '',
       live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
-        title: {
-          left: 'Title',
-          right: 'Description'
-        },
+        title: ['Title', 'Description'],
+        keysToRead: ['key', 'value'],
         data: [{
           key: 'key',
           value: 'value'
@@ -4920,12 +5895,29 @@ var ReactRevolutionTable = /*#__PURE__*/function (_React$Component) {
 
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
         className: "h1-title border-none text-center mb-4"
-      }, "Key usage"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_9__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
         mediaBreak: 1024,
-        data: [{
+        title: ['key', 'description', 'type', 'default'],
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
           key: 'id',
-          value: 'dsad asd asd sad '
-        }]
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'title',
+          values: 'title'
+        }, {
+          key: 'data',
+          values: 'table.data'
+        }, {
+          key: 'keysToRead',
+          values: 'table.keysToRead'
+        }], 'rr-table')
       }));
     }
   }]);
@@ -4963,6 +5955,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
 /* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
 
 
 
@@ -4974,6 +5967,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -5100,7 +6094,59 @@ var ReactRevolutionTextWriter = /*#__PURE__*/function (_React$Component) {
           className: "button-action"
         }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_10__["default"])('copyToClipboard')),
         clipboard: codeExample2
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_10__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_8__["Table"], {
+        mediaBreak: 1024,
+        title: ['key', 'description', 'type', 'default'],
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_11__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'class',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'text',
+          values: 'writer.text'
+        }, {
+          key: 'speed',
+          values: 'speed'
+        }, {
+          key: 'pipeDisplay',
+          values: 'pipeDisplay'
+        }, {
+          key: 'pipeChar',
+          values: 'pipeChar'
+        }, {
+          key: 'pipeSite',
+          values: 'pipeSite'
+        }, {
+          key: 'pipePersist',
+          values: 'pipePersist'
+        }, {
+          key: 'replaces',
+          values: 'replaces'
+        }, {
+          key: 'timeout',
+          values: 'writer.timeout'
+        }, {
+          key: 'replaces',
+          values: 'replaces'
+        }, {
+          key: 'replaces.from',
+          values: 'replaces.from'
+        }, {
+          key: 'replaces.to',
+          values: 'replaces.to'
+        }, {
+          key: 'replaces.replace',
+          values: 'replaces.replace'
+        }], 'rr-text-writer')
+      }));
     }
   }]);
 
@@ -5213,7 +6259,7 @@ var DE = (_DE = {
 }, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Beispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'React Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "cssCodeTitle", 'Css Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "jsCodeTitle", 'Javascript Kod'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loading", 'Laden...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "keyUsageTitle", 'Keys Erläuterungen'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "id", {
   "description": 'Setzte eine id für das Root Element dieses Modules.',
   "type": 'String',
-  "default": '<empty string>'
+  "default": '<leere Zeichenfolge>'
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "class", {
   "description": 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
   "type": 'String',
@@ -5221,23 +6267,35 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "addClass", {
   "description": 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
   "type": 'String',
-  "default": '<empty string>'
+  "default": '<leere Zeichenfolge>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputanimation.callback", {
+  "description": "Benutzerdefinierte definierte Funktionen werden jedes Mal aufgerufen, wenn sich die Eingabe geändert hat. Diese Funktion gibt 1 Argument zurück - den aktuellen Wert des Eingabefelds.",
+  "Typ": "Funktion",
+  "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "accordion.animation", {
   "description": "Eine Animation wärend des aufklappens und zuklappens des Accordions. Animationen die verwendet werden können: 'height', 'scale', 'opacity'.",
   "type": "String",
   "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "accordion.data", {
-  "description": "Hauptdaten",
+  "description": "Hauptdaten.",
   "type": "Array",
   "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.href', {
+  "description": "Ein <a> - oder <Link> -Tag umgibt die Texteingabe, um den Benutzer in Ihrer App zu navigieren.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.icon', {
+  "description": "Benutzerdefinierte JSX-Daten auf der linken Seite der Texteingabe.",
+  "Typ": "JSX | String",
+  "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.text', {
   "description": "Der anzuzeigende Text bevor ein Kind Element aufgeklappt wird.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.dataToggle', {
   "description": "Der anzuzeigende Inhalt eines Elementes nachdem das Mutter Element aufgeklappt wurde.",
   "type": "String | JSX ",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, 'accordion.data.toggled', {
   "description": "Ist das Element ge-toggelt order nicht.",
   "type": "Boolean",
@@ -5254,10 +6312,38 @@ var DE = (_DE = {
   "description": "Falls dieser Wert mitgegeben wird, wird das Module interaktiv. Standard mäßig wird das Mutter Element mit der Klasse gerendert: 'flex-row'. Bei der Erreichung des Media Break Points, wird das Mutter Element neu gerender mit der Klasse: flex-column.",
   "type": "Number",
   "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "data", {
+  "description": "Hauptdaten - Array von Objekten.",
+  "Typ": "Array",
+  "Standard": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "card.data", {
+  "description": "Hauptdaten - Array von Objekten.",
+  "Typ": "Array",
+  "Standard": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "card.data.title", {
+  "description": "Benutzerdefinierte Kartenkopfdaten.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "card.data.content", {
+  "description": "Inhaltsdaten für benutzerdefinierte Karten.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "card.data.footer", {
+  "description": "Fußzeilendaten für benutzerdefinierte Karten.",
+  "type": "String | JSX",
+  "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "defaultItems", {
-  "description": "Wie viele Elemente sollen direkt beim Laden angezeigt werden.",
+  "description": "Wie viele Elemente sollen direkt beim ersten Laden angezeigt werden.",
   "type": "Number",
   "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loadonscroll.data", {
+  "description": "Benutzerdefinierte Daten, die beim ersten Mal gerendert werden sollen.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "minify", {
+  "description": "Wenn der Benutzer nach unten scrollt, werden Daten nachgeladen. Das NAchladen der Daten kann beschläunigt werden, in dem man hier einen PIXEL Wert hinzufügt.",
+  "type": "Number",
+  "default": "0"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loadMoreCallback", {
   "description": "Falls das Root Element bis ganz nach unten ge-scrollt wurde, können Daten nachgeladen werden. Falls der Callback 'break' als Antwort liefert, wird der Scroll Event von dem Root Element entfernt.",
   "type": "Function",
@@ -5265,7 +6351,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loadMoreLoadingIcon", {
   "description": "Wärend zusätzliche Elemente geladen werden, kann ein eigen definiertes JSX Element gerendert werden.",
   "type": "String | JSX",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "customsuggestion.callback", {
   "description": "Nachdem eine Änderung im Input Feld statt findet, wird diese Übergebene Funktion aufgerufen mit 1 Paramater: Wert des Input Feldes. Der Callback muss eine Liste and Objecten zurück liefern. Die Struktur ist im 'suggestions' Key beschrieben.",
   "type": "Function",
@@ -5294,10 +6380,18 @@ var DE = (_DE = {
   "description": "Daten die in den Cipboard zwischen gespeichert werden sollen. Wenn diese Daten vom Typ kein String sind, werden diese in den Zwischenspeicher mit JSON.strigify gespeichert.",
   "type": "String | Array | Object | Number",
   "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "clipboard.data", {
+  "description": "Custom JSX.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "clipboard.animation", {
+  "description": "Eine Animation, wenn ein Klickereignis für die benutzerdefinierten 'Daten' ausgelöst wird. Animationen, die verwendet werden können: 'skalieren', 'springen'.",
+  "type": "String",
+  "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "plainValue", {
   "description": "Der Wert des Input Feldes.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputsuggestionarray.callbackSelection", {
   "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
   "type": "Function",
@@ -5309,7 +6403,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "placeholder", {
   "description": "Platzhalter.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputType", {
   "description": "Typ eines Inptu Feldes.",
   "type": "String",
@@ -5333,7 +6427,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "iconClose", {
   "description": "Benutzer definiertes HTML mit der Aktion das Module 'zu schließenden'.",
   "type": "String | JSX",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "inputActive", {
   "description": "Soll das Input feld mit angezeigt werden oder nicht.",
   "type": "Boolean",
@@ -5341,10 +6435,14 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "noDataText", {
   "description": "Falls keine Elemente gefunden wurden, dann wird dieser Text angezeigt.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "callbackClose", {
   "description": "Benutzer definierte Funktion, die ohne Argumente aufgerufen wird, nachdem dass Element geschlossen wurde.",
   "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "listarray.callback", {
+  "description": "Benutzerdefinierte Rückruffunktionen werden ausgelöst, wenn der Benutzer auf ein Listenelement klickt. Die Funktion gibt 2 Argumente zurück. Argument 1: Klickereignis, Argument 2: geklickter Eintrag.",
+  "Typ": "Funktion",
   "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnCallback", {
   "description": "Falls ein Element aus der List ausgewählt wird, soll das Modul auch geschlossen werden oder soll die Anzeige des Modules beibehaltet werden.",
@@ -5363,13 +6461,17 @@ var DE = (_DE = {
   "type": "Boolean",
   "default": "False"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeOnClick", {
-  "description": "",
-  "type": "String",
-  "default": ""
+  "description": "Wenn die verdunkelte HTML Area angeklickt wird, wird das Modul nicht mehr angezeigt.",
+  "type": "Boolean",
+  "default": "True"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "fullscreenOverlay.animation", {
   "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'scale','left','top','right', 'bottom'.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "popupbox.data", {
+  "description": "Benutzerdefinierte JSX-Daten in der umgeschalteten Box.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "popupbox.animation", {
   "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.",
   "type": "String",
@@ -5378,6 +6480,10 @@ var DE = (_DE = {
   "description": "Soll die leicht gedunkelte Bereich angezeigt werden oder nicht.",
   "type": "Boolean",
   "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "fullscreenoverlay.data", {
+  "description": "Benutzerdefinierte JSX-Daten, die im Overlay angezeigt werden sollen.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "disableScroll", {
   "description": "Während der Anzeige des Modules, soll das HTML Element (Tag) scrollbar sein oder nicht.",
   "type": "Boolean",
@@ -5385,7 +6491,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "messageKey", {
   "description": "Ein unique string.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping", {
   "description": "Object",
   "type": "Object",
@@ -5434,10 +6540,6 @@ var DE = (_DE = {
   "description": "Der anzuzeigender Text.",
   "type": "String",
   "default": "undefined"
-}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.text", {
-  "description": "Object",
-  "type": "Object",
-  "default": "{}"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "codeMapping.link.useTagLink", {
   "description": "Soll der Tag <Link> benutzt werden, falls sich das Modul innerhalb eines Routes beweget oder standartmäßig eine <a> Tag.",
   "type": "Boolean",
@@ -5467,10 +6569,6 @@ var DE = (_DE = {
   "type": "Object",
   "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom", {
-  "description": "Benutzer definierte Icons Sets.",
-  "type": "Array",
-  "default": "undefined"
-}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "custom", {
   "description": "Benutzer definierte Icons Sets als Array aus Objekten.",
   "type": "Array",
   "default": "undefined"
@@ -5489,7 +6587,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "animatePlaceholder", {
   "description": "Platzhalter (der dann auch animiert wird).",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "onEnter", {
   "description": "Benutzerdefinierte Funktion wenn der Benutzer Enter drückt innerhalb des Input Feldes. Diese Funktion liefert 1 Argument: der aktuelle Wert des Input Feldes.",
   "type": "Function",
@@ -5513,9 +6611,9 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "label", {
   "description": "Das anzuzeigende JSX innerhalb eine <label> Tags",
   "type": "String | JSX",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "readFileCallback", {
-  "description": "",
+  "description": "Benutzerdefinierte Funktion um eine Datei zu verarbeiten. Es werden 2 Argumente übergeben: Argument 1: Die Datei, Argument 2: Der Dateityp.",
   "type": "Function",
   "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "errorCallback", {
@@ -5533,7 +6631,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "isDraggingData", {
   "description": "Wenn ein Benutzer aktuell im Status 'dragging' ist, dann kann eine Benutzerdefiniertes JSX angezeigt werden.",
   "type": "String | JSX",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "uploadOnClick", {
   "description": "Erlaube auch das Verarbeiten von Dateien wenn der Benutzer auf den 'Drag & Drop' Bereich ein Klick Event durchführt.",
   "type": "Boolean",
@@ -5543,7 +6641,7 @@ var DE = (_DE = {
   "type": "Array",
   "default": "[]"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "suggestionsToFilter", {
-  "description": "Ein Array aus Elementen die danach zur Auswahl für den Benutzer erscheinen.",
+  "description": "Ein Array aus Elementen (Strings) die danach zur Auswahl für den Benutzer erscheinen.",
   "type": "Array",
   "default": "[]"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "emptySuggestionAfterSelection", {
@@ -5561,7 +6659,7 @@ var DE = (_DE = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "text", {
   "description": "Der anzuzeigende Text.",
   "type": "String",
-  "default": "<empty string>"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "scrollReference", {
   "description": "Wenn true, dann wird das Root Element des Modules als Referenz genommen ansonsten das HTML document Elment.",
   "type": "Boolean",
@@ -5607,17 +6705,13 @@ var DE = (_DE = {
   "type": "Object",
   "default": "{}"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title", {
-  "description": "Object - Überschrift der Tabelle",
-  "type": "Object",
+  "description": "Array von Strings - Tabellenüberschrift.",
+  "Typ": "Array",
   "default": "undefined"
-}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title.left", {
-  "description": "Überschrift der Tabelle auf der linken Seite",
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "writer.text", {
+  "description": "Zu schreibender Text.",
   "type": "String",
-  "default": "undefined"
-}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "title.right", {
-  "description": "Überschrift der Tabelle auf der rechten Seite",
-  "type": "String",
-  "default": "undefined"
+  "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "speed", {
   "description": "Speed of the text writer in ms.",
   "type": "Number",
@@ -5631,9 +6725,9 @@ var DE = (_DE = {
   "type": "String | JSX",
   "default": "|"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipeSite", {
-  "description": "",
+  "description": "Pipe auf der Site anzeigen: 'left', 'right'",
   "type": "String",
-  "default": ""
+  "default": "right"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "pipePersist", {
   "description": "Persist the pipe after the text was written.",
   "type": "Boolean",
@@ -5654,7 +6748,7 @@ var DE = (_DE = {
   "description": "Text to write as replacement.",
   "type": "String",
   "default": "undefined"
-}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "timeout", {
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "writer.timeout", {
   "description": "Start writing text after this time in ms.",
   "type": "Number",
   "default": "0"
@@ -5663,7 +6757,7 @@ var DE = (_DE = {
   "type": "Array",
   "default": "undefined"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.keysToRead", {
-  "description": "Array aus String - welche Keys sollen aus dem Object ausgelesen werden.",
+  "description": "Array aus Strings - welche Keys sollen aus dem Object ausgelesen werden.",
   "type": "Array",
   "default": "undefined"
 }), _DE);
@@ -5699,7 +6793,523 @@ var EN = (_EN = {
   documentation: 'Documentation',
   modules: 'Modules',
   getStarted: 'Get started'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "usefullLinks", 'Useful Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rights", 'Rights'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rigthsText", 'All rights reserved'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "exampleTitle", 'Example'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactCodeTitle", 'React code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cssCodeTitle", 'Css code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "jsCodeTitle", 'Javascript code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loading", 'Loading...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "keyUsageTitle", 'Keys Explanations'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "id", 'Set an id for the root element of this module.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "class", 'Replace the main class with your own. If this is used, the standard styles that the module brings with it no longer apply.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "addClass", 'Set an additional class for the root element of this module.'), _EN);
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "usefullLinks", 'Useful Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rights", 'Rights'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rigthsText", 'All rights reserved'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "exampleTitle", 'Example'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactCodeTitle", 'React code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cssCodeTitle", 'Css code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "jsCodeTitle", 'Javascript code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loading", 'Loading...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "keyUsageTitle", 'Keys Explanations'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "id", {
+  "description": 'Set an id for the root element of this module.',
+  "type": 'String',
+  "default": '<empty string>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "class", {
+  "description": 'Replace the main class with your own. If this is used, the standard styles that the module brings with it no longer apply.',
+  "type": 'String',
+  "default": ''
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "addClass", {
+  "description": 'Set an additional class for the root element of this module.',
+  "type": 'String',
+  "default": '<empty string>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputanimation.callback", {
+  "description": "Custom defined Function are called each time the input has changed. This function returns 1 argument - the current value of the input field.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "accordion.animation", {
+  "description": "An animation when opening and closing the accordion. Animations that can be used: 'height', 'scale', 'opacity'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "accordion.data", {
+  "description": "Main data - Array of Objects.",
+  "type": "array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, 'accordion.data.href', {
+  "description": "An <a> or <Link> Tag aroung the text entry to navigate the user on your app.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, 'accordion.data.icon', {
+  "description": "Custom JSX data placed on the left side of the text entry.",
+  "type": "JSX | String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, 'accordion.data.text', {
+  "description": "The text to be displayed before a child element is expanded.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, 'accordion.data.dataToggle', {
+  "description": "The content of an element to be displayed after the parent element has been expanded.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, 'accordion.data.toggled', {
+  "description": "If the element is toggled or not.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "props", {
+  "description": "The HTML properties of the HTML element.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "itemsPerLine", {
+  "description": "How many items should be displayed in a row.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "mediaBreak", {
+  "description": "If this value is given, the module becomes interactive. By default, the parent element is rendered with the class: 'flex-row'. When the media break point is reached, the parent element is rendered new with the class : flex-column. ",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "defaultItems", {
+  "description": "How many items should be shown when loading first time.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "data", {
+  "description": "Main data - Array of Objects.",
+  "type": "array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cards.data", {
+  "description": "Main data - Array of Objects.",
+  "type": "array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cards.data.title", {
+  "description": "Custom cards header data.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cards.data.content", {
+  "description": "Custom cards content data.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cards.data.footer", {
+  "description": "Custom cards footer data.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loadonscroll.data", {
+  "description": "Custom data to render on the first time.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "minify", {
+  "description": "When the user scrolls down, data is loaded. Loading the data can be speeded up by adding a PIXEL value here.",
+  "type": "Number",
+  "default": "0"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loadMoreCallback", {
+  "description": "If the root element has been scrolled all the way down, data can be reloaded. If the callback returns 'break', the scroll event is removed from the root element.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loadMoreLoadingIcon", {
+  "description": "While additional elements are being loaded, a self-defined JSX element can be rendered.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.callback", {
+  "description": "After a change in the input field, this function is called with 1 parameter: Value of the input field. The callback must return a list and objects. The structure is described in the 'suggestions' key.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.suggestions", {
+  "description": "list of objects",
+  "type": "array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.suggestions.href", {
+  "description": "The custom suggestion is wrapped with an A tag so the user can follow a suggestion directly.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.suggestions.jsx", {
+  "description": "Custom HTML the end user sees.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.suggestions.props", {
+  "description": "The HTML properties of the HTML element.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "customsuggestion.suggestions.onClickValue", {
+  "description": "Value to be written in the input field when a click event takes place.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "clipboard", {
+  "description": "Data that should be saved in the cipboard. If this type of data is not a string, it is saved in the buffer with JSON.strigify.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "clipboard.data", {
+  "description": "Custom JSX.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "clipboard.animation", {
+  "description": "An animation when click event are fired on the custom 'data'. Animations that can be used: 'scale', 'jump'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "plainValue", {
+  "description": "The value of the input field.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputsuggestionarray.callbackSelection", {
+  "description": "User-defined function for which an element was selected. This function provides 1 argument. Argument 1: List of the selected elements (clicked element).",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputsuggestionobject.callbackSelection", {
+  "description": "User-defined function for which an element was selected. This function provides 1 argument. Argument 1: List of the selected elements (clicked element).",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "placeholder", {
+  "description": "placeholder.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputType", {
+  "description": "Type of an Inptu field.",
+  "type": "String",
+  "default": "text"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "callbackRerender", {
+  "description": "If true, the module only listens to the transferred state and state changes. If false, the module expects data from the callback to be processed further.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "allowOnlyAZ", {
+  "description": "If true, the following regex is applied to the value of the input field: (/ [^ a-zA-Z] / gmi).",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "display", {
+  "description": "Should the element be displayed or not?",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "displayLineNumber", {
+  "description": "Allow rendering, on the left side, each line number.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "iconClose", {
+  "description": "User defined HTML with the action to 'close' the module.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputActive", {
+  "description": "Should the input field be displayed or not?",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "noDataText", {
+  "description": "If no elements were found, this text will be displayed.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "callbackClose", {
+  "description": "User-defined function that is called without arguments after the item is closed.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "closeOnCallback", {
+  "description": "If an element is selected from the list, the module should also be closed or the display of the module should be kept.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "listarray.callback", {
+  "description": "User defined callback function are fired if the user click on an list element. The function returns 2 arguments. Argument 1: click event, Argument 2: clicked entry.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "listarray.data", {
+  "description": "Array of Strings (values) to display.",
+  "type": "Array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "listobject.data", {
+  "description": "Array of Objects.",
+  "type": "Array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "listobject.data.text", {
+  "description": "Main string to display.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "closeOnDimmedClick", {
+  "description": "If you click on the 'dark' HTML which is outside the content area, the module will no longer be displayed.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "closeOnEsc", {
+  "description": "When you press the 'Escape' key, the module should continue to be displayed or the display should be interrupted.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "inputEmptyOnCallback", {
+  "description": "After an element has been selected from the list, the input field should be taught or the value of the input field should remain unchanged.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "closeOnClick", {
+  "description": "If the darkened HTML area is clicked, the module will no longer be displayed.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "fullscreenOverlay.animation", {
+  "description": "An animation during the rendering of the module. Animations that can be used: 'scale', 'left', 'top', 'right', 'bottom'.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "popupbox.data", {
+  "description": "Custom JSX data inside the toggled box.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "popupbox.animation", {
+  "description": "An animation during the rendering of the module. Animations that can be used: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.",
+  "type": "String",
+  "default": "top-left"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "fullscreenoverlay.dimmed", {
+  "description": "Should the lightly darkened area be displayed or not.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "fullscreenoverlay.data", {
+  "description": "Custom JSX data to display inside the overlay.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "disableScroll", {
+  "description": "While displaying the module, the HTML element (tag) should be scrollable or not.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "messageKey", {
+  "description": "A unique string.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping", {
+  "description": "Object",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.title", {
+  "description": "Title of the message",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.displayErrorCode", {
+  "description": "Should the code of the transmitted message also be displayed or not?",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.text", {
+  "description": "Object - Text to be displayed as a message.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.text.prefix", {
+  "description": "Prefix text before the actual mediation.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.text.suffix", {
+  "description": "Suffix - Text after the actual mediation.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.text.props", {
+  "description": "The HTML properties of the HTML element.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.close", {
+  "description": "Object text to close the message box.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.close.text", {
+  "description": "Text for closing to be displayed. A 'click close event' is attached to this text.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.close.props", {
+  "description": "The HTML properties of the HTML element.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.link", {
+  "description": "Object - External Link.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.link.text", {
+  "description": "The text to display.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.link.useTagLink", {
+  "description": "Should the <Link> tag be used if the module moves within a route or a <a> tag by default.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "codeMapping.link.href", {
+  "description": "The attribute 'to' in the <Link> tag or 'href' in the <a> tag.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "timer", {
+  "description": "Interval to display error messages.",
+  "type": "Number",
+  "default": "2500"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "iconsType", {
+  "description": "Standard clicked icons set when rendering the module for the first time.",
+  "type": "String",
+  "default": "smileys"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "displayTabs", {
+  "description": "Should the headings of all icon sets to be displayed be shown or hidden.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "renderItems", {
+  "description": "Which items should be shown by default.",
+  "type": "array",
+  "default": "'Smileys',' Peoples', 'Animals',' Plants', 'Nature', 'Food', 'Activity', 'Travel', 'Objects',' Symbols', 'Currency', ' Arrows', 'Html' "
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "translations", {
+  "description": "Translations for the respective headings of the icon sets.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "custom", {
+  "description": "User defined icon sets as an array of objects.",
+  "type": "array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "custom.title", {
+  "description": "Title of the icon set as a unique key.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "custom.data", {
+  "description": "Array of strings with custom icons.",
+  "type": "array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "defaultClassOrigin", {
+  "description": "",
+  "type": "String",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "animatePlaceholder", {
+  "description": "Placeholder (which is then also animated).",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "onEnter", {
+  "description": "User-defined function when the user presses Enter within the input field. This function provides 1 argument: the current value of the input field.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "getValueFromCallback", {
+  "description": "If false, the module only listens to the transferred state and state changes. If true, the module expects data from the callback to be processed further.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "allowedFileSize", {
+  "description": "Maximum size of a file.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "allowedFileSizeDescriptor", {
+  "description": "Sizes vector: B, KB, MB, GB, TB or PT.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "allowedFiles", {
+  "description": "File types that are allowed.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "label", {
+  "description": "The JSX to be displayed within a <label> tag",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "readFileCallback", {
+  "description": "User-defined function to process a file. Two arguments are passed: Argument 1: The file, Argument 2: The file type.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "errorCallback", {
+  "description": "User-defined callback during file handling error. It passes 2 arguments. Argument 1: Error type (unsupported_filetype, maximum_filesize_reached, unrecognized_filetype, empty_filecontent, empty_filename), Argumnt 2: 'errorCallbackCustomData'",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "errorCallbackCustomData", {
+  "description": "User-defined value for the 2 argument of the function: 'errorCallback'.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "multiple", {
+  "description": "Allow multiple files at once.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "isDraggingData", {
+  "description": "If a user is currently in the 'dragging' status, a user-defined JSX can be displayed.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "uploadOnClick", {
+  "description": "Allow files to be processed when the user clicks on the 'drag and drop' area.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "selected", {
+  "description": "An array of selected items from the list.",
+  "type": "array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "suggestionsToFilter", {
+  "description": "An array of elements (strings) that will then appear for the user to choose from.",
+  "type": "array",
+  "default": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "emptySuggestionAfterSelection", {
+  "description": "Teach the suggestions after the user clicks on an item.",
+  "type": "Boolen",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "sortSelected", {
+  "description": "Should the selected elements be sorted alphabetically. Allowed sorting options: 'asc', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "sortSuggestions", {
+  "description": "Shall the elements to be displayed be sorted alphabetically. Allowed sorting options: 'asc', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "text", {
+  "description": "The text to display.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "scrollReference", {
+  "description": "If true, the root element of the module is used as a reference, otherwise the HTML document Elment.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactRouter", {
+  "description": "If true - (then the module moves within a Rect Router) a <Link> tag is rendered, if false a <a> tag is rendered.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "icon", {
+  "description": "Custom JSX to close the module.",
+  "type": "String | JSX",
+  "default": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "iconCallback", {
+  "description": "Custom callback when the 'icon' is clicked.",
+  "type": "Function",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "animationTime", {
+  "description": "Time of animation in ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "image", {
+  "description": "JSX of the image / icon.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "moduleMenu", {
+  "description": "The embedded 'MenuClickHorizontal' module.",
+  "type": "JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "textLong", {
+  "description": "Long text as a heading next to the photo.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "textShort", {
+  "description": "Short text under the heading and also next to the photo.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "href", {
+  "description": "If href is set, a <a> is stretched around the photo and the text.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "hrefProps", {
+  "description": "The HTML properties of the <a> tag.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "title", {
+  "description": "Array of strings - table heading.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "writer.text", {
+  "description": "Text to be written.",
+  "type": "String",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "speed", {
+  "description": "Speed ​​of the text writer in ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "pipeDisplay", {
+  "description": "Display the pipe while writing.",
+  "type": "Boolen",
+  "default": "true"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "pipeChar", {
+  "description": "Charachter of the pipe",
+  "type": "String | JSX",
+  "default": "|"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "pipeSite", {
+  "description": "Display pipe on the site: 'left', 'right'",
+  "type": "String",
+  "default": "right"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "pipePersist", {
+  "description": "Persist the pipe after the text was written.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "replaces", {
+  "description": "Object - Replace Text after, the text was written.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "replaces.from", {
+  "description": "Start replacement on this char.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "replaces.to", {
+  "description": "End replacement on this char.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "replaces.replace", {
+  "description": "Text to write as replacement.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "writer.timeout", {
+  "description": "Start writing text after this time in ms.",
+  "type": "Number",
+  "default": "0"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.data", {
+  "description": "Array of objects.",
+  "type": "array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.keysToRead", {
+  "description": "Array of strings - which keys should be read from the object.",
+  "type": "array",
+  "default": "undefined"
+}), _EN);
 /* harmony default export */ __webpack_exports__["default"] = (EN);
 
 /***/ }),
@@ -5732,7 +7342,511 @@ var PL = (_PL = {
   documentation: 'Dokumentacja',
   modules: 'Moduły',
   getStarted: 'Początek'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "installation", 'Instalacja'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "usefullLinks", 'Użyteczne linki'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rights", 'Prawa'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rigthsText", 'Wszystkie prawa zastrzeżone'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "author", 'Autor'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "exampleTitle", 'Przykład'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactCodeTitle", 'Kod react'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cssCodeTitle", 'Kod css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "jsCodeTitle", 'Kod javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loading", 'Ładowanie...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "keyUsageTitle", 'Wyjaśnienia Kluczy'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "id", 'Ustaw identyfikator id dla głównego elementu tego modułu.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "class", 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które zapewnia moduł, nie mają już zastosowania.'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "addClass", 'Ustaw dodatkową klasę dla głównego elementu tego modułu.'), _PL);
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "installation", 'Instalacja'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "usefullLinks", 'Użyteczne linki'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rights", 'Prawa'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rigthsText", 'Wszystkie prawa zastrzeżone'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "author", 'Autor'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "exampleTitle", 'Przykład'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactCodeTitle", 'Kod react'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cssCodeTitle", 'Kod css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "jsCodeTitle", 'Kod javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loading", 'Ładowanie...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "keyUsageTitle", 'Wyjaśnienia Kluczy'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "id", {
+  "description": 'Ustaw id dla głównego elementu tego modułu.',
+  "type": 'Ciąg',
+  "default": '<pusty ciąg>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "class", {
+  "description": 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które przynosi moduł, nie mają już zastosowania. ',
+  "type": 'Ciąg',
+  "domyślna": ''
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "addClass", {
+  "description": 'Ustaw dodatkową klasę dla głównego elementu tego modułu.',
+  "type": 'Ciąg',
+  "default": '<pusty ciąg>'
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputanimation.callback", {
+  "description": "Funkcje zdefiniowane przez użytkownika są wywoływane za każdym razem, gdy dane wejściowe ulegną zmianie. Ta funkcja zwraca 1 argument - bieżącą wartość pola wejściowego.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "accordion.animation", {
+  "description": "Animacja podczas otwierania i zamykania akordeonu. Animacje, które można wykorzystać: 'wysokość', 'skala', 'krycie'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "accordion.data", {
+  "description": "główne dane.",
+  "type": "tablica",
+  "domyślna": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, 'accordion.data.href', {
+  "description": "Tag <a> lub <Link> wokół wpisu tekstowego, aby nawigować po użytkowniku w aplikacji.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, 'accordion.data.icon', {
+  "description": "Niestandardowe dane JSX umieszczone po lewej stronie wpisu tekstowego.",
+  "type": "JSX | String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, 'accordion.data.text', {
+  "description": "Tekst do wyświetlenia przed rozwinięciem elementu potomnego.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "accordion.data.dataToggle", {
+  "description": "Zawartość elementu do wyświetlenia po rozwinięciu elementu nadrzędnego.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "accordion.data.toggled", {
+  "description": "Czy element jest przełączany czy nie.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "props", {
+  "description": "Właściwości HTML elementu HTML.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "itemsPerLine", {
+  "description": "Ile pozycji powinno wyświetlić się w rzędzie.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "mediaBreak", {
+  "description": "Jeśli podano tę wartość, moduł staje się interaktywny. Domyślnie element nadrzędny jest renderowany z klasą: 'flex-row'. Po osiągnięciu punktu przerwania multimediów element nadrzędny jest renderowany jako nowy z class: flex-column. ",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "data", {
+  "description": "Główne dane - Tablica Obiektów.",
+  "type": "tablica",
+  "domyślna": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cards.data", {
+  "description": "Główne dane - Tablica Obiektów.",
+  "type": "tablica",
+  "domyślna": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cards.data.title", {
+  "description": "Dane nagłówka karty.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cards.data.content", {
+  "description": "Dane zawartości karty.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cards.data.footer", {
+  "description": "Dane stopki karty.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "defaultItems", {
+  "description": "Ile elementów powinno być wyświetlanych podczas pierwszego ładowania.",
+  "type": "Number",
+  "default": "3"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loadonscroll.data", {
+  "description": "Niestandardowe dane do renderowania po raz pierwszy.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "minify", {
+  "description": "Gdy użytkownik przewinie w dół, dane są ponownie ładowane. Ponowne ładowanie danych można spowolnić, dodając tutaj wartość PIXEL.",
+  "type": "Number",
+  "default": "0"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loadMoreCallback", {
+  "description": "Jeśli element główny został przewinięty do końca w dół, dane można załadować ponownie. Jeśli wywołanie zwrotne zwraca 'break', zdarzenie przewijania jest usuwane z elementu głównego.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loadMoreLoadingIcon", {
+  "description": "Podczas wczytywania dodatkowych elementów można renderować samodzielnie zdefiniowany element JSX.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.callback", {
+  "opis": "Po zmianie w polu wejściowym wywoływana jest funkcja z 1 parametrem: Wartość pola wejściowego. Callback musi zwrócić listę i obiekty. Struktura jest opisana w kluczu 'sugestie'.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.suggestions", {
+  "opis": "lista obiektów",
+  "type": "tablica",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.suggestions.href", {
+  "description": "Niestandardowa sugestia jest otoczona tagiem A, dzięki czemu użytkownik może bezpośrednio skorzystać z sugestii.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.suggestions.jsx", {
+  "description": "Niestandardowy HTML, który widzi użytkownik końcowy.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.suggestions.props", {
+  "description": "Właściwości HTML elementu HTML.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "customuggestion.suggestions.onClickValue", {
+  "description": "Wartość do wpisania w polu wejściowym, gdy ma miejsce zdarzenie kliknięcia.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "clipboard", {
+  "description": "Dane, które powinny być zapisane w tablicy szyfrowej. Jeśli ten typ danych nie jest ciągiem znaków, jest zapisywany w buforze z JSON.strigify.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "clipboard.data", {
+  "description": "Niestandardowy JSX.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "clipboard.animation", {
+  "description": "Animacja uruchamiająca zdarzenie kliknięcia na niestandardowych 'danych'. Animacje, których można użyć: 'skala', 'skok'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "plainValue", {
+  "description": "Wartość pola wejściowego.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputuggestionarray.callbackSelection", {
+  "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputuggestionobject.callbackSelection", {
+  "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "placeholder", {
+  "opis": "symbol zastępczy.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputType", {
+  "description": "Typ pola Inptu.",
+  "type": "String",
+  "default": "tekst"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "callbackRerender", {
+  "description": "Jeśli prawda, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli fałsz, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "allowOnlyAZ", {
+  "description": "Jeśli prawda, następujące wyrażenie regularne jest stosowane do wartości pola wejściowego: (/ [^ a-zA-Z] / gmi).",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "display", {
+  "description": "Czy element ma być wyświetlany czy nie?",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "displayLineNumber", {
+  "description": "Zezwól na renderowanie po lewej stronie każdego numeru wiersza.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "iconClose", {
+  "description": "Zdefiniowany przez użytkownika HTML z akcją 'zamknij' moduł.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputActive", {
+  "description": "Czy pole wejściowe powinno być wyświetlane czy nie?",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "noDataText", {
+  "description": "Jeśli nie znaleziono żadnych elementów, ten tekst zostanie wyświetlony.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "callbackClose", {
+  "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana bez argumentów po zamknięciu pozycji.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "listarray.callback", {
+  "description": "Zdefiniowane przez użytkownika funkcje zwrotne są uruchamiane, jeśli użytkownik kliknie element listy. Funkcja zwraca 2 argumenty. Argument 1: zdarzenie kliknięcia, Argument 2: kliknięty wpis.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "closeOnCallback", {
+  "description": "W przypadku wybrania elementu z listy należy również zamknąć moduł lub zachować wyświetlanie modułu.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "closeOnDimmedClick", {
+  "description": "Jeśli klikniesz na 'ciemny' HTML, który znajduje się poza obszarem zawartości, moduł nie będzie już wyświetlany.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "closeOnEsc", {
+  "description": "Po naciśnięciu klawisza 'Escape' moduł powinien nadal być wyświetlany lub wyświetlanie powinno zostać przerwane.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "inputEmptyOnCallback", {
+  "opis": "Po wybraniu elementu z listy pole wejściowe powinno zostać nauczone lub wartość pola wejściowego powinna pozostać niezmieniona.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "closeOnClick", {
+  "description": "Jeśli klikniesz przyciemniony obszar HTML, moduł nie będzie już wyświetlany.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "fullscreenOverlay.animation", {
+  "description": "Animacja podczas renderowania modułu. Animacje, które można wykorzystać: 'skala', 'lewa', 'góra', 'prawa', 'dół'.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "popupbox.data", {
+  "description": "Niestandardowe dane JSX w przełączanym polu.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "popupbox.animation", {
+  "description": "Animacja podczas renderowania modułu. Animacje, które można wykorzystać: 'lewy górny', 'prawy górny', 'lewy dolny', 'prawy dolny'.",
+  "type": "String",
+  "default": "lewy górny"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "fullscreenoverlay.dimmed", {
+  "description": "Czy jasno przyciemniony obszar ma być wyświetlany czy nie.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "fullscreenoverlay.data", {
+  "description": "Niestandardowe dane JSX do wyświetlenia w nakładce.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "disableScroll", {
+  "description": "Podczas wyświetlania modułu element HTML (tag) powinien być przewijalny lub nie.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "messageKey", {
+  "description": "Unikalny ciąg.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping", {
+  "opis": "Obiekt",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.title", {
+  "description": "Tytuł wiadomości",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.displayErrorCode", {
+  "description": "Czy kod transmitowanej wiadomości również powinien być wyświetlany, czy nie?",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.text", {
+  "description": "Obiekt - Tekst do wyświetlenia jako wiadomość.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.text.prefix", {
+  "description": "Prefiks tekst przed faktyczną mediacją.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.text.suffix", {
+  "description": "Sufiks - tekst po faktycznym zapośredniczeniu.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.text.props", {
+  "description": "Właściwości HTML elementu HTML.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.close", {
+  "description": "Tekst obiektu do zamknięcia okna komunikatu.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.close.text", {
+  "description": "Tekst do zamknięcia, który ma zostać wyświetlony. Do tego tekstu dołączono 'zdarzenie click close'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.close.props", {
+  "description": "Właściwości HTML elementu HTML.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.link", {
+  "description": "Obiekt - Link zewnętrzny.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.link.text", {
+  "description": "Tekst do wyświetlenia.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.link.useTagLink", {
+  "description": "Czy powinien być używany tag <Link>, jeśli moduł porusza się po trasie, czy tag <a> domyślnie.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "codeMapping.link.href", {
+  "description": "Atrybut 'to' w tagu <Link> lub 'href' w tagu <a>.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "timer", {
+  "description": "Interwał wyświetlania komunikatów o błędach.",
+  "type": "Number",
+  "default": "2500"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "iconsType", {
+  "description": "Standardowo klikane ikony ustawiane przy pierwszym renderowaniu modułu.",
+  "type": "String",
+  "default": "buźki"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "displayTabs", {
+  "description": "Czy nagłówki wszystkich zestawów ikon do wyświetlenia powinny być pokazywane lub ukrywane.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "renderItems", {
+  "description": "Które elementy powinny być wyświetlane domyślnie.",
+  "type": "tablica",
+  "default": "'Smileys',' Peoples', 'Animals',' Plants', 'Nature', 'Food', 'Activity', 'Travel', 'Objects',' Symbols', 'Currency', ' Arrows', 'Html' "
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "translations", {
+  "description": "Tłumaczenia odpowiednich nagłówków zestawów ikon.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "custom", {
+  "description": "Zdefiniowane przez użytkownika zestawy ikon jako tablica obiektów.",
+  "type": "tablica",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "custom.title", {
+  "description": "Tytuł ikony ustawiony jako unikalny klucz.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "custom.data", {
+  "description": "Tablica ciągów z niestandardowymi ikonami.",
+  "type": "tablica",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "defaultClassOrigin", {
+  "opis": "",
+  "type": "String",
+  "domyślna": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "animatePlaceholder", {
+  "description": "Placeholder (który jest wtedy również animowany).",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "onEnter", {
+  "description": "Funkcja zdefiniowana przez użytkownika, gdy użytkownik naciśnie klawisz Enter w polu wejściowym. Ta funkcja udostępnia 1 argument: bieżącą wartość pola wejściowego.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "getValueFromCallback", {
+  "description": "Jeśli fałsz, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli prawda, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "allowedFileSize", {
+  "description": "Maksymalny rozmiar pliku.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "allowedFileSizeDescriptor", {
+  "description": "Wektor rozmiarów: B, KB, MB, GB, TB lub PT.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "allowedFiles", {
+  "description": "Dozwolone typy plików.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "label", {
+  "description": "JSX do wyświetlenia w tagu <label>",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "readFileCallback", {
+  "description": "Benutzerdefinierte Funktion um eine Datei zu verarbeiten. Es werden 2 Argumente übergeben: Argument 1: Die Datei, Argument 2: Der Dateityp.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "errorCallback", {
+  "description": "Zdefiniowane przez użytkownika wywołanie zwrotne podczas błędu obsługi pliku. Przekazuje 2 argumenty. Argument 1: Typ błędu (unsupported_filetype, maximum_filesize_reached, unrecognized_filetype, empty_filecontent, empty_filename), Argumnt 2: 'errorCallbackCustomData'",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "errorCallbackCustomData", {
+  "description": "Zdefiniowana przez użytkownika wartość 2 argumentu funkcji: 'errorCallback'.",
+  "type": "String | Array | Object | Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "multiple", {
+  "description": "Zezwalaj na wiele plików naraz.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "isDraggingData", {
+  "description": "Jeśli użytkownik jest obecnie w stanie„ przeciągania ”, może zostać wyświetlony zdefiniowany przez użytkownika JSX.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "uploadOnClick", {
+  "description": "Zezwól na przetwarzanie plików, gdy użytkownik kliknie obszar 'przeciągnij i upuść'.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "selected", {
+  "description": "Tablica wybranych pozycji z listy.",
+  "type": "tablica",
+  "domyślna": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "suggestionsToFilter", {
+  "description": "Tablica elementów (stringi), które następnie pojawią się do wyboru przez użytkownika.",
+  "type": "tablica",
+  "domyślna": "[]"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "emptySuggestionAfterSelection", {
+  "description": "Naucz sugestii po tym, jak użytkownik kliknie element.",
+  "type": "Boolen",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "sortSelected", {
+  "description": "Czy wybrane elementy powinny być sortowane alfabetycznie. Dozwolone opcje sortowania: 'rosnąco', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "sortSuggestions", {
+  "description": "Czy elementy do wyświetlenia są sortowane alfabetycznie. Dozwolone opcje sortowania: 'rosnąco', 'desc'.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "text", {
+  "description": "Tekst do wyświetlenia.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "scrollReference", {
+  "description": "Jeśli prawda, główny element modułu jest używany jako odniesienie, w przeciwnym razie dokument HTML Elment.",
+  "type": "Boolean",
+  "default": "True"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactRouter", {
+  "description": "Jeśli prawda - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli fałsz jest renderowany tag <a>.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "icon", {
+  "description": "Niestandardowy JSX do zamknięcia modułu.",
+  "type": "String | JSX",
+  "domyślna": ""
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "iconCallback", {
+  "description": "Niestandardowe wywołanie zwrotne po kliknięciu 'ikony'.",
+  "type": "Funkcja",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "animationTime", {
+  "description": "Czas animacji w ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "image", {
+  "description": "JSX obrazu / ikony.",
+  "type": "String | JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "moduleMenu", {
+  "description": "Wbudowany moduł 'MenuClickHorizontal'.",
+  "type": "JSX",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "textLong", {
+  "description": "Długi tekst jako nagłówek obok zdjęcia.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "textShort", {
+  "description": "Krótki tekst pod nagłówkiem, a także obok zdjęcia.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "href", {
+  "description": "Jeśli ustawiono href, <a> jest rozciągany wokół zdjęcia i tekstu.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "hrefProps", {
+  "description": "Właściwości HTML tagu <a>.",
+  "type": "Object",
+  "domyślna": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "title", {
+  "description": "Tablica ciągów - nagłówek tabeli.",
+  "type": "Array",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "writer.text", {
+  "description": "Tekst do napisania.",
+  "type": "String",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "speed", {
+  "description": "Szybkość zapisywania tekstu w ms.",
+  "type": "Number",
+  "default": "300"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pipeDisplay", {
+  "description": "Wyświetl potok podczas pisania.",
+  "type": "Boolen",
+  "default": "prawda"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pipeChar", {
+  "description": "Charachter of the pipe",
+  "type": "String | JSX",
+  "default": "|"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pipeSite", {
+  "description": "Wyświetl potokę w witrynie: 'lewa', 'prawa'",
+  "type": "String",
+  "default": "right"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pipePersist", {
+  "description": "Utrwalaj kreskę po napisaniu tekstu.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "replaces", {
+  "description": "Obiekt - Zastąp tekst po, tekst został zapisany.",
+  "type": "Object",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "replaces.from", {
+  "description": "Rozpocznij zamianę na tym znaku.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "replaces.to", {
+  "description": "Zakończ zamianę na tym znaku.",
+  "type": "Number",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "replaces.replace", {
+  "description": "Tekst do napisania jako zamiennik.",
+  "type": "String",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "writer.timeout", {
+  "description": "Zacznij pisać tekst po tym czasie w ms.",
+  "type": "Number",
+  "default": "0"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.data", {
+  "description": "Tablica obiektów.",
+  "type": "tablica",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.keysToRead", {
+  "description": "Tablica ciągów - które klucze należy odczytać z obiektu.",
+  "type": "tablica",
+  "default": "undefined"
+}), _PL);
 /* harmony default export */ __webpack_exports__["default"] = (PL);
 
 /***/ }),
@@ -17080,7 +19194,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: relative;\n  left: 250px;\n  width: calc(100% - 250px);\n  z-index: 1; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 2;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 50px;\n  width: calc(100% - 50px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 3; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 50px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 2; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 2; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n  .Generator .rr-table .ul {\n    width: 100%; }\n    .Generator .rr-table .ul li {\n      width: 100%; }\n  .Generator .rr-table .span {\n    display: block; }\n  .Generator .rr-table .span-1 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-2 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-3 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-4 {\n    width: 70%; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .rr-popupbox {\n  float: right; }\n  #app .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .rr-popupbox .icon-container .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .rr-popupbox .icon-container .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .rr-popupbox .icon-container .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .rr-popupbox .icon-container .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .rr-popupbox .icon-container .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .rr-popupbox .icon-container .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .rr-popupbox .icon-container .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .rr-popupbox .icon-container .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 200px;\n  width: calc(100% - 200px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 200px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n  .Generator .rr-table .ul {\n    width: 100%; }\n    .Generator .rr-table .ul li {\n      width: 100%; }\n  .Generator .rr-table .span {\n    display: block; }\n  .Generator .rr-table .span-1,\n  .Generator .rr-table .span-3,\n  .Generator .rr-table .span-4 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-2 {\n    width: 70%; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
 
 
 
@@ -32642,7 +34756,7 @@ module.exports = function (e) {
     return a.d(t, "a", t), t;
   }, a.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t);
-  }, a.p = "", a(a.s = 25);
+  }, a.p = "", a(a.s = 24);
 }([function (e, t) {
   function a(t) {
     return "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? e.exports = a = function a(e) {
@@ -32722,11 +34836,11 @@ module.exports = function (e) {
 }, function (e, t, a) {
   e.exports = a(17);
 }, function (e, t, a) {
-  e.exports = a(23)();
+  e.exports = a(22)();
 }, function (e, t) {
-  function a(e, t, a, n, l, i, s) {
+  function a(e, t, a, n, l, s, i) {
     try {
-      var r = e[i](s),
+      var r = e[s](i),
           o = r.value;
     } catch (e) {
       return void a(e);
@@ -32739,15 +34853,15 @@ module.exports = function (e) {
     return function () {
       var t = this,
           n = arguments;
-      return new Promise(function (l, i) {
-        var s = e.apply(t, n);
+      return new Promise(function (l, s) {
+        var i = e.apply(t, n);
 
         function r(e) {
-          a(s, l, i, r, o, "next", e);
+          a(i, l, s, r, o, "next", e);
         }
 
         function o(e) {
-          a(s, l, i, r, o, "throw", e);
+          a(i, l, s, r, o, "throw", e);
         }
 
         r(void 0);
@@ -32766,20 +34880,20 @@ module.exports = function (e) {
 }, function (e, t, a) {
   var n = a(18),
       l = a(19),
-      i = a(20),
-      s = a(21);
+      s = a(20),
+      i = a(21);
 
   e.exports = function (e) {
-    return n(e) || l(e) || i(e) || s();
+    return n(e) || l(e) || s(e) || i();
   };
 }, function (e, t, a) {
   "use strict";
 
-  e.exports = function (e, t, a, n, l, i, s, r) {
+  e.exports = function (e, t, a, n, l, s, i, r) {
     if (!e) {
       var o;
       if (void 0 === t) o = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
-        var c = [a, n, l, i, s, r],
+        var c = [a, n, l, s, i, r],
             u = 0;
         (o = new Error(t.replace(/%s/g, function () {
           return c[u++];
@@ -32814,28 +34928,28 @@ module.exports = function (e) {
         a = t.hasOwnProperty,
         n = "function" == typeof Symbol ? Symbol : {},
         l = n.iterator || "@@iterator",
-        i = n.asyncIterator || "@@asyncIterator",
-        s = n.toStringTag || "@@toStringTag";
+        s = n.asyncIterator || "@@asyncIterator",
+        i = n.toStringTag || "@@toStringTag";
 
     function r(e, t, a, n) {
       var l = t && t.prototype instanceof u ? t : u,
-          i = Object.create(l.prototype),
-          s = new E(n || []);
-      return i._invoke = function (e, t, a) {
+          s = Object.create(l.prototype),
+          i = new E(n || []);
+      return s._invoke = function (e, t, a) {
         var n = "suspendedStart";
-        return function (l, i) {
+        return function (l, s) {
           if ("executing" === n) throw new Error("Generator is already running");
 
           if ("completed" === n) {
-            if ("throw" === l) throw i;
+            if ("throw" === l) throw s;
             return x();
           }
 
-          for (a.method = l, a.arg = i;;) {
-            var s = a.delegate;
+          for (a.method = l, a.arg = s;;) {
+            var i = a.delegate;
 
-            if (s) {
-              var r = b(s, a);
+            if (i) {
+              var r = b(i, a);
 
               if (r) {
                 if (r === c) continue;
@@ -32861,7 +34975,7 @@ module.exports = function (e) {
             "throw" === u.type && (n = "completed", a.method = "throw", a.arg = u.arg);
           }
         };
-      }(e, a, s), i;
+      }(e, a, i), s;
     }
 
     function o(e, t, a) {
@@ -32887,16 +35001,16 @@ module.exports = function (e) {
 
     function f() {}
 
-    var p = {};
+    var h = {};
 
-    p[l] = function () {
+    h[l] = function () {
       return this;
     };
 
-    var h = Object.getPrototypeOf,
-        v = h && h(h(S([])));
-    v && v !== t && a.call(v, l) && (p = v);
-    var m = f.prototype = u.prototype = Object.create(p);
+    var p = Object.getPrototypeOf,
+        v = p && p(p(S([])));
+    v && v !== t && a.call(v, l) && (h = v);
+    var m = f.prototype = u.prototype = Object.create(h);
 
     function g(e) {
       ["next", "throw", "return"].forEach(function (t) {
@@ -32909,32 +35023,32 @@ module.exports = function (e) {
     function y(e, t) {
       var n;
 
-      this._invoke = function (l, i) {
-        function s() {
-          return new t(function (n, s) {
-            !function n(l, i, s, r) {
-              var c = o(e[l], e, i);
+      this._invoke = function (l, s) {
+        function i() {
+          return new t(function (n, i) {
+            !function n(l, s, i, r) {
+              var c = o(e[l], e, s);
 
               if ("throw" !== c.type) {
                 var u = c.arg,
                     d = u.value;
                 return d && "object" == _typeof(d) && a.call(d, "__await") ? t.resolve(d.__await).then(function (e) {
-                  n("next", e, s, r);
+                  n("next", e, i, r);
                 }, function (e) {
-                  n("throw", e, s, r);
+                  n("throw", e, i, r);
                 }) : t.resolve(d).then(function (e) {
-                  u.value = e, s(u);
+                  u.value = e, i(u);
                 }, function (e) {
-                  return n("throw", e, s, r);
+                  return n("throw", e, i, r);
                 });
               }
 
               r(c.arg);
-            }(l, i, n, s);
+            }(l, s, n, i);
           });
         }
 
-        return n = n ? n.then(s, s) : s();
+        return n = n ? n.then(i, i) : i();
       };
     }
 
@@ -32982,7 +35096,7 @@ module.exports = function (e) {
 
         if (!isNaN(e.length)) {
           var n = -1,
-              i = function t() {
+              s = function t() {
             for (; ++n < e.length;) {
               if (a.call(e, n)) return t.value = e[n], t.done = !1, t;
             }
@@ -32990,7 +35104,7 @@ module.exports = function (e) {
             return t.value = void 0, t.done = !0, t;
           };
 
-          return i.next = i;
+          return s.next = s;
         }
       }
 
@@ -33006,24 +35120,24 @@ module.exports = function (e) {
       };
     }
 
-    return d.prototype = m.constructor = f, f.constructor = d, f[s] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
+    return d.prototype = m.constructor = f, f.constructor = d, f[i] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
       var t = "function" == typeof e && e.constructor;
       return !!t && (t === d || "GeneratorFunction" === (t.displayName || t.name));
     }, e.mark = function (e) {
-      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, s in e || (e[s] = "GeneratorFunction")), e.prototype = Object.create(m), e;
+      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, i in e || (e[i] = "GeneratorFunction")), e.prototype = Object.create(m), e;
     }, e.awrap = function (e) {
       return {
         __await: e
       };
-    }, g(y.prototype), y.prototype[i] = function () {
+    }, g(y.prototype), y.prototype[s] = function () {
       return this;
-    }, e.AsyncIterator = y, e.async = function (t, a, n, l, i) {
-      void 0 === i && (i = Promise);
-      var s = new y(r(t, a, n, l), i);
-      return e.isGeneratorFunction(a) ? s : s.next().then(function (e) {
-        return e.done ? e.value : s.next();
+    }, e.AsyncIterator = y, e.async = function (t, a, n, l, s) {
+      void 0 === s && (s = Promise);
+      var i = new y(r(t, a, n, l), s);
+      return e.isGeneratorFunction(a) ? i : i.next().then(function (e) {
+        return e.done ? e.value : i.next();
       });
-    }, g(m), m[s] = "Generator", m[l] = function () {
+    }, g(m), m[i] = "Generator", m[l] = function () {
       return this;
     }, m.toString = function () {
       return "[object Generator]";
@@ -33060,26 +35174,26 @@ module.exports = function (e) {
         var t = this;
 
         function n(a, n) {
-          return s.type = "throw", s.arg = e, t.next = a, n && (t.method = "next", t.arg = void 0), !!n;
+          return i.type = "throw", i.arg = e, t.next = a, n && (t.method = "next", t.arg = void 0), !!n;
         }
 
         for (var l = this.tryEntries.length - 1; l >= 0; --l) {
-          var i = this.tryEntries[l],
-              s = i.completion;
-          if ("root" === i.tryLoc) return n("end");
+          var s = this.tryEntries[l],
+              i = s.completion;
+          if ("root" === s.tryLoc) return n("end");
 
-          if (i.tryLoc <= this.prev) {
-            var r = a.call(i, "catchLoc"),
-                o = a.call(i, "finallyLoc");
+          if (s.tryLoc <= this.prev) {
+            var r = a.call(s, "catchLoc"),
+                o = a.call(s, "finallyLoc");
 
             if (r && o) {
-              if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
-              if (this.prev < i.finallyLoc) return n(i.finallyLoc);
+              if (this.prev < s.catchLoc) return n(s.catchLoc, !0);
+              if (this.prev < s.finallyLoc) return n(s.finallyLoc);
             } else if (r) {
-              if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
+              if (this.prev < s.catchLoc) return n(s.catchLoc, !0);
             } else {
               if (!o) throw new Error("try statement without catch or finally");
-              if (this.prev < i.finallyLoc) return n(i.finallyLoc);
+              if (this.prev < s.finallyLoc) return n(s.finallyLoc);
             }
           }
         }
@@ -33089,14 +35203,14 @@ module.exports = function (e) {
           var l = this.tryEntries[n];
 
           if (l.tryLoc <= this.prev && a.call(l, "finallyLoc") && this.prev < l.finallyLoc) {
-            var i = l;
+            var s = l;
             break;
           }
         }
 
-        i && ("break" === e || "continue" === e) && i.tryLoc <= t && t <= i.finallyLoc && (i = null);
-        var s = i ? i.completion : {};
-        return s.type = e, s.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, c) : this.complete(s);
+        s && ("break" === e || "continue" === e) && s.tryLoc <= t && t <= s.finallyLoc && (s = null);
+        var i = s ? s.completion : {};
+        return i.type = e, i.arg = t, s ? (this.method = "next", this.next = s.finallyLoc, c) : this.complete(i);
       },
       complete: function complete(e, t) {
         if ("throw" === e.type) throw e.arg;
@@ -33165,48 +35279,18 @@ module.exports = function (e) {
   e.exports = function () {
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   };
-}, function (e, t) {
-  t.endianness = function () {
-    return "LE";
-  }, t.hostname = function () {
-    return "undefined" != typeof location ? location.hostname : "";
-  }, t.loadavg = function () {
-    return [];
-  }, t.uptime = function () {
-    return 0;
-  }, t.freemem = function () {
-    return Number.MAX_VALUE;
-  }, t.totalmem = function () {
-    return Number.MAX_VALUE;
-  }, t.cpus = function () {
-    return [];
-  }, t.type = function () {
-    return "Browser";
-  }, t.release = function () {
-    return "undefined" != typeof navigator ? navigator.appVersion : "";
-  }, t.networkInterfaces = t.getNetworkInterfaces = function () {
-    return {};
-  }, t.arch = function () {
-    return "javascript";
-  }, t.platform = function () {
-    return "browser";
-  }, t.tmpdir = t.tmpDir = function () {
-    return "/tmp";
-  }, t.EOL = "\n", t.homedir = function () {
-    return "/";
-  };
 }, function (e, t, a) {
   "use strict";
 
-  var n = a(24);
+  var n = a(23);
 
   function l() {}
 
-  function i() {}
+  function s() {}
 
-  i.resetWarningCache = l, e.exports = function () {
-    function e(e, t, a, l, i, s) {
-      if (s !== n) {
+  s.resetWarningCache = l, e.exports = function () {
+    function e(e, t, a, l, s, i) {
+      if (i !== n) {
         var r = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
         throw r.name = "Invariant Violation", r;
       }
@@ -33236,7 +35320,7 @@ module.exports = function (e) {
       oneOfType: t,
       shape: t,
       exact: t,
-      checkPropTypes: i,
+      checkPropTypes: s,
       resetWarningCache: l
     };
     return a.PropTypes = a, a;
@@ -33249,77 +35333,77 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Ke;
-  }), a.d(t, "uuid", function () {
-    return M;
-  }), a.d(t, "disableHtmlScroll", function () {
-    return J;
-  }), a.d(t, "enableHtmlScroll", function () {
-    return K;
-  }), a.d(t, "scrollTopListener", function () {
     return Ze;
-  }), a.d(t, "Accordion", function () {
-    return w;
-  }), a.d(t, "Cards", function () {
-    return O;
-  }), a.d(t, "CardsScroll", function () {
-    return L;
-  }), a.d(t, "CardsScrollCallback", function () {
-    return I;
-  }), a.d(t, "CustomSuggestion", function () {
+  }), a.d(t, "uuid", function () {
     return B;
-  }), a.d(t, "Clipboard", function () {
-    return j;
-  }), a.d(t, "FullScreenListArray", function () {
-    return _;
-  }), a.d(t, "FullScreenListObject", function () {
-    return q;
-  }), a.d(t, "FullScreenOverlay", function () {
+  }), a.d(t, "disableHtmlScroll", function () {
+    return W;
+  }), a.d(t, "enableHtmlScroll", function () {
     return Z;
+  }), a.d(t, "scrollTopListener", function () {
+    return $e;
+  }), a.d(t, "Accordion", function () {
+    return O;
+  }), a.d(t, "Cards", function () {
+    return L;
+  }), a.d(t, "CardsScroll", function () {
+    return R;
+  }), a.d(t, "CardsScrollCallback", function () {
+    return V;
+  }), a.d(t, "CustomSuggestion", function () {
+    return j;
+  }), a.d(t, "Clipboard", function () {
+    return _;
+  }), a.d(t, "FullScreenListArray", function () {
+    return q;
+  }), a.d(t, "FullScreenListObject", function () {
+    return K;
+  }), a.d(t, "FullScreenOverlay", function () {
+    return $;
   }), a.d(t, "GlobalMessages", function () {
-    return X;
+    return ee;
   }), a.d(t, "Icons", function () {
-    return ae;
-  }), a.d(t, "InputAnimation", function () {
     return le;
+  }), a.d(t, "InputAnimation", function () {
+    return ie;
   }), a.d(t, "InputFile", function () {
-    return oe;
-  }), a.d(t, "InputFileDragDrop", function () {
     return ue;
-  }), a.d(t, "InputSuggestionArray", function () {
+  }), a.d(t, "InputFileDragDrop", function () {
     return fe;
+  }), a.d(t, "InputSuggestionArray", function () {
+    return pe;
   }), a.d(t, "InputSuggestionObject", function () {
-    return he;
-  }), a.d(t, "LoadingBoxTop", function () {
     return me;
-  }), a.d(t, "LoadOnScroll", function () {
+  }), a.d(t, "LoadingBoxTop", function () {
     return ye;
+  }), a.d(t, "LoadOnScroll", function () {
+    return Ce;
   }), a.d(t, "MenuClickHorizontal", function () {
-    return Ie;
-  }), a.d(t, "Table", function () {
     return Ve;
-  }), a.d(t, "TextWriter", function () {
+  }), a.d(t, "Table", function () {
     return Ue;
-  }), a.d(t, "PopupBox", function () {
+  }), a.d(t, "TextWriter", function () {
     return ze;
-  }), a.d(t, "SideBar", function () {
+  }), a.d(t, "PopupBox", function () {
     return He;
-  }), a.d(t, "SourceCode", function () {
+  }), a.d(t, "SideBar", function () {
     return Je;
+  }), a.d(t, "SourceCode", function () {
+    return We;
   });
 
   var n = a(8),
       l = a.n(n),
-      i = a(0),
-      s = a.n(i),
+      s = a(0),
+      i = a.n(s),
       r = a(4),
       o = a.n(r),
       c = a(5),
       u = a.n(c),
       d = a(2),
       f = a.n(d),
-      p = a(6),
-      h = a.n(p),
+      h = a(6),
+      p = a.n(h),
       v = a(7),
       m = a.n(v),
       g = a(3),
@@ -33341,12 +35425,16 @@ module.exports = function (e) {
       S = function e() {
     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
     if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && s()([]) == s()(t[a].data) && t[a].data.length && e(t[a].data);
+      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && i()([]) == i()(t[a].data) && t[a].data.length && e(t[a].data);
     }
     return t;
+  },
+      x = [],
+      D = function D(e, t) {
+    !0 === e && t && x.includes(t);
   };
 
-  function x(e) {
+  function w(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33372,60 +35460,66 @@ module.exports = function (e) {
     };
   }
 
-  var w = function (e) {
-    h()(a, e);
-    var t = x(a);
+  var O = function (e) {
+    p()(a, e);
+    var t = w(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-accordion",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
-        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "buildDataRecursive",
       value: function value() {
         var e = this,
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = [];
-        if (t && t.length) for (var i = function i(_i) {
-          var r = t[_i],
+        if (t && t.length) for (var s = function s(_s) {
+          var r = t[_s],
               o = r.text,
               c = r.dataToggle,
               u = r.toggled,
               d = r.unique,
               f = r.classList,
-              p = r.props,
-              h = t[_i].data;
-          f || (f = ""), p && s()(p) === s()({}) || (p = {});
+              h = r.props,
+              p = t[_s].data;
+          f || (f = ""), h && i()(h) === i()({}) || (h = {});
 
           try {
-            Object.keys(p);
+            Object.keys(h);
           } catch (e) {
-            p = {};
+            h = {};
           }
 
           n.push(C.a.createElement("div", l()({
             key: E(),
-            className: "single-entry ".concat(f, " ").concat(h && 0 !== h.length ? "hasChildren" : "")
-          }, p), C.a.createElement("div", {
-            className: "text ".concat(a ? "child" : "", " ").concat(h && 0 !== h.length ? "hasChildren" : "", " ").concat(c ? "hasData" : ""),
+            className: "single-entry ".concat(f, " ").concat(p && 0 !== p.length ? "hasChildren" : "")
+          }, h), C.a.createElement("div", {
+            className: "text ".concat(a ? "child" : "", " ").concat(p && 0 !== p.length ? "hasChildren" : "", " ").concat(c ? "hasData" : ""),
             onClick: function onClick() {
               return e.toggle(d);
             }
-          }, o), u && h && 0 !== h.length && C.a.createElement("div", {
+          }, o), u && p && 0 !== p.length && C.a.createElement("div", {
             className: "children"
-          }, e.buildDataRecursive(h, !0)), u && null == h && c && C.a.createElement("div", {
+          }, e.buildDataRecursive(p, !0)), u && null == p && c && C.a.createElement("div", {
             className: "data"
           }, c)));
         }, r = 0; r <= t.length - 1; r++) {
-          i(r);
+          s(r);
         }
         return n;
       }
@@ -33437,7 +35531,7 @@ module.exports = function (e) {
             n = this.state.animation,
             l = 0;
         ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function i(r) {
+        return function s(r) {
           if (r && r.length) {
             var o = function o(_o) {
               var c = r[_o].unique,
@@ -33459,7 +35553,7 @@ module.exports = function (e) {
                 }) : (d(), "break");
               }
 
-              u && s()([]) == s()(u) && 0 !== u.length && i(u);
+              u && i()([]) == i()(u) && 0 !== u.length && s(u);
             };
 
             e: for (var c = 0; c <= r.length - 1; c++) {
@@ -33470,7 +35564,7 @@ module.exports = function (e) {
                   break e;
 
                 default:
-                  if ("object" === s()(u)) return u.v;
+                  if ("object" === i()(u)) return u.v;
               }
             }
           }
@@ -33503,149 +35597,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["data", "defaultClass", "id", "animation"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-accordion",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
-          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
-
-  function D(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var O = function (e) {
-    h()(a, e);
-    var t = D(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
-        dataJsx: [],
-        isMinified: !1,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        data: e.data && s()([]) == s()(e.data) ? e.data : [],
-        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        var e = this.state.mediaBreak;
-        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize());
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function value() {
-        window.removeEventListener("resize", this.resize);
-      }
-    }, {
-      key: "resize",
-      value: function value() {
-        var e = this.state,
-            t = e.mediaBreak,
-            a = e.isMinified;
-        document.documentElement.getBoundingClientRect().width <= t ? a || this.setState({
-          isMinified: !0
-        }, this.buildData) : a && this.setState({
-          isMinified: !1
-        }, this.buildData);
-      }
-    }, {
-      key: "buildData",
-      value: function value() {
-        var e = [],
-            t = this.state,
-            a = t.data,
-            n = t.itemsPerLine,
-            i = t.isMinified,
-            r = [],
-            o = 0,
-            c = "cards-group flex ".concat(i ? "flex-column isMinified" : "flex-row");
-        a.map(function (t) {
-          var a = t.title,
-              i = t.content,
-              u = t.footer,
-              d = t.props;
-          o++;
-          var f = "card flex flex-column";
-
-          if (d) {
-            var p = d.className;
-            p && s()("8") == s()(p) && (f = "".concat(f, " ").concat(p), delete d.className);
-          }
-
-          r.push(C.a.createElement("div", l()({
-            key: E(),
-            className: f
-          }, d), a && C.a.createElement("div", {
-            className: "title"
-          }, a), i && C.a.createElement("div", {
-            className: "content"
-          }, i), u && C.a.createElement("div", {
-            className: "footer"
-          }, u))), o == n && (e.push(C.a.createElement("div", {
-            key: E(),
-            className: "".concat(c)
-          }, r)), r = [], o = 0);
-        }), r.length && e.push(C.a.createElement("div", {
-          key: E(),
-          className: "".concat(c)
-        }, r)), this.setState({
-          dataJsx: e
-        });
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.dataJsx,
-            n = e.defaultClass,
-            l = e.id;
-        return C.a.createElement("div", {
-          className: "".concat(n, " ").concat(t),
-          id: l
-        }, a);
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "itemsPerLine", "data"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          data: e.data && s()([]) == s()(e.data) ? e.data : []
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+          animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
@@ -33678,23 +35634,21 @@ module.exports = function (e) {
   }
 
   var L = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = N(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.rerenderItems = n.rerenderItems.bind(f()(n)), n.state = {
+      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
-        start: 0,
-        end: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
         isMinified: !1,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        defaultItems: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
-        data: e.data && s()([]) == s()(e.data) ? e.data : [],
-        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        data: e.data && i()([]) == i()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && i()(8) == i()(e.mediaBreak) ? e.mediaBreak : void 0
       }, n;
     }
 
@@ -33702,7 +35656,149 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.mediaBreak;
-        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.loadMore(), e && (window.addEventListener("resize", this.resize), this.resize());
+        this.buildData(), D(this.state.style, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function value() {
+        window.removeEventListener("resize", this.resize);
+      }
+    }, {
+      key: "resize",
+      value: function value() {
+        var e = this.state,
+            t = e.mediaBreak,
+            a = e.isMinified;
+        document.documentElement.getBoundingClientRect().width <= t ? a || this.setState({
+          isMinified: !0
+        }, this.buildData) : a && this.setState({
+          isMinified: !1
+        }, this.buildData);
+      }
+    }, {
+      key: "buildData",
+      value: function value() {
+        var e = [],
+            t = this.state,
+            a = t.data,
+            n = t.itemsPerLine,
+            s = t.isMinified,
+            r = [],
+            o = 0,
+            c = "cards-group flex ".concat(s ? "flex-column isMinified" : "flex-row");
+        a.map(function (t) {
+          var a = t.title,
+              s = t.content,
+              u = t.footer,
+              d = t.props;
+          o++;
+          var f = "card flex flex-column";
+
+          if (d) {
+            var h = d.className;
+            h && i()("8") == i()(h) && (f = "".concat(f, " ").concat(h), delete d.className);
+          }
+
+          r.push(C.a.createElement("div", l()({
+            key: E(),
+            className: f
+          }, d), a && C.a.createElement("div", {
+            className: "title"
+          }, a), s && C.a.createElement("div", {
+            className: "content"
+          }, s), u && C.a.createElement("div", {
+            className: "footer"
+          }, u))), o == n && (e.push(C.a.createElement("div", {
+            key: E(),
+            className: "".concat(c)
+          }, r)), r = [], o = 0);
+        }), r.length && e.push(C.a.createElement("div", {
+          key: E(),
+          className: "".concat(c)
+        }, r)), this.setState({
+          dataJsx: e
+        });
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.dataJsx,
+            n = e.defaultClass,
+            l = e.id;
+        return C.a.createElement("div", {
+          className: "".concat(n, " ").concat(t),
+          id: l
+        }, a);
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "itemsPerLine", "data"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          data: e.data && i()([]) == i()(e.data) ? e.data : []
+        } : null;
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function T(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var R = function (e) {
+    p()(a, e);
+    var t = T(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.rerenderItems = n.rerenderItems.bind(f()(n)), n.state = {
+        dataJsx: [],
+        start: 0,
+        end: e.defaultItems && i()(8) == i()(e.defaultItems) ? e.defaultItems : 3,
+        isMinified: !1,
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        defaultItems: e.defaultItems && i()(8) == i()(e.defaultItems) ? e.defaultItems : 3,
+        data: e.data && i()([]) == i()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && i()(8) == i()(e.mediaBreak) ? e.mediaBreak : void 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        var e = this.state.mediaBreak;
+        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.loadMore(), D(this.state.style, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
       }
     }, {
       key: "componentWillUnmount",
@@ -33734,30 +35830,30 @@ module.exports = function (e) {
             a = this.state,
             n = a.data,
             l = a.dataJsx,
-            i = a.itemsPerLine,
-            s = a.isMinified,
+            s = a.itemsPerLine,
+            i = a.isMinified,
             r = a.start,
             o = a.end,
-            c = "cards-group flex ".concat(s ? "flex-column isMinified" : "flex-row"),
+            c = "cards-group flex ".concat(i ? "flex-column isMinified" : "flex-row"),
             u = [],
             d = 0;
         if (n = n.slice(r, o), t && 0 == n.length && this.cardsReference) return this.removeScrollEvent();
 
         for (var f = 0; f <= n.length - 1; f++) {
-          var p = n[f],
-              h = p.title,
-              v = p.content,
-              m = p.footer;
+          var h = n[f],
+              p = h.title,
+              v = h.content,
+              m = h.footer;
           d++, u.push(C.a.createElement("div", {
             key: E(),
             className: "card flex flex-column"
-          }, h && C.a.createElement("div", {
+          }, p && C.a.createElement("div", {
             className: "title"
-          }, h), v && C.a.createElement("div", {
+          }, p), v && C.a.createElement("div", {
             className: "content"
           }, v), m && C.a.createElement("div", {
             className: "footer"
-          }, m))), d == i && (l.push(C.a.createElement("div", {
+          }, m))), d == s && (l.push(C.a.createElement("div", {
             key: E(),
             className: "cards-group ".concat(c)
           }, u)), u = [], d = 0);
@@ -33769,7 +35865,7 @@ module.exports = function (e) {
         }, u)), this.setState({
           dataJsx: l,
           start: o,
-          end: o + i
+          end: o + s
         }, function () {
           0 == r && e.resize();
         });
@@ -33777,11 +35873,11 @@ module.exports = function (e) {
     }, {
       key: "rerenderItems",
       value: function value() {
-        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, l = e.isMinified, i = "cards-group flex ".concat(l ? "flex-column isMinified" : "flex-row"), s = [], r = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
+        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, l = e.isMinified, s = "cards-group flex ".concat(l ? "flex-column isMinified" : "flex-row"), i = [], r = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
           var u = t[c],
               d = u.title,
               f = u.content,
-              p = u.footer;
+              h = u.footer;
           o++, r.push(C.a.createElement("div", {
             key: E(),
             className: "card flex flex-column"
@@ -33789,19 +35885,19 @@ module.exports = function (e) {
             className: "title"
           }, d), f && C.a.createElement("div", {
             className: "content"
-          }, f), p && C.a.createElement("div", {
+          }, f), h && C.a.createElement("div", {
             className: "footer"
-          }, p))), o == n && (s.push(C.a.createElement("div", {
+          }, h))), o == n && (i.push(C.a.createElement("div", {
             key: E(),
-            className: "cards-group ".concat(i)
+            className: "cards-group ".concat(s)
           }, r)), r = [], o = 0);
         }
 
-        r.length && s.push(C.a.createElement("div", {
+        r.length && i.push(C.a.createElement("div", {
           key: E(),
-          className: "cards-group ".concat(i)
+          className: "cards-group ".concat(s)
         }, r)), this.setState({
-          dataJsx: s
+          dataJsx: i
         });
       }
     }, {
@@ -33817,36 +35913,36 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.dataJsx,
             l = t.defaultClass,
-            i = t.id;
+            s = t.id;
         return C.a.createElement("div", {
           ref: function ref(t) {
             return e.cardsReference = t;
           },
           className: "".concat(l, " ").concat(a),
-          id: i
+          id: s
         }, n);
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "itemsPerLine", "data", "defaultItems", "mediaBreak"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          defaultItems: e.defaultItems && s()(8) == s()(e.defaultItems) ? e.defaultItems : 3,
-          data: e.data && s()([]) == s()(e.data) ? e.data : [],
-          mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          defaultItems: e.defaultItems && i()(8) == i()(e.defaultItems) ? e.defaultItems : 3,
+          data: e.data && i()([]) == i()(e.data) ? e.data : [],
+          mediaBreak: e.mediaBreak && i()(8) == i()(e.mediaBreak) ? e.mediaBreak : void 0
         } : null;
       }
     }]), a;
   }(C.a.Component),
-      T = a(9),
-      R = a.n(T),
-      F = a(11),
-      A = a.n(F);
+      F = a(9),
+      A = a.n(F),
+      P = a(11),
+      M = a.n(P);
 
-  function P(e) {
+  function I(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -33872,9 +35968,9 @@ module.exports = function (e) {
     };
   }
 
-  var I = function (e) {
-    h()(a, e);
-    var t = P(a);
+  var V = function (e) {
+    p()(a, e);
+    var t = I(a);
 
     function a(e) {
       var n;
@@ -33882,11 +35978,12 @@ module.exports = function (e) {
         dataJsx: [],
         loading: !1,
         isMinified: !1,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-        data: e.data && s()([]) == s()(e.data) ? e.data : [],
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+        data: e.data && i()([]) == i()(e.data) ? e.data : [],
         loadMoreCallback: e.loadMoreCallback && "function" == typeof e.loadMoreCallback ? e.loadMoreCallback : void 0,
         loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : ""
       }, n;
@@ -33896,7 +35993,7 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.data;
-        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.buildData(e);
+        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.buildData(e), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -33916,8 +36013,8 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, A()(R.a.mark(function n() {
-          return R.a.wrap(function (n) {
+        }, M()(A.a.mark(function n() {
+          return A.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
                 case 0:
@@ -33941,12 +36038,12 @@ module.exports = function (e) {
     }, {
       key: "buildData",
       value: function value() {
-        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], t = this.state, a = t.dataJsx, n = t.itemsPerLine, l = "cards-group flex", i = [], s = 0, r = 0; r <= e.length - 1; r++) {
+        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], t = this.state, a = t.dataJsx, n = t.itemsPerLine, l = "cards-group flex", s = [], i = 0, r = 0; r <= e.length - 1; r++) {
           var o = e[r],
               c = o.title,
               u = o.content,
               d = o.footer;
-          s++, i.push(C.a.createElement("div", {
+          i++, s.push(C.a.createElement("div", {
             key: E(),
             className: "card flex flex-column"
           }, c && C.a.createElement("div", {
@@ -33955,16 +36052,16 @@ module.exports = function (e) {
             className: "content"
           }, u), d && C.a.createElement("div", {
             className: "footer"
-          }, d))), s == n && (a.push(C.a.createElement("div", {
+          }, d))), i == n && (a.push(C.a.createElement("div", {
             key: E(),
             className: "cards-group ".concat(l)
-          }, i)), i = [], s = 0);
+          }, s)), s = [], i = 0);
         }
 
-        i.length && (a.push(C.a.createElement("div", {
+        s.length && (a.push(C.a.createElement("div", {
           key: E(),
           className: "cards-group ".concat(l)
-        }, i)), i = [], s = 0), this.setState({
+        }, s)), s = [], i = 0), this.setState({
           dataJsx: a,
           loading: !1
         });
@@ -33982,8 +36079,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.dataJsx,
             l = t.defaultClass,
-            i = t.loading,
-            s = t.loadMoreLoadingIcon,
+            s = t.loading,
+            i = t.loadMoreLoadingIcon,
             r = t.id;
         return C.a.createElement("div", {
           ref: function ref(t) {
@@ -33991,7 +36088,7 @@ module.exports = function (e) {
           },
           className: "".concat(l, " ").concat(a),
           id: r
-        }, i && s, n && n.map(function (e) {
+        }, s && i, n && n.map(function (e) {
           return e;
         }));
       }
@@ -33999,11 +36096,11 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "itemsPerLine", "data", "loadMoreCallback", "loadMoreLoadingIcon"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          itemsPerLine: e.itemsPerLine && s()(8) == s()(e.itemsPerLine) ? e.itemsPerLine : 3,
-          data: e.data && s()([]) == s()(e.data) ? e.data : [],
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          itemsPerLine: e.itemsPerLine && i()(8) == i()(e.itemsPerLine) ? e.itemsPerLine : 3,
+          data: e.data && i()([]) == i()(e.data) ? e.data : [],
           loadMoreCallback: e.loadMoreCallback && "function" == typeof e.loadMoreCallback ? e.loadMoreCallback : void 0,
           loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
           dataJsx: t.dataJsx
@@ -34011,12 +36108,12 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.a.Component),
-      M = function M() {
+      B = function B() {
     var e = Math.floor(Date.now() / 1e3);
     return "".concat(e).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   };
 
-  function V(e) {
+  function U(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -34042,32 +36139,33 @@ module.exports = function (e) {
     };
   }
 
-  var B = function (e) {
-    h()(n, e);
+  var j = function (e) {
+    p()(n, e);
     var t,
-        a = V(n);
+        a = U(n);
 
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEsc = t.callbackEsc.bind(f()(t)), t.handleMouseDown = t.handleMouseDown.bind(f()(t)), t.setFocusUpdater = t.setFocusUpdater.bind(f()(t)), t.setValueToInputField = t.setValueToInputField.bind(f()(t)), t.state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        plainValue: e.value && i()("8") == i()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        suggestions: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
-        props: e.props && s()({}) == s()(e.props) ? e.props : {},
-        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
-        callbackRerender: s()(!0) == s()(e.callbackRerender) && e.callbackRerender,
-        allowOnlyAZ: s()(!0) == s()(e.allowOnlyAZ) && e.allowOnlyAZ
+        suggestions: e.suggestions && i()([]) == i()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
+        props: e.props && i()({}) == i()(e.props) ? e.props : {},
+        inputType: e.inputType && i()("8") == i()(e.inputType) ? e.inputType : "text",
+        callbackRerender: i()(!0) == i()(e.callbackRerender) && e.callbackRerender,
+        allowOnlyAZ: i()(!0) == i()(e.allowOnlyAZ) && e.allowOnlyAZ
       }, t.availableSorts = ["asc", "desc"], t;
     }
 
     return u()(n, [{
       key: "componentDidMount",
       value: function value() {
-        this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown);
+        this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -34100,16 +36198,16 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = A()(R.a.mark(function e(t) {
+      value: (t = M()(A.a.mark(function e(t) {
         var a,
             n,
             l,
-            i = arguments;
-        return R.a.wrap(function (e) {
+            s = arguments;
+        return A.a.wrap(function (e) {
           for (;;) {
             switch (e.prev = e.next) {
               case 0:
-                if (a = i.length > 1 && void 0 !== i[1] && i[1], !(n = this.state.callback)) {
+                if (a = s.length > 1 && void 0 !== s[1] && s[1], !(n = this.state.callback)) {
                   e.next = 7;
                   break;
                 }
@@ -34174,8 +36272,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.id,
-            s = t.props,
+            s = t.id,
+            i = t.props,
             r = t.suggestions,
             o = t.plainValue,
             c = t.placeholder,
@@ -34194,8 +36292,8 @@ module.exports = function (e) {
           onKeyDown: function onKeyDown(t) {
             return e.handleKeyDown(t);
           },
-          id: i
-        }, s)), "" !== o && r && 0 !== r.length && b.createElement("div", {
+          id: s
+        }, i)), "" !== o && r && 0 !== r.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
           className: "ul",
@@ -34210,16 +36308,16 @@ module.exports = function (e) {
         }, r.map(function (t) {
           var a = t.href,
               n = t.props,
-              i = t.jsx,
-              s = t.onClickValue;
+              s = t.jsx,
+              i = t.onClickValue;
           return b.createElement("li", {
-            key: M(),
+            key: B(),
             onClick: function onClick() {
-              return e.setInputValue(s, !0);
+              return e.setInputValue(i, !0);
             }
           }, b.createElement("a", l()({
             href: a
-          }, n), i));
+          }, n), s));
         }))))));
       }
     }], [{
@@ -34234,131 +36332,6 @@ module.exports = function (e) {
       }
     }]), n;
   }(b.Component);
-
-  function U(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var j = function (e) {
-    h()(a, e);
-    var t = U(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).copyToClipboard = n.copyToClipboard.bind(f()(n)), n.copyToClipboardAction = n.copyToClipboardAction.bind(f()(n)), n.state = {
-        formStyle: {
-          display: "none !important",
-          opacity: 0,
-          width: 0,
-          height: 0,
-          overflow: "hidden"
-        },
-        uuid: "".concat(E()),
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        data: e.data && s()([]) == s()(e.data) ? e.data : [],
-        clipboard: e.clipboard,
-        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "copyToClipboardAction",
-      value: function value(e) {
-        this.clipboardNode && (s()([]) == s()(e) && (e = JSON.stringify(e)), this.clipboardNode.value = e, this.clipboardNode.select(), document.execCommand("copy"), this.clipboardNode.value = "");
-      }
-    }, {
-      key: "copyToClipboard",
-      value: function value(e) {
-        var t = this,
-            a = this.state,
-            n = a.clipboard,
-            l = a.callback,
-            i = a.animation;
-
-        if (this.copyToClipboardAction(n), i && this.clipboardNodeForAnimation) {
-          var s = "animation-".concat(i);
-          if (this.clipboardNodeForAnimation.classList.add(s), "scale" == i) return setTimeout(function () {
-            i && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove(s);
-          }, 500);
-          if ("jump" == i) return setTimeout(function () {
-            t.clipboardNodeForAnimation.classList.add("".concat(s, "-back"));
-          }, 200), setTimeout(function () {
-            i && t.clipboardNodeForAnimation && (t.clipboardNodeForAnimation.classList.remove(s), t.clipboardNodeForAnimation.classList.remove("".concat(s, "-back")));
-          }, 400);
-        }
-
-        l && l(e, n);
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.addClass,
-            n = t.data,
-            l = t.defaultClass,
-            i = t.id,
-            s = t.formStyle,
-            r = t.uuid;
-        return C.a.createElement("div", {
-          ref: function ref(t) {
-            return e.clipboardNodeForAnimation = t;
-          },
-          className: "".concat(l, " ").concat(a),
-          id: i,
-          onClick: function onClick(t) {
-            return e.copyToClipboard(t);
-          }
-        }, n, C.a.createElement("form", {
-          style: s
-        }, C.a.createElement("textarea", {
-          ref: function ref(t) {
-            return e.clipboardNode = t;
-          },
-          id: r,
-          value: "",
-          readOnly: !0
-        })));
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "callback", "data", "clipboard"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-          data: e.data && s()([]) == s()(e.data) ? e.data : [],
-          clipboard: e.clipboard
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
 
   function z(e) {
     var t = function () {
@@ -34387,38 +36360,170 @@ module.exports = function (e) {
   }
 
   var _ = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = z(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
-        filteredData: [],
-        inputValue: "",
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: (e.defaultClass && (s()("8"), s()(e.defaultClass)), n.getDefaultClass(e)),
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
-        data: e.data && s()([]) === s()(e.data) ? e.data : [],
-        display: s()(!0) === s()(e.display) && e.display,
-        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
-        iconClose: e.iconClose ? e.iconClose : "",
-        inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
-        noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
-        placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
+      return o()(this, a), (n = t.call(this, e)).copyToClipboard = n.copyToClipboard.bind(f()(n)), n.copyToClipboardAction = n.copyToClipboardAction.bind(f()(n)), n.state = {
+        formStyle: {
+          display: "none !important",
+          opacity: 0,
+          width: 0,
+          height: 0,
+          overflow: "hidden"
+        },
+        uuid: "".concat(E()),
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-        closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
-        closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-        closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
-        inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+        data: e.data && i()([]) == i()(e.data) ? e.data : [],
+        clipboard: e.clipboard,
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.state.closeOnEsc && this.addEscEventListener();
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
+      key: "copyToClipboardAction",
+      value: function value(e) {
+        this.clipboardNode && (i()([]) == i()(e) && (e = JSON.stringify(e)), this.clipboardNode.value = e, this.clipboardNode.select(), document.execCommand("copy"), this.clipboardNode.value = "");
+      }
+    }, {
+      key: "copyToClipboard",
+      value: function value(e) {
+        var t = this,
+            a = this.state,
+            n = a.clipboard,
+            l = a.callback,
+            s = a.animation;
+
+        if (this.copyToClipboardAction(n), s && this.clipboardNodeForAnimation) {
+          var i = "animation-".concat(s);
+          if (this.clipboardNodeForAnimation.classList.add(i), "scale" == s) return setTimeout(function () {
+            s && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove(i);
+          }, 500);
+          if ("jump" == s) return setTimeout(function () {
+            t.clipboardNodeForAnimation.classList.add("".concat(i, "-back"));
+          }, 200), setTimeout(function () {
+            s && t.clipboardNodeForAnimation && (t.clipboardNodeForAnimation.classList.remove(i), t.clipboardNodeForAnimation.classList.remove("".concat(i, "-back")));
+          }, 400);
+        }
+
+        l && l(e, n);
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.addClass,
+            n = t.data,
+            l = t.defaultClass,
+            s = t.id,
+            i = t.formStyle,
+            r = t.uuid;
+        return C.a.createElement("div", {
+          ref: function ref(t) {
+            return e.clipboardNodeForAnimation = t;
+          },
+          className: "".concat(l, " ").concat(a),
+          id: s,
+          onClick: function onClick(t) {
+            return e.copyToClipboard(t);
+          }
+        }, n, C.a.createElement("form", {
+          style: i
+        }, C.a.createElement("textarea", {
+          ref: function ref(t) {
+            return e.clipboardNode = t;
+          },
+          id: r,
+          value: "",
+          readOnly: !0
+        })));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "callback", "data", "clipboard"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+          data: e.data && i()([]) == i()(e.data) ? e.data : [],
+          clipboard: e.clipboard
+        } : null;
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function H(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var q = function (e) {
+    p()(a, e);
+    var t = H(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
+        filteredData: [],
+        inputValue: "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: (e.defaultClass && (i()("8"), i()(e.defaultClass)), n.getDefaultClass(e)),
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        animation: i()("8") === i()(e.animation) ? e.animation.toLowerCase() : "",
+        data: e.data && i()([]) === i()(e.data) ? e.data : [],
+        display: i()(!0) === i()(e.display) && e.display,
+        displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
+        iconClose: e.iconClose ? e.iconClose : "",
+        inputActive: i()(!0) === i()(e.inputActive) && e.inputActive,
+        noDataText: e.noDataText && i()("8") === i()(e.noDataText) ? e.noDataText : "No data found",
+        placeholder: e.placeholder && i()("8") === i()(e.placeholder) ? e.placeholder : "Search here...",
+        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+        callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
+        closeOnCallback: i()(!0) === i()(e.closeOnCallback) && e.closeOnCallback,
+        closeOnDimmedClick: i()(!0) === i()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+        closeOnEsc: i()(!0) === i()(e.closeOnEsc) && e.closeOnEsc,
+        inputEmptyOnCallback: i()(!0) === i()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        this.state.closeOnEsc && this.addEscEventListener(), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -34435,7 +36540,7 @@ module.exports = function (e) {
       value: function value(e) {
         var t = e.defaultClass,
             a = e.animation;
-        return s()("8") === s()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && s()("8") == s()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
+        return i()("8") === i()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && i()("8") == i()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
       }
     }, {
       key: "componentDidUpdate",
@@ -34468,21 +36573,21 @@ module.exports = function (e) {
             a = this.state,
             n = a.defaultClass,
             l = a.callbackClose,
-            i = a.closeOnDimmedClick,
-            s = a.closeOnCallback,
+            s = a.closeOnDimmedClick,
+            i = a.closeOnCallback,
             r = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
             d = 0;
-        if (t && !i) return null;
+        if (t && !s) return null;
         this.getAvailableAnimationTypes().includes(u) || (u = "none"), u && "none" !== u && (d = 300), this.setState({
           defaultClass: "".concat(n, " ").concat(u ? "".concat(u, "-back") : "")
         }, function () {
           setTimeout(function () {
             l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
-              display: !s,
+              display: !i,
               inputValue: r ? "" : o,
               filteredData: r ? [] : c
             });
@@ -34495,16 +36600,16 @@ module.exports = function (e) {
         var a = this.state,
             n = a.closeOnCallback,
             l = a.inputEmptyOnCallback,
-            i = a.inputValue,
-            s = a.filteredData,
+            s = a.inputValue,
+            i = a.filteredData,
             r = this.props.callback;
 
         if (r && "function" == typeof r) {
           if (r(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
-            inputValue: l ? "" : i,
-            filteredData: l ? [] : s
+            inputValue: l ? "" : s,
+            filteredData: l ? [] : i
           });
         }
       }
@@ -34552,15 +36657,15 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             l = t.iconClose,
-            i = t.data,
-            s = t.display,
+            s = t.data,
+            i = t.display,
             r = t.filteredData,
             o = t.inputActive,
             c = t.inputValue,
             u = t.noDataText,
             d = t.placeholder,
             f = t.id;
-        return s ? C.a.createElement("div", {
+        return i ? C.a.createElement("div", {
           ref: function ref(t) {
             return e.FullSceenListNode = t;
           },
@@ -34588,34 +36693,34 @@ module.exports = function (e) {
           className: "ul"
         }, 0 !== r.length && this.buildListJsx(r), 0 === r.length && 0 !== c.length && C.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(i)))) : null;
+        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(s)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "placeholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          data: e.data && s()([]) === s()(e.data) ? e.data : [],
-          display: s()(!0) === s()(e.display) && e.display,
-          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) === i()(e.data) ? e.data : [],
+          display: i()(!0) === i()(e.display) && e.display,
+          displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
           iconClose: e.iconClose ? e.iconClose : "",
-          inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
-          noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
-          placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
-          animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
+          inputActive: i()(!0) === i()(e.inputActive) && e.inputActive,
+          noDataText: e.noDataText && i()("8") === i()(e.noDataText) ? e.noDataText : "No data found",
+          placeholder: e.placeholder && i()("8") === i()(e.placeholder) ? e.placeholder : "Search here...",
+          animation: i()("8") === i()(e.animation) ? e.animation.toLowerCase() : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-          closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
-          closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-          closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
-          inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+          closeOnCallback: i()(!0) === i()(e.closeOnCallback) && e.closeOnCallback,
+          closeOnDimmedClick: i()(!0) === i()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+          closeOnEsc: i()(!0) === i()(e.closeOnEsc) && e.closeOnEsc,
+          inputEmptyOnCallback: i()(!0) === i()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function H(e) {
+  function J(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -34641,39 +36746,40 @@ module.exports = function (e) {
     };
   }
 
-  var q = function (e) {
-    h()(a, e);
-    var t = H(a);
+  var K = function (e) {
+    p()(a, e);
+    var t = J(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: (e.defaultClass && (s()("8"), s()(e.defaultClass)), n.getDefaultClass(e)),
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
-        data: e.data && s()([]) === s()(e.data) ? e.data : [],
-        display: s()(!0) === s()(e.display) && e.display,
-        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: (e.defaultClass && (i()("8"), i()(e.defaultClass)), n.getDefaultClass(e)),
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        animation: i()("8") === i()(e.animation) ? e.animation.toLowerCase() : "",
+        data: e.data && i()([]) === i()(e.data) ? e.data : [],
+        display: i()(!0) === i()(e.display) && e.display,
+        displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
         iconClose: e.iconClose ? e.iconClose : "",
-        inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
-        noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
-        placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
+        inputActive: i()(!0) === i()(e.inputActive) && e.inputActive,
+        noDataText: e.noDataText && i()("8") === i()(e.noDataText) ? e.noDataText : "No data found",
+        placeholder: e.placeholder && i()("8") === i()(e.placeholder) ? e.placeholder : "Search here...",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-        closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
-        closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-        closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
-        inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+        closeOnCallback: i()(!0) === i()(e.closeOnCallback) && e.closeOnCallback,
+        closeOnDimmedClick: i()(!0) === i()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+        closeOnEsc: i()(!0) === i()(e.closeOnEsc) && e.closeOnEsc,
+        inputEmptyOnCallback: i()(!0) === i()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.state.closeOnEsc && this.addEscEventListener();
+        this.state.closeOnEsc && this.addEscEventListener(), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -34690,7 +36796,7 @@ module.exports = function (e) {
       value: function value(e) {
         var t = e.defaultClass,
             a = e.animation;
-        return s()("8") === s()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && s()("8") == s()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
+        return i()("8") === i()(e.animation) && (a = a.toLowerCase()), this.getAvailableAnimationTypes().includes(a) || (a = "none"), e.defaultClass && i()("8") == i()(e.defaultClass) ? "".concat(t, " ").concat(a ? "".concat(a) : "") : "rr-fullscreenlist ".concat(a ? "".concat(a) : "");
       }
     }, {
       key: "componentDidUpdate",
@@ -34723,21 +36829,21 @@ module.exports = function (e) {
             a = this.state,
             n = a.defaultClass,
             l = a.callbackClose,
-            i = a.closeOnDimmedClick,
-            s = a.closeOnCallback,
+            s = a.closeOnDimmedClick,
+            i = a.closeOnCallback,
             r = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
             d = 0;
-        if (t && !i) return null;
+        if (t && !s) return null;
         this.getAvailableAnimationTypes().includes(u) || (u = "none"), u && "none" !== u && (d = 300), this.setState({
           defaultClass: "".concat(n, " ").concat(u ? "".concat(u, "-back") : "")
         }, function () {
           setTimeout(function () {
             l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
-              display: !s,
+              display: !i,
               inputValue: r ? "" : o,
               filteredData: r ? [] : c
             });
@@ -34750,16 +36856,16 @@ module.exports = function (e) {
         var a = this.state,
             n = a.closeOnCallback,
             l = a.inputEmptyOnCallback,
-            i = a.inputValue,
-            s = a.filteredData,
+            s = a.inputValue,
+            i = a.filteredData,
             r = this.props.callback;
 
         if (r && "function" == typeof r) {
           if (r(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
-            inputValue: l ? "" : i,
-            filteredData: l ? [] : s
+            inputValue: l ? "" : s,
+            filteredData: l ? [] : i
           });
         }
       }
@@ -34807,15 +36913,15 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             l = t.iconClose,
-            i = t.data,
-            s = t.display,
+            s = t.data,
+            i = t.display,
             r = t.filteredData,
             o = t.inputActive,
             c = t.inputValue,
             u = t.noDataText,
             d = t.placeholder,
             f = t.id;
-        return s ? C.a.createElement("div", {
+        return i ? C.a.createElement("div", {
           ref: function ref(t) {
             return e.FullSceenListNode = t;
           },
@@ -34843,40 +36949,40 @@ module.exports = function (e) {
           className: "ul"
         }, 0 !== r.length && this.buildListJsx(r), 0 === r.length && 0 !== c.length && C.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(i)))) : null;
+        }, u), 0 == r.length && 0 == c.length && this.buildListJsx(s)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["id", "data", "display", "displayLineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "placeholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          data: e.data && s()([]) === s()(e.data) ? e.data : [],
-          display: s()(!0) === s()(e.display) && e.display,
-          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) === i()(e.data) ? e.data : [],
+          display: i()(!0) === i()(e.display) && e.display,
+          displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
           iconClose: e.iconClose ? e.iconClose : "",
-          inputActive: s()(!0) === s()(e.inputActive) && e.inputActive,
-          noDataText: e.noDataText && s()("8") === s()(e.noDataText) ? e.noDataText : "No data found",
-          placeholder: e.placeholder && s()("8") === s()(e.placeholder) ? e.placeholder : "Search here...",
-          animation: s()("8") === s()(e.animation) ? e.animation.toLowerCase() : "",
+          inputActive: i()(!0) === i()(e.inputActive) && e.inputActive,
+          noDataText: e.noDataText && i()("8") === i()(e.noDataText) ? e.noDataText : "No data found",
+          placeholder: e.placeholder && i()("8") === i()(e.placeholder) ? e.placeholder : "Search here...",
+          animation: i()("8") === i()(e.animation) ? e.animation.toLowerCase() : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           callbackClose: e.callbackClose && "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-          closeOnCallback: s()(!0) === s()(e.closeOnCallback) && e.closeOnCallback,
-          closeOnDimmedClick: s()(!0) === s()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
-          closeOnEsc: s()(!0) === s()(e.closeOnEsc) && e.closeOnEsc,
-          inputEmptyOnCallback: s()(!0) === s()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
+          closeOnCallback: i()(!0) === i()(e.closeOnCallback) && e.closeOnCallback,
+          closeOnDimmedClick: i()(!0) === i()(e.closeOnDimmedClick) && e.closeOnDimmedClick,
+          closeOnEsc: i()(!0) === i()(e.closeOnEsc) && e.closeOnEsc,
+          inputEmptyOnCallback: i()(!0) === i()(e.inputEmptyOnCallback) && e.inputEmptyOnCallback
         } : null;
       }
     }]), a;
   }(C.a.Component),
-      J = function J() {
+      W = function W() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      K = function K() {
+      Z = function Z() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function W(e) {
+  function G(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -34902,25 +37008,26 @@ module.exports = function (e) {
     };
   }
 
-  var Z = function (e) {
-    h()(a, e);
-    var t = W(a);
+  var $ = function (e) {
+    p()(a, e);
+    var t = G(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).closeClick = n.closeClick.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.fadeOut = n.fadeOut.bind(f()(n)), n.state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        closeOnClick: s()(!0) != s()(e.closeOnClick) || e.closeOnClick,
-        closeOnEsc: s()(!0) != s()(e.closeOnEsc) || e.closeOnEsc,
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        closeOnClick: i()(!0) != i()(e.closeOnClick) || e.closeOnClick,
+        closeOnEsc: i()(!0) != i()(e.closeOnEsc) || e.closeOnEsc,
         data: e.data ? e.data : "",
-        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : "",
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : "",
         callbackClose: "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-        display: s()(!0) == s()(e.display) && e.display,
+        display: i()(!0) == i()(e.display) && e.display,
         iconClose: e.iconClose ? e.iconClose : void 0,
-        dimmed: s()(!0) == s()(e.dimmed) && e.dimmed,
-        disableScroll: s()(!0) == s()(e.disableScroll) && e.disableScroll
+        dimmed: i()(!0) == i()(e.dimmed) && e.dimmed,
+        disableScroll: i()(!0) == i()(e.disableScroll) && e.disableScroll
       }, n.animationBack = !1, n;
     }
 
@@ -34931,12 +37038,12 @@ module.exports = function (e) {
             t = e.closeOnEsc,
             a = e.disableScroll,
             n = e.display;
-        t && window.addEventListener("keydown", this.EscListener, !1), n && a && J();
+        t && window.addEventListener("keydown", this.EscListener, !1), n && a && W(), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
       value: function value() {
-        K(), window.removeEventListener("keydown", this.EscListener, !1);
+        Z(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -34944,15 +37051,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && J(), void (a && K());
-        K(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && W(), void (a && Z());
+        Z(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
           var t = this.state.callbackClose;
-          t && "function" == typeof t && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (Z(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -34962,7 +37069,7 @@ module.exports = function (e) {
             a = this.state,
             n = a.closeOnClick,
             l = a.callbackClose;
-        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (K(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (Z(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -34994,8 +37101,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.display,
             l = t.iconClose,
-            i = t.data,
-            s = t.dimmed,
+            s = t.data,
+            i = t.dimmed,
             r = t.id,
             o = this.getDefaultClass();
         return n ? b.createElement("div", {
@@ -35006,8 +37113,8 @@ module.exports = function (e) {
           onClick: function onClick(t) {
             return e.closeClick(t, !0);
           }
-        }, l), s && b.createElement("div", {
-          className: "close-area",
+        }, l), i && b.createElement("div", {
+          className: "dimmed",
           onClick: function onClick(t) {
             return e.closeClick(t);
           }
@@ -35016,32 +37123,32 @@ module.exports = function (e) {
             return e.contentReference = t;
           },
           className: "content"
-        }, i)) : null;
+        }, s)) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          closeOnClick: s()(!0) != s()(e.closeOnClick) || e.closeOnClick,
-          closeOnEsc: s()(!0) != s()(e.closeOnEsc) || e.closeOnEsc,
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          closeOnClick: i()(!0) != i()(e.closeOnClick) || e.closeOnClick,
+          closeOnEsc: i()(!0) != i()(e.closeOnEsc) || e.closeOnEsc,
           data: e.data ? e.data : "",
-          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : "",
+          animation: e.animation && i()("8") == i()(e.animation) ? e.animation : "",
           callbackClose: "function" == typeof e.callbackClose ? e.callbackClose : void 0,
-          display: s()(!0) == s()(e.display) && e.display,
+          display: i()(!0) == i()(e.display) && e.display,
           iconClose: e.iconClose ? e.iconClose : void 0,
-          dimmed: s()(!0) != s()(e.dimmed) || e.dimmed,
-          disableScroll: s()(!0) != s()(e.disableScroll) || e.disableScroll
+          dimmed: i()(!0) != i()(e.dimmed) || e.dimmed,
+          disableScroll: i()(!0) != i()(e.disableScroll) || e.disableScroll
         } : null;
       }
     }]), a;
   }(b.Component),
-      G = a(13),
-      $ = a.n(G);
+      Y = a(13),
+      Q = a.n(Y);
 
-  function Y(e) {
+  function X(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35067,27 +37174,28 @@ module.exports = function (e) {
     };
   }
 
-  var X = function (e) {
-    h()(a, e);
-    var t = Y(a);
+  var ee = function (e) {
+    p()(a, e);
+    var t = X(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).checkLocation = n.checkLocation.bind(f()(n)), n.state = {
         messagesApp: [],
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        messageKey: e.messageKey && s()("8") == s()(e.messageKey) ? e.messageKey : "",
-        codeMapping: e.codeMapping && s()({}) === s()(e.codeMapping) ? e.codeMapping : {},
-        timer: e.timer && s()(888) == s()(e.timer) ? e.timer : 2500
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        messageKey: e.messageKey && i()("8") == i()(e.messageKey) ? e.messageKey : "",
+        codeMapping: e.codeMapping && i()({}) === i()(e.codeMapping) ? e.codeMapping : {},
+        timer: e.timer && i()(888) == i()(e.timer) ? e.timer : 2500
       }, n.removeMessage = n.removeMessage.bind(f()(n)), n.setIntervaller = n.setIntervaller.bind(f()(n)), n.href = window.location.href, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.clearStore(!0), this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller();
+        this.clearStore(!0), this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller(), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -35137,7 +37245,7 @@ module.exports = function (e) {
             e.clearStore(!1);
 
             for (var n = function n(t) {
-              a[t].unique = "".concat(E()), a[t].disappear && s()(8) == s()(a[t].disappear) && setTimeout(function () {
+              a[t].unique = "".concat(E()), a[t].disappear && i()(8) == i()(a[t].disappear) && setTimeout(function () {
                 e.setState({
                   messagesApp: e.state.messagesApp.filter(function (e) {
                     return a[t].unique !== e.unique;
@@ -35149,7 +37257,7 @@ module.exports = function (e) {
             }
 
             e.setState({
-              messagesApp: [].concat($()(t), $()(a))
+              messagesApp: [].concat(Q()(t), Q()(a))
             });
           }
         }, t);
@@ -35170,16 +37278,16 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.codeMapping,
-            i = t.messagesApp,
+            s = t.messagesApp,
             r = t.defaultClass,
             o = t.id,
             c = Object.getOwnPropertyNames(n);
         return C.a.createElement("div", {
           className: "".concat(r, " ").concat(a),
           id: o
-        }, i.map(function (t) {
+        }, s.map(function (t) {
           var a = t.errorCode,
-              i = t.errorMessage,
+              s = t.errorMessage,
               r = t.unique;
 
           if (a = JSON.stringify(a), c.includes(a) && void 0 !== n[a]) {
@@ -35187,29 +37295,29 @@ module.exports = function (e) {
                 u = o.title,
                 d = o.displayErrorCode,
                 f = o.text,
-                p = o.close,
-                h = o.link,
+                h = o.close,
+                p = o.link,
                 v = {},
                 m = {},
                 g = {};
-            return f && s()({}) === s()(f) && f.props && s()({}) === s()(f.props) && (v = f.props), h && s()({}) === s()(h) && h.props && s()({}) === s()(h.props) && (m = h.props), p && s()({}) === s()(p) && p.props && s()({}) === s()(p.props) && (g = p.props), C.a.createElement("div", {
+            return f && i()({}) === i()(f) && f.props && i()({}) === i()(f.props) && (v = f.props), p && i()({}) === i()(p) && p.props && i()({}) === i()(p.props) && (m = p.props), h && i()({}) === i()(h) && h.props && i()({}) === i()(h.props) && (g = h.props), C.a.createElement("div", {
               className: "single-error",
               key: E()
-            }, u && s()("000") === s()(u) && C.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && s()({}) === s()(u) && C.a.createElement("h1", null, u, " ".concat(d ? a : "")), C.a.createElement("div", l()({
+            }, u && i()("000") === i()(u) && C.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && i()({}) === i()(u) && C.a.createElement("h1", null, u, " ".concat(d ? a : "")), C.a.createElement("div", l()({
               className: "text"
-            }, v), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(i ? "".concat(i, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), C.a.createElement("div", {
+            }, v), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(s ? "".concat(s, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), C.a.createElement("div", {
               className: "options"
             }, C.a.createElement("div", l()({
               onClick: function onClick(t) {
                 return e.removeMessage(r);
               },
               className: "single-option"
-            }, g), "".concat(p.text ? "".concat(p.text, " ") : "")), h && s()({}) === s()(h) && h.text && s()("000") === s()(h.text) && C.a.createElement("div", {
+            }, g), "".concat(h.text ? "".concat(h.text, " ") : "")), p && i()({}) === i()(p) && p.text && i()("000") === i()(p.text) && C.a.createElement("div", {
               className: "single-option"
             }, C.a.createElement("a", l()({
               rel: "noopener noreferrer",
-              href: "".concat(h.href ? h.href : "")
-            }, m), h.text))));
+              href: "".concat(p.href ? p.href : "")
+            }, m), p.text))));
           }
 
           return null;
@@ -35218,9 +37326,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  a(22);
-
-  function Q(e) {
+  function te(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35246,7 +37352,7 @@ module.exports = function (e) {
     };
   }
 
-  var ee = {
+  var ae = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -35300,24 +37406,25 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      te = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      ae = function (e) {
-    h()(a, e);
-    var t = Q(a);
+      ne = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      le = function (e) {
+    p()(a, e);
+    var t = te(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
-        icons: ee,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-icons",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        iconsType: e.iconsType && s()("8") == s()(e.iconsType) ? e.iconsType : "Smileys",
+        icons: ae,
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-icons",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        iconsType: e.iconsType && i()("8") == i()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
-        renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : te,
-        translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
-        custom: e.custom && s()([]) == s()(e.custom) ? e.custom : void 0
+        displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
+        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : ne,
+        translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0,
+        custom: e.custom && i()([]) == i()(e.custom) ? e.custom : void 0
       }, n;
     }
 
@@ -35328,13 +37435,13 @@ module.exports = function (e) {
             t = e.custom,
             a = e.icons,
             n = 0;
-        t && s()([]) == s()(t) && t.length && (t.map(function (e) {
+        t && i()([]) == i()(t) && t.length && (t.map(function (e) {
           var t = e.title,
               l = e.data;
-          t && s()("8") == s()(t) && l && s()([]) == s()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
+          t && i()("8") == i()(t) && l && i()([]) == i()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
         }), n && this.setState({
           icons: a
-        }));
+        })), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "callback",
@@ -35357,37 +37464,37 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.id,
             l = t.defaultClass,
-            i = t.icons,
-            s = t.displayTabs,
+            s = t.icons,
+            i = t.displayTabs,
             r = t.iconsType,
             o = t.renderItems,
             c = t.translations;
         return C.a.createElement("div", {
           className: "".concat(l, " ").concat(a),
           id: n
-        }, s && C.a.createElement("div", {
+        }, i && C.a.createElement("div", {
           className: "tabs"
         }, o.map(function (t, a) {
-          if (void 0 !== i[t]) {
-            var n = i[t].title,
-                l = i[t].title;
+          if (void 0 !== s[t]) {
+            var n = s[t].title,
+                l = s[t].title;
             c && void 0 !== c[t] && (l = c[t]);
-            var s = r == n ? "single-tab active" : "single-tab";
-            return a == o.length - 1 && (s += " single-tab-last"), C.a.createElement("div", {
-              className: s,
-              key: M(),
+            var i = r == n ? "single-tab active" : "single-tab";
+            return a == o.length - 1 && (i += " single-tab-last"), C.a.createElement("div", {
+              className: i,
+              key: B(),
               onClick: function onClick() {
                 return e.changeTab(n);
               }
             }, l);
           }
-        })), r && void 0 !== i[r] && void 0 !== i[r].data && C.a.createElement("div", {
-          key: M(),
+        })), r && void 0 !== s[r] && void 0 !== s[r].data && C.a.createElement("div", {
+          key: B(),
           className: "content"
-        }, i[r].data.map(function (t) {
+        }, s[r].data.map(function (t) {
           return C.a.createElement("span", {
             className: "single-icon",
-            key: M(),
+            key: B(),
             onClick: function onClick(a) {
               return e.callback(a, t);
             }
@@ -35398,20 +37505,20 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-icons",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-icons",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-          displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
-          renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : te,
-          translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
-          custom: e.custom && s()({}) == s()(e.custom) ? e.custom : void 0
+          displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
+          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : ne,
+          translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0,
+          custom: e.custom && i()({}) == i()(e.custom) ? e.custom : void 0
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function ne(e) {
+  function se(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35437,34 +37544,35 @@ module.exports = function (e) {
     };
   }
 
-  var le = function (e) {
-    h()(n, e);
+  var ie = function (e) {
+    p()(n, e);
     var t,
-        a = ne(n);
+        a = se(n);
 
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.onFocus = t.onFocus.bind(f()(t)), t.onBlur = t.onBlur.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEnter = t.callbackEnter.bind(f()(t)), t.setFocus = t.setFocus.bind(f()(t)), t.state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
-        defaultClassOrigin: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
+        defaultClassOrigin: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        plainValue: e.value && i()("8") == i()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
-        inputType: e.type && s()("8") == s()(e.type) ? e.type : "text",
-        props: e.props && s()({}) == s()(e.props) ? e.props : {},
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
-        animatePlaceholder: s()(!0) != s()(e.animatePlaceholder) || e.animatePlaceholder,
+        inputType: e.type && i()("8") == i()(e.type) ? e.type : "text",
+        props: e.props && i()({}) == i()(e.props) ? e.props : {},
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
+        animatePlaceholder: i()(!0) != i()(e.animatePlaceholder) || e.animatePlaceholder,
         onEnter: e.onEnter && "function" == typeof e.onEnter ? e.onEnter : void 0,
-        allowOnlyAZ: s()(!0) == s()(e.allowOnlyAZ) && e.allowOnlyAZ,
-        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback
+        allowOnlyAZ: i()(!0) == i()(e.allowOnlyAZ) && e.allowOnlyAZ,
+        getValueFromCallback: i()(!0) == i()(e.getValueFromCallback) && e.getValueFromCallback
       }, t;
     }
 
     return u()(n, [{
       key: "componentDidMount",
       value: function value() {
-        this.setFocus(), this.setFocusUpdater(!0);
+        this.setFocus(), this.setFocusUpdater(!0), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentDidUpdate",
@@ -35492,17 +37600,17 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = A()(R.a.mark(function e() {
+      value: (t = M()(A.a.mark(function e() {
         var t,
             a,
             n,
             l,
-            i = arguments;
-        return R.a.wrap(function (e) {
+            s = arguments;
+        return A.a.wrap(function (e) {
           for (;;) {
             switch (e.prev = e.next) {
               case 0:
-                if (t = i.length > 0 && void 0 !== i[0] ? i[0] : null, a = this.state.getValueFromCallback, !this.props.callback || "function" != typeof this.props.callback) {
+                if (t = s.length > 0 && void 0 !== s[0] ? s[0] : null, a = this.state.getValueFromCallback, !this.props.callback || "function" != typeof this.props.callback) {
                   e.next = 12;
                   break;
                 }
@@ -35515,7 +37623,7 @@ module.exports = function (e) {
                 return e.next = 6, this.props.callback(t);
 
               case 6:
-                n = e.sent, s()("8") == s()(n) && this.setState({
+                n = e.sent, i()("8") == i()(n) && this.setState({
                   plainValue: n
                 }), e.next = 12;
                 break;
@@ -35593,8 +37701,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.animatePlaceholder,
-            i = t.placeholder,
-            s = t.id,
+            s = t.placeholder,
+            i = t.id,
             r = t.defaultClass,
             o = t.inputType,
             c = t.props,
@@ -35603,7 +37711,7 @@ module.exports = function (e) {
           className: "".concat(r, " ").concat(a)
         }, n && b.createElement("div", {
           className: "font-input title"
-        }, i), "textarea" == o && b.createElement("textarea", l()({
+        }, s), "textarea" == o && b.createElement("textarea", l()({
           className: "font-input",
           onFocus: this.onFocus,
           onBlur: this.onBlur,
@@ -35612,8 +37720,8 @@ module.exports = function (e) {
           onChange: function onChange(t) {
             return e.setValue(t);
           },
-          placeholder: n ? "" : i,
-          id: s
+          placeholder: n ? "" : s,
+          id: i
         }, c)), "textarea" !== o && b.createElement("input", l()({
           className: "font-input",
           onFocus: this.onFocus,
@@ -35629,16 +37737,16 @@ module.exports = function (e) {
           ref: function ref(t) {
             return e.inputNode = t;
           },
-          placeholder: n ? "" : i,
-          id: s
+          placeholder: n ? "" : s,
+          id: i
         }, c)));
       }
     }]), n;
   }(b.Component),
-      ie = a(12),
-      se = a.n(ie);
+      re = a(12),
+      oe = a.n(re);
 
-  function re(e) {
+  function ce(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35664,9 +37772,9 @@ module.exports = function (e) {
     };
   }
 
-  var oe = function (e) {
-    h()(a, e);
-    var t = re(a);
+  var ue = function (e) {
+    p()(a, e);
+    var t = ce(a);
 
     function a(e) {
       var n;
@@ -35683,22 +37791,28 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
         allowedFileSize: e.allowedFileSize,
         allowedFileSizeDescriptor: e.sizeDescriptor,
         allowedFiles: e.allowedFiles,
-        label: e.label && s()("8") == s()(e.label) ? e.label : "",
+        label: e.label && i()("8") == i()(e.label) ? e.label : "",
         readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
         errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
         errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-        multiple: s()(!0) == s()(e.multiple) && e.multiple
+        multiple: i()(!0) == i()(e.multiple) && e.multiple
       }, n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "handleFileUpload",
       value: function value(e) {
         e.preventDefault();
@@ -35712,11 +37826,11 @@ module.exports = function (e) {
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
         if (e) for (var l = 0; l <= e.length - 1; l++) {
-          var i = e[l];
+          var s = e[l];
 
           try {
-            var s = i.type;
-            this.validateObjectValues(i) && a && a(i, s);
+            var i = s.type;
+            this.validateObjectValues(s) && a && a(s, i);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -35729,12 +37843,12 @@ module.exports = function (e) {
             a = e.size,
             n = e.type,
             l = this.calculatedFileSize(a),
-            i = this.state,
-            s = i.allowedFileSize,
-            r = i.allowedFiles,
-            o = i.errorCallbackCustomData,
+            s = this.state,
+            i = s.allowedFileSize,
+            r = s.allowedFiles,
+            o = s.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= s && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= i && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -35791,8 +37905,8 @@ module.exports = function (e) {
             t = this,
             a = this.state,
             n = a.addClass,
-            i = a.label,
-            s = a.placeholder,
+            s = a.label,
+            i = a.placeholder,
             r = a.defaultClass,
             o = a.id,
             c = a.multiple,
@@ -35810,35 +37924,35 @@ module.exports = function (e) {
           onChange: function onChange(e) {
             return t.handleFileUpload(e);
           },
-          placeholder: s,
+          placeholder: i,
           id: o
-        }, se()(e, "type", "file"), se()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
+        }, oe()(e, "type", "file"), oe()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files",
           onClick: function onClick() {
             return t.handleClick();
           }
-        }, i));
+        }, s));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["label", "errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "multiple"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          label: e.label && s()("8") == s()(e.label) ? e.label : "",
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          label: e.label && i()("8") == i()(e.label) ? e.label : "",
           readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
           errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+          placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
           errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
-          multiple: s()(!0) == s()(e.multiple) && e.multiple
+          multiple: i()(!0) == i()(e.multiple) && e.multiple
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function ce(e) {
+  function de(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35864,9 +37978,9 @@ module.exports = function (e) {
     };
   }
 
-  var ue = function (e) {
-    h()(a, e);
-    var t = ce(a);
+  var fe = function (e) {
+    p()(a, e);
+    var t = de(a);
 
     function a(e) {
       var n;
@@ -35879,23 +37993,29 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
         allowedFileSize: e.allowedFileSize,
         allowedFileSizeDescriptor: e.sizeDescriptor,
         allowedFiles: e.allowedFiles,
         readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
         errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
         errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
         isDraggingData: e.isDraggingData,
-        multiple: s()(!0) == s()(e.multiple) && e.multiple,
-        uploadOnClick: s()(!0) == s()(e.uploadOnClick) && e.uploadOnClick
+        multiple: i()(!0) == i()(e.multiple) && e.multiple,
+        uploadOnClick: i()(!0) == i()(e.uploadOnClick) && e.uploadOnClick
       }, n.dragCounter = 0, n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "componentDidMount",
       value: function value() {
         this.dragCounter = 0;
@@ -35939,11 +38059,11 @@ module.exports = function (e) {
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
         if (e) for (var l = 0; l <= e.length - 1; l++) {
-          var i = e[l];
+          var s = e[l];
 
           try {
-            var s = i.type;
-            this.validateObjectValues(i) && a && a(i, s);
+            var i = s.type;
+            this.validateObjectValues(s) && a && a(s, i);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -35956,12 +38076,12 @@ module.exports = function (e) {
             a = e.size,
             n = e.type,
             l = this.calculatedFileSize(a),
-            i = this.state,
-            s = i.allowedFileSize,
-            r = i.allowedFiles,
-            o = i.errorCallbackCustomData,
+            s = this.state,
+            i = s.allowedFileSize,
+            r = s.allowedFiles,
+            o = s.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= s && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= i && (this.errorCallback("maximum_filesize_reached", o), c = !1), r.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -36025,11 +38145,11 @@ module.exports = function (e) {
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
         if (e) for (var l = 0; l <= e.length - 1; l++) {
-          var i = e[l];
+          var s = e[l];
 
           try {
-            var s = i.type;
-            this.validateObjectValues(i) && a && a(i, s);
+            var i = s.type;
+            this.validateObjectValues(s) && a && a(s, i);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -36042,20 +38162,20 @@ module.exports = function (e) {
             t = this,
             a = this.state,
             n = a.addClass,
-            i = a.placeholder,
-            s = a.defaultClass,
+            s = a.placeholder,
+            i = a.defaultClass,
             r = a.id,
             o = a.isDragging,
             c = a.isDraggingData,
             u = a.multiple,
             d = a.hiddenInputStyle,
             f = a.uploadOnClick,
-            p = {
+            h = {
           multiple: u || "",
           style: d
         };
         return C.a.createElement("div", {
-          className: "".concat(s, " ").concat(n),
+          className: "".concat(i, " ").concat(n),
           id: r
         }, f && C.a.createElement("input", l()((e = {
           ref: function ref(e) {
@@ -36065,9 +38185,9 @@ module.exports = function (e) {
           onChange: function onChange(e) {
             return t.handleFileUploadInputFiled(e);
           },
-          placeholder: i,
+          placeholder: s,
           id: r
-        }, se()(e, "type", "file"), se()(e, "name", "files[]"), e), p)), C.a.createElement("label", {
+        }, oe()(e, "type", "file"), oe()(e, "name", "files[]"), e), h)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, C.a.createElement("div", {
@@ -36079,28 +38199,28 @@ module.exports = function (e) {
           onDragLeave: this.onDragLeave,
           onDragOver: this.onDragOver,
           onDrop: this.handleDrop
-        }, i, o && c && c)));
+        }, s, o && c && c)));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["errorCallback", "readFileCallback", "placeholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
           readFileCallback: e.readFileCallback && "function" == typeof e.readFileCallback ? e.readFileCallback : void 0,
           errorCallback: e.errorCallback && "function" == typeof e.errorCallback ? e.errorCallback : void 0,
-          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
+          placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
           errorCallbackCustomData: e.errorCallbackCustomData ? e.errorCallbackCustomData : void 0,
           isDraggingData: e.isDraggingData,
-          multiple: s()(!0) == s()(e.multiple) && e.multiple,
-          uploadOnClick: s()(!0) == s()(e.uploadOnClick) && e.uploadOnClick
+          multiple: i()(!0) == i()(e.multiple) && e.multiple,
+          uploadOnClick: i()(!0) == i()(e.uploadOnClick) && e.uploadOnClick
         } : null;
       }
     }]), a;
   }(C.a.Component);
 
-  function de(e) {
+  function he(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36126,34 +38246,40 @@ module.exports = function (e) {
     };
   }
 
-  var fe = function (e) {
-    h()(a, e);
-    var t = de(a);
+  var pe = function (e) {
+    p()(a, e);
+    var t = he(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        plainValue: e.value && i()("8") == i()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
-        selected: e.selected && s()([]) == s()(e.selected) ? e.selected : [],
-        suggestionsToFilter: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
-        props: e.props && s()({}) == s()(e.props) ? e.props : {},
-        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
-        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback,
-        emptySuggestionAfterSelection: s()(!0) != s()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
-        sortSelected: e.sortSelected && s()("8") == s()(e.sortSelected) ? e.sortSelected : void 0,
-        sortSuggestions: e.sortSuggestions && s()("8") == s()(e.sortSuggestions) ? e.sortSuggestions : void 0
+        selected: e.selected && i()([]) == i()(e.selected) ? e.selected : [],
+        suggestionsToFilter: e.suggestions && i()([]) == i()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
+        props: e.props && i()({}) == i()(e.props) ? e.props : {},
+        inputType: e.inputType && i()("8") == i()(e.inputType) ? e.inputType : "text",
+        getValueFromCallback: i()(!0) == i()(e.getValueFromCallback) && e.getValueFromCallback,
+        emptySuggestionAfterSelection: i()(!0) != i()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
+        sortSelected: e.sortSelected && i()("8") == i()(e.sortSelected) ? e.sortSelected : void 0,
+        sortSuggestions: e.sortSuggestions && i()("8") == i()(e.sortSuggestions) ? e.sortSuggestions : void 0
       }, n.availableSorts = ["asc", "desc"], n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "componentDidMount",
       value: function value() {
         this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown);
@@ -36230,13 +38356,13 @@ module.exports = function (e) {
             l = t.sortSuggestions;
 
         if (l && this.availableSorts.includes(l) && ("asc" == l && a.sort(), "desc" == l && (a = (a = a.sort()).reverse())), n.length) {
-          for (var i = 0; i <= a.length - 1; i++) {
-            a[i] && -1 !== a[i].indexOf(n) && e.push(a[i]);
+          for (var s = 0; s <= a.length - 1; s++) {
+            a[s] && -1 !== a[s].indexOf(n) && e.push(a[s]);
           }
 
           if (e.length) {
-            for (var s = [], r = [], o = 0; o <= e.length - 1; o++) {
-              s.includes(e[o]) || (s.push(e[o]), r.push(o));
+            for (var i = [], r = [], o = 0; o <= e.length - 1; o++) {
+              i.includes(e[o]) || (i.push(e[o]), r.push(o));
             }
 
             for (var c = [], u = 0; u <= r.length - 1; u++) {
@@ -36260,14 +38386,14 @@ module.exports = function (e) {
             a = this.state,
             n = a.selected,
             l = a.callbackSelection,
-            i = a.emptySuggestionAfterSelection,
-            s = a.sortSelected;
+            s = a.emptySuggestionAfterSelection,
+            i = a.sortSelected;
         n.includes(e) ? n = n.filter(function (t) {
           return t !== e;
-        }) : n.push(e), s && this.availableSorts.includes(s) && ("asc" == s && n.sort(), "desc" == s && (n = (n = n.sort()).reverse())), l && l(n), this.setState({
+        }) : n.push(e), i && this.availableSorts.includes(i) && ("asc" == i && n.sort(), "desc" == i && (n = (n = n.sort()).reverse())), l && l(n), this.setState({
           selected: n
         }, function () {
-          i && t.setState({
+          s && t.setState({
             filter: "",
             suggestions: [],
             setArrow: null
@@ -36281,8 +38407,8 @@ module.exports = function (e) {
             a = this.state,
             n = a.selectedArrow,
             l = a.suggestions,
-            i = a.plainValue;
-        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != i && l.length || (n = null), void this.setState({
+            s = a.plainValue;
+        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != s && l.length || (n = null), void this.setState({
           selectedArrow: n
         }, function () {
           if (t.suggestionsHolder) {
@@ -36307,8 +38433,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.selected,
-            i = t.defaultClass,
-            s = t.id,
+            s = t.defaultClass,
+            i = t.id,
             r = t.props,
             o = t.suggestions,
             c = t.plainValue,
@@ -36316,14 +38442,14 @@ module.exports = function (e) {
             d = t.inputType,
             f = t.selectedArrow;
         return b.createElement("div", {
-          className: "".concat(i, " ").concat(a)
+          className: "".concat(s, " ").concat(a)
         }, b.createElement("div", {
           className: "input"
         }, 0 !== n.length && b.createElement("div", {
           className: "choosed"
         }, n.map(function (t) {
           return b.createElement("div", {
-            key: M(),
+            key: B(),
             className: "item ff-title"
           }, b.createElement("div", {
             onClick: function onClick(a) {
@@ -36341,7 +38467,7 @@ module.exports = function (e) {
           onKeyDown: function onKeyDown(t) {
             return e.handleKeyDown(t);
           },
-          id: s
+          id: i
         }, r)), "" !== c && o && 0 !== o.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
@@ -36358,7 +38484,7 @@ module.exports = function (e) {
           var l = n.includes(t) ? "active" : "";
           return null !== f && void 0 !== o[f] && f == a && (l = "".concat(l, " selected")), b.createElement("li", {
             className: l,
-            key: M(),
+            key: B(),
             onClick: function onClick(a) {
               return e.toggleSelection(t);
             },
@@ -36371,7 +38497,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["value"], e, t) ? s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return k(["value"], e, t) ? i()(!0) == i()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -36380,7 +38506,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function pe(e) {
+  function ve(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36406,34 +38532,40 @@ module.exports = function (e) {
     };
   }
 
-  var he = function (e) {
-    h()(a, e);
-    var t = pe(a);
+  var me = function (e) {
+    p()(a, e);
+    var t = ve(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        plainValue: e.value && s()("8") == s()(e.value) ? e.value : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        plainValue: e.value && i()("8") == i()(e.value) ? e.value : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         callbackSelection: e.callbackSelection && "function" == typeof e.callbackSelection ? e.callbackSelection : void 0,
-        selected: e.selected && s()([]) == s()(e.selected) ? e.selected : [],
-        suggestionsToFilter: e.suggestions && s()([]) == s()(e.suggestions) ? e.suggestions : [],
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : "",
-        props: e.props && s()({}) == s()(e.props) ? e.props : {},
-        inputType: e.inputType && s()("8") == s()(e.inputType) ? e.inputType : "text",
-        getValueFromCallback: s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback,
-        emptySuggestionAfterSelection: s()(!0) != s()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
-        sortSelected: e.sortSelected && s()("8") == s()(e.sortSelected) ? e.sortSelected : void 0,
-        sortSuggestions: e.sortSuggestions && s()("8") == s()(e.sortSuggestions) ? e.sortSuggestions : void 0
+        selected: e.selected && i()([]) == i()(e.selected) ? e.selected : [],
+        suggestionsToFilter: e.suggestions && i()([]) == i()(e.suggestions) ? e.suggestions : [],
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : "",
+        props: e.props && i()({}) == i()(e.props) ? e.props : {},
+        inputType: e.inputType && i()("8") == i()(e.inputType) ? e.inputType : "text",
+        getValueFromCallback: i()(!0) == i()(e.getValueFromCallback) && e.getValueFromCallback,
+        emptySuggestionAfterSelection: i()(!0) != i()(e.emptySuggestionAfterSelection) || e.emptySuggestionAfterSelection,
+        sortSelected: e.sortSelected && i()("8") == i()(e.sortSelected) ? e.sortSelected : void 0,
+        sortSuggestions: e.sortSuggestions && i()("8") == i()(e.sortSuggestions) ? e.sortSuggestions : void 0
       }, n.availableSorts = ["asc", "desc"], n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "componentDidMount",
       value: function value() {
         this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown);
@@ -36514,9 +38646,9 @@ module.exports = function (e) {
         }), "desc" == l && a.sort(function (e, t) {
           return e.text > t.text ? -1 : 1;
         })), n.length) {
-          for (var i = 0; i <= a.length - 1; i++) {
-            var s = a[i].text;
-            s && -1 !== s.indexOf(n) && e.push(a[i]);
+          for (var s = 0; s <= a.length - 1; s++) {
+            var i = a[s].text;
+            i && -1 !== i.indexOf(n) && e.push(a[s]);
           }
 
           if (e.length) {
@@ -36546,8 +38678,8 @@ module.exports = function (e) {
             a = this.state,
             n = a.selected,
             l = a.callbackSelection,
-            i = a.emptySuggestionAfterSelection,
-            s = a.sortSelected,
+            s = a.emptySuggestionAfterSelection,
+            i = a.sortSelected,
             r = e.text;
 
         if (r) {
@@ -36560,14 +38692,14 @@ module.exports = function (e) {
           }) : n.push(e);
         }
 
-        s && this.availableSorts.includes(s) && ("asc" == s && n.sort(function (e, t) {
+        i && this.availableSorts.includes(i) && ("asc" == i && n.sort(function (e, t) {
           return e.text > t.text ? 1 : -1;
-        }), "desc" == s && n.sort(function (e, t) {
+        }), "desc" == i && n.sort(function (e, t) {
           return e.text > t.text ? -1 : 1;
         })), l && l(n), this.setState({
           selected: n
         }, function () {
-          i && t.setState({
+          s && t.setState({
             filter: "",
             suggestions: [],
             setArrow: null
@@ -36581,8 +38713,8 @@ module.exports = function (e) {
             a = this.state,
             n = a.selectedArrow,
             l = a.suggestions,
-            i = a.plainValue;
-        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != i && l.length || (n = null), void this.setState({
+            s = a.plainValue;
+        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != s && l.length || (n = null), void this.setState({
           selectedArrow: n
         }, function () {
           if (t.suggestionsHolder) {
@@ -36607,8 +38739,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.selected,
-            i = t.defaultClass,
-            s = t.id,
+            s = t.defaultClass,
+            i = t.id,
             r = t.props,
             o = t.suggestions,
             c = t.plainValue,
@@ -36616,7 +38748,7 @@ module.exports = function (e) {
             d = t.inputType,
             f = t.selectedArrow;
         return b.createElement("div", {
-          className: "".concat(i, " ").concat(a)
+          className: "".concat(s, " ").concat(a)
         }, b.createElement("div", {
           className: "input"
         }, 0 !== n.length && b.createElement("div", {
@@ -36624,7 +38756,7 @@ module.exports = function (e) {
         }, n.map(function (t) {
           var a = t.text;
           if (a) return b.createElement("div", {
-            key: M(),
+            key: B(),
             className: "item ff-title"
           }, b.createElement("div", {
             onClick: function onClick(a) {
@@ -36642,7 +38774,7 @@ module.exports = function (e) {
           onKeyDown: function onKeyDown(t) {
             return e.handleKeyDown(t);
           },
-          id: s
+          id: i
         }, r)), "" !== c && o && 0 !== o.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
@@ -36658,23 +38790,23 @@ module.exports = function (e) {
         }, o.map(function (t, a) {
           var l = n.includes(t) ? "active" : "";
           null !== f && void 0 !== o[f] && f == a && (l = "".concat(l, " selected"));
-          var i = t.text;
-          if (i) return b.createElement("li", {
+          var s = t.text;
+          if (s) return b.createElement("li", {
             className: l,
-            key: M(),
+            key: B(),
             onClick: function onClick(a) {
               return e.toggleSelection(t);
             },
             onMouseOver: function onMouseOver() {
               return e.setArrow(a);
             }
-          }, i);
+          }, s);
         }))))));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
-        return k(["value"], e, t) ? s()(!0) == s()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return k(["value"], e, t) ? i()(!0) == i()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -36682,74 +38814,6 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component);
-
-  function ve(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var me = function (e) {
-    h()(a, e);
-    var t = ve(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        text: e.text && s()("8") == s()(e.text) ? e.text : "",
-        display: s()(!0) == s()(e.display) && e.display
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.text,
-            n = e.defaultClass,
-            l = e.id;
-        return e.display ? C.a.createElement("div", {
-          className: "".concat(n, " ").concat(t),
-          id: l
-        }, a) : null;
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "text", "display"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          text: e.text && s()("8") == s()(e.text) ? e.text : "",
-          display: s()(!0) == s()(e.display) && e.display
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
 
   function ge(e) {
     var t = function () {
@@ -36778,22 +38842,97 @@ module.exports = function (e) {
   }
 
   var ye = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = ge(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        text: e.text && i()("8") == i()(e.text) ? e.text : "",
+        display: i()(!0) == i()(e.display) && e.display
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.text,
+            n = e.defaultClass,
+            l = e.id;
+        return e.display ? C.a.createElement("div", {
+          className: "".concat(n, " ").concat(t),
+          id: l
+        }, a) : null;
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "text", "display"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          text: e.text && i()("8") == i()(e.text) ? e.text : "",
+          display: i()(!0) == i()(e.display) && e.display
+        } : null;
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function be(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var Ce = function (e) {
+    p()(a, e);
+    var t = be(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.buildData = n.buildData.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.state = {
         dataJsx: [],
         loading: !1,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        data: e.data && s()([]) == s()(e.data) ? e.data : [],
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        data: e.data && i()([]) == i()(e.data) ? e.data : "",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
-        minify: s()(8) == s()(e.minify) ? e.minify : 0,
-        scrollReference: s()(!0) != s()(e.scrollReference) || e.scrollReference
+        minify: i()(8) == i()(e.minify) ? e.minify : 0,
+        scrollReference: i()(!0) != i()(e.scrollReference) || e.scrollReference
       }, n;
     }
 
@@ -36803,7 +38942,7 @@ module.exports = function (e) {
         var e = this.state,
             t = e.data,
             a = e.scrollReference;
-        this.scrollReference && a && (this.scrollReference.removeEventListener("scroll", this.scrollEvent), this.scrollReference.addEventListener("scroll", this.scrollEvent)), a || (document.removeEventListener("scroll", this.scrollEvent), document.addEventListener("scroll", this.scrollEvent)), this.buildData(t);
+        this.scrollReference && a && (this.scrollReference.removeEventListener("scroll", this.scrollEvent), this.scrollReference.addEventListener("scroll", this.scrollEvent)), a || (document.removeEventListener("scroll", this.scrollEvent), document.addEventListener("scroll", this.scrollEvent)), this.buildData(t), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -36824,8 +38963,8 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, A()(R.a.mark(function n() {
-          return R.a.wrap(function (n) {
+        }, M()(A.a.mark(function n() {
+          return A.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
                 case 0:
@@ -36889,8 +39028,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.dataJsx,
             l = t.defaultClass,
-            i = t.loading,
-            s = t.loadMoreLoadingIcon,
+            s = t.loading,
+            i = t.loadMoreLoadingIcon,
             r = t.id,
             o = t.scrollReference;
         return C.a.createElement("div", {
@@ -36899,7 +39038,7 @@ module.exports = function (e) {
           },
           className: "".concat(l, " ").concat(a, " ").concat(o ? "" : "ignore"),
           id: r
-        }, i && s, n && n.map(function (e) {
+        }, s && i, n && n.map(function (e) {
           return e;
         }));
       }
@@ -36907,26 +39046,26 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "data", "callback", "loadMoreLoadingIcon", "minify", "scrollReference"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          data: e.data && s()([]) == s()(e.data) ? e.data : [],
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) == i()(e.data) ? e.data : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           loadMoreLoadingIcon: e.loadMoreLoadingIcon ? e.loadMoreLoadingIcon : "",
           dataJsx: t.dataJsx,
-          minify: s()(8) == s()(e.minify) ? e.minify : 0,
-          scrollReference: s()(!0) != s()(e.scrollReference) || e.scrollReference
+          minify: i()(8) == i()(e.minify) ? e.minify : 0,
+          scrollReference: i()(!0) != i()(e.scrollReference) || e.scrollReference
         } : null;
       }
     }]), a;
   }(C.a.Component),
-      be = a(10),
-      Ce = a.n(be),
-      ke = a(14),
-      Ee = a.n(ke);
+      ke = a(10),
+      Ee = a.n(ke),
+      Se = a(14),
+      xe = a.n(Se);
 
-  function Se() {
-    return (Se = Object.assign || function (e) {
+  function De() {
+    return (De = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -36939,11 +39078,11 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function xe(e) {
+  function we(e) {
     return "/" === e.charAt(0);
   }
 
-  function we(e, t) {
+  function Oe(e, t) {
     for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) {
       e[a] = e[n];
     }
@@ -36951,15 +39090,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var De = function De(e, t) {
+  var Ne = function Ne(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         l = t && t.split("/") || [],
-        i = e && xe(e),
-        s = t && xe(t),
-        r = i || s;
-    if (e && xe(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
+        s = e && we(e),
+        i = t && we(t),
+        r = s || i;
+    if (e && we(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
     if (l.length) {
       var o = l[l.length - 1];
@@ -36968,18 +39107,18 @@ module.exports = function (e) {
 
     for (var c = 0, u = l.length; u >= 0; u--) {
       var d = l[u];
-      "." === d ? we(l, u) : ".." === d ? (we(l, u), c++) : c && (we(l, u), c--);
+      "." === d ? Oe(l, u) : ".." === d ? (Oe(l, u), c++) : c && (Oe(l, u), c--);
     }
 
     if (!r) for (; c--; c) {
       l.unshift("..");
     }
-    !r || "" === l[0] || l[0] && xe(l[0]) || l.unshift("");
+    !r || "" === l[0] || l[0] && we(l[0]) || l.unshift("");
     var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
-  function Oe(e, t, a, n) {
+  function Le(e, t, a, n) {
     var l;
     "string" == typeof e ? (l = function (e) {
       var t = e || "/",
@@ -36987,13 +39126,13 @@ module.exports = function (e) {
           n = "",
           l = t.indexOf("#");
       -1 !== l && (n = t.substr(l), t = t.substr(0, l));
-      var i = t.indexOf("?");
-      return -1 !== i && (a = t.substr(i), t = t.substr(0, i)), {
+      var s = t.indexOf("?");
+      return -1 !== s && (a = t.substr(s), t = t.substr(0, s)), {
         pathname: t,
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (l = Se({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
+    }(e)).state = t : (void 0 === (l = De({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
 
     try {
       l.pathname = decodeURI(l.pathname);
@@ -37001,12 +39140,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = De(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = Ne(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var Ne = Object.assign || function (e) {
+  var Te = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -37018,37 +39157,37 @@ module.exports = function (e) {
     return e;
   };
 
-  function Le(e, t) {
+  function Re(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function Te(e, t) {
+  function Fe(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var Re = function Re(e) {
+  var Ae = function Ae(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
-      Fe = function (e) {
+      Pe = function (e) {
     function t() {
       var a, n;
-      Le(this, t);
+      Re(this, t);
 
-      for (var l = arguments.length, i = Array(l), s = 0; s < l; s++) {
-        i[s] = arguments[s];
+      for (var l = arguments.length, s = Array(l), i = 0; i < l; i++) {
+        s[i] = arguments[i];
       }
 
-      return a = n = Te(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Re(e)) {
+      return a = n = Fe(this, e.call.apply(e, [this].concat(s))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Ae(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
               l = a.replace,
-              i = a.to;
-          l ? t.replace(i) : t.push(i);
+              s = a.to;
+          l ? t.replace(s) : t.push(s);
         }
-      }, Te(n, a);
+      }, Fe(n, a);
     }
 
     return function (e, t) {
@@ -37075,38 +39214,38 @@ module.exports = function (e) {
         return a;
       }(e, ["replace", "to", "innerRef"]);
 
-      Ee()(this.context.router, "You should not use <Link> outside a <Router>"), Ee()(void 0 !== t, 'You must specify the "to" property');
+      xe()(this.context.router, "You should not use <Link> outside a <Router>"), xe()(void 0 !== t, 'You must specify the "to" property');
       var l = this.context.router.history,
-          i = "string" == typeof t ? Oe(t, null, null, l.location) : t,
-          s = l.createHref(i);
-      return C.a.createElement("a", Ne({}, n, {
+          s = "string" == typeof t ? Le(t, null, null, l.location) : t,
+          i = l.createHref(s);
+      return C.a.createElement("a", Te({}, n, {
         onClick: this.handleClick,
-        href: s,
+        href: i,
         ref: a
       }));
     }, t;
   }(C.a.Component);
 
-  Fe.propTypes = {
-    onClick: Ce.a.func,
-    target: Ce.a.string,
-    replace: Ce.a.bool,
-    to: Ce.a.oneOfType([Ce.a.string, Ce.a.object]).isRequired,
-    innerRef: Ce.a.oneOfType([Ce.a.string, Ce.a.func])
-  }, Fe.defaultProps = {
+  Pe.propTypes = {
+    onClick: Ee.a.func,
+    target: Ee.a.string,
+    replace: Ee.a.bool,
+    to: Ee.a.oneOfType([Ee.a.string, Ee.a.object]).isRequired,
+    innerRef: Ee.a.oneOfType([Ee.a.string, Ee.a.func])
+  }, Pe.defaultProps = {
     replace: !1
-  }, Fe.contextTypes = {
-    router: Ce.a.shape({
-      history: Ce.a.shape({
-        push: Ce.a.func.isRequired,
-        replace: Ce.a.func.isRequired,
-        createHref: Ce.a.func.isRequired
+  }, Pe.contextTypes = {
+    router: Ee.a.shape({
+      history: Ee.a.shape({
+        push: Ee.a.func.isRequired,
+        replace: Ee.a.func.isRequired,
+        createHref: Ee.a.func.isRequired
       }).isRequired
     }).isRequired
   };
-  var Ae = Fe;
+  var Me = Pe;
 
-  function Pe(e) {
+  function Ie(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37132,30 +39271,36 @@ module.exports = function (e) {
     };
   }
 
-  var Ie = function (e) {
-    h()(a, e);
-    var t = Pe(a);
+  var Ve = function (e) {
+    p()(a, e);
+    var t = Ie(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
-        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
-        animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+        reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
     }
 
     return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
       key: "buildDataRecursive",
       value: function value() {
         var e = this,
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = this.state,
-            i = n.reactRouter,
+            s = n.reactRouter,
             r = (n.dropDown, []);
         if (t && t.length) for (var o = function o(n) {
           var o = t[n],
@@ -37163,13 +39308,13 @@ module.exports = function (e) {
               u = o.toggled,
               d = o.unique,
               f = o.props,
-              p = o.classList,
-              h = o.href,
+              h = o.classList,
+              p = o.href,
               v = o.icon;
-          h && s()("8") == s()(h) && (h = h.toLowerCase());
+          p && i()("8") == i()(p) && (p = p.toLowerCase());
           var m = t[n].data ? t[n].data : [],
               g = !!t[n].data;
-          p || (p = ""), f && s()(f) === s()({}) || (f = {});
+          h || (h = ""), f && i()(f) === i()({}) || (f = {});
 
           try {
             Object.keys(f);
@@ -37178,14 +39323,14 @@ module.exports = function (e) {
           }
 
           var y = "";
-          i && m && 0 == m.length && (y = C.a.createElement(Ae, {
-            to: h,
+          s && m && 0 == m.length && (y = C.a.createElement(Me, {
+            to: p,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
               return e.toggle(d, g);
             }
-          }, v && v, c)), !i && m && 0 == m.length && (y = C.a.createElement("a", {
-            href: h,
+          }, v && v, c)), !s && m && 0 == m.length && (y = C.a.createElement("a", {
+            href: p,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
               return e.toggle(d, g);
@@ -37197,7 +39342,7 @@ module.exports = function (e) {
             }
           }, v && v, c)), r.push(C.a.createElement("div", l()({
             key: E(),
-            className: "single-entry ".concat(p, " ").concat(m && 0 !== m.length ? "parent" : "")
+            className: "single-entry ".concat(h, " ").concat(m && 0 !== m.length ? "parent" : "")
           }, f), y, u && m && 0 !== m.length && C.a.createElement("div", {
             className: "children"
           }, e.buildDataRecursive(m, !0))));
@@ -37214,7 +39359,7 @@ module.exports = function (e) {
             n = this.state.animation,
             l = 0;
         ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function i(r) {
+        return function s(r) {
           if (r && r.length) {
             var o = function o(_o2) {
               var c = r[_o2].unique,
@@ -37236,7 +39381,7 @@ module.exports = function (e) {
                 }) : (d(), "break");
               }
 
-              u && s()([]) == s()(u) && 0 !== u.length && i(u);
+              u && i()([]) == i()(u) && 0 !== u.length && s(u);
             };
 
             e: for (var c = 0; c <= r.length - 1; c++) {
@@ -37247,7 +39392,7 @@ module.exports = function (e) {
                   break e;
 
                 default:
-                  if ("object" === s()(u)) return u.v;
+                  if ("object" === i()(u)) return u.v;
               }
             }
           }
@@ -37280,158 +39425,12 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "data", "reactRouter", "animation"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e["class"] && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          data: e.data && s()([]) == s()(e.data) ? S(e.data) : [],
-          reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
-          animation: e.animation && s()("8") == s()(e.animation) ? e.animation : void 0
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
-
-  function Me(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var Ve = function (e) {
-    h()(a, e);
-    var t = Me(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
-        dataJsx: [],
-        isMinified: !1,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-table",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        title: e.title && s()({}) == s()(e.title) ? e.title : void 0,
-        data: e.data && s()([]) == s()(e.data) ? e.data : void 0,
-        mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0,
-        keysToRead: e.keysToRead && s()([]) == s()(e.keysToRead) ? e.keysToRead : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        var e = this.state.mediaBreak;
-        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize());
-      }
-    }, {
-      key: "componentWillUnmount",
-      value: function value() {
-        window.removeEventListener("resize", this.resize);
-      }
-    }, {
-      key: "resize",
-      value: function value() {
-        var e = this.state,
-            t = e.mediaBreak,
-            a = e.isMinified;
-        document.documentElement.getBoundingClientRect().width <= t ? a || this.setState({
-          isMinified: !0
-        }, this.buildData) : a && this.setState({
-          isMinified: !1
-        }, this.buildData);
-      }
-    }, {
-      key: "buildData",
-      value: function value() {
-        var e = this.state,
-            t = e.data,
-            a = e.isMinified,
-            n = e.title,
-            l = e.keysToRead,
-            i = [],
-            r = "".concat(a ? "flex-column isMinified" : "flex-row");
-
-        if (t && t.length) {
-          if (n) {
-            var o = n.left,
-                c = n.right;
-            o && s()("8") == s()(o) && c && s()("8") == s()(c) && i.push(C.a.createElement("li", {
-              key: E(),
-              className: "".concat(r, " title")
-            }, C.a.createElement("span", {
-              className: "key"
-            }, o), C.a.createElement("span", {
-              className: "value"
-            }, c)));
-          }
-
-          t.map(function (e) {
-            if (l && l.length) {
-              var t = [];
-              l.map(function (a, n) {
-                if (void 0 !== e[a]) {
-                  var l = e[a] ? e[a] : "";
-                  t.push(C.a.createElement("span", {
-                    key: E(),
-                    className: "span span-".concat(n + 1)
-                  }, l));
-                }
-              }), t && t.length && (i.push(C.a.createElement("li", {
-                key: E(),
-                className: r
-              }, t)), t = []);
-            }
-          }), this.setState({
-            dataJsx: i
-          });
-        }
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.defaultClass,
-            n = e.id,
-            l = e.dataJsx;
-        return C.a.createElement("ul", {
-          className: "".concat(a, " ").concat(t),
-          id: n
-        }, l && l.length && l.map(function (e) {
-          return e;
-        }));
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-table",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          title: e.title && s()({}) == s()(e.title) ? e.title : void 0,
-          data: e.data && s()([]) == s()(e.data) ? e.data : void 0,
-          mediaBreak: e.mediaBreak && s()(8) == s()(e.mediaBreak) ? e.mediaBreak : void 0,
-          keysToRead: e.keysToRead && s()([]) == s()(e.keysToRead) ? e.keysToRead : void 0,
-          dataJsx: t.dataJsx
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e["class"] && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+          reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
+          animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
@@ -37464,172 +39463,89 @@ module.exports = function (e) {
   }
 
   var Ue = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = Be(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).setText = n.setText.bind(f()(n)), n.state = {
-        written: [],
-        uuid: "".concat(E()),
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        text: e.text && e.text.length ? e.text : "",
-        speed: e.speed && s()(8) == s()(e.speed) ? e.speed : 300,
-        pipeDisplay: s()(!0) != s()(e.pipeDisplay) || e.pipeDisplay,
-        pipeChar: e.pipeChar ? e.pipeChar : "|",
-        pipeSite: e.pipeSite && s()("8") == s()(e.pipeSite) ? e.pipeSite : "right",
-        pipePersist: s()(!0) == s()(e.pipePersist) && e.pipePersist,
-        replaces: e.replaces && s()([]) == s()(e.replaces) ? e.replaces : void 0,
-        timeout: e.timeout && s()(8) == s()(e.timeout) ? e.timeout : 0
+      return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
+        dataJsx: [],
+        isMinified: !1,
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-table",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        title: e.title && i()([]) == i()(e.title) ? e.title : void 0,
+        data: e.data && i()([]) == i()(e.data) ? e.data : void 0,
+        mediaBreak: e.mediaBreak && i()(8) == i()(e.mediaBreak) ? e.mediaBreak : void 0,
+        keysToRead: e.keysToRead && i()([]) == i()(e.keysToRead) ? e.keysToRead : void 0
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.written,
-            n = t.text,
-            l = t.timeout;
-        setTimeout(function () {
-          e.setText(a, n);
-        }, l);
+        var e = this.state.mediaBreak;
+        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize()), D(this.state.style, this.state.defaultClass);
       }
     }, {
-      key: "writerPromise",
-      value: function value(e) {
-        return new Promise(function (t) {
-          setTimeout(function () {
-            t(e);
-          }, 1);
-        });
-      }
-    }, {
-      key: "removerPromise",
-      value: function value(e) {
-        return new Promise(function (t) {
-          setTimeout(function () {
-            t(e);
-          }, 1);
-        });
-      }
-    }, {
-      key: "setText",
-      value: function value(e, t) {
-        var a = this,
-            n = this.state,
-            l = n.speed,
-            i = n.pipePersist,
-            s = n.replaces,
-            r = t.split(""),
-            o = -1;
-        !function (t) {
-          a.writerInterval = setInterval(A()(R.a.mark(function n() {
-            return R.a.wrap(function (n) {
-              for (;;) {
-                switch (n.prev = n.next) {
-                  case 0:
-                    return ++o > t.length - 1 && (clearInterval(a.writerInterval), s && s.length ? a.runReplacer() : setTimeout(function () {
-                      a.setState({
-                        pipeDisplay: i
-                      });
-                    }, l)), n.next = 4, a.writerPromise(t[o]).then(function (t) {
-                      e.push(t), a.setState({
-                        written: e
-                      });
-                    });
-
-                  case 4:
-                  case "end":
-                    return n.stop();
-                }
-              }
-            }, n);
-          })), l);
-        }(r);
-      }
-    }, {
-      key: "runReplacer",
+      key: "componentWillUnmount",
       value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.replaces,
-            n = t.pipePersist,
-            l = t.speed,
-            i = t.uuid,
-            s = 0,
-            r = function t() {
-          var r = e.state.written,
-              o = a[s],
-              c = o.from,
-              u = o.to,
-              d = o.replace;
-          e.removeIntervaller = setInterval(A()(R.a.mark(function o() {
-            var f, p;
-            return R.a.wrap(function (o) {
-              for (;;) {
-                switch (o.prev = o.next) {
-                  case 0:
-                    if (c > u) {
-                      for (clearInterval(e.removeIntervaller), f = [], p = 0; p <= r.length - 1; p++) {
-                        i !== r[p] && f.push(r[p]);
-                      }
+        window.removeEventListener("resize", this.resize);
+      }
+    }, {
+      key: "resize",
+      value: function value() {
+        var e = this.state,
+            t = e.mediaBreak,
+            a = e.isMinified;
+        document.documentElement.getBoundingClientRect().width <= t ? a || this.setState({
+          isMinified: !0
+        }, this.buildData) : a && this.setState({
+          isMinified: !1
+        }, this.buildData);
+      }
+    }, {
+      key: "buildData",
+      value: function value() {
+        var e = this.state,
+            t = e.data,
+            a = e.isMinified,
+            n = e.title,
+            l = e.keysToRead,
+            s = [],
+            r = "".concat(a ? "flex-column isMinified" : "flex-row");
 
-                      e.setState({
-                        written: f
-                      }, function () {
-                        if (d && d.length) {
-                          var i = e.state.written,
-                              r = i.slice(0, c),
-                              o = i.slice(c, u),
-                              f = i.slice(u, i.length - 1);
-                          f[0] && " " == f[0] && (f[0] = "");
-                          var p = -1,
-                              h = d.split(""),
-                              v = [];
-                          e.writerInterval = setInterval(A()(R.a.mark(function i() {
-                            return R.a.wrap(function (i) {
-                              for (;;) {
-                                switch (i.prev = i.next) {
-                                  case 0:
-                                    return ++p > h.length - 1 && (clearInterval(e.writerInterval), void 0 !== a[s += 1] ? t() : setTimeout(function () {
-                                      e.setState({
-                                        pipeDisplay: n
-                                      });
-                                    }, l)), i.next = 4, e.writerPromise(h[p]).then(function (t) {
-                                      v.push(t), e.setState({
-                                        written: [].concat($()(r), v, $()(o), $()(f))
-                                      });
-                                    });
-
-                                  case 4:
-                                  case "end":
-                                    return i.stop();
-                                }
-                              }
-                            }, i);
-                          })), l);
-                        }
-                      });
-                    } else r[u] = i, e.setState({
-                      written: r
-                    });
-
-                    u -= 1;
-
-                  case 2:
-                  case "end":
-                    return o.stop();
+        if (t && t.length) {
+          var o = [];
+          n && n.length && (n.map(function (e, t) {
+            e && i()("8") == i()(e) && o.push(C.a.createElement("span", {
+              key: E(),
+              className: "span span-".concat(t + 1)
+            }, e));
+          }), o.length && s.push(C.a.createElement("li", {
+            key: E(),
+            className: "".concat(r, " title")
+          }, o))), t.map(function (e) {
+            if (l && l.length) {
+              var t = [];
+              l.map(function (a, n) {
+                if (void 0 !== e[a]) {
+                  var l = e[a] ? e[a] : "";
+                  t.push(C.a.createElement("span", {
+                    key: E(),
+                    className: "span span-".concat(n + 1)
+                  }, l));
                 }
-              }
-            }, o);
-          })), l);
-        };
-
-        r();
+              }), t && t.length && (s.push(C.a.createElement("li", {
+                key: E(),
+                className: r
+              }, t)), t = []);
+            }
+          }), this.setState({
+            dataJsx: s
+          });
+        }
       }
     }, {
       key: "render",
@@ -37638,21 +39554,27 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            l = e.uuid,
-            i = e.written,
-            s = e.pipeDisplay,
-            r = e.pipeChar,
-            o = e.pipeSite;
-        return C.a.createElement("span", {
+            l = e.dataJsx;
+        return C.a.createElement("ul", {
           className: "".concat(a, " ").concat(t),
           id: n
-        }, "left" == o && s && C.a.createElement("span", {
-          className: "pipe"
-        }, r), i.map(function (e) {
-          if (l !== e) return e;
-        }), "right" == o && s && C.a.createElement("span", {
-          className: "pipe"
-        }, r));
+        }, l && l.length && l.map(function (e) {
+          return e;
+        }));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-table",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          title: e.title && i()([]) == i()(e.title) ? e.title : void 0,
+          data: e.data && i()([]) == i()(e.data) ? e.data : void 0,
+          mediaBreak: e.mediaBreak && i()(8) == i()(e.mediaBreak) ? e.mediaBreak : void 0,
+          keysToRead: e.keysToRead && i()([]) == i()(e.keysToRead) ? e.keysToRead : void 0,
+          dataJsx: t.dataJsx
+        } : null;
       }
     }]), a;
   }(C.a.Component);
@@ -37684,8 +39606,230 @@ module.exports = function (e) {
   }
 
   var ze = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = je(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).setText = n.setText.bind(f()(n)), n.state = {
+        written: [],
+        uuid: "".concat(E()),
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        text: e.text && e.text.length ? e.text : "",
+        speed: e.speed && i()(8) == i()(e.speed) ? e.speed : 300,
+        pipeDisplay: i()(!0) != i()(e.pipeDisplay) || e.pipeDisplay,
+        pipeChar: e.pipeChar ? e.pipeChar : "|",
+        pipeSite: e.pipeSite && i()("8") == i()(e.pipeSite) ? e.pipeSite : "right",
+        pipePersist: i()(!0) == i()(e.pipePersist) && e.pipePersist,
+        replaces: e.replaces && i()([]) == i()(e.replaces) ? e.replaces : void 0,
+        timeout: e.timeout && i()(8) == i()(e.timeout) ? e.timeout : 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.written,
+            n = t.text,
+            l = t.timeout;
+        setTimeout(function () {
+          e.setText(a, n);
+        }, l), D(this.state.style, this.state.defaultClass);
+      }
+    }, {
+      key: "writerPromise",
+      value: function value(e) {
+        return new Promise(function (t) {
+          setTimeout(function () {
+            t(e);
+          }, 1);
+        });
+      }
+    }, {
+      key: "removerPromise",
+      value: function value(e) {
+        return new Promise(function (t) {
+          setTimeout(function () {
+            t(e);
+          }, 1);
+        });
+      }
+    }, {
+      key: "setText",
+      value: function value(e, t) {
+        var a = this,
+            n = this.state,
+            l = n.speed,
+            s = n.pipePersist,
+            i = n.replaces,
+            r = t.split(""),
+            o = -1;
+        !function (t) {
+          a.writerInterval = setInterval(M()(A.a.mark(function n() {
+            return A.a.wrap(function (n) {
+              for (;;) {
+                switch (n.prev = n.next) {
+                  case 0:
+                    return ++o > t.length - 1 && (clearInterval(a.writerInterval), i && i.length ? a.runReplacer() : setTimeout(function () {
+                      a.setState({
+                        pipeDisplay: s
+                      });
+                    }, l)), n.next = 4, a.writerPromise(t[o]).then(function (t) {
+                      e.push(t), a.setState({
+                        written: e
+                      });
+                    });
+
+                  case 4:
+                  case "end":
+                    return n.stop();
+                }
+              }
+            }, n);
+          })), l);
+        }(r);
+      }
+    }, {
+      key: "runReplacer",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.replaces,
+            n = t.pipePersist,
+            l = t.speed,
+            s = t.uuid,
+            i = 0,
+            r = function t() {
+          var r = e.state.written,
+              o = a[i],
+              c = o.from,
+              u = o.to,
+              d = o.replace;
+          e.removeIntervaller = setInterval(M()(A.a.mark(function o() {
+            var f, h;
+            return A.a.wrap(function (o) {
+              for (;;) {
+                switch (o.prev = o.next) {
+                  case 0:
+                    if (c > u) {
+                      for (clearInterval(e.removeIntervaller), f = [], h = 0; h <= r.length - 1; h++) {
+                        s !== r[h] && f.push(r[h]);
+                      }
+
+                      e.setState({
+                        written: f
+                      }, function () {
+                        if (d && d.length) {
+                          var s = e.state.written,
+                              r = s.slice(0, c),
+                              o = s.slice(c, u),
+                              f = s.slice(u, s.length - 1);
+                          f[0] && " " == f[0] && (f[0] = "");
+                          var h = -1,
+                              p = d.split(""),
+                              v = [];
+                          e.writerInterval = setInterval(M()(A.a.mark(function s() {
+                            return A.a.wrap(function (s) {
+                              for (;;) {
+                                switch (s.prev = s.next) {
+                                  case 0:
+                                    return ++h > p.length - 1 && (clearInterval(e.writerInterval), void 0 !== a[i += 1] ? t() : setTimeout(function () {
+                                      e.setState({
+                                        pipeDisplay: n
+                                      });
+                                    }, l)), s.next = 4, e.writerPromise(p[h]).then(function (t) {
+                                      v.push(t), e.setState({
+                                        written: [].concat(Q()(r), v, Q()(o), Q()(f))
+                                      });
+                                    });
+
+                                  case 4:
+                                  case "end":
+                                    return s.stop();
+                                }
+                              }
+                            }, s);
+                          })), l);
+                        }
+                      });
+                    } else r[u] = s, e.setState({
+                      written: r
+                    });
+
+                    u -= 1;
+
+                  case 2:
+                  case "end":
+                    return o.stop();
+                }
+              }
+            }, o);
+          })), l);
+        };
+
+        r();
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.defaultClass,
+            n = e.id,
+            l = e.uuid,
+            s = e.written,
+            i = e.pipeDisplay,
+            r = e.pipeChar,
+            o = e.pipeSite;
+        return C.a.createElement("span", {
+          className: "".concat(a, " ").concat(t),
+          id: n
+        }, "left" == o && i && C.a.createElement("span", {
+          className: "pipe"
+        }, r), s.map(function (e) {
+          if (l !== e) return e;
+        }), "right" == o && i && C.a.createElement("span", {
+          className: "pipe"
+        }, r));
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function _e(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var He = function (e) {
+    p()(a, e);
+
+    var t = _e(a);
 
     function a(e) {
       var n;
@@ -37693,21 +39837,22 @@ module.exports = function (e) {
       return n.state = {
         displayBox: !1,
         displayBoxClassNames: "box",
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
         data: e.data ? e.data : "",
         icon: e.icon ? e.icon : "",
         iconCallback: e.iconCallback && "function" == typeof e.iconCallback ? e.iconCallback : void 0,
-        animationTime: e.animationTime && s()(8) == s()(e.animationTime) ? e.animationTime : 300,
-        animation: e.animation && s()("8") == s()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
+        animationTime: e.animationTime && i()(8) == i()(e.animationTime) ? e.animationTime : 300,
+        animation: e.animation && i()("8") == i()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.oldHref = window.location.href, document.addEventListener("mousedown", this.handleMouseDown);
+        this.oldHref = window.location.href, document.addEventListener("mousedown", this.handleMouseDown), D(this.state.style, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -37767,8 +39912,8 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             l = t.id,
-            i = t.displayBoxClassNames,
-            s = t.animation,
+            s = t.displayBoxClassNames,
+            i = t.animation,
             r = t.icon,
             o = t.displayBox,
             c = t.data;
@@ -37784,126 +39929,21 @@ module.exports = function (e) {
             return e.togglePopupBox();
           }
         }, r), o && C.a.createElement("div", {
-          className: "".concat(i, " ").concat(s)
+          className: "".concat(s, " ").concat(i)
         }, c));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
           data: e.data ? e.data : "",
           icon: e.icon ? e.icon : "",
           iconCallback: e.iconCallback && "function" == typeof e.iconCallback ? e.iconCallback : void 0,
-          animationTime: e.animationTime && s()(8) == s()(e.animationTime) ? e.animationTime : 300,
-          animation: e.animation && s()("8") == s()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
-
-  function _e(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var He = function (e) {
-    h()(a, e);
-
-    var t = _e(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        image: e.image && s()({}) == s()(e.image) ? e.image : void 0,
-        moduleMenu: e.moduleMenu && s()({}) == s()(e.moduleMenu) ? e.moduleMenu : void 0,
-        textLong: e.textLong && s()("8") == s()(e.textLong) ? e.textLong : void 0,
-        textShort: e.textShort && s()("8") == s()(e.textShort) ? e.textShort : void 0,
-        href: e.href && s()("8") == s()(e.href) ? e.href : void 0,
-        hrefProps: e.hrefProps && s()({}) == s()(e.hrefProps) ? e.hrefProps : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.defaultClass,
-            n = e.id,
-            i = e.moduleMenu,
-            s = e.image,
-            r = e.textLong,
-            o = e.textShort,
-            c = e.href,
-            u = e.hrefProps;
-        return C.a.createElement("div", {
-          className: "".concat(a, " ").concat(t),
-          id: n
-        }, C.a.createElement("div", {
-          className: "logo-text"
-        }, c && C.a.createElement("a", l()({
-          href: c,
-          className: "logo-text"
-        }, u), s && C.a.createElement("div", {
-          className: "logo"
-        }, s), C.a.createElement("div", {
-          className: "text"
-        }, r && C.a.createElement("span", {
-          className: "long"
-        }, r), o && C.a.createElement("span", {
-          className: "short"
-        }, o))), !c && C.a.createElement("div", {
-          className: "logo-text"
-        }, s && C.a.createElement("div", {
-          className: "logo"
-        }, s), C.a.createElement("div", {
-          className: "text"
-        }, r && C.a.createElement("span", {
-          className: "long"
-        }, r), o && C.a.createElement("span", {
-          className: "short"
-        }, o)))), i && i);
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          image: e.image && s()({}) == s()(e.image) ? e.image : void 0,
-          moduleMenu: e.moduleMenu && s()({}) == s()(e.moduleMenu) ? e.moduleMenu : void 0,
-          textLong: e.textLong && s()("8") == s()(e.textLong) ? e.textLong : void 0,
-          textShort: e.textShort && s()("8") == s()(e.textShort) ? e.textShort : void 0,
-          href: e.href && s()("8") == s()(e.href) ? e.href : void 0,
-          hrefProps: e.hrefProps && s()({}) == s()(e.hrefProps) ? e.hrefProps : void 0
+          animationTime: e.animationTime && i()(8) == i()(e.animationTime) ? e.animationTime : 300,
+          animation: e.animation && i()("8") == i()(e.animation) && ["top-left", "top-right", "bottom-left", "bottom-right"].includes(e.animation) ? e.animation : "top-left"
         } : null;
       }
     }]), a;
@@ -37936,8 +39976,118 @@ module.exports = function (e) {
   }
 
   var Je = function (e) {
-    h()(a, e);
+    p()(a, e);
     var t = qe(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        style: i()(!0) != i()(e.style) || e.style,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        image: e.image && i()({}) == i()(e.image) ? e.image : void 0,
+        moduleMenu: e.moduleMenu && i()({}) == i()(e.moduleMenu) ? e.moduleMenu : void 0,
+        textLong: e.textLong && i()("8") == i()(e.textLong) ? e.textLong : void 0,
+        textShort: e.textShort && i()("8") == i()(e.textShort) ? e.textShort : void 0,
+        href: e.href && i()("8") == i()(e.href) ? e.href : void 0,
+        hrefProps: e.hrefProps && i()({}) == i()(e.hrefProps) ? e.hrefProps : void 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        D(this.state.style, this.state.defaultClass);
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.defaultClass,
+            n = e.id,
+            s = e.moduleMenu,
+            i = e.image,
+            r = e.textLong,
+            o = e.textShort,
+            c = e.href,
+            u = e.hrefProps;
+        return C.a.createElement("div", {
+          className: "".concat(a, " ").concat(t),
+          id: n
+        }, C.a.createElement("div", {
+          className: "logo-text"
+        }, c && C.a.createElement("a", l()({
+          href: c,
+          className: "logo-text"
+        }, u), i && C.a.createElement("div", {
+          className: "logo"
+        }, i), C.a.createElement("div", {
+          className: "text"
+        }, r && C.a.createElement("span", {
+          className: "long"
+        }, r), o && C.a.createElement("span", {
+          className: "short"
+        }, o))), !c && C.a.createElement("div", {
+          className: "logo-text"
+        }, i && C.a.createElement("div", {
+          className: "logo"
+        }, i), C.a.createElement("div", {
+          className: "text"
+        }, r && C.a.createElement("span", {
+          className: "long"
+        }, r), o && C.a.createElement("span", {
+          className: "short"
+        }, o)))), s && s);
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          image: e.image && i()({}) == i()(e.image) ? e.image : void 0,
+          moduleMenu: e.moduleMenu && i()({}) == i()(e.moduleMenu) ? e.moduleMenu : void 0,
+          textLong: e.textLong && i()("8") == i()(e.textLong) ? e.textLong : void 0,
+          textShort: e.textShort && i()("8") == i()(e.textShort) ? e.textShort : void 0,
+          href: e.href && i()("8") == i()(e.href) ? e.href : void 0,
+          hrefProps: e.hrefProps && i()({}) == i()(e.hrefProps) ? e.hrefProps : void 0
+        } : null;
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function Ke(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return m()(this, a);
+    };
+  }
+
+  var We = function (e) {
+    p()(a, e);
+    var t = Ke(a);
 
     function a(e) {
       var n;
@@ -37945,20 +40095,20 @@ module.exports = function (e) {
         searchValue: "",
         plainValue: "",
         lines: [],
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
-        code: e.code && s()("8") == s()(e.code) ? e.code : void 0,
-        originalCode: e.code && s()("8") == s()(e.code) ? e.code : void 0,
-        inputActive: s()(!0) == s()(e.inputActive) && e.inputActive,
-        placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : void 0,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
+        code: e.code && i()("8") == i()(e.code) ? e.code : void 0,
+        originalCode: e.code && i()("8") == i()(e.code) ? e.code : void 0,
+        inputActive: i()(!0) == i()(e.inputActive) && e.inputActive,
+        placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : void 0,
         inputCallback: e.inputCallback && "function" == typeof e.inputCallback ? e.inputCallback : void 0,
         inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
-        loadingDisplay: s()(!0) == e.loadingDisplay && e.loadingDisplay,
+        loadingDisplay: i()(!0) == e.loadingDisplay && e.loadingDisplay,
         loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-        layout: e.layout && s()("8") == s()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
-      }, n.loadingDisplay = s()(!0) == s()(e.loadingDisplay) && e.loadingDisplay, n.isFocus = !1, n;
+        layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
+      }, n.loadingDisplay = i()(!0) == i()(e.loadingDisplay) && e.loadingDisplay, n.isFocus = !1, n;
     }
 
     return u()(a, [{
@@ -38004,11 +40154,11 @@ module.exports = function (e) {
           loadingDisplay: this.loadingDisplay
         }, function () {
           if ("" == n) l = a;else {
-            var i = a.split("\n");
+            var s = a.split("\n");
             n = n.trim();
 
-            for (var s = 0; s <= i.length - 1; s++) {
-              -1 !== i[s].indexOf(n) && l.push(i[s]);
+            for (var i = 0; i <= s.length - 1; i++) {
+              -1 !== s[i].indexOf(n) && l.push(s[i]);
             }
 
             l = l.join("\n");
@@ -38031,26 +40181,26 @@ module.exports = function (e) {
           loadingDisplay: !1
         });
 
-        for (var i = t.split("\n"), s = [], r = 0; r < i.length; r++) {
-          if (s = [], "" !== i[r]) for (var o = i[r].split(" "), c = null, u = "", d = 0; d < o.length; d++) {
+        for (var s = t.split("\n"), i = [], r = 0; r < s.length; r++) {
+          if (i = [], "" !== s[r]) for (var o = s[r].split(" "), c = null, u = "", d = 0; d < o.length; d++) {
             var f = "";
 
             if ("" !== o[d]) {
-              var p = o[d].split("");
+              var h = o[d].split("");
               f = "";
 
-              for (var h = 0; h < p.length; h++) {
-                var v = void 0 !== p[h + 1] ? p[h + 1] : void 0;
-                if ("\t" == p[h]) s.push({
+              for (var p = 0; p < h.length; p++) {
+                var v = void 0 !== h[p + 1] ? h[p + 1] : void 0;
+                if ("\t" == h[p]) i.push({
                   code: "\t",
                   "class": "tab"
                 });else {
-                  f += p[h];
-                  var m = this.tagsMatcher(f, s, v);
+                  f += h[p];
+                  var m = this.tagsMatcher(f, i, v);
 
-                  if (f = m.characters, s = m.singleLineData, f.length) {
-                    var g = this.propsMatcher(f, s, v, c);
-                    f = g.characters, s = g.singleLineData, c = g.attribute;
+                  if (f = m.characters, i = m.singleLineData, f.length) {
+                    var g = this.propsMatcher(f, i, v, c);
+                    f = g.characters, i = g.singleLineData, c = g.attribute;
                   }
                 }
               }
@@ -38058,7 +40208,7 @@ module.exports = function (e) {
 
             if (f.length) {
               if (-1 !== f.indexOf("$")) {
-                s.push({
+                i.push({
                   code: f.substring(0, f.indexOf("$")),
                   "class": "no-match php"
                 });
@@ -38074,7 +40224,7 @@ module.exports = function (e) {
                   b += y[S];
                 }
 
-                b.length && s.push({
+                b.length && i.push({
                   code: b,
                   "class": "variable-dollar"
                 }), f = k ? f.substring(k, y.length) : "", u = "php";
@@ -38082,90 +40232,90 @@ module.exports = function (e) {
 
               if (-1 !== f.indexOf("(") && -1 !== f.indexOf(")")) {
                 var x = f.substring(0, f.indexOf("("));
-                s.push({
+                i.push({
                   code: x,
                   "class": "functionName"
                 });
-                var w = f.substring(x.length + 1, f.indexOf(")"));
-                s.push({
+                var D = f.substring(x.length + 1, f.indexOf(")"));
+                i.push({
                   code: "(",
                   "class": "bracket bracket-left"
-                }), s.push({
-                  code: w,
+                }), i.push({
+                  code: D,
                   "class": "functionArguments"
-                }), s.push({
+                }), i.push({
                   code: ")",
                   "class": "bracket bracket-right"
-                }), f = f.substring(x.length + 1 + w.length + 1, f.length);
+                }), f = f.substring(x.length + 1 + D.length + 1, f.length);
               }
 
               if (-1 !== f.indexOf("(")) {
-                var D = f.substring(0, f.indexOf("("));
-                u = "function", s.push({
-                  code: D,
+                var w = f.substring(0, f.indexOf("("));
+                u = "function", i.push({
+                  code: w,
                   "class": "functionName"
                 });
-                var O = f.substring(D.length + 1, f.length);
-                s.push({
+                var O = f.substring(w.length + 1, f.length);
+                i.push({
                   code: "(",
                   "class": "bracket bracket-left"
-                }), s.push({
+                }), i.push({
                   code: O,
                   "class": "functionArguments"
                 }), f = "";
               }
 
-              if ("function" == u && (-1 !== f.indexOf("))") && (s.push({
+              if ("function" == u && (-1 !== f.indexOf("))") && (i.push({
                 code: f.substring(0, f.indexOf(")") + 1),
                 "class": "functionArguments"
-              }), s.push({
+              }), i.push({
                 code: ")",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf(")") + 2, f.length), u = ""), -1 !== f.indexOf(")") ? (s.push({
+              }), f = f.substring(f.indexOf(")") + 2, f.length), u = ""), -1 !== f.indexOf(")") ? (i.push({
                 code: f.substring(0, f.indexOf(")")),
                 "class": "functionArguments"
-              }), s.push({
+              }), i.push({
                 code: ")",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf(")") + 1, f.length), u = "") : (s.push({
+              }), f = f.substring(f.indexOf(")") + 1, f.length), u = "") : (i.push({
                 code: f,
                 "class": "functionArguments"
               }), f = "", u = "function")), -1 !== f.indexOf("{")) {
                 var N = f.substring(0, f.indexOf("{"));
-                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (s.push({
+                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (i.push({
                   code: N.substring(0, N.indexOf("=")),
                   "class": "variableName"
-                }), s.push({
+                }), i.push({
                   code: "=",
                   "class": "equal"
-                })), -1 !== f.indexOf("{") && (s.push({
+                })), -1 !== f.indexOf("{") && (i.push({
                   code: f.substring(0, f.indexOf("{")),
                   "class": "no-match"
-                }), s.push({
+                }), i.push({
                   code: "{",
                   "class": "bracket bracket-left"
-                }), f = f.substring(f.indexOf("{") + 1, f.length), u = "bracketOpen"), -1 !== f.indexOf("}") && "bracketOpen" == u && (s.push({
+                }), f = f.substring(f.indexOf("{") + 1, f.length), u = "bracketOpen"), -1 !== f.indexOf("}") && "bracketOpen" == u && (i.push({
                   code: f.substring(0, f.indexOf("}")),
                   "class": "bracketValue"
-                }), s.push({
+                }), i.push({
                   code: "}",
                   "class": "bracket bracket-right"
                 }), f = f.substring(f.indexOf("}") + 1, f.length), u = "");
               }
 
-              if (-1 !== f.indexOf("}") && (s.push({
+              if (-1 !== f.indexOf("}") && (i.push({
                 code: f.substring(0, f.indexOf("}")),
                 "class": "no-match"
-              }), s.push({
+              }), i.push({
                 code: "}",
                 "class": "bracket bracket-right"
-              }), f = f.substring(f.indexOf("}") + 1, f.length), u = ""), -1 !== f.indexOf("=") && (s.push({
+              }), f = f.substring(f.indexOf("}") + 1, f.length), u = ""), -1 !== f.indexOf("=") && (i.push({
                 code: f.substring(0, f.indexOf("=")),
                 "class": "variableName"
-              }), s.push({
+              }), i.push({
                 code: "=",
                 "class": "equal"
-              }), f = f.substring(f.indexOf("=") + 1, f.length)), ")" == f && (s.push({
+              }), f = f.substring(f.indexOf("=") + 1, f.length)), ")" == f && (i.push({
                 code: ")",
                 "class": "bracket bracket-right"
               }), f = "", u = ""), f.length) {
@@ -38175,7 +40325,7 @@ module.exports = function (e) {
                 }], T = 0; T <= L.length - 1; T++) {
                   for (var R = L[T].words, F = 0; F <= R.length - 1; F++) {
                     if (R[F] === f) {
-                      s.push({
+                      i.push({
                         code: f,
                         "class": L[T]["class"]
                       }), f = "";
@@ -38184,30 +40334,30 @@ module.exports = function (e) {
                   }
                 }
 
-                f.length && s.push({
+                f.length && i.push({
                   code: f,
                   "class": "no-match"
                 }), u = "";
               }
             }
 
-            s.push({
+            i.push({
               code: " ",
               "class": "space"
             });
           }
-          s.push({
+          i.push({
             code: "\n",
             "class": "enter"
-          }), l.push(s);
+          }), l.push(i);
         }
 
         for (var A = [], P = 0; P < l.length; P++) {
-          for (var I = l[P], M = [], V = 0; V < I.length; V++) {
-            M.push(C.a.createElement("span", {
+          for (var M = l[P], I = [], V = 0; V < M.length; V++) {
+            I.push(C.a.createElement("span", {
               key: E(),
-              className: I[V]["class"] ? I[V]["class"] : ""
-            }, I[V].code));
+              className: M[V]["class"] ? M[V]["class"] : ""
+            }, M[V].code));
           }
 
           var B = "single-code-line single-code-line-".concat(P + 1, " ").concat(P + 1 == 1 ? " single-code-line-first" : "", " ").concat(P + 1 == l.length ? " single-code-line-last" : "");
@@ -38218,7 +40368,7 @@ module.exports = function (e) {
             className: "line-number"
           }, P + 1), C.a.createElement("div", {
             className: "line-code"
-          }, M)));
+          }, I)));
         }
 
         this.setState({
@@ -38412,14 +40562,14 @@ module.exports = function (e) {
             a = t.addClass,
             n = t.defaultClass,
             l = t.layout,
-            i = t.lines,
-            s = t.loadingDisplay,
+            s = t.lines,
+            i = t.loadingDisplay,
             r = t.loadingIcon,
             o = t.inputActive,
             c = t.placeholder,
             u = t.searchValue,
             d = t.id;
-        return s ? C.a.createElement("div", {
+        return i ? C.a.createElement("div", {
           className: "".concat(n, " ").concat(l)
         }, r) : C.a.createElement("div", {
           className: "".concat(n, " ").concat(l, " ").concat(a),
@@ -38445,28 +40595,28 @@ module.exports = function (e) {
           }
         })), C.a.createElement("ul", {
           className: "code"
-        }, i));
+        }, s));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         return k(["defaultClass", "id", "displayLineNumber", "code", "inputActive", "placeholder", "inputCallback", "inputNoDataText", "loadingDisplay", "loadingIcon", "layout"], e, t) ? {
-          addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-          defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
-          id: e.id && s()("8") == s()(e.id) ? e.id : "",
-          displayLineNumber: s()(!0) === s()(e.displayLineNumber) && e.displayLineNumber,
-          inputActive: s()(!0) == s()(e.inputActive) && e.inputActive,
-          placeholder: e.placeholder && s()("8") == s()(e.placeholder) ? e.placeholder : void 0,
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          displayLineNumber: i()(!0) === i()(e.displayLineNumber) && e.displayLineNumber,
+          inputActive: i()(!0) == i()(e.inputActive) && e.inputActive,
+          placeholder: e.placeholder && i()("8") == i()(e.placeholder) ? e.placeholder : void 0,
           inputCallback: e.inputCallback && "function" == typeof e.inputCallback ? e.inputCallback : void 0,
           inputNoDataText: e.inputNoDataText ? e.inputNoDataText : "",
-          loadingDisplay: s()(!0) == e.loadingDisplay && e.loadingDisplay,
+          loadingDisplay: i()(!0) == e.loadingDisplay && e.loadingDisplay,
           loadingIcon: e.loadingIcon ? e.loadingIcon : "",
-          layout: e.layout && s()("8") == s()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
+          layout: e.layout && i()("8") == i()(e.layout) && ["dark", "light"].includes(e.layout) ? e.layout : "light"
         } : null;
       }
     }]), a;
   }(b.Component),
-      Ke = function Ke() {
+      Ze = function Ze() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -38478,18 +40628,18 @@ module.exports = function (e) {
     };
 
     if (e) {
-      var i = sessionStorage.getItem(e);
+      var s = sessionStorage.getItem(e);
 
       try {
-        null !== i ? ((i = JSON.parse(i)).push(l), sessionStorage.setItem(e, JSON.stringify(i))) : sessionStorage.setItem(e, JSON.stringify([l]));
+        null !== s ? ((s = JSON.parse(s)).push(l), sessionStorage.setItem(e, JSON.stringify(s))) : sessionStorage.setItem(e, JSON.stringify([l]));
       } catch (t) {
         console.log(t), sessionStorage.setItem(e, JSON.stringify([l]));
       }
     }
   },
-      We = function () {
+      Ge = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = se()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = oe()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -38544,11 +40694,11 @@ module.exports = function (e) {
 
           for (var n = e.attributes, l = 0; l <= n.length - 1; l++) {
             if (t == n[l].name && -1 !== n[l].value.indexOf(a)) {
-              var i = n[l].value,
-                  s = i.indexOf(a),
-                  r = s + a.length,
-                  o = i.substring(0, s),
-                  c = i.substring(r, i.length);
+              var s = n[l].value,
+                  i = s.indexOf(a),
+                  r = i + a.length,
+                  o = s.substring(0, i),
+                  c = s.substring(r, s.length);
               n[l].value = "".concat(o).concat(c), "" === n[l].value && e.removeAttribute(t);
               break;
             }
@@ -38600,9 +40750,9 @@ module.exports = function (e) {
       }
     }]), e;
   }(),
-      Ze = function Ze(e, t) {
-    var a = new We();
-    e && s()(8) == s()(e) && a.setScrollTime(e), t && s()("8") == s()(t) && a.setScrollBehavior(t);
+      $e = function $e(e, t) {
+    var a = new Ge();
+    e && i()(8) == i()(e) && a.setScrollTime(e), t && i()("8") == i()(t) && a.setScrollBehavior(t);
 
     var n = function n() {
       a.scrollTop();
@@ -38745,13 +40895,14 @@ var App = /*#__PURE__*/function (_React$Component) {
       inputValue: ''
     };
     _this.href = window.location.href;
+    _this.locationCheck = '';
     return _this;
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["scrollTopListener"])(300);
+      Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["scrollTopListener"])(0);
       this.setOnClickEvent();
       this.changeSidebarMinifiedState();
     }
@@ -38759,6 +40910,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       document.removeEventListener('click', this.checkLocation);
+      clearInterval(this.locationCheck);
     }
     /**
     * Check if the website using a react-router
@@ -38768,8 +40920,14 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "setOnClickEvent",
     value: function setOnClickEvent() {
+      var _this2 = this;
+
       document.removeEventListener('click', this.checkLocation);
       document.addEventListener('click', this.checkLocation);
+      clearInterval(this.locationCheck);
+      this.locationCheck = setInterval(function () {
+        _this2.checkLocation();
+      }, 2000);
     }
     /**
      * Check location, if the stored href are changed then
@@ -38860,7 +41018,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$state = this.state,
           minifySidebard = _this$state.minifySidebard,
@@ -38873,7 +41031,9 @@ var App = /*#__PURE__*/function (_React$Component) {
         clearPersistUserSelection: true // do not remove the local storage on component did mount
         ,
         sidebarMinifiedAt: 720,
-        sidebarMaxifiedAt: 1024,
+        ignoreMinify: true // ignore to render the small (60px width menu on resize)
+        ,
+        sidebarMaxifiedAt: 720,
         displayMinifyMaxifyIcon: true,
         minify: minifySidebard,
         moduleSidebar: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["SideBar"], {
@@ -38975,13 +41135,13 @@ var App = /*#__PURE__*/function (_React$Component) {
           })
         }),
         headerClassName: '',
-        headerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", {
+        headerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", {
           className: "icon-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["PopupBox"], {
           defaultClass: false,
           id: false,
           animationTime: 300,
-          animationType: "top-right" // top-left, top-right, bottom-left, bottom-right
+          animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
           icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
             className: "fas fa-globe-europe popup-box-icon"
@@ -38995,7 +41155,7 @@ var App = /*#__PURE__*/function (_React$Component) {
               className: "ellipsis",
               key: Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["uuid"])(),
               onClick: function onClick() {
-                return _this2.setLanguage(language);
+                return _this3.setLanguage(language);
               }
             }, language);
           })))
@@ -39003,7 +41163,7 @@ var App = /*#__PURE__*/function (_React$Component) {
           defaultClass: false,
           id: false,
           animationTime: 300,
-          animationType: "top-right" // top-left, top-right, bottom-left, bottom-right
+          animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
           icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
             className: "fas fa-tint popup-box-icon"
@@ -39016,20 +41176,20 @@ var App = /*#__PURE__*/function (_React$Component) {
             className: "ellipsis",
             key: Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["uuid"])(),
             onClick: function onClick() {
-              return _this2.setLayout('light');
+              return _this3.setLayout('light');
             }
           }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('lightTheme')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("li", {
             className: "ellipsis",
             key: Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["uuid"])(),
             onClick: function onClick() {
-              return _this2.setLayout('dark');
+              return _this3.setLayout('dark');
             }
           }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('darkTheme'))))
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["PopupBox"], {
           defaultClass: false,
           id: false,
           animationTime: 300,
-          animationType: "top-right" // top-left, top-right, bottom-left, bottom-right
+          animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
           icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
             className: "fas fa-search popup-box-icon"
@@ -39047,7 +41207,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             inputProps: {},
             type: "text"
           }))
-        }))),
+        })),
         contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/",

@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { InputAnimation, LoadOnScroll, SourceCode, Clipboard, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, InputAnimation, LoadOnScroll, SourceCode, Clipboard, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { InputAnimation } from 'react-revolution';
 
@@ -222,6 +224,74 @@ class ReactRevolutionInputAnimation extends React.Component {
                         clipboard={jsExample2}
                     />
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'callback',
+                                    values: 'inputanimation.callback'
+                                },
+                                {
+                                    key: 'plainValue',
+                                    values: 'plainValue'
+                                },
+                                {
+                                    key: 'inputType',
+                                    values: 'inputType'
+                                },
+                                {
+                                    key: 'props',
+                                    values: 'props'
+                                },
+                                {
+                                    key: 'placeholder',
+                                    values: 'placeholder'
+                                },
+                                {
+                                    key: 'animatePlaceholder',
+                                    values: 'animatePlaceholder'
+                                },
+                                {
+                                    key: 'onEnter',
+                                    values: 'onEnter'
+                                },
+                                {
+                                    key: 'allowOnlyAZ',
+                                    values: 'allowOnlyAZ'
+                                },
+                                {
+                                    key: 'getValueFromCallback',
+                                    values: 'getValueFromCallback'
+                                },
+                            ],
+                            'rr-input-animation'
+                        )
+                    }
+                />
             </div>
         );
     }

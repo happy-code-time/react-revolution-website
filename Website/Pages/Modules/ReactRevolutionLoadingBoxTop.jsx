@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { LoadingBoxTop, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
+import { Table, LoadingBoxTop, SourceCode, Clipboard } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample = `import { LoadingBoxTop } from 'react-revolution';
 
@@ -125,6 +127,46 @@ class ReactRevolutionLoadingBoxTop extends React.Component {
                         clipboard={jsExample}
                     />
                 </div>
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'text',
+                                    values: 'text'
+                                },
+                                {
+                                    key: 'display',
+                                    values: 'display'
+                                },
+                            ],
+                            'rr-loading-box-top'
+                        )
+                    }
+                />
             </div>
         );
     }

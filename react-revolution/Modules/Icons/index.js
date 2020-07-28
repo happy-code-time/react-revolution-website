@@ -1,9 +1,12 @@
-import { type } from 'os';
 import React from 'react';
 
 import uuid from '../../Functions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
+
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
 
 const defaultIcons = {
     'Smileys':
@@ -131,6 +134,7 @@ class Icons extends React.Component
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -188,6 +192,8 @@ class Icons extends React.Component
                 this.setState({ icons });
             }
         }
+
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**

@@ -4,6 +4,10 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class Table extends React.Component {
 
     constructor(props) {
@@ -20,10 +24,11 @@ class Table extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            title: (props.title && typeof {} == typeof props.title) ? props.title : undefined,
+            title: (props.title && typeof [] == typeof props.title) ? props.title : undefined,
             data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
             keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined
@@ -42,7 +47,7 @@ class Table extends React.Component {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                title: (props.title && typeof {} == typeof props.title) ? props.title : undefined,
+                title: (props.title && typeof [] == typeof props.title) ? props.title : undefined,
                 data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
                 mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
                 keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined,
@@ -58,35 +63,37 @@ class Table extends React.Component {
 
         this.buildData();
 
-        if(mediaBreak){
+        if (mediaBreak) {
             window.addEventListener('resize', this.resize);
             this.resize();
         }
+
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener('resize', this.resize);
     }
 
-    resize(){
+    resize() {
         const { mediaBreak, isMinified } = this.state;
         /**
          * Media break
          */
-        if(document.documentElement.getBoundingClientRect().width <= mediaBreak){
-            if(!isMinified){
-                this.setState({ 
-                    isMinified: true 
+        if (document.documentElement.getBoundingClientRect().width <= mediaBreak) {
+            if (!isMinified) {
+                this.setState({
+                    isMinified: true
                 }, this.buildData);
             }
         }
         /**
          * Default
          */
-        else{
-            if(isMinified){
-                this.setState({ 
-                    isMinified: false 
+        else {
+            if (isMinified) {
+                this.setState({
+                    isMinified: false
                 }, this.buildData);
             }
         }
@@ -98,26 +105,34 @@ class Table extends React.Component {
         const clsCardsHolder = `${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
         if (data && data.length) {
+            const titleJsx = [];
 
-            if(title){
-                const { left, right } = title;
+            if (title && title.length) {
 
-                if(left && typeof '8' == typeof left && right && typeof '8' == typeof right){
+                title.map( (value,i) => {
+                    if (value && typeof '8' == typeof value) {
+                        titleJsx.push(
+                            <span
+                                key={uuid()}
+                                className={`span span-${i + 1}`}
+                            >
+                                {
+                                    value
+                                }
+                            </span>
+                        );
+                    }
+                });
+
+                if (titleJsx.length) {
                     dataJsx.push(
-                        <li 
+                        <li
                             key={uuid()}
                             className={`${clsCardsHolder} title`}
                         >
-                            <span className="key">
-                                {
-                                    left
-                                }
-                            </span>
-                            <span className="value">
-                                {
-                                    right
-                                }
-                            </span>
+                            {
+                                titleJsx
+                            }
                         </li>
                     );
                 }
@@ -125,18 +140,18 @@ class Table extends React.Component {
 
             data.map(object => {
 
-                if(keysToRead && keysToRead.length){
+                if (keysToRead && keysToRead.length) {
                     let dataInsideJsx = [];
 
-                    keysToRead.map( (key, i) => {
+                    keysToRead.map((key, i) => {
 
-                        if(undefined !== object[key]){
+                        if (undefined !== object[key]) {
                             const value = object[key] ? object[key] : '';
 
                             dataInsideJsx.push(
-                                <span 
+                                <span
                                     key={uuid()}
-                                    className={`span span-${i+1}`}>
+                                    className={`span span-${i + 1}`}>
                                     {
                                         value
                                     }
@@ -145,10 +160,10 @@ class Table extends React.Component {
                         }
                     });
 
-                    if(dataInsideJsx && dataInsideJsx.length){
+                    if (dataInsideJsx && dataInsideJsx.length) {
 
                         dataJsx.push(
-                            <li 
+                            <li
                                 key={uuid()}
                                 className={clsCardsHolder}
                             >

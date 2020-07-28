@@ -2,6 +2,10 @@ import React from 'react';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class LoadingBoxTop extends React.Component
 {
     constructor(props){
@@ -11,12 +15,17 @@ class LoadingBoxTop extends React.Component
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-loading-box-top',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             text: (props.text && typeof '8' == typeof props.text) ? props.text : '',
             display: typeof true == typeof props.display ? props.display : false
         }
+    }
+
+    componentDidMount(){
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**

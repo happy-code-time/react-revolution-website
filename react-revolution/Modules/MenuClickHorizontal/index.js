@@ -8,6 +8,10 @@ import uuid from '../internalFunctions/uuid';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class MenuClickHorizontal extends React.Component {
 
     constructor(props) {
@@ -19,6 +23,7 @@ class MenuClickHorizontal extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -26,6 +31,10 @@ class MenuClickHorizontal extends React.Component {
             reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
         }
+    }
+
+    componentDidMount(){
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**

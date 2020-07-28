@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
+import { Table, SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../../react-revolution/public/react-revolution';
 
 import trans from '../../Translations/trans';
 
 import buildModulesJsx from '../../Functions/buildModulesJsx';
+
+import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolution';
 
@@ -206,6 +208,62 @@ class ReactRevolutionSidebar extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                />
+                <h1 className="h1-title border-none text-center mb-4">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'class',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'image',
+                                    values: 'image'
+                                },
+                                {
+                                    key: 'moduleMenu',
+                                    values: 'moduleMenu'
+                                },
+                                {
+                                    key: 'textLong',
+                                    values: 'textLong'
+                                },
+                                {
+                                    key: 'textShort',
+                                    values: 'textShort'
+                                },
+                                {
+                                    key: 'href',
+                                    values: 'href'
+                                },
+                                {
+                                    key: 'hrefProps',
+                                    values: 'hrefProps'
+                                },
+                            ],
+                            'rr-sidebar'
+                        )
+                    }
                 />
             </div>
         );

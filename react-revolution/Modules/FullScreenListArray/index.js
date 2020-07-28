@@ -4,6 +4,10 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class FullScreenListArray extends React.Component
 {
     
@@ -27,6 +31,7 @@ class FullScreenListArray extends React.Component
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? this.getDefaultClass(props) : this.getDefaultClass(props),
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -87,6 +92,8 @@ class FullScreenListArray extends React.Component
         if(closeOnEsc){
             this.addEscEventListener();
         }
+
+        loadStyle(this.state.style, this.state.defaultClass);
     }
     
     /**

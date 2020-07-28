@@ -4,6 +4,10 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
+import loadStyle from '../../Functions/loadStyle';
+
+import removeStyle from '../../Functions/removeStyle';
+
 class Clipboard extends React.Component {
     
     constructor(props) {
@@ -26,6 +30,7 @@ class Clipboard extends React.Component {
             /**
              * User
              */
+            style: (typeof true == typeof props.style) ? props.style : true,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -34,6 +39,10 @@ class Clipboard extends React.Component {
             clipboard: props.clipboard,
             animation: props.animation && typeof '8' == typeof props.animation ? props.animation : undefined,
         };
+    }
+
+    componentDidMount(){
+        loadStyle(this.state.style, this.state.defaultClass);
     }
 
     /**
