@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import ReactDOM from 'react-dom';
 
@@ -29,6 +29,8 @@ import './Website/Scss/index.scss';
  * React Revolution Modules
  */
 import ReactRevolutionAccordion from './Website/Pages/Modules/ReactRevolutionAccordion';
+
+import ReactRevolutionBreadcrumbs from './Website/Pages/Modules/ReactRevolutionBreadcrumbs';
 
 import ReactRevolutionCards from './Website/Pages/Modules/ReactRevolutionCards';
 
@@ -84,7 +86,7 @@ class App extends React.Component {
     this.searchForModule = this.searchForModule.bind(this);
 
     this.state = {
-      minifySidebard: '#/' == window.location.hash ? true : false,
+      minifySidebard: process.env.HOST == window.location.href ? true : false,
       host: process.env.HOST,
       suggestions: [],
       inputValue: ''
@@ -150,13 +152,13 @@ class App extends React.Component {
 
   changeSidebarMinifiedState() {
     const { minifySidebard } = this.state;
-    const hash = window.location.hash;
+    const href = window.location.href;
 
-    if ('#/' == hash && !minifySidebard) {
+    if (process.env.HOST == href && !minifySidebard) {
       return this.setState({ minifySidebard: true });
     }
 
-    if ('#/' !== hash && minifySidebard) {
+    if (process.env.HOST !== href && minifySidebard) {
       this.setState({ minifySidebard: false });
     }
   }
@@ -183,7 +185,7 @@ class App extends React.Component {
       if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
         suggestions.push(
           {
-            href: `${host}#/${i}`,
+            href: `${host}${i}`,
             jsx: (
               <p>
                 {
@@ -221,6 +223,7 @@ class App extends React.Component {
             textLong={appNameShort}
             textShort={`v${version}`}
             href={`${host}`}
+            globalStyle={true} // load css for react-revolution globally
             moduleMenu={
               <MenuClickHorizontal
                 reactRouter={false}
@@ -234,114 +237,114 @@ class App extends React.Component {
                   [
                     {
                       text: 'Accordion',
-                      href: `${host}#/react-revolution-accordion`,
+                      href: `${host}react-revolution-accordion`,
                     },
                     {
                       text: 'Breadcrumbs',
-                      href: `${host}#/breadcrumbs`,
+                      href: `${host}react-revolution-breadcrumbs`,
                     },
                     {
                       text: 'Cards',
                       data: [
                         {
                           text: 'Cards',
-                          href: `${host}#/react-revolution-cards`,
+                          href: `${host}react-revolution-cards`,
                         },
                         {
                           text: 'CardsScroll',
-                          href: `${host}#/react-revolution-cards-scroll`,
+                          href: `${host}react-revolution-cards-scroll`,
                         },
                         {
                           text: 'CardsScrollCallback',
-                          href: `${host}#/react-revolution-cards-scroll-callback`,
+                          href: `${host}react-revolution-cards-scroll-callback`,
                         },
                       ]
                     },
                     {
                       text: 'Clipboard',
-                      href: `${host}#/react-revolution-clipboard`,
+                      href: `${host}react-revolution-clipboard`,
                     },
                     {
                       text: 'CustomSuggestion',
-                      href: `${host}#/react-revolution-custom-suggestion`,
+                      href: `${host}react-revolution-custom-suggestion`,
                     },
                     {
                       text: 'FullScreen',
                       data: [
                         {
                           text: 'FullScreenListArray',
-                          href: `${host}#/react-revolution-fullscreen-list-array`,
+                          href: `${host}react-revolution-fullscreen-list-array`,
                         },
                         {
                           text: 'FullScreenListObject',
-                          href: `${host}#/react-revolution-fullscreen-list-object`,
+                          href: `${host}react-revolution-fullscreen-list-object`,
                         },
                         {
                           text: 'FullScreenOverlay',
-                          href: `${host}#/react-revolution-fullscreen-overlay`,
+                          href: `${host}react-revolution-fullscreen-overlay`,
                         }
                       ]
                     },
                     {
                       text: 'GlobalMessages',
-                      href: `${host}#/react-revolution-global-messages`,
+                      href: `${host}react-revolution-global-messages`,
                     },
                     {
                       text: 'Icons',
-                      href: `${host}#/react-revolution-icons`,
+                      href: `${host}react-revolution-icons`,
                     },
                     {
                       text: 'Input',
                       data: [
                         {
                           text: 'InputAnimation',
-                          href: `${host}#/react-revolution-input-animation`,
+                          href: `${host}react-revolution-input-animation`,
                         },
                         {
                           text: 'InputFile',
-                          href: `${host}#/react-revolution-input-file`,
+                          href: `${host}react-revolution-input-file`,
                         },
                         {
                           text: 'InputFileDragDrop',
-                          href: `${host}#/react-revolution-input-file-drag-drop`,
+                          href: `${host}react-revolution-input-file-drag-drop`,
                         },
                         {
                           text: 'InputSuggestionArray',
-                          href: `${host}#/react-revolution-input-suggestion-array`,
+                          href: `${host}react-revolution-input-suggestion-array`,
                         },
                         {
                           text: 'InputSuggestionObject',
-                          href: `${host}#/react-revolution-input-suggestion-object`,
+                          href: `${host}react-revolution-input-suggestion-object`,
                         }
                       ]
                     },
                     {
                       text: 'LoadingBoxTop',
-                      href: `${host}#/react-revolution-loading-box-top`,
+                      href: `${host}react-revolution-loading-box-top`,
                     },
                     {
                       text: 'LoadOnScroll',
-                      href: `${host}#/react-revolution-load-on-scroll`,
+                      href: `${host}react-revolution-load-on-scroll`,
                     },
                     {
                       text: 'MenuClickHorizontal',
-                      href: `${host}#/react-revolution-menu-click-horizontal`,
+                      href: `${host}react-revolution-menu-click-horizontal`,
                     },
                     {
                       text: 'PopupBox',
-                      href: `${host}#/react-revolution-popup-box`,
+                      href: `${host}react-revolution-popup-box`,
                     },
                     {
                       text: 'SideBar',
-                      href: `${host}#/react-revolution-sidebar`,
+                      href: `${host}react-revolution-sidebar`,
                     },
                     {
                       text: 'Table',
-                      href: `${host}#/react-revolution-table`,
+                      href: `${host}react-revolution-table`,
                     },
                     {
                       text: 'TextWriter',
-                      href: `${host}#/react-revolution-text-writer`,
+                      href: `${host}react-revolution-text-writer`,
                     }
                   ]
                 }
@@ -450,6 +453,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" render={(props) => (<Home {...props} />)} />
               <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
+              <Route exact path="/react-revolution-breadcrumbs" render={(props) => (<ReactRevolutionBreadcrumbs {...props} />)} />
               <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll-callback" render={(props) => (<ReactRevolutionCardsScrollCallback {...props} />)} />

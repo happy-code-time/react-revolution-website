@@ -8,9 +8,7 @@ import uuid from '../internalFunctions/uuid';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
-import loadStyle from '../../Functions/loadStyle';
-
-import removeStyle from '../../Functions/removeStyle';
+import loadStyle from '../internalFunctions/loadStyle';
 
 class MenuClickHorizontal extends React.Component {
 
@@ -23,7 +21,8 @@ class MenuClickHorizontal extends React.Component {
             /**
              * User
              */
-            style: (typeof true == typeof props.style) ? props.style : true,
+            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+            globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -34,7 +33,7 @@ class MenuClickHorizontal extends React.Component {
     }
 
     componentDidMount(){
-        loadStyle(this.state.style, this.state.defaultClass);
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**
@@ -47,7 +46,7 @@ class MenuClickHorizontal extends React.Component {
         if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.class && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
                 reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,

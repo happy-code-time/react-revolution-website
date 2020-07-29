@@ -3,6 +3,8 @@
  */
 import Accordion from './Modules/Accordion';
 
+import Breadcrumbs from './Modules/Breadcrumbs';
+
 import Cards from './Modules/Cards';
 
 import CardsScroll from './Modules/CardsScroll';
@@ -75,6 +77,7 @@ export {
      * Modules
      */
     Accordion,
+    Breadcrumbs,
     Cards,
     CardsScroll,
     CardsScrollCallback,

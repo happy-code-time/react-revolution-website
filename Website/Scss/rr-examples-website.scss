@@ -204,4 +204,11 @@
             width: calc(100% - 70px);
         }
     }
+
+    .rr-breadcrumbs-example{
+        width: 100%;
+        min-height: 50px;
+        height: auto;
+        overflow: auto;
+    }
 }

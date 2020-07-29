@@ -2,56 +2,57 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Table } from './react-revolution/public/react-revolution';
+import { Breadcrumbs } from './react-revolution/public/react-revolution';
 
 /**
  * Render it to the html while testing
  */
 
-import './react-revolution/sass/rr-table-key-value.scss';
+import './react-revolution/sass/rr-breadcrumbs.scss';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        const host = '';
+  render() {
+    const host = '';
 
-        return (
-            <span>
-              <Table
-                mediaBreak={1024}
-                title={
+    return (
+      <Breadcrumbs
+        hashRouter={true}
+        reactRouter={false}
+        domainName='Home'
+        delimiter='>>'
+
+        overwriteText={false}
+        moduleMenu={
+          {
+            animation: 'height', // height, scale, opacity
+            data: [
+              {
+                text: 'last entry - to toggle',
+                data: [
                   {
-                    left: 'key',
-                    right: 'description'
-                  }
-                }
-                data={
-                  [
-                    {
-                      key: 'key',
-                      value: 'value'
-                    },
-                    {
-                      key: 'key',
-                      value: 'value'
-                    },
-                    {
-                      key: 'key',
-                      value: 'value'
-                    },
-                    {
-                      key: 'key',
-                      value: 'value'
-                    }
-                  ]
-                }
-              />
-            </span>
-        )
-    }
+                    text: 'Child 1',
+                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                  },
+                  {
+                    text: 'Child 2',
+                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                  },
+                  {
+                    text: 'Child 3',
+                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                  },
+                ]
+              }
+            ]
+          }
+        }
+      />
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));

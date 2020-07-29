@@ -177,7 +177,7 @@ class ReactRevolutionTable extends React.Component {
                                     values: 'id'
                                 },
                                 {
-                                    key: 'class',
+                                    key: 'defaultClass',
                                     values: 'class'
                                 },
                                 {

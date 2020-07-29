@@ -2,9 +2,7 @@ import React from 'react';
 
 import uuid from '../internalFunctions/uuid';
 
-import loadStyle from '../../Functions/loadStyle';
-
-import removeStyle from '../../Functions/removeStyle';
+import loadStyle from '../internalFunctions/loadStyle';
 
 class TextWriter extends React.Component {
 
@@ -21,7 +19,8 @@ class TextWriter extends React.Component {
             /**
              * User
              */
-            style: (typeof true == typeof props.style) ? props.style : true,
+            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+                        globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-text-writer',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -39,11 +38,11 @@ class TextWriter extends React.Component {
     componentDidMount() {
         const { written, text, timeout } = this.state;
 
-        setTimeout( () => {
+        setTimeout(() => {
             this.setText(written, text);
         }, timeout);
-
-        loadStyle(this.state.style, this.state.defaultClass);
+        
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     writerPromise(char) {
@@ -108,52 +107,52 @@ class TextWriter extends React.Component {
             let { written } = this.state;
             let { from, to, replace } = replaces[replacesDone];
 
-            this.removeIntervaller = setInterval( async () => {
+            this.removeIntervaller = setInterval(async () => {
 
-                if(from > to){
+                if (from > to) {
                     clearInterval(this.removeIntervaller);
                     /**
                      * Remove empty string added by the module
                      */
                     const newString = [];
-                    
-                    for(let x = 0; x <= written.length-1; x++){
-                        if(uuid !== written[x]){
+
+                    for (let x = 0; x <= written.length - 1; x++) {
+                        if (uuid !== written[x]) {
                             newString.push(written[x]);
                         }
                     }
-    
+
                     this.setState({
                         written: newString
                     }, () => {
                         /**
                          * Its time to add the replacement string
                          */
-                        if(replace && replace.length){
+                        if (replace && replace.length) {
                             const { written } = this.state;
                             const prev = written.slice(0, from);
                             const next = written.slice(from, to);
-                            const last = written.slice(to, written.length-1);
-    
-                            if(last[0] && ' ' == last[0]){
+                            const last = written.slice(to, written.length - 1);
+
+                            if (last[0] && ' ' == last[0]) {
                                 last[0] = '';
                             }
 
                             let count = -1;
                             const splitted = replace.split('');
                             const newString = [];
-    
+
                             this.writerInterval = setInterval(async () => {
                                 count++;
-                
+
                                 if (count > splitted.length - 1) {
                                     clearInterval(this.writerInterval);
                                     replacesDone += 1;
 
-                                    if(undefined !== replaces[replacesDone]){
+                                    if (undefined !== replaces[replacesDone]) {
                                         runReplacer();
                                     }
-                                    else{
+                                    else {
                                         setTimeout(() => {
                                             this.setState({
                                                 pipeDisplay: pipePersist
@@ -161,26 +160,26 @@ class TextWriter extends React.Component {
                                         }, speed);
                                     }
                                 }
-                
+
                                 await this.writerPromise(splitted[count]).then(char => {
                                     newString.push(char);
-                
+
                                     this.setState({
                                         written: [...prev, ...newString, ...next, ...last]
                                     });
                                 });
-                
+
                             }, speed);
                         }
                     });
                 }
-                else{
+                else {
                     written[to] = uuid;
                     this.setState({ written });
                 }
-            
+
                 to -= 1;
-            
+
             }, speed);
         }
 
@@ -201,8 +200,8 @@ class TextWriter extends React.Component {
                     </span>
                 }
                 {
-                    written.map( i => {
-                        if(uuid !== i){
+                    written.map(i => {
+                        if (uuid !== i) {
                             return i
                         }
                     })

@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import loadStyle from '../../Functions/loadStyle';
-
-import removeStyle from '../../Functions/removeStyle';
+import loadStyle from '../internalFunctions/loadStyle';
 
 class InputAnimation extends React.Component 
 {
@@ -19,7 +17,8 @@ class InputAnimation extends React.Component
             /**
              * User
              */
-            style: (typeof true == typeof props.style) ? props.style : true,
+            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+            globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-animation',
             defaultClassOrigin: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-animation',
@@ -63,7 +62,7 @@ class InputAnimation extends React.Component
     componentDidMount(){
         this.setFocus();
         this.setFocusUpdater(true);
-        loadStyle(this.state.style, this.state.defaultClass);
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     componentDidUpdate(){

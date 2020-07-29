@@ -12,6 +12,8 @@ const sass = require("gulp-sass");
 
 const run = require('gulp-run');
 
+const version = 'v1.0.0';
+
 /**
  * Clean
  */
@@ -60,7 +62,7 @@ gulp.task('copy:ff', function (done) {
  * Compile single scss for modules
  */
 gulp.task('build:css:modules', function (done) {
-    gulp.src("react-revolution/sass/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css/react-revolution"));
+    gulp.src("react-revolution/sass/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/"+version+"/css"));
     done();
 });
 
@@ -68,7 +70,15 @@ gulp.task('build:css:modules', function (done) {
  * Compile all scss from modules to single css file
  */
 gulp.task('build:css:all', function (done) {
-    gulp.src("react-revolution/sass/react-revolution.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css/react-revolution"));
+    gulp.src("react-revolution/sass/react-revolution.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/"+version+"/css"));
+    done();
+});
+
+/**
+ * Copy sass file to public folder
+ */
+gulp.task('copy:css:modules', function (done) {
+    gulp.src("react-revolution/sass/**/*.scss").pipe(gulp.dest("public/react-revolution/"+version+"/scss"));
     done();
 });
 
@@ -87,6 +97,7 @@ gulp.task('compile', function (callback) {
             'compress:images',
             'build:css:modules',
             'build:css:all',
+            'copy:css:modules',
             'set:rights'
         ],
         callback);

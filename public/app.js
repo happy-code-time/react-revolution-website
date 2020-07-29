@@ -1240,7 +1240,7 @@ var ReactRevolutionAccordion = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -1273,6 +1273,163 @@ var ReactRevolutionAccordion = /*#__PURE__*/function (_React$Component) {
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionAccordion);
+
+/***/ }),
+
+/***/ "./Website/Pages/Modules/ReactRevolutionBreadcrumbs.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+var codeExample1 = "import { Accordion } from 'react-revolution';\n\n<Accordion\n    animation='height' // height, scale, opacity\n    data={\n        [\n            {\n                text: 'Home',\n                icon: <i className='fas fa-flag-checkered' />,\n                data: [\n                    {\n                        text: 'Child - no data to toggle',\n                    },\n                    {\n                        text: 'Child - has data to toggle',\n                        dataToggle: 'dataToggle'\n                    },\n                    {\n                        text: 'Child - has data to toggle',\n                        dataToggle: (\n                            <span> \uD83D\uDE0D </span>\n                        )\n                    },\n                ]\n            }\n        ]\n    }\n/>";
+
+var ReactRevolutionBreadcrumbs = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionBreadcrumbs, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionBreadcrumbs);
+
+  function ReactRevolutionBreadcrumbs(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionBreadcrumbs);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'Breadcrumbs',
+      description: '.',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: '',
+      css: '',
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "rr-breadcrumbs-example"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Breadcrumbs"], {
+        hashRouter: false,
+        reactRouter: false,
+        domainName: "Home",
+        delimiter: ">",
+        overwriteText: false // moduleMenu={
+        //     {
+        //         animation: 'height', // height, scale, opacity
+        //         data: [
+        //             {
+        //                 text: 'last entry - to toggle',
+        //                 data: [
+        //                     {
+        //                         text: 'Child 1',
+        //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+        //                     },
+        //                     {
+        //                         text: 'Child 2',
+        //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+        //                     },
+        //                     {
+        //                         text: 'Child 3',
+        //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+        //                     },
+        //                 ]
+        //             }
+        //         ]
+        //     }
+        // }
+
+      }))
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionBreadcrumbs, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        keysToRead: ['key', 'value', 'type', 'default'],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'defaultClass',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }], 'rr-breadcrumbs')
+      }));
+    }
+  }]);
+
+  return ReactRevolutionBreadcrumbs;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionBreadcrumbs);
 
 /***/ }),
 
@@ -1409,7 +1566,7 @@ var ReactRevolutionCards = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -1602,7 +1759,7 @@ var ReactRevolutionCardsScroll = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -1851,7 +2008,7 @@ var ReactRevolutionCardsScrollCallback = /*#__PURE__*/function (_React$Component
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -2032,7 +2189,7 @@ var ReactRevolutionClipboard = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -2322,7 +2479,7 @@ var ReactRevolutionCustomSuggestion = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -2542,7 +2699,7 @@ var ReactRevolutionFullScreenListArray = /*#__PURE__*/function (_React$Component
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -2775,7 +2932,7 @@ var ReactRevolutionFullScreenListObject = /*#__PURE__*/function (_React$Componen
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -3007,7 +3164,7 @@ var ReactRevolutionFullScreenOverlay = /*#__PURE__*/function (_React$Component) 
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -3300,7 +3457,7 @@ var ReactRevolutionGlobalMessages = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -3559,7 +3716,7 @@ var ReactRevolutionIcons = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -3797,7 +3954,7 @@ var ReactRevolutionInputAnimation = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -4069,7 +4226,7 @@ var ReactRevolutionInputFile = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -4342,7 +4499,7 @@ var ReactRevolutionInputFileDragDrop = /*#__PURE__*/function (_React$Component) 
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -4551,7 +4708,7 @@ var ReactRevolutionInputSuggestionArray = /*#__PURE__*/function (_React$Componen
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -4767,7 +4924,7 @@ var ReactRevolutionInputSuggestionObject = /*#__PURE__*/function (_React$Compone
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -4975,7 +5132,7 @@ var ReactRevolutionLoadOnScroll = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -5139,7 +5296,7 @@ var ReactRevolutionLoadingBoxTop = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -5316,7 +5473,7 @@ var ReactRevolutionMenuClickHorizontal = /*#__PURE__*/function (_React$Component
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -5541,7 +5698,7 @@ var ReactRevolutionPopupBox = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -5741,7 +5898,7 @@ var ReactRevolutionSidebar = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -5903,7 +6060,7 @@ var ReactRevolutionTable = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -6104,7 +6261,7 @@ var ReactRevolutionTextWriter = /*#__PURE__*/function (_React$Component) {
           key: 'id',
           values: 'id'
         }, {
-          key: 'class',
+          key: 'defaultClass',
           values: 'class'
         }, {
           key: 'addClass',
@@ -19194,7 +19351,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 200px;\n  width: calc(100% - 200px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 200px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n  .Generator .rr-table .ul {\n    width: 100%; }\n    .Generator .rr-table .ul li {\n      width: 100%; }\n  .Generator .rr-table .span {\n    display: block; }\n  .Generator .rr-table .span-1,\n  .Generator .rr-table .span-3,\n  .Generator .rr-table .span-4 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-2 {\n    width: 70%; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 24px;\n  font-weight: 400;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 200px;\n  width: calc(100% - 200px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 200px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"http://localhost:3000/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        transition-duration: 200ms;\n        width: calc(100% - 30px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 100%;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.46rem;\n          font-weight: 400; }\n          .Home .rr-cards .cards-group .card .title i {\n            display: none;\n            margin: 20px auto; }\n            @media screen and (min-width: 1024px) {\n              .Home .rr-cards .cards-group .card .title i {\n                display: block; } }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 0 5%;\n          color: #72777a;\n          text-align: justify;\n          font-size: 0.87rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    color: #72777a;\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px; }\n  .Generator .rr-table .ul {\n    width: 100%; }\n    .Generator .rr-table .ul li {\n      width: 100%; }\n  .Generator .rr-table .span {\n    display: block; }\n  .Generator .rr-table .span-1,\n  .Generator .rr-table .span-3,\n  .Generator .rr-table .span-4 {\n    width: 10%;\n    min-width: 150px; }\n  .Generator .rr-table .span-2 {\n    width: 70%; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group {\n          flex-direction: row; } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n        width: calc(100% - 20px);\n        margin: 10px; }\n        @media screen and (min-width: 1024px) {\n          #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n            width: 25%;\n            margin: 30px calc(4% - 2px); } }\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n          height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  height: auto;\n  overflow: auto; }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 250px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 5px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 10px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .rr-menu-click-horizontal {\n  height: calc(100% - 60px);\n  overflow-x: hidden;\n  overflow-y: hidden; }\n  #app .rr-menu-click-horizontal .single-entry {\n    border-radius: 0px;\n    margin: 10px;\n    border: none;\n    display: block;\n    width: 100%;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap; }\n    #app .rr-menu-click-horizontal .single-entry a {\n      color: #7c8695; }\n    #app .rr-menu-click-horizontal .single-entry i {\n      margin: 0 20px 0 7px; }\n  #app .rr-menu-click-horizontal .icon-down {\n    position: absolute;\n    display: block;\n    top: 0;\n    right: 0;\n    text-align: center;\n    line-height: 35px;\n    transition-duration: 200ms;\n    margin: 0 !important; }\n  #app .rr-menu-click-horizontal .icon-down-animation .dropDownIcon {\n    animation: rotate90Deg 300ms ease-in forwards; }\n\n@keyframes rotate90Deg {\n  0% {\n    transform: rotateZ(0deg); }\n  100% {\n    transform: rotateZ(90deg); } }\n  #app .rr-menu-click-horizontal .icon-down-animation-persist .dropDownIcon {\n    transform: rotateZ(90deg); }\n  #app .rr-menu-click-horizontal .icon-down-animation-back .dropDownIcon {\n    animation: rotate90DegBack 300ms ease-in forwards; }\n\n@keyframes rotate90DegBack {\n  0% {\n    transform: rotateZ(90deg); }\n  100% {\n    transform: rotateZ(0deg); } }\n\n#app .rr-menu-click-horizontal:hover {\n  overflow-y: auto; }\n", ""]);
 
 
 
@@ -34834,9 +34991,9 @@ module.exports = function (e) {
 
   e.exports = a;
 }, function (e, t, a) {
-  e.exports = a(17);
+  e.exports = a(19);
 }, function (e, t, a) {
-  e.exports = a(22)();
+  e.exports = a(17)();
 }, function (e, t) {
   function a(e, t, a, n, l, s, i) {
     try {
@@ -34878,10 +35035,10 @@ module.exports = function (e) {
     }) : e[t] = a, e;
   };
 }, function (e, t, a) {
-  var n = a(18),
-      l = a(19),
-      s = a(20),
-      i = a(21);
+  var n = a(20),
+      l = a(21),
+      s = a(22),
+      i = a(23);
 
   e.exports = function (e) {
     return n(e) || l(e) || s(e) || i();
@@ -34921,6 +35078,56 @@ module.exports = function (e) {
 
   e.exports = a;
 }, function (e, t, a) {
+  "use strict";
+
+  var n = a(18);
+
+  function l() {}
+
+  function s() {}
+
+  s.resetWarningCache = l, e.exports = function () {
+    function e(e, t, a, l, s, i) {
+      if (i !== n) {
+        var r = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+        throw r.name = "Invariant Violation", r;
+      }
+    }
+
+    function t() {
+      return e;
+    }
+
+    e.isRequired = e;
+    var a = {
+      array: e,
+      bool: e,
+      func: e,
+      number: e,
+      object: e,
+      string: e,
+      symbol: e,
+      any: e,
+      arrayOf: t,
+      element: e,
+      elementType: e,
+      instanceOf: t,
+      node: e,
+      objectOf: t,
+      oneOf: t,
+      oneOfType: t,
+      shape: t,
+      exact: t,
+      checkPropTypes: s,
+      resetWarningCache: l
+    };
+    return a.PropTypes = a, a;
+  };
+}, function (e, t, a) {
+  "use strict";
+
+  e.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+}, function (e, t, a) {
   var n = function (e) {
     "use strict";
 
@@ -34934,7 +35141,7 @@ module.exports = function (e) {
     function r(e, t, a, n) {
       var l = t && t.prototype instanceof u ? t : u,
           s = Object.create(l.prototype),
-          i = new E(n || []);
+          i = new S(n || []);
       return s._invoke = function (e, t, a) {
         var n = "suspendedStart";
         return function (l, s) {
@@ -35008,9 +35215,9 @@ module.exports = function (e) {
     };
 
     var p = Object.getPrototypeOf,
-        v = p && p(p(S([])));
-    v && v !== t && a.call(v, l) && (h = v);
-    var m = f.prototype = u.prototype = Object.create(h);
+        m = p && p(p(E([])));
+    m && m !== t && a.call(m, l) && (h = m);
+    var v = f.prototype = u.prototype = Object.create(h);
 
     function g(e) {
       ["next", "throw", "return"].forEach(function (t) {
@@ -35082,13 +35289,13 @@ module.exports = function (e) {
       t.type = "normal", delete t.arg, e.completion = t;
     }
 
-    function E(e) {
+    function S(e) {
       this.tryEntries = [{
         tryLoc: "root"
       }], e.forEach(C, this), this.reset(!0);
     }
 
-    function S(e) {
+    function E(e) {
       if (e) {
         var t = e[l];
         if (t) return t.call(e);
@@ -35120,11 +35327,11 @@ module.exports = function (e) {
       };
     }
 
-    return d.prototype = m.constructor = f, f.constructor = d, f[i] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
+    return d.prototype = v.constructor = f, f.constructor = d, f[i] = d.displayName = "GeneratorFunction", e.isGeneratorFunction = function (e) {
       var t = "function" == typeof e && e.constructor;
       return !!t && (t === d || "GeneratorFunction" === (t.displayName || t.name));
     }, e.mark = function (e) {
-      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, i in e || (e[i] = "GeneratorFunction")), e.prototype = Object.create(m), e;
+      return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, i in e || (e[i] = "GeneratorFunction")), e.prototype = Object.create(v), e;
     }, e.awrap = function (e) {
       return {
         __await: e
@@ -35137,9 +35344,9 @@ module.exports = function (e) {
       return e.isGeneratorFunction(a) ? i : i.next().then(function (e) {
         return e.done ? e.value : i.next();
       });
-    }, g(m), m[i] = "Generator", m[l] = function () {
+    }, g(v), v[i] = "Generator", v[l] = function () {
       return this;
-    }, m.toString = function () {
+    }, v.toString = function () {
       return "[object Generator]";
     }, e.keys = function (e) {
       var t = [];
@@ -35156,8 +35363,8 @@ module.exports = function (e) {
 
         return a.done = !0, a;
       };
-    }, e.values = S, E.prototype = {
-      constructor: E,
+    }, e.values = E, S.prototype = {
+      constructor: S,
       reset: function reset(e) {
         if (this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(k), !e) for (var t in this) {
           "t" === t.charAt(0) && a.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0);
@@ -35242,7 +35449,7 @@ module.exports = function (e) {
       },
       delegateYield: function delegateYield(e, t, a) {
         return this.delegate = {
-          iterator: S(e),
+          iterator: E(e),
           resultName: t,
           nextLoc: a
         }, "next" === this.method && (this.arg = void 0), c;
@@ -35282,114 +35489,66 @@ module.exports = function (e) {
 }, function (e, t, a) {
   "use strict";
 
-  var n = a(23);
-
-  function l() {}
-
-  function s() {}
-
-  s.resetWarningCache = l, e.exports = function () {
-    function e(e, t, a, l, s, i) {
-      if (i !== n) {
-        var r = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
-        throw r.name = "Invariant Violation", r;
-      }
-    }
-
-    function t() {
-      return e;
-    }
-
-    e.isRequired = e;
-    var a = {
-      array: e,
-      bool: e,
-      func: e,
-      number: e,
-      object: e,
-      string: e,
-      symbol: e,
-      any: e,
-      arrayOf: t,
-      element: e,
-      elementType: e,
-      instanceOf: t,
-      node: e,
-      objectOf: t,
-      oneOf: t,
-      oneOfType: t,
-      shape: t,
-      exact: t,
-      checkPropTypes: s,
-      resetWarningCache: l
-    };
-    return a.PropTypes = a, a;
-  };
-}, function (e, t, a) {
-  "use strict";
-
-  e.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-}, function (e, t, a) {
-  "use strict";
-
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Ze;
+    return Xe;
   }), a.d(t, "uuid", function () {
-    return B;
+    return ie;
   }), a.d(t, "disableHtmlScroll", function () {
-    return W;
+    return me;
   }), a.d(t, "enableHtmlScroll", function () {
-    return Z;
+    return ve;
   }), a.d(t, "scrollTopListener", function () {
-    return $e;
+    return tt;
   }), a.d(t, "Accordion", function () {
     return O;
+  }), a.d(t, "Breadcrumbs", function () {
+    return G;
   }), a.d(t, "Cards", function () {
-    return L;
+    return Y;
   }), a.d(t, "CardsScroll", function () {
-    return R;
+    return X;
   }), a.d(t, "CardsScrollCallback", function () {
-    return V;
+    return se;
   }), a.d(t, "CustomSuggestion", function () {
-    return j;
+    return oe;
   }), a.d(t, "Clipboard", function () {
-    return _;
-  }), a.d(t, "FullScreenListArray", function () {
-    return q;
-  }), a.d(t, "FullScreenListObject", function () {
-    return K;
-  }), a.d(t, "FullScreenOverlay", function () {
-    return $;
-  }), a.d(t, "GlobalMessages", function () {
-    return ee;
-  }), a.d(t, "Icons", function () {
-    return le;
-  }), a.d(t, "InputAnimation", function () {
-    return ie;
-  }), a.d(t, "InputFile", function () {
     return ue;
-  }), a.d(t, "InputFileDragDrop", function () {
+  }), a.d(t, "FullScreenListArray", function () {
     return fe;
-  }), a.d(t, "InputSuggestionArray", function () {
+  }), a.d(t, "FullScreenListObject", function () {
     return pe;
-  }), a.d(t, "InputSuggestionObject", function () {
-    return me;
-  }), a.d(t, "LoadingBoxTop", function () {
+  }), a.d(t, "FullScreenOverlay", function () {
     return ye;
-  }), a.d(t, "LoadOnScroll", function () {
-    return Ce;
-  }), a.d(t, "MenuClickHorizontal", function () {
-    return Ve;
-  }), a.d(t, "Table", function () {
+  }), a.d(t, "GlobalMessages", function () {
+    return Se;
+  }), a.d(t, "Icons", function () {
+    return we;
+  }), a.d(t, "InputAnimation", function () {
+    return Oe;
+  }), a.d(t, "InputFile", function () {
+    return Fe;
+  }), a.d(t, "InputFileDragDrop", function () {
+    return Me;
+  }), a.d(t, "InputSuggestionArray", function () {
+    return Ie;
+  }), a.d(t, "InputSuggestionObject", function () {
+    return Be;
+  }), a.d(t, "LoadingBoxTop", function () {
     return Ue;
+  }), a.d(t, "LoadOnScroll", function () {
+    return _e;
+  }), a.d(t, "MenuClickHorizontal", function () {
+    return W;
+  }), a.d(t, "Table", function () {
+    return qe;
   }), a.d(t, "TextWriter", function () {
-    return ze;
+    return Ke;
   }), a.d(t, "PopupBox", function () {
-    return He;
+    return Ze;
   }), a.d(t, "SideBar", function () {
-    return Je;
+    return $e;
   }), a.d(t, "SourceCode", function () {
-    return We;
+    return Qe;
   });
 
   var n = a(8),
@@ -35404,8 +35563,8 @@ module.exports = function (e) {
       f = a.n(d),
       h = a(6),
       p = a.n(h),
-      v = a(7),
-      m = a.n(v),
+      m = a(7),
+      v = a.n(m),
       g = a(3),
       y = a.n(g),
       b = a(1),
@@ -35419,22 +35578,40 @@ module.exports = function (e) {
       a[e] !== t[e] && (n = !0);
     }), n;
   },
-      E = function E() {
+      S = function S() {
     return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   },
-      S = function e() {
+      E = function e() {
     var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
     if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(E())), null == t[a].uuid && (t[a].iconId = "".concat(E())), null == t[a].classList && (t[a].classList = ""), t[a].data && i()([]) == i()(t[a].data) && t[a].data.length && e(t[a].data);
+      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(S())), null == t[a].uuid && (t[a].iconId = "".concat(S())), null == t[a].classList && (t[a].classList = ""), t[a].data && i()([]) == i()(t[a].data) && t[a].data.length && e(t[a].data);
     }
     return t;
   },
-      x = [],
-      D = function D(e, t) {
-    !0 === e && t && x.includes(t);
+      x = "http://localhost:3000",
+      D = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-popupbox", "rr-sidebar", "rr-table", "rr-text-writer"],
+      w = function w(e, t, a) {
+    var n = "".concat(x, "/public/react-revolution/").concat("v1.0.0", "/css/").concat(a, ".css"),
+        l = "".concat(x, "/public/react-revolution/").concat("v1.0.0", "/css/react-revolution.css"),
+        s = document.createElement("link");
+    s.setAttribute("rel", "stylesheet"), s.setAttribute("type", "text/css");
+
+    var i = function i() {
+      document.getElementsByTagName("head")[0].prepend(s);
+    };
+
+    if (e && D.includes(a)) {
+      var r = "react-revolution-".concat(a);
+      null == document.getElementById(r) && (s.setAttribute("id", r), s.setAttribute("href", n), i());
+    }
+
+    if (t && D.includes(a)) {
+      var o = "react-revolution-react-revolution";
+      null == document.getElementById(o) && (s.setAttribute("id", o), s.setAttribute("href", l), i());
+    }
   };
 
-  function w(e) {
+  function N(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35456,22 +35633,23 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
   var O = function (e) {
     p()(a, e);
-    var t = w(a);
+    var t = N(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
-        data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+        data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
         animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
       }, n;
     }
@@ -35479,7 +35657,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "buildDataRecursive",
@@ -35506,7 +35684,7 @@ module.exports = function (e) {
           }
 
           n.push(C.a.createElement("div", l()({
-            key: E(),
+            key: S(),
             className: "single-entry ".concat(f, " ").concat(p && 0 !== p.length ? "hasChildren" : "")
           }, h), C.a.createElement("div", {
             className: "text ".concat(a ? "child" : "", " ").concat(p && 0 !== p.length ? "hasChildren" : "", " ").concat(c ? "hasData" : ""),
@@ -35600,14 +35778,277 @@ module.exports = function (e) {
           addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-accordion",
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
-          data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
+          data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
           animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
         } : null;
       }
     }]), a;
+  }(C.a.Component),
+      L = function () {
+    function e() {
+      o()(this, e);
+    }
+
+    return u()(e, [{
+      key: "loopTroughtChilds",
+      value: function value(e, t, a, n) {
+        var l = [],
+            s = e.split(t);
+        if (s.length > 1) for (var i = 0; i <= s.length - 1; i++) {
+          var r = s[i];
+          if (r) for (var o = r.split("&"), c = 0; c <= o.length - 1; c++) {
+            var u = o[c],
+                d = u.split("="),
+                f = d[0] ? d[0] : null;
+            f && "hash" == a.name && (f = f.replace("#", ""));
+            var h = d[1] ? d[1] : null;
+            null == h && n || l.push({
+              key: f,
+              value: h,
+              pair: u
+            });
+          }
+        }
+        return l;
+      }
+    }, {
+      key: "extract",
+      value: function value(e) {
+        for (var t = window.location, a = {
+          name: "href",
+          origin: t.href,
+          paths: []
+        }, n = {
+          name: "search",
+          origin: t.search,
+          paths: []
+        }, l = {
+          name: "hash",
+          origin: t.hash,
+          paths: []
+        }, s = [a, n, l], i = {
+          href: a,
+          search: n,
+          hash: l
+        }, r = 0; r <= s.length - 1; r++) {
+          var o = s[r];
+
+          if (o.origin && o.origin.length) {
+            var c = o.origin.split("/");
+            if (c && c.length) for (var u = 0; u <= c.length - 1; u++) {
+              var d = c[u];
+
+              if (d) {
+                var f = d;
+
+                if ("hash" == o.name && u == c.length - 1 && (f = f.split("#")) && f.length && (f = f[0]), "href" == o.name && (f = f.split("?")) && f.length) {
+                  var h = (f = f[0]).split("#");
+                  h && h.length > 1 && (f = h[0]);
+                }
+
+                f && (-1 !== f.indexOf("http:") || -1 !== f.indexOf("https:") ? i[o.name].protocol = "".concat(f, "//") : -1 !== f.indexOf("www.") || 2 == u && "href" == o.name ? i[o.name].domain = e ? "".concat(f, "/#/") : f : i[o.name].paths.push({
+                  path: f,
+                  keyValues: this.loopTroughtChilds(d, "?", o, !1)
+                }));
+              }
+            }
+          }
+        }
+
+        return i;
+      }
+    }]), e;
+  }(),
+      T = function T(e) {
+    return new L().extract(e);
+  },
+      R = a(10),
+      F = a.n(R),
+      A = a(14),
+      M = a.n(A);
+
+  function P() {
+    return (P = Object.assign || function (e) {
+      for (var t = 1; t < arguments.length; t++) {
+        var a = arguments[t];
+
+        for (var n in a) {
+          Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
+        }
+      }
+
+      return e;
+    }).apply(this, arguments);
+  }
+
+  function I(e) {
+    return "/" === e.charAt(0);
+  }
+
+  function V(e, t) {
+    for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) {
+      e[a] = e[n];
+    }
+
+    e.pop();
+  }
+
+  var B = function B(e, t) {
+    void 0 === t && (t = "");
+    var a,
+        n = e && e.split("/") || [],
+        l = t && t.split("/") || [],
+        s = e && I(e),
+        i = t && I(t),
+        r = s || i;
+    if (e && I(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
+
+    if (l.length) {
+      var o = l[l.length - 1];
+      a = "." === o || ".." === o || "" === o;
+    } else a = !1;
+
+    for (var c = 0, u = l.length; u >= 0; u--) {
+      var d = l[u];
+      "." === d ? V(l, u) : ".." === d ? (V(l, u), c++) : c && (V(l, u), c--);
+    }
+
+    if (!r) for (; c--; c) {
+      l.unshift("..");
+    }
+    !r || "" === l[0] || l[0] && I(l[0]) || l.unshift("");
+    var f = l.join("/");
+    return a && "/" !== f.substr(-1) && (f += "/"), f;
+  };
+
+  function j(e, t, a, n) {
+    var l;
+    "string" == typeof e ? (l = function (e) {
+      var t = e || "/",
+          a = "",
+          n = "",
+          l = t.indexOf("#");
+      -1 !== l && (n = t.substr(l), t = t.substr(0, l));
+      var s = t.indexOf("?");
+      return -1 !== s && (a = t.substr(s), t = t.substr(0, s)), {
+        pathname: t,
+        search: "?" === a ? "" : a,
+        hash: "#" === n ? "" : n
+      };
+    }(e)).state = t : (void 0 === (l = P({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
+
+    try {
+      l.pathname = decodeURI(l.pathname);
+    } catch (e) {
+      throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
+    }
+
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = B(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
+  }
+
+  "undefined" == typeof window || !window.document || window.document.createElement;
+
+  var U = Object.assign || function (e) {
+    for (var t = 1; t < arguments.length; t++) {
+      var a = arguments[t];
+
+      for (var n in a) {
+        Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
+      }
+    }
+
+    return e;
+  };
+
+  function z(e, t) {
+    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+  }
+
+  function _(e, t) {
+    if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
+  }
+
+  var H = function H(e) {
+    return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
+  },
+      q = function (e) {
+    function t() {
+      var a, n;
+      z(this, t);
+
+      for (var l = arguments.length, s = Array(l), i = 0; i < l; i++) {
+        s[i] = arguments[i];
+      }
+
+      return a = n = _(this, e.call.apply(e, [this].concat(s))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !H(e)) {
+          e.preventDefault();
+          var t = n.context.router.history,
+              a = n.props,
+              l = a.replace,
+              s = a.to;
+          l ? t.replace(s) : t.push(s);
+        }
+      }, _(n, a);
+    }
+
+    return function (e, t) {
+      if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + _typeof(t));
+      e.prototype = Object.create(t && t.prototype, {
+        constructor: {
+          value: e,
+          enumerable: !1,
+          writable: !0,
+          configurable: !0
+        }
+      }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
+    }(t, e), t.prototype.render = function () {
+      var e = this.props,
+          t = (e.replace, e.to),
+          a = e.innerRef,
+          n = function (e, t) {
+        var a = {};
+
+        for (var n in e) {
+          t.indexOf(n) >= 0 || Object.prototype.hasOwnProperty.call(e, n) && (a[n] = e[n]);
+        }
+
+        return a;
+      }(e, ["replace", "to", "innerRef"]);
+
+      M()(this.context.router, "You should not use <Link> outside a <Router>"), M()(void 0 !== t, 'You must specify the "to" property');
+      var l = this.context.router.history,
+          s = "string" == typeof t ? j(t, null, null, l.location) : t,
+          i = l.createHref(s);
+      return C.a.createElement("a", U({}, n, {
+        onClick: this.handleClick,
+        href: i,
+        ref: a
+      }));
+    }, t;
   }(C.a.Component);
 
-  function N(e) {
+  q.propTypes = {
+    onClick: F.a.func,
+    target: F.a.string,
+    replace: F.a.bool,
+    to: F.a.oneOfType([F.a.string, F.a.object]).isRequired,
+    innerRef: F.a.oneOfType([F.a.string, F.a.func])
+  }, q.defaultProps = {
+    replace: !1
+  }, q.contextTypes = {
+    router: F.a.shape({
+      history: F.a.shape({
+        push: F.a.func.isRequired,
+        replace: F.a.func.isRequired,
+        createHref: F.a.func.isRequired
+      }).isRequired
+    }).isRequired
+  };
+  var J = q;
+
+  function K(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35629,20 +36070,371 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var L = function (e) {
+  var W = function (e) {
     p()(a, e);
-    var t = N(a);
+    var t = K(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+        reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
+        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+      }
+    }, {
+      key: "buildDataRecursive",
+      value: function value() {
+        var e = this,
+            t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+            a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
+            n = this.state,
+            s = n.reactRouter,
+            r = (n.dropDown, []);
+        if (t && t.length) for (var o = function o(n) {
+          var o = t[n],
+              c = o.text,
+              u = o.toggled,
+              d = o.unique,
+              f = o.props,
+              h = o.classList,
+              p = o.href,
+              m = o.icon;
+          p && i()("8") == i()(p) && (p = p.toLowerCase());
+          var v = t[n].data ? t[n].data : [],
+              g = !!t[n].data;
+          h || (h = ""), f && i()(f) === i()({}) || (f = {});
+
+          try {
+            Object.keys(f);
+          } catch (e) {
+            f = {};
+          }
+
+          var y = "";
+          s && v && 0 == v.length && (y = C.a.createElement(J, {
+            to: p,
+            className: "text ".concat(a ? "child" : ""),
+            onClick: function onClick() {
+              return e.toggle(d, g);
+            }
+          }, m && m, c)), !s && v && 0 == v.length && (y = C.a.createElement("a", {
+            href: p,
+            className: "text ".concat(a ? "child" : ""),
+            onClick: function onClick() {
+              return e.toggle(d, g);
+            }
+          }, m && m, c)), v && 0 !== v.length && (y = C.a.createElement("div", {
+            className: "text hasChildren ".concat(a ? " child" : ""),
+            onClick: function onClick() {
+              return e.toggle(d, g);
+            }
+          }, m && m, c)), r.push(C.a.createElement("div", l()({
+            key: S(),
+            className: "single-entry ".concat(h, " ").concat(v && 0 !== v.length ? "parent" : "")
+          }, f), y, u && v && 0 !== v.length && C.a.createElement("div", {
+            className: "children"
+          }, e.buildDataRecursive(v, !0))));
+        }, c = 0; c <= t.length - 1; c++) {
+          o(c);
+        }
+        return r;
+      }
+    }, {
+      key: "toggle",
+      value: function value(e) {
+        var t = this,
+            a = this.state.data,
+            n = this.state.animation,
+            l = 0;
+        ["height", "scale", "opacity"].includes(n) || (n = void 0);
+        return function s(r) {
+          if (r && r.length) {
+            var o = function o(_o2) {
+              var c = r[_o2].unique,
+                  u = r[_o2].data;
+
+              if (c == e) {
+                0 == !r[_o2].toggled && n && (l = 300);
+
+                var d = function d() {
+                  r[_o2].toggled = !r[_o2].toggled, r[_o2].classList = r[_o2].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
+                    r[_o2].classList = r[_o2].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
+                  }, 300);
+                };
+
+                return 0 == !r[_o2].toggled ? (r[_o2].classList = "".concat(r[_o2].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
+                  v: t.setState({
+                    data: a
+                  }, d)
+                }) : (d(), "break");
+              }
+
+              u && i()([]) == i()(u) && 0 !== u.length && s(u);
+            };
+
+            e: for (var c = 0; c <= r.length - 1; c++) {
+              var u = o(c);
+
+              switch (u) {
+                case "break":
+                  break e;
+
+                default:
+                  if ("object" === i()(u)) return u.v;
+              }
+            }
+          }
+        }(a), setTimeout(function () {
+          t.setState({
+            data: a
+          }, function () {
+            return setTimeout(function () {
+              t.setState({
+                data: a
+              });
+            }, 300);
+          });
+        }, l);
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this.state,
+            t = e.addClass,
+            a = e.defaultClass,
+            n = e.id,
+            l = e.data;
+        return C.a.createElement("div", {
+          className: "".concat(a, " ").concat(t),
+          id: n
+        }, this.buildDataRecursive(l));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        return k(["defaultClass", "id", "data", "reactRouter", "animation"], e, t) ? {
+          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
+          id: e.id && i()("8") == i()(e.id) ? e.id : "",
+          data: e.data && i()([]) == i()(e.data) ? E(e.data) : [],
+          reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
+          animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
+        } : null;
+      }
+    }]), a;
+  }(C.a.Component);
+
+  function Z(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var G = function (e) {
+    p()(a, e);
+    var t = Z(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).buildBreadcrumbs = n.buildBreadcrumbs.bind(f()(n)), n.state = {
+        protocol: "",
+        domain: "",
+        paths: [],
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-breadcrumbs",
+        id: e.id && i()("8") == i()(e.id) ? e.id : "",
+        hashRouter: i()(!0) == i()(e.hashRouter) && e.hashRouter,
+        domainName: e.domainName && i()("8") == i()(e.domainName) ? e.domainName : void 0,
+        reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
+        moduleMenu: e.moduleMenu && i()({}) == i()(e.moduleMenu) ? e.moduleMenu : void 0,
+        delimiter: e.delimiter && i()("8") == i()(e.delimiter) ? e.delimiter : ">",
+        overwriteText: i()(!0) == i()(e.overwriteText) && e.overwriteText
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        this.buildBreadcrumbs(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+      }
+    }, {
+      key: "buildBreadcrumbs",
+      value: function value() {
+        var e = this.state.hashRouter,
+            t = T(e);
+        t = t.href, this.setState({
+          protocol: t.protocol,
+          domain: t.domain,
+          paths: t.paths
+        });
+      }
+    }, {
+      key: "buildModuleMenu",
+      value: function value(e, t) {
+        if (e) {
+          var a = this.state.overwriteText,
+              n = e.animation,
+              l = e.data,
+              s = e.moduleStyle,
+              i = e.globalStyle,
+              r = e.reactRouter,
+              o = e.id,
+              c = e.addClass,
+              u = e.defaultClass;
+          return l && 0 !== l.length && !a && (l[0].text = t), b.createElement(W, {
+            id: o,
+            "class": u,
+            addClass: c,
+            reactRouter: r,
+            animation: n,
+            data: l,
+            moduleStyle: s,
+            globalStyle: i
+          });
+        }
+
+        return "";
+      }
+    }, {
+      key: "getTag",
+      value: function value() {
+        var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
+            t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
+            a = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+            n = this.state,
+            l = n.reactRouter,
+            s = n.moduleMenu,
+            i = this.buildModuleMenu(s, t);
+        return l ? a && s ? b.createElement("span", {
+          className: "menu-span"
+        }, i) : b.createElement(Link, {
+          to: e
+        }, t) : a && s ? b.createElement("span", {
+          className: "menu-span"
+        }, i) : b.createElement("a", {
+          href: e
+        }, t);
+      }
+    }, {
+      key: "getSingleBreadcrumb",
+      value: function value(e, t, a) {
+        var n = this.state,
+            l = n.delimiter,
+            s = n.paths;
+        return !a && s.length ? b.createElement("span", {
+          className: "single-entry-span"
+        }, b.createElement("li", {
+          key: S(),
+          className: "single-entry-li"
+        }, this.getTag(e, t, a)), b.createElement("span", {
+          className: "delimiter"
+        }, l)) : b.createElement("li", {
+          key: S(),
+          className: "single-entry-li"
+        }, this.getTag(e, t, a));
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.addClass,
+            n = t.defaultClass,
+            l = t.id,
+            s = t.protocol,
+            i = t.domain,
+            r = t.paths,
+            o = t.domainName,
+            c = t.hashRouter,
+            u = "".concat(s).concat(i);
+        return b.createElement("ul", {
+          className: "".concat(n, " ").concat(a),
+          id: l
+        }, s && i && this.getSingleBreadcrumb("".concat(s).concat(i), "".concat(o || "".concat(s).concat(i)), !1), r && 0 !== r.length && r.map(function (t, a) {
+          var n = t.path;
+          u += c ? n : "/".concat(n);
+          var l = a == r.length - 1;
+          return e.getSingleBreadcrumb(u, n, l);
+        }));
+      }
+    }]), a;
+  }(b.Component);
+
+  function $(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var Y = function (e) {
+    p()(a, e);
+    var t = $(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
         isMinified: !1,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -35656,7 +36448,7 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.mediaBreak;
-        this.buildData(), D(this.state.style, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
+        this.buildData(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
       }
     }, {
       key: "componentWillUnmount",
@@ -35700,7 +36492,7 @@ module.exports = function (e) {
           }
 
           r.push(C.a.createElement("div", l()({
-            key: E(),
+            key: S(),
             className: f
           }, d), a && C.a.createElement("div", {
             className: "title"
@@ -35709,11 +36501,11 @@ module.exports = function (e) {
           }, s), u && C.a.createElement("div", {
             className: "footer"
           }, u))), o == n && (e.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "".concat(c)
           }, r)), r = [], o = 0);
         }), r.length && e.push(C.a.createElement("div", {
-          key: E(),
+          key: S(),
           className: "".concat(c)
         }, r)), this.setState({
           dataJsx: e
@@ -35746,7 +36538,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function T(e) {
+  function Q(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35768,13 +36560,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var R = function (e) {
+  var X = function (e) {
     p()(a, e);
-    var t = T(a);
+    var t = Q(a);
 
     function a(e) {
       var n;
@@ -35783,7 +36575,8 @@ module.exports = function (e) {
         start: 0,
         end: e.defaultItems && i()(8) == i()(e.defaultItems) ? e.defaultItems : 3,
         isMinified: !1,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -35798,7 +36591,7 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.mediaBreak;
-        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.loadMore(), D(this.state.style, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
+        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.loadMore(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass), e && (window.addEventListener("resize", this.resize), this.resize());
       }
     }, {
       key: "componentWillUnmount",
@@ -35842,25 +36635,25 @@ module.exports = function (e) {
         for (var f = 0; f <= n.length - 1; f++) {
           var h = n[f],
               p = h.title,
-              v = h.content,
-              m = h.footer;
+              m = h.content,
+              v = h.footer;
           d++, u.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "card flex flex-column"
           }, p && C.a.createElement("div", {
             className: "title"
-          }, p), v && C.a.createElement("div", {
+          }, p), m && C.a.createElement("div", {
             className: "content"
-          }, v), m && C.a.createElement("div", {
+          }, m), v && C.a.createElement("div", {
             className: "footer"
-          }, m))), d == s && (l.push(C.a.createElement("div", {
-            key: E(),
+          }, v))), d == s && (l.push(C.a.createElement("div", {
+            key: S(),
             className: "cards-group ".concat(c)
           }, u)), u = [], d = 0);
         }
 
         u.length && l.push(C.a.createElement("div", {
-          key: E(),
+          key: S(),
           className: "cards-group ".concat(c)
         }, u)), this.setState({
           dataJsx: l,
@@ -35879,7 +36672,7 @@ module.exports = function (e) {
               f = u.content,
               h = u.footer;
           o++, r.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "card flex flex-column"
           }, d && C.a.createElement("div", {
             className: "title"
@@ -35888,13 +36681,13 @@ module.exports = function (e) {
           }, f), h && C.a.createElement("div", {
             className: "footer"
           }, h))), o == n && (i.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "cards-group ".concat(s)
           }, r)), r = [], o = 0);
         }
 
         r.length && i.push(C.a.createElement("div", {
-          key: E(),
+          key: S(),
           className: "cards-group ".concat(s)
         }, r)), this.setState({
           dataJsx: i
@@ -35937,12 +36730,12 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.a.Component),
-      F = a(9),
-      A = a.n(F),
-      P = a(11),
-      M = a.n(P);
+      ee = a(9),
+      te = a.n(ee),
+      ae = a(11),
+      ne = a.n(ae);
 
-  function I(e) {
+  function le(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -35964,13 +36757,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var V = function (e) {
+  var se = function (e) {
     p()(a, e);
-    var t = I(a);
+    var t = le(a);
 
     function a(e) {
       var n;
@@ -35978,7 +36771,8 @@ module.exports = function (e) {
         dataJsx: [],
         loading: !1,
         isMinified: !1,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-cards-scroll-callback",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -35993,7 +36787,7 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.data;
-        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.buildData(e), D(this.state.style, this.state.defaultClass);
+        this.cardsReference && (this.cardsReference.removeEventListener("scroll", this.scrollEvent), this.cardsReference.addEventListener("scroll", this.scrollEvent)), this.buildData(e), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -36013,8 +36807,8 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, M()(A.a.mark(function n() {
-          return A.a.wrap(function (n) {
+        }, ne()(te.a.mark(function n() {
+          return te.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
                 case 0:
@@ -36044,7 +36838,7 @@ module.exports = function (e) {
               u = o.content,
               d = o.footer;
           i++, s.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "card flex flex-column"
           }, c && C.a.createElement("div", {
             className: "title"
@@ -36053,13 +36847,13 @@ module.exports = function (e) {
           }, u), d && C.a.createElement("div", {
             className: "footer"
           }, d))), i == n && (a.push(C.a.createElement("div", {
-            key: E(),
+            key: S(),
             className: "cards-group ".concat(l)
           }, s)), s = [], i = 0);
         }
 
         s.length && (a.push(C.a.createElement("div", {
-          key: E(),
+          key: S(),
           className: "cards-group ".concat(l)
         }, s)), s = [], i = 0), this.setState({
           dataJsx: a,
@@ -36108,12 +36902,12 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.a.Component),
-      B = function B() {
+      ie = function ie() {
     var e = Math.floor(Date.now() / 1e3);
     return "".concat(e).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   };
 
-  function U(e) {
+  function re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36135,19 +36929,20 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var j = function (e) {
+  var oe = function (e) {
     p()(n, e);
     var t,
-        a = U(n);
+        a = re(n);
 
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEsc = t.callbackEsc.bind(f()(t)), t.handleMouseDown = t.handleMouseDown.bind(f()(t)), t.setFocusUpdater = t.setFocusUpdater.bind(f()(t)), t.setValueToInputField = t.setValueToInputField.bind(f()(t)), t.state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-custom-suggestion",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -36165,7 +36960,7 @@ module.exports = function (e) {
     return u()(n, [{
       key: "componentDidMount",
       value: function value() {
-        this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown), D(this.state.style, this.state.defaultClass);
+        this.setFocusUpdater(!0), document.addEventListener("mousedown", this.handleMouseDown), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -36198,12 +36993,12 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = M()(A.a.mark(function e(t) {
+      value: (t = ne()(te.a.mark(function e(t) {
         var a,
             n,
             l,
             s = arguments;
-        return A.a.wrap(function (e) {
+        return te.a.wrap(function (e) {
           for (;;) {
             switch (e.prev = e.next) {
               case 0:
@@ -36311,7 +37106,7 @@ module.exports = function (e) {
               s = t.jsx,
               i = t.onClickValue;
           return b.createElement("li", {
-            key: B(),
+            key: ie(),
             onClick: function onClick() {
               return e.setInputValue(i, !0);
             }
@@ -36333,7 +37128,7 @@ module.exports = function (e) {
     }]), n;
   }(b.Component);
 
-  function z(e) {
+  function ce(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36355,13 +37150,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var _ = function (e) {
+  var ue = function (e) {
     p()(a, e);
-    var t = z(a);
+    var t = ce(a);
 
     function a(e) {
       var n;
@@ -36373,8 +37168,9 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        uuid: "".concat(E()),
-        style: i()(!0) != i()(e.style) || e.style,
+        uuid: "".concat(S()),
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -36388,7 +37184,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "copyToClipboardAction",
@@ -36464,7 +37260,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function H(e) {
+  function de(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36486,20 +37282,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var q = function (e) {
+  var fe = function (e) {
     p()(a, e);
-    var t = H(a);
+    var t = de(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: (e.defaultClass && (i()("8"), i()(e.defaultClass)), n.getDefaultClass(e)),
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -36523,7 +37320,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.state.closeOnEsc && this.addEscEventListener(), D(this.state.style, this.state.defaultClass);
+        this.state.closeOnEsc && this.addEscEventListener(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -36637,7 +37434,7 @@ module.exports = function (e) {
             a = this.state.displayLineNumber;
         return e.map(function (e, n) {
           return C.a.createElement("li", {
-            key: E(),
+            key: S(),
             className: "li",
             onClick: function onClick(a) {
               return t.callback(a, e);
@@ -36720,7 +37517,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function J(e) {
+  function he(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -36742,20 +37539,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var K = function (e) {
+  var pe = function (e) {
     p()(a, e);
-    var t = J(a);
+    var t = he(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: (e.defaultClass && (i()("8"), i()(e.defaultClass)), n.getDefaultClass(e)),
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -36779,7 +37577,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.state.closeOnEsc && this.addEscEventListener(), D(this.state.style, this.state.defaultClass);
+        this.state.closeOnEsc && this.addEscEventListener(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -36893,7 +37691,7 @@ module.exports = function (e) {
             a = this.state.displayLineNumber;
         return e.map(function (e, n) {
           return C.a.createElement("li", {
-            key: E(),
+            key: S(),
             className: "li",
             onClick: function onClick(a) {
               return t.callback(a, e);
@@ -36975,14 +37773,14 @@ module.exports = function (e) {
       }
     }]), a;
   }(C.a.Component),
-      W = function W() {
+      me = function me() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      Z = function Z() {
+      ve = function ve() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function G(e) {
+  function ge(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37004,18 +37802,19 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var $ = function (e) {
+  var ye = function (e) {
     p()(a, e);
-    var t = G(a);
+    var t = ge(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).closeClick = n.closeClick.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.fadeOut = n.fadeOut.bind(f()(n)), n.state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -37038,12 +37837,12 @@ module.exports = function (e) {
             t = e.closeOnEsc,
             a = e.disableScroll,
             n = e.display;
-        t && window.addEventListener("keydown", this.EscListener, !1), n && a && W(), D(this.state.style, this.state.defaultClass);
+        t && window.addEventListener("keydown", this.EscListener, !1), n && a && me(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
       value: function value() {
-        Z(), window.removeEventListener("keydown", this.EscListener, !1);
+        ve(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -37051,15 +37850,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && W(), void (a && Z());
-        Z(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && me(), void (a && ve());
+        ve(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
           var t = this.state.callbackClose;
-          t && "function" == typeof t && (Z(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (ve(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -37069,7 +37868,7 @@ module.exports = function (e) {
             a = this.state,
             n = a.closeOnClick,
             l = a.callbackClose;
-        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (Z(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (ve(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -37145,10 +37944,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Y = a(13),
-      Q = a.n(Y);
+      be = a(13),
+      Ce = a.n(be);
 
-  function X(e) {
+  function ke(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37170,19 +37969,20 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ee = function (e) {
+  var Se = function (e) {
     p()(a, e);
-    var t = X(a);
+    var t = ke(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).checkLocation = n.checkLocation.bind(f()(n)), n.state = {
         messagesApp: [],
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-global-messages",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -37195,7 +37995,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.clearStore(!0), this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller(), D(this.state.style, this.state.defaultClass);
+        this.clearStore(!0), this.setOnClickEventListenerToTheDom(), "" !== this.state.messageKey && this.setIntervaller(), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -37245,7 +38045,7 @@ module.exports = function (e) {
             e.clearStore(!1);
 
             for (var n = function n(t) {
-              a[t].unique = "".concat(E()), a[t].disappear && i()(8) == i()(a[t].disappear) && setTimeout(function () {
+              a[t].unique = "".concat(S()), a[t].disappear && i()(8) == i()(a[t].disappear) && setTimeout(function () {
                 e.setState({
                   messagesApp: e.state.messagesApp.filter(function (e) {
                     return a[t].unique !== e.unique;
@@ -37257,7 +38057,7 @@ module.exports = function (e) {
             }
 
             e.setState({
-              messagesApp: [].concat(Q()(t), Q()(a))
+              messagesApp: [].concat(Ce()(t), Ce()(a))
             });
           }
         }, t);
@@ -37297,15 +38097,15 @@ module.exports = function (e) {
                 f = o.text,
                 h = o.close,
                 p = o.link,
-                v = {},
                 m = {},
+                v = {},
                 g = {};
-            return f && i()({}) === i()(f) && f.props && i()({}) === i()(f.props) && (v = f.props), p && i()({}) === i()(p) && p.props && i()({}) === i()(p.props) && (m = p.props), h && i()({}) === i()(h) && h.props && i()({}) === i()(h.props) && (g = h.props), C.a.createElement("div", {
+            return f && i()({}) === i()(f) && f.props && i()({}) === i()(f.props) && (m = f.props), p && i()({}) === i()(p) && p.props && i()({}) === i()(p.props) && (v = p.props), h && i()({}) === i()(h) && h.props && i()({}) === i()(h.props) && (g = h.props), C.a.createElement("div", {
               className: "single-error",
-              key: E()
+              key: S()
             }, u && i()("000") === i()(u) && C.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && i()({}) === i()(u) && C.a.createElement("h1", null, u, " ".concat(d ? a : "")), C.a.createElement("div", l()({
               className: "text"
-            }, v), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(s ? "".concat(s, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), C.a.createElement("div", {
+            }, m), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(s ? "".concat(s, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), C.a.createElement("div", {
               className: "options"
             }, C.a.createElement("div", l()({
               onClick: function onClick(t) {
@@ -37317,7 +38117,7 @@ module.exports = function (e) {
             }, C.a.createElement("a", l()({
               rel: "noopener noreferrer",
               href: "".concat(p.href ? p.href : "")
-            }, m), p.text))));
+            }, v), p.text))));
           }
 
           return null;
@@ -37326,7 +38126,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function te(e) {
+  function Ee(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37348,11 +38148,11 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ae = {
+  var xe = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -37406,23 +38206,24 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      ne = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      le = function (e) {
+      De = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      we = function (e) {
     p()(a, e);
-    var t = te(a);
+    var t = Ee(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
-        icons: ae,
-        style: i()(!0) != i()(e.style) || e.style,
+        icons: xe,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-icons",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
         iconsType: e.iconsType && i()("8") == i()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : ne,
+        renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : De,
         translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0,
         custom: e.custom && i()([]) == i()(e.custom) ? e.custom : void 0
       }, n;
@@ -37441,7 +38242,7 @@ module.exports = function (e) {
           t && i()("8") == i()(t) && l && i()([]) == i()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
         }), n && this.setState({
           icons: a
-        })), D(this.state.style, this.state.defaultClass);
+        })), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "callback",
@@ -37482,19 +38283,19 @@ module.exports = function (e) {
             var i = r == n ? "single-tab active" : "single-tab";
             return a == o.length - 1 && (i += " single-tab-last"), C.a.createElement("div", {
               className: i,
-              key: B(),
+              key: ie(),
               onClick: function onClick() {
                 return e.changeTab(n);
               }
             }, l);
           }
         })), r && void 0 !== s[r] && void 0 !== s[r].data && C.a.createElement("div", {
-          key: B(),
+          key: ie(),
           className: "content"
         }, s[r].data.map(function (t) {
           return C.a.createElement("span", {
             className: "single-icon",
-            key: B(),
+            key: ie(),
             onClick: function onClick(a) {
               return e.callback(a, t);
             }
@@ -37510,7 +38311,7 @@ module.exports = function (e) {
           id: e.id && i()("8") == i()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: i()(!0) != i()(e.displayTabs) || e.displayTabs,
-          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : ne,
+          renderItems: e.renderItems && i()([]) == i()(e.renderItems) ? e.renderItems : De,
           translations: e.translations && i()({}) == i()(e.translations) ? e.translations : void 0,
           custom: e.custom && i()({}) == i()(e.custom) ? e.custom : void 0
         } : null;
@@ -37518,7 +38319,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function se(e) {
+  function Ne(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37540,19 +38341,20 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ie = function (e) {
+  var Oe = function (e) {
     p()(n, e);
     var t,
-        a = se(n);
+        a = Ne(n);
 
     function n(e) {
       var t;
       return o()(this, n), (t = a.call(this, e)).callback = t.callback.bind(f()(t)), t.onFocus = t.onFocus.bind(f()(t)), t.onBlur = t.onBlur.bind(f()(t)), t.setValue = t.setValue.bind(f()(t)), t.callbackEnter = t.callbackEnter.bind(f()(t)), t.setFocus = t.setFocus.bind(f()(t)), t.state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
         defaultClassOrigin: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-animation",
@@ -37572,7 +38374,7 @@ module.exports = function (e) {
     return u()(n, [{
       key: "componentDidMount",
       value: function value() {
-        this.setFocus(), this.setFocusUpdater(!0), D(this.state.style, this.state.defaultClass);
+        this.setFocus(), this.setFocusUpdater(!0), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentDidUpdate",
@@ -37600,13 +38402,13 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = M()(A.a.mark(function e() {
+      value: (t = ne()(te.a.mark(function e() {
         var t,
             a,
             n,
             l,
             s = arguments;
-        return A.a.wrap(function (e) {
+        return te.a.wrap(function (e) {
           for (;;) {
             switch (e.prev = e.next) {
               case 0:
@@ -37743,10 +38545,10 @@ module.exports = function (e) {
       }
     }]), n;
   }(b.Component),
-      re = a(12),
-      oe = a.n(re);
+      Le = a(12),
+      Te = a.n(Le);
 
-  function ce(e) {
+  function Re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37768,13 +38570,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ue = function (e) {
+  var Fe = function (e) {
     p()(a, e);
-    var t = ce(a);
+    var t = Re(a);
 
     function a(e) {
       var n;
@@ -37791,7 +38593,8 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -37810,7 +38613,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "handleFileUpload",
@@ -37926,7 +38729,7 @@ module.exports = function (e) {
           },
           placeholder: i,
           id: o
-        }, oe()(e, "type", "file"), oe()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
+        }, Te()(e, "type", "file"), Te()(e, "name", "files[]"), e), u)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files",
           onClick: function onClick() {
@@ -37952,7 +38755,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function de(e) {
+  function Ae(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -37974,13 +38777,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var fe = function (e) {
+  var Me = function (e) {
     p()(a, e);
-    var t = de(a);
+    var t = Ae(a);
 
     function a(e) {
       var n;
@@ -37993,7 +38796,8 @@ module.exports = function (e) {
           height: 0,
           overflow: "hidden"
         },
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -38013,7 +38817,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentDidMount",
@@ -38187,7 +38991,7 @@ module.exports = function (e) {
           },
           placeholder: s,
           id: r
-        }, oe()(e, "type", "file"), oe()(e, "name", "files[]"), e), h)), C.a.createElement("label", {
+        }, Te()(e, "type", "file"), Te()(e, "name", "files[]"), e), h)), C.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, C.a.createElement("div", {
@@ -38220,7 +39024,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function he(e) {
+  function Pe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -38242,20 +39046,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var pe = function (e) {
+  var Ie = function (e) {
     p()(a, e);
-    var t = he(a);
+    var t = Pe(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -38277,7 +39082,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentDidMount",
@@ -38449,7 +39254,7 @@ module.exports = function (e) {
           className: "choosed"
         }, n.map(function (t) {
           return b.createElement("div", {
-            key: B(),
+            key: ie(),
             className: "item ff-title"
           }, b.createElement("div", {
             onClick: function onClick(a) {
@@ -38484,7 +39289,7 @@ module.exports = function (e) {
           var l = n.includes(t) ? "active" : "";
           return null !== f && void 0 !== o[f] && f == a && (l = "".concat(l, " selected")), b.createElement("li", {
             className: l,
-            key: B(),
+            key: ie(),
             onClick: function onClick(a) {
               return e.toggleSelection(t);
             },
@@ -38506,7 +39311,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function ve(e) {
+  function Ve(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -38528,20 +39333,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var me = function (e) {
+  var Be = function (e) {
     p()(a, e);
-    var t = ve(a);
+    var t = Ve(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.callbackEsc = n.callbackEsc.bind(f()(n)), n.handleMouseDown = n.handleMouseDown.bind(f()(n)), n.toggleSelection = n.toggleSelection.bind(f()(n)), n.setFocusUpdater = n.setFocusUpdater.bind(f()(n)), n.setArrow = n.setArrow.bind(f()(n)), n.state = {
         suggestions: [],
         selectedArrow: null,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-input-suggestion-array",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -38563,7 +39369,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentDidMount",
@@ -38756,7 +39562,7 @@ module.exports = function (e) {
         }, n.map(function (t) {
           var a = t.text;
           if (a) return b.createElement("div", {
-            key: B(),
+            key: ie(),
             className: "item ff-title"
           }, b.createElement("div", {
             onClick: function onClick(a) {
@@ -38793,7 +39599,7 @@ module.exports = function (e) {
           var s = t.text;
           if (s) return b.createElement("li", {
             className: l,
-            key: B(),
+            key: ie(),
             onClick: function onClick(a) {
               return e.toggleSelection(t);
             },
@@ -38815,7 +39621,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function ge(e) {
+  function je(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -38837,18 +39643,19 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ye = function (e) {
+  var Ue = function (e) {
     p()(a, e);
-    var t = ge(a);
+    var t = je(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -38860,7 +39667,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "render",
@@ -38889,7 +39696,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function be(e) {
+  function ze(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -38911,20 +39718,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var Ce = function (e) {
+  var _e = function (e) {
     p()(a, e);
-    var t = be(a);
+    var t = ze(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).scrollEvent = n.scrollEvent.bind(f()(n)), n.buildData = n.buildData.bind(f()(n)), n.loadMore = n.loadMore.bind(f()(n)), n.removeScrollEvent = n.removeScrollEvent.bind(f()(n)), n.state = {
         dataJsx: [],
         loading: !1,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -38942,7 +39750,7 @@ module.exports = function (e) {
         var e = this.state,
             t = e.data,
             a = e.scrollReference;
-        this.scrollReference && a && (this.scrollReference.removeEventListener("scroll", this.scrollEvent), this.scrollReference.addEventListener("scroll", this.scrollEvent)), a || (document.removeEventListener("scroll", this.scrollEvent), document.addEventListener("scroll", this.scrollEvent)), this.buildData(t), D(this.state.style, this.state.defaultClass);
+        this.scrollReference && a && (this.scrollReference.removeEventListener("scroll", this.scrollEvent), this.scrollReference.addEventListener("scroll", this.scrollEvent)), a || (document.removeEventListener("scroll", this.scrollEvent), document.addEventListener("scroll", this.scrollEvent)), this.buildData(t), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -38963,8 +39771,8 @@ module.exports = function (e) {
             a = [];
         t ? this.setState({
           loading: !0
-        }, M()(A.a.mark(function n() {
-          return A.a.wrap(function (n) {
+        }, ne()(te.a.mark(function n() {
+          return te.a.wrap(function (n) {
             for (;;) {
               switch (n.prev = n.next) {
                 case 0:
@@ -39002,7 +39810,7 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = this.state.dataJsx;
         a.push(C.a.createElement("div", {
-          key: E(),
+          key: S(),
           className: "section"
         }, t)), this.setState({
           dataJsx: a,
@@ -39058,194 +39866,9 @@ module.exports = function (e) {
         } : null;
       }
     }]), a;
-  }(C.a.Component),
-      ke = a(10),
-      Ee = a.n(ke),
-      Se = a(14),
-      xe = a.n(Se);
-
-  function De() {
-    return (De = Object.assign || function (e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var a = arguments[t];
-
-        for (var n in a) {
-          Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
-        }
-      }
-
-      return e;
-    }).apply(this, arguments);
-  }
-
-  function we(e) {
-    return "/" === e.charAt(0);
-  }
-
-  function Oe(e, t) {
-    for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) {
-      e[a] = e[n];
-    }
-
-    e.pop();
-  }
-
-  var Ne = function Ne(e, t) {
-    void 0 === t && (t = "");
-    var a,
-        n = e && e.split("/") || [],
-        l = t && t.split("/") || [],
-        s = e && we(e),
-        i = t && we(t),
-        r = s || i;
-    if (e && we(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
-
-    if (l.length) {
-      var o = l[l.length - 1];
-      a = "." === o || ".." === o || "" === o;
-    } else a = !1;
-
-    for (var c = 0, u = l.length; u >= 0; u--) {
-      var d = l[u];
-      "." === d ? Oe(l, u) : ".." === d ? (Oe(l, u), c++) : c && (Oe(l, u), c--);
-    }
-
-    if (!r) for (; c--; c) {
-      l.unshift("..");
-    }
-    !r || "" === l[0] || l[0] && we(l[0]) || l.unshift("");
-    var f = l.join("/");
-    return a && "/" !== f.substr(-1) && (f += "/"), f;
-  };
-
-  function Le(e, t, a, n) {
-    var l;
-    "string" == typeof e ? (l = function (e) {
-      var t = e || "/",
-          a = "",
-          n = "",
-          l = t.indexOf("#");
-      -1 !== l && (n = t.substr(l), t = t.substr(0, l));
-      var s = t.indexOf("?");
-      return -1 !== s && (a = t.substr(s), t = t.substr(0, s)), {
-        pathname: t,
-        search: "?" === a ? "" : a,
-        hash: "#" === n ? "" : n
-      };
-    }(e)).state = t : (void 0 === (l = De({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
-
-    try {
-      l.pathname = decodeURI(l.pathname);
-    } catch (e) {
-      throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
-    }
-
-    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = Ne(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
-  }
-
-  "undefined" == typeof window || !window.document || window.document.createElement;
-
-  var Te = Object.assign || function (e) {
-    for (var t = 1; t < arguments.length; t++) {
-      var a = arguments[t];
-
-      for (var n in a) {
-        Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
-      }
-    }
-
-    return e;
-  };
-
-  function Re(e, t) {
-    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-  }
-
-  function Fe(e, t) {
-    if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
-  }
-
-  var Ae = function Ae(e) {
-    return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
-  },
-      Pe = function (e) {
-    function t() {
-      var a, n;
-      Re(this, t);
-
-      for (var l = arguments.length, s = Array(l), i = 0; i < l; i++) {
-        s[i] = arguments[i];
-      }
-
-      return a = n = Fe(this, e.call.apply(e, [this].concat(s))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !Ae(e)) {
-          e.preventDefault();
-          var t = n.context.router.history,
-              a = n.props,
-              l = a.replace,
-              s = a.to;
-          l ? t.replace(s) : t.push(s);
-        }
-      }, Fe(n, a);
-    }
-
-    return function (e, t) {
-      if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + _typeof(t));
-      e.prototype = Object.create(t && t.prototype, {
-        constructor: {
-          value: e,
-          enumerable: !1,
-          writable: !0,
-          configurable: !0
-        }
-      }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
-    }(t, e), t.prototype.render = function () {
-      var e = this.props,
-          t = (e.replace, e.to),
-          a = e.innerRef,
-          n = function (e, t) {
-        var a = {};
-
-        for (var n in e) {
-          t.indexOf(n) >= 0 || Object.prototype.hasOwnProperty.call(e, n) && (a[n] = e[n]);
-        }
-
-        return a;
-      }(e, ["replace", "to", "innerRef"]);
-
-      xe()(this.context.router, "You should not use <Link> outside a <Router>"), xe()(void 0 !== t, 'You must specify the "to" property');
-      var l = this.context.router.history,
-          s = "string" == typeof t ? Le(t, null, null, l.location) : t,
-          i = l.createHref(s);
-      return C.a.createElement("a", Te({}, n, {
-        onClick: this.handleClick,
-        href: i,
-        ref: a
-      }));
-    }, t;
   }(C.a.Component);
 
-  Pe.propTypes = {
-    onClick: Ee.a.func,
-    target: Ee.a.string,
-    replace: Ee.a.bool,
-    to: Ee.a.oneOfType([Ee.a.string, Ee.a.object]).isRequired,
-    innerRef: Ee.a.oneOfType([Ee.a.string, Ee.a.func])
-  }, Pe.defaultProps = {
-    replace: !1
-  }, Pe.contextTypes = {
-    router: Ee.a.shape({
-      history: Ee.a.shape({
-        push: Ee.a.func.isRequired,
-        replace: Ee.a.func.isRequired,
-        createHref: Ee.a.func.isRequired
-      }).isRequired
-    }).isRequired
-  };
-  var Me = Pe;
-
-  function Ie(e) {
+  function He(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -39267,211 +39890,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var Ve = function (e) {
+  var qe = function (e) {
     p()(a, e);
-    var t = Ie(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).buildDataRecursive = n.buildDataRecursive.bind(f()(n)), n.toggle = n.toggle.bind(f()(n)), n.state = {
-        style: i()(!0) != i()(e.style) || e.style,
-        addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-        id: e.id && i()("8") == i()(e.id) ? e.id : "",
-        data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
-        reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
-        animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        D(this.state.style, this.state.defaultClass);
-      }
-    }, {
-      key: "buildDataRecursive",
-      value: function value() {
-        var e = this,
-            t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
-            a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-            n = this.state,
-            s = n.reactRouter,
-            r = (n.dropDown, []);
-        if (t && t.length) for (var o = function o(n) {
-          var o = t[n],
-              c = o.text,
-              u = o.toggled,
-              d = o.unique,
-              f = o.props,
-              h = o.classList,
-              p = o.href,
-              v = o.icon;
-          p && i()("8") == i()(p) && (p = p.toLowerCase());
-          var m = t[n].data ? t[n].data : [],
-              g = !!t[n].data;
-          h || (h = ""), f && i()(f) === i()({}) || (f = {});
-
-          try {
-            Object.keys(f);
-          } catch (e) {
-            f = {};
-          }
-
-          var y = "";
-          s && m && 0 == m.length && (y = C.a.createElement(Me, {
-            to: p,
-            className: "text ".concat(a ? "child" : ""),
-            onClick: function onClick() {
-              return e.toggle(d, g);
-            }
-          }, v && v, c)), !s && m && 0 == m.length && (y = C.a.createElement("a", {
-            href: p,
-            className: "text ".concat(a ? "child" : ""),
-            onClick: function onClick() {
-              return e.toggle(d, g);
-            }
-          }, v && v, c)), m && 0 !== m.length && (y = C.a.createElement("div", {
-            className: "text hasChildren ".concat(a ? " child" : ""),
-            onClick: function onClick() {
-              return e.toggle(d, g);
-            }
-          }, v && v, c)), r.push(C.a.createElement("div", l()({
-            key: E(),
-            className: "single-entry ".concat(h, " ").concat(m && 0 !== m.length ? "parent" : "")
-          }, f), y, u && m && 0 !== m.length && C.a.createElement("div", {
-            className: "children"
-          }, e.buildDataRecursive(m, !0))));
-        }, c = 0; c <= t.length - 1; c++) {
-          o(c);
-        }
-        return r;
-      }
-    }, {
-      key: "toggle",
-      value: function value(e) {
-        var t = this,
-            a = this.state.data,
-            n = this.state.animation,
-            l = 0;
-        ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function s(r) {
-          if (r && r.length) {
-            var o = function o(_o2) {
-              var c = r[_o2].unique,
-                  u = r[_o2].data;
-
-              if (c == e) {
-                0 == !r[_o2].toggled && n && (l = 300);
-
-                var d = function d() {
-                  r[_o2].toggled = !r[_o2].toggled, r[_o2].classList = r[_o2].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
-                    r[_o2].classList = r[_o2].toggled ? "toggled ".concat(n ? "animation-".concat(n) : "") : "";
-                  }, 300);
-                };
-
-                return 0 == !r[_o2].toggled ? (r[_o2].classList = "".concat(r[_o2].classList, " ").concat(n ? "animation-".concat(n, "-back") : ""), {
-                  v: t.setState({
-                    data: a
-                  }, d)
-                }) : (d(), "break");
-              }
-
-              u && i()([]) == i()(u) && 0 !== u.length && s(u);
-            };
-
-            e: for (var c = 0; c <= r.length - 1; c++) {
-              var u = o(c);
-
-              switch (u) {
-                case "break":
-                  break e;
-
-                default:
-                  if ("object" === i()(u)) return u.v;
-              }
-            }
-          }
-        }(a), setTimeout(function () {
-          t.setState({
-            data: a
-          }, function () {
-            return setTimeout(function () {
-              t.setState({
-                data: a
-              });
-            }, 300);
-          });
-        }, l);
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this.state,
-            t = e.addClass,
-            a = e.defaultClass,
-            n = e.id,
-            l = e.data;
-        return C.a.createElement("div", {
-          className: "".concat(a, " ").concat(t),
-          id: n
-        }, this.buildDataRecursive(l));
-      }
-    }], [{
-      key: "getDerivedStateFromProps",
-      value: function value(e, t) {
-        return k(["defaultClass", "id", "data", "reactRouter", "animation"], e, t) ? {
-          addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
-          defaultClass: e["class"] && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
-          id: e.id && i()("8") == i()(e.id) ? e.id : "",
-          data: e.data && i()([]) == i()(e.data) ? S(e.data) : [],
-          reactRouter: i()(!0) == i()(e.reactRouter) && e.reactRouter,
-          animation: e.animation && i()("8") == i()(e.animation) ? e.animation : void 0
-        } : null;
-      }
-    }]), a;
-  }(C.a.Component);
-
-  function Be(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return m()(this, a);
-    };
-  }
-
-  var Ue = function (e) {
-    p()(a, e);
-    var t = Be(a);
+    var t = He(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).buildData = n.buildData.bind(f()(n)), n.resize = n.resize.bind(f()(n)), n.state = {
         dataJsx: [],
         isMinified: !1,
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-table",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -39486,7 +39919,7 @@ module.exports = function (e) {
       key: "componentDidMount",
       value: function value() {
         var e = this.state.mediaBreak;
-        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize()), D(this.state.style, this.state.defaultClass);
+        this.buildData(), e && (window.addEventListener("resize", this.resize), this.resize()), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -39520,11 +39953,11 @@ module.exports = function (e) {
           var o = [];
           n && n.length && (n.map(function (e, t) {
             e && i()("8") == i()(e) && o.push(C.a.createElement("span", {
-              key: E(),
+              key: S(),
               className: "span span-".concat(t + 1)
             }, e));
           }), o.length && s.push(C.a.createElement("li", {
-            key: E(),
+            key: S(),
             className: "".concat(r, " title")
           }, o))), t.map(function (e) {
             if (l && l.length) {
@@ -39533,12 +39966,12 @@ module.exports = function (e) {
                 if (void 0 !== e[a]) {
                   var l = e[a] ? e[a] : "";
                   t.push(C.a.createElement("span", {
-                    key: E(),
+                    key: S(),
                     className: "span span-".concat(n + 1)
                   }, l));
                 }
               }), t && t.length && (s.push(C.a.createElement("li", {
-                key: E(),
+                key: S(),
                 className: r
               }, t)), t = []);
             }
@@ -39579,7 +40012,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function je(e) {
+  function Je(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -39601,20 +40034,21 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var ze = function (e) {
+  var Ke = function (e) {
     p()(a, e);
-    var t = je(a);
+    var t = Je(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).setText = n.setText.bind(f()(n)), n.state = {
         written: [],
-        uuid: "".concat(E()),
-        style: i()(!0) != i()(e.style) || e.style,
+        uuid: "".concat(S()),
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-text-writer",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -39639,7 +40073,7 @@ module.exports = function (e) {
             l = t.timeout;
         setTimeout(function () {
           e.setText(a, n);
-        }, l), D(this.state.style, this.state.defaultClass);
+        }, l), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "writerPromise",
@@ -39670,8 +40104,8 @@ module.exports = function (e) {
             r = t.split(""),
             o = -1;
         !function (t) {
-          a.writerInterval = setInterval(M()(A.a.mark(function n() {
-            return A.a.wrap(function (n) {
+          a.writerInterval = setInterval(ne()(te.a.mark(function n() {
+            return te.a.wrap(function (n) {
               for (;;) {
                 switch (n.prev = n.next) {
                   case 0:
@@ -39710,9 +40144,9 @@ module.exports = function (e) {
               c = o.from,
               u = o.to,
               d = o.replace;
-          e.removeIntervaller = setInterval(M()(A.a.mark(function o() {
+          e.removeIntervaller = setInterval(ne()(te.a.mark(function o() {
             var f, h;
-            return A.a.wrap(function (o) {
+            return te.a.wrap(function (o) {
               for (;;) {
                 switch (o.prev = o.next) {
                   case 0:
@@ -39732,9 +40166,9 @@ module.exports = function (e) {
                           f[0] && " " == f[0] && (f[0] = "");
                           var h = -1,
                               p = d.split(""),
-                              v = [];
-                          e.writerInterval = setInterval(M()(A.a.mark(function s() {
-                            return A.a.wrap(function (s) {
+                              m = [];
+                          e.writerInterval = setInterval(ne()(te.a.mark(function s() {
+                            return te.a.wrap(function (s) {
                               for (;;) {
                                 switch (s.prev = s.next) {
                                   case 0:
@@ -39743,8 +40177,8 @@ module.exports = function (e) {
                                         pipeDisplay: n
                                       });
                                     }, l)), s.next = 4, e.writerPromise(p[h]).then(function (t) {
-                                      v.push(t), e.setState({
-                                        written: [].concat(Q()(r), v, Q()(o), Q()(f))
+                                      m.push(t), e.setState({
+                                        written: [].concat(Ce()(r), m, Ce()(o), Ce()(f))
                                       });
                                     });
 
@@ -39800,7 +40234,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function _e(e) {
+  function We(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -39822,14 +40256,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var He = function (e) {
+  var Ze = function (e) {
     p()(a, e);
-
-    var t = _e(a);
+    var t = We(a);
 
     function a(e) {
       var n;
@@ -39837,7 +40270,8 @@ module.exports = function (e) {
       return n.state = {
         displayBox: !1,
         displayBoxClassNames: "box",
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -39852,7 +40286,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        this.oldHref = window.location.href, document.addEventListener("mousedown", this.handleMouseDown), D(this.state.style, this.state.defaultClass);
+        this.oldHref = window.location.href, document.addEventListener("mousedown", this.handleMouseDown), w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "componentWillUnmount",
@@ -39949,7 +40383,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function qe(e) {
+  function Ge(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -39971,18 +40405,19 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var Je = function (e) {
+  var $e = function (e) {
     p()(a, e);
-    var t = qe(a);
+    var t = Ge(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).state = {
-        style: i()(!0) != i()(e.style) || e.style,
+        moduleStyle: i()(!0) == i()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: i()(!0) == i()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && i()("8") == i()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && i()("8") == i()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
         id: e.id && i()("8") == i()(e.id) ? e.id : "",
@@ -39998,7 +40433,7 @@ module.exports = function (e) {
     return u()(a, [{
       key: "componentDidMount",
       value: function value() {
-        D(this.state.style, this.state.defaultClass);
+        w(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
       }
     }, {
       key: "render",
@@ -40059,7 +40494,7 @@ module.exports = function (e) {
     }]), a;
   }(C.a.Component);
 
-  function Ke(e) {
+  function Ye(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -40081,13 +40516,13 @@ module.exports = function (e) {
         a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
-      return m()(this, a);
+      return v()(this, a);
     };
   }
 
-  var We = function (e) {
+  var Qe = function (e) {
     p()(a, e);
-    var t = Ke(a);
+    var t = Ye(a);
 
     function a(e) {
       var n;
@@ -40190,16 +40625,16 @@ module.exports = function (e) {
               f = "";
 
               for (var p = 0; p < h.length; p++) {
-                var v = void 0 !== h[p + 1] ? h[p + 1] : void 0;
+                var m = void 0 !== h[p + 1] ? h[p + 1] : void 0;
                 if ("\t" == h[p]) i.push({
                   code: "\t",
                   "class": "tab"
                 });else {
                   f += h[p];
-                  var m = this.tagsMatcher(f, i, v);
+                  var v = this.tagsMatcher(f, i, m);
 
-                  if (f = m.characters, i = m.singleLineData, f.length) {
-                    var g = this.propsMatcher(f, i, v, c);
+                  if (f = v.characters, i = v.singleLineData, f.length) {
+                    var g = this.propsMatcher(f, i, m, c);
                     f = g.characters, i = g.singleLineData, c = g.attribute;
                   }
                 }
@@ -40215,13 +40650,13 @@ module.exports = function (e) {
                 var y = f.substring(f.indexOf("$"), f.length);
                 y = y.split("");
 
-                for (var b = "$", k = 0, S = 1; S <= y.length - 1; S++) {
-                  if (!/^[a-zA-Z]+$/.test(y[S])) {
-                    k = S;
+                for (var b = "$", k = 0, E = 1; E <= y.length - 1; E++) {
+                  if (!/^[a-zA-Z]+$/.test(y[E])) {
+                    k = E;
                     break;
                   }
 
-                  b += y[S];
+                  b += y[E];
                 }
 
                 b.length && i.push({
@@ -40255,12 +40690,12 @@ module.exports = function (e) {
                   code: w,
                   "class": "functionName"
                 });
-                var O = f.substring(w.length + 1, f.length);
+                var N = f.substring(w.length + 1, f.length);
                 i.push({
                   code: "(",
                   "class": "bracket bracket-left"
                 }), i.push({
-                  code: O,
+                  code: N,
                   "class": "functionArguments"
                 }), f = "";
               }
@@ -40281,9 +40716,9 @@ module.exports = function (e) {
                 code: f,
                 "class": "functionArguments"
               }), f = "", u = "function")), -1 !== f.indexOf("{")) {
-                var N = f.substring(0, f.indexOf("{"));
-                f = f.substring(N.length, f.length), -1 !== N.indexOf("=") && (i.push({
-                  code: N.substring(0, N.indexOf("=")),
+                var O = f.substring(0, f.indexOf("{"));
+                f = f.substring(O.length, f.length), -1 !== O.indexOf("=") && (i.push({
+                  code: O.substring(0, O.indexOf("=")),
                   "class": "variableName"
                 }), i.push({
                   code: "=",
@@ -40352,21 +40787,21 @@ module.exports = function (e) {
           }), l.push(i);
         }
 
-        for (var A = [], P = 0; P < l.length; P++) {
-          for (var M = l[P], I = [], V = 0; V < M.length; V++) {
+        for (var A = [], M = 0; M < l.length; M++) {
+          for (var P = l[M], I = [], V = 0; V < P.length; V++) {
             I.push(C.a.createElement("span", {
-              key: E(),
-              className: M[V]["class"] ? M[V]["class"] : ""
-            }, M[V].code));
+              key: S(),
+              className: P[V]["class"] ? P[V]["class"] : ""
+            }, P[V].code));
           }
 
-          var B = "single-code-line single-code-line-".concat(P + 1, " ").concat(P + 1 == 1 ? " single-code-line-first" : "", " ").concat(P + 1 == l.length ? " single-code-line-last" : "");
+          var B = "single-code-line single-code-line-".concat(M + 1, " ").concat(M + 1 == 1 ? " single-code-line-first" : "", " ").concat(M + 1 == l.length ? " single-code-line-last" : "");
           A.push(C.a.createElement("li", {
-            key: E(),
+            key: S(),
             className: n ? "".concat(B, " flex") : B
           }, n && C.a.createElement("div", {
             className: "line-number"
-          }, P + 1), C.a.createElement("div", {
+          }, M + 1), C.a.createElement("div", {
             className: "line-code"
           }, I)));
         }
@@ -40616,7 +41051,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Ze = function Ze() {
+      Xe = function Xe() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -40637,9 +41072,9 @@ module.exports = function (e) {
       }
     }
   },
-      Ge = function () {
+      et = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = oe()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = Te()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -40750,8 +41185,8 @@ module.exports = function (e) {
       }
     }]), e;
   }(),
-      $e = function $e(e, t) {
-    var a = new Ge();
+      tt = function tt(e, t) {
+    var a = new et();
     e && i()(8) == i()(e) && a.setScrollTime(e), t && i()("8") == i()(t) && a.setScrollBehavior(t);
 
     var n = function n() {
@@ -40799,28 +41234,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Scss/index.scss");
 /* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_18__);
 /* harmony import */ var _Website_Pages_Modules_ReactRevolutionAccordion__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionAccordion.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCards.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCardsScroll.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCardsScrollCallback.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionClipboard.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCustomSuggestion.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenListArray.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenListObject.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenOverlay.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionGlobalMessages.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionIcons.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputAnimation.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFile.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFileDragDrop.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputSuggestionArray.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputSuggestionObject.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionLoadingBoxTop.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionMenuClickHorizontal.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionPopupBox.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionSidebar.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTextWriter.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionLoadOnScroll.jsx");
-/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTable.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionBreadcrumbs.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCards.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCardsScroll.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCardsScrollCallback.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionClipboard.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionCustomSuggestion.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenListArray.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenListObject.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionFullScreenOverlay.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionGlobalMessages.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionIcons.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputAnimation.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFile.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputFileDragDrop.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputSuggestionArray.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionInputSuggestionObject.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionLoadingBoxTop.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionMenuClickHorizontal.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionPopupBox.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionSidebar.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTextWriter.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionLoadOnScroll.jsx");
+/* harmony import */ var _Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__("./Website/Pages/Modules/ReactRevolutionTable.jsx");
 
 
 
@@ -40873,6 +41309,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
 var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(App, _React$Component);
 
@@ -40889,7 +41326,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this.changeSidebarMinifiedState = _this.changeSidebarMinifiedState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.state = {
-      minifySidebard: '#/' == window.location.hash ? true : false,
+      minifySidebard: "http://localhost:3000/" == window.location.href ? true : false,
       host: "http://localhost:3000/",
       suggestions: [],
       inputValue: ''
@@ -40963,15 +41400,15 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "changeSidebarMinifiedState",
     value: function changeSidebarMinifiedState() {
       var minifySidebard = this.state.minifySidebard;
-      var hash = window.location.hash;
+      var href = window.location.href;
 
-      if ('#/' == hash && !minifySidebard) {
+      if ("http://localhost:3000/" == href && !minifySidebard) {
         return this.setState({
           minifySidebard: true
         });
       }
 
-      if ('#/' !== hash && minifySidebard) {
+      if ("http://localhost:3000/" !== href && minifySidebard) {
         this.setState({
           minifySidebard: false
         });
@@ -41004,7 +41441,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       allModules.map(function (i) {
         if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
           suggestions.push({
-            href: "".concat(host, "#/").concat(i),
+            href: "".concat(host).concat(i),
             jsx: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("p", null, i),
             props: {
               title: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_13__["default"])('clickToNavToTheModule')
@@ -41044,6 +41481,8 @@ var App = /*#__PURE__*/function (_React$Component) {
           textLong: _Website_Globals__WEBPACK_IMPORTED_MODULE_12__["appNameShort"],
           textShort: "v".concat(_Website_Globals__WEBPACK_IMPORTED_MODULE_12__["version"]),
           href: "".concat(host),
+          globalStyle: true // load css for react-revolution globally
+          ,
           moduleMenu: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_11__["MenuClickHorizontal"], {
             reactRouter: false,
             animation: "height",
@@ -41052,85 +41491,85 @@ var App = /*#__PURE__*/function (_React$Component) {
             }),
             data: [{
               text: 'Accordion',
-              href: "".concat(host, "#/react-revolution-accordion")
+              href: "".concat(host, "react-revolution-accordion")
             }, {
               text: 'Breadcrumbs',
-              href: "".concat(host, "#/breadcrumbs")
+              href: "".concat(host, "react-revolution-breadcrumbs")
             }, {
               text: 'Cards',
               data: [{
                 text: 'Cards',
-                href: "".concat(host, "#/react-revolution-cards")
+                href: "".concat(host, "react-revolution-cards")
               }, {
                 text: 'CardsScroll',
-                href: "".concat(host, "#/react-revolution-cards-scroll")
+                href: "".concat(host, "react-revolution-cards-scroll")
               }, {
                 text: 'CardsScrollCallback',
-                href: "".concat(host, "#/react-revolution-cards-scroll-callback")
+                href: "".concat(host, "react-revolution-cards-scroll-callback")
               }]
             }, {
               text: 'Clipboard',
-              href: "".concat(host, "#/react-revolution-clipboard")
+              href: "".concat(host, "react-revolution-clipboard")
             }, {
               text: 'CustomSuggestion',
-              href: "".concat(host, "#/react-revolution-custom-suggestion")
+              href: "".concat(host, "react-revolution-custom-suggestion")
             }, {
               text: 'FullScreen',
               data: [{
                 text: 'FullScreenListArray',
-                href: "".concat(host, "#/react-revolution-fullscreen-list-array")
+                href: "".concat(host, "react-revolution-fullscreen-list-array")
               }, {
                 text: 'FullScreenListObject',
-                href: "".concat(host, "#/react-revolution-fullscreen-list-object")
+                href: "".concat(host, "react-revolution-fullscreen-list-object")
               }, {
                 text: 'FullScreenOverlay',
-                href: "".concat(host, "#/react-revolution-fullscreen-overlay")
+                href: "".concat(host, "react-revolution-fullscreen-overlay")
               }]
             }, {
               text: 'GlobalMessages',
-              href: "".concat(host, "#/react-revolution-global-messages")
+              href: "".concat(host, "react-revolution-global-messages")
             }, {
               text: 'Icons',
-              href: "".concat(host, "#/react-revolution-icons")
+              href: "".concat(host, "react-revolution-icons")
             }, {
               text: 'Input',
               data: [{
                 text: 'InputAnimation',
-                href: "".concat(host, "#/react-revolution-input-animation")
+                href: "".concat(host, "react-revolution-input-animation")
               }, {
                 text: 'InputFile',
-                href: "".concat(host, "#/react-revolution-input-file")
+                href: "".concat(host, "react-revolution-input-file")
               }, {
                 text: 'InputFileDragDrop',
-                href: "".concat(host, "#/react-revolution-input-file-drag-drop")
+                href: "".concat(host, "react-revolution-input-file-drag-drop")
               }, {
                 text: 'InputSuggestionArray',
-                href: "".concat(host, "#/react-revolution-input-suggestion-array")
+                href: "".concat(host, "react-revolution-input-suggestion-array")
               }, {
                 text: 'InputSuggestionObject',
-                href: "".concat(host, "#/react-revolution-input-suggestion-object")
+                href: "".concat(host, "react-revolution-input-suggestion-object")
               }]
             }, {
               text: 'LoadingBoxTop',
-              href: "".concat(host, "#/react-revolution-loading-box-top")
+              href: "".concat(host, "react-revolution-loading-box-top")
             }, {
               text: 'LoadOnScroll',
-              href: "".concat(host, "#/react-revolution-load-on-scroll")
+              href: "".concat(host, "react-revolution-load-on-scroll")
             }, {
               text: 'MenuClickHorizontal',
-              href: "".concat(host, "#/react-revolution-menu-click-horizontal")
+              href: "".concat(host, "react-revolution-menu-click-horizontal")
             }, {
               text: 'PopupBox',
-              href: "".concat(host, "#/react-revolution-popup-box")
+              href: "".concat(host, "react-revolution-popup-box")
             }, {
               text: 'SideBar',
-              href: "".concat(host, "#/react-revolution-sidebar")
+              href: "".concat(host, "react-revolution-sidebar")
             }, {
               text: 'Table',
-              href: "".concat(host, "#/react-revolution-table")
+              href: "".concat(host, "react-revolution-table")
             }, {
               text: 'TextWriter',
-              href: "".concat(host, "#/react-revolution-text-writer")
+              href: "".concat(host, "react-revolution-text-writer")
             }]
           })
         }),
@@ -41208,7 +41647,7 @@ var App = /*#__PURE__*/function (_React$Component) {
             type: "text"
           }))
         })),
-        contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/",
           render: function render(props) {
@@ -41222,135 +41661,141 @@ var App = /*#__PURE__*/function (_React$Component) {
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
+          path: "/react-revolution-breadcrumbs",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_20__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
           path: "/react-revolution-cards",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_20__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_21__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-cards-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_21__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_22__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-cards-scroll-callback",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_22__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_23__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-clipboard",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_23__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_24__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-custom-suggestion",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_24__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_25__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_25__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_26__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_26__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_27__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-overlay",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_27__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_28__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-global-messages",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_28__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_29__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-icons",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_29__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_30__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-animation",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_30__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_31__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-file",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_31__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_32__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-file-drag-drop",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_32__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_33__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_33__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_34__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_34__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_35__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-loading-box-top",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_35__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_36__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-menu-click-horizontal",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_36__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_37__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-popup-box",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_37__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_38__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-sidebar",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_38__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_39__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-text-writer",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_39__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_40__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-load-on-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_40__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_41__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-table",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_41__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Modules_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_42__["default"], props);
           }
         }))),
         footerData: ''
