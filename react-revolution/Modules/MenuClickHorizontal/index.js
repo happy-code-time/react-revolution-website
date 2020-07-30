@@ -16,6 +16,8 @@ class MenuClickHorizontal extends React.Component {
         super(props);
         this.buildDataRecursive = this.buildDataRecursive.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.toggleAllBack = this.toggleAllBack.bind(this);
 
         this.state = {
             /**
@@ -29,11 +31,34 @@ class MenuClickHorizontal extends React.Component {
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
             reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
-        }
+            closeOnClickOutside: typeof true == typeof props.closeOnClickOutside ? props.closeOnClickOutside : false,
+        };
+
+        this.refNode = React.createRef();
+        this.isToggling = false;
     }
 
     componentDidMount(){
+        const { closeOnClickOutside } = this.state;
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+
+        if(closeOnClickOutside){
+            document.addEventListener('click', this.handleClick);
+        }
+    }
+
+    componentWillUnmount(){
+        const { closeOnClickOutside } = this.state;
+
+        if(closeOnClickOutside){
+            document.removeEventListener('click', this.handleClick);
+        }
+    }
+
+    handleClick(event){
+        if(this.refNode && !this.refNode.current.contains(event.target)){
+            this.toggleAllBack();
+        }
     }
 
     /**
@@ -58,7 +83,7 @@ class MenuClickHorizontal extends React.Component {
     }
 
     buildDataRecursive(data = [], isChild = false) {
-        const { reactRouter, dropDown } = this.state;
+        const { reactRouter } = this.state;
         const jsx = [];
 
         if (data && data.length) {
@@ -175,6 +200,7 @@ class MenuClickHorizontal extends React.Component {
         let { animation } = this.state;
         let timeouterForAnimationBack = 0;
         let closing = false;
+        this.isToggling = true;
 
         if(!allowedAnimations.includes(animation)){
             animation = undefined;
@@ -231,6 +257,7 @@ class MenuClickHorizontal extends React.Component {
                     data
                 }, () => setTimeout(() => { 
                     this.setState({ data }); 
+                    this.isToggling = false;
                 }, 300));
             }, timeouterForAnimationBack);
         }
@@ -238,16 +265,70 @@ class MenuClickHorizontal extends React.Component {
         /**
          * Closing entry
          */
-        setTimeout( () => {
-            this.setState({ data }); 
-        }, timeouterForAnimationBack*2);
+        // setTimeout( () => {
+        //     this.setState({ data }); 
+        // }, timeouterForAnimationBack*2);
+    }
+
+    toggleAllBack(){
+        const allowedAnimations = ['height', 'scale', 'opacity'];
+        const { data } = this.state;
+        let { animation } = this.state;
+        let timeouterForAnimationBack = 0;
+
+        if(!allowedAnimations.includes(animation)){
+            animation = undefined;
+        }
+
+        if(this.isToggling){
+            return null;
+        }
+
+        const loop = (datas) => {
+            if (datas && datas.length) {
+                for (let x = 0; x <= datas.length - 1; x++) {
+                    const dataChildren = datas[x].data;
+
+                    if(animation){
+                        timeouterForAnimationBack = 300;
+                    }
+
+                    datas[x].classList = `${datas[x].classList} ${animation ? `animation-${animation}-back` : ''}`;
+
+                    const toggleEntry = () => {
+                        setTimeout(() => {
+                            datas[x].toggled = false;
+                            datas[x].classList = '';
+
+                            this.setState({
+                                data
+                            });
+                        }, timeouterForAnimationBack);
+                    }
+
+                    this.setState({
+                        data
+                    }, toggleEntry);
+
+                    if (dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length) {
+                       loop(dataChildren);
+                    }
+                }
+            }
+        }
+
+        loop(data);
     }
 
     render() {
         const { addClass, defaultClass, id, data } = this.state;
 
         return (
-            <div className={`${defaultClass} ${addClass}`} id={id}>
+            <div 
+                ref={this.refNode}
+                className={`${defaultClass} ${addClass}`} 
+                id={id}
+            >
                 {
                     this.buildDataRecursive(data)
                 }

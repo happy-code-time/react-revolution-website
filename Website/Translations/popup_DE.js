@@ -1,9 +1,11 @@
 const DE = {
+    is: 'ist',
+    iconTokenFrom: 'Icon entnommen von',
     openSourceText: 'Ein kostenloses Open Source Projekt',
     changeLanguageTitle: 'Sprache ändern',
     changeTintTitle: 'Webseiten Layout ändern',
     lightTheme: 'Hell',
-    darkTheme: 'Dunkel',
+    darkTheme: 'Dunkel (kommt in kürze)',
     searchForModule: 'Module Suche',
     clickToNavToTheModule: 'Navigieren Sie zu diesem Modul',
     fast: 'Schnell',
@@ -14,7 +16,7 @@ const DE = {
     installation: 'Installation',
     documentation: 'Dokumenation',
     modules: 'Module',
-    getStarted: 'Anfangen',
+    getStarted: 'Jetzt Anfangen',
     installation: 'Installation',
     feedback: 'Feedback',
     usefullLinks: 'Nützliche Links',
@@ -27,6 +29,10 @@ const DE = {
     jsCodeTitle: 'Javascript Kod',
     loading: 'Laden...',
     keyUsageTitle: 'Keys Erläuterungen',
+    "table.title.key" : 'Schlüssel',
+    "table.title.description" : 'Beschreibung',
+    "table.title.type" : 'Typ',
+    "table.title.default" : 'Standard',
     /**
      * Module keys
      */
@@ -47,7 +53,7 @@ const DE = {
     },
     "inputanimation.callback": {
         "description": "Benutzerdefinierte definierte Funktionen werden jedes Mal aufgerufen, wenn sich die Eingabe geändert hat. Diese Funktion gibt 1 Argument zurück - den aktuellen Wert des Eingabefelds.",
-        "Typ": "Funktion",
+        "type": "Funktion",
         "default": "undefined"
     },
     "accordion.animation": {
@@ -67,7 +73,7 @@ const DE = {
     },
     'accordion.data.icon': {
         "description": "Benutzerdefinierte JSX-Daten auf der linken Seite der Texteingabe.",
-        "Typ": "JSX | String",
+        "type": "JSX | String",
         "default": "undefined"
     },
     'accordion.data.text' : {
@@ -102,25 +108,25 @@ const DE = {
     },
     "data": {
         "description": "Hauptdaten - Array von Objekten.",
-        "Typ": "Array",
-        "Standard": "[]"
+        "type": "Array",
+        "default": "[]"
     },
-    "card.data": {
+    "cards.data": {
         "description": "Hauptdaten - Array von Objekten.",
-        "Typ": "Array",
-        "Standard": "[]"
+        "type": "Array",
+        "default": "[]"
     },
-    "card.data.title": {
+    "cards.data.title": {
         "description": "Benutzerdefinierte Kartenkopfdaten.",
         "type": "String | JSX",
         "default": "undefined"
     },
-    "card.data.content": {
+    "cards.data.content": {
         "description": "Inhaltsdaten für benutzerdefinierte Karten.",
         "type": "String | JSX",
         "default": "undefined"
     },
-    "card.data.footer": {
+    "cards.data.footer": {
         "description": "Fußzeilendaten für benutzerdefinierte Karten.",
         "type": "String | JSX",
         "default": "undefined"
@@ -221,7 +227,7 @@ const DE = {
         "default": "text"
     },
     "callbackRerender": {
-        "description": "Wenn true, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn false, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
+        "description": "Wenn true, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn False, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
         "type": "Boolean",
         "default": "False"
     },
@@ -262,7 +268,22 @@ const DE = {
     },
     "listarray.callback": {
         "description": "Benutzerdefinierte Rückruffunktionen werden ausgelöst, wenn der Benutzer auf ein Listenelement klickt. Die Funktion gibt 2 Argumente zurück. Argument 1: Klickereignis, Argument 2: geklickter Eintrag.",
-        "Typ": "Funktion",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    "listarray.data": {
+        "description": "Array der anzuzeigenden Zeichenfolgen (Werte).",
+        "type": "Array",
+        "default": "[]"
+    },
+    "listobject.data": {
+        "description": "Array of Objects.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "listobject.data.text": {
+        "description": "Hauptzeichenfolge, die angezeigt werden soll.",
+        "type": "String",
         "default": "undefined"
     },
     "closeOnCallback": {
@@ -451,7 +472,7 @@ const DE = {
         "default": "undefined"
     },
     "getValueFromCallback": {
-        "description": "Wenn false, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn true, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
+        "description": "Wenn False, dann hört das Modul nur auf den bergebenen State und die State Änderungen. Wenn true, dann erwartet das Modul Daten aus dem Callback die weiter verarbeitet werden.",
         "type": "Boolean",
         "default": "False"
     },
@@ -541,14 +562,14 @@ const DE = {
         "default": "True"
     },
     "reactRouter": {
-        "description": "Wenn true - (dann bewegt sich das Module innerhalb eines Rect Router) wird ein <Link> Tag gerendert, wenn false wird ein <a> Tag gerendert.",
+        "description": "Wenn true - (dann bewegt sich das Module innerhalb eines Rect Router) wird ein <Link> Tag gerendert, wenn False wird ein <a> Tag gerendert.",
         "type": "Boolean",
         "default": "False"
     },
     "icon": {
         "description": "Benutzerdefiniertes JSX um das Modul zu schließen.",
         "type": "String | JSX",
-        "default": ""
+        "default": "<leere Zeichenfolge>"
     },
     "iconCallback": {
         "description": "Benutzerdefiniertes Callback wenn das 'icon' angeglickt wrid.",
@@ -592,7 +613,7 @@ const DE = {
     },
     "title": {
         "description": "Array von Strings - Tabellenüberschrift.",
-        "Typ": "Array",
+        "type": "Array",
         "default": "undefined"
     },
     "writer.text": {
@@ -608,7 +629,7 @@ const DE = {
     "pipeDisplay": {
         "description": "Display the pipe while writing.",
         "type": "Boolen",
-        "default": "true"
+        "default": "True"
     },
     "pipeChar": {
         "description": "Charachter of the pipe",
@@ -660,6 +681,62 @@ const DE = {
         "type": "Array",
         "default": "undefined"
     },
+    "bread.hashRouter": {
+        "description": "Befindet sich die aktuelle React-App in einem ReactRouter oder nicht? Wenn true, wird der Hostname (erste Breadcrumbs) zum Suffix '/ # /'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "bread.domainName": {
+        "description": "Ersetzen Sie den Hostnamen (erster Breadcrumb) durch einen benutzerdefinierten Text",
+        "type": "String",
+        "default": "undefined"
+    },
+    "bread.delimiter": {
+        "description": "Trennzeichen zwischen den Breadrumbs.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    "bread.overwriteText": {
+        "description": "Muss mit dem Schlüssel verwendet werden: 'moduleMenu'. Wenn true, wird anstelle des Breadcrumbs-Pfads der erste untergeordnete Menüschlüssel: 'text' angezeigt. Wenn False, werden die ersten untergeordneten Menüschlüssel: 'text' angezeigt ignoriert. ",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "bread.moduleMenu": {
+        "description": "Das Modul wurde angehängt: 'MenuClickHorizontal' nur für den letzten Breadcrumb verfügbar. Nur ein einziges Kind als übergeordnetes Element zulässig - untergeordnete Verschachtelung ohne Einschränkungen zulässig.",
+        "type": "<MenuClickHorizontal>",
+        "default": "undefined"
+    },
+    "closeOnClickOutside" : {
+        "description": "Wenn true und der Benutzer nicht innerhalb des Elements ein Klick Event durchführt, werden alle aufgeklappten Elemente wieder zugemacht.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    /**
+     * Descriptions
+     */
+    "accordion.description": "Das Akkordeon-Modul kennt keine Einschränkungen bei der Verschachtelung von Kindern.",
+    "accordion.description2": "Beispiel mit einem Klick-Handler (außerhalb des Moduls), der durch den Schlüssel bereitgestellt wird: 'closeOnClickOutside' wurde auf true gesetzt (alle Kinder rekursiv geschlossen).",
+    "cards.scroll.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist.",
+    "cards.scrollCallback.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist. Das Laden weiterer Karten basiert auf der benutzerdefinierten Rückruffunktion. Wenn der Wert 'break' ist, wird der Scroll-Listener entfernt.",
+    "icons.description": "Symbolmodul mit allen Symbolen, KEINEN Übersetzungen und ausgewählten Standardsymbolen: Smileys. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
+    "icons.description2": "Symbolmodul mit ausgewählten Symbolen: Smileys, Aktivität, Reisen, Völker, Objekte, noch KEINE Übersetzungen und standardmäßig ausgewählte Symbole: Aktivität. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
+    "icons.description3": "Symbolmodul mit ausgewählten Symbolen: Smileys, Aktivität, Reisen, Völker, Objekte und 2 übersetzte Symboltitel. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
+    /**
+     * 
+     */
+    globalStyle: {
+        "description": "Laden der globalen Style Datei (react-revolution.css) erlauben. Falls diese schon geladen wurde, wird diese das 2 Mal nicht geladen.",
+        "type": "Boolean",
+        "default": "False"
+    },
+
+    moduleStyle: {
+        "description": "Allow loading of the style file of the single module. If it has already been loaded, it will not be loaded twice.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    styleLoading: "Style die im Modul Verwendung finden",
+    "runtime.generator.description": 'Wenn bei Verwendung der Rückruffunktion ein Fehler aufgetreten ist (runtime generator are not defined) in diesem Modul (callback), installieren Sie bitte: npm install --save @ babel / runtime && npm install --save-dev @ babel / plugin -transform-runtime; Fügen Sie dann in der .babelrc Datei die folgende Zeile hinzu: {"presets": ["@ babel / preset-env", "@ babel / preset-react"], "plugins": [["@ babel / transform-runtime"] ]}. ',
 };
 
 export default DE;

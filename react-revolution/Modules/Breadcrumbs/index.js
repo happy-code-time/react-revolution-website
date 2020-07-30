@@ -57,24 +57,25 @@ class Breadcrumbs extends React.Component {
     }
 
     buildModuleMenu(moduleMenu, text) {
-        if(moduleMenu){
+        if (moduleMenu) {
             const { overwriteText } = this.state;
-            const { animation, data, moduleStyle, globalStyle, reactRouter, id, addClass, defaultClass } = moduleMenu;
+            const { animation, data, moduleStyle, globalStyle, reactRouter, id, addClass, defaultClass, closeOnClickOutside } = moduleMenu;
 
-            if(data && 0 !== data.length && !overwriteText){
+            if (data && 0 !== data.length && !overwriteText) {
                 data[0].text = text;
             }
-    
+
             return (
                 <MenuClickHorizontal
                     id={id}
-                    class={defaultClass}
+                    defaultClass={defaultClass}
                     addClass={addClass}
                     reactRouter={reactRouter}
                     animation={animation}
                     data={data}
                     moduleStyle={moduleStyle}
                     globalStyle={globalStyle}
+                    closeOnClickOutside={closeOnClickOutside}
                 />
             );
         }
@@ -130,20 +131,24 @@ class Breadcrumbs extends React.Component {
         const { delimiter, paths } = this.state;
 
         if (!isLast && paths.length) {
-            return (
-                <span className="single-entry-span">
-                    <li key={uuid()} className="single-entry-li">
-                        {
-                            this.getTag(addedPaths, path, isLast)
-                        }
-                    </li>
-                    <span className="delimiter">
-                        {
-                            delimiter
-                        }
-                    </span>
-                </span>
+            const data = [];
+
+            data.push(
+                <li key={uuid()} className="single-entry-li">
+                    {
+                        this.getTag(addedPaths, path, isLast)
+                    }
+                </li>
             );
+            data.push(
+                <li key={uuid()} className="single-entry-delimiter">
+                    {
+                        delimiter
+                    }
+                </li>
+            );
+
+            return data;
         }
 
         return (
@@ -169,11 +174,11 @@ class Breadcrumbs extends React.Component {
                     paths && 0 !== paths.length &&
                     paths.map((breadcrumb, i) => {
                         const { path } = breadcrumb;
-                        
-                        if(hashRouter){
+
+                        if (hashRouter) {
                             addedPaths += path;
                         }
-                        else{
+                        else {
                             addedPaths += `/${path}`;
                         }
 

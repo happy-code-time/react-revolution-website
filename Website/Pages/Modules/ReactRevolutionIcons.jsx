@@ -8,6 +8,8 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { Icons } from 'react-revolution';
 
 <Icons
@@ -126,7 +128,7 @@ class ReactRevolutionIcons extends React.Component {
         this.examples = [
             {
                 title: 'Icons',
-                description: 'Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.',
+                description: trans('icons.description'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -144,7 +146,7 @@ class ReactRevolutionIcons extends React.Component {
             },
             {
                 title: 'Icons',
-                description: 'Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.',
+                description: trans('icons.description2'),
                 reactTextBefore: '',
                 react: codeExample2,
                 reactTextAfter: '',
@@ -170,7 +172,7 @@ class ReactRevolutionIcons extends React.Component {
             },
             {
                 title: 'Icons',
-                description: 'Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.',
+                description: trans('icons.description3'),
                 reactTextBefore: '',
                 react: codeExample3,
                 reactTextAfter: '',
@@ -286,6 +288,9 @@ class ReactRevolutionIcons extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-icons')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -298,9 +303,22 @@ class ReactRevolutionIcons extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

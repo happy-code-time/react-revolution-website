@@ -8,6 +8,10 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import { host } from '../../Globals';
+
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { CustomSuggestion } from 'react-revolution';
 
 <CustomSuggestion
@@ -54,7 +58,7 @@ const jsExample1 = `async search(inputValue, isClickEvent) {
             if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
                 suggestions.push(
                     {
-                        href: 'http://localhost:3000/#/react-revolution-custom-suggestion', // required
+                        href: '#', // required
                         jsx: (
                             <p>
                                 {
@@ -122,7 +126,7 @@ const jsExample2 = `searchState(inputValue, isClickEvent) {
         if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
             suggestions.push(
                 {
-                    href: 'http://localhost:3000/#/react-revolution-custom-suggestion', // required
+                    href: '#', // required
                     jsx: (
                         <p>
                             {
@@ -161,7 +165,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
 
         this.examples = [
             {
-                description: '',
+                description: trans("runtime.generator.description"),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -217,7 +221,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                 if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
                     suggestions.push(
                         {
-                            href: 'http://localhost:3000/#/react-revolution-custom-suggestion', // required
+                            href: `${host}#/react-revolution-custom-suggestion`, // required
                             jsx: (
                                 <p>
                                     {
@@ -272,7 +276,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
             if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
                 suggestions.push(
                     {
-                        href: 'http://localhost:3000/#/react-revolution-custom-suggestion', // required
+                        href: `${host}#/react-revolution-custom-suggestion`, // required
                         jsx: (
                             <p>
                                 {
@@ -401,6 +405,9 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                         />
                     </span>
                 </div>
+                {
+                    getDescriptionForstyle('rr-custom-suggestion')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -413,9 +420,22 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

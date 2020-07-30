@@ -21,36 +21,109 @@
         padding: 10px;
     }
 
+    .a-description,
     .description{
         color: $text-color;
         font-size: 0.87rem;
         letter-spacing: 0.078rem;
         box-sizing: border-box;
         padding: 10px;
+        line-height: 30px;
+    }
+
+    .a-description{
+        text-decoration: none;
+        display: block;
+        padding: 10px 0;
+        line-height: 10px;
     }
 
     .rr-table{
+        width: 100%;
 
-        .ul{
+        li{
             width: 100%;
-
-            li{
-                width: 100%;
-            }
+            min-height: 30px;
+            line-height: 30px;
+            box-sizing: border-box;
+            padding: 5px 10px;
         }
 
         .span{
             display: block;
+            font-size: 0.87rem;
+            color: $text-color;
+        }
+
+        .span-1{
+            overflow: hidden;
+            word-wrap: none;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            margin-left: 5px;
         }
 
         .span-1,
+        .span-2,
+        .span-3{
+            border: none;
+        }
+
+        .span-2,
         .span-3,
         .span-4{
-            width: 10%;
-            min-width: 150px;
+            margin-left: 5px;
         }
-        .span-2{
-            width: 70%;
+
+        .span-1,
+        .span-2,
+        .span-3,
+        .span-4{
+            width: calc(100% - 10px);
+        }
+
+        .title{
+            display: none;
+
+            span{
+                font-weight: bold;
+            }
         }
     }
+
+    @media screen and (min-width: $media-break) {
+        .rr-table{
+            width: 100%;
+
+            .span-1,
+            .span-2,
+            .span-3{
+                border-right: 1px solid rgba(222,222,222,.5);
+            }
+    
+            .span-2,
+            .span-3,
+            .span-4{
+                margin-left: 20px;
+            }
+    
+            .span-1,
+            .span-2,
+            .span-3{
+                width: calc(15% - 20px);
+                min-width: calc(15% - 20px);
+            }
+    
+            .span-2{
+                width: calc(55% - 40px);
+                min-width: calc(55% - 40px);
+            }
+    
+            .title{
+                display: flex;
+            }
+        }
+    }
+    
 }

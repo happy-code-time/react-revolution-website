@@ -1,0 +1,14 @@
+.git
+.DS_Store
+npm-debug.log
+package-lock.json
+Functions
+Globals
+Modules
+sass
+.babelrc
+index.html
+production.js
+tsconfig.json
+webpack.config.production.js
+node_modules

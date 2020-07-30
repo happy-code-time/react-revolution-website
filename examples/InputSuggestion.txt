@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { InputSuggestion } from './react-revolution/public/react-revolution';
+import { InputSuggestion } from './react-revolution';
 
 import './react-revolution/sass/rr-input-suggestion.scss';
 /**

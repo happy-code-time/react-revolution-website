@@ -115,6 +115,8 @@
     .logo-text {
       display: flex;
       height: 60px;
+      text-decoration: none;
+      color: $text-color;
 
       .logo {
         margin: 5px;
@@ -151,72 +153,58 @@
     }
   }
 
-  .rr-menu-click-horizontal {
-    height: calc(100% - 60px);
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    .single-entry {
-      border-radius: 0px;
-      margin: 10px;
-      border: none;
-      display: block;
-      width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      a {
-        color: #7c8695;
-      }
-
-      i {
-        margin: 0 20px 0 7px;
-      }
-    }
-
-    .icon-down {
-      position: absolute;
-      display: block;
-      top: 0;
-      right: 0;
-      text-align: center;
-
-      line-height: 35px;
-      transition-duration: $default_transition;
-      margin: 0 !important;
-    }
-
-    .icon-down-animation .dropDownIcon {
-      @keyframes rotate90Deg {
-        0% {
-          transform: rotateZ(0deg);
+  .SideBar{
+    transition-duration: $default_transition;
+    
+    .rr-menu-click-horizontal {
+      height: calc(100% - 60px);
+      overflow-x: hidden;
+      overflow-y: hidden;
+  
+      .single-entry {
+        border-radius: 0px;
+        margin: 10px;
+        border: none;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition-duration: $default_transition;
+  
+        .text,
+        a {
+          color: #7c8695;
+          font-size: 0.87rem;
+          letter-spacing: 0.0111rem;
+          transition-duration: $default_transition;
         }
-        100% {
-          transform: rotateZ(90deg);
+
+        .hasChildren{
+          font-weight: bold;
         }
       }
-      animation: rotate90Deg 300ms ease-in forwards;
     }
-
-    .icon-down-animation-persist .dropDownIcon {
-      transform: rotateZ(90deg);
-    }
-
-    .icon-down-animation-back .dropDownIcon {
-      @keyframes rotate90DegBack {
-        0% {
-          transform: rotateZ(90deg);
-        }
-        100% {
-          transform: rotateZ(0deg);
-        }
-      }
-      animation: rotate90DegBack 300ms ease-in forwards;
+  
+    .rr-menu-click-horizontal:hover {
+      overflow-y: auto;
     }
   }
 
-  .rr-menu-click-horizontal:hover {
-    overflow-y: auto;
+  .SideBar.SideBar-min{
+
+    .single-entry {
+      margin: 5px 10px;
+    }
+
+    .text,
+    a{
+      font-size: 0.77rem !important;
+      letter-spacing: 0.00511rem !important;
+    }
+
+    .long{
+      font-size: 0.67rem !important;
+    }
   }
 }

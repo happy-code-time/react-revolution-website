@@ -8,6 +8,8 @@ import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
 import toggleZindex from '../../Functions/toggleZindex';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample = `import { FullScreenListArray } from 'react-revolution';
 
 <span>
@@ -202,6 +204,9 @@ class ReactRevolutionFullScreenListArray extends React.Component {
                         />
                     </span>
                 </div>
+                {
+                    getDescriptionForstyle('rr-full-screen-list-array')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -214,9 +219,22 @@ class ReactRevolutionFullScreenListArray extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

@@ -8,34 +8,109 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
-const codeExample1 = `import { Accordion } from 'react-revolution';
+import { host } from '../../Globals';
 
-<Accordion
-    animation='height' // height, scale, opacity
-    data={
-        [
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
+const codeExample1 = `import { Breadcrumbs } from 'react-revolution';
+
+<div className="rr-breadcrumbs-example">
+    <Breadcrumbs 
+        hashRouter={true}
+    />
+</div>`;
+
+const codeExample2 = `import { Breadcrumbs } from 'react-revolution';
+
+<div className="rr-breadcrumbs-example">
+    <Breadcrumbs
+        hashRouter={true}
+        reactRouter={false}
+        domainName='Home'
+    />
+</div>`;
+
+const codeExample3 = `import { Breadcrumbs } from 'react-revolution';
+
+<div className="rr-breadcrumbs-example">
+    <Breadcrumbs
+        hashRouter={true}
+        reactRouter={false}
+        domainName='Home'
+        delimiter='>'
+        overwriteText={false}
+        moduleMenu={
             {
-                text: 'Home',
-                icon: <i className='fas fa-flag-checkered' />,
+                closeOnClickOutside: true,
+                animation: 'scale', // height, scale, opacity
                 data: [
                     {
-                        text: 'Child - no data to toggle',
-                    },
-                    {
-                        text: 'Child - has data to toggle',
-                        dataToggle: 'dataToggle'
-                    },
-                    {
-                        text: 'Child - has data to toggle',
-                        dataToggle: (
-                            <span> 😍 </span>
-                        )
-                    },
+                        text: 'last entry - to toggle',
+                        data: [
+                            {
+                                text: 'Child 1',
+                                href: '#',
+                            },
+                            {
+                                text: 'Child 2',
+                                href: '#',
+                            },
+                            {
+                                text: 'Child 3',
+                                href: '#',
+                            },
+                        ]
+                    }
                 ]
             }
-        ]
+        }
+    />
+</div>`;
+
+const cssExample = `.rr-breadcrumbs-example{
+    width: 100%;
+    min-height: 50px;
+    line-height: 50px;
+
+    .single-entry-delimiter{
+        color: rgb(82,82,82);
     }
-/>`;
+
+    span,
+    a{
+        color: rgb(163,163,163);
+    }
+
+    a{
+        margin:0 5px;
+    }
+
+    .menu-span{    
+
+        .text:hover{
+            cursor: pointer;
+        }
+
+        .hasChildren{
+            border: unset;
+        }
+
+        .children{
+            position: absolute;
+            width: 100%;
+            padding:0;
+            background-color: rgb(255,255,255);
+            border-radius: 3px;
+            box-shadow: 0px 0px 3px rgb(122,122,122);
+
+            .child{
+                box-sizing: border-box;
+                margin: 5px 0;
+                padding: 0 5px;
+            }
+        }
+    }
+}`;
 
 class ReactRevolutionBreadcrumbs extends React.Component {
     constructor(props) {
@@ -46,45 +121,82 @@ class ReactRevolutionBreadcrumbs extends React.Component {
         this.examples = [
             {
                 title: 'Breadcrumbs',
-                description: '.',
+                description: '',
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
                 js: '',
-                css: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <div className="rr-breadcrumbs-example">
+                        <Breadcrumbs 
+                            hashRouter={true}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'Breadcrumbs',
+                description: '',
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
                 html: '',
                 live: (
                     <div className="rr-breadcrumbs-example">
                         <Breadcrumbs
-                            hashRouter={false}
+                            hashRouter={true}
+                            reactRouter={false}
+                            domainName='Home'
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'Breadcrumbs',
+                description: '',
+                reactTextBefore: '',
+                react: codeExample3,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <div className="rr-breadcrumbs-example">
+                        <Breadcrumbs
+                            hashRouter={true}
                             reactRouter={false}
                             domainName='Home'
                             delimiter='>'
                             overwriteText={false}
-                            // moduleMenu={
-                            //     {
-                            //         animation: 'height', // height, scale, opacity
-                            //         data: [
-                            //             {
-                            //                 text: 'last entry - to toggle',
-                            //                 data: [
-                            //                     {
-                            //                         text: 'Child 1',
-                            //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                            //                     },
-                            //                     {
-                            //                         text: 'Child 2',
-                            //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                            //                     },
-                            //                     {
-                            //                         text: 'Child 3',
-                            //                         href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                            //                     },
-                            //                 ]
-                            //             }
-                            //         ]
-                            //     }
-                            // }
+                            moduleMenu={
+                                {
+                                    closeOnClickOutside: true,
+                                    animation: 'scale', // height, scale, opacity
+                                    data: [
+                                        {
+                                            text: 'last entry - to toggle',
+                                            data: [
+                                                {
+                                                    text: 'Child 1',
+                                                    href: `${host}#/react-revolution-breadcrumbs`,
+                                                },
+                                                {
+                                                    text: 'Child 2',
+                                                    href: `${host}#/react-revolution-breadcrumbs`,
+                                                },
+                                                {
+                                                    text: 'Child 3',
+                                                    href: `${host}#/react-revolution-breadcrumbs`,
+                                                },
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
                         />
                     </div>
                 )
@@ -114,6 +226,9 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-breadcrumbs')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -126,9 +241,22 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'
@@ -140,6 +268,31 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                                 {
                                     key: 'addClass',
                                     values: 'addClass'
+                                },
+
+                                {
+                                    key: 'hashRouter',
+                                    values: 'bread.hashRouter'
+                                },
+                                {
+                                    key: 'reactRouter',
+                                    values: 'reactRouter'
+                                },
+                                {
+                                    key: 'domainName',
+                                    values: 'bread.domainName'
+                                },
+                                {
+                                    key: 'delimiter',
+                                    values: 'bread.delimiter'
+                                },
+                                {
+                                    key: 'overwriteText',
+                                    values: 'bread.overwriteText'
+                                },
+                                {
+                                    key: 'moduleMenu',
+                                    values: 'bread.moduleMenu'
                                 },
                             ],
                             'rr-breadcrumbs'

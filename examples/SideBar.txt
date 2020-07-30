@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { SideBar, MenuClickHorizontal } from './react-revolution/public/react-revolution';
+import { SideBar, MenuClickHorizontal } from './react-revolution';
 
 import './react-revolution/sass/rr-sidebar.scss';
 

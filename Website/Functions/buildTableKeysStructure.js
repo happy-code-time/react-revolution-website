@@ -11,7 +11,7 @@ const buildTableKeysStructure = (keys, defaultClass) => {
                 key,
                 value: trans(values).description,
                 type: trans(values).type,
-                default: key == 'class' ? defaultClass : trans(values).default
+                default: key == 'defaultClass' ? defaultClass : trans(values).default
             }
         )
     });

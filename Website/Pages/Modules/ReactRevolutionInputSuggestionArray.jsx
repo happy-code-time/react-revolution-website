@@ -6,6 +6,8 @@ import trans from '../../Translations/trans';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample = `import { InputSuggestionArray } from 'react-revolution';
 
 <InputSuggestionArray
@@ -209,6 +211,9 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                         clipboard={jsExample}
                     />
                 </div>
+                {
+                    getDescriptionForstyle('rr-input-suggestion-array')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -221,9 +226,22 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

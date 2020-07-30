@@ -26,6 +26,22 @@
           .suggestions{
             max-height: 50vh;
           }
+
+          li{
+            transition-duration: $default_transition;
+
+            a,p{
+              transition-duration: $default_transition;
+            }
+          }
+          
+          li:hover{
+            background-color: $dodgerblue;
+
+            a,p{
+              color: $white;
+            }
+          }
         }
       }
     }

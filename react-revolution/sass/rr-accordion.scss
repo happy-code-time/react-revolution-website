@@ -45,7 +45,7 @@
         max-height: 1000000px;
     }
 
-    .animation-height-back{
+    .animation-height-back .children{
         @keyframes toggleMenuEntriesHeightBack {
             0%{
                 max-height: 300px;
@@ -78,7 +78,7 @@
         transform: scaleY(1);
     }
 
-    .animation-scale-back{
+    .animation-scale-back .children{
         @keyframes toggleMenuEntriesScaleBack {
             0%{
                 transform: scaleY(1);
@@ -111,7 +111,7 @@
         opacity: 1;
     }
 
-    .animation-opacity-back{
+    .animation-opacity-back .children {
         @keyframes toggleMenuEntriesOpacityBack {
             0%{
                 opacity: 1;

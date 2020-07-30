@@ -8,6 +8,10 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import { host } from '../../Globals';
+
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
 
 <MenuClickHorizontal
@@ -17,22 +21,22 @@ const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
         [
             {
                 text: 'Entry 1 - no childs',
-                href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                href: '#',
             },
             {
                 text: 'Entry 2 - toggle childs',
                 data: [
                     {
                         text: 'Child 1',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 2',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 3',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                 ]
             },
@@ -41,27 +45,89 @@ const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
                 data: [
                     {
                         text: 'Child 1',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 2',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 3',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 4',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 5',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
                     },
                     {
                         text: 'Child 6',
-                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                        href: '#',
+                    },
+                ]
+            }
+        ]
+    }
+/>`;
+
+const codeExample2 = `import { MenuClickHorizontal } from 'react-revolution';
+
+<MenuClickHorizontal
+    closeOnClickOutside={true}
+    reactRouter={false}
+    animation='height' // height, scale, opacity
+    data={
+        [
+            {
+                text: 'Entry 1 - no childs',
+                href: '#',
+            },
+            {
+                text: 'Entry 2 - toggle childs',
+                data: [
+                    {
+                        text: 'Child 1',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 2',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 3',
+                        href: '#',
+                    },
+                ]
+            },
+            {
+                text: 'Entry 3 - toggle childs',
+                data: [
+                    {
+                        text: 'Child 1',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 2',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 3',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 4',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 5',
+                        href: '#',
+                    },
+                    {
+                        text: 'Child 6',
+                        href: '#',
                     },
                 ]
             }
@@ -92,52 +158,119 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                         data={
                             [
                                 {
-                                    text: 'Entry 1 - no childs',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                    text: 'Link',
+                                    href: '#',
                                 },
                                 {
-                                    text: 'Entry 2 - toggle childs',
+                                    text: 'Toggle',
                                     data: [
                                         {
                                             text: 'Child 1',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 2',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 3',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                     ]
                                 },
                                 {
-                                    text: 'Entry 3 - toggle childs',
+                                    text: 'Toggle',
                                     data: [
                                         {
                                             text: 'Child 1',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 2',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 3',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 4',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 5',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                         {
                                             text: 'Child 6',
-                                            href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                    ]
+                                }
+                            ]
+                        }
+                    />
+                )
+            },
+            {
+                title: 'MenuClickHorizontal',
+                description: trans('accordion.description2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <MenuClickHorizontal
+                        closeOnClickOutside={true}
+                        reactRouter={false}
+                        animation='height' // height, scale, opacity
+                        data={
+                            [
+                                {
+                                    text: 'Toggle',
+                                    data: [
+                                        {
+                                            text: 'Child 1',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 2',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 3',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                    ]
+                                },
+                                {
+                                    text: 'Toggle',
+                                    data: [
+                                        {
+                                            text: 'Child 1',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 2',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 3',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 4',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 5',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                        },
+                                        {
+                                            text: 'Child 6',
+                                            href: `${host}#/react-revolution-menu-click-horizontal`,
                                         },
                                     ]
                                 }
@@ -175,6 +308,9 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-menu-click-horizontal')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -187,9 +323,22 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'
@@ -205,6 +354,10 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                                 {
                                     key: 'reactRouter',
                                     values: 'reactRouter'
+                                },
+                                {
+                                    key: 'closeOnClickOutside',
+                                    values: 'closeOnClickOutside'
                                 },
                                 {
                                     key: 'animation',

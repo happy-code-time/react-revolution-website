@@ -1,9 +1,11 @@
 const PL = {
+    is: 'jest',
+    iconTokenFrom: 'Ikonka wzięta z',
     openSourceText: 'Darmowy projekt Open Source',
     changeLanguageTitle: 'Zmień język',
     changeTintTitle: 'Zmień wygląd strony',
     lightTheme: 'Jasny',
-    darkTheme: 'Ciemny',
+    darkTheme: 'Ciemny (w przygotowaniu)',
     searchForModule: 'Szukanie modułu',
     clickToNavToTheModule: 'Nawigacja do tego modułu',
     fast: 'Szybki',
@@ -14,7 +16,7 @@ const PL = {
     installation: 'Instalacja',
     documentation: 'Dokumentacja',
     modules: 'Moduły',
-    getStarted: 'Początek',
+    getStarted: 'Rozpocznij swoją przygodę',
     installation: 'Instalacja',
     feedback: 'Feedback',
     usefullLinks: 'Użyteczne linki',
@@ -27,6 +29,10 @@ const PL = {
     jsCodeTitle: 'Kod javascript',
     loading: 'Ładowanie...',
     keyUsageTitle: 'Wyjaśnienia Kluczy',
+    "table.title.key" : 'Klucz',
+    "table.title.description" : 'description',
+    "table.title.type" : 'Typ',
+    "table.title.default" : 'Domyślnie',
     /**
      * Module keys
      */
@@ -38,7 +44,7 @@ const PL = {
     "class": {
         "description": 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które przynosi moduł, nie mają już zastosowania. ',
         "type": 'Ciąg',
-        "domyślna": ''
+        "default": ''
     },
     "addClass": {
         "description": 'Ustaw dodatkową klasę dla głównego elementu tego modułu.',
@@ -58,7 +64,7 @@ const PL = {
     "accordion.data": {
         "description": "główne dane.",
         "type": "tablica",
-        "domyślna": "[]"
+        "default": "[]"
     },
     'accordion.data.href': {
         "description": "Tag <a> lub <Link> wokół wpisu tekstowego, aby nawigować po użytkowniku w aplikacji.",
@@ -88,7 +94,7 @@ const PL = {
     "props": {
         "description": "Właściwości HTML elementu HTML.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "itemsPerLine": {
         "description": "Ile pozycji powinno wyświetlić się w rzędzie.",
@@ -103,12 +109,12 @@ const PL = {
     "data": {
         "description": "Główne dane - Tablica Obiektów.",
         "type": "tablica",
-        "domyślna": "[]"
+        "default": "[]"
     },
     "cards.data": {
         "description": "Główne dane - Tablica Obiektów.",
         "type": "tablica",
-        "domyślna": "[]"
+        "default": "[]"
     },
     "cards.data.title": {
         "description": "Dane nagłówka karty.",
@@ -150,32 +156,32 @@ const PL = {
         "type": "String | JSX",
         "default": "<pusty ciąg>"
     },
-    "customuggestion.callback": {
-        "opis": "Po zmianie w polu wejściowym wywoływana jest funkcja z 1 parametrem: Wartość pola wejściowego. Callback musi zwrócić listę i obiekty. Struktura jest opisana w kluczu 'sugestie'.",
+    "customsuggestion.callback": {
+        "description": "Po zmianie w polu wejściowym wywoływana jest funkcja z 1 parametrem: Wartość pola wejściowego. Callback musi zwrócić listę i obiekty. Struktura jest descriptionana w kluczu 'sugestie'.",
         "type": "Funkcja",
         "default": "undefined"
     },
-    "customuggestion.suggestions": {
-        "opis": "lista obiektów",
+    "customsuggestion.suggestions": {
+        "description": "lista obiektów",
         "type": "tablica",
         "default": "undefined"
     },
-    "customuggestion.suggestions.href": {
+    "customsuggestion.suggestions.href": {
         "description": "Niestandardowa sugestia jest otoczona tagiem A, dzięki czemu użytkownik może bezpośrednio skorzystać z sugestii.",
         "type": "String",
         "default": "undefined"
     },
-    "customuggestion.suggestions.jsx": {
+    "customsuggestion.suggestions.jsx": {
         "description": "Niestandardowy HTML, który widzi użytkownik końcowy.",
         "type": "String",
         "default": "undefined"
     },
-    "customuggestion.suggestions.props": {
+    "customsuggestion.suggestions.props": {
         "description": "Właściwości HTML elementu HTML.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
-    "customuggestion.suggestions.onClickValue": {
+    "customsuggestion.suggestions.onClickValue": {
         "description": "Wartość do wpisania w polu wejściowym, gdy ma miejsce zdarzenie kliknięcia.",
         "type": "String",
         "default": "undefined"
@@ -211,7 +217,7 @@ const PL = {
         "default": "undefined"
     },
     "placeholder": {
-        "opis": "symbol zastępczy.",
+        "description": "symbol zastępczy.",
         "type": "String",
         "default": "<pusty ciąg>"
     },
@@ -221,12 +227,12 @@ const PL = {
         "default": "tekst"
     },
     "callbackRerender": {
-        "description": "Jeśli prawda, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli fałsz, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
+        "description": "Jeśli true, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli fałsz, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
         "type": "Boolean",
         "default": "False"
     },
     "allowOnlyAZ": {
-        "description": "Jeśli prawda, następujące wyrażenie regularne jest stosowane do wartości pola wejściowego: (/ [^ a-zA-Z] / gmi).",
+        "description": "Jeśli true, następujące wyrażenie regularne jest stosowane do wartości pola wejściowego: (/ [^ a-zA-Z] / gmi).",
         "type": "Boolean",
         "default": "False"
     },
@@ -265,6 +271,21 @@ const PL = {
         "type": "Funkcja",
         "default": "undefined"
     },
+    "listarray.data": {
+        "description": "Tablica ciągów (wartości) do wyświetlenia.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "listobject.data": {
+        "description": "Tablica obiektów.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "listobject.data.text": {
+        "description": "Główny ciąg do wyświetlenia.",
+        "type": "String",
+        "default": "undefined"
+    },
     "closeOnCallback": {
         "description": "W przypadku wybrania elementu z listy należy również zamknąć moduł lub zachować wyświetlanie modułu.",
         "type": "Boolean",
@@ -281,7 +302,7 @@ const PL = {
         "default": "False"
     },
     "inputEmptyOnCallback": {
-        "opis": "Po wybraniu elementu z listy pole wejściowe powinno zostać nauczone lub wartość pola wejściowego powinna pozostać niezmieniona.",
+        "description": "Po wybraniu elementu z listy pole wejściowe powinno zostać nauczone lub wartość pola wejściowego powinna pozostać niezmieniona.",
         "type": "Boolean",
         "default": "False"
     },
@@ -326,9 +347,9 @@ const PL = {
         "default": "<pusty ciąg>"
     },
     "codeMapping": {
-        "opis": "Obiekt",
+        "description": "Obiekt",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "codeMapping.title": {
         "description": "Tytuł wiadomości",
@@ -343,7 +364,7 @@ const PL = {
     "codeMapping.text": {
         "description": "Obiekt - Tekst do wyświetlenia jako wiadomość.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "codeMapping.text.prefix": {
         "description": "Prefiks tekst przed faktyczną mediacją.",
@@ -358,7 +379,7 @@ const PL = {
     "codeMapping.text.props": {
         "description": "Właściwości HTML elementu HTML.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "codeMapping.close": {
         "description": "Tekst obiektu do zamknięcia okna komunikatu.",
@@ -373,12 +394,12 @@ const PL = {
     "codeMapping.close.props": {
         "description": "Właściwości HTML elementu HTML.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "codeMapping.link": {
         "description": "Obiekt - Link zewnętrzny.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "codeMapping.link.text": {
         "description": "Tekst do wyświetlenia.",
@@ -393,7 +414,7 @@ const PL = {
     "codeMapping.link.href": {
         "description": "Atrybut 'to' w tagu <Link> lub 'href' w tagu <a>.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "timer": {
         "description": "Interwał wyświetlania komunikatów o błędach.",
@@ -436,9 +457,9 @@ const PL = {
         "default": "undefined"
     },
     "defaultClassOrigin": {
-        "opis": "",
+        "description": "",
         "type": "String",
-        "domyślna": ""
+        "default": ""
     },
     "animatePlaceholder": {
         "description": "Placeholder (który jest wtedy również animowany).",
@@ -451,7 +472,7 @@ const PL = {
         "default": "undefined"
     },
     "getValueFromCallback": {
-        "description": "Jeśli fałsz, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli prawda, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
+        "description": "Jeśli fałsz, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli true, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
         "type": "Boolean",
         "default": "False"
     },
@@ -508,12 +529,12 @@ const PL = {
     "selected": {
         "description": "Tablica wybranych pozycji z listy.",
         "type": "tablica",
-        "domyślna": "[]"
+        "default": "[]"
     },
     "suggestionsToFilter": {
         "description": "Tablica elementów (stringi), które następnie pojawią się do wyboru przez użytkownika.",
         "type": "tablica",
-        "domyślna": "[]"
+        "default": "[]"
     },
     "emptySuggestionAfterSelection": {
         "description": "Naucz sugestii po tym, jak użytkownik kliknie element.",
@@ -536,19 +557,19 @@ const PL = {
         "default": "<pusty ciąg>"
     },
     "scrollReference": {
-        "description": "Jeśli prawda, główny element modułu jest używany jako odniesienie, w przeciwnym razie dokument HTML Elment.",
+        "description": "Jeśli true, główny element modułu jest używany jako odniesienie, w przeciwnym razie dokument HTML Elment.",
         "type": "Boolean",
         "default": "True"
     },
     "reactRouter": {
-        "description": "Jeśli prawda - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli fałsz jest renderowany tag <a>.",
+        "description": "Jeśli true - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli fałsz jest renderowany tag <a>.",
         "type": "Boolean",
         "default": "False"
     },
     "icon": {
         "description": "Niestandardowy JSX do zamknięcia modułu.",
         "type": "String | JSX",
-        "domyślna": ""
+        "default": "<pusty ciąg>"
     },
     "iconCallback": {
         "description": "Niestandardowe wywołanie zwrotne po kliknięciu 'ikony'.",
@@ -588,7 +609,7 @@ const PL = {
     "hrefProps": {
         "description": "Właściwości HTML tagu <a>.",
         "type": "Object",
-        "domyślna": "{}"
+        "default": "{}"
     },
     "title": {
         "description": "Tablica ciągów - nagłówek tabeli.",
@@ -608,7 +629,7 @@ const PL = {
     "pipeDisplay": {
         "description": "Wyświetl potok podczas pisania.",
         "type": "Boolen",
-        "default": "prawda"
+        "default": "True"
     },
     "pipeChar": {
         "description": "Charachter of the pipe",
@@ -660,6 +681,61 @@ const PL = {
         "type": "tablica",
         "default": "undefined"
     },
+    "bread.hashRouter": {
+        "description": "Czy obecna aplikacja React znajduje się w ReactRouter, czy nie. Jeśli true, nazwa hosta (pierwsza ścieżka nawigacyjna) staje się sufiksem '/ # /'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "bread.domainName": {
+        "description": "Zastąp nazwę hosta (pierwszy plik nawigacyjny) dostosowanym tekstem",
+        "type": "String",
+        "default": "undefined"
+    },
+    "bread.delimiter": {
+        "description": "Separator między bułką tartą.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    "bread.overwriteText": {
+        "description": "Musi być używany z kluczem: 'moduleMenu'. Jeśli true, to zamiast ścieżki do bułki tartej wyświetlany jest pierwszy klucz podrzędny menu: 'tekst'. Jeśli fałsz, to pierwsze menu podrzędne: 'tekst' ignorowane. ",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "bread.moduleMenu": {
+        "description": "Dołączono moduł: 'MenuClickHorizontal' dostępny tylko dla ostatniego menu nawigacyjnego. Tylko jedno dziecko dozwolone jako element nadrzędny - zagnieżdżanie potomne dozwolone bez ograniczeń.",
+        "type": "<MenuClickHorizontal>",
+        "default": "undefined"
+    },
+    "closeOnClickOutside": {
+        "description": "Jeśli true, a użytkownik nie wykona kliknięcia w Elemencie, wszystkie rozwinięte elementy zostaną zamknięte.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    /**
+     * Descriptions
+     */
+    "accordion.description": "Moduł Accordion nie ma ograniczeń w zagnieżdżaniu dzieci.",
+    "accordion.description2": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
+    "cards.scroll.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div.",
+    "cards.scrollCallback.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div. Załaduj więcej kart opiera się na niestandardowej funkcji wywołania zwrotnego. Jeśli wartość to „break”, to nasłuchiwanie przewijania jest usuwane.",
+    "icons.description": "Moduł ikon ze wszystkimi ustawionymi ikonami, BEZ tłumaczeń i domyślnym ustawionym zestawem ikon: buźki. Po kliknięciu spójrz na konsolę w poszukiwaniu ikony.",
+    "icons.description2": "Moduł ikon z wybranym zestawem ikon: Buźki, Aktywność, Podróż, Ludzie, Obiekty, BRAK tłumaczeń i domyślny zestaw ikon: Aktywność. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
+    "icons.description3": "Moduł ikon z wybranym zestawem ikon: buźki, aktywność, podróż, ludy, obiekty i 2 przetłumaczone tytuły ikon. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
+    /**
+     * 
+     */
+    globalStyle: {
+        "description": "Załaduj globalny plik stylu (react-revolution.css). Jeśli zostały już załadowane, nie zostaną załadowane dwukrotnie.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    moduleStyle: {
+        "description": "Zezwól na ładowanie pliku stylu tego modułu. Jeśli został już załadowany, nie zostanie załadowany dwukrotnie.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    styleLoading: "Style używane w tym module",
+    "runtime.generator.description": 'Jeśli wystąpił błąd (runtime generator are not defined) podczas korzystania z funkcji wywołania zwrotnego w tym module (callback), zainstaluj: npm install --save @ babel / runtime && npm install --save-dev @ babel / plugin -transform-runtime; Następnie w pliku .babelrc dodaj tę linię: {"presets": ["@ babel / preset-env", "@ babel / preset-aware"], "plugins": [["@ babel / transform-runtime"] ]}. ',
 };
 
 export default PL;

@@ -8,6 +8,8 @@ import trans from '../../Translations/trans';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { TextWriter } from 'react-revolution';
 <TextWriter
     text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
@@ -47,7 +49,7 @@ class ReactRevolutionTextWriter extends React.Component {
         this.examples = [
             {
                 title: 'TextWriter',
-                description: '',
+                description: trans("runtime.generator.description"),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -173,6 +175,9 @@ class ReactRevolutionTextWriter extends React.Component {
                         clipboard={codeExample2}
                     />
                 </div>
+                {
+                    getDescriptionForstyle('rr-text-writer')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -180,19 +185,27 @@ class ReactRevolutionTextWriter extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    title={
-                        [
-                            'key', 'description', 'type', 'default'
-                        ]
-                    }
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

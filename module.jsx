@@ -2,13 +2,9 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Breadcrumbs } from './react-revolution/public/react-revolution';
+// import { Breadcrumbs } from './react-revolution/public/react-revolution';
 
-/**
- * Render it to the html while testing
- */
-
-import './react-revolution/sass/rr-breadcrumbs.scss';
+import { Breadcrumbs } from 'react-revolution';
 
 class App extends React.Component {
   constructor(props) {

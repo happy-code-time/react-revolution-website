@@ -8,6 +8,10 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import { host } from '../../Globals';
+
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolution';
 
 <div className="rr-revolution-sidebar-example">
@@ -26,15 +30,11 @@ const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolu
                             data: [
                                 {
                                     text: 'Child 1',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                    href: '#',
                                 },
                                 {
                                     text: 'Child 2',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                },
-                                {
-                                    text: 'Child 3',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                    href: '#',
                                 },
                             ]
                         },
@@ -43,27 +43,11 @@ const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolu
                             data: [
                                 {
                                     text: 'Child 1',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                    href: '#',
                                 },
                                 {
                                     text: 'Child 2',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                },
-                                {
-                                    text: 'Child 3',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                },
-                                {
-                                    text: 'Child 4',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                },
-                                {
-                                    text: 'Child 5',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                },
-                                {
-                                    text: 'Child 6',
-                                    href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                    href: '#',
                                 },
                             ]
                         }
@@ -131,15 +115,11 @@ class ReactRevolutionSidebar extends React.Component {
                                                 data: [
                                                     {
                                                         text: 'Child 1',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                                        href: `${host}#/react-revolution-sidebar`,
                                                     },
                                                     {
                                                         text: 'Child 2',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                                    },
-                                                    {
-                                                        text: 'Child 3',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                                        href: `${host}#/react-revolution-sidebar`,
                                                     },
                                                 ]
                                             },
@@ -148,27 +128,11 @@ class ReactRevolutionSidebar extends React.Component {
                                                 data: [
                                                     {
                                                         text: 'Child 1',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                                        href: `${host}#/react-revolution-sidebar`,
                                                     },
                                                     {
                                                         text: 'Child 2',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                                    },
-                                                    {
-                                                        text: 'Child 3',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                                    },
-                                                    {
-                                                        text: 'Child 4',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                                    },
-                                                    {
-                                                        text: 'Child 5',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
-                                                    },
-                                                    {
-                                                        text: 'Child 6',
-                                                        href: 'http://localhost:3000/#/react-revolution-menu-click-horizontal',
+                                                        href: `${host}#/react-revolution-sidebar`,
                                                     },
                                                 ]
                                             }
@@ -209,6 +173,9 @@ class ReactRevolutionSidebar extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-sidebar')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -221,9 +188,22 @@ class ReactRevolutionSidebar extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

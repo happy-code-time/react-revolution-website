@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import ReactDOM from 'react-dom';
 
@@ -8,7 +8,7 @@ import Home from './Website/Pages/Home';
 
 import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
-import { scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution/public/react-revolution';
+import { scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -86,7 +86,7 @@ class App extends React.Component {
     this.searchForModule = this.searchForModule.bind(this);
 
     this.state = {
-      minifySidebard: process.env.HOST == window.location.href ? true : false,
+      minifySidebard: '#/' == window.location.hash ? true : false,
       host: process.env.HOST,
       suggestions: [],
       inputValue: ''
@@ -97,6 +97,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+
+    if('' == window.location.hash || 'http:' == window.location.protocol){
+      window.location.href = `${this.state.host}#/`;
+    }
+
     scrollTopListener(0);
     this.setOnClickEvent();
     this.changeSidebarMinifiedState();
@@ -152,13 +157,13 @@ class App extends React.Component {
 
   changeSidebarMinifiedState() {
     const { minifySidebard } = this.state;
-    const href = window.location.href;
+    const hash = window.location.hash;
 
-    if (process.env.HOST == href && !minifySidebard) {
+    if ('#/' == hash && !minifySidebard) {
       return this.setState({ minifySidebard: true });
     }
 
-    if (process.env.HOST !== href && minifySidebard) {
+    if ('#/' !== hash && minifySidebard) {
       this.setState({ minifySidebard: false });
     }
   }
@@ -181,15 +186,15 @@ class App extends React.Component {
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
 
-    allModules.map(i => {
-      if (-1 !== i.toLowerCase().indexOf(inputValue.toLowerCase())) {
+    allModules.map( object => {
+      if (-1 !== object.name.toLowerCase().indexOf(inputValue.toLowerCase())) {
         suggestions.push(
           {
-            href: `${host}${i}`,
+            href: `${host}#/${object.link}`,
             jsx: (
               <p>
                 {
-                  i
+                  object.name
                 }
               </p>
             ),
@@ -212,9 +217,9 @@ class App extends React.Component {
       <WebsiteContainer
         persistUserSelection={false} // set local sotrage on click
         clearPersistUserSelection={true} // do not remove the local storage on component did mount
-        sidebarMinifiedAt={720}
+        sidebarMinifiedAt={1024}
         ignoreMinify={true} // ignore to render the small (60px width menu on resize)
-        sidebarMaxifiedAt={720}
+        sidebarMaxifiedAt={1024}
         displayMinifyMaxifyIcon={true}
         minify={minifySidebard}
         moduleSidebar={
@@ -222,7 +227,7 @@ class App extends React.Component {
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong={appNameShort}
             textShort={`v${version}`}
-            href={`${host}`}
+            href={`${host}#/`}
             globalStyle={true} // load css for react-revolution globally
             moduleMenu={
               <MenuClickHorizontal
@@ -237,114 +242,114 @@ class App extends React.Component {
                   [
                     {
                       text: 'Accordion',
-                      href: `${host}react-revolution-accordion`,
+                      href: `${host}#/react-revolution-accordion`,
                     },
                     {
                       text: 'Breadcrumbs',
-                      href: `${host}react-revolution-breadcrumbs`,
+                      href: `${host}#/react-revolution-breadcrumbs`,
                     },
                     {
                       text: 'Cards',
                       data: [
                         {
                           text: 'Cards',
-                          href: `${host}react-revolution-cards`,
+                          href: `${host}#/react-revolution-cards`,
                         },
                         {
                           text: 'CardsScroll',
-                          href: `${host}react-revolution-cards-scroll`,
+                          href: `${host}#/react-revolution-cards-scroll`,
                         },
                         {
                           text: 'CardsScrollCallback',
-                          href: `${host}react-revolution-cards-scroll-callback`,
+                          href: `${host}#/react-revolution-cards-scroll-callback`,
                         },
                       ]
                     },
                     {
                       text: 'Clipboard',
-                      href: `${host}react-revolution-clipboard`,
+                      href: `${host}#/react-revolution-clipboard`,
                     },
                     {
                       text: 'CustomSuggestion',
-                      href: `${host}react-revolution-custom-suggestion`,
+                      href: `${host}#/react-revolution-custom-suggestion`,
                     },
                     {
                       text: 'FullScreen',
                       data: [
                         {
                           text: 'FullScreenListArray',
-                          href: `${host}react-revolution-fullscreen-list-array`,
+                          href: `${host}#/react-revolution-fullscreen-list-array`,
                         },
                         {
                           text: 'FullScreenListObject',
-                          href: `${host}react-revolution-fullscreen-list-object`,
+                          href: `${host}#/react-revolution-fullscreen-list-object`,
                         },
                         {
                           text: 'FullScreenOverlay',
-                          href: `${host}react-revolution-fullscreen-overlay`,
+                          href: `${host}#/react-revolution-fullscreen-overlay`,
                         }
                       ]
                     },
                     {
                       text: 'GlobalMessages',
-                      href: `${host}react-revolution-global-messages`,
+                      href: `${host}#/react-revolution-global-messages`,
                     },
                     {
                       text: 'Icons',
-                      href: `${host}react-revolution-icons`,
+                      href: `${host}#/react-revolution-icons`,
                     },
                     {
                       text: 'Input',
                       data: [
                         {
                           text: 'InputAnimation',
-                          href: `${host}react-revolution-input-animation`,
+                          href: `${host}#/react-revolution-input-animation`,
                         },
                         {
                           text: 'InputFile',
-                          href: `${host}react-revolution-input-file`,
+                          href: `${host}#/react-revolution-input-file`,
                         },
                         {
                           text: 'InputFileDragDrop',
-                          href: `${host}react-revolution-input-file-drag-drop`,
+                          href: `${host}#/react-revolution-input-file-drag-drop`,
                         },
                         {
                           text: 'InputSuggestionArray',
-                          href: `${host}react-revolution-input-suggestion-array`,
+                          href: `${host}#/react-revolution-input-suggestion-array`,
                         },
                         {
                           text: 'InputSuggestionObject',
-                          href: `${host}react-revolution-input-suggestion-object`,
+                          href: `${host}#/react-revolution-input-suggestion-object`,
                         }
                       ]
                     },
                     {
                       text: 'LoadingBoxTop',
-                      href: `${host}react-revolution-loading-box-top`,
+                      href: `${host}#/react-revolution-loading-box-top`,
                     },
                     {
                       text: 'LoadOnScroll',
-                      href: `${host}react-revolution-load-on-scroll`,
+                      href: `${host}#/react-revolution-load-on-scroll`,
                     },
                     {
                       text: 'MenuClickHorizontal',
-                      href: `${host}react-revolution-menu-click-horizontal`,
+                      href: `${host}#/react-revolution-menu-click-horizontal`,
                     },
                     {
                       text: 'PopupBox',
-                      href: `${host}react-revolution-popup-box`,
+                      href: `${host}#/react-revolution-popup-box`,
                     },
                     {
                       text: 'SideBar',
-                      href: `${host}react-revolution-sidebar`,
+                      href: `${host}#/react-revolution-sidebar`,
                     },
                     {
                       text: 'Table',
-                      href: `${host}react-revolution-table`,
+                      href: `${host}#/react-revolution-table`,
                     },
                     {
                       text: 'TextWriter',
-                      href: `${host}react-revolution-text-writer`,
+                      href: `${host}#/react-revolution-text-writer`,
                     }
                   ]
                 }

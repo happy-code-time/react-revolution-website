@@ -1,9 +1,11 @@
 const EN = {
+    is: 'is',
+    iconTokenFrom: 'Icon token from',
     openSourceText: 'A Free Open Source Project',
     changeLanguageTitle: 'Change language',
     changeTintTitle: 'Change website layout',
     lightTheme: 'Light',
-    darkTheme: 'Dark',
+    darkTheme: 'Dark (coming soon)',
     searchForModule: 'Module search',
     clickToNavToTheModule: 'Navigate to this module',
     fast: 'Fast',
@@ -27,6 +29,10 @@ const EN = {
     jsCodeTitle: 'Javascript code',
     loading: 'Loading...',
     keyUsageTitle: 'Keys Explanations',
+    "table.title.key" : 'Key',
+    "table.title.description" : 'Description',
+    "table.title.type" : 'Type',
+    "table.title.default" : 'Default',
     /**
      * Module keys
      */
@@ -563,7 +569,7 @@ const EN = {
     "icon": {
         "description": "Custom JSX to close the module.",
         "type": "String | JSX",
-        "default": ""
+        "default": "<empty string>"
     },
     "iconCallback": {
         "description": "Custom callback when the 'icon' is clicked.",
@@ -623,7 +629,7 @@ const EN = {
     "pipeDisplay": {
         "description": "Display the pipe while writing.",
         "type": "Boolen",
-        "default": "true"
+        "default": "True"
     },
     "pipeChar": {
         "description": "Charachter of the pipe",
@@ -675,6 +681,61 @@ const EN = {
         "type": "array",
         "default": "undefined"
     },
+    "bread.hashRouter" : {
+        "description": "Is the current React App inside an ReactRouter or not. If true the hostname (first breadcrumbs) becomes the suffix '/#/'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "bread.domainName" : {
+        "description": "Replace the hostname (first breadcrumb) with a customized text",
+        "type": "String",
+        "default": "undefined"
+    },
+    "bread.delimiter" : {
+        "description": "Delimiter between the breadrumbs.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    "bread.overwriteText" : {
+        "description": "Has to be used with the key: 'moduleMenu'. If true then the first menu childs key: 'text' are displayed instead of the breadcrumbs path. If false then the menus first childs key: 'text' are ignored.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "bread.moduleMenu" : {
+        "description": "Attached the module: 'MenuClickHorizontal' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
+        "type": "<MenuClickHorizontal>",
+        "default": "undefined"
+    },
+    "closeOnClickOutside": {
+        "description": "If true and the user does not click inside the module content, then all expanded elements will be toggled back - closed.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    /**
+     * Descriptions
+     */
+    "accordion.description" : "The Accordion module has no limits in child nesting.",
+    "accordion.description2" : "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
+    "cards.scroll.description" : "The Cards module will load more items, if the bottom of the parent div are reached.",
+    "cards.scrollCallback.description" : "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
+    "icons.description" : "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
+    "icons.description2" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
+    "icons.description3" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
+    /**
+     * 
+     */
+    globalStyle: {
+        "description": "Load the global style file (react-revolution.css). If they have already been loaded, they will not be loaded twice.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    moduleStyle: {
+        "description": "Load single modules style file - if the file currently not available.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    styleLoading: "Styles used for this module",
+    "runtime.generator.description": 'If an error occured (runtime generator are not defined) while using the callback functionality in this module (callback), please install: npm install --save @babel/runtime && npm install --save-dev @babel/plugin-transform-runtime; Then in the .babelrc file add this line: {"presets": ["@babel/preset-env", "@babel/preset-react"],"plugins": [["@babel/transform-runtime"]]}.',
 };
 
 export default EN;

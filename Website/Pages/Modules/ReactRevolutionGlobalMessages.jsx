@@ -6,6 +6,8 @@ import trans from '../../Translations/trans';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
 
     <div
@@ -196,31 +198,6 @@ class ReactRevolutionGlobalMessages extends React.Component
                         )}
                         clipboard={jsExample}
                     />
-                    <h1
-                        title={`${trans('cssCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fab fa-css3" />
-                        {
-                            trans('cssCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        displayLineNumber={true}
-                        layout='dark'
-                        code={``}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div className="button-action">
-                                {
-                                    trans('copyToClipboard')
-                                }
-                            </div>
-                        )}
-                        clipboard={``}
-                    />
                 </div>
                 <div className="code-example mt-4">
                     <h1 className="h1-title border-none text-center">
@@ -318,32 +295,10 @@ class ReactRevolutionGlobalMessages extends React.Component
                         )}
                         clipboard={jsExample}
                     />
-                    <h1
-                        title={`${trans('cssCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fab fa-css3" />
-                        {
-                            trans('cssCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        displayLineNumber={true}
-                        layout='dark'
-                        code={``}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div className="button-action">
-                                {
-                                    trans('copyToClipboard')
-                                }
-                            </div>
-                        )}
-                        clipboard={``}
-                    />
                 </div>
+                {
+                    getDescriptionForstyle('rr-global-messages')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -356,9 +311,22 @@ class ReactRevolutionGlobalMessages extends React.Component
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

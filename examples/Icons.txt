@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Icons } from './react-revolution/public/react-revolution';
+import { Icons } from './react-revolution';
 
 import './react-revolution/sass/rr-icons.scss';
 

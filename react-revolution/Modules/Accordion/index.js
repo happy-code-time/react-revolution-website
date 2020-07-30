@@ -14,6 +14,8 @@ class Accordion extends React.Component {
         super(props);
         this.buildDataRecursive = this.buildDataRecursive.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.toggleAllBack = this.toggleAllBack.bind(this);
 
         this.state = {
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
@@ -23,11 +25,34 @@ class Accordion extends React.Component {
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
-        }
+            closeOnClickOutside: typeof true == typeof props.closeOnClickOutside ? props.closeOnClickOutside : false,
+        };
+
+        this.refNode = React.createRef();
     }
 
     componentDidMount(){
+        const { closeOnClickOutside } = this.state;
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+
+        if(closeOnClickOutside){
+            document.documentElement.addEventListener('click', this.handleClick);
+        }
+    }
+
+    componentWillUnmount(){
+        const { closeOnClickOutside } = this.state;
+
+        if(closeOnClickOutside){
+            document.documentElement.removeEventListener('click', this.handleClick);
+        }
+    }
+
+
+    handleClick(event){
+        if(this.refNode && this.refNode.current && !this.refNode.current.contains(event.target)){
+            this.toggleAllBack();
+        }
     }
 
     /**
@@ -184,19 +209,70 @@ class Accordion extends React.Component {
             }, timeouterForAnimationBack);
         }
 
-        /**
-         * Closing entry
-         */
-        setTimeout( () => {
-            this.setState({ data }); 
-        }, timeouterForAnimationBack*2);
+        // /**
+        //  * Closing entry
+        //  */
+        // setTimeout( () => {
+        //     this.setState({ data }); 
+        // }, timeouterForAnimationBack*2);
     }
+
+    toggleAllBack(){
+        const allowedAnimations = ['height', 'scale', 'opacity'];
+        const { data } = this.state;
+        let { animation } = this.state;
+        let timeouterForAnimationBack = 0;
+
+        if(!allowedAnimations.includes(animation)){
+            animation = undefined;
+        }
+
+        const loop = (datas) => {
+            if (datas && datas.length) {
+                for (let x = 0; x <= datas.length - 1; x++) {
+                    const dataChildren = datas[x].data;
+
+                    if(animation){
+                        timeouterForAnimationBack = 300;
+                    }
+
+                    datas[x].classList = `${datas[x].classList} ${animation ? `animation-${animation}-back` : ''}`;
+
+                    const toggleEntry = () => {
+                        setTimeout(() => {
+                            datas[x].toggled = false;
+                            datas[x].classList = '';
+
+                            this.setState({
+                                data
+                            });
+                        }, timeouterForAnimationBack);
+                    }
+
+                    this.setState({
+                        data
+                    }, toggleEntry);
+
+                    if (dataChildren && typeof [] == typeof dataChildren && 0 !== dataChildren.length) {
+                       loop(dataChildren);
+                    }
+                }
+            }
+        }
+
+        loop(data);
+    }
+
 
     render() {
         const { addClass, data, defaultClass, id } = this.state;
 
         return (
-            <div className={`${defaultClass} ${addClass}`} id={id}>
+            <div 
+                ref={this.refNode}
+                className={`${defaultClass} ${addClass}`} 
+                id={id}
+            >
             {
                 this.buildDataRecursive(data)
             }  

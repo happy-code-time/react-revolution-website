@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { PopupBox } from './react-revolution/public/react-revolution';
+import { PopupBox } from './react-revolution';
 
 import './react-revolution/sass/rr-popupbox.scss';
 

@@ -15,7 +15,6 @@ const addGlobalMessage = (messageKey = '', errorMessage = '', errorCode, disappe
             }
         }
         catch(e){
-            console.log(e);
             sessionStorage.setItem(messageKey, JSON.stringify([message]));
         }
     }

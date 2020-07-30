@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { LoadingBoxTop } from './react-revolution/public/react-revolution';
+import { LoadingBoxTop } from './react-revolution';
 
 import './react-revolution/sass/rr-loading-box-top.scss';
 

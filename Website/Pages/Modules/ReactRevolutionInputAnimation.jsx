@@ -8,6 +8,8 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { InputAnimation } from 'react-revolution';
 
 <InputAnimation
@@ -77,7 +79,7 @@ class ReactRevolutionInputAnimation extends React.Component {
         this.examples = [
             {
                 title: 'InputAnimation',
-                description: '',
+                description: trans("runtime.generator.description"),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -224,6 +226,9 @@ class ReactRevolutionInputAnimation extends React.Component {
                         clipboard={jsExample2}
                     />
                 </div>
+                {
+                    getDescriptionForstyle('rr-input-animation')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -236,9 +241,22 @@ class ReactRevolutionInputAnimation extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'

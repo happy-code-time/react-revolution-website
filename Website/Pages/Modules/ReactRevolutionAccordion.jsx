@@ -8,6 +8,8 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample1 = `import { Accordion } from 'react-revolution';
 
 <Accordion
@@ -15,22 +17,35 @@ const codeExample1 = `import { Accordion } from 'react-revolution';
     data={
         [
             {
-                text: 'Home',
-                icon: <i className='fas fa-flag-checkered' />,
+                text: (
+                    <span>
+                        <i style={{ width: '30px' }} className="fas fa-car"></i>
+                        Mercedes
+                    </span>
+                ),
                 data: [
                     {
-                        text: 'Child - no data to toggle',
+                        text: 'A - Class',
+                        data: [
+                            {
+                                text: '- A 200'
+                            },
+                            {
+                                text: '- A 35 AMG'
+                            }
+                        ]
                     },
                     {
-                        text: 'Child - has data to toggle',
-                        dataToggle: 'dataToggle'
-                    },
-                    {
-                        text: 'Child - has data to toggle',
-                        dataToggle: (
-                            <span> 😍 </span>
-                        )
-                    },
+                        text: 'B - Class',
+                        data: [
+                            {
+                                text: '- B 150'
+                            },
+                            {
+                                text: '- B 250'
+                            }
+                        ]
+                    }
                 ]
             }
         ]
@@ -75,6 +90,49 @@ const codeExample2 = `import { Accordion } from 'react-revolution';
     }
 />`;
 
+const codeExample3 = `import { Accordion } from 'react-revolution';
+
+<Accordion
+    closeOnClickOutside={true}
+    animation='scale' // height, scale, opacity
+    data={
+        [
+            {
+                text: (
+                    <span>
+                        <i style={{ width: '30px' }} className="fas fa-car"></i>
+                        Mercedes
+                    </span>
+                ),
+                data: [
+                    {
+                        text: 'A - Class',
+                        data: [
+                            {
+                                text: '- A 200'
+                            },
+                            {
+                                text: '- A 35 AMG'
+                            }
+                        ]
+                    },
+                    {
+                        text: 'B - Class',
+                        data: [
+                            {
+                                text: '- B 150'
+                            },
+                            {
+                                text: '- B 250'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+/>`;
+
 class ReactRevolutionAccordion extends React.Component {
     constructor(props) {
         super(props);
@@ -84,7 +142,7 @@ class ReactRevolutionAccordion extends React.Component {
         this.examples = [
             {
                 title: 'Accordion',
-                description: 'The Accordion module has no limits in child nesting.',
+                description: trans('accordion.description'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -97,22 +155,35 @@ class ReactRevolutionAccordion extends React.Component {
                         data={
                             [
                                 {
-                                    text: 'Home',
-                                    icon: <i className='fas fa-flag-checkered' />,
+                                    text: (
+                                        <span>
+                                            <i style={{ width: '30px' }} className="fas fa-car"></i>
+                                            Mercedes
+                                        </span>
+                                    ),
                                     data: [
                                         {
-                                            text: 'Child - no data to toggle',
+                                            text: 'A - Class',
+                                            data: [
+                                                {
+                                                    text: '- A 200'
+                                                },
+                                                {
+                                                    text: '- A 35 AMG'
+                                                }
+                                            ]
                                         },
                                         {
-                                            text: 'Child - has data to toggle',
-                                            dataToggle: 'dataToggle'
-                                        },
-                                        {
-                                            text: 'Child - has data to toggle',
-                                            dataToggle: (
-                                                <span> 😍 </span>
-                                            )
-                                        },
+                                            text: 'B - Class',
+                                            data: [
+                                                {
+                                                    text: '- B 150'
+                                                },
+                                                {
+                                                    text: '- B 250'
+                                                }
+                                            ]
+                                        }
                                     ]
                                 }
                             ]
@@ -166,6 +237,58 @@ class ReactRevolutionAccordion extends React.Component {
                         }
                     />
                 )
+            }, 
+            {
+                title: 'Accordion',
+                description: trans('accordion.description2'),
+                reactTextBefore: '',
+                react: codeExample3,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <Accordion
+                        closeOnClickOutside={true}
+                        animation='scale' // height, scale, opacity
+                        data={
+                            [
+                                {
+                                    text: (
+                                        <span>
+                                            <i style={{ width: '30px' }} className="fas fa-car"></i>
+                                            Mercedes
+                                        </span>
+                                    ),
+                                    data: [
+                                        {
+                                            text: 'A - Class',
+                                            data: [
+                                                {
+                                                    text: '- A 200'
+                                                },
+                                                {
+                                                    text: '- A 35 AMG'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            text: 'B - Class',
+                                            data: [
+                                                {
+                                                    text: '- B 150'
+                                                },
+                                                {
+                                                    text: '- B 250'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    />
+                )
             },
         ];
     }
@@ -192,6 +315,9 @@ class ReactRevolutionAccordion extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-accordion')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -204,9 +330,22 @@ class ReactRevolutionAccordion extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'
@@ -218,6 +357,10 @@ class ReactRevolutionAccordion extends React.Component {
                                 {
                                     key: 'addClass',
                                     values: 'addClass'
+                                },
+                                {
+                                    key: 'closeOnClickOutside',
+                                    values: 'closeOnClickOutside'
                                 },
                                 {
                                     key: 'animation',

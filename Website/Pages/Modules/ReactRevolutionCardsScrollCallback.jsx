@@ -8,12 +8,14 @@ import buildModulesJsx from '../../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../../Functions/buildTableKeysStructure';
 
+import getDescriptionForstyle from '../../Functions/getDescriptionForstyle';
+
 const codeExample = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
 
 <div className="section-cards-scroll-callback">
     <CardsScrollCallback
         itemsPerLine={3}
-        mediaBreak={1140}
+        mediaBreak={1024}
         data={
             [
                 {
@@ -44,18 +46,15 @@ const codeExample = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'r
                     title: 'Title 7',
                     content: 'Content',
                 },
-                {
-                    title: 'Title 8',
-                    content: 'Content',
-                },
-                {
-                    title: 'Title 9',
-                    content: 'Content',
-                },
             ]
         }
         loadMoreCallback={this.addItems}
-        loadMoreLoadingIcon={<LoadingBoxTop text='Loading...' />}
+        loadMoreLoadingIcon={
+            <LoadingBoxTop 
+                text='Loading...' 
+                display={true}
+            />
+        }
     />
 </div>`;
 
@@ -78,13 +77,44 @@ const jsExample = `constructor(props) {
     async addItems() {
         const { count } = this.state;
 
-        if(3 <= count){
+        if(4 <= count){
             return 'break';
         }
 
         this.setState({
             count: this.state.count+1
         });
+
+        if(3 == count){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(
+                        [
+                            {
+                                title: \`Title - \${uuid()}\`,
+                                content: 'Content',
+                            },
+                            {
+                                title: \`Title - \${uuid()}\`,
+                                content: 'Content',
+                            },
+                            {
+                                title: \`Title - \${uuid()}\`,
+                                content: 'Content',
+                            },
+                            {
+                                title: \`Title - \${uuid()}\`,
+                                content: 'Content',
+                            },
+                            {
+                                title: \`Title - \${uuid()}\`,
+                                content: 'Content',
+                            },
+                        ]
+                    );
+                }, 500);
+            });
+        }
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -116,12 +146,6 @@ const cssExample = `.section-cards-scroll-callback{
         margin: 0 auto;
         
         .cards-group{
-         
-            @media screen and (min-width: 1024px){
-                flex-direction: row;
-            }
-            
-            flex-direction: column;
 
             .card{
 
@@ -151,7 +175,7 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
         this.examples = [
             {
                 title: 'CardsScrollCallback',
-                description: 'The Cards module will load more items, if the bottom of the parent div are reached.',
+                description: `${trans('cards.scrollCallback.description')}. ${trans("runtime.generator.description")}`,
                 reactTextBefore: '',
                 react: codeExample,
                 reactTextAfter: '',
@@ -162,7 +186,7 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
                     <div className="section-cards-scroll-callback">
                         <CardsScrollCallback
                             itemsPerLine={3}
-                            mediaBreak={1140}
+                            mediaBreak={1024}
                             data={
                                 [
                                     {
@@ -193,18 +217,15 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
                                         title: 'Title 7',
                                         content: 'Content',
                                     },
-                                    {
-                                        title: 'Title 8',
-                                        content: 'Content',
-                                    },
-                                    {
-                                        title: 'Title 9',
-                                        content: 'Content',
-                                    },
                                 ]
                             }
                             loadMoreCallback={this.addItems}
-                            loadMoreLoadingIcon={<LoadingBoxTop text='Loading...' />}
+                            loadMoreLoadingIcon={
+                                <LoadingBoxTop 
+                                    text='Loading...' 
+                                    display={true}
+                                />
+                            }
                         />
                     </div>
                 )
@@ -231,13 +252,44 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
     async addItems() {
         const { count } = this.state;
 
-        if(3 <= count){
+        if(4 <= count){
             return 'break';
         }
 
         this.setState({
             count: this.state.count+1
         });
+
+        if(3 == count){
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(
+                        [
+                            {
+                                title: `Title - ${uuid()}`,
+                                content: 'Content',
+                            },
+                            {
+                                title: `Title - ${uuid()}`,
+                                content: 'Content',
+                            },
+                            {
+                                title: `Title - ${uuid()}`,
+                                content: 'Content',
+                            },
+                            {
+                                title: `Title - ${uuid()}`,
+                                content: 'Content',
+                            },
+                            {
+                                title: `Title - ${uuid()}`,
+                                content: 'Content',
+                            },
+                        ]
+                    );
+                }, 500);
+            });
+        }
 
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -271,6 +323,9 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
                 />
+                {
+                    getDescriptionForstyle('rr-cards-scroll-callback')
+                }
                 <h1 className="h1-title border-none text-center mb-4">
                     {
                         trans('keyUsageTitle')
@@ -283,9 +338,22 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
                             'key', 'value', 'type', 'default'
                         ]
                     }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
                     data={
                         buildTableKeysStructure(
                             [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
                                 {
                                     key: 'id',
                                     values: 'id'
@@ -313,6 +381,10 @@ class ReactRevolutionCardsScrollCallback extends React.Component {
                                 {
                                     key: 'loadMoreLoadingIcon',
                                     values: 'loadMoreLoadingIcon'
+                                },
+                                {
+                                    key: 'minify',
+                                    values: 'minify'
                                 },
                                 {
                                     key: 'data',

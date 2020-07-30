@@ -6,6 +6,8 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './website.jsx');
 
+const version = 'v1.0.9';
+
 module.exports = {
     devtool: false,
     resolve: {
@@ -17,7 +19,7 @@ module.exports = {
     output: {
         path: WRITE_DIR,
         publicPath: WRITE_DIR,
-        filename: 'app.js',
+        filename: version + '.app.js',
         pathinfo: false
     },
     module: {

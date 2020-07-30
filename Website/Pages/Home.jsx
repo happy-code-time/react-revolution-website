@@ -43,6 +43,11 @@ class Home extends React.Component {
                             </h2>
                         </div>
                     </div>
+                    {/* <h1 className="h1-title border-none text-center mt-4 mb-4">
+                        {
+                            `React Revolution ${trans('is')}`
+                        }
+                    </h1>
                     <Cards
                         itemsPerLine={3}
                         data={
@@ -56,7 +61,7 @@ class Home extends React.Component {
                                             <i className="far fa-clock" />
                                         </div>
                                     ),
-                                    content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                                    content: 'React-revolution Module file size: 156 KiB'
                                 },
                                 {
                                     title: (
@@ -85,7 +90,7 @@ class Home extends React.Component {
                                 }
                             ]
                         }
-                    />
+                    /> */}
                     <div className="example flex">
                         <div className="example-1">
                             <h1 className="title-border">
@@ -167,12 +172,12 @@ class Home extends React.Component {
                                 <h1 className="title-border">
                                     <i className="fas fa-book-reader"></i>
                                     {
-                                        trans('documentation')
+                                        trans('getStarted')
                                     }
                                 </h1>
-                                <Link to='documentation' className='button-action'>
+                                <Link to='react-revolution-accordion' className='button-action'>
                                     {
-                                        trans('documentation')
+                                        trans('getStarted')
                                     }
                                 </Link>
                             </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { LoadOnScroll, LoadingBoxTop, uuid } from './react-revolution/public/react-revolution';
+import { LoadOnScroll, LoadingBoxTop, uuid } from './react-revolution';
 
 /**
  * Render it to the html while testing

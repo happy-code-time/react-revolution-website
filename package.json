@@ -1,6 +1,6 @@
 {
-  "name": "react-revolution",
-  "version": "1.0.0",
+  "name": "davids-react-revolution",
+  "version": "1.0.9",
   "description": "Create fast modern responisive websites elements",
   "main": "index.jsx",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "David Janitzek",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -32,7 +32,6 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.4",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
@@ -57,7 +56,7 @@
     "gulp4-run-sequence": "^1.0.1",
     "imagemin-jpeg-recompress": "^7.0.0",
     "lite-server": "^2.5.4",
-    "source-map-loader": "^1.0.1",
+    "react-revolution": "^1.0.9",
     "terser-webpack-plugin": "^1.4.4",
     "webpack-cli": "^3.3.10",
     "webpack-obfuscator": "^1.4.0"

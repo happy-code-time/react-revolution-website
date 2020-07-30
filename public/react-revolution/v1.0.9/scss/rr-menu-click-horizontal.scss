@@ -1,26 +1,38 @@
 @import './globals.scss';
 
-.rr-accordion{
+.rr-menu-click-horizontal{
     box-sizing: border-box;
     padding: 5px 10px;
 
+    .parent .hasChildren{
+        position: relative;
+        user-select: none;
+    }
+
+    .parent .children {
+        padding-left: 10px;
+    }
+
     .single-entry{
         box-sizing: border-box;
-        padding: 10px;
+        border-radius: 5px;
+        margin: 10px 0;
 
+        a{
+            text-decoration: none;
+        }
+        
         .data{
             margin: 10px 0;
         }
-    }
 
-    .single-entry.hasChildren{
-        border: 1px solid rgba(122,122,122, .33);
-        border-radius: 5px;
-    }
+        .text{
+            padding: 7px 10px;
+        }
 
-    .text.hasChildren:hover,
-    .text.hasData:hover{
-        cursor: pointer;
+        .hasChildren:hover{
+            cursor: pointer;
+        }
     }
 
     // Animation: height
@@ -45,7 +57,7 @@
         max-height: 1000000px;
     }
 
-    .animation-height-back{
+    .animation-height-back .children{
         @keyframes toggleMenuEntriesHeightBack {
             0%{
                 max-height: 300px;
@@ -74,11 +86,11 @@
         animation: toggleMenuEntriesScale $default_transition ease-in forwards;
     }
 
-    .animation-scale .children{
+    .toggled.animation-scale .children{
         transform: scaleY(1);
     }
 
-    .animation-scale-back{
+    .animation-scale-back .children{
         @keyframes toggleMenuEntriesScaleBack {
             0%{
                 transform: scaleY(1);
@@ -111,7 +123,7 @@
         opacity: 1;
     }
 
-    .animation-opacity-back{
+    .animation-opacity-back .children{
         @keyframes toggleMenuEntriesOpacityBack {
             0%{
                 opacity: 1;

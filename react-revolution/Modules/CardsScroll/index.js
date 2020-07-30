@@ -36,6 +36,7 @@ class CardsScroll extends React.Component {
             defaultItems: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
+            minify: typeof 8 == typeof props.minify ? props.minify : 0,
         };
     }
 
@@ -46,7 +47,7 @@ class CardsScroll extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'defaultItems', 'mediaBreak'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'defaultItems', 'mediaBreak', 'minify'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll',
@@ -55,6 +56,7 @@ class CardsScroll extends React.Component {
                 defaultItems: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
                 mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
+                minify: typeof 8 == typeof props.minify ? props.minify : 0,
             };
         }
 
@@ -278,11 +280,14 @@ class CardsScroll extends React.Component {
     }
 
     scrollEvent(e){
+        const { minify } = this.state;
+        const min = parseInt(minify);
+
         if(this.cardsReference){
             /**
              * Bottom reached
              */ 
-            if (this.cardsReference.offsetHeight + this.cardsReference.scrollTop >= this.cardsReference.scrollHeight) {
+            if (this.cardsReference.offsetHeight + this.cardsReference.scrollTop >= this.cardsReference.scrollHeight - min) {
                 this.loadMore(true); 
             }
         }
