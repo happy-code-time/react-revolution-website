@@ -40,6 +40,13 @@ $popupMenuWidth-min: 50px;
   width: 100% !important;
 }
 
+.text-elipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: none;
+  text-overflow: ellipsis;
+}
+
 .block {
   display: block;
 }

@@ -170,6 +170,7 @@ class Icons extends React.Component
     }
 
     componentDidMount(){
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { custom, icons } = this.state;
         let addedItems = 0;
 
@@ -191,8 +192,6 @@ class Icons extends React.Component
                 this.setState({ icons });
             }
         }
-
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

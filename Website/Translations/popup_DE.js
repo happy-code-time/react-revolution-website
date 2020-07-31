@@ -1,9 +1,13 @@
+import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesNames';
+
+const len = getAllAvailableModulesNames().length-1;
+
 const DE = {
     is: 'ist',
     iconTokenFrom: 'Icon entnommen von',
     openSourceText: 'Ein kostenloses Open Source Projekt',
     changeLanguageTitle: 'Sprache ändern',
-    changeTintTitle: 'Webseiten Layout ändern',
+    changeTintTitle: 'Layout ändern',
     lightTheme: 'Hell',
     darkTheme: 'Dunkel (kommt in kürze)',
     searchForModule: 'Module Suche',
@@ -11,6 +15,9 @@ const DE = {
     fast: 'Schnell',
     light: 'Leicht',
     interactive: 'Interaktiv',
+    "fast.description" : "Minimale Zeit der Generierung und Optimale Source Nutzung des Browsers.",
+    "light.description" : `Diese Bibliothek hat eine Anzahl von ${len} Modulen une eine Gesamtgröße von unter 170 KB.`,
+    "interactive.description" : "Jedes Modul kann frei gestaltet werden und beinhaltet benutzerdefinierte Callback Funktionen.",
     exampleOfUsage: 'Beispiel Benutzung',
     copyToClipboard: 'Zwischenspeichern',
     installation: 'Installation',
@@ -681,6 +688,11 @@ const DE = {
         "type": "Array",
         "default": "undefined"
     },
+    "table.titleOnMinified": {
+        "description": "Render der Tabellen Überschriften, wenn das Modul minifiziert wird (ausgelöst vom resize event).",
+        "type": "Boolean",
+        "default": "True"
+    },
     "bread.hashRouter": {
         "description": "Befindet sich die aktuelle React-App in einem ReactRouter oder nicht? Wenn true, wird der Hostname (erste Breadcrumbs) zum Suffix '/ # /'.",
         "type": "Boolean",
@@ -737,6 +749,183 @@ const DE = {
     },
     styleLoading: "Style die im Modul Verwendung finden",
     "runtime.generator.description": 'Wenn bei Verwendung der Rückruffunktion ein Fehler aufgetreten ist (runtime generator are not defined) in diesem Modul (callback), installieren Sie bitte: npm install --save @ babel / runtime && npm install --save-dev @ babel / plugin -transform-runtime; Fügen Sie dann in der .babelrc Datei die folgende Zeile hinzu: {"presets": ["@ babel / preset-env", "@ babel / preset-react"], "plugins": [["@ babel / transform-runtime"] ]}. ',
+
+    "pagination.data": {
+        "description": "Array von benutzerdefinierten Objekten.",
+        "Typ": "Array",
+        "Standard": "[]"
+    },
+    "pagination.searchOnKeys": {
+        "description": "Array von Zeichenfolgen. Array von (bereitgestellten Objekten innerhalb des 'Daten'-Schlüssels) Schlüsselnamen zur Verwendung des Suchfelds (Eingabefelds).",
+        "Typ": "Array",
+        "Standard": "[]"
+    },
+    "pagination.itemsPerSite": {
+        "description": "Wie viele Websites auf jeder Seite gerendert werden sollen.",
+        "type" : "Number",
+        "default": "10"
+    },
+    "pagination.keysToRender": {
+        "description": "Array von Zeichenfolgen. Array von Schlüsselnamen, die basierend auf dem Array von Objekten angezeigt werden sollen (Schlüssel: 'Daten').",
+        "Typ": "Array",
+        "Standard": "[]"
+    },
+    "pagination.liOnClickCallback": {
+        "description": "Benutzerdefinierte Rückruffunktion, wenn der Benutzer auf eine einzelne Zeile klickt. Diese Funktion gibt 2 Argumente zurück. Argument 1: clickEvent, Argument 2: aktuelles geklicktes Element als Objekt.",
+        "Typ": "Funktion",
+        "default": "undefined"
+    },
+    "pagination.inputOnChangeCallback": {
+        "description": "Benutzerdefinierte Rückruffunktion, wenn der Benutzer den Wert des Eingabefelds ändert. Diese Funktion gibt 1 Argumente zurück. Argument 1: Ereignis.",
+        "Typ": "Funktion",
+        "default": "undefined"
+    },
+    "pagination.displayLineNumber": {
+        "description": "Zeigt die aktuelle Zeilennummer an (Schleifenindex +1).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.resetLineNumber": {
+        "description": "Setzen Sie die Nummer jeder Zeile für jede Seite zurück. Jedes Element beginnt mit der Anzahl: 1.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayTotal": {
+        "description": "Zeigt die Gesamtzahl der bereitgestellten Daten an. Länge.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.totalPrefix": {
+        "description": "Zeigt ein Präfix an, bevor die Anzahl der Gesamtdaten angezeigt wird. Länge.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayPaginationPages": {
+        "description": "Paginierung anzeigen.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.paginationTextPrefix": {
+        "description": "Text von 'Page'.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.paginationTextMiddle": {
+        "description": "Text von 'of'.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.prevPages": {
+        "description": "Wie viele Seiten sollten 'vor' der aktuellen Seite (als vorherige Seiten) angezeigt werden?",
+        "type" : "Number",
+        "default": "2"
+    },
+    "pagination.nextPages": {
+        "description": "Wie viele Seiten sollten 'nach' der aktuellen Seite (als nächste Seiten) angezeigt werden?",
+        "type" : "Number",
+        "default": "2"
+    },
+    "pagination.alignPagesItems": {
+        "description": "Struktur der gerenderten Elemente. Verfügbare Optionen: 1, 2, 3, 4, 5.",
+        "type" : "Number",
+        "default": "1"
+    },
+    "pagination.alignPagination": {
+        "description": "Gerenderte Paginierungsstruktur. Verfügbare Optionen: 1, 2.",
+        "type" : "Number",
+        "default": "1"
+    },
+    "pagination.previousButton": {
+        "description": "HTML für die vorherige Schaltfläche.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.nextButton": {
+        "description": "HTML für die nächste Schaltfläche.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.displaySearch": {
+        "description": "Rendern Sie das Sucheingabefeld.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Platzhalter eingeben.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Platzhalter.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.searchIcon": {
+        "description": "Der HTML-Code der Suchschaltfläche auf der rechten Seite des Sucheingabefelds. Wenn der Benutzer auf das Suchsymbol klickt, wird eine Suche ausgeführt.",
+        "type": "String | JSX",
+        "default": "🔍"
+    },
+    "pagination.searchSensisitve": {
+        "description": "Führen Sie eine Suche als 'key sensitive search' aus.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchValue": {
+        "description": "Zum ersten Mal einen benutzerdefinierten Suchwert neu erstellen, um eine Suche ohne Benutzerinteraktion auszuführen.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.searchOnKeyDown": {
+        "description": "Führen Sie eine Suche nach den bereitgestellten Daten durch, wenn der Benutzer den Eingabewert ändert.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchTitle": {
+        "description": "Tag <h1> als Titel für das Suchfeld.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> als Titel für die Tabelle.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> als Titel für die Tabelle.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.fallbackLoading": {
+        "description": "Verwenden Sie ein Ladesymbol, während der Benutzer Daten filtert.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.fallbackLoadingTime": {
+        "description": "Verwenden Sie ein benutzerdefiniertes Zeitlimit, um das Ladesymbol für längere ms (Millisekunden) anzuzeigen.",
+        "type" : "Number",
+        "default": "0"
+    },
+    "pagination.fallbackNoData": {
+        "description": "Benutzerdefinierte Daten zum Rendern, wenn keine Daten angegeben werden.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.fallbackNoDataSearch": {
+        "description": "Benutzerdefinierte Daten zum Rendern, wenn während der Suche keine Daten gefunden wurden.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "pagination.fallbackMounting": {
+        "description": "Verwenden Sie ein Ladesymbol, während das Modul (die Komponente) Daten generiert.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "removeHashFromDomain": {
+        "description": "Entfernung der Zeichenkette '/#/' von dem Text der Domände.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "breadcrumbs.example3": "Beispiel mit dem letzten Eintrag als Menu Element",
 };
 
 export default DE;

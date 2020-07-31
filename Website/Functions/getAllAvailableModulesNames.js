@@ -81,6 +81,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-menu-click-horizontal'
         },
         {
+            name: 'PagerStatic',
+            link: 'react-revolution-pager-static'
+        },
+        {
             name: 'PopupBox',
             link: 'react-revolution-popup-box'
         },

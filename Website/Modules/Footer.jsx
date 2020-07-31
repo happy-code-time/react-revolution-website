@@ -82,9 +82,7 @@ class Footer extends React.Component {
                                 {
                                     title: (
                                         <span>
-                                            <i>
-                                                <img src={`${host}public/images/icon-16.png`} />
-                                            </i>
+                                            <i className="fas fa-icons" />
                                             {
                                                 trans('iconTokenFrom')
                                             }

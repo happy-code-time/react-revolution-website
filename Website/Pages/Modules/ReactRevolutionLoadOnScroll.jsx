@@ -209,6 +209,7 @@ class ReactRevolutionLoadOnScroll extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
+                    addClass='rr-table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'

@@ -25,7 +25,8 @@ class WebsiteContainer extends React.Component
       displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon: undefined,
       minify: props.minify,
       minifiedSecondSideBar: true,
-      footerData: props.footerData
+      footerData: props.footerData,
+      href: window.location.href
     };
   }
 
@@ -94,7 +95,7 @@ class WebsiteContainer extends React.Component
   }
 
   handleClick(e){
-    const { minifiedSecondSideBar } = this.state;
+    const { minifiedSecondSideBar, href } = this.state;
 
     if(this.nodeSideBar && !this.nodeSideBar.contains(e.target) && this.nodeSideBar.classList && this.nodeSideBar.classList.contains('SidebarMinified')){
       this.nodeSideBar.classList.remove('opened');
@@ -104,9 +105,35 @@ class WebsiteContainer extends React.Component
           this.setState({
             minifiedSecondSideBar: true
           });
-        }, 300);
+        }, 100);
       }
     }
+
+    /**
+     * Auto closing sidebar on location change
+     * and if width smaller then 1024
+     */
+    setTimeout( () => {
+
+      if(1024 >= document.documentElement.getBoundingClientRect().width){
+        this.resizeView();
+      }
+
+      if(this.nodeSideBar && this.nodeSideBar.classList && this.nodeSideBar.classList.contains('SidebarMinified') && href !== window.location.href){
+  
+        this.setState({
+          href: window.location.href
+        });
+  
+        if(!minifiedSecondSideBar){
+          setTimeout( () => {
+            this.setState({
+              minifiedSecondSideBar: true
+            });
+          }, 0);
+        }
+      }
+    }, 300);
   }
 
   resizeView() {

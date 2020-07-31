@@ -18,6 +18,7 @@ const allowedStyles = [
     'rr-loading-box-top',
     'rr-load-on-scroll',
     'rr-menu-click-horizontal',
+    'rr-pager-static',
     'rr-popupbox',
     'rr-sidebar',
     'rr-table',

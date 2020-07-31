@@ -80,6 +80,9 @@ LoadOnScroll
 MenuClickHorizontal
 - [https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal](https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal)
 
+PagerStatic
+- [https://react-revolution.j.pl/#/react-revolution-pager-static](https://react-revolution.j.pl/#/react-revolution-pager-static)
+
 PopupBox
 - [https://react-revolution.j.pl/#/react-revolution-popup-box](https://react-revolution.j.pl/#/react-revolution-popup-box)
 

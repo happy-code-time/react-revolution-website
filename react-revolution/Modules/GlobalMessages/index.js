@@ -35,6 +35,7 @@ class GlobalMessages extends React.Component
     }
 
     componentDidMount() {
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.clearStore(true);
         this.setOnClickEventListenerToTheDom();
 
@@ -43,8 +44,6 @@ class GlobalMessages extends React.Component
         if('' !== messageKey){
             this.setIntervaller();
         }
-
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     componentWillUnmount() {

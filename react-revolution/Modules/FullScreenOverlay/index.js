@@ -67,6 +67,7 @@ class FullScreenOverlay extends React.Component {
     }
 
     componentDidMount(){
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnEsc, disableScroll, display } = this.state;
 
         if(closeOnEsc){
@@ -76,8 +77,6 @@ class FullScreenOverlay extends React.Component {
         if(display && disableScroll){
             disableHtmlScroll();
         }
-
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     componentWillUnmount(){

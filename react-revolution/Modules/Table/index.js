@@ -30,7 +30,8 @@ class Table extends React.Component {
             title: (props.title && typeof [] == typeof props.title) ? props.title : undefined,
             data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-            keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined
+            keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined,
+            titleOnMinified: (typeof true == typeof props.titleOnMinified) ? props.titleOnMinified : true,
         };
     }
 
@@ -41,7 +42,7 @@ class Table extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'mediaBreak', 'title', 'keysToRead'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'mediaBreak', 'title', 'keysToRead', 'titleOnMinified'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-table',
@@ -50,7 +51,8 @@ class Table extends React.Component {
                 data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
                 mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
                 keysToRead: (props.keysToRead && typeof [] == typeof props.keysToRead) ? props.keysToRead : undefined,
-                dataJsx: state.dataJsx
+                dataJsx: state.dataJsx,
+                titleOnMinified: (typeof true == typeof props.titleOnMinified) ? props.titleOnMinified : true,
             };
         }
 
@@ -58,6 +60,7 @@ class Table extends React.Component {
     }
 
     componentDidMount() {
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { mediaBreak } = this.state;
 
         this.buildData();
@@ -66,8 +69,6 @@ class Table extends React.Component {
             window.addEventListener('resize', this.resize);
             this.resize();
         }
-
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     componentWillUnmount() {
@@ -99,7 +100,7 @@ class Table extends React.Component {
     }
 
     buildData() {
-        const { data, isMinified, title, keysToRead } = this.state;
+        const { data, isMinified, title, keysToRead, titleOnMinified } = this.state;
         const dataJsx = [];
         const clsCardsHolder = `${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
@@ -108,7 +109,7 @@ class Table extends React.Component {
 
             if (title && title.length) {
 
-                title.map( (value,i) => {
+                title.map((value, i) => {
                     if (value && typeof '8' == typeof value) {
                         titleJsx.push(
                             <span
@@ -147,6 +148,15 @@ class Table extends React.Component {
                         if (undefined !== object[key]) {
                             const value = object[key] ? object[key] : '';
 
+                            if (isMinified && titleOnMinified && title && 0 !== title.length && undefined !== title[i]) {
+                                dataInsideJsx.push(
+                                    <span className="span-title">
+                                        {
+                                            title[i]
+                                        }
+                                    </span>
+                                );
+                            }
                             dataInsideJsx.push(
                                 <span
                                     key={uuid()}

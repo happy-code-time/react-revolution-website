@@ -8,6 +8,8 @@ import Home from './Website/Pages/Home';
 
 import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
+import ScrollTop from './Website/Modules/ScrollTop';
+
 import { scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
@@ -23,7 +25,6 @@ import possibleLayouts from './Website/Functions/possibleLayouts';
 import getAllAvailableModulesNames from './Website/Functions/getAllAvailableModulesNames';
 
 import './Website/Scss/index.scss';
-
 
 /**
  * React Revolution Modules
@@ -66,6 +67,8 @@ import ReactRevolutionLoadingBoxTop from './Website/Pages/Modules/ReactRevolutio
 
 import ReactRevolutionMenuClickHorizontal from './Website/Pages/Modules/ReactRevolutionMenuClickHorizontal';
 
+import ReactRevolutionPagerStatic from './Website/Pages/Modules/ReactRevolutionPagerStatic';
+
 import ReactRevolutionPopupBox from './Website/Pages/Modules/ReactRevolutionPopupBox';
 
 import ReactRevolutionSidebar from './Website/Pages/Modules/ReactRevolutionSidebar';
@@ -89,16 +92,17 @@ class App extends React.Component {
       minifySidebard: '#/' == window.location.hash ? true : false,
       host: process.env.HOST,
       suggestions: [],
-      inputValue: ''
+      inputValue: '',
     };
 
     this.href = window.location.href;
     this.locationCheck = '';
+    this.scrollTop = false;
   }
 
   componentDidMount() {
 
-    if('' == window.location.hash || 'http:' == window.location.protocol){
+    if ('' == window.location.hash || 'http:' == window.location.protocol && process.env.HOST == 'https://react-revolution.j.pl/') {
       window.location.href = `${this.state.host}#/`;
     }
 
@@ -111,7 +115,7 @@ class App extends React.Component {
     document.removeEventListener('click', this.checkLocation);
     clearInterval(this.locationCheck);
   }
-
+  
   /**
  * Check if the website using a react-router
  * and if the url changed then reload the protector functionalitty
@@ -120,10 +124,6 @@ class App extends React.Component {
     document.removeEventListener('click', this.checkLocation);
     document.addEventListener('click', this.checkLocation);
     clearInterval(this.locationCheck);
-
-    this.locationCheck = setInterval( () => {
-      this.checkLocation();
-    }, 2000);
   }
 
   /**
@@ -186,13 +186,13 @@ class App extends React.Component {
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
 
-    allModules.map( object => {
+    allModules.map(object => {
       if (-1 !== object.name.toLowerCase().indexOf(inputValue.toLowerCase())) {
         suggestions.push(
           {
             href: `${host}#/${object.link}`,
             jsx: (
-              <p>
+              <p className="text-elipsis">
                 {
                   object.name
                 }
@@ -336,6 +336,15 @@ class App extends React.Component {
                       href: `${host}#/react-revolution-menu-click-horizontal`,
                     },
                     {
+                      text: 'Pagination',
+                      data: [
+                        {
+                          text: 'PagerStatic',
+                          href: `${host}#/react-revolution-pager-static`,
+                        },
+                      ]
+                    },
+                    {
                       text: 'PopupBox',
                       href: `${host}#/react-revolution-popup-box`,
                     },
@@ -476,6 +485,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-input-suggestion-object" render={(props) => (<ReactRevolutionInputSuggestionObject {...props} />)} />
               <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
               <Route exact path="/react-revolution-menu-click-horizontal" render={(props) => (<ReactRevolutionMenuClickHorizontal {...props} />)} />
+              <Route exact path="/react-revolution-pager-static" render={(props) => (<ReactRevolutionPagerStatic {...props} />)} />
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
               <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
@@ -484,7 +494,7 @@ class App extends React.Component {
             </Switch>
           </Router>
         }
-        footerData={''}
+        footerData={<ScrollTop/>}
       />
     );
   }

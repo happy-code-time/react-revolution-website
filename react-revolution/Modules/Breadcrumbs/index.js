@@ -35,12 +35,13 @@ class Breadcrumbs extends React.Component {
             moduleMenu: (props.moduleMenu && typeof {} == typeof props.moduleMenu) ? props.moduleMenu : undefined,
             delimiter: (props.delimiter && typeof '8' == typeof props.delimiter) ? props.delimiter : '>',
             overwriteText: typeof true == typeof props.overwriteText ? props.overwriteText : false,
+            removeHashFromDomain: typeof true == typeof props.removeHashFromDomain ? props.removeHashFromDomain : false,
         };
     }
 
     componentDidMount() {
-        this.buildBreadcrumbs();
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+        this.buildBreadcrumbs();
     }
 
     buildBreadcrumbs() {
@@ -161,14 +162,21 @@ class Breadcrumbs extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, protocol, domain, paths, domainName, hashRouter } = this.state;
+        const { addClass, defaultClass, id, protocol, paths, domainName, hashRouter, removeHashFromDomain } = this.state;
+        let { domain } = this.state;
+        let domainToDisplay = domain;
+
+        if(removeHashFromDomain && domainToDisplay && typeof '8' == typeof domainToDisplay && domainToDisplay.indexOf('/#/')){
+            domainToDisplay = domainToDisplay.replace('/#/', '');
+        }
+
         let addedPaths = `${protocol}${domain}`;
 
         return (
             <ul className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     protocol && domain &&
-                    this.getSingleBreadcrumb(`${protocol}${domain}`, `${domainName ? domainName : `${protocol}${domain}`}`, false)
+                    this.getSingleBreadcrumb(`${protocol}${domain}`, `${domainName ? domainName : `${protocol}${domainToDisplay}`}`, false)
                 }
                 {
                     paths && 0 !== paths.length &&

@@ -43,10 +43,8 @@ class Home extends React.Component {
                             </h2>
                         </div>
                     </div>
-                    {/* <h1 className="h1-title border-none text-center mt-4 mb-4">
-                        {
-                            `React Revolution ${trans('is')}`
-                        }
+                    <h1 className="h1-title border-none text-center mt-4 mb-4">
+                        React Revolution
                     </h1>
                     <Cards
                         itemsPerLine={3}
@@ -55,42 +53,42 @@ class Home extends React.Component {
                                 {
                                     title: (
                                         <div>
+                                            <i className="far fa-clock" />
                                             {
                                                 trans('fast')
                                             }
-                                            <i className="far fa-clock" />
                                         </div>
                                     ),
-                                    content: 'React-revolution Module file size: 156 KiB'
+                                    content: trans('fast.description')
                                 },
                                 {
                                     title: (
                                         <div>
+                                            <i className="fas fa-balance-scale-right"></i>
                                             {
                                                 trans('light')
                                             }
-                                            <i className="fas fa-balance-scale-right"></i>
                                         </div>
                                     ),
                                     props: {
                                         className: 'card flex flex-column card-middle'
                                     },
-                                    content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                                    content: trans('light.description')
                                 },
                                 {
                                     title: (
                                         <div>
+                                            <i className="fas fa-user-cog"></i>
                                             {
                                                 trans('interactive')
                                             }
-                                            <i className="fas fa-user-cog"></i>
                                         </div>
                                     ),
-                                    content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+                                    content: trans('interactive.description')
                                 }
                             ]
                         }
-                    /> */}
+                    />
                     <div className="example flex">
                         <div className="example-1">
                             <h1 className="title-border">

@@ -41,6 +41,8 @@ import LoadOnScroll from './Modules/LoadOnScroll';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
 
+import PagerStatic from './Modules/PagerStatic';
+
 import Table from './Modules/Table';
 
 import TextWriter from './Modules/TextWriter';
@@ -96,6 +98,7 @@ export {
     LoadingBoxTop,
     LoadOnScroll,
     MenuClickHorizontal,
+    PagerStatic,
     Table,
     TextWriter,
     PopupBox,

@@ -1,9 +1,13 @@
+import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesNames';
+
+const len = getAllAvailableModulesNames().length-1;
+
 const EN = {
     is: 'is',
     iconTokenFrom: 'Icon token from',
     openSourceText: 'A Free Open Source Project',
     changeLanguageTitle: 'Change language',
-    changeTintTitle: 'Change website layout',
+    changeTintTitle: 'Change layout',
     lightTheme: 'Light',
     darkTheme: 'Dark (coming soon)',
     searchForModule: 'Module search',
@@ -11,6 +15,9 @@ const EN = {
     fast: 'Fast',
     light: 'Light',
     interactive: 'Interactive',
+    "fast.description" : "Minimal generation time and optimal source usage of the browser.",
+    "light.description" : `With the current number of ${len} Modules a total size of less than 170 KB.`,
+    "interactive.description" : "Each module can be designed freely and contains callback functions.",
     exampleOfUsage: 'Usage example',
     copyToClipboard: 'Copy to clipboard',
     installation: 'Installation',
@@ -681,6 +688,11 @@ const EN = {
         "type": "array",
         "default": "undefined"
     },
+    "table.titleOnMinified": {
+        "description": "Render the table title of the table are minified.",
+        "type": "Boolean",
+        "default": "True"
+    },
     "bread.hashRouter" : {
         "description": "Is the current React App inside an ReactRouter or not. If true the hostname (first breadcrumbs) becomes the suffix '/#/'.",
         "type": "Boolean",
@@ -736,6 +748,183 @@ const EN = {
     },
     styleLoading: "Styles used for this module",
     "runtime.generator.description": 'If an error occured (runtime generator are not defined) while using the callback functionality in this module (callback), please install: npm install --save @babel/runtime && npm install --save-dev @babel/plugin-transform-runtime; Then in the .babelrc file add this line: {"presets": ["@babel/preset-env", "@babel/preset-react"],"plugins": [["@babel/transform-runtime"]]}.',
+    
+    "pagination.data": {
+        "description": "Array of custom defined objects.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.searchOnKeys": {
+        "description": "Array of strings. Array of (provided objects inside the 'data' key) key names to use the search (input) field.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.itemsPerSite": {
+        "description": "How many sites to render on each page.",
+        "type": "Number",
+        "default": "10"
+    },
+    "pagination.keysToRender": {
+        "description": "Array of strings. Array of key names Which should be displayed based on the Array of objects (key: 'data').",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.liOnClickCallback": {
+        "description": "Custom callback function, if the user click an single line. This function returns 2 arguments. Argument 1: clickEvent, Argument 2: current klicked item as object.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "pagination.inputOnChangeCallback": {
+        "description": "Custom callback function, if the user change the value of the input field. This function returns 1 arguments. Argument 1: event.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "pagination.displayLineNumber": {
+        "description": "Display the current line number (loop index +1).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.resetLineNumber": {
+        "description": "Reset the number of each line for each page. Each item will be begin with the count: 1.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayTotal": {
+        "description": "Display the total count of provided data.length.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.totalPrefix": {
+        "description": "Display a prefix before the number of total data.length are displayed.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayPaginationPages": {
+        "description": "Display the pagination.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.paginationTextPrefix": {
+        "description": "Text of 'Page'.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.paginationTextMiddle": {
+        "description": "Text of 'of'.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.prevPages": {
+        "description": "How many page should be displayed 'before' the current page (as previous pages).",
+        "type": "Number",
+        "default": "2"
+    },
+    "pagination.nextPages": {
+        "description": "How many page should be displayed 'after' the current page (as next pages).",
+        "type": "Number",
+        "default": "2"
+    },
+    "pagination.alignPagesItems": {
+        "description": "Rendered items structure. Available options: 1, 2, 3, 4, 5.",
+        "type": "Number",
+        "default": "1"
+    },
+    "pagination.alignPagination": {
+        "description": "Rendered pagination structure. Available options: 1, 2.",
+        "type": "Number",
+        "default": "1"
+    },
+    "pagination.previousButton": {
+        "description": "HTML for the previous button.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "pagination.nextButton": {
+        "description": "HTML for the next button.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "pagination.displaySearch": {
+        "description": "Render the search input field.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Inputs placeholder.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Placeholder.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.searchIcon": {
+        "description": "The HTML of the search button on the right site of the search input field. If the user click the search icon, then a search are executed.",
+        "type": "String | JSX",
+        "default": "🔍"
+    },
+    "pagination.searchSensisitve": {
+        "description": "Execute a search as 'key sensitive search'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchValue": {
+        "description": "Redner for the 1 time an custom search value to execute a search without any user interaction.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.searchOnKeyDown": {
+        "description": "Execute a search on the provided data if the user are changing the input value.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchTitle": {
+        "description": "Tag <h1> as title for the search field.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> as title for the table.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> as title for the table.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "pagination.fallbackLoading": {
+        "description": "Use an loading icon while the user are filtering data.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.fallbackLoadingTime": {
+        "description": "Use an custom timeout to display the loading icon for longer ms (milliseconds).",
+        "type": "Number",
+        "default": "0"
+    },
+    "pagination.fallbackNoData": {
+        "description": "Custom data to render if no data are provided.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "pagination.fallbackNoDataSearch": {
+        "description": "Custom data to render if no data was found during the search.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "pagination.fallbackMounting": {
+        "description": "Use an loading icon while the module (component) are generating data.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "removeHashFromDomain": {
+        "description": "Remove the characters '/#/' from the domain name.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "breadcrumbs.example3": "Example with menu attached on the last breadcrumb entry.",
 };
 
 export default EN;

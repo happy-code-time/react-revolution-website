@@ -21,9 +21,7 @@
         padding: 10px;
     }
 
-    .a-description,
     .description{
-        color: $text-color;
         font-size: 0.87rem;
         letter-spacing: 0.078rem;
         box-sizing: border-box;
@@ -32,10 +30,16 @@
     }
 
     .a-description{
+        color: $text-color;
         text-decoration: none;
         display: block;
-        padding: 10px 0;
-        line-height: 10px;
+        padding: 5px 0;
+        line-height: 20px;
+        transition-duration: $default-transition;
+    }
+
+    .a-description:hover{
+        color: rgb(69,69,69);
     }
 
     .rr-table{
@@ -49,18 +53,43 @@
             padding: 5px 10px;
         }
 
-        .span{
+        .span,
+        .span-title{
             display: block;
             font-size: 0.87rem;
             color: $text-color;
         }
+
+        .span-1,
+        .span-2{
+            width: 15%;
+            margin-left: 5px;
+        }
+
+        .title{
+            @media screen and (min-width: $media-break) {
+                display: flex;
+            }
+            display: none;
+
+            span{
+                font-weight: bold;
+            }
+        }
+
+        .span-title{
+            margin-left: 5px;
+            font-weight: bold;
+        }
+    }
+    
+    .rr-table.rr-table-website{
 
         .span-1{
             overflow: hidden;
             word-wrap: none;
             white-space: nowrap;
             text-overflow: ellipsis;
-            font-weight: bold;
             margin-left: 5px;
         }
 
@@ -82,18 +111,10 @@
         .span-4{
             width: calc(100% - 10px);
         }
-
-        .title{
-            display: none;
-
-            span{
-                font-weight: bold;
-            }
-        }
     }
 
     @media screen and (min-width: $media-break) {
-        .rr-table{
+        .rr-table.rr-table-website{
             width: 100%;
 
             .span-1,
@@ -123,6 +144,85 @@
             .title{
                 display: flex;
             }
+        }
+    }
+    
+    .rr-pager-static {
+
+        ul{
+            box-sizing: border-box;
+            padding: 10px;
+            height: 320px;
+            border: 1px solid rgb(222,222,222);
+            margin: 10px 0;
+            border-radius: 3px;
+        }
+    
+        .pagination-paging{
+            display: flex;
+            justify-content: space-around;
+            min-width: 200px;
+        }
+
+        .pagination-pages{
+            width: 100%;
+            text-align: center;
+            clear: both;
+        }
+
+        .buttons{
+            margin: 10px calc(50% - 155px);
+            width: 310px;
+            box-sizing: border-box;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgb(222,222,222);
+            border-radius: 3px;
+        }
+    
+        .previous-page,
+        .current-page,
+        .next-page{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 3px;
+            border:1px solid rgb(222,222,222);
+            margin: 0 5px;
+        }
+    
+        .current-page{
+            background-color: #1873cc;
+            color: rgb(255,255,255)
+        }
+    
+        .delete{
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            color: #FF4469;
+        }
+    
+        .delete:hover{
+            cursor: pointer;
+        }
+    }
+
+    .no-data{
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+
+        p{
+            width: 200px;
+            height: 100%;
+            border-radius: 3px;
+            background-color: rgb(222,222,222);
+            display: inline-block;
+            color: rgb(122,122,122);
+            font-size: 0.87rem;
         }
     }
     

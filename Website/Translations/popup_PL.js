@@ -1,9 +1,13 @@
+import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesNames';
+
+const len = getAllAvailableModulesNames().length-1;
+
 const PL = {
     is: 'jest',
     iconTokenFrom: 'Ikonka wzięta z',
     openSourceText: 'Darmowy projekt Open Source',
     changeLanguageTitle: 'Zmień język',
-    changeTintTitle: 'Zmień wygląd strony',
+    changeTintTitle: 'Wygląd strony',
     lightTheme: 'Jasny',
     darkTheme: 'Ciemny (w przygotowaniu)',
     searchForModule: 'Szukanie modułu',
@@ -11,6 +15,9 @@ const PL = {
     fast: 'Szybki',
     light: 'Lekki',
     interactive: 'Interaktywny',
+    "fast.description" : "Minimalny czas generowania i optymalne wykorzystanie zasobów przeglądarki.",
+    "light.description" : `Przy obecnej liczbie ${len} modułów ta biblioteka ma całkowity rozmiar mniejszy niż 170 KB.`,
+    "interactive.description" : "Każdy moduł można dowolnie zaprojektować i zawiera funkcje wywołania zwrotnego.",
     exampleOfUsage: 'Przykład użycia',
     copyToClipboard: 'Kopiuj do schowka',
     installation: 'Instalacja',
@@ -21,7 +28,7 @@ const PL = {
     feedback: 'Feedback',
     usefullLinks: 'Użyteczne linki',
     rights: 'Prawa',
-    rigthsText: 'Wszystkie prawa zastrzeżone',
+    rigthsText: 'Wszelkie prawa zastrzeżone',
     author: 'Autor',
     exampleTitle: 'Przykład',
     reactCodeTitle: 'Kod react',
@@ -681,6 +688,11 @@ const PL = {
         "type": "tablica",
         "default": "undefined"
     },
+    "table.titleOnMinified": {
+        "description": "Renderuj nagłówki tabeli, gdy moduł jest zminimalizowany (wyzwalany przez zdarzenie resize).",
+        "type": "Boolean",
+        "default": "True"
+    },
     "bread.hashRouter": {
         "description": "Czy obecna aplikacja React znajduje się w ReactRouter, czy nie. Jeśli true, nazwa hosta (pierwsza ścieżka nawigacyjna) staje się sufiksem '/ # /'.",
         "type": "Boolean",
@@ -718,8 +730,8 @@ const PL = {
     "accordion.description2": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
     "cards.scroll.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div.",
     "cards.scrollCallback.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div. Załaduj więcej kart opiera się na niestandardowej funkcji wywołania zwrotnego. Jeśli wartość to „break”, to nasłuchiwanie przewijania jest usuwane.",
-    "icons.description": "Moduł ikon ze wszystkimi ustawionymi ikonami, BEZ tłumaczeń i domyślnym ustawionym zestawem ikon: buźki. Po kliknięciu spójrz na konsolę w poszukiwaniu ikony.",
-    "icons.description2": "Moduł ikon z wybranym zestawem ikon: Buźki, Aktywność, Podróż, Ludzie, Obiekty, BRAK tłumaczeń i domyślny zestaw ikon: Aktywność. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
+    "icons.description": "Moduł ikon ze wszystkimi ustawionymi ikonami, BEZ tłumaczeń i defaultm ustawionym zestawem ikon: buźki. Po kliknięciu spójrz na konsolę w poszukiwaniu ikony.",
+    "icons.description2": "Moduł ikon z wybranym zestawem ikon: Buźki, Aktywność, Podróż, Ludzie, Obiekty, BRAK tłumaczeń i default zestaw ikon: Aktywność. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
     "icons.description3": "Moduł ikon z wybranym zestawem ikon: buźki, aktywność, podróż, ludy, obiekty i 2 przetłumaczone tytuły ikon. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
     /**
      * 
@@ -736,6 +748,183 @@ const PL = {
     },
     styleLoading: "Style używane w tym module",
     "runtime.generator.description": 'Jeśli wystąpił błąd (runtime generator are not defined) podczas korzystania z funkcji wywołania zwrotnego w tym module (callback), zainstaluj: npm install --save @ babel / runtime && npm install --save-dev @ babel / plugin -transform-runtime; Następnie w pliku .babelrc dodaj tę linię: {"presets": ["@ babel / preset-env", "@ babel / preset-aware"], "plugins": [["@ babel / transform-runtime"] ]}. ',
+
+    "pagination.data": {
+        "description": "Tablica obiektów zdefiniowanych przez użytkownika.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.searchOnKeys": {
+        "description": "Tablica ciągów. Tablica (obiektów podanych w kluczu 'data') nazw kluczy do użycia w polu wyszukiwania (wejściowym).",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.itemsPerSite": {
+        "description": "Ile witryn ma być renderowanych na każdej stronie.",
+        "type": "Number",
+        "default": "10"
+    },
+    "pagination.keysToRender": {
+        "description": "Tablica ciągów. Tablica nazw kluczy, które powinny być wyświetlane na podstawie tablicy obiektów (klucz: 'dane').",
+        "type": "Array",
+        "default": "[]"
+    },
+    "pagination.liOnClickCallback": {
+        "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik kliknie pojedynczą linię. Ta funkcja zwraca 2 argumenty. Argument 1: clickEvent, Argument 2: bieżący kliknięty element jako obiekt.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    "pagination.inputOnChangeCallback": {
+        "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik zmieni wartość pola wejściowego. Ta funkcja zwraca 1 argument. Argument 1: zdarzenie.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    "pagination.displayLineNumber": {
+        "description": "Wyświetl aktualny numer linii (indeks pętli +1).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.resetLineNumber": {
+        "description": "Zresetuj numer każdej linii dla każdej strony. Każda pozycja rozpocznie się liczbą: 1.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayTotal": {
+        "description": "Wyświetl całkowitą liczbę dostarczonych danych.length.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.totalPrefix": {
+        "description": "Wyświetl prefiks przed wyświetleniem liczby całkowitej długości danych.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.displayPaginationPages": {
+        "description": "Wyświetl paginację.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.paginationTextPrefix": {
+        "description": "Tekst 'strona'",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.paginationTextMiddle": {
+        "description": "Tekst 'z'.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.prevPages": {
+        "description": "Ile stron powinno być wyświetlanych 'przed' bieżącą stroną (tak jak poprzednie strony).",
+        "type": "Number",
+        "default": "2"
+    },
+    "pagination.nextPages": {
+        "description": "Ile stron powinno być wyświetlanych 'po' bieżącej stronie (jako następne strony).",
+        "type": "Number",
+        "default": "2"
+    },
+    "pagination.alignPagesItems": {
+        "description": "Struktura renderowanych elementów. Dostępne opcje: 1, 2, 3, 4, 5.",
+        "type": "Number",
+        "default": "1"
+    },
+    "pagination.alignPagination": {
+        "description": "Odwzorowana struktura paginacji. Dostępne opcje: 1, 2.",
+        "type": "Number",
+        "default": "1"
+    },
+    "pagination.previousButton": {
+        "description": "HTML dla poprzedniego przycisku.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.nextButton": {
+        "description": "HTML dla następnego przycisku.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.displaySearch": {
+        "description": "Renderuj pole wyszukiwania.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Symbol zastępczy danych wejściowych.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.searchPlaceholder": {
+        "description": "Placeholder.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.searchIcon": {
+        "description": "Kod HTML przycisku wyszukiwania po prawej stronie pola wyszukiwania. Jeśli użytkownik kliknie ikonę wyszukiwania, wyszukiwanie zostanie wykonane.",
+        "type": "String | JSX",
+        "default": "🔍"
+    },
+    "pagination.searchSensisitve": {
+        "description": "Wykonaj wyszukiwanie jako 'wyszukiwanie wrażliwe na klawisze'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchValue": {
+        "description": "Ponów po raz pierwszy niestandardową wartość wyszukiwania, aby przeprowadzić wyszukiwanie bez interakcji z użytkownikiem.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.searchOnKeyDown": {
+        "description": "Wykonaj wyszukiwanie na dostarczonych danych, jeśli użytkownik zmienia wartość wejściową.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.searchTitle": {
+        "description": "Tag <h1> jako tytuł pola wyszukiwania.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> jako tytuł tabeli.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.paginationTitle": {
+        "description": "Tag <h1> jako tytuł tabeli.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.fallbackLoading": {
+        "description": "Użyj ikony ładowania, gdy użytkownik filtruje dane.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.fallbackLoadingTime": {
+        "description": "Użyj niestandardowego limitu czasu, aby wyświetlić ikonę ładowania przez dłuższe ms (milisekundy).",
+        "type": "Number",
+        "default": "0"
+    },
+    "pagination.fallbackNoData": {
+        "description": "Niestandardowe dane do renderowania w przypadku braku danych.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.fallbackNoDataSearch": {
+        "description": "Niestandardowe dane do renderowania, jeśli podczas wyszukiwania nie znaleziono żadnych danych.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "pagination.fallbackMounting": {
+        "description": "Użyj ikony ładowania, gdy moduł (komponent) generuje dane.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "removeHashFromDomain": {
+        "description": "Usuń znaki '/#/' z nazwy domeny.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "breadcrumbs.example3": "Przykład z menu dołączonym do ostatniej pozycji.",
 };
 
 export default PL;

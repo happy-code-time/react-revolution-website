@@ -39,8 +39,8 @@ class MenuClickHorizontal extends React.Component {
     }
 
     componentDidMount(){
-        const { closeOnClickOutside } = this.state;
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+        const { closeOnClickOutside } = this.state;
 
         if(closeOnClickOutside){
             document.addEventListener('click', this.handleClick);

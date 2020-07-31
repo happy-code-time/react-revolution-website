@@ -7,7 +7,6 @@ Globals
 Modules
 sass
 .babelrc
-index.html
 production.js
 tsconfig.json
 webpack.config.production.js

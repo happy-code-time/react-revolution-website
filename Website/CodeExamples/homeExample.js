@@ -1,22 +1,14 @@
 const exampleHome = 
-`import { Cards } from 'react-revolution';
+`import { Icons } from 'react-revolution';
 
-<Cards
-    itemsPerLine={3}
-    data={
+<Icons
+    displayTabs={true}
+    iconsType='Smileys'
+    renderItems={
         [
-            {
-                title: 1,
-                content:  2,
-            },
-            {
-                title: 2,
-                content:  2,
-            },
-            {
-                title: 3,
-                content:  2,
-            }
+            'Smileys',
+            'Activity',
+            'Travel'
         ]
     }
 />`;

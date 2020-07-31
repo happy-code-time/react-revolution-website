@@ -36,13 +36,12 @@ class TextWriter extends React.Component {
     }
 
     componentDidMount() {
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { written, text, timeout } = this.state;
 
         setTimeout(() => {
             this.setText(written, text);
         }, timeout);
-        
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     writerPromise(char) {

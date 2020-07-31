@@ -65,6 +65,7 @@ class CardsScroll extends React.Component {
 
 
     componentDidMount(){
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { mediaBreak } = this.state;
 
         if (this.cardsReference) {
@@ -73,7 +74,6 @@ class CardsScroll extends React.Component {
         }
 
         this.loadMore();
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         
         if(mediaBreak){
             window.addEventListener('resize', this.resize);

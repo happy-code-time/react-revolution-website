@@ -47,31 +47,44 @@ const codeExample1 = `import { Table } from 'react-revolution';
     }
 />`;
 
-const cssExample = `.rr-table-key-value{
-    .title{
-        background-color: #1873cc;
+const cssExample = `.rr-table{
+    width: 100%;
 
-        .key,
-        .value{
-            color: rgb(255,255,255);
-        }
-
-        .value{
-            border-left: unset;
-        }
-    }
-
-    .key{
-        width: 70px;
-    }
-
-    .value{
-        @media screen and (min-width: 1024px){
-            padding-left: 20px;                
-        }
+    li{
+        width: 100%;
+        min-height: 30px;
+        line-height: 30px;
         box-sizing: border-box;
-        padding-left: 5px;
-        width: calc(100% - 70px);
+        padding: 5px 10px;
+    }
+
+    .span,
+    .span-title{
+        display: block;
+        font-size: 0.87rem;
+        color: $text-color;
+    }
+
+    .span-1,
+    .span-2{
+        width: 15%;
+        margin-left: 5px;
+    }
+
+    .title{
+        @media screen and (min-width: $media-break) {
+            display: flex;
+        }
+        display: none;
+
+        span{
+            font-weight: bold;
+        }
+    }
+
+    .span-title{
+        margin-left: 5px;
+        font-weight: bold;
     }
 }`;
 
@@ -164,6 +177,7 @@ class ReactRevolutionTable extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
+                    addClass='rr-table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -200,6 +214,10 @@ class ReactRevolutionTable extends React.Component {
                                 {
                                     key: 'title',
                                     values: 'title'
+                                },
+                                {
+                                    key: 'titleOnMinified',
+                                    values: 'table.titleOnMinified'
                                 },
                                 {
                                     key: 'data',

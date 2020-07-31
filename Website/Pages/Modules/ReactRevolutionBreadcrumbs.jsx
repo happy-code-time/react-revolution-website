@@ -16,6 +16,7 @@ const codeExample1 = `import { Breadcrumbs } from 'react-revolution';
 
 <div className="rr-breadcrumbs-example">
     <Breadcrumbs 
+        removeHashFromDomain={true}
         hashRouter={true}
     />
 </div>`;
@@ -131,6 +132,7 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                 live: (
                     <div className="rr-breadcrumbs-example">
                         <Breadcrumbs 
+                            removeHashFromDomain={true}
                             hashRouter={true}
                         />
                     </div>
@@ -157,7 +159,7 @@ class ReactRevolutionBreadcrumbs extends React.Component {
             },
             {
                 title: 'Breadcrumbs',
-                description: '',
+                description: trans('breadcrumbs.example3'),
                 reactTextBefore: '',
                 react: codeExample3,
                 reactTextAfter: '',
@@ -236,6 +238,7 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
+                    addClass='rr-table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -269,7 +272,10 @@ class ReactRevolutionBreadcrumbs extends React.Component {
                                     key: 'addClass',
                                     values: 'addClass'
                                 },
-
+                                {
+                                    key: 'removeHashFromDomain',
+                                    values: 'removeHashFromDomain'
+                                },
                                 {
                                     key: 'hashRouter',
                                     values: 'bread.hashRouter'

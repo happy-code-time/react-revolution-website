@@ -86,13 +86,12 @@ class FullScreenListObject extends React.Component
      * After mount
      */
     componentDidMount(){
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnEsc } = this.state;
 
         if(closeOnEsc){
             this.addEscEventListener();
         }
-
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
     
     /**

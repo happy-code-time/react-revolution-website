@@ -67,6 +67,7 @@ class CardsScrollCallback extends React.Component {
 
 
     componentDidMount() {
+        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { data, mediaBreak } = this.state;
 
         if (this.cardsReference) {
@@ -75,7 +76,6 @@ class CardsScrollCallback extends React.Component {
         }
 
         this.buildData(data);
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
 
         if(mediaBreak){
             window.addEventListener('resize', this.resize);
