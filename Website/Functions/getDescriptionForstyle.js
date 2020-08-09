@@ -7,7 +7,8 @@ import trans from '../Translations/trans';
 const getDescriptionForstyle = (name) => {
     const css = `${host}public/react-revolution/v${version}/css/${name}.css`;
     const scss = `${host}public/react-revolution/v${version}/scss/${name}.scss`;
-    const global = `${host}public/react-revolution/v${version}/css/globals.css`;
+    const globalCss = `${host}public/react-revolution/v${version}/css/globals.css`;
+    const globalScss = `${host}public/react-revolution/v${version}/scss/globals.scss`;
 
     return (
         <div className="mb-2">
@@ -16,9 +17,14 @@ const getDescriptionForstyle = (name) => {
                     trans('styleLoading')
                 }
             </h1>
-            <a href={global} target='_blank' className="a-description">
+            <a href={globalCss} target='_blank' className="a-description">
                 {
-                    global
+                    globalCss
+                }
+            </a>
+            <a href={globalScss} target='_blank' className="a-description">
+                {
+                    globalScss
                 }
             </a>
             <a href={css} target='_blank' className="a-description">

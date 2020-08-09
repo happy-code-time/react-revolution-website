@@ -35,7 +35,7 @@ const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 're
             link: {
                 text: 'error',
                 useTagLink: false,
-                href: 'error-messages-learn-more',
+                href: '/#/react-revolution-global-messages',
                 props: {
                     target: '_blank',
                 },
@@ -71,7 +71,7 @@ const codeExample2 = `import { GlobalMessages, addGlobalMessage, uuid } from 're
             link: {
                 text: 'error',
                 useTagLink: false,
-                href: 'error-messages-learn-more',
+                href: '/#/react-revolution-global-messages',
                 props: {
                     target: '_blank',
                 },
@@ -140,7 +140,7 @@ class ReactRevolutionGlobalMessages extends React.Component
                                 link: {
                                     text: 'error',
                                     useTagLink: false,
-                                    href: 'error-messages-learn-more',
+                                    href: '/#/react-revolution-global-messages',
                                     props: {
                                         target: '_blank',
                                     },
@@ -237,7 +237,7 @@ class ReactRevolutionGlobalMessages extends React.Component
                                 link: {
                                     text: 'error',
                                     useTagLink: false,
-                                    href: 'error-messages-learn-more',
+                                    href: '/#/react-revolution-global-messages',
                                     props: {
                                         target: '_blank',
                                     },
@@ -347,6 +347,10 @@ class ReactRevolutionGlobalMessages extends React.Component
                                 {
                                     key: 'timer',
                                     values: 'timer'
+                                },
+                                {
+                                    key: 'empty',
+                                    values: 'globalMessage.empty'
                                 },
                                 {
                                     key: 'codeMapping',

@@ -34,7 +34,7 @@ class App extends React.Component {
   }
 
   liOnClickCallback(a,b,c){
-    console.info(a,b,c);
+    // console.info(a,b,c);
   }
 
   pageData(currentPage){

@@ -283,7 +283,7 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
     }
 
     callback(clickEvent, icon) {
-        console.log(icon);
+        console.info(icon);
     }
 
     loadOnScrollCallback() {

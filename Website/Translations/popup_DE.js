@@ -796,7 +796,12 @@ const DE = {
         "default": "False"
     },
     "pagination.totalPrefix": {
-        "description": "Zeigt ein Präfix an, bevor die Anzahl der Gesamtdaten angezeigt wird. Länge.",
+        "description": "Zeigt ein Präfix an, bevor die Anzahl der Gesamtdaten angezeigt wird.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "pagination.totalSufix": {
+        "description": "Zeigt ein Suffix an, nach der Anzahl der Gesamtdaten",
         "type": "Boolean",
         "default": "False"
     },
@@ -824,6 +829,16 @@ const DE = {
         "description": "Wie viele Seiten sollten 'nach' der aktuellen Seite (als nächste Seiten) angezeigt werden?",
         "type" : "Number",
         "default": "2"
+    },
+    "pagination.totalPages": {
+        "description": "Gesamtanzahl der verfügbaren Seiten.",
+        "type" : "Number",
+        "default": "0"
+    },
+    "pagination.globalCount": {
+        "description": "Gesamtanzahl der verfügbaren Elemente.",
+        "type" : "Number",
+        "default": "0"
     },
     "pagination.alignPagesItems": {
         "description": "Struktur der gerenderten Elemente. Verfügbare Optionen: 1, 2, 3, 4, 5.",
@@ -925,7 +940,13 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
+    "globalMessage.empty": {
+        "description": "Wenn true, dann werden alle Nachrichten, bei einer Anderung der Lokation (window.location.href), entfernt.",
+        "type": "Boolean",
+        "default": "True"
+    },
     "breadcrumbs.example3": "Beispiel mit dem letzten Eintrag als Menu Element",
+    "pager.dynamic.description" : 'Dies ist ein Beispiel mit einem dynamischen Pager also bei jedem Seiten Wechsel, wird eine Datenbank Abfrage durchgeführt. Diese Funktion mit der DB Abfrage liefert ein Promise zurück. Es muss ein Promise sein, da das Modul intern ein "await" beinhaltet, somit wird der Seiten Wechsel nur dann stattfinden, wenn der Promise auch resolved wird und Daten geliefert werden.',
 };
 
 export default DE;

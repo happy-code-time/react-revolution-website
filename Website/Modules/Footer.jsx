@@ -110,11 +110,6 @@ class Footer extends React.Component {
                                             <div>
                                                 {`Ⓒ ${this.getCurrentYearText()} ${trans('rigthsText')}`}
                                             </div>
-                                            <div>
-                                                {
-                                                    author
-                                                }
-                                            </div>
                                         </div>
                                     ),
                                 },

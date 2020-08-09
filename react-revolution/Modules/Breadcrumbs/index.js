@@ -54,7 +54,7 @@ class Breadcrumbs extends React.Component {
             protocol: extracted.protocol,
             domain: extracted.domain,
             paths: extracted.paths,
-        })
+        });
     }
 
     buildModuleMenu(moduleMenu, text) {
@@ -183,10 +183,15 @@ class Breadcrumbs extends React.Component {
                     paths.map((breadcrumb, i) => {
                         const { path } = breadcrumb;
 
-                        if (hashRouter) {
-                            addedPaths += path;
+                        if(0 == i){
+                            if(hashRouter){
+                                addedPaths += path;
+                            }
+                            else{
+                                addedPaths += `/${path}`;
+                            }
                         }
-                        else {
+                        else{
                             addedPaths += `/${path}`;
                         }
 

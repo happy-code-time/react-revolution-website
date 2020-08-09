@@ -16,7 +16,7 @@ const codeExample = `import { CardsScroll } from 'react-revolution';
     <CardsScroll
         itemsPerLine={3}
         defaultItems={6}
-        mediaBreak={1140}
+        mediaBreak={1024}
         data={
             [
                 {
@@ -123,7 +123,7 @@ class ReactRevolutionCardsScroll extends React.Component {
                         <CardsScroll
                             itemsPerLine={3}
                             defaultItems={6}
-                            mediaBreak={1140}
+                            mediaBreak={1024}
                             data={
                                 [
                                     {

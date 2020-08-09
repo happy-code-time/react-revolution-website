@@ -85,6 +85,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-pager-static'
         },
         {
+            name: 'PagerDynamic',
+            link: 'react-revolution-pager-dynamic'
+        },
+        {
             name: 'PopupBox',
             link: 'react-revolution-popup-box'
         },

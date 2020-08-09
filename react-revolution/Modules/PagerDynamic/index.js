@@ -8,7 +8,7 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 let PagerStaticUpdatedCountGetDerivedStateFromPropsCheck = 0;
 
-class PagerStatic extends React.Component {
+class PagerDynamic extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,24 +18,30 @@ class PagerStatic extends React.Component {
         this.next = this.next.bind(this);
         this.filterData = this.filterData.bind(this);
         this.pages = this.pages.bind(this);
-        
+
         const prevPages = (props.prevPages && typeof 8 === typeof props.prevPages) ? props.prevPages : 2;
         const nextPages = (props.nextPages && typeof 8 === typeof props.nextPages) ? props.nextPages : 2;
-        const itemsPerSite = (props.itemsPerSite && typeof 8 === typeof props.itemsPerSite) ? props.itemsPerSite : 10;
         const minPages = prevPages + nextPages + 1;
+        const itemsPerSite = (props.itemsPerSite && typeof 8 === typeof props.itemsPerSite) ? props.itemsPerSite : 10;
 
         this.state = {
             /**
              * App
              */
             filteredData: [],
+            itemsToRender: [],
+            itemsToRenderJsx: [],
+            currentPage: 0,
+            loading: true,
+            dataLoaded: false,
+            loadingList: false,
             /**
              * User passed props
              */
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-pager-static',
+            defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-pager-dynamic',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] === typeof props.data) ? props.data.slice(0, itemsPerSite) : [],
             searchOnKeys: (props.searchOnKeys && typeof [] === typeof props.searchOnKeys) ? props.searchOnKeys : [],
@@ -66,26 +72,19 @@ class PagerStatic extends React.Component {
             searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
             paginationTitle: (props.paginationTitle && typeof '8' === typeof props.paginationTitle) ? props.paginationTitle : '',
             fallbackLoading: props.fallbackLoading ? props.fallbackLoading : '',
+            fallbackLoadingPage: props.fallbackLoadingPage ? props.fallbackLoadingPage : '',
             fallbackLoadingTime: (props.fallbackLoadingTime && typeof 8 === typeof props.fallbackLoadingTime) ? props.fallbackLoadingTime : 0,
             fallbackNoData: props.fallbackNoData ? props.fallbackNoData : '',
             fallbackNoDataSearch: props.fallbackNoDataSearch ? props.fallbackNoDataSearch : '',
             fallbackMounting: props.fallbackMounting ? props.fallbackMounting : '',
+            getDataCallback: (props.getDataCallback && 'function' === typeof props.getDataCallback) ? props.getDataCallback : undefined,
+            globalCount: (props.globalCount && typeof 8 === typeof props.globalCount) ? props.globalCount : 0,
+            totalPages: (props.totalPages && typeof 8 === typeof props.totalPages) ? props.totalPages : 0,
             minPages,
             /**
              * Debugging
              */
             env: (typeof 'react' === typeof props.env) ? props.env : 0,
-            /**
-             * Filtered items
-             */
-            itemsToRender: [],
-            itemsToRenderJsx: [],
-            currentPage: 0,
-            /**
-             * Mounting and performance
-             */
-            loading: true,
-            dataLoaded: false
         };
     }
 
@@ -102,9 +101,9 @@ class PagerStatic extends React.Component {
      */
     static getDerivedStateFromProps(props, state) {
 
-        if (getDerivedStateFromPropsCheck(['searchValue' ], props, state)) {
+        if (getDerivedStateFromPropsCheck(['searchValue'], props, state)) {
 
-            if(props.searchValue && '' !== props.searchValue && props.searchValue !== state.searchValue && 0 == PagerStaticUpdatedCountGetDerivedStateFromPropsCheck){
+            if (props.searchValue && '' !== props.searchValue && props.searchValue !== state.searchValue && 0 == PagerStaticUpdatedCountGetDerivedStateFromPropsCheck) {
                 PagerStaticUpdatedCountGetDerivedStateFromPropsCheck += 1;
 
                 return {
@@ -112,7 +111,7 @@ class PagerStatic extends React.Component {
                 };
             }
 
-            if(props.searchValue && '' !== props.searchValue && 0 !== PagerStaticUpdatedCountGetDerivedStateFromPropsCheck && props.searchValue !== state.searchValue){
+            if (props.searchValue && '' !== props.searchValue && 0 !== PagerStaticUpdatedCountGetDerivedStateFromPropsCheck && props.searchValue !== state.searchValue) {
                 PagerStaticUpdatedCountGetDerivedStateFromPropsCheck += 1;
 
                 return {
@@ -121,45 +120,18 @@ class PagerStatic extends React.Component {
             }
         }
 
-        if (getDerivedStateFromPropsCheck(['filteredData' ], props, state)) {
-            
-            if(props.searchValue && '' !== props.searchValue){
-
-                return {
-                    filteredData: state.filteredData,
-                    searchValue: state.searchValue,
-                };
-            }
-
-            if('' !== state.searchValue){
-                return {
-                    filteredData: state.filteredData,
-                    data: props.data,
-                    searchValue: state.searchValue,
-                };
-            }
-
-            if('' == state.searchValue){
-                return {
-                    filteredData: props.data,
-                    data: props.data,
-                    searchValue: state.searchValue,
-                };  
-            }
-        }
-
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'searchOnKeys','itemsPerSite','keysToRender', 'totalSufix', 'displayLineNumber','liOnClickCallback','inputOnChangeCallback','displayTotal','displayPaginationPages','totalPrefix','paginationTextPrefix','paginationTextMiddle','prevPages','nextPages','alignPagesItems','alignPagination','resetLineNumber','nextButton','previousButton','displaySearch','searchPlaceholder','searchIcon','searchSensisitve','searchValue','searchOnKeyDown','searchTitle','paginationTitle','fallbackLoading','fallbackLoadingTime','fallbackNoData','fallbackNoDataSearch','fallbackMounting', 'minPages' ], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'minPages', 'totalPages', 'id', 'fallbackLoadingPage', 'searchOnKeys', 'globalCount', 'itemsPerSite', 'keysToRender', 'displayLineNumber', 'liOnClickCallback', 'inputOnChangeCallback', 'displayTotal', 'displayPaginationPages', 'totalPrefix', 'totalSufix', 'paginationTextPrefix', 'paginationTextMiddle', 'prevPages', 'nextPages', 'alignPagesItems', 'alignPagination', 'resetLineNumber', 'nextButton', 'previousButton', 'displaySearch', 'searchPlaceholder', 'searchIcon', 'searchSensisitve', 'searchValue', 'searchOnKeyDown', 'searchTitle', 'paginationTitle', 'fallbackLoading', 'fallbackLoadingTime', 'fallbackNoData', 'fallbackNoDataSearch', 'fallbackMounting', 'getDataCallback'], props, state)) {
             const prevPages = (props.prevPages && typeof 8 === typeof props.prevPages) ? props.prevPages : 2;
             const nextPages = (props.nextPages && typeof 8 === typeof props.nextPages) ? props.nextPages : 2;
-            const minPages = prevPages + nextPages + 1;
             const itemsPerSite = (props.itemsPerSite && typeof 8 === typeof props.itemsPerSite) ? props.itemsPerSite : 10;
+            const minPages = prevPages + nextPages + 1;
 
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-pager-static',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-pager-dynamic',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: (props.data && typeof [] === typeof props.data) ? props.data.slice(0, itemsPerSite) : [],
                 searchOnKeys: (props.searchOnKeys && typeof [] === typeof props.searchOnKeys) ? props.searchOnKeys : [],
+                // data: (props.data && typeof [] === typeof props.data) ? props.data.slice(0, itemsPerSite) : [],
                 itemsPerSite,
                 keysToRender: (props.display && typeof [] === typeof props.display) ? props.display : [],
                 displayLineNumber: (typeof true === typeof props.displayLineNumber) ? props.displayLineNumber : false,
@@ -186,10 +158,14 @@ class PagerStatic extends React.Component {
                 searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
                 paginationTitle: (props.paginationTitle && typeof '8' === typeof props.paginationTitle) ? props.paginationTitle : '',
                 fallbackLoading: props.fallbackLoading ? props.fallbackLoading : '',
+                fallbackLoadingPage: props.fallbackLoadingPage ? props.fallbackLoadingPage : '',
                 fallbackLoadingTime: (props.fallbackLoadingTime && typeof 8 === typeof props.fallbackLoadingTime) ? props.fallbackLoadingTime : 0,
                 fallbackNoData: props.fallbackNoData ? props.fallbackNoData : '',
                 fallbackNoDataSearch: props.fallbackNoDataSearch ? props.fallbackNoDataSearch : '',
                 fallbackMounting: props.fallbackMounting ? props.fallbackMounting : '',
+                getDataCallback: (props.getDataCallback && 'function' === typeof props.getDataCallback) ? props.getDataCallback : undefined,
+                globalCount: (props.globalCount && typeof 8 === typeof props.globalCount) ? props.globalCount : 0,
+                totalPages: (props.totalPages && typeof 8 === typeof props.totalPages) ? props.totalPages : 0,
                 minPages
             };
         }
@@ -197,73 +173,74 @@ class PagerStatic extends React.Component {
         return null;
     }
 
-    /**
-     * Max available pages
-     */
-    getMaxPages() {
-        const { filteredData, itemsPerSite } = this.state;
-        let maxPages = filteredData.length / itemsPerSite;
+    changePage(number, pagersPage = true) {
+        const { itemsPerSite } = this.state;
 
-        if (filteredData.length <= itemsPerSite) {
-            return parseInt(maxPages);
+        if(pagersPage){
+            number -= 1;
         }
-
-        maxPages = Math.round(maxPages);
-
-        if (maxPages * itemsPerSite < filteredData.length) {
-            maxPages += 1;
-        }
-
-        return maxPages;
-    }
-
-    changePage(number) {
-        number -= 1;
 
         this.setState({
-            currentPage: number
-        });
+            currentPage: number,
+            loadingList: true
+        },
+            async () => {
+                const { getDataCallback } = this.state;
+
+                if (getDataCallback) {
+                    const data = await (getDataCallback)(number+1);
+
+                    if (data && typeof [] == typeof data && data.length) {
+
+                        return this.setState({
+                            filteredData: data.slice(0, itemsPerSite),
+                            data: data.slice(0, itemsPerSite),
+                            loadingList: false
+                        });
+                    }
+
+                    this.setState({
+                        filteredData: [],
+                        loadingList: false
+                    });
+                }
+            }
+        );
     }
 
     /**
      * Users pagination interagtions jsx
      */
     getPagerJsx() {
-        let { minPages, itemsPerSite, currentPage, filteredData, displayTotal, totalPrefix, totalSufix, displayPaginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting } = this.state;
+        let { globalCount, itemsPerSite, totalPages, currentPage, minPages, displayTotal, totalPrefix, totalSufix, displayPaginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting, filteredData } = this.state;
 
-        const currentCount = filteredData.length;
         let mainPage = currentPage;
         mainPage++;
-        let maxPages = this.getMaxPages();
         let pagesPrev = [];
         let pagesNext = [];
-        let addedItems = 1;
-        
-        if(!currentCount){
-            return null;
-        }
 
-        if(currentCount && currentCount <= currentPage*itemsPerSite ){
+        if (globalCount && globalCount <= currentPage * itemsPerSite) {
 
             return this.setState({
-                currentPage: this.state.currentPage-1
+                currentPage: this.state.currentPage - 1
             });
         }
 
-        if (maxPages) {
+        if (minPages) {
+            let addedItems = 1;
 
             /**
              * Next pages
              */
-            let maxNextPages = (1 == mainPage) ? minPages : mainPage+nextPages;
+            let maxNextPages = (1 == mainPage) ? minPages : mainPage + nextPages;
 
-            if(maxNextPages < minPages){
+            if (maxNextPages < minPages) {
                 maxNextPages = minPages;
             }
 
-            for (let x = mainPage+1; x <= maxNextPages; x++) {
+            for (let x = mainPage + 1; x <= maxNextPages; x++) {
 
-                if(x <= maxPages){
+                if (x <= totalPages) {
                     pagesNext.push(x);
                     addedItems += 1;
                 }
@@ -284,17 +261,13 @@ class PagerStatic extends React.Component {
             pagesPrev.reverse();
         }
 
-        if (!maxPages) {
-            maxPages = 1;
-        }
-
         const itemsTotal = (
             <div className="total">
                 {
                     totalPrefix && totalPrefix
                 }
                 {
-                    currentCount
+                    globalCount
                 }
                 {
                     totalSufix && totalSufix
@@ -357,7 +330,7 @@ class PagerStatic extends React.Component {
                 }
                 <span
                     onClick={(e) => this.next()}
-                    className={itemsPerSite * mainPage < currentCount ? `next-button ${'' == nextButton ? 'icon-next' : ''}` : `next-button deactivated ${'' == nextButton ? 'icon-next' : ''}`}
+                    className={itemsPerSite * mainPage < globalCount ? `next-button ${'' == nextButton ? 'icon-next' : ''}` : `next-button deactivated ${'' == nextButton ? 'icon-next' : ''}`}
                 >
                     {
                         nextButton && nextButton
@@ -365,6 +338,39 @@ class PagerStatic extends React.Component {
                 </span>
             </span>
         );
+
+        /**
+         * No Data available
+         */
+        if (!dataLoaded && '' !== fallbackMounting) {
+            return (
+                <div className='mounting'>
+                    {
+                        fallbackMounting
+                    }
+                </div>
+            );
+        }
+
+        if ('' !== fallbackNoData && '' === searchValue && 0 == filteredData.length) {
+            return (
+                <div className='no-data'>
+                    {
+                        fallbackNoData
+                    }
+                </div>
+            );
+        }
+
+        if ('' !== fallbackNoDataSearch && '' !== searchValue && 0 == filteredData.length) {
+            return (
+                <div className='no-data'>
+                    {
+                        fallbackNoDataSearch
+                    }
+                </div>
+            );
+        }
 
         /**
          * Data available
@@ -452,19 +458,17 @@ class PagerStatic extends React.Component {
     }
 
     pages() {
-        let { paginationTextPrefix, filteredData, currentPage, paginationTextMiddle } = this.state;
-
-        const currentCount = filteredData.length;
+        let { paginationTextPrefix, globalCount, currentPage, paginationTextMiddle, totalPages } = this.state;
         let mainPage = currentPage;
         mainPage++;
-        let maxPages = this.getMaxPages();
+        let maxPages = totalPages;
 
-        if (0 == currentCount) {
-            return null;
-        }
-        
         if (0 == maxPages) {
             maxPages = 1;
+        }
+
+        if (0 == globalCount) {
+            return null;
         }
 
         return (
@@ -485,9 +489,10 @@ class PagerStatic extends React.Component {
         let { currentPage } = this.state;
 
         if (currentPage !== 0) {
-            this.setState({
-                currentPage: currentPage - 1
-            });
+            this.changePage(currentPage-1, false);
+            // this.setState({
+            //     currentPage: currentPage - 1
+            // });
         }
     }
 
@@ -495,16 +500,19 @@ class PagerStatic extends React.Component {
      * Change page - next
      */
     next() {
-        let { itemsPerSite, currentPage, filteredData } = this.state;
-        const currentCount = filteredData.length;
+        let { itemsPerSite, currentPage, globalCount } = this.state;
 
         let mainPage = currentPage;
         mainPage++;
 
-        if (itemsPerSite * mainPage < currentCount) {
-            this.setState({
-                currentPage: currentPage + 1
-            });
+        if (itemsPerSite * mainPage < globalCount) {
+            this.changePage(currentPage+1, false);
+            // this.setState({
+            //     currentPage: currentPage + 1
+            // }, () => {
+            //     let { currentPage } = this.state;
+            //     this.changePage(currentPage+1);
+            // });
         }
     }
 
@@ -525,26 +533,10 @@ class PagerStatic extends React.Component {
      * Return values as generated li items
      */
     getList() {
-        let { keysToRender, displayLineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, dataLoaded, fallbackMounting, fallbackNoData, fallbackNoDataSearch, searchValue } = this.state;
-        currentPage = parseInt(currentPage);
-        itemsPerSite = parseInt(itemsPerSite);
-
-        const start = (currentPage) * itemsPerSite;
-        const end = start + itemsPerSite;
-
-        if (isNaN(start) || isNaN(end)) {
-
-            if ('dev' == this.state.env) {
-                console.error(`Invalid value passed as key: currentPage. The current page returned NaN - not a number`);
-            }
-
-            return null;
-        }
-
-        const itemsToRender = filteredData.slice(start, end)
+        let { keysToRender, displayLineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, loadingList } = this.state;
         const jsxToReturn = [];
 
-        itemsToRender.map((itemsObject, index) => {
+        filteredData.map((itemsObject, index) => {
             const childs = [];
             const i = index + 1;
             let currentIndex = i;
@@ -575,11 +567,11 @@ class PagerStatic extends React.Component {
 
             keysToRender.map((keyToRender, loopIndex) => {
                 /**
-                 * Render the keys in inside the object from current itemsToRender loop index
+                 * Render the keys in inside the object from current filteredData loop index
                  */
                 const value = itemsObject[keyToRender];
 
-                if (objectKeys.includes(keyToRender) && undefined !== value) {
+                if (objectKeys.includes(keyToRender) && value) {
                     count++;
 
                     childs.push(
@@ -610,39 +602,6 @@ class PagerStatic extends React.Component {
             )
         });
 
-        /**
-         * No Data available
-         */
-        if (!dataLoaded && '' !== fallbackMounting) {
-            return (
-                <div className='mounting'>
-                    {
-                        fallbackMounting
-                    }
-                </div>
-            );
-        }
-
-        if ('' !== fallbackNoData && '' === searchValue && 0 == jsxToReturn.length) {
-            return (
-                <div className='no-data'>
-                    {
-                        fallbackNoData
-                    }
-                </div>
-            );
-        }
-
-        if ('' !== fallbackNoDataSearch && '' !== searchValue && 0 == jsxToReturn.length) {
-            return (
-                <div className='no-data'>
-                    {
-                        fallbackNoDataSearch
-                    }
-                </div>
-            );
-        }
-
         return jsxToReturn;
     }
 
@@ -653,7 +612,8 @@ class PagerStatic extends React.Component {
         const { fallbackLoadingTime, searchOnKeyDown } = this.state;
 
         this.setState({
-            loading: searchOnKeyDown ? true : false
+            loading: searchOnKeyDown ? true : false,
+            loadingList: true
         }, () => {
             setTimeout(() => {
                 const { data, searchSensisitve, searchOnKeys, env } = this.state;
@@ -664,7 +624,7 @@ class PagerStatic extends React.Component {
                  * If the user 
                  */
                 if (searchOnKeyDown || forceSearch) {
-
+                    
                     data.map(object => {
 
                         if(searchOnKeys && searchOnKeys.length){
@@ -676,10 +636,10 @@ class PagerStatic extends React.Component {
                                 if (undefined !== object[keyName]) {
                                     if (typeof '8' === typeof object[keyName]) {
     
-                                        if(typeof '8' !== typeof searchValue){
+                                        if (typeof '8' !== typeof searchValue) {
                                             searchValue = JSON.stringify(searchValue);
                                         }
-                                        
+    
                                         /**
                                          * Sensitive
                                          */
@@ -705,23 +665,23 @@ class PagerStatic extends React.Component {
                                 }
                             });
                         }
-                        else {
+                        else{
                             filteredData.push(object);
                         }
                     });
-
+                    
                     this.setState({
                         filteredData,
-                        loading: false
+                        loading: false,
+                        loadingList: false
                     }, () => {
-
                         /**
                          * Only on mounting
                          */
                         if (!this.state.dataLoaded) {
                             setTimeout(() => {
                                 this.setState({
-                                    dataLoaded: true
+                                    dataLoaded: true,
                                 });
                             }, fallbackLoadingTime * 2);
                         }
@@ -730,7 +690,8 @@ class PagerStatic extends React.Component {
                 else {
                     this.setState({
                         dataLoaded: true,
-                        loading: false
+                        loading: false,
+                        loadingList: false,
                     });
                 }
             }, fallbackLoadingTime);
@@ -774,15 +735,13 @@ class PagerStatic extends React.Component {
 
             this.setState({
                 searchValue,
-                currentPage: 0,
-            }, () => {
-                this.filterData();
-            });
+                // currentPage: 0,
+            }, this.filterData);
         })
     }
 
     render() {
-        const { addClass, defaultClass, id, loading, fallbackLoading, alignPagination, displaySearch, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData } = this.state;
+        const { fallbackLoadingPage, addClass, defaultClass, id, loading, fallbackLoading, alignPagination, displaySearch, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData, loadingList } = this.state;
         const jsxList = this.getList();
 
         return (
@@ -837,18 +796,18 @@ class PagerStatic extends React.Component {
                     </h1>
                 }
                 {
-                    1 == alignPagination && 0 == filteredData.length && jsxList
-                }
-                {
-                    1 == alignPagination && 0 != filteredData.length &&
+                    1 == alignPagination && 0 != filteredData.length && !loadingList &&
                     <ul>
                         {
                             0 !== jsxList.length && jsxList
                         }
                         {
-                            '' !== fallbackLoading && loading && fallbackLoading
+                            '' !== fallbackLoading && loading && fallbackLoadingPage
                         }
                     </ul>
+                }
+                {
+                    1 == alignPagination && loadingList && fallbackLoadingPage
                 }
                 {
                     this.getPagerJsx()
@@ -865,10 +824,7 @@ class PagerStatic extends React.Component {
                     </h1>
                 }
                 {
-                    1 !== alignPagination && 0 == filteredData.length && jsxList
-                }
-                {
-                    1 !== alignPagination &&
+                    1 !== alignPagination && 0 != filteredData.length && !loadingList &&
                     <ul>
                         {
                             0 !== jsxList.length && jsxList
@@ -878,9 +834,12 @@ class PagerStatic extends React.Component {
                         }
                     </ul>
                 }
+                {
+                    1 !== alignPagination && loadingList && fallbackLoading
+                }
             </div>
         );
     }
 }
 
-export default PagerStatic;
+export default PagerDynamic;

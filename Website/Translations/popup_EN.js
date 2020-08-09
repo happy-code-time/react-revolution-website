@@ -799,6 +799,11 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
+    "pagination.totalSufix": {
+        "description": "Display a suffix after the number of total data.length are displayed.",
+        "type": "Boolean",
+        "default": "False"
+    },
     "pagination.displayPaginationPages": {
         "description": "Display the pagination.",
         "type": "Boolean",
@@ -823,6 +828,16 @@ const EN = {
         "description": "How many page should be displayed 'after' the current page (as next pages).",
         "type": "Number",
         "default": "2"
+    },
+    "pagination.totalPages": {
+        "description": "Total number of pages available.",
+        "type": "Number",
+        "default": "0"
+    },
+    "pagination.globalCount": {
+        "description": "Total number of items available.",
+        "type": "Number",
+        "default": "0"
     },
     "pagination.alignPagesItems": {
         "description": "Rendered items structure. Available options: 1, 2, 3, 4, 5.",
@@ -924,7 +939,13 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
+    "globalMessage.empty": {
+        "description": "If true, all messages are removed when the location is changed (window.location.href).",
+        "type": "Boolean",
+        "default": "True"
+    },
     "breadcrumbs.example3": "Example with menu attached on the last breadcrumb entry.",
+    "pager.dynamic.description": 'This is an example with a dynamic pager, so every time a page is changed, a database query is carried out. This function with the DB query returns a promise. It has to be a promise, because the module internally contains an "await", so the page change will only take place if the promise is resolved and data is delivered. ',
 };
 
 export default EN;

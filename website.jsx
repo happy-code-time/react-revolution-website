@@ -69,6 +69,8 @@ import ReactRevolutionMenuClickHorizontal from './Website/Pages/Modules/ReactRev
 
 import ReactRevolutionPagerStatic from './Website/Pages/Modules/ReactRevolutionPagerStatic';
 
+import ReactRevolutionPagerDynamic from './Website/Pages/Modules/ReactRevolutionPagerDynamic';
+
 import ReactRevolutionPopupBox from './Website/Pages/Modules/ReactRevolutionPopupBox';
 
 import ReactRevolutionSidebar from './Website/Pages/Modules/ReactRevolutionSidebar';
@@ -182,6 +184,11 @@ class App extends React.Component {
   }
 
   searchForModule(inputValue) {
+
+    if(!inputValue){
+      inputValue = '';
+    }
+
     const { host } = this.state;
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
@@ -342,6 +349,10 @@ class App extends React.Component {
                           text: 'PagerStatic',
                           href: `${host}#/react-revolution-pager-static`,
                         },
+                        {
+                          text: 'PagerDynamic',
+                          href: `${host}#/react-revolution-pager-dynamic`,
+                        },
                       ]
                     },
                     {
@@ -486,6 +497,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
               <Route exact path="/react-revolution-menu-click-horizontal" render={(props) => (<ReactRevolutionMenuClickHorizontal {...props} />)} />
               <Route exact path="/react-revolution-pager-static" render={(props) => (<ReactRevolutionPagerStatic {...props} />)} />
+              <Route exact path="/react-revolution-pager-dynamic" render={(props) => (<ReactRevolutionPagerDynamic {...props} />)} />
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
               <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />

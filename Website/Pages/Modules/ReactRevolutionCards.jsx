@@ -14,7 +14,7 @@ const codeExample = `import { Cards } from 'react-revolution';
 
 <Cards
     itemsPerLine={3}
-    mediaBreak={1140}
+    mediaBreak={1024}
     data={
         [
             {
@@ -86,7 +86,7 @@ class ReactRevolutionCards extends React.Component {
                 live: (
                     <Cards
                         itemsPerLine={3}
-                        mediaBreak={1140}
+                        mediaBreak={1024}
                         data={
                             [
                                 {

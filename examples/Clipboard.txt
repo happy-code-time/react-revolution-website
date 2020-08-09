@@ -23,8 +23,8 @@ class Home extends React.Component {
     }
 
     copiedToClipboard(event, data){
-        console.log(event);
-        console.log(data);
+        console.info(event);
+        console.info(data);
     }
 
     

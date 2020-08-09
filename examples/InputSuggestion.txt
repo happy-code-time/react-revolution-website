@@ -54,7 +54,7 @@ class App extends React.Component {
     }
 
     userSelection(data){
-        console.log(data);
+        console.info(data);
     }
 
     render() {

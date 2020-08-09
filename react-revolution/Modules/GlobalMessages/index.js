@@ -26,7 +26,8 @@ class GlobalMessages extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
             codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
-            timer: (props.timer && typeof 888 == typeof props.timer) ? props.timer : 2500,
+            timer: (props.timer && typeof 8 == typeof props.timer) ? props.timer : 2500,
+            empty: (typeof true == typeof props.empty) ? props.empty : true,
         };
 
         this.removeMessage = this.removeMessage.bind(this);
@@ -37,9 +38,11 @@ class GlobalMessages extends React.Component
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.clearStore(true);
-        this.setOnClickEventListenerToTheDom();
+        const { messageKey, empty } = this.state;
 
-        const { messageKey } = this.state;
+        if(empty){
+            this.setOnClickEventListenerToTheDom();
+        }
 
         if('' !== messageKey){
             this.setIntervaller();
@@ -47,7 +50,11 @@ class GlobalMessages extends React.Component
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.checkLocation);
+        const { empty } = this.state;
+
+        if(empty){
+            document.removeEventListener('click', this.checkLocation);
+        }
         clearInterval(this.globalMessagesIntervaller);
     }
 

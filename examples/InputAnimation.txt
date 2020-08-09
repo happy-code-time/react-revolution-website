@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     setInputValue(inputValue) {
-        console.log(inputValue);
+        console.info(inputValue);
 
         this.setState({
             inputValue: inputValue+'-'

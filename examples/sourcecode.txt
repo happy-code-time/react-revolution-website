@@ -21,7 +21,7 @@ class App extends React.Component {
     }
 
     // setValue(clickEvent, value) {
-    //     console.log(value);
+    //     console.info(value);
     // }
 
     // toggleList() {
@@ -29,7 +29,7 @@ class App extends React.Component {
     // }
 
     filterCode(event, inputValue, filteredCode) {
-        console.log(event, inputValue, filteredCode);
+        console.info(event, inputValue, filteredCode);
     }
 
     render() {

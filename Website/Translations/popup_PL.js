@@ -799,6 +799,11 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
+    "pagination.totalSufix": {
+        "description": "Wyświetl sufiks za liczbą całkowitej ilości danych.",
+        "type": "Boolean",
+        "default": "False"
+    },
     "pagination.displayPaginationPages": {
         "description": "Wyświetl paginację.",
         "type": "Boolean",
@@ -823,6 +828,16 @@ const PL = {
         "description": "Ile stron powinno być wyświetlanych 'po' bieżącej stronie (jako następne strony).",
         "type": "Number",
         "default": "2"
+    },
+    "pagination.totalPages": {
+        "description": "Całkowita liczba dostępnych stron.",
+        "type": "Number",
+        "domyślny": "0"
+    },
+    "pagination.globalCount": {
+        "description": "Całkowita liczba dostępnych pozycji.",
+        "type": "Number",
+        "domyślny": "0"
     },
     "pagination.alignPagesItems": {
         "description": "Struktura renderowanych elementów. Dostępne opcje: 1, 2, 3, 4, 5.",
@@ -924,7 +939,13 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
+    "globalMessage.empty": {
+        "description": "Jeśli true, wszystkie wiadomości zostaną usunięte po zmianie lokalizacji (window.location.href).",
+        "type": "Boolean",
+        "default": "True"
+    },
     "breadcrumbs.example3": "Przykład z menu dołączonym do ostatniej pozycji.",
+    "pager.dynamic.description": 'To jest przykład z dynamicznym pagerem, więc za każdym razem, gdy strona jest zmieniana, wykonywane jest zapytanie do bazy danych. Ta funkcja z zapytaniem DB zwraca obietnicę (Promise). Musi to być obietnica, ponieważ moduł wewnętrznie zawiera "await" (oczekiwanie), więc zmiana strony nastąpi tylko wtedy, gdy obietnica zostanie rozwiązana (resolve), a dane zostaną dostarczone.',
 };
 
 export default PL;

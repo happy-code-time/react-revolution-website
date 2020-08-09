@@ -108,7 +108,7 @@ const codeExample4 = `import { Icons } from 'react-revolution';
 />`;
 
 const jsExample = `callback(clickEvent, icon){
-    console.log(icon);
+    console.info(icon);
 }`;
 
 const cssExample = `.rr-icons{
@@ -263,7 +263,7 @@ class ReactRevolutionIcons extends React.Component {
     }
 
     callback(clickEvent, icon){
-        console.log(icon);
+        console.info(icon);
     }
 
     loadOnScrollCallback() {

@@ -15,53 +15,21 @@ const codeExample1 = `import { PagerStatic } from 'react-revolution';
 <div className="rr-revolution-pager-example">
     <PagerStatic
         globalStyle={true}
-        /**
-         * data
-         */
         data={this.getDataExample1()}
-        /**
-         * How many items display per page
-         */
         itemsPerSite={10}
-        /**
-         * Pages Information
-         */
         displayPagesInfo={true}
         paginationTextPrefix='page'
         paginationTextMiddle='of'
-        /**
-         * How many sites display: 
-         * - before main page
-         * - after main page
-         */
-        prevPages={2}
-        nextPages={2}
-        /**
-         * Display pagination pages
-         * if false then only the prev and next buttons are displayed
-         */
+        prevPages={1}
+        nextPages={1}
         displayPaginationPages={true}
-        /**
-         * Align ul and pagination: 1, 2
-         */
         alignPagination={1}
-        /**
-         * Align pagination items
-         * 1, 2, 3, 4, 5
-         */
         alignPagesItems={2}
-        /**
-         * Keys to display from object
-         */
         display={
             [
                 'name'
             ]
         }
-        /**
-         * Display loop index as first
-         * entry for each li element
-         */
         displayLineNumber={true}
         liOnClickCallback={this.callback}
     />
@@ -72,71 +40,26 @@ const codeExample2 = `import { PagerStatic } from 'react-revolution';
 <div className="rr-revolution-pager-example">
     <PagerStatic
         globalStyle={true}
-        /**
-         * data
-         */
         data={this.getDataExample2()}
-        /**
-         * How many items display per page
-         */
         itemsPerSite={10}
-        /**
-         * Display total available items
-         * passed to the module
-         */
         displayTotal={false}
-        /**
-         * Prefix of the total elements
-         */
         totalPrefix=''
-        /**
-         * Pages Information
-         */
         displayPagesInfo={true}
         paginationTextPrefix='page'
         paginationTextMiddle='of'
-        /**
-         * How many sites display: 
-         * - before main page
-         * - after main page
-         */
-        prevPages={2}
-        nextPages={2}
-        /**
-         * Display pagination pages
-         * if false then only the prev and next buttons are displayed
-         */
+        prevPages={1}
+        nextPages={1}
         displayPaginationPages={true}
-        /**
-         * Align ul and pagination: 1, 2
-         */
         alignPagination={1}
-        /**
-         * Align pagination items
-         * 1, 2, 3, 4, 5
-         */
         alignPagesItems={2}
-        /**
-         * Keys to display from object
-         */
         display={
             [
                 'name', 'removeJsx'
             ]
         }
-        /**
-         * Display loop index as first
-         * entry for each li element
-         */
         displayLineNumber={true}
         paginationTitle='Custom table title'
-        /**
-         * callbacks
-         */
         liOnClickCallback={this.callback}
-        /**
-         * Fallback for no data in list
-         */
         fallbackNoData={
             (
                 <div className="no-data">
@@ -154,76 +77,27 @@ const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
 <div className="rr-revolution-pager-example">
     <PagerStatic
         globalStyle={true}
-        /**
-         * data
-         */
         data={this.getDataExample3()}
-        /**
-         * How many items display per page
-         */
         itemsPerSite={10}
-        /**
-         * Display total available items
-         * passed to the module
-         */
         displayTotal={false}
-        /**
-         * Prefix of the total elements
-         */
         totalPrefix=''
-        /**
-         * Pages Information
-         */
         displayPagesInfo={true}
         paginationTextPrefix='page'
         paginationTextMiddle='of'
-        /**
-         * How many sites display: 
-         * - before main page
-         * - after main page
-         */
         prevPages={2}
         nextPages={2}
-        /**
-         * Display pagination pages
-         * if false then only the prev and next buttons are displayed
-         */
         displayPaginationPages={true}
-        /**
-         * Align ul and pagination: 1, 2
-         */
         alignPagination={1}
-        /**
-         * Align pagination items
-         * 1, 2, 3, 4, 5
-         */
         alignPagesItems={2}
-        /**
-         * Keys to display from object
-         */
         display={
             [
                 'name'
             ]
         }
-        /**
-         * Display loop index as first
-         * entry for each li element
-         */
         displayLineNumber={true}
-        /**
-         * Each new page should start with an: 1 
-         * or increment the counter for each page
-         */
         resetLineNumber={false}
-        /**
-         * Buttons JSX
-         */
         previousButton=''
         nextButton=''
-        /**
-         * Search input field
-         */
         displaySearch={true}
         searchPlaceholder='Search'
         searchIcon=''
@@ -233,28 +107,13 @@ const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
                 'name'
             ]
         }
-        /**
-         * Search value (working only 1 single time)
-         */
         searchValue=''
-        /**
-         * Filter data on input field change
-         */
         searchOnKeyDown={true}
-        /**
-         * Search title
-         */
         searchTitle='Custom search title'
         paginationTitle='Custom table title'
-        /**
-         * No data message
-         */
         fallbackMounting={<LoadingBoxTop display={true} text='Loading...' />}
         fallbackLoading={<LoadingBoxTop display={true} text='Loading...' />}
         fallbackLoadingTime={100}
-        /**
-         * Fallback for no data in list
-         */
         fallbackNoData={
             (
                 <div className="no-data">
@@ -264,9 +123,6 @@ const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
                 </div>
             )
         }
-        /**
-         * Fallback for no data in list
-         */
         fallbackNoDataSearch={
             (
                 <div className="no-data">
@@ -276,9 +132,6 @@ const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
                 </div>
             )
         }
-        /**
-         * callbacks
-         */
         inputOnChangeCallback={this.callbackInput}
         liOnClickCallback={this.callback}
     />
@@ -302,7 +155,7 @@ getDataExample1() {
         dataToDisplay.push(
             {
                 index: x,
-                name: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+                name: \`Lorem ipsum dolor sit amet, consetetur sadipscing elitr \${x}\`,
             }
         );
     }
@@ -352,7 +205,7 @@ getDataExample2() {
             dataToDisplay.push(
                 {
                     index: x,
-                    name: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+                    name: \`Lorem ipsum dolor sit amet, consetetur sadipscing elitr \${x}\`,
                 }
             );
         }
@@ -525,8 +378,8 @@ class ReactRevolutionPagerStatic extends React.Component {
                              * - before main page
                              * - after main page
                              */
-                            prevPages={2}
-                            nextPages={2}
+                            prevPages={1}
+                            nextPages={1}
                             /**
                              * Display pagination pages
                              * if false then only the prev and next buttons are displayed
@@ -582,7 +435,7 @@ class ReactRevolutionPagerStatic extends React.Component {
             dataToDisplay.push(
                 {
                     index: x,
-                    name: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+                    name: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr ${x}`,
                 }
             );
         }
@@ -626,7 +479,7 @@ class ReactRevolutionPagerStatic extends React.Component {
                 dataToDisplay.push(
                     {
                         index: x,
-                        name: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+                        name: `Lorem ipsum dolor sit amet, consetetur sadipscing elitr ${x}`,
                     }
                 );
             }
@@ -729,8 +582,8 @@ class ReactRevolutionPagerStatic extends React.Component {
                          * - before main page
                          * - after main page
                          */
-                        prevPages={2}
-                        nextPages={2}
+                        prevPages={1}
+                        nextPages={1}
                         /**
                          * Display pagination pages
                          * if false then only the prev and next buttons are displayed
@@ -1151,6 +1004,10 @@ class ReactRevolutionPagerStatic extends React.Component {
                                 {
                                     key: "totalPrefix",
                                     values: "pagination.totalPrefix"
+                                },
+                                {
+                                    key: "totalSufix",
+                                    values: "pagination.totalSufix"
                                 },
                                 {
                                     key: "displayPaginationPages",

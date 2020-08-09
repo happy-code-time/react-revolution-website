@@ -88,6 +88,11 @@ const cssExample = `.rr-breadcrumbs-example{
 
     .menu-span{    
 
+        .text{
+            min-width: 65px;
+            text-align: center; 
+        }
+
         .text:hover{
             cursor: pointer;
         }

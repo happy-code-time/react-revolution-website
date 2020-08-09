@@ -26,6 +26,7 @@
 }
 
 #app {
+  
   .ScrollTop{
     position: fixed;
     bottom: 10px;
@@ -34,7 +35,7 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background-color: #2D3748;
+    background-color: rgb(29,29,29);
 
     i{
       display: block;
@@ -188,7 +189,7 @@
   
       .single-entry {
         border-radius: 0px;
-        margin: 10px;
+        margin: 5px;
         border: none;
         display: block;
         width: 100%;
@@ -217,11 +218,7 @@
   }
 
   .SideBar.SideBar-min{
-
-    .single-entry {
-      margin: 5px 10px;
-    }
-
+    
     .text,
     a{
       font-size: 0.77rem !important;

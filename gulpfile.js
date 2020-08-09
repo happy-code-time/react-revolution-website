@@ -12,7 +12,7 @@ const sass = require("gulp-sass");
 
 const run = require('gulp-run');
 
-const version = 'v1.1.0';
+const version = 'v1.1.1';
 
 /**
  * Clean
@@ -34,10 +34,10 @@ gulp.task('compress:images', function (done) {
     gulp.src('./ImagesToCompress/*.{png,jpg,jpeg,gif,ico}')
         .pipe(imagemin(
             [
-                imagemin.gifsicle(),
-                imagemin.optipng(),
-                imagemin.svgo(),
-                imageminJpegRecompress()
+                // imagemin.gifsicle(),
+                // imagemin.optipng(),
+                // imagemin.svgo(),
+                // imageminJpegRecompress()
             ]
         ))
         .pipe(gulp.dest('./public/images'));
