@@ -231,26 +231,28 @@ const cssExample = `.rr-pager-dynamic {
         background-color: #1873cc;
         color: rgb(255,255,255)
     }
-
-    .delete{
-        display: inline-block;
-        width: 30px;
-        text-align: center;
-        color: #FF4469;
-    }
-
-    .delete:hover{
-        cursor: pointer;
-    }
 }
 
-.pager-loading{
-    box-sizing: border-box;
-    padding: 10px;
-    height: 320px;
-    border: 1px solid rgb(222,222,222);
-    margin: 10px 0;
-    border-radius: 3px;        
+.rr-pager-dynamic{
+    ul{
+        position: relative;
+
+        .pager-loading{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(222,222,222,.44);
+            text-align: center;
+            display: flex;
+            vertical-align: middle;
+
+            p{
+                margin: auto;
+            }
+        }
+    }
 }`;
 
 class ReactRevolutionPagerDynamic extends React.Component {
