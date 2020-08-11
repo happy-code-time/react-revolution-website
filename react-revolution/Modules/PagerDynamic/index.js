@@ -176,23 +176,23 @@ class PagerDynamic extends React.Component {
     changePage(number, pagersPage = true) {
         const { itemsPerSite } = this.state;
 
-        if(pagersPage){
+        if (pagersPage) {
             number -= 1;
         }
 
         this.setState({
-            currentPage: number,
-            loadingList: true
+            loadingList: true,
         },
             async () => {
                 const { getDataCallback } = this.state;
 
                 if (getDataCallback) {
-                    const data = await (getDataCallback)(number+1);
+                    const data = await (getDataCallback)(number + 1);
 
                     if (data && typeof [] == typeof data && data.length) {
 
                         return this.setState({
+                            currentPage: number,
                             filteredData: data.slice(0, itemsPerSite),
                             data: data.slice(0, itemsPerSite),
                             loadingList: false
@@ -250,7 +250,7 @@ class PagerDynamic extends React.Component {
             /**
              * Prev pages
              */
-            for (let x = mainPage; x > 0 ; x--) {
+            for (let x = mainPage; x > 0; x--) {
 
                 if (x >= 1 && (addedItems <= prevPages || addedItems < minPages) && mainPage !== x) {
                     addedItems += 1;
@@ -458,7 +458,7 @@ class PagerDynamic extends React.Component {
     }
 
     pages() {
-        let { paginationTextPrefix, globalCount, currentPage, paginationTextMiddle, totalPages } = this.state;
+        let { paginationTextPrefix, globalCount, currentPage, paginationTextMiddle, totalPages, filteredData } = this.state;
         let mainPage = currentPage;
         mainPage++;
         let maxPages = totalPages;
@@ -467,7 +467,7 @@ class PagerDynamic extends React.Component {
             maxPages = 1;
         }
 
-        if (0 == globalCount) {
+        if (0 == globalCount || !filteredData.length) {
             return null;
         }
 
@@ -489,10 +489,7 @@ class PagerDynamic extends React.Component {
         let { currentPage } = this.state;
 
         if (currentPage !== 0) {
-            this.changePage(currentPage-1, false);
-            // this.setState({
-            //     currentPage: currentPage - 1
-            // });
+            this.changePage(currentPage - 1, false);
         }
     }
 
@@ -506,13 +503,7 @@ class PagerDynamic extends React.Component {
         mainPage++;
 
         if (itemsPerSite * mainPage < globalCount) {
-            this.changePage(currentPage+1, false);
-            // this.setState({
-            //     currentPage: currentPage + 1
-            // }, () => {
-            //     let { currentPage } = this.state;
-            //     this.changePage(currentPage+1);
-            // });
+            this.changePage(currentPage + 1, false);
         }
     }
 
@@ -624,10 +615,10 @@ class PagerDynamic extends React.Component {
                  * If the user 
                  */
                 if (searchOnKeyDown || forceSearch) {
-                    
+
                     data.map(object => {
 
-                        if(searchOnKeys && searchOnKeys.length){
+                        if (searchOnKeys && searchOnKeys.length) {
                             searchOnKeys.map(keyName => {
                                 /**
                                  * Search on the value based on searching keys 
@@ -635,11 +626,11 @@ class PagerDynamic extends React.Component {
                                  */
                                 if (undefined !== object[keyName]) {
                                     if (typeof '8' === typeof object[keyName]) {
-    
+
                                         if (typeof '8' !== typeof searchValue) {
                                             searchValue = JSON.stringify(searchValue);
                                         }
-    
+
                                         /**
                                          * Sensitive
                                          */
@@ -652,7 +643,7 @@ class PagerDynamic extends React.Component {
                                         if (!searchSensisitve && '' !== searchValue && -1 !== object[keyName].toLowerCase().indexOf(searchValue.toLowerCase())) {
                                             filteredData.push(object);
                                         }
-    
+
                                         if ('' == searchValue) {
                                             filteredData.push(object);
                                         }
@@ -665,11 +656,11 @@ class PagerDynamic extends React.Component {
                                 }
                             });
                         }
-                        else{
+                        else {
                             filteredData.push(object);
                         }
                     });
-                    
+
                     this.setState({
                         filteredData,
                         loading: false,
@@ -735,7 +726,6 @@ class PagerDynamic extends React.Component {
 
             this.setState({
                 searchValue,
-                // currentPage: 0,
             }, this.filterData);
         })
     }
@@ -788,26 +778,31 @@ class PagerDynamic extends React.Component {
                     </div>
                 }
                 {
-                    1 == alignPagination && paginationTitle &&
-                    <h1 className="h1">
+                    1 == alignPagination &&
+                    <span>
                         {
-                            paginationTitle
-                        }
-                    </h1>
-                }
-                {
-                    1 == alignPagination && 0 != filteredData.length && !loadingList &&
-                    <ul>
-                        {
-                            0 !== jsxList.length && jsxList
+                            paginationTitle &&
+                            <h1 className="h1">
+                                {
+                                    paginationTitle
+                                }
+                            </h1>
                         }
                         {
-                            '' !== fallbackLoading && loading && fallbackLoadingPage
+                            0 != filteredData.length &&
+                            <ul>
+                                {
+                                    0 !== jsxList.length && jsxList
+                                }
+                                {
+                                    '' !== fallbackLoading && loading && fallbackLoadingPage
+                                }
+                                {
+                                    loadingList && fallbackLoadingPage
+                                }
+                            </ul>
                         }
-                    </ul>
-                }
-                {
-                    1 == alignPagination && loadingList && fallbackLoadingPage
+                    </span>
                 }
                 {
                     this.getPagerJsx()
@@ -816,26 +811,31 @@ class PagerDynamic extends React.Component {
                     this.pages()
                 }
                 {
-                    1 !== alignPagination && paginationTitle &&
-                    <h1 className="h1">
+                    1 !== alignPagination &&
+                    <span>
                         {
-                            paginationTitle
-                        }
-                    </h1>
-                }
-                {
-                    1 !== alignPagination && 0 != filteredData.length && !loadingList &&
-                    <ul>
-                        {
-                            0 !== jsxList.length && jsxList
+                            paginationTitle &&
+                            <h1 className="h1">
+                                {
+                                    paginationTitle
+                                }
+                            </h1>
                         }
                         {
-                            '' !== fallbackLoading && loading && fallbackLoading
+                            0 != filteredData.length && !loadingList &&
+                            <ul>
+                                {
+                                    0 !== jsxList.length && jsxList
+                                }
+                                {
+                                    '' !== fallbackLoading && loading && fallbackLoading
+                                }
+                                {
+                                    loadingList && fallbackLoading
+                                }
+                            </ul>
                         }
-                    </ul>
-                }
-                {
-                    1 !== alignPagination && loadingList && fallbackLoading
+                    </span>
                 }
             </div>
         );

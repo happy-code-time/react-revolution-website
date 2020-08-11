@@ -83,6 +83,9 @@ MenuClickHorizontal
 PagerStatic
 - [https://react-revolution.j.pl/#/react-revolution-pager-static](https://react-revolution.j.pl/#/react-revolution-pager-static)
 
+PagerDynamic
+- [https://react-revolution.j.pl/#/react-revolution-pager-dynamic](https://react-revolution.j.pl/#/react-revolution-pager-dynamic)
+
 PopupBox
 - [https://react-revolution.j.pl/#/react-revolution-popup-box](https://react-revolution.j.pl/#/react-revolution-popup-box)
 

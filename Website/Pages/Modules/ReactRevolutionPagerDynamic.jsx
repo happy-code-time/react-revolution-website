@@ -42,7 +42,9 @@ const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolut
         fallbackLoadingPage={
             (
                 <div className='pager-loading'>
-                    Loading...
+                    <p>
+                        Loading...
+                    </p>
                 </div>
             )
         }
@@ -95,7 +97,9 @@ const codeExample2 = `import { PagerStatic, uuid } from 'react-revolution';
         fallbackLoadingPage={
             (
                 <div className='pager-loading'>
-                    Loading...
+                    <p>
+                        Loading...
+                    </p>
                 </div>
             )
         }
@@ -301,7 +305,9 @@ class ReactRevolutionPagerDynamic extends React.Component {
                             fallbackLoadingPage={
                                 (
                                     <div className='pager-loading'>
-                                        Loading...
+                                        <p>
+                                            Loading...
+                                        </p>
                                     </div>
                                 )
                             }
@@ -415,7 +421,9 @@ class ReactRevolutionPagerDynamic extends React.Component {
                         fallbackLoadingPage={
                             (
                                 <div className='pager-loading'>
-                                    Loading...
+                                    <p>
+                                        Loading...
+                                    </p>
                                 </div>
                             )
                         }
