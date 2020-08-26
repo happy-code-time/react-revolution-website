@@ -38,7 +38,7 @@ class App extends React.Component {
                 }
             }>
                 <InputAnimation
-                    placeholder='Placeholder....'
+                    inputPlaceholder='Placeholder....'
                     type="text"
                     inputProps={{
                         autoComplete: "username"

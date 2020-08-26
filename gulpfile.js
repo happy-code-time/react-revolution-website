@@ -12,7 +12,7 @@ const sass = require("gulp-sass");
 
 const run = require('gulp-run');
 
-const version = 'v1.1.2';
+const version = 'v1.1.3';
 
 /**
  * Clean

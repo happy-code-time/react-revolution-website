@@ -55,17 +55,15 @@ const buildModulesJsx = (object = {}, count = 1) => {
                         }
                     </h1>
                     <SourceCode
-                        displayLineNumber={true}
+                        lineNumber={true}
                         layout='dark'
                         code={react}
                     />
                     <Clipboard
                         animation='jump' // scale, jump
                         data={(
-                            <div className="button-action">
-                                {
-                                    trans('copyToClipboard')
-                                }
+                            <div title={trans('copyToClipboard')} className="button-action">
+                                <i className="far fa-clipboard"></i>
                             </div>
                         )}
                         clipboard={react}
@@ -93,17 +91,15 @@ const buildModulesJsx = (object = {}, count = 1) => {
                         }
                     </h1>
                     <SourceCode
-                        displayLineNumber={true}
+                        lineNumber={true}
                         layout='dark'
                         code={js}
                     />
                     <Clipboard
                         animation='jump' // scale, jump
                         data={(
-                            <div className="button-action">
-                                {
-                                    trans('copyToClipboard')
-                                }
+                            <div title={trans('copyToClipboard')} className="button-action">
+                                <i className="far fa-clipboard"></i>
                             </div>
                         )}
                         clipboard={js}
@@ -130,17 +126,15 @@ const buildModulesJsx = (object = {}, count = 1) => {
                         }
                     </h1>
                     <SourceCode
-                        displayLineNumber={true}
+                        lineNumber={true}
                         layout='dark'
                         code={css}
                     />
                     <Clipboard
                         animation='jump' // scale, jump
                         data={(
-                            <div className="button-action">
-                                {
-                                    trans('copyToClipboard')
-                                }
+                            <div title={trans('copyToClipboard')} className="button-action">
+                                <i className="far fa-clipboard"></i>
                             </div>
                         )}
                         clipboard={css}

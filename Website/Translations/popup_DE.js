@@ -16,7 +16,7 @@ const DE = {
     light: 'Leicht',
     interactive: 'Interaktiv',
     "fast.description" : "Minimale Zeit der Generierung und Optimale Source Nutzung des Browsers.",
-    "light.description" : `Diese Bibliothek hat eine Anzahl von ${len} Modulen une eine Gesamtgröße von unter 170 KB.`,
+    "light.description" : `Diese Bibliothek hat eine Anzahl von ${len} Modulen une eine Gesamtgröße von unter 190 KB.`,
     "interactive.description" : "Jedes Modul kann frei gestaltet werden und beinhaltet benutzerdefinierte Callback Funktionen.",
     exampleOfUsage: 'Beispiel Benutzung',
     copyToClipboard: 'Zwischenspeichern',
@@ -30,10 +30,10 @@ const DE = {
     rights: 'Rechte',
     rigthsText: 'Alle Rechte vorbehalten',
     author: 'Author',
-    exampleTitle: 'Beispiel',
-    reactCodeTitle: 'React Kod',
-    cssCodeTitle: 'Css Kod',
-    jsCodeTitle: 'Javascript Kod',
+    exampleTitle: 'Anwendungsbeispiel',
+    reactCodeTitle: 'Code des obigen Moduls',
+    cssCodeTitle: 'Zusätzlicher CSS Code',
+    jsCodeTitle: 'Zusätzlicher Javascript Code',
     loading: 'Laden...',
     keyUsageTitle: 'Keys Erläuterungen',
     "table.title.key" : 'Schlüssel',
@@ -223,7 +223,7 @@ const DE = {
         "type": "Function",
         "default": "undefined"
     },
-    "placeholder": {
+    "inputPlaceholder": {
         "description": "Platzhalter.",
         "type": "String",
         "default": "<leere Zeichenfolge>"
@@ -248,7 +248,7 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
-    "displayLineNumber": {
+    "lineNumber": {
         "description": "Erlaube das rendern, auf der Linken Seite, jeder Zeilen Nummer.",
         "type": "Boolean",
         "default": "False"
@@ -259,7 +259,7 @@ const DE = {
         "default": "<leere Zeichenfolge>"
     },
     "inputActive": {
-        "description": "Soll das Input feld mit angezeigt werden oder nicht.",
+        "description": "Soll das Input Feld mit angezeigt werden oder nicht.",
         "type": "Boolean",
         "default": "False"
     },
@@ -752,13 +752,13 @@ const DE = {
 
     "pagination.data": {
         "description": "Array von benutzerdefinierten Objekten.",
-        "Typ": "Array",
-        "Standard": "[]"
+        "type": "Array",
+        "default": "[]"
     },
     "pagination.searchOnKeys": {
         "description": "Array von Zeichenfolgen. Array von (bereitgestellten Objekten innerhalb des 'Daten'-Schlüssels) Schlüsselnamen zur Verwendung des Suchfelds (Eingabefelds).",
-        "Typ": "Array",
-        "Standard": "[]"
+        "type": "Array",
+        "default": "[]"
     },
     "pagination.itemsPerSite": {
         "description": "Wie viele Websites auf jeder Seite gerendert werden sollen.",
@@ -767,20 +767,20 @@ const DE = {
     },
     "pagination.keysToRender": {
         "description": "Array von Zeichenfolgen. Array von Schlüsselnamen, die basierend auf dem Array von Objekten angezeigt werden sollen (Schlüssel: 'Daten').",
-        "Typ": "Array",
-        "Standard": "[]"
+        "type": "Array",
+        "default": "[]"
     },
-    "pagination.liOnClickCallback": {
+    "pagination.liCallback": {
         "description": "Benutzerdefinierte Rückruffunktion, wenn der Benutzer auf eine einzelne Zeile klickt. Diese Funktion gibt 2 Argumente zurück. Argument 1: clickEvent, Argument 2: aktuelles geklicktes Element als Objekt.",
-        "Typ": "Funktion",
+        "type": "Funktion",
         "default": "undefined"
     },
-    "pagination.inputOnChangeCallback": {
+    "pagination.inputCallback": {
         "description": "Benutzerdefinierte Rückruffunktion, wenn der Benutzer den Wert des Eingabefelds ändert. Diese Funktion gibt 1 Argumente zurück. Argument 1: Ereignis.",
-        "Typ": "Funktion",
+        "type": "Funktion",
         "default": "undefined"
     },
-    "pagination.displayLineNumber": {
+    "pagination.lineNumber": {
         "description": "Zeigt die aktuelle Zeilennummer an (Schleifenindex +1).",
         "type": "Boolean",
         "default": "False"
@@ -805,7 +805,7 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
-    "pagination.displayPaginationPages": {
+    "pagination.paginationPages": {
         "description": "Paginierung anzeigen.",
         "type": "Boolean",
         "default": "False"
@@ -860,7 +860,7 @@ const DE = {
         "type": "String | JSX",
         "default": "<leere Zeichenfolge>"
     },
-    "pagination.displaySearch": {
+    "pagination.searchActive": {
         "description": "Rendern Sie das Sucheingabefeld.",
         "type": "Boolean",
         "default": "False"
@@ -880,7 +880,7 @@ const DE = {
         "type": "String | JSX",
         "default": "🔍"
     },
-    "pagination.searchSensisitve": {
+    "pagination.searchSensitive": {
         "description": "Führen Sie eine Suche als 'key sensitive search' aus.",
         "type": "Boolean",
         "default": "False"
@@ -947,6 +947,102 @@ const DE = {
     },
     "breadcrumbs.example3": "Beispiel mit dem letzten Eintrag als Menu Element",
     "pager.dynamic.description" : 'Dies ist ein Beispiel mit einem dynamischen Pager also bei jedem Seiten Wechsel, wird eine Datenbank Abfrage durchgeführt. Diese Funktion mit der DB Abfrage liefert ein Promise zurück. Es muss ein Promise sein, da das Modul intern ein "await" beinhaltet, somit wird der Seiten Wechsel nur dann stattfinden, wenn der Promise auch resolved wird und Daten geliefert werden.',
+
+    "promise": {
+        "description": "Generieren Sie jede Codezeile als Promise für eine bessere Leistung, während Sie sehr lange Zeichenfolgen für die Quellcodestruktur generieren. Wenn false, generiert das Modul den Quellcode (jsx-Code) ohne Promise.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "promiseLine": {
+        "description": "Funktioniert nur, wenn der Schlüssel \"Versprechen\" auf \"Wahr\" gesetzt ist. Machen Sie in der Zeilennummer x eine \"Pause\" (Zeitüberschreitung zum Auflösen des aktuellen Versprechens), um die kritische CPU-Auslastung zu stoppen, wenn die übergebene Zeichenfolge / der Code länger ist dann 10.000 Codezeilen. ",
+        "type": "Nummer",
+        "default": "1000"
+    },
+    "promiseTime": {
+        "description": "Funktioniert nur, wenn der Schlüssel \"Versprechen\" auf \"Wahr\" gesetzt ist. Zeitpunkt des Timeouts zum Auflösen der aktuellen Zeilen Versprechen in Kombination mit dem Schlüssel \"VersprechenLine\".",
+        "type": "Nummer",
+        "default": "500"
+    },
+    "matcher": {
+        "description": "Array von Objekten.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.words": {
+        "description": "Array von übereinstimmenden Zeichenfolgen / Wörtern.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.className": {
+        "description": "Fügen Sie dem übereinstimmenden Wort einen Klassennamen hinzu.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "lineNumberNewLine": {
+        "description": "Funktioniert nur, wenn der Schlüssel 'lineNumber' auf true gesetzt ist. Rendern Sie die Zeilennummer für leere Zeilen.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "sourceCode": {
+        "description": "Array von Zeichenfolgen. Welche logischen Funktionen sollten für jede Zeile in der angegebenen Reihenfolge aufgerufen werden, um bestimmten Codes zu entsprechen. Die Schritte für jede Codezeile sind: 1 - Tags: JSX (HTML) -Tags. 2 - Eigenschaften: HTML-Eigenschaften wie className. 3 - Variablen: Wörter, die das gleiche (=) Zeichen enthalten. 4 - objectProperty: einzelne Eigenschaft eines Objekts, wenn das Doppelpunktzeichen angegeben ist. 5 - Funktionen: Übereinstimmung mit einzelnen Funktionen. 6 - Wörter: Übereinstimmung Benutzerdefinierte Wörter. 7 - Anführungszeichen: Übereinstimmende Anführungszeichen ('' ',', '\"'). 8 - Klammern: Übereinstimmende Klammern ('(', '}', ']'). ",
+        "type": "Array",
+        "default": "['tags', 'properties', 'variables', 'objectProperty', 'functions', 'words', 'quote', 'brackets']"
+    },
+    "code": {
+        "description": "Hauptzeichenfolge zum Generieren des Quellcodes.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "link.404": {
+        "description": "Objekt für die Backlink-Funktionalität.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "link.404.text": {
+        "description": "Links text.",
+        "Typ": "JSX | String",
+        "default": "undefined"
+    },
+    "link.404.href": {
+        "description": "Links destination.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "link.404.props": {
+        "description": "Die HTML-Eigenschaften des <a> -Tags.",
+        "type": "Objekt",
+        "default": "undefined"
+    },
+    "link.404.callback": {
+        "description": "Rückruffunktion beim Klickereignis. Diese Funktion gibt 1 Argument zurück. Argument 1: Klickereignis.",
+        "type": "Objekt",
+        "default": "undefined"
+    },
+    "text404": {
+        "description": "Fehlercode.",
+        "type": "String",
+        "default": "404"
+    },
+    "404.text1": {
+        "description": "Benutzerdefinierter (größerer) Text.",
+        "type": "String",
+        "default": "requested page"
+    },
+    "404.text2": {
+        "description": "Benutzerdefinierter (kleinerer) Text.",
+        "type": "String",
+        "default": "was not found"
+    },
+    "404.bad": {
+        "description": "Befindet sich das Modul im fehlerhaften Modus?",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "404.shipname": {
+        "description": "Name des Schiffs.",
+        "type": "JSX | String",
+        "default": "<leere Zeichenfolge>"
+    },
 };
 
 export default DE;

@@ -261,13 +261,6 @@ class MenuClickHorizontal extends React.Component {
                 }, 300));
             }, timeouterForAnimationBack);
         }
-
-        /**
-         * Closing entry
-         */
-        // setTimeout( () => {
-        //     this.setState({ data }); 
-        // }, timeouterForAnimationBack*2);
     }
 
     toggleAllBack(){

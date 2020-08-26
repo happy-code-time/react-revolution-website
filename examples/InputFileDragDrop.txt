@@ -91,7 +91,7 @@ class App extends React.Component
                 }
             }>
                 <InputFileDragDrop
-                    placeholder='Drag Drop your files here...'
+                    inputPlaceholder='Drag Drop your files here...'
                     allowedFileSize={2}
                     sizeDescriptor={"MB"}
                     allowedFiles={['text/csv', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']}

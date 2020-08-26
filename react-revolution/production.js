@@ -55,6 +55,14 @@ import SideBar from './Modules/SideBar';
 
 import SourceCode from './Modules/SourceCode';
 
+import Clouds404 from './Modules/404/Clouds404';
+
+import CloudsMountains404 from './Modules/404/CloudsMountains404';
+
+import Water404 from './Modules/404/Water404';
+
+import Lightbulb404 from './Modules/404/Lightbulb404';
+
 /**
  * Functions
  */
@@ -106,5 +114,10 @@ export {
     TextWriter,
     PopupBox,
     SideBar,
-    SourceCode
+    SourceCode,
+    // 404
+    Clouds404,
+    CloudsMountains404,
+    Water404,
+    Lightbulb404
 };

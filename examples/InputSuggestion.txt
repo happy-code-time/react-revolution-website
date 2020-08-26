@@ -69,7 +69,7 @@ class App extends React.Component {
                 }
             }>
                 <InputSuggestion
-                    placeholder='Placeholder dasd asd asd as das ...'
+                    inputPlaceholder='Placeholder dasd asd asd as das ...'
                     suggestions={suggestions}
                     selected={selected}
                     callback={this.setInputValue}

@@ -40,7 +40,7 @@ class App extends React.Component {
                     /*
                      * Code
                      */
-                    displayLineNumber={true}
+                    lineNumber={true}
                     /*
                      * Input 
                      */

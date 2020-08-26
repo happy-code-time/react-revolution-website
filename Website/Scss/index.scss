@@ -25,6 +25,11 @@
     Arial, sans-serif;
 }
 
+*::selection{
+  background-color: $dodgerblue;
+  color: $white;
+}
+
 #app {
   
   .ScrollTop{
@@ -145,7 +150,7 @@
       color: $text-color;
 
       .logo {
-        margin: 5px;
+        margin: 8px 10px 0 17px;
 
         img {
           width: 40px;
@@ -167,7 +172,7 @@
         }
 
         .long {
-          margin: 10px 0 5px 5px;
+          margin: 13px 0 5px 5px;
           font-size: 0.923rem;
         }
 
@@ -189,7 +194,7 @@
   
       .single-entry {
         border-radius: 0px;
-        margin: 5px;
+        margin: 7px 10px;
         border: none;
         display: block;
         width: 100%;
@@ -228,5 +233,85 @@
     .long{
       font-size: 0.67rem !important;
     }
+  }
+}
+
+.rr-clipboard{
+  .rr-sourcecode{
+    .code{
+      padding: 5px;
+    }
+  }
+}
+
+.rr-sourcecode{
+  width: calc(100% - 20px);
+
+  .code{
+    li{
+      letter-spacing: 0.0144rem;
+      font-size: 0.78rem;
+
+      .line-code{
+        min-height: 20px;
+      }
+    }
+  }
+
+  span{
+    color: $white;
+  }
+
+  .tag-start,
+  .tag-end,
+  .slash,
+  .equal,
+  .quote{
+      color: #93DDF7
+  }
+
+  .tag-name,
+  .key{
+      color: #49B095;
+  }
+
+  .attribute-value{
+      color: #B5EE85;
+  }
+
+  .var,
+  .object-property{
+    color: #45A0E9;
+  }
+
+  .not-filtered,
+  .no-match,
+  .value{
+      color: rgb(255,2552,255);
+  }
+
+  .line-number{
+      color: #C2C2C2;
+  }
+  .variable-dollar{
+    color: #F44567;
+  }
+
+  .bracket{
+    color: #ccc;
+  }
+
+  .function-arguments{
+    color: orange;
+  }
+
+  .variable-name,
+  .attribute-name,
+  .function-name{
+    color: mediumseagreen;
+  }
+
+  .bracket-value{
+    color: #ccc;
   }
 }

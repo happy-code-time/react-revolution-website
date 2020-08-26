@@ -1,8 +1,8 @@
-const version = 'v1.1.2';
+const version = 'v1.1.3';
 
-const host = 'https://react-revolution.j.pl/';
+//const host = 'https://react-revolution.j.pl/';
 
-//const host = 'http://localhost:3000/';
+const host = 'http://localhost:3000/';
 
 export {
     version,

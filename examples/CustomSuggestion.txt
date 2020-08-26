@@ -27,7 +27,7 @@
   }
   
                   <CustomSuggestion
-                    placeholder={`${trans('searchForModule')}`}
+                    inputPlaceholder={`${trans('searchForModule')}`}
                     suggestions={suggestions}
                     callback={this.searchForModule}
                     value={inputValue}

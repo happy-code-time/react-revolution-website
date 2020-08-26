@@ -16,7 +16,7 @@ const EN = {
     light: 'Light',
     interactive: 'Interactive',
     "fast.description" : "Minimal generation time and optimal source usage of the browser.",
-    "light.description" : `With the current number of ${len} Modules a total size of less than 170 KB.`,
+    "light.description" : `With the current number of ${len} Modules a total size of less than 190 KB.`,
     "interactive.description" : "Each module can be designed freely and contains callback functions.",
     exampleOfUsage: 'Usage example',
     copyToClipboard: 'Copy to clipboard',
@@ -30,10 +30,10 @@ const EN = {
     rights: 'Rights',
     rigthsText: 'All rights reserved',
     author: 'Author',
-    exampleTitle: 'Example',
-    reactCodeTitle: 'React code',
-    cssCodeTitle: 'Css code',
-    jsCodeTitle: 'Javascript code',
+    exampleTitle: 'Live example',
+    reactCodeTitle: 'Above modules react code',
+    cssCodeTitle: 'Additional css',
+    jsCodeTitle: 'Additional javascript',
     loading: 'Loading...',
     keyUsageTitle: 'Keys Explanations',
     "table.title.key" : 'Key',
@@ -223,8 +223,8 @@ const EN = {
         "type": "Function",
         "default": "undefined"
     },
-    "placeholder": {
-        "description": "placeholder.",
+    "inputPlaceholder": {
+        "description": "Inputs placeholder.",
         "type": "String",
         "default": "<empty string>"
     },
@@ -248,7 +248,7 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
-    "displayLineNumber": {
+    "lineNumber": {
         "description": "Allow rendering, on the left side, each line number.",
         "type": "Boolean",
         "default": "False"
@@ -259,7 +259,7 @@ const EN = {
         "default": "<empty string>"
     },
     "inputActive": {
-        "description": "Should the input field be displayed or not?",
+        "description": "Render an input field.",
         "type": "Boolean",
         "default": "False"
     },
@@ -769,17 +769,17 @@ const EN = {
         "type": "Array",
         "default": "[]"
     },
-    "pagination.liOnClickCallback": {
+    "pagination.liCallback": {
         "description": "Custom callback function, if the user click an single line. This function returns 2 arguments. Argument 1: clickEvent, Argument 2: current klicked item as object.",
         "type": "Function",
         "default": "undefined"
     },
-    "pagination.inputOnChangeCallback": {
+    "pagination.inputCallback": {
         "description": "Custom callback function, if the user change the value of the input field. This function returns 1 arguments. Argument 1: event.",
         "type": "Function",
         "default": "undefined"
     },
-    "pagination.displayLineNumber": {
+    "pagination.lineNumber": {
         "description": "Display the current line number (loop index +1).",
         "type": "Boolean",
         "default": "False"
@@ -804,7 +804,7 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
-    "pagination.displayPaginationPages": {
+    "pagination.paginationPages": {
         "description": "Display the pagination.",
         "type": "Boolean",
         "default": "False"
@@ -859,13 +859,13 @@ const EN = {
         "type": "String | JSX",
         "default": "<empty string>"
     },
-    "pagination.displaySearch": {
+    "pagination.searchActive": {
         "description": "Render the search input field.",
         "type": "Boolean",
         "default": "False"
     },
     "pagination.searchPlaceholder": {
-        "description": "Inputs placeholder.",
+        "description": "Inputs inputPlaceholder.",
         "type": "String",
         "default": "<empty string>"
     },
@@ -879,7 +879,7 @@ const EN = {
         "type": "String | JSX",
         "default": "🔍"
     },
-    "pagination.searchSensisitve": {
+    "pagination.searchSensitive": {
         "description": "Execute a search as 'key sensitive search'.",
         "type": "Boolean",
         "default": "False"
@@ -946,6 +946,101 @@ const EN = {
     },
     "breadcrumbs.example3": "Example with menu attached on the last breadcrumb entry.",
     "pager.dynamic.description": 'This is an example with a dynamic pager, so every time a page is changed, a database query is carried out. This function with the DB query returns a promise. It has to be a promise, because the module internally contains an "await", so the page change will only take place if the promise is resolved and data is delivered. ',
+    "promise": {
+        "description": "Generate each line of code as Promise for better performance while generation very long strings to the source code structure. If false, then the module generates the source code (jsx code) without a Promise.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "promiseLine": {
+        "description": "Works only if the key 'promise' are set to true. Make a 'break' (timeout to resolve the current Promise) on the line number x - to stop the critical CPU usage if the passed string/ code longer then 10.000 lines of code.",
+        "type": "Number",
+        "default": "1000"
+    },
+    "promiseTime": {
+        "description": "Works only if the key 'promise' are set to true. Time of the Timeout to resolve the current lines Promise used in combination with the key 'promiseLine'.",
+        "type": "Number",
+        "default": "500"
+    },
+    "matcher": {
+        "description": "Array of objects.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.words": {
+        "description": "Array of strings/ words to match.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.className": {
+        "description": "Attach an class name to the matched word.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "lineNumberNewLine": {
+        "description": "Works only if the key 'lineNumber' are set to true. Render the line number for empty lines.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "sourceCode": {
+        "description": "Array of strings. Which logical functions should be called, for each line in the provided order, to match specific codes. The steps for each line of code are: 1 - tags: JSX (HTML) tags. 2 - properties: HTML properties like className. 3 - variables: words thats includes the equal (=) character. 4 - objectProperty: single property of an object if the colon character are provided. 5 - functions: match single functions. 6 - words: match custom provided words. 7 - quotes: match quotes (''', '\"'). 8 - bracktes: match brackets ( '(', '}', ']').",
+        "type": "Array",
+        "default": "[ 'tags', 'properties', 'variables', 'objectProperty', 'functions', 'words', 'quotes', 'brackets']"
+    },
+    "code": {
+        "description": "Main string to generate the source code.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "link.404": {
+        "description": "Object for the back link functionality.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "link.404.text": {
+        "description": "Links text.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    "link.404.href": {
+        "description": "Links destination.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "link.404.props": {
+        "description": "The HTML properties of the <a> tag.",
+        "type": "Object",
+        "default": "undefined"
+    },
+    "link.404.callback": {
+        "description": "Callback function on click event. This function returns 1 argument. Argument 1: click event.",
+        "type": "Object",
+        "default": "undefined"
+    },
+    "text404": {
+        "description": "Error code.",
+        "type": "String",
+        "default": "404"
+    },
+    "404.text1": {
+        "description": "Custom (bigger) text.",
+        "type": "String",
+        "default": "requested page"
+    },
+    "404.text2": {
+        "description": "Custom (smaller) text.",
+        "type": "String",
+        "default": "was not found"
+    },
+    "404.bad": {
+        "description": "Is the module in bad mode.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "404.shipname": {
+        "description": "Ships name.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
 };
 
 export default EN;

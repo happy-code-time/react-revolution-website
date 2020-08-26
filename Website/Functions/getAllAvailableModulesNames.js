@@ -97,12 +97,33 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-sidebar'
         },
         {
+            name: 'SourceCode',
+            link: 'react-revolution-source-code'
+        },
+        {
             name: 'Table',
             link: 'react-revolution-table'
         },
         {
             name: 'TextWriter',
             link: 'react-revolution-text-writer'
+        },
+        // 404
+        {
+            name: 'Clouds-404',
+            link: 'react-revolution-clouds-404'
+        },
+        {
+            name: 'CloudsMountains-404',
+            link: 'react-revolution-clouds-mountains-404'
+        },
+        {
+            name: 'Water-404',
+            link: 'react-revolution-water-404'
+        },
+        {
+            name: 'Lightbulb-404',
+            link: 'react-revolution-lightbulb-404'
         },
     ];
 };

@@ -46,7 +46,8 @@ class WebsiteContainer extends React.Component
             sidebarMin: true,
             contentMin: true,
             isMinified: true,
-            minify: true
+            minify: true,
+            minifiedSecondSideBar: true
           };
         }
         else {

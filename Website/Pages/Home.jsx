@@ -16,11 +16,22 @@ class Home extends React.Component {
         super(props);
 
         this.state = {
-
+            text: this.generateRandomText()
         };
     }
 
+    generateRandomText(){
+        
+        const items = [
+            'You Are Awesome',
+            'By David Janitzek'
+        ];
+
+        return items[Math.floor(Math.random() * items.length)];
+    }
+
     render() {
+        const { text } = this.state;
 
         return (
             <div className="ContentBody">
@@ -33,8 +44,8 @@ class Home extends React.Component {
                             </h1>
                             <h2>
                                 <TextWriter
-                                    text='by David Janitzek'
-                                    speed={100}
+                                    text={text}
+                                    speed={50}
                                     pipeDisplay={true}
                                     pipeChar={''}
                                     pipeSite='right' // right, left
@@ -43,9 +54,8 @@ class Home extends React.Component {
                             </h2>
                         </div>
                     </div>
-                    <h1 className="h1-title border-none text-center mt-4 mb-4">
-                        React Revolution
-                    </h1>
+                    <br/>
+                    <br/>
                     <Cards
                         itemsPerLine={3}
                         data={
@@ -59,7 +69,7 @@ class Home extends React.Component {
                                             }
                                         </div>
                                     ),
-                                    content: trans('fast.description')
+                                    // content: trans('fast.description')
                                 },
                                 {
                                     title: (
@@ -73,7 +83,7 @@ class Home extends React.Component {
                                     props: {
                                         className: 'card flex flex-column card-middle'
                                     },
-                                    content: trans('light.description')
+                                    // content: trans('light.description')
                                 },
                                 {
                                     title: (
@@ -84,7 +94,7 @@ class Home extends React.Component {
                                             }
                                         </div>
                                     ),
-                                    content: trans('interactive.description')
+                                    // content: trans('interactive.description')
                                 }
                             ]
                         }
@@ -99,16 +109,14 @@ class Home extends React.Component {
                             </h1>
                             <SourceCode
                                 layout='dark'
-                                displayLineNumber={true}
+                                lineNumber={true}
                                 code={exampleHome}
                             />
                             <Clipboard
                                 animation='jump' // scale, jump
                                 data={(
-                                    <div className="button-action">
-                                        {
-                                            trans('copyToClipboard')
-                                        }
+                                    <div title={trans('copyToClipboard')} className="button-action">
+                                        <i className="far fa-clipboard"></i>
                                     </div>
                                 )}
                                 clipboard={exampleHome}
@@ -124,16 +132,14 @@ class Home extends React.Component {
                                 <div className="install flex flex-space-between w-100">
                                     <SourceCode
                                         addClass='rr-sourcecode-install'
-                                        displayLineNumber={false}
+                                        lineNumber={false}
                                         code={exampleInstallationNpm}
                                     />
                                     <Clipboard
                                         animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action m0">
-                                                {
-                                                    trans('copyToClipboard')
-                                                }
+                                            <div title={trans('copyToClipboard')} className="button-action m0">
+                                                <i className="far fa-clipboard"></i>
                                             </div>
                                         )}
                                         clipboard={exampleInstallationNpm}
@@ -149,16 +155,14 @@ class Home extends React.Component {
                                 <div className="install flex flex-space-between w-100">
                                     <SourceCode
                                         addClass='rr-sourcecode-install'
-                                        displayLineNumber={false}
+                                        lineNumber={false}
                                         code={exampleInstallationYarn}
                                     />
                                     <Clipboard
                                         animation='jump' // scale, jump
                                         data={(
-                                            <div className="button-action m0">
-                                                {
-                                                    trans('copyToClipboard')
-                                                }
+                                            <div title={trans('copyToClipboard')} className="button-action m0">
+                                                <i className="far fa-clipboard"></i>
                                             </div>
                                         )}
                                         clipboard={exampleInstallationYarn}
@@ -182,7 +186,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         );
     }

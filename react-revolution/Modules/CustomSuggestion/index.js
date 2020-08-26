@@ -29,7 +29,7 @@ class CustomSuggestion extends React.Component {
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             suggestions: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
@@ -167,7 +167,7 @@ class CustomSuggestion extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, props, suggestions, plainValue, placeholder, inputType } = this.state;
+        const { addClass, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -176,7 +176,7 @@ class CustomSuggestion extends React.Component {
                         type={inputType}
                         value={plainValue}
                         onChange={(e) => this.setValue(e)}
-                        placeholder={placeholder}
+                        placeholder={inputPlaceholder}
                         onKeyDown={ (e) => this.handleKeyDown(e) }
                         id={id}
                         {...props}

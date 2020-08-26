@@ -42,7 +42,7 @@ class InputFileDragDrop extends React.Component {
             allowedFiles: props.allowedFiles,
             readFileCallback: (props.readFileCallback && 'function' == typeof props.readFileCallback) ? props.readFileCallback : undefined,
             errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
             isDraggingData: props.isDraggingData,
             multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
@@ -63,14 +63,14 @@ class InputFileDragDrop extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'isDraggingData', 'multiple', 'uploadOnClick'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'isDraggingData', 'multiple', 'uploadOnClick'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file-drag-drop',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 readFileCallback: (props.readFileCallback && 'function' == typeof props.readFileCallback) ? props.readFileCallback : undefined,
                 errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
-                placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
                 errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
                 isDraggingData: props.isDraggingData,
                 multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
@@ -276,7 +276,7 @@ class InputFileDragDrop extends React.Component {
     }
 
     render() {
-        const { addClass, placeholder, defaultClass, id, isDragging, isDraggingData, multiple, hiddenInputStyle, uploadOnClick } = this.state;
+        const { addClass, inputPlaceholder, defaultClass, id, isDragging, isDraggingData, multiple, hiddenInputStyle, uploadOnClick } = this.state;
 
         const props = {
             multiple: multiple ? multiple : '',
@@ -292,7 +292,7 @@ class InputFileDragDrop extends React.Component {
                         ref={node => this.inputNode = node}
                         type="file"
                         onChange={(e) => this.handleFileUploadInputFiled(e)}
-                        placeholder={placeholder}
+                        placeholder={inputPlaceholder}
                         id={id}
                         type='file'
                         name='files[]'
@@ -309,7 +309,7 @@ class InputFileDragDrop extends React.Component {
                         onDrop={this.handleDrop}
                     >
                         {
-                            placeholder
+                            inputPlaceholder
                         }
                         {
                             isDragging && isDraggingData && isDraggingData

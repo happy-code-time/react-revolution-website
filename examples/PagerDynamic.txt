@@ -33,7 +33,7 @@ class App extends React.Component {
     return structure;
   }
 
-  liOnClickCallback(a,b,c){
+  liCallback(a,b,c){
     // console.info(a,b,c);
   }
 
@@ -72,7 +72,6 @@ class App extends React.Component {
         /**
          * Pages Information
          */
-        displayPagesInfo={true}
         paginationTextPrefix='page'
         paginationTextMiddle='of'
         /**
@@ -88,7 +87,7 @@ class App extends React.Component {
          * Display pagination pages
          * if false then only the prev and next buttons are displayed
          */
-        displayPaginationPages={true}
+        paginationPages={true}
         /**
          * Align ul and pagination: 1, 2
          */
@@ -125,10 +124,10 @@ class App extends React.Component {
         /**
          * Search input field
          */
-        displaySearch={true}
+        searchActive={true}
         searchPlaceholder='Search'
         searchIcon=''
-        searchSensisitve={false}
+        searchSensitive={false}
         searchOnKeys={
           [
             'name'
@@ -158,9 +157,9 @@ class App extends React.Component {
         /**
          * callbacks
          */
-        inputOnChangeCallback={undefined}
-        liOnClickCallback={this.liOnClickCallback}
-        displayLineNumber={true}
+        inputCallback={undefined}
+        liCallback={this.liCallback}
+        lineNumber={true}
       />
     )
   }

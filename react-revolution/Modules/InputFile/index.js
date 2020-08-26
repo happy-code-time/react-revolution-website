@@ -44,7 +44,7 @@ class InputFile extends React.Component
             label: (props.label && typeof '8' == typeof props.label) ? props.label : '',
             readFileCallback: (props.readFileCallback && 'function' == typeof props.readFileCallback) ? props.readFileCallback : undefined,
             errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
             multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
         }
@@ -61,7 +61,7 @@ class InputFile extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['label', 'errorCallback', 'readFileCallback', 'placeholder', 'errorCallbackCustomData', 'multiple'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['label', 'errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'multiple'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file',
@@ -69,7 +69,7 @@ class InputFile extends React.Component
                 label: (props.label && typeof '8' == typeof props.label) ? props.label : '',
                 readFileCallback: (props.readFileCallback && 'function' == typeof props.readFileCallback) ? props.readFileCallback : undefined,
                 errorCallback: (props.errorCallback && 'function' == typeof props.errorCallback) ? props.errorCallback : undefined,
-                placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
                 errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
                 multiple: (typeof true == typeof props.multiple) ? props.multiple : false
             };
@@ -197,7 +197,7 @@ class InputFile extends React.Component
     }
 
     render() {
-        const { addClass, label, placeholder, defaultClass, id, multiple, hiddenInputStyle } = this.state;
+        const { addClass, label, inputPlaceholder, defaultClass, id, multiple, hiddenInputStyle } = this.state;
         const props = {
             multiple: multiple ? multiple : '',
             style: hiddenInputStyle
@@ -209,7 +209,7 @@ class InputFile extends React.Component
                     ref={node => this.inputNode = node}
                     type="file"
                     onChange={(e) => this.handleFileUpload(e)}
-                    placeholder={placeholder}
+                    placeholder={inputPlaceholder}
                     id={id}
                     type='file'
                     name='files[]'

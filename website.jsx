@@ -29,57 +29,69 @@ import './Website/Scss/index.scss';
 /**
  * React Revolution Modules
  */
-import ReactRevolutionAccordion from './Website/Pages/Modules/ReactRevolutionAccordion';
+import ReactRevolutionAccordion from './Website/Pages/ReactRevolutionAccordion';
 
-import ReactRevolutionBreadcrumbs from './Website/Pages/Modules/ReactRevolutionBreadcrumbs';
+import ReactRevolutionBreadcrumbs from './Website/Pages/ReactRevolutionBreadcrumbs';
 
-import ReactRevolutionCards from './Website/Pages/Modules/ReactRevolutionCards';
+import ReactRevolutionCards from './Website/Pages/ReactRevolutionCards';
 
-import ReactRevolutionCardsScroll from './Website/Pages/Modules/ReactRevolutionCardsScroll';
+import ReactRevolutionCardsScroll from './Website/Pages/ReactRevolutionCardsScroll';
 
-import ReactRevolutionCardsScrollCallback from './Website/Pages/Modules/ReactRevolutionCardsScrollCallback';
+import ReactRevolutionCardsScrollCallback from './Website/Pages/ReactRevolutionCardsScrollCallback';
 
-import ReactRevolutionClipboard from './Website/Pages/Modules/ReactRevolutionClipboard';
+import ReactRevolutionClipboard from './Website/Pages/ReactRevolutionClipboard';
 
-import ReactRevolutionCustomSuggestion from './Website/Pages/Modules/ReactRevolutionCustomSuggestion';
+import ReactRevolutionCustomSuggestion from './Website/Pages/ReactRevolutionCustomSuggestion';
 
-import ReactRevolutionFullScreenListArray from './Website/Pages/Modules/ReactRevolutionFullScreenListArray';
+import ReactRevolutionFullScreenListArray from './Website/Pages/ReactRevolutionFullScreenListArray';
 
-import ReactRevolutionFullScreenListObject from './Website/Pages/Modules/ReactRevolutionFullScreenListObject';
+import ReactRevolutionFullScreenListObject from './Website/Pages/ReactRevolutionFullScreenListObject';
 
-import ReactRevolutionFullScreenOverlay from './Website/Pages/Modules/ReactRevolutionFullScreenOverlay';
+import ReactRevolutionFullScreenOverlay from './Website/Pages/ReactRevolutionFullScreenOverlay';
 
-import ReactRevolutionGlobalMessages from './Website/Pages/Modules/ReactRevolutionGlobalMessages';
+import ReactRevolutionGlobalMessages from './Website/Pages/ReactRevolutionGlobalMessages';
 
-import ReactRevolutionIcons from './Website/Pages/Modules/ReactRevolutionIcons';
+import ReactRevolutionIcons from './Website/Pages/ReactRevolutionIcons';
 
-import ReactRevolutionInputAnimation from './Website/Pages/Modules/ReactRevolutionInputAnimation';
+import ReactRevolutionInputAnimation from './Website/Pages/ReactRevolutionInputAnimation';
 
-import ReactRevolutionInputFile from './Website/Pages/Modules/ReactRevolutionInputFile';
+import ReactRevolutionInputFile from './Website/Pages/ReactRevolutionInputFile';
 
-import ReactRevolutionInputFileDragDrop from './Website/Pages/Modules/ReactRevolutionInputFileDragDrop';
+import ReactRevolutionInputFileDragDrop from './Website/Pages/ReactRevolutionInputFileDragDrop';
 
-import ReactRevolutionInputSuggestionArray from './Website/Pages/Modules/ReactRevolutionInputSuggestionArray';
+import ReactRevolutionInputSuggestionArray from './Website/Pages/ReactRevolutionInputSuggestionArray';
 
-import ReactRevolutionInputSuggestionObject from './Website/Pages/Modules/ReactRevolutionInputSuggestionObject';
+import ReactRevolutionInputSuggestionObject from './Website/Pages/ReactRevolutionInputSuggestionObject';
 
-import ReactRevolutionLoadingBoxTop from './Website/Pages/Modules/ReactRevolutionLoadingBoxTop';
+import ReactRevolutionLoadingBoxTop from './Website/Pages/ReactRevolutionLoadingBoxTop';
 
-import ReactRevolutionMenuClickHorizontal from './Website/Pages/Modules/ReactRevolutionMenuClickHorizontal';
+import ReactRevolutionMenuClickHorizontal from './Website/Pages/ReactRevolutionMenuClickHorizontal';
 
-import ReactRevolutionPagerStatic from './Website/Pages/Modules/ReactRevolutionPagerStatic';
+import ReactRevolutionPagerStatic from './Website/Pages/ReactRevolutionPagerStatic';
 
-import ReactRevolutionPagerDynamic from './Website/Pages/Modules/ReactRevolutionPagerDynamic';
+import ReactRevolutionPagerDynamic from './Website/Pages/ReactRevolutionPagerDynamic';
 
-import ReactRevolutionPopupBox from './Website/Pages/Modules/ReactRevolutionPopupBox';
+import ReactRevolutionPopupBox from './Website/Pages/ReactRevolutionPopupBox';
 
-import ReactRevolutionSidebar from './Website/Pages/Modules/ReactRevolutionSidebar';
+import ReactRevolutionSidebar from './Website/Pages/ReactRevolutionSidebar';
 
-import ReactRevolutionTextWriter from './Website/Pages/Modules/ReactRevolutionTextWriter';
+import ReactRevolutionTextWriter from './Website/Pages/ReactRevolutionTextWriter';
 
-import ReactRevolutionLoadOnScroll from './Website/Pages/Modules/ReactRevolutionLoadOnScroll';
+import ReactRevolutionLoadOnScroll from './Website/Pages/ReactRevolutionLoadOnScroll';
 
-import ReactRevolutionTable from './Website/Pages/Modules/ReactRevolutionTable';
+import ReactRevolutionTable from './Website/Pages/ReactRevolutionTable';
+
+import ReactRevolutionSourceCode from './Website/Pages/ReactRevolutionSourceCode';
+
+// 404
+
+import ReactRevolutionClouds404 from './Website/Pages/ReactRevolutionClouds404';
+
+import ReactRevolutionCloudsMountains404 from './Website/Pages/ReactRevolutionCloudsMountains404';
+
+import ReactRevolutionWater404 from './Website/Pages/ReactRevolutionWater404';
+
+import ReactRevolutionLightbulb404 from './Website/Pages/ReactRevolutionLightbulb404';
 
 class App extends React.Component {
 
@@ -162,7 +174,9 @@ class App extends React.Component {
     const hash = window.location.hash;
 
     if ('#/' == hash && !minifySidebard) {
-      return this.setState({ minifySidebard: true });
+      return this.setState({ 
+        minifySidebard: true 
+      });
     }
 
     if ('#/' !== hash && minifySidebard) {
@@ -343,6 +357,27 @@ class App extends React.Component {
                       href: `${host}#/react-revolution-menu-click-horizontal`,
                     },
                     {
+                      text: 'NotFound',
+                      data: [
+                        {
+                          text: 'Clouds404',
+                          href: `${host}#/react-revolution-clouds-404`,
+                        },
+                        {
+                          text: 'CloudsMountains404',
+                          href: `${host}#/react-revolution-clouds-mountains-404`,
+                        },
+                        {
+                          text: 'Water404',
+                          href: `${host}#/react-revolution-water-404`,
+                        },
+                        {
+                          text: 'Lightbulb404',
+                          href: `${host}#/react-revolution-lightbulb-404`,
+                        },
+                      ]
+                    },
+                    {
                       text: 'Pagination',
                       data: [
                         {
@@ -364,13 +399,17 @@ class App extends React.Component {
                       href: `${host}#/react-revolution-sidebar`,
                     },
                     {
+                      text: 'SourceCode',
+                      href: `${host}#/react-revolution-source-code`,
+                    },
+                    {
                       text: 'Table',
                       href: `${host}#/react-revolution-table`,
                     },
                     {
                       text: 'TextWriter',
                       href: `${host}#/react-revolution-text-writer`,
-                    }
+                    },
                   ]
                 }
               />
@@ -460,7 +499,7 @@ class App extends React.Component {
                     }
                   </h1>
                   <CustomSuggestion
-                    placeholder={`${trans('searchForModule')}`}
+                    inputPlaceholder={`${trans('searchForModule')}`}
                     suggestions={suggestions}
                     callback={this.searchForModule}
                     callbackRerender={true}
@@ -503,6 +542,11 @@ class App extends React.Component {
               <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
               <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
               <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
+              <Route exact path="/react-revolution-source-code" render={(props) => (<ReactRevolutionSourceCode {...props} />)} />
+              <Route exact path="/react-revolution-clouds-404" render={(props) => (<ReactRevolutionClouds404 {...props} />)} />
+              <Route exact path="/react-revolution-clouds-mountains-404" render={(props) => (<ReactRevolutionCloudsMountains404 {...props} />)} />
+              <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />
+              <Route exact path="/react-revolution-lightbulb-404" render={(props) => (<ReactRevolutionLightbulb404 {...props} />)} />
             </Switch>
           </Router>
         }

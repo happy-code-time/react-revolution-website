@@ -8,7 +8,7 @@ const exampleHome =
         [
             'Smileys',
             'Activity',
-            'Travel'
+           'Travel'
         ]
     }
 />`;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import uuid from '../../Functions/uuid';
 
@@ -17,6 +17,7 @@ class InputSuggestionArray extends React.Component {
         this.toggleSelection = this.toggleSelection.bind(this);
         this.setFocusUpdater = this.setFocusUpdater.bind(this);
         this.setArrow = this.setArrow.bind(this);
+        this.setMouseMoved = this.setMouseMoved.bind(this);
 
         this.state = {
             /**
@@ -37,7 +38,7 @@ class InputSuggestionArray extends React.Component {
             callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
             selected: (props.selected && typeof [] == typeof props.selected) ? props.selected : [],
             suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
@@ -47,10 +48,40 @@ class InputSuggestionArray extends React.Component {
         };
 
         this.availableSorts = ['asc', 'desc'];
+        this.mouseMoved = false;
+        this.inputRef = React.createRef();
+        this.refNodeUl = React.createRef();
+        this.setMouseMovedTimeout = null;
     }
 
-    componentDidMount(){
+    componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+        this.setFocusUpdater(true);
+        document.addEventListener('mousedown', this.handleMouseDown);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleMouseDown);
+
+        if(this.refNodeUl && this.refNodeUl.current){
+            this.refNodeUl.current.removeEventListener('mousemove', this.setMouseMoved);
+        }
+    }
+
+    componentDidUpdate(){
+        if(this.refNodeUl && this.refNodeUl.current){
+            this.refNodeUl.current.removeEventListener('mousemove', this.setMouseMoved);
+            this.refNodeUl.current.addEventListener('mousemove', this.setMouseMoved);
+        }
+    }
+
+    setMouseMoved(){
+        this.mouseMoved = true;
+        clearTimeout(this.setMouseMovedTimeout);
+
+        this.setMouseMovedTimeout = setTimeout( () => {
+            this.mouseMoved = false;
+        }, 300);
     }
 
     /**
@@ -75,15 +106,6 @@ class InputSuggestionArray extends React.Component {
         }
 
         return null;
-    }
-
-    componentDidMount() {
-        this.setFocusUpdater(true);
-        document.addEventListener('mousedown', this.handleMouseDown);
-    }
-
-    componentWillUnmount(){
-        document.removeEventListener('mousedown', this.handleMouseDown);
     }
 
     setFocusUpdater(usercallback = false) {
@@ -118,7 +140,7 @@ class InputSuggestionArray extends React.Component {
      * @param {React.MouseEvent|any} e
      */
     handleMouseDown(e) {
-        if (this.refNodeUl && !this.refNodeUl.contains(e.target)) {
+        if (this.refNodeUl && this.refNodeUl.current && !this.refNodeUl.current.contains(e.target)) {
             this.setState({
                 suggestions: [],
                 setArrow: null
@@ -251,7 +273,7 @@ class InputSuggestionArray extends React.Component {
      * Append choosed user
      */
     toggleSelection(email) {
-        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected } = this.state;
+        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue } = this.state;
 
         if (!selected.includes(email)) {
             selected.push(email);
@@ -278,8 +300,10 @@ class InputSuggestionArray extends React.Component {
         }
 
         this.setState({
-            selected
+            selected,
+            plainValue: emptySuggestionAfterSelection ? '' : plainValue
         }, () => {
+
             if(emptySuggestionAfterSelection){
                 this.setState({
                     filter: '',
@@ -287,6 +311,11 @@ class InputSuggestionArray extends React.Component {
                     setArrow: null
                 });
             }
+
+            if(this.inputRef && this.inputRef.current){
+                this.inputRef.current.focus();
+            }
+
         });
     }
 
@@ -346,13 +375,21 @@ class InputSuggestionArray extends React.Component {
     }
 
     setArrow(index){
-        this.setState({ 
-            selectedArrow: index 
-        });
+        const { selectedArrow } = this.state;
+
+        if(selectedArrow !== index && this.mouseMoved){
+            this.setState({ 
+                selectedArrow: index 
+            }, () => {
+                if(this.inputRef && this.inputRef.current){
+                    this.inputRef.current.focus();
+                }
+            });
+        }
     }
 
     render() {
-        const { addClass, selected, defaultClass, id, props, suggestions, plainValue, placeholder, inputType, selectedArrow } = this.state;
+        const { addClass, selected, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, selectedArrow } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -382,10 +419,11 @@ class InputSuggestionArray extends React.Component {
                         </div>
                     }
                     <input
+                        ref={this.inputRef}
                         type={inputType}
                         value={plainValue}
                         onChange={(e) => this.setValue(e)}
-                        placeholder={placeholder}
+                        placeholder={inputPlaceholder}
                         onKeyDown={ (e) => this.handleKeyDown(e) }
                         id={id}
                         {...props}
@@ -395,7 +433,7 @@ class InputSuggestionArray extends React.Component {
                         <div className="suggestions-area">
                             <ul
                                 className="ul"
-                                ref={(node) => this.refNodeUl = node}
+                                ref={this.refNodeUl}
                             >
                                 <span className="suggestions" ref={ node => this.suggestionsHolder = node}>
                                     {
@@ -411,7 +449,7 @@ class InputSuggestionArray extends React.Component {
                                                     className={liClassname}
                                                     key={uuid()}
                                                     onClick={(e) => this.toggleSelection(suggestion)}
-                                                    onMouseOver={ () => this.setArrow(i) }
+                                                    onMouseEnter={ () => this.setArrow(i) }
                                                 >
                                                     {
                                                         suggestion

@@ -16,7 +16,7 @@ const PL = {
     light: 'Lekki',
     interactive: 'Interaktywny',
     "fast.description" : "Minimalny czas generowania i optymalne wykorzystanie zasobów przeglądarki.",
-    "light.description" : `Przy obecnej liczbie ${len} modułów ta biblioteka ma całkowity rozmiar mniejszy niż 170 KB.`,
+    "light.description" : `Przy obecnej liczbie ${len} modułów ta biblioteka ma całkowity rozmiar mniejszy niż 190 KB.`,
     "interactive.description" : "Każdy moduł można dowolnie zaprojektować i zawiera funkcje wywołania zwrotnego.",
     exampleOfUsage: 'Przykład użycia',
     copyToClipboard: 'Kopiuj do schowka',
@@ -30,10 +30,10 @@ const PL = {
     rights: 'Prawa',
     rigthsText: 'Wszelkie prawa zastrzeżone',
     author: 'Autor',
-    exampleTitle: 'Przykład',
-    reactCodeTitle: 'Kod react',
-    cssCodeTitle: 'Kod css',
-    jsCodeTitle: 'Kod javascript',
+    exampleTitle: 'Przykład użycia',
+    reactCodeTitle: 'Kod powyższego modułu',
+    cssCodeTitle: 'Dodatkowy kod css',
+    jsCodeTitle: 'Dodatkowy kod javascript',
     loading: 'Ładowanie...',
     keyUsageTitle: 'Wyjaśnienia Kluczy',
     "table.title.key" : 'Klucz',
@@ -223,8 +223,8 @@ const PL = {
         "type": "Funkcja",
         "default": "undefined"
     },
-    "placeholder": {
-        "description": "symbol zastępczy.",
+    "inputPlaceholder": {
+        "description": "Symbol zastępczy.",
         "type": "String",
         "default": "<pusty ciąg>"
     },
@@ -248,7 +248,7 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
-    "displayLineNumber": {
+    "lineNumber": {
         "description": "Zezwól na renderowanie po lewej stronie każdego numeru wiersza.",
         "type": "Boolean",
         "default": "False"
@@ -769,17 +769,17 @@ const PL = {
         "type": "Array",
         "default": "[]"
     },
-    "pagination.liOnClickCallback": {
+    "pagination.liCallback": {
         "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik kliknie pojedynczą linię. Ta funkcja zwraca 2 argumenty. Argument 1: clickEvent, Argument 2: bieżący kliknięty element jako obiekt.",
         "type": "Funkcja",
         "default": "undefined"
     },
-    "pagination.inputOnChangeCallback": {
+    "pagination.inputCallback": {
         "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik zmieni wartość pola wejściowego. Ta funkcja zwraca 1 argument. Argument 1: zdarzenie.",
         "type": "Funkcja",
         "default": "undefined"
     },
-    "pagination.displayLineNumber": {
+    "pagination.lineNumber": {
         "description": "Wyświetl aktualny numer linii (indeks pętli +1).",
         "type": "Boolean",
         "default": "False"
@@ -804,7 +804,7 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
-    "pagination.displayPaginationPages": {
+    "pagination.paginationPages": {
         "description": "Wyświetl paginację.",
         "type": "Boolean",
         "default": "False"
@@ -859,7 +859,7 @@ const PL = {
         "type": "String | JSX",
         "default": "<pusty ciąg>"
     },
-    "pagination.displaySearch": {
+    "pagination.searchActive": {
         "description": "Renderuj pole wyszukiwania.",
         "type": "Boolean",
         "default": "False"
@@ -879,7 +879,7 @@ const PL = {
         "type": "String | JSX",
         "default": "🔍"
     },
-    "pagination.searchSensisitve": {
+    "pagination.searchSensitive": {
         "description": "Wykonaj wyszukiwanie jako 'wyszukiwanie wrażliwe na klawisze'.",
         "type": "Boolean",
         "default": "False"
@@ -946,6 +946,101 @@ const PL = {
     },
     "breadcrumbs.example3": "Przykład z menu dołączonym do ostatniej pozycji.",
     "pager.dynamic.description": 'To jest przykład z dynamicznym pagerem, więc za każdym razem, gdy strona jest zmieniana, wykonywane jest zapytanie do bazy danych. Ta funkcja z zapytaniem DB zwraca obietnicę (Promise). Musi to być obietnica, ponieważ moduł wewnętrznie zawiera "await" (oczekiwanie), więc zmiana strony nastąpi tylko wtedy, gdy obietnica zostanie rozwiązana (resolve), a dane zostaną dostarczone.',
+    "promise": {
+        "description": "Generuj każdą linię kodu jako obietnicę dla lepszej wydajności podczas generowania bardzo długich ciągów do struktury kodu źródłowego. Jeśli fałsz, wówczas moduł generuje kod źródłowy (kod jsx) bez obietnicy.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "promiseLine": {
+        "description": "Działa tylko wtedy, gdy klucz 'promise' jest ustawiony na true. Zrób 'break' (przekroczenie limitu czasu na rozwiązanie bieżącej obietnicy) w linii numer x - aby zatrzymać krytyczne użycie procesora, jeśli przekazany ciąg / kod jest dłuższy następnie 10.000 linii kodu. ",
+        "type": "Number",
+        "default": "1000"
+    },
+    "promiseTime": {
+        "description": "Działa tylko wtedy, gdy klucz 'promise' jest ustawiony na true. Czas oczekiwania na rozwiązanie bieżących linii Promise używany w połączeniu z kluczem 'promiseLine'.",
+        "type": "Number",
+        "default": "500"
+    },
+    "matcher": {
+        "description": "Tablica obiektów.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.words": {
+        "description": "Tablica ciągów / słów do dopasowania.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "matcher.className": {
+        "description": "Dołącz nazwę klasy do dopasowanego słowa.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "lineNumberNewLine": {
+        "description": "Działa tylko wtedy, gdy klucz 'lineNumber' jest ustawiony na true. Renderuj numer linii dla pustych linii.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "sourceCode": {
+        "description": "Tablica ciągów. Które funkcje logiczne należy wywołać dla każdego wiersza w podanej kolejności, aby dopasować określone kody. Kroki dla każdego wiersza kodu są następujące: 1 - tagi: tagi JSX (HTML). 2 - properties: właściwości HTML, takie jak className. 3 - zmienne: słowa zawierające znak równości (=). 4 - objectProperty: pojedyncza właściwość obiektu, jeśli podano znak dwukropka. 5 - funkcje: dopasuj pojedyncze funkcje. 6 - słowa: dopasuj niestandardowe słowa. 7 - cudzysłowy: dopasuj cudzysłowy ('' ',', '\"'). 8 - nawiasy: dopasuj nawiasy ('(', '}', ']'). ",
+        "type": "Array",
+        "default": "['tagi', 'właściwości', 'zmienne', 'właściwość obiektu', 'funkcje', 'słowa', 'cudzysłowy', 'nawiasy']"
+    },
+    "code": {
+        "description": "Główny ciąg do generowania kodu źródłowego.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "link.404": {
+        "description": "Obiekt dla funkcji linku wstecznego.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "link.404.text": {
+        "description": "Tekst linków.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    "link.404.href": {
+        "description": "Docelowe linki.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "link.404.props": {
+        "description": "Właściwości HTML tagu <a>.",
+        "type": "Object",
+        "default": "undefined"
+    },
+    "link.404.callback": {
+        "description": "Funkcja wywołania zwrotnego po kliknięciu. Ta funkcja zwraca 1 argument. Argument 1: zdarzenie kliknięcia.",
+        "type": "Object",
+        "default": "undefined"
+    },
+    "text404": {
+        "description": "Kod błędu.",
+        "type": "String",
+        "default": "404"
+    },
+    "404.text1": {
+        "description": "Niestandardowy (większy) tekst.",
+        "type": "String",
+        "default": "requested page"
+    },
+    "404.text2": {
+        "description": "Niestandardowy (mniejszy) tekst.",
+        "type": "String",
+        "default": "was not found"
+    },
+    "404.bad": {
+        "description": "Czy moduł jest w złym trybie.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "404.shipname": {
+        "description": "Nazwa statku.",
+        "type": "JSX | String",
+        "default": "<pusty ciąg>"
+    },
 };
 
 export default PL;

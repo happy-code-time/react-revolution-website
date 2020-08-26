@@ -4,21 +4,47 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class ModuleSourceCode extends Component 
-{
-    
+import tagMatcher from './functions/tagMatcher';
+
+import propsMatcher from './functions/propsMatcher';
+
+import varMatcher from './functions/varMatcher';
+
+import objectPropertyMatcher from './functions/objectPropertyMatcher';
+
+import functionMatcher from './functions/functionMatcher';
+
+import keyWordsMatcher from './functions/keyWordsMatcher';
+
+import quotesMatcher from './functions/quotesMatcher';
+
+import bracketMatcher from './functions/bracketMatcher';
+
+const defaultSourceCodeSteps = [
+    'tags',
+    'properties',
+    'variables',
+    'objectProperty',
+    'functions',
+    'words',
+    'quotes',
+    'brackets',
+];
+
+class ModuleSourceCode extends Component {
+
     constructor(props) {
         super(props);
         this.generateCode = this.generateCode.bind(this);
         this.focusIn = this.focusIn.bind(this);
         this.focusOut = this.focusOut.bind(this);
+        this.filterCode = this.filterCode.bind(this);
+        this.setValue = this.setValue.bind(this);
 
         this.state = {
             /**
              * App
              */
-            searchValue: '',
-            plainValue: '',
             lines: [],
             /**
              * User
@@ -26,20 +52,24 @@ class ModuleSourceCode extends Component
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
             code: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
-            originalCode: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
-            inputActive: typeof true == typeof props.inputActive ? props.inputActive : false,
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : undefined,
-            inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
-            inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
-            loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
-            loadingIcon: props.loadingIcon ? props.loadingIcon: '',
-            layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : 'light'
+            lineNumber: typeof true === typeof props.lineNumber ? props.lineNumber : false,
+            promise: typeof true === typeof props.promise ? props.promise : false,
+            promiseLine: props.promiseLine && typeof 8 == typeof props.promiseLine ? props.promiseLine : 1000,
+            promiseTime: props.promiseTime && typeof 8 == typeof props.promiseTime ? props.promiseTime : 500,
+            matcher: props.matcher && typeof [] == typeof props.matcher ? props.matcher : [],
+            inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
+            inputCallback: 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+            searchSensitive: typeof true === typeof props.searchSensitive ? props.searchSensitive : true,
+            lineNumberNewLine: typeof true === typeof props.lineNumberNewLine ? props.lineNumberNewLine : true,
+            noDataText: (props.noDataText && typeof '8' == typeof props.noDataText) ? props.noDataText : '',
+            sourceCode: props.sourceCode && typeof [] == typeof props.sourceCode ? props.sourceCode : defaultSourceCodeSteps,
+            fallbackNoData: props.fallbackNoData ? props.fallbackNoData : '',
+            fallbackNoDataSearch: props.fallbackNoDataSearch ? props.fallbackNoDataSearch : '',
         };
 
-        this.loadingDisplay = (typeof true == typeof props.loadingDisplay) ? props.loadingDisplay : false;
-        this.isFocus = false;
+        this.inputNode = React.createRef();
     }
 
     /**
@@ -49,36 +79,44 @@ class ModuleSourceCode extends Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'displayLineNumber', 'code', 'inputActive', 'placeholder', 'inputCallback', 'inputNoDataText', 'loadingDisplay', 'loadingIcon', 'layout'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'code', 'lineNumber', 'promise', 'promiseLine', 'matcher', 'inputActive', 'inputCallback', 'inputPlaceholder', 'searchSensitive', 'promiseTime', 'lineNumberNewLine', 'noDataText', 'sourceCode', 'fallbackNoData', 'fallbackNoDataSearch'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sourcecode',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                displayLineNumber: typeof true === typeof props.displayLineNumber ? props.displayLineNumber : false,
-                inputActive: typeof true == typeof props.inputActive ? props.inputActive : false,
-                placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : undefined,
-                inputCallback: props.inputCallback && 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
-                inputNoDataText: props.inputNoDataText ? props.inputNoDataText : '',
-                loadingDisplay: typeof true == props.loadingDisplay ? props.loadingDisplay : false,
-                loadingIcon: props.loadingIcon ? props.loadingIcon: '',
-                layout: (props.layout && typeof '8' == typeof props.layout && ['dark', 'light'].includes(props.layout)) ? props.layout : 'light'
+                code: (props.code && typeof '8' == typeof props.code) ? props.code : undefined,
+                lineNumber: typeof true === typeof props.lineNumber ? props.lineNumber : false,
+                promise: typeof true === typeof props.promise ? props.promise : false,
+                promiseLine: props.promiseLine && typeof 8 == typeof props.promiseLine ? props.promiseLine : 1000,
+                promiseTime: props.promiseTime && typeof 8 == typeof props.promiseTime ? props.promiseTime : 500,
+                matcher: props.matcher && typeof [] == typeof props.matcher ? props.matcher : [],
+                inputActive: typeof true === typeof props.inputActive ? props.inputActive : false,
+                inputCallback: 'function' == typeof props.inputCallback ? props.inputCallback : undefined,
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                searchSensitive: typeof true === typeof props.searchSensitive ? props.searchSensitive : true,
+                lineNumberNewLine: typeof true === typeof props.lineNumberNewLine ? props.lineNumberNewLine : true,
+                noDataText: (props.noDataText && typeof '8' == typeof props.noDataText) ? props.noDataText : '',
+                sourceCode: props.sourceCode && typeof [] == typeof props.sourceCode ? props.sourceCode : defaultSourceCodeSteps,
+                fallbackNoData: props.fallbackNoData ? props.fallbackNoData : '',
+                fallbackNoDataSearch: props.fallbackNoDataSearch ? props.fallbackNoDataSearch : '',
             };
         }
 
         return null;
     }
 
-    componentDidMount() {
-        this.setState({
-            loadingDisplay: this.loadingDisplay
-        }, this.generateCode);
+    componentDidUpdate() {
+        if (this.isFocus && this.inputNode && this.inputNode.current) {
+            this.inputNode.current.focus();
+        }
     }
-    
-    inputCallback(e, code) {
-        const { inputCallback, searchValue } = this.state;
 
-        if (inputCallback) {
-            (inputCallback)(e, searchValue, code);
+    componentDidMount() {
+        const { code } = this.state;
+
+        if (code.length) {
+            const data = code.split('\n');
+            this.generateCode(data);
         }
     }
 
@@ -90,997 +128,393 @@ class ModuleSourceCode extends Component
         this.isFocus = false;
     }
 
-    componentDidUpdate() {
-        if (this.isFocus && this.inputNode) {
-            this.inputNode.focus();
-        }
-    }
-
     /**
      * Set value on change input field
      */
     setValue(e) {
-        e.persist();
-        const { originalCode } = this.state;
-        let value = e.target.value;
-        let code = [];
+        const { inputCallback } = this.state;
+
+        if (inputCallback) {
+            (inputCallback)(e);
+        }
 
         this.setState({
-            searchValue: value,
-            loadingDisplay: this.loadingDisplay
-        }, () => {
-
-            if ('' == value) {
-                code = originalCode
-            }
-
-            else {
-                const lines = originalCode.split('\n');
-                value = value.trim();
-
-                for (let x = 0; x <= lines.length - 1; x++) {
-                    if (-1 !== lines[x].indexOf(value)) {
-                        code.push(lines[x]);
-                    }
-                }
-
-                code = code.join('\n');
-            }
-
-            /**
-             * User inputCallback
-             */
-            this.inputCallback(e, code);
-
-            this.setState({
-                code
-            }, this.generateCode);
-        });
+            inputValue: e.target.value,
+            lines: []
+        }, this.filterCode);
     }
 
-    generateCode() {
-        const { code, inputNoDataText, displayLineNumber } = this.state;
-        let masterCode = [];
+    filterCode() {
+        const { searchSensitive, inputValue, code } = this.state;
 
-        if (!code || 0 == code.length) {
-            return this.setState({
-                lines: inputNoDataText,
-                loadingDisplay: false
-            });
+        if ('' == inputValue) {
+            const data = code.split('\n');
+            return this.generateCode(data);
         }
 
-        const codeViaLine = code.split('\n');
-        let singleLineData = [];
+        if (code.length) {
+            const data = code.split('\n');
+            const lines = [];
 
-        for (let x = 0; x < codeViaLine.length; x++) {
-            singleLineData = [];
+            if (searchSensitive) {
 
-            if ('' !== codeViaLine[x]) {
+                for (let x = 0; x <= data.length - 1; x++) {
 
-                singleLineData.push(
+                    if (data[x] && -1 !== data[x].toLowerCase().indexOf(inputValue.toLowerCase())) {
+                        lines.push(data[x]);
+                    }
+
+                }
+            }
+
+            if (!searchSensitive) {
+
+                for (let x = 0; x <= data.length - 1; x++) {
+
+                    if (data[x] && -1 !== data[x].indexOf(inputValue)) {
+                        lines.push(data[x]);
+                    }
+
+                }
+            }
+
+            this.generateCode(lines);
+        }
+    }
+
+    async generateCode(code = []) {
+        const { promise, promiseLine, promiseTime } = this.state;
+        let lines = [];
+
+        if (code) {
+
+            for (let x = 0; x <= code.length - 1; x++) {
+                let time = 0;
+
+                if (x !== 0 && x % promiseLine == 0 && promise) {
+                    time = promiseTime;
+                }
+
+                let data = code[x];
+
+                if ('' == data) {
+                    data = '\n';
+                }
+
+                let codes = [];
+
+                if (promise) {
+                    codes = await this.generateLinePromise(data, time);
+                }
+                else {
+                    codes = this.generateLine(data);
+                }
+
+                lines.push(
                     {
-                        code: codeViaLine[x],
-                        class: 'no-match'
+                        codes
                     }
                 );
-                // const singleItems = codeViaLine[x].split(' ');
-                // let attribute = null;
-                // let previusType = '';
 
-                // for (let mrx = 0; mrx < singleItems.length; mrx++) {
-                //     let characters = '';
+                if (promiseTime == time) {
 
-                //     if ('' !== singleItems[mrx]) {
-                //         const wordsCharacterSet = singleItems[mrx].split('');
-                //         characters = '';
+                    this.setState({
+                        lines: [...this.state.lines, ...lines]
+                    });
 
-                //         for (let i = 0; i < wordsCharacterSet.length; i++) {
-                //             let nextCharacter = (undefined !== wordsCharacterSet[i + 1]) ? wordsCharacterSet[i + 1] : undefined;
-
-                //             if ('\t' == wordsCharacterSet[i]) {
-                //                 singleLineData.push(
-                //                     {
-                //                         code: '\t',
-                //                         class: 'tab'
-                //                     }
-                //                 );
-                //             }
-                //             else {
-                //                 characters += wordsCharacterSet[i];
-                //                 /**
-                //                  * Tags matcher
-                //                  */
-                //                 const tagMatcher = this.tagsMatcher(characters, singleLineData, nextCharacter);
-                //                 characters = tagMatcher.characters;
-                //                 singleLineData = tagMatcher.singleLineData;
-
-                //                 /**
-                //                  * Tags props
-                //                  */
-                //                 if (characters.length) {
-                //                     const propsMatcher = this.propsMatcher(characters, singleLineData, nextCharacter, attribute);
-                //                     characters = propsMatcher.characters;
-                //                     singleLineData = propsMatcher.singleLineData;
-                //                     attribute = propsMatcher.attribute;
-                //                 }
-                //             }
-                //         }
-                //     }
-
-                //     /**
-                //      * No match
-                //      */
-                //     if (characters.length) {
-
-                //         /**
-                //          * PHP dollar character
-                //          */
-                //         if(-1 !== characters.indexOf('$')){
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: characters.substring(0, characters.indexOf('$')),
-                //                     class: 'no-match php'
-                //                 }
-                //             );
-
-                //             let variable = characters.substring(characters.indexOf('$'), characters.length);
-                //             variable = variable.split('');
-
-                //             let items = '$';
-                //             let itemsMatch = 0;
-
-                //             for(let x = 1; x <= variable.length-1; x++){
-                //                 if (/^[a-zA-Z]+$/.test(variable[x])) {
-                //                     items += variable[x];
-                //                 }
-                //                 else{
-                //                     itemsMatch = x;
-                //                     break;
-                //                 }
-                //             }
-
-                //             if(items.length){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: items,
-                //                         class: 'variable-dollar'
-                //                     }
-                //                 );
-                //             }
-
-                //             if(itemsMatch){
-                //                 characters = characters.substring(itemsMatch, variable.length);
-                //             }
-                            
-                //             else{
-                //                 characters = '';
-                //             }
-
-                //             previusType = 'php';
-                //         }
-
-                //         /**
-                //          * Functions matcher
-                //          */
-                //         if(-1 !== characters.indexOf('(') && -1 !== characters.indexOf(')')){
-                //             const fnName = characters.substring(0, characters.indexOf('('));
-                            
-                //             singleLineData.push(
-                //                 {
-                //                     code: fnName,
-                //                     class: 'functionName'
-                //                 }
-                //             );                            
-                            
-                //             const attr = characters.substring(fnName.length+1, characters.indexOf(')'));
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: '(',
-                //                     class: 'bracket bracket-left'
-                //                 }
-                //             );
-                //             singleLineData.push(
-                //                 {
-                //                     code: attr,
-                //                     class: 'functionArguments'
-                //                 }
-                //             );
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: ')',
-                //                     class: 'bracket bracket-right'
-                //                 }
-                //             );
-
-                //             characters = characters.substring(fnName.length + 1 + attr.length + 1, characters.length);
-                //         }
-
-                //         if(-1 !== characters.indexOf('(')){
-                //             const fnName = characters.substring(0, characters.indexOf('('));
-                //             previusType = 'function';
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: fnName,
-                //                     class: 'functionName'
-                //                 }
-                //             );                            
-                            
-                //             const attr = characters.substring(fnName.length+1, characters.length);
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: '(',
-                //                     class: 'bracket bracket-left'
-                //                 }
-                //             );
-                //             singleLineData.push(
-                //                 {
-                //                     code: attr,
-                //                     class: 'functionArguments'
-                //                 }
-                //             );
-
-                //             characters = '';
-                //         }
-
-                //         /**
-                //          * Match everything as function arguments to match ")"
-                //          */
-                //         if('function' == previusType){
-
-                //             if(-1 !== characters.indexOf('))')){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters.substring(0, characters.indexOf(')')+1),
-                //                         class: 'functionArguments'
-                //                     }
-                //                 );
-
-                //                 singleLineData.push(
-                //                     {
-                //                         code: ')',
-                //                         class: 'bracket bracket-right'
-                //                     }
-                //                 );
-    
-                //                 characters = characters.substring(characters.indexOf(')')+2, characters.length);
-                //                 previusType = '';
-                //             }
-                            
-                //             if(-1 !== characters.indexOf(')')){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters.substring(0, characters.indexOf(')')),
-                //                         class: 'functionArguments'
-                //                     }
-                //                 );
-
-                //                 singleLineData.push(
-                //                     {
-                //                         code: ')',
-                //                         class: 'bracket bracket-right'
-                //                     }
-                //                 );
-    
-                //                 characters = characters.substring(characters.indexOf(')')+1, characters.length);
-                //                 previusType = '';
-                //             }
-                //             else{
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters,
-                //                         class: 'functionArguments'
-                //                     }
-                //                 );
-    
-                //                 characters = '';
-                //                 previusType = 'function';
-                //             }
-                //         }
-
-                //         /**
-                //          * Css or objects
-                //          */
-                //         if(-1 !== characters.indexOf('{')){
-                //             const pref = characters.substring(0, characters.indexOf('{'));
-                //             characters = characters.substring(pref.length, characters.length);
-                            
-                //             if(-1 !== pref.indexOf('=')){
-
-                //                 singleLineData.push(
-                //                     {
-                //                         code: pref.substring(0, pref.indexOf('=')),
-                //                         class: 'variableName'
-                //                     }
-                //                 );
-                    
-                //                 singleLineData.push(
-                //                     {
-                //                         code: '=',
-                //                         class: 'equal'
-                //                     }
-                //                 );
-                //             }
-
-                //             if(-1 !== characters.indexOf('{')){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters.substring(0, characters.indexOf('{')),
-                //                         class: 'no-match'
-                //                     }
-                //                 );
-                //                 singleLineData.push(
-                //                     {
-                //                         code: '{',
-                //                         class: 'bracket bracket-left'
-                //                     }
-                //                 );
-
-                //                 characters = characters.substring(characters.indexOf('{')+1, characters.length);
-                //                 previusType = 'bracketOpen';
-                //             }
-
-                //             if(-1 !== characters.indexOf('}') && 'bracketOpen' == previusType){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters.substring(0, characters.indexOf('}')),
-                //                         class: 'bracketValue'
-                //                     }
-                //                 );
-                //                 singleLineData.push(
-                //                     {
-                //                         code: '}',
-                //                         class: 'bracket bracket-right'
-                //                     }
-                //                 );
-
-                //                 characters = characters.substring(characters.indexOf('}')+1, characters.length);
-                //                 previusType = '';
-                //             }
-                //         }
-
-                //         if(-1 !== characters.indexOf('}')){
-                //             singleLineData.push(
-                //                 {
-                //                     code: characters.substring(0, characters.indexOf('}')),
-                //                     class: 'no-match'
-                //                 }
-                //             );
-                //             singleLineData.push(
-                //                 {
-                //                     code: '}',
-                //                     class: 'bracket bracket-right'
-                //                 }
-                //             );
-
-                //             characters = characters.substring(characters.indexOf('}')+1, characters.length);
-                //             previusType = '';
-                //         }
-
-                //         if(-1 !== characters.indexOf('=')){
-
-                //             singleLineData.push(
-                //                 {
-                //                     code: characters.substring(0, characters.indexOf('=')),
-                //                     class: 'variableName'
-                //                 }
-                //             );
-                
-                //             singleLineData.push(
-                //                 {
-                //                     code: '=',
-                //                     class: 'equal'
-                //                 }
-                //             );
-
-                //             characters = characters.substring(characters.indexOf('=')+1, characters.length);
-                //         }
-
-                //         if(')' == characters){
-                //             singleLineData.push(
-                //                 {
-                //                     code: ')',
-                //                     class: 'bracket bracket-right'
-                //                 }
-                //             );
-                //             characters = '';
-                //             previusType = '';
-                //         }
-
-                //         if(characters.length){
-
-                //             const lastMatch = [
-                //                 {
-                //                     words: ['import', 'from', 'require', 'use', 'return', 'export', 'default', 'extends', 'interface'],
-                //                     class: 'key'
-                //                 }
-                //             ];
-
-                //             for(let x = 0; x <= lastMatch.length-1; x++){
-                //                 const wordsToCheck = lastMatch[x].words;
-
-                //                 for(let i = 0; i <= wordsToCheck.length-1; i++){
-                //                     if(wordsToCheck[i] === characters){
-                //                         singleLineData.push(
-                //                             {
-                //                                 code: characters,
-                //                                 class: lastMatch[x].class
-                //                             }
-                //                         );   
-                //                         characters = '';
-                //                         break;                                     
-                //                     }
-                //                 }
-                //             }
-
-                //             if(characters.length){
-                //                 singleLineData.push(
-                //                     {
-                //                         code: characters,
-                //                         class: 'no-match'
-                //                     }
-                //                 );
-                //             }
-
-                //             previusType = '';
-                //         }
-                //     }
-
-                //     /**
-                //      * Push the same char as splitted with
-                //      */
-                //     singleLineData.push(
-                //         {
-                //             code: ' ',
-                //             class: 'space'
-                //         }
-                //     );
-                // }
-            }
-            /**
-             * Push the same char as splitted with
-             */
-            singleLineData.push(
-                {
-                    code: '\n',
-                    class: 'enter'
+                    lines = [];
                 }
-            );
 
-            masterCode.push(singleLineData);
-        }
+                if (x == code.length - 1) {
 
-        const codeJsx = [];
+                    this.setState({
+                        lines: [...this.state.lines, ...lines]
+                    });
 
-        for (let x = 0; x < masterCode.length; x++) {
-            const singleLineArrays = masterCode[x];
-            const tempHolder = [];
+                    lines = [];
+                }
 
-            for (let mrx = 0; mrx < singleLineArrays.length; mrx++) {
-                tempHolder.push(
-                    <span key={uuid()} className={singleLineArrays[mrx].class ? singleLineArrays[mrx].class : ''}>
-                        {
-                            singleLineArrays[mrx].code
-                        }
-                    </span>
-                );
             }
+        }
+    }
 
-            const baseClass = `single-code-line single-code-line-${x+1} ${x+1 == 1 ? ' single-code-line-first' : ''} ${x+1 == masterCode.length ? ' single-code-line-last' : ''}`;
+    generateLinePromise(singleLine = '', time = 0) {
+        const { matcher, sourceCode } = this.state;
 
-            codeJsx.push(
-                <li
-                    key={uuid()}
-                    className={displayLineNumber ? `${baseClass} flex` : baseClass}
-                >
-                    {
-                        displayLineNumber &&
-                        <div className="line-number">
+        return new Promise(resolve => {
+            const words = singleLine.split(' ');
+            let lines = [];
+            let attribute = null;
+
+            for (let x = 0; x <= words.length - 1; x++) {
+
+                const wordChars = words[x].split('');
+                let characters = '';
+
+                for (let i = 0; i < wordChars.length; i++) {
+                    let nextCharacter = (undefined !== wordChars[i + 1]) ? wordChars[i + 1] : undefined;
+
+                    if ('\t' == wordChars[i]) {
+                        lines.push(
                             {
-                                x + 1
+                                className: 'tab',
+                                data: '\t'
                             }
-                        </div>
+                        );
                     }
-                    <div className="line-code">
-                        {
-                            tempHolder
-                        }
-                    </div>
-                </li>
-            );
-        }
+                    else {
+                        characters += wordChars[i];
 
-        this.setState({
-            loadingDisplay: false,
-            lines: codeJsx,
+                        for (let a = 0; a <= sourceCode.length - 1; a++) {
+
+                            if (typeof '8' == typeof sourceCode[a] && defaultSourceCodeSteps.includes(sourceCode[a])) {
+
+                                if ('tags' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Tags matcher
+                                     */
+                                    const tags = tagMatcher(characters, lines, nextCharacter);
+                                    characters = tags.characters;
+                                    lines = tags.lines;
+                                }
+
+                                if ('properties' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Tags props
+                                     */
+                                    const props = propsMatcher(characters, lines, nextCharacter, attribute);
+                                    characters = props.characters;
+                                    lines = props.lines;
+                                    attribute = props.attribute;
+                                }
+
+                                if ('variables' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Vars matcher
+                                     */
+                                    const vars = varMatcher(characters, lines);
+                                    characters = vars.characters;
+                                    lines = vars.lines;
+                                }
+
+                                if ('objectProperty' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * objectProperty matcher
+                                     */
+                                    const o = objectPropertyMatcher(characters, lines);
+                                    characters = o.characters;
+                                    lines = o.lines;
+                                }
+
+                                if ('functions' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Functions matcher
+                                     */
+                                    const fn = functionMatcher(characters, lines);
+                                    characters = fn.characters;
+                                    lines = fn.lines;
+                                }
+
+                                if ('words' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Key-words matcher
+                                     */
+                                    const custom = keyWordsMatcher(characters, lines, matcher);
+                                    characters = custom.characters;
+                                    lines = custom.lines;
+                                }
+
+                                /**
+                                 * Quotes matcher
+                                 */
+                                if ('quotes' == sourceCode[a] && characters.length) {
+                                    const quotes = quotesMatcher(characters, lines);
+                                    characters = quotes.characters;
+                                    lines = quotes.lines;
+                                }
+
+                                if ('brackets' == sourceCode[a] && characters.length) {
+                                    /**
+                                     * Brackets matcher
+                                     */
+                                    const fn = bracketMatcher(characters, lines);
+                                    characters = fn.characters;
+                                    lines = fn.lines;
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+
+                /**
+                 * No match
+                 */
+                if (characters.length) {
+                    lines.push(
+                        {
+                            className: '',
+                            data: characters
+                        }
+                    );
+                }
+
+                /**
+                 * Add space, becouse the line was splitted by it
+                 */
+                lines.push(
+                    {
+                        className: 'space',
+                        data: ' '
+                    }
+                );
+            }
+
+            setTimeout(() => {
+                resolve(lines);
+            }, time);
         });
     }
 
-    tagsMatcher(characters, singleLineData, nextCharacter) {
+    generateLine(singleLine = '') {
+        const { matcher, sourceCode } = this.state;
+        const words = singleLine.split(' ');
+        let lines = [];
+        let attribute = null;
 
-        /**
-         * Unknown tag name check
-         * - possible match for </custom-tag-name>
-         */
-        if (0 === characters.indexOf('</') && '>' == nextCharacter) {
-            singleLineData.push(
-                {
-                    code: '<',
-                    class: 'tagStart'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '/',
-                    class: 'slash'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: characters.substring(2, characters.length),
-                    class: 'tagName'
-                }
-            );
-            characters = '';
-        }
+        for (let x = 0; x <= words.length - 1; x++) {
+            let functionAlreadyStarted = false;
+            const wordChars = words[x].split('');
+            let characters = '';
 
-        if ('>' == characters.substring(characters.length-1, characters.length) && !nextCharacter && -1 == characters.indexOf('<')) {
+            for (let i = 0; i < wordChars.length; i++) {
+                let nextCharacter = (undefined !== wordChars[i + 1]) ? wordChars[i + 1] : undefined;
 
-            if('=' == characters.substring(0, characters.length-1)){
-                singleLineData.push(
-                    {
-                        code: '=',
-                        class: 'equal'
+                if ('\t' == wordChars[i]) {
+                    lines.push(
+                        {
+                            className: 'tab',
+                            data: '\t'
+                        }
+                    );
+                }
+                else {
+                    characters += wordChars[i];
+
+                    for (let a = 0; a <= sourceCode.length - 1; a++) {
+
+                        if (typeof '8' == typeof sourceCode[a] && defaultSourceCodeSteps.includes(sourceCode[a])) {
+
+                            if ('tags' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Tags matcher
+                                 */
+                                const tags = tagMatcher(characters, lines, nextCharacter);
+                                characters = tags.characters;
+                                lines = tags.lines;
+                            }
+
+                            if ('properties' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Tags props
+                                 */
+                                const props = propsMatcher(characters, lines, nextCharacter, attribute);
+                                characters = props.characters;
+                                lines = props.lines;
+                                attribute = props.attribute;
+                            }
+
+                            if ('variables' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Vars matcher
+                                 */
+                                const vars = varMatcher(characters, lines);
+                                characters = vars.characters;
+                                lines = vars.lines;
+                            }
+
+                            if ('objectProperty' == sourceCode[a] && characters.length) {
+                                /**
+                                 * objectProperty matcher
+                                 */
+                                const o = objectPropertyMatcher(characters, lines);
+                                characters = o.characters;
+                                lines = o.lines;
+                            }
+
+                            if ('functions' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Functions matcher
+                                 */
+                                const fn = functionMatcher(characters, lines, functionAlreadyStarted);
+                                characters = fn.characters;
+                                lines = fn.lines;
+                            }
+
+                            if ('words' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Key-words matcher
+                                 */
+                                const custom = keyWordsMatcher(characters, lines, matcher);
+                                characters = custom.characters;
+                                lines = custom.lines;
+                            }
+
+                            /**
+                             * Quotes matcher
+                             */
+                            if ('quotes' == sourceCode[a] && characters.length) {
+                                const quotes = quotesMatcher(characters, lines);
+                                characters = quotes.characters;
+                                lines = quotes.lines;
+                            }
+
+                            if ('brackets' == sourceCode[a] && characters.length) {
+                                /**
+                                 * Brackets matcher
+                                 */
+                                const fn = bracketMatcher(characters, lines);
+                                characters = fn.characters;
+                                lines = fn.lines;
+                            }
+                        }
                     }
-                );
-                singleLineData.push(
-                    {
-                        code: '>',
-                        class: 'tagEnd'
-                    }
-                );
+                }
             }
-            else{
-                singleLineData.push(
-                    {
-                        code: characters.substring(0, characters.length-1),
-                        class: 'tagName'
-                    }
-                );
-                singleLineData.push(
-                    {
-                        code: '>',
-                        class: 'tagEnd'
-                    }
-                );
-            }
-            characters = '';
-        }
-
-        /**
-         * Unknown tag name check
-         * - possible match for <custom-tag-name> without props
-         */
-        if ('<' == characters.charAt(0) && !nextCharacter) {
-            singleLineData.push(
-                {
-                    code: '<',
-                    class: 'tagStart'
-                }
-            );
-
-            if('>' == characters.substring(characters.length-1, characters.length)){
-                singleLineData.push(
-                    {
-                        code: characters.substring(1, characters.length-1),
-                        class: 'tagName'
-                    }
-                );
-                singleLineData.push(
-                    {
-                        code: '>',
-                        class: 'tagEnd'
-                    }
-                );
-                characters = '';
-            }
-            else{
-                singleLineData.push(
-                    {
-                        code: characters.substring(1, characters.length),
-                        class: 'tagName'
-                    }
-                );
-                characters = '';
-            }
-        }
-
-        if ('<' == characters.charAt(0) && '>' == characters.charAt(characters.length-1)) {
-            singleLineData.push(
-                {
-                    code: '<',
-                    class: 'tagStart'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: characters.substring(1, characters.length-1),
-                    class: 'tagName'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '>',
-                    class: 'tagEnd'
-                }
-            );
-            characters = '';
-        }
-
-        if (-1 !== characters.indexOf('<') && '>' == characters.charAt(characters.length-1)) {
-            const dataToCheck = characters.substring(0, characters.indexOf('<'));            
-            
-            singleLineData = this.extractNotFiltered(singleLineData, dataToCheck);
-
-            singleLineData.push(
-                {
-                    code: '<',
-                    class: 'tagStart'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: characters.substring(characters.indexOf('<')+1, characters.length-1),
-                    class: 'tagName'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '>',
-                    class: 'tagEnd'
-                }
-            );
-            characters = '';
-        }
-
-        if (-1 !== characters.indexOf('</') && '>' == characters.charAt(characters.length-1)) {
-            singleLineData.push(
-                {
-                    code: characters.substring(0, characters.indexOf('</')+1),
-                    class: 'not-filtered-data'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '</',
-                    class: 'tagStart'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: characters.substring(characters.indexOf('</')+2, characters.length-1),
-                    class: 'tagName'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '>',
-                    class: 'tagEnd'
-                }
-            );
-            characters = '';
-        }
-
-        /**
-         * Tag check
-         * Check if is closing tag, and the closing tag are pushed previously 
-         */
-        if ('>' == characters) {
-            singleLineData.push(
-                {
-                    code: '>',
-                    class: 'tagEnd'
-                }
-            );
-            characters = '';
-        }
-
-
-        return {
-            characters,
-            singleLineData
-        }
-    }
-
-    extractNotFiltered(singleLineData, dataToCheck){
-        
-        if(-1 !== dataToCheck.indexOf('="')){
-            
-            singleLineData.push(
-                {
-                    code: dataToCheck.substring(0, dataToCheck.indexOf('="')),
-                    class: 'attributeName'
-                }
-            );
-
-            singleLineData.push({
-                code: '=',
-                class: 'equal attribute-equal'
-            });
-
-            singleLineData.push({
-                code: '"',
-                class: 'quote-double quote-double-start'
-            });
-
-            if('">' == dataToCheck.substring(dataToCheck.length-2, dataToCheck.length)){
-                singleLineData.push(
-                    {
-                        code: dataToCheck.substring(dataToCheck.indexOf('="')+2, dataToCheck.length-2),
-                        class: 'value'
-                    }
-                );
-
-                singleLineData.push({
-                    code: "'",
-                    class: 'quote-single quote-single-end'
-                });
-
-                singleLineData.push({
-                    code: ">",
-                    class: 'tagEnd'
-                });
-            }
-            else{
-                singleLineData.push(
-                    {
-                        code: dataToCheck.substring(dataToCheck.indexOf('="'), dataToCheck.length),
-                        class: 'value'
-                    }
-                );
-            }
-
-            return singleLineData;
-        }
-
-        if(-1 !== dataToCheck.indexOf("='")){
-            
-            singleLineData.push(
-                {
-                    code: dataToCheck.substring(0, dataToCheck.indexOf("='")),
-                    class: 'attributeName'
-                }
-            );
-
-            singleLineData.push({
-                code: '=',
-                class: 'equal attribute-equal'
-            });
-
-            singleLineData.push({
-                code: "'",
-                class: 'quote-single quote-single-start'
-            });
-
-            if("'>" == dataToCheck.substring(dataToCheck.length-2, dataToCheck.length)){
-                singleLineData.push(
-                    {
-                        code: dataToCheck.substring(dataToCheck.indexOf("='")+2, dataToCheck.length-2),
-                        class: 'value'
-                    }
-                );
-
-                singleLineData.push({
-                    code: "'",
-                    class: 'quote-single quote-single-end'
-                });
-
-                singleLineData.push({
-                    code: ">",
-                    class: 'tagEnd'
-                });
-            }
-            else{
-                singleLineData.push(
-                    {
-                        code: dataToCheck.substring(dataToCheck.indexOf("='"), dataToCheck.length),
-                        class: 'value'
-                    }
-                );
-            }
-
-            return singleLineData;
-        }
-
-        if(-1 !== dataToCheck.indexOf('>')){
-            singleLineData.push(
-                {
-                    code: dataToCheck.substring(dataToCheck.indexOf(">"), dataToCheck.length-1),
-                    class: 'value'
-                }
-            );
-            singleLineData.push({
-                code: ">",
-                class: 'tagEnd'
-            });
-
-            return singleLineData;
-        }
-
-        if(-1 !== dataToCheck.indexOf('=')){
-
-            singleLineData.push(
-                {
-                    code: dataToCheck.substring(0, dataToCheck.indexOf('=')),
-                    class: 'variableName'
-                }
-            );
-
-            singleLineData.push(
-                {
-                    code: '=',
-                    class: 'equal'
-                }
-            );
-
-            dataToCheck = dataToCheck.substring(dataToCheck.indexOf('=')+1, dataToCheck.length);
-        }
-
-        if(-1 !== dataToCheck.indexOf('{')){
-            singleLineData.push(
-                {
-                    code: dataToCheck.substring(0, dataToCheck.indexOf('{')),
-                    class: 'no-match'
-                }
-            );
-            singleLineData.push(
-                {
-                    code: '{',
-                    class: 'bracket bracket-right'
-                }
-            );
-
-            dataToCheck = dataToCheck.substring(dataToCheck.indexOf('{')+1, dataToCheck.length);
-        }
-
-        if(dataToCheck.length){
-            singleLineData.push(
-                {
-                    code: dataToCheck,
-                    class: 'not-filtered'
-                }
-            );
-        }
-
-        return singleLineData;
-    }
-
-    propsMatcher(characters, singleLineData, nextCharacter, attribute) {
-        /**
-         * Check if is attribute or string assigment
-         * as variable
-         * 
-         * (attribute) href="fsdfdsfdfsd"
-         * (variable) x="dsadasdsadsa"
-         */
-        let value = characters.substring(0, characters.indexOf('='));
-
-        if (1 !== characters.indexOf('="') && '"' == nextCharacter && 'start' !== attribute && '' !== value) {
-            attribute = 'start';
-
-            singleLineData.push({
-                code: value,
-                class: 'attributeName'
-            });
-
-            singleLineData.push({
-                code: '=',
-                class: 'equal attribute-equal'
-            });
-
-            singleLineData.push({
-                code: '"',
-                class: 'quote-double quote-double-start'
-            });
-
-            characters = '';
-        }
-
-        /**
-         * Example text: re a bug in some browsers where doing "Select ="" (CTRL+A and CMD+A) s
-         * 
-         * catching here: "Select ="" <- catching closing last tag
-         */
-        if('"' == characters && undefined == nextCharacter){
-            attribute = 'end';
-
-            singleLineData.push({
-                code: '"',
-                class: 'quote-double quote-double-end'
-            });
-
-            characters = '';
-        }
-
-        /**
-         * If the attribute process started but not finished
-         * and is a space between props
-         */
-        if (undefined == nextCharacter && 'start' == attribute && '"' !== characters.substring(characters.length - 1, characters.length)) {
 
             /**
-             * If the value has a quoute on the first place
-             * example: <meta name=""viewport" content=""width=device-width, initial-scale=1.0,  maximum-scale=5.0"> 
-             * 
-             * the: content=" are pushed as parent 
-             * 
-             * now the value "width=device-width has the 2 quote, we have to ignore this quote
+             * No match
              */
-            if ('"' == characters.charAt(0)) {
-                characters = characters.substring(1, characters.length);
+            if (characters.length) {
+                lines.push(
+                    {
+                        className: '',
+                        data: characters
+                    }
+                );
             }
 
-            singleLineData.push({
-                code: characters,
-                class: 'attributeValue'
-            });
-
-            characters = '';
+            /**
+             * Add space, becouse the line was splitted by it
+             */
+            lines.push(
+                {
+                    className: 'space',
+                    data: ' '
+                }
+            );
         }
 
-        /**
-         * Catching now values with space
-         * 
-         * title="David Janitzek"
-         * 
-         * catching value: Janitzek"
-         */
-        if ('"' == characters.substring(characters.length - 1, characters.length) && 2 <= characters.length && 'start' == attribute) {
-            attribute = 'end';
-
-            if ('"' == characters.charAt(0)) {
-                characters = characters.substring(1, characters.length);
-            }
-            
-            singleLineData.push({
-                code: characters.substring(0, characters.length - 1),
-                class: 'attributeValue'
-            });
-
-            singleLineData.push({
-                code: '"',
-                class: 'quote-double quote-double-end'
-            });
-
-            characters = '';
-        }
-
-        return {
-            characters,
-            singleLineData,
-            attribute
-        }
+        return lines;
     }
 
     render() {
-        const { addClass, defaultClass, layout, lines, loadingDisplay, loadingIcon, inputActive, placeholder, searchValue, id } = this.state;
-
-        if (loadingDisplay) {
-            return (
-                <div className={`${defaultClass} ${layout}`}>
-                    {
-                        loadingIcon
-                    }
-                </div>
-            );
-        }
+        const { addClass, defaultClass, lines, inputActive, inputPlaceholder, searchValue, id, lineNumber, fallbackNoData, lineNumberNewLine, fallbackNoDataSearch } = this.state;
+        let emptyLines = 0;
 
         return (
-            <div className={`${defaultClass} ${layout} ${addClass}`} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     inputActive &&
                     <div className="search">
@@ -1089,18 +523,99 @@ class ModuleSourceCode extends Component
                             type='text'
                             onChange={(e) => this.setValue(e)}
                             value={searchValue}
-                            placeholder={placeholder}
+                            placeholder={inputPlaceholder}
                             onFocus={(e) => this.focusIn()}
                             onBlur={(e) => this.focusOut()}
-                            ref={node => this.inputNode = node}
+                            ref={this.inputNode}
                         />
                     </div>
                 }
-                <ul className='code'>
-                    {
-                        lines
-                    }
-                </ul>
+                {
+                    lines && 0 !== lines.length &&
+
+                    <ul className='code'>
+                        {
+                            lines.map((line, index) => {
+
+                                const { codes } = line;
+                                const code = [];
+                                let onlyEmptyLines = true;
+
+                                if (!lineNumberNewLine) {
+
+                                    codes.map(i => {
+
+                                        const { data } = i;
+
+                                        if ('' !== data.trim()) {
+                                            onlyEmptyLines = false;
+                                        }
+
+                                    });
+
+                                    if (onlyEmptyLines) {
+                                        emptyLines++;
+
+                                        return (
+                                            <li
+                                                key={uuid()}
+                                                className='line'
+                                            >
+                                                <span className='line-code'>
+                                                    {
+                                                        `\n`
+                                                    }
+                                                </span>
+                                            </li>
+                                        );
+                                    }
+                                }
+
+                                codes.map(i => {
+                                    const { className, data } = i;
+
+                                    code.push(
+                                        <span
+                                            key={uuid()}
+                                            className={`${className ? className : ''}`}
+                                        >
+                                            {
+                                                data
+                                            }
+                                        </span>
+                                    );
+                                });
+
+                                return (
+                                    <li
+                                        key={uuid()}
+                                        className='line'
+                                    >
+                                        {
+                                            lineNumber &&
+                                            <span className='line-number'>
+                                                {
+                                                    (index - emptyLines) + 1
+                                                }
+                                            </span>
+                                        }
+                                        <span className='line-code'>
+                                            {
+                                                code
+                                            }
+                                        </span>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                }
+                {
+                    0 == lines.length && '' == searchValue && fallbackNoData
+                }
+                {
+                    0 == lines.length && '' != searchValue && fallbackNoDataSearch
+                }
             </div>
         );
     }

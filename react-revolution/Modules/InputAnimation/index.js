@@ -27,7 +27,7 @@ class InputAnimation extends React.Component
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             inputType: (props.type && typeof '8' == typeof props.type) ? props.type : 'text',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
-            placeholder: (props.placeholder && typeof '8' == typeof props.placeholder) ? props.placeholder : '',
+            inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             animatePlaceholder: (typeof true == typeof props.animatePlaceholder) ? props.animatePlaceholder : true,
             onEnter: (props.onEnter && 'function' == typeof props.onEnter) ? props.onEnter : undefined,
             allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
@@ -203,7 +203,7 @@ class InputAnimation extends React.Component
     }
 
     render() {
-        const { addClass, animatePlaceholder, placeholder, id, defaultClass, inputType, props, plainValue } = this.state;
+        const { addClass, animatePlaceholder, inputPlaceholder, id, defaultClass, inputType, props, plainValue } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -211,7 +211,7 @@ class InputAnimation extends React.Component
                     animatePlaceholder &&
                     <div className="font-input title">
                         {
-                            placeholder
+                            inputPlaceholder
                         }
                     </div>
                 }
@@ -224,7 +224,7 @@ class InputAnimation extends React.Component
                         type={ inputType }
                         value={ plainValue }
                         onChange={ (e) => this.setValue(e) }
-                        placeholder={animatePlaceholder ? '' : placeholder}
+                        placeholder={animatePlaceholder ? '' : inputPlaceholder}
                         id={id}
                         { ...props }
                     />
@@ -244,7 +244,7 @@ class InputAnimation extends React.Component
                             }
                         } }
                         ref={ (node) => this.inputNode = node }
-                        placeholder={animatePlaceholder ? '' : placeholder}
+                        placeholder={animatePlaceholder ? '' : inputPlaceholder}
                         id={id}
                         { ...props }
                     />

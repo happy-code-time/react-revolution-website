@@ -41,11 +41,11 @@ class PagerStatic extends React.Component {
             searchOnKeys: (props.searchOnKeys && typeof [] === typeof props.searchOnKeys) ? props.searchOnKeys : [],
             itemsPerSite,
             keysToRender: (props.display && typeof [] === typeof props.display) ? props.display : [],
-            displayLineNumber: (typeof true === typeof props.displayLineNumber) ? props.displayLineNumber : false,
-            liOnClickCallback: (props.liOnClickCallback && 'function' === typeof props.liOnClickCallback) ? props.liOnClickCallback : undefined,
-            inputOnChangeCallback: (props.inputOnChangeCallback && 'function' === typeof props.inputOnChangeCallback) ? props.inputOnChangeCallback : undefined,
+            lineNumber: (typeof true === typeof props.lineNumber) ? props.lineNumber : false,
+            liCallback: (props.liCallback && 'function' === typeof props.liCallback) ? props.liCallback : undefined,
+            inputCallback: (props.inputCallback && 'function' === typeof props.inputCallback) ? props.inputCallback : undefined,
             displayTotal: (typeof true === typeof props.displayTotal) ? props.displayTotal : false,
-            displayPaginationPages: (typeof true === typeof props.displayPaginationPages) ? props.displayPaginationPages : false,
+            paginationPages: (typeof true === typeof props.paginationPages) ? props.paginationPages : false,
             totalPrefix: (props.totalPrefix && typeof '8' === typeof props.totalPrefix) ? props.totalPrefix : '',
             totalSufix: (props.totalSufix && typeof '8' === typeof props.totalSufix) ? props.totalSufix : '',
             paginationTextPrefix: (props.paginationTextPrefix && typeof '8' === typeof props.paginationTextPrefix) ? props.paginationTextPrefix : '',
@@ -57,10 +57,10 @@ class PagerStatic extends React.Component {
             resetLineNumber: (typeof true === typeof props.resetLineNumber) ? props.resetLineNumber : false,
             nextButton: props.nextButton ? props.nextButton : '',
             previousButton: props.previousButton ? props.previousButton : '',
-            displaySearch: (typeof true === typeof props.displaySearch) ? props.displaySearch : false,
+            searchActive: (typeof true === typeof props.searchActive) ? props.searchActive : false,
             searchPlaceholder: props.searchPlaceholder ? props.searchPlaceholder : '',
             searchIcon: props.searchIcon ? props.searchIcon : '',
-            searchSensisitve: (typeof true === typeof props.searchSensisitve) ? props.searchSensisitve : false,
+            searchSensitive: (typeof true === typeof props.searchSensitive) ? props.searchSensitive : false,
             searchValue: (props.searchValue && typeof '8' === typeof props.searchValue) ? props.searchValue : '',
             searchOnKeyDown: (typeof true === typeof props.searchOnKeyDown) ? props.searchOnKeyDown : false,
             searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
@@ -148,7 +148,7 @@ class PagerStatic extends React.Component {
             }
         }
 
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'searchOnKeys','itemsPerSite','keysToRender', 'totalSufix', 'displayLineNumber','liOnClickCallback','inputOnChangeCallback','displayTotal','displayPaginationPages','totalPrefix','paginationTextPrefix','paginationTextMiddle','prevPages','nextPages','alignPagesItems','alignPagination','resetLineNumber','nextButton','previousButton','displaySearch','searchPlaceholder','searchIcon','searchSensisitve','searchValue','searchOnKeyDown','searchTitle','paginationTitle','fallbackLoading','fallbackLoadingTime','fallbackNoData','fallbackNoDataSearch','fallbackMounting', 'minPages' ], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'searchOnKeys','itemsPerSite','keysToRender', 'totalSufix', 'lineNumber','liCallback','inputCallback','displayTotal','paginationPages','totalPrefix','paginationTextPrefix','paginationTextMiddle','prevPages','nextPages','alignPagesItems','alignPagination','resetLineNumber','nextButton','previousButton','searchActive','searchPlaceholder','searchIcon','searchSensitive','searchValue','searchOnKeyDown','searchTitle','paginationTitle','fallbackLoading','fallbackLoadingTime','fallbackNoData','fallbackNoDataSearch','fallbackMounting', 'minPages' ], props, state)) {
             const prevPages = (props.prevPages && typeof 8 === typeof props.prevPages) ? props.prevPages : 2;
             const nextPages = (props.nextPages && typeof 8 === typeof props.nextPages) ? props.nextPages : 2;
             const minPages = prevPages + nextPages + 1;
@@ -162,11 +162,11 @@ class PagerStatic extends React.Component {
                 searchOnKeys: (props.searchOnKeys && typeof [] === typeof props.searchOnKeys) ? props.searchOnKeys : [],
                 itemsPerSite,
                 keysToRender: (props.display && typeof [] === typeof props.display) ? props.display : [],
-                displayLineNumber: (typeof true === typeof props.displayLineNumber) ? props.displayLineNumber : false,
-                liOnClickCallback: (props.liOnClickCallback && 'function' === typeof props.liOnClickCallback) ? props.liOnClickCallback : undefined,
-                inputOnChangeCallback: (props.inputOnChangeCallback && 'function' === typeof props.inputOnChangeCallback) ? props.inputOnChangeCallback : undefined,
+                lineNumber: (typeof true === typeof props.lineNumber) ? props.lineNumber : false,
+                liCallback: (props.liCallback && 'function' === typeof props.liCallback) ? props.liCallback : undefined,
+                inputCallback: (props.inputCallback && 'function' === typeof props.inputCallback) ? props.inputCallback : undefined,
                 displayTotal: (typeof true === typeof props.displayTotal) ? props.displayTotal : false,
-                displayPaginationPages: (typeof true === typeof props.displayPaginationPages) ? props.displayPaginationPages : false,
+                paginationPages: (typeof true === typeof props.paginationPages) ? props.paginationPages : false,
                 totalPrefix: (props.totalPrefix && typeof '8' === typeof props.totalPrefix) ? props.totalPrefix : '',
                 totalSufix: (props.totalSufix && typeof '8' === typeof props.totalSufix) ? props.totalSufix : '',
                 paginationTextPrefix: (props.paginationTextPrefix && typeof '8' === typeof props.paginationTextPrefix) ? props.paginationTextPrefix : '',
@@ -178,10 +178,10 @@ class PagerStatic extends React.Component {
                 resetLineNumber: (typeof true === typeof props.resetLineNumber) ? props.resetLineNumber : false,
                 nextButton: props.nextButton ? props.nextButton : '',
                 previousButton: props.previousButton ? props.previousButton : '',
-                displaySearch: (typeof true === typeof props.displaySearch) ? props.displaySearch : false,
+                searchActive: (typeof true === typeof props.searchActive) ? props.searchActive : false,
                 searchPlaceholder: props.searchPlaceholder ? props.searchPlaceholder : '',
                 searchIcon: props.searchIcon ? props.searchIcon : '',
-                searchSensisitve: (typeof true === typeof props.searchSensisitve) ? props.searchSensisitve : false,
+                searchSensitive: (typeof true === typeof props.searchSensitive) ? props.searchSensitive : false,
                 searchOnKeyDown: (typeof true === typeof props.searchOnKeyDown) ? props.searchOnKeyDown : false,
                 searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
                 paginationTitle: (props.paginationTitle && typeof '8' === typeof props.paginationTitle) ? props.paginationTitle : '',
@@ -229,7 +229,7 @@ class PagerStatic extends React.Component {
      * Users pagination interagtions jsx
      */
     getPagerJsx() {
-        let { minPages, itemsPerSite, currentPage, filteredData, displayTotal, totalPrefix, totalSufix, displayPaginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting } = this.state;
+        let { minPages, itemsPerSite, currentPage, filteredData, displayTotal, totalPrefix, totalSufix, paginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting } = this.state;
 
         const currentCount = filteredData.length;
         let mainPage = currentPage;
@@ -316,7 +316,7 @@ class PagerStatic extends React.Component {
                     }
                 </span>
                 {
-                    displayPaginationPages &&
+                    paginationPages &&
                     <span className="pagination-paging">
                         {
                             pagesPrev.map(pageNumber => {
@@ -514,10 +514,10 @@ class PagerStatic extends React.Component {
      * callback parameter
      */
     clickCallback(e, object) {
-        const { liOnClickCallback } = this.state;
+        const { liCallback } = this.state;
 
-        if (liOnClickCallback) {
-            (liOnClickCallback)(e, object);
+        if (liCallback) {
+            (liCallback)(e, object);
         }
     }
 
@@ -525,7 +525,7 @@ class PagerStatic extends React.Component {
      * Return values as generated li items
      */
     getList() {
-        let { keysToRender, displayLineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, dataLoaded, fallbackMounting, fallbackNoData, fallbackNoDataSearch, searchValue } = this.state;
+        let { keysToRender, lineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, dataLoaded, fallbackMounting, fallbackNoData, fallbackNoDataSearch, searchValue } = this.state;
         currentPage = parseInt(currentPage);
         itemsPerSite = parseInt(itemsPerSite);
 
@@ -554,7 +554,7 @@ class PagerStatic extends React.Component {
                 currentIndex += currentPage * itemsPerSite;
             }
 
-            if (displayLineNumber) {
+            if (lineNumber) {
                 childs.push(
                     <span
                         className={`line-number entry entry-1`}
@@ -584,7 +584,7 @@ class PagerStatic extends React.Component {
 
                     childs.push(
                         <span
-                            className={`value entry entry-${loopIndex + (displayLineNumber ? 2 : 1)} value-${count}`}
+                            className={`value entry entry-${loopIndex + (lineNumber ? 2 : 1)} value-${count}`}
                             key={uuid()}
                         >
                             {
@@ -656,7 +656,7 @@ class PagerStatic extends React.Component {
             loading: searchOnKeyDown ? true : false
         }, () => {
             setTimeout(() => {
-                const { data, searchSensisitve, searchOnKeys, env } = this.state;
+                const { data, searchSensitive, searchOnKeys, env } = this.state;
                 let { searchValue } = this.state;
                 const filteredData = [];
 
@@ -683,13 +683,13 @@ class PagerStatic extends React.Component {
                                         /**
                                          * Sensitive
                                          */
-                                        if (searchSensisitve && '' !== searchValue && -1 !== object[keyName].indexOf(searchValue)) {
+                                        if (searchSensitive && '' !== searchValue && -1 !== object[keyName].indexOf(searchValue)) {
                                             filteredData.push(object);
                                         }
                                         /**
                                          * Not sensitive
                                          */
-                                        if (!searchSensisitve && '' !== searchValue && -1 !== object[keyName].toLowerCase().indexOf(searchValue.toLowerCase())) {
+                                        if (!searchSensitive && '' !== searchValue && -1 !== object[keyName].toLowerCase().indexOf(searchValue.toLowerCase())) {
                                             filteredData.push(object);
                                         }
     
@@ -743,15 +743,15 @@ class PagerStatic extends React.Component {
      */
     setSearchValue(e) {
         e.persist();
-        const { data, inputOnChangeCallback, searchOnKeyDown } = this.state;
+        const { data, inputCallback, searchOnKeyDown } = this.state;
         const searchValue = e.target.value;
 
         this.setState({
             loading: searchOnKeyDown ? true : false
         }, () => {
 
-            if (inputOnChangeCallback) {
-                (inputOnChangeCallback)(e);
+            if (inputCallback) {
+                (inputCallback)(e);
             }
 
             if (27 == e.keyCode || 27 == e.which) {
@@ -782,7 +782,7 @@ class PagerStatic extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, loading, fallbackLoading, alignPagination, displaySearch, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData } = this.state;
+        const { addClass, defaultClass, id, loading, fallbackLoading, alignPagination, searchActive, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData } = this.state;
         const jsxList = this.getList();
 
         return (
@@ -791,7 +791,7 @@ class PagerStatic extends React.Component {
                 id={id}
             >
                 {
-                    displaySearch &&
+                    searchActive &&
                     <h1 className="h1">
                         {
                             searchTitle
@@ -799,7 +799,7 @@ class PagerStatic extends React.Component {
                     </h1>
                 }
                 {
-                    displaySearch &&
+                    searchActive &&
                     <div className="input-holder">
                         <input
                             className="input"

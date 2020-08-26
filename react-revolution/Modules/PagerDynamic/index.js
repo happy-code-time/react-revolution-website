@@ -47,11 +47,11 @@ class PagerDynamic extends React.Component {
             searchOnKeys: (props.searchOnKeys && typeof [] === typeof props.searchOnKeys) ? props.searchOnKeys : [],
             itemsPerSite,
             keysToRender: (props.display && typeof [] === typeof props.display) ? props.display : [],
-            displayLineNumber: (typeof true === typeof props.displayLineNumber) ? props.displayLineNumber : false,
-            liOnClickCallback: (props.liOnClickCallback && 'function' === typeof props.liOnClickCallback) ? props.liOnClickCallback : undefined,
-            inputOnChangeCallback: (props.inputOnChangeCallback && 'function' === typeof props.inputOnChangeCallback) ? props.inputOnChangeCallback : undefined,
+            lineNumber: (typeof true === typeof props.lineNumber) ? props.lineNumber : false,
+            liCallback: (props.liCallback && 'function' === typeof props.liCallback) ? props.liCallback : undefined,
+            inputCallback: (props.inputCallback && 'function' === typeof props.inputCallback) ? props.inputCallback : undefined,
             displayTotal: (typeof true === typeof props.displayTotal) ? props.displayTotal : false,
-            displayPaginationPages: (typeof true === typeof props.displayPaginationPages) ? props.displayPaginationPages : false,
+            paginationPages: (typeof true === typeof props.paginationPages) ? props.paginationPages : false,
             totalPrefix: (props.totalPrefix && typeof '8' === typeof props.totalPrefix) ? props.totalPrefix : '',
             totalSufix: (props.totalSufix && typeof '8' === typeof props.totalSufix) ? props.totalSufix : '',
             paginationTextPrefix: (props.paginationTextPrefix && typeof '8' === typeof props.paginationTextPrefix) ? props.paginationTextPrefix : '',
@@ -63,10 +63,10 @@ class PagerDynamic extends React.Component {
             resetLineNumber: (typeof true === typeof props.resetLineNumber) ? props.resetLineNumber : false,
             nextButton: props.nextButton ? props.nextButton : '',
             previousButton: props.previousButton ? props.previousButton : '',
-            displaySearch: (typeof true === typeof props.displaySearch) ? props.displaySearch : false,
+            searchActive: (typeof true === typeof props.searchActive) ? props.searchActive : false,
             searchPlaceholder: props.searchPlaceholder ? props.searchPlaceholder : '',
             searchIcon: props.searchIcon ? props.searchIcon : '',
-            searchSensisitve: (typeof true === typeof props.searchSensisitve) ? props.searchSensisitve : false,
+            searchSensitive: (typeof true === typeof props.searchSensitive) ? props.searchSensitive : false,
             searchValue: (props.searchValue && typeof '8' === typeof props.searchValue) ? props.searchValue : '',
             searchOnKeyDown: (typeof true === typeof props.searchOnKeyDown) ? props.searchOnKeyDown : false,
             searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
@@ -120,7 +120,7 @@ class PagerDynamic extends React.Component {
             }
         }
 
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'minPages', 'totalPages', 'id', 'fallbackLoadingPage', 'searchOnKeys', 'globalCount', 'itemsPerSite', 'keysToRender', 'displayLineNumber', 'liOnClickCallback', 'inputOnChangeCallback', 'displayTotal', 'displayPaginationPages', 'totalPrefix', 'totalSufix', 'paginationTextPrefix', 'paginationTextMiddle', 'prevPages', 'nextPages', 'alignPagesItems', 'alignPagination', 'resetLineNumber', 'nextButton', 'previousButton', 'displaySearch', 'searchPlaceholder', 'searchIcon', 'searchSensisitve', 'searchValue', 'searchOnKeyDown', 'searchTitle', 'paginationTitle', 'fallbackLoading', 'fallbackLoadingTime', 'fallbackNoData', 'fallbackNoDataSearch', 'fallbackMounting', 'getDataCallback'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'minPages', 'totalPages', 'id', 'fallbackLoadingPage', 'searchOnKeys', 'globalCount', 'itemsPerSite', 'keysToRender', 'lineNumber', 'liCallback', 'inputCallback', 'displayTotal', 'paginationPages', 'totalPrefix', 'totalSufix', 'paginationTextPrefix', 'paginationTextMiddle', 'prevPages', 'nextPages', 'alignPagesItems', 'alignPagination', 'resetLineNumber', 'nextButton', 'previousButton', 'searchActive', 'searchPlaceholder', 'searchIcon', 'searchSensitive', 'searchValue', 'searchOnKeyDown', 'searchTitle', 'paginationTitle', 'fallbackLoading', 'fallbackLoadingTime', 'fallbackNoData', 'fallbackNoDataSearch', 'fallbackMounting', 'getDataCallback'], props, state)) {
             const prevPages = (props.prevPages && typeof 8 === typeof props.prevPages) ? props.prevPages : 2;
             const nextPages = (props.nextPages && typeof 8 === typeof props.nextPages) ? props.nextPages : 2;
             const itemsPerSite = (props.itemsPerSite && typeof 8 === typeof props.itemsPerSite) ? props.itemsPerSite : 10;
@@ -134,11 +134,11 @@ class PagerDynamic extends React.Component {
                 // data: (props.data && typeof [] === typeof props.data) ? props.data.slice(0, itemsPerSite) : [],
                 itemsPerSite,
                 keysToRender: (props.display && typeof [] === typeof props.display) ? props.display : [],
-                displayLineNumber: (typeof true === typeof props.displayLineNumber) ? props.displayLineNumber : false,
-                liOnClickCallback: (props.liOnClickCallback && 'function' === typeof props.liOnClickCallback) ? props.liOnClickCallback : undefined,
-                inputOnChangeCallback: (props.inputOnChangeCallback && 'function' === typeof props.inputOnChangeCallback) ? props.inputOnChangeCallback : undefined,
+                lineNumber: (typeof true === typeof props.lineNumber) ? props.lineNumber : false,
+                liCallback: (props.liCallback && 'function' === typeof props.liCallback) ? props.liCallback : undefined,
+                inputCallback: (props.inputCallback && 'function' === typeof props.inputCallback) ? props.inputCallback : undefined,
                 displayTotal: (typeof true === typeof props.displayTotal) ? props.displayTotal : false,
-                displayPaginationPages: (typeof true === typeof props.displayPaginationPages) ? props.displayPaginationPages : false,
+                paginationPages: (typeof true === typeof props.paginationPages) ? props.paginationPages : false,
                 totalPrefix: (props.totalPrefix && typeof '8' === typeof props.totalPrefix) ? props.totalPrefix : '',
                 totalSufix: (props.totalSufix && typeof '8' === typeof props.totalSufix) ? props.totalSufix : '',
                 paginationTextPrefix: (props.paginationTextPrefix && typeof '8' === typeof props.paginationTextPrefix) ? props.paginationTextPrefix : '',
@@ -150,10 +150,10 @@ class PagerDynamic extends React.Component {
                 resetLineNumber: (typeof true === typeof props.resetLineNumber) ? props.resetLineNumber : false,
                 nextButton: props.nextButton ? props.nextButton : '',
                 previousButton: props.previousButton ? props.previousButton : '',
-                displaySearch: (typeof true === typeof props.displaySearch) ? props.displaySearch : false,
+                searchActive: (typeof true === typeof props.searchActive) ? props.searchActive : false,
                 searchPlaceholder: props.searchPlaceholder ? props.searchPlaceholder : '',
                 searchIcon: props.searchIcon ? props.searchIcon : '',
-                searchSensisitve: (typeof true === typeof props.searchSensisitve) ? props.searchSensisitve : false,
+                searchSensitive: (typeof true === typeof props.searchSensitive) ? props.searchSensitive : false,
                 searchOnKeyDown: (typeof true === typeof props.searchOnKeyDown) ? props.searchOnKeyDown : false,
                 searchTitle: (props.searchTitle && typeof '8' === typeof props.searchTitle) ? props.searchTitle : '',
                 paginationTitle: (props.paginationTitle && typeof '8' === typeof props.paginationTitle) ? props.paginationTitle : '',
@@ -212,7 +212,7 @@ class PagerDynamic extends React.Component {
      * Users pagination interagtions jsx
      */
     getPagerJsx() {
-        let { globalCount, itemsPerSite, totalPages, currentPage, minPages, displayTotal, totalPrefix, totalSufix, displayPaginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting, filteredData } = this.state;
+        let { globalCount, itemsPerSite, totalPages, currentPage, minPages, displayTotal, totalPrefix, totalSufix, paginationPages, prevPages, nextPages, alignPagesItems, fallbackNoData, previousButton, nextButton, searchValue, fallbackNoDataSearch, dataLoaded, fallbackMounting, filteredData } = this.state;
 
         let mainPage = currentPage;
         mainPage++;
@@ -289,7 +289,7 @@ class PagerDynamic extends React.Component {
                     }
                 </span>
                 {
-                    displayPaginationPages &&
+                    paginationPages &&
                     <span className="pagination-paging">
                         {
                             pagesPrev.map(pageNumber => {
@@ -513,10 +513,10 @@ class PagerDynamic extends React.Component {
      * callback parameter
      */
     clickCallback(e, object) {
-        const { liOnClickCallback } = this.state;
+        const { liCallback } = this.state;
 
-        if (liOnClickCallback) {
-            (liOnClickCallback)(e, object);
+        if (liCallback) {
+            (liCallback)(e, object);
         }
     }
 
@@ -524,7 +524,7 @@ class PagerDynamic extends React.Component {
      * Return values as generated li items
      */
     getList() {
-        let { keysToRender, displayLineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, loadingList } = this.state;
+        let { keysToRender, lineNumber, currentPage, itemsPerSite, filteredData, resetLineNumber, loadingList } = this.state;
         const jsxToReturn = [];
 
         filteredData.map((itemsObject, index) => {
@@ -537,7 +537,7 @@ class PagerDynamic extends React.Component {
                 currentIndex += currentPage * itemsPerSite;
             }
 
-            if (displayLineNumber) {
+            if (lineNumber) {
                 childs.push(
                     <span
                         className={`line-number entry entry-1`}
@@ -567,7 +567,7 @@ class PagerDynamic extends React.Component {
 
                     childs.push(
                         <span
-                            className={`value entry entry-${loopIndex + (displayLineNumber ? 2 : 1)} value-${count}`}
+                            className={`value entry entry-${loopIndex + (lineNumber ? 2 : 1)} value-${count}`}
                             key={uuid()}
                         >
                             {
@@ -607,7 +607,7 @@ class PagerDynamic extends React.Component {
             loadingList: true
         }, () => {
             setTimeout(() => {
-                const { data, searchSensisitve, searchOnKeys, env } = this.state;
+                const { data, searchSensitive, searchOnKeys, env } = this.state;
                 let { searchValue } = this.state;
                 const filteredData = [];
 
@@ -634,13 +634,13 @@ class PagerDynamic extends React.Component {
                                         /**
                                          * Sensitive
                                          */
-                                        if (searchSensisitve && '' !== searchValue && -1 !== object[keyName].indexOf(searchValue)) {
+                                        if (searchSensitive && '' !== searchValue && -1 !== object[keyName].indexOf(searchValue)) {
                                             filteredData.push(object);
                                         }
                                         /**
                                          * Not sensitive
                                          */
-                                        if (!searchSensisitve && '' !== searchValue && -1 !== object[keyName].toLowerCase().indexOf(searchValue.toLowerCase())) {
+                                        if (!searchSensitive && '' !== searchValue && -1 !== object[keyName].toLowerCase().indexOf(searchValue.toLowerCase())) {
                                             filteredData.push(object);
                                         }
 
@@ -695,15 +695,15 @@ class PagerDynamic extends React.Component {
      */
     setSearchValue(e) {
         e.persist();
-        const { data, inputOnChangeCallback, searchOnKeyDown } = this.state;
+        const { data, inputCallback, searchOnKeyDown } = this.state;
         const searchValue = e.target.value;
 
         this.setState({
             loading: searchOnKeyDown ? true : false
         }, () => {
 
-            if (inputOnChangeCallback) {
-                (inputOnChangeCallback)(e);
+            if (inputCallback) {
+                (inputCallback)(e);
             }
 
             if (27 == e.keyCode || 27 == e.which) {
@@ -731,7 +731,7 @@ class PagerDynamic extends React.Component {
     }
 
     render() {
-        const { fallbackLoadingPage, addClass, defaultClass, id, loading, fallbackLoading, alignPagination, displaySearch, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData, loadingList } = this.state;
+        const { fallbackLoadingPage, addClass, defaultClass, id, loading, fallbackLoading, alignPagination, searchActive, searchIcon, searchPlaceholder, searchTitle, paginationTitle, filteredData, loadingList } = this.state;
         const jsxList = this.getList();
 
         return (
@@ -740,7 +740,7 @@ class PagerDynamic extends React.Component {
                 id={id}
             >
                 {
-                    displaySearch &&
+                    searchActive &&
                     <h1 className="h1">
                         {
                             searchTitle
@@ -748,7 +748,7 @@ class PagerDynamic extends React.Component {
                     </h1>
                 }
                 {
-                    displaySearch &&
+                    searchActive &&
                     <div className="input-holder">
                         <input
                             className="input"

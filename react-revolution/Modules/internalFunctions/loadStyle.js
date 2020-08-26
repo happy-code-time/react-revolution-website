@@ -21,8 +21,14 @@ const allowedStyles = [
     'rr-pager-static',
     'rr-popupbox',
     'rr-sidebar',
+    'rr-sourcecode',
     'rr-table',
-    'rr-text-writer'
+    'rr-text-writer',
+    // 404
+    'rr-clouds-404',
+    'rr-clouds-mountains-404',
+    'rr-water-404',
+    'rr-lightbulb-404'
 ];
 
 const loadStyle = (moduleStyle, globalStyle, defaultClass) => {
