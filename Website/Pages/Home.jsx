@@ -24,7 +24,7 @@ class Home extends React.Component {
         
         const items = [
             'You Are Awesome',
-            'By David Janitzek'
+            'By David Janitzek',
         ];
 
         return items[Math.floor(Math.random() * items.length)];
@@ -61,39 +61,21 @@ class Home extends React.Component {
                         data={
                             [
                                 {
-                                    title: (
-                                        <div>
-                                            <i className="far fa-clock" />
-                                            {
-                                                trans('fast')
-                                            }
-                                        </div>
-                                    ),
+                                    title: <i className="far fa-clock" />,
+                                    content: trans('fast')
                                     // content: trans('fast.description')
                                 },
                                 {
-                                    title: (
-                                        <div>
-                                            <i className="fas fa-balance-scale-right"></i>
-                                            {
-                                                trans('light')
-                                            }
-                                        </div>
-                                    ),
+                                    title: <i className="fas fa-balance-scale-right"/>,
                                     props: {
                                         className: 'card flex flex-column card-middle'
                                     },
+                                    content: trans('light')
                                     // content: trans('light.description')
                                 },
                                 {
-                                    title: (
-                                        <div>
-                                            <i className="fas fa-user-cog"></i>
-                                            {
-                                                trans('interactive')
-                                            }
-                                        </div>
-                                    ),
+                                    title: <i className="fas fa-user-cog"/>,
+                                    content: trans('interactive'),
                                     // content: trans('interactive.description')
                                 }
                             ]

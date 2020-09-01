@@ -82,23 +82,6 @@ class Footer extends React.Component {
                                 {
                                     title: (
                                         <span>
-                                            <i className="fas fa-icons" />
-                                            {
-                                                trans('iconTokenFrom')
-                                            }
-                                        </span>
-                                    ),
-                                    content: (
-                                        <div className='text text-center'>
-                                            <div>
-                                                http://www.roundicons.com
-                                            </div>
-                                        </div>
-                                    ),
-                                },
-                                {
-                                    title: (
-                                        <span>
                                             <i className="fas fa-gavel" />
                                             {
                                                 trans('rights')
@@ -112,7 +95,7 @@ class Footer extends React.Component {
                                             </div>
                                         </div>
                                     ),
-                                },
+                                }
                             ]
                         }
                     />

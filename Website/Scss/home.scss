@@ -57,7 +57,6 @@
 
       .card {
         border: none;
-        box-shadow: 0px 0px 6px rgba(122,122,122,.55);
         transition-duration: $default_transition;
 
         @media screen and (min-width: $media-break) {
@@ -75,6 +74,7 @@
           line-height: 40px;
           font-size: 1.1rem;
           font-weight: 400;
+          border-bottom: 2px solid rgba(222,222,222,.55);
 
           i {
             display: block;
@@ -85,10 +85,10 @@
 
         .content {
           width: 90%;
-          margin: 0 5%;
+          margin: 20px 5%;
           color: $text-color;
-          text-align: justify;
-          font-size: 0.87rem;
+          text-align: center;
+          font-size: 1.36rem;
           letter-spacing: 0.122rem;
           line-height: 30px;
         }
@@ -98,10 +98,6 @@
         @media screen and (min-width: $media-break) {
           margin: 30px 5%;
         }
-      }
-
-      .card:hover{
-        box-shadow: 0px 0px 12px rgba(122,122,122,.55);
       }
     }
   }

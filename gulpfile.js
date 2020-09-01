@@ -34,10 +34,10 @@ gulp.task('compress:images', function (done) {
     gulp.src('./ImagesToCompress/*.{png,jpg,jpeg,gif,ico}')
         .pipe(imagemin(
             [
-                // imagemin.gifsicle(),
-                // imagemin.optipng(),
-                // imagemin.svgo(),
-                // imageminJpegRecompress()
+                imagemin.gifsicle(),
+                imagemin.optipng(),
+                imagemin.svgo(),
+                imageminJpegRecompress()
             ]
         ))
         .pipe(gulp.dest('./public/images'));
@@ -89,13 +89,13 @@ gulp.task('set:rights', function (done) {
 gulp.task('compile', function (callback) {
     runSequence(
         [
-            'clean',
+            // 'clean',
             'copy:ff',
             'compress:images',
             'build:css:modules',
             'build:css:all',
             'copy:css:modules',
-            'set:rights'
+            // 'set:rights'
         ],
         callback);
 });

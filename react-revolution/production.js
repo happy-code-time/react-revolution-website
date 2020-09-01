@@ -51,6 +51,8 @@ import TextWriter from './Modules/TextWriter';
 
 import PopupBox from './Modules/PopupBox';
 
+import ScrollTo from './Modules/ScrollTo';
+
 import SideBar from './Modules/SideBar';
 
 import SourceCode from './Modules/SourceCode';
@@ -113,6 +115,7 @@ export {
     Table,
     TextWriter,
     PopupBox,
+    ScrollTo,
     SideBar,
     SourceCode,
     // 404

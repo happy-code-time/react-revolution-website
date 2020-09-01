@@ -93,6 +93,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-popup-box'
         },
         {
+            name: 'ScrollTo',
+            link: 'rr-scroll-to'
+        },
+        {
             name: 'SideBar',
             link: 'react-revolution-sidebar'
         },
