@@ -1043,6 +1043,23 @@ const DE = {
         "type": "JSX | String",
         "default": "<leere Zeichenfolge>"
     },
+    "scroll-to-desc-1": "Beispiel mit einer Navigierung zum Start der Seite innerhalb von 1 Sekunde.",
+    "scroll-to-desc-2": "Beispiel mit einer Navigierung zum ersten Beispiel innerhalb von 300 Millisekunden.",
+    "navigationTime": {
+        "description": "Benutzerdefinierte Zeit der Navigation in Millisekunden.",
+        "type": "Number",
+        "default": "300"
+    },
+    "navigationTarget": {
+        "description": "Navigiere auf der Seite zu diesen HTML Element (Selektor). Für eine Klasse, Tippe an der ersten Stelle ein . (Punkt), falls es eine ID ist, muss an der 1 Stelle ein # (Hash) stehen.",
+        "type": "JSX | String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "html": {
+        "description": "Benutzerdefiniertes HTML das angezeigt wird, falls der Key 'navigationTarget' keinen . (Punkt) oder # (Hash) an der ersten Stelle stehen hat.",
+        "type": "JSX | String",
+        "default": "<leere Zeichenfolge>"
+    },
 };
 
 export default DE;

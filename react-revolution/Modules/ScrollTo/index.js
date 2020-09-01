@@ -16,7 +16,8 @@ class ScrollTo extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : uuid(),
             navigationTime: (props.navigationTime && typeof 8 == typeof props.navigationTime) ? props.navigationTime : 300,
             navigationTarget: (props.navigationTarget && typeof '8' == typeof props.navigationTarget) ? props.navigationTarget : '',
-            html: props.html ? props.html : undefined
+            html: props.html ? props.html : undefined,
+            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined
         };
     }
 
@@ -25,22 +26,25 @@ class ScrollTo extends React.Component
     }
 
     navigateWindowToElement(event, masterId) {
-        const { navigationTarget, navigationTime } = this.state;
+        const { navigationTarget, navigationTime, callback } = this.state;
         const self = this;
 
-        if (this.props.function) {
-            (this.props.function)(event, this.props.functionData);
+        if (callback) {
+            (callback)(event);
         }
 
         if ('#' == navigationTarget.charAt(0)) {
             const str = navigationTarget.replace('#', '');
-            const domElement = document.getElementById(str);
-            self.scrollToElement(event, navigationTime, domElement, masterId);
+
+            if(document.getElementById(str)){
+                const domElement = document.getElementById(str);
+                return self.scrollToElement(event, navigationTime, domElement, masterId);    
+            }
         }
 
-        if ('.' == navigationTarget.charAt(0)) {
+        if ('.' == navigationTarget.charAt(0) && document.querySelector(navigationTarget)) {
             const domElement = document.querySelector(navigationTarget);
-            self.scrollToElement(event, navigationTime, domElement, masterId);
+            return self.scrollToElement(event, navigationTime, domElement, masterId);
         }
 
         if ('#' != navigationTarget.charAt(0) && '.' != navigationTarget.charAt(0)) {
@@ -61,23 +65,18 @@ class ScrollTo extends React.Component
         }
     }
 
-    navigationTargetTopOfWebpage(time) {
+    navigationTargetTopOfWebpage(navigationTime) {
+        navigationTime = navigationTime/10;
         let userOnXPosition = document.documentElement.scrollTop;
-        let timer = parseInt(time, 10);
-        let pxToAdd = userOnXPosition / timer * 4;
-
-        if(!userOnXPosition || 0 >= userOnXPosition){
-            return null;
-        }
-
-        let xTop = setInterval(() => {
-            document.documentElement.scrollTop = userOnXPosition;
+        let pxToAdd = (userOnXPosition / navigationTime)*4;
+        let xTop = setInterval( () => {
             userOnXPosition -= (pxToAdd);
+            document.documentElement.scrollTop = userOnXPosition;
 
-            if (!userOnXPosition || 0 >= userOnXPosition) {
+            if(-10 >= userOnXPosition){
                 clearInterval(xTop);
             }
-        }, 1);
+        }, 1 );
     }
 
     navigationTargetBottomOfWebpage(time) {
@@ -88,19 +87,15 @@ class ScrollTo extends React.Component
         const haveToScrollXpixels = elementsOffsetTop - userOnXPosition;
 
         let timer = parseInt(time, 10);
-        let pxToAdd = ((haveToScrollXpixels / timer) * 4);
+        let pxToAdd = (haveToScrollXpixels / timer) * 4;
 
         userOnXPosition = Math.abs(userOnXPosition);
         userOnXPosition = parseInt(userOnXPosition);
-
-        console.log(pxToAdd, userOnXPosition, haveToScrollXpixels);
 
         let xavier = userOnXPosition;
         let xBottom = setInterval(() => {
             xavier += pxToAdd;
             document.documentElement.scrollTop = xavier;
-
-            console.log(xavier);
             
             if (xavier >= haveToScrollXpixels) {
                 clearInterval(xBottom);
@@ -120,13 +115,15 @@ class ScrollTo extends React.Component
             if (0 < (targetsXPosition - currentXPosition)) {
                 targetsXPosition += document.documentElement.scrollTop;
                 let targetToScroll = (targetsXPosition - currentXPosition);
-                let pixelToAdd = (targetToScroll / time) * 5;
+                let pixelToAdd = (targetToScroll / time) * 4;
 
                 let scroller = setInterval(() => {
                     navigationCalculation += (pixelToAdd);
                     document.documentElement.scrollTop = navigationCalculation;
 
-                    if (navigationCalculation >= targetsXPosition - 50) { clearInterval(scroller) }
+                    if (navigationCalculation >= targetsXPosition - 50) { 
+                        clearInterval(scroller) 
+                    }
 
                 }, (time / 100));
                 return;
@@ -142,7 +139,9 @@ class ScrollTo extends React.Component
                     adder += pixelToAdd;
                     document.documentElement.scrollTop -= adder;
 
-                    if (document.documentElement.scrollTop <= pxToSlideUp) { clearInterval(scroller) }
+                    if (document.documentElement.scrollTop <= pxToSlideUp) { 
+                        clearInterval(scroller) 
+                    }
 
                 }, (time / 100));
                 return;

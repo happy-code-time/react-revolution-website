@@ -1041,6 +1041,23 @@ const PL = {
         "type": "JSX | String",
         "default": "<pusty ciąg>"
     },
+    "scroll-to-desc-1": "Przykład z nawigacją na początek strony w ciągu 1 sekundy.",
+    "scroll-to-desc-2": "Przykład z nawigacją do pierwszego przykładu w ciągu 300 milisekund.",
+    "navigationTime": {
+        "description": "Zdefiniowany przez użytkownika czas nawigacji w milisekundach.",
+        "type": "Number",
+        "default": "300"
+    },
+    "navigationTarget": {
+        "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). ",
+        "type": "JSX | String",
+        "default": "<pusty ciąg>"
+    },
+    "html": {
+        "description": "Niestandardowy kod HTML, który jest wyświetlany, jeśli klucz 'navigationTarget' nie ma znaku. (kropka) lub # (krzyżyka) na pierwszej pozycji.",
+        "type": "JSX | String",
+        "default": "<pusty ciąg>"
+    },
 };
 
 export default PL;

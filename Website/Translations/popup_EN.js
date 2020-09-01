@@ -1041,6 +1041,23 @@ const EN = {
         "type": "JSX | String",
         "default": "<empty string>"
     },
+    "scroll-to-desc-1": "Example with navigation to the start of the page within 1 second.",
+    "scroll-to-desc-2": "Example with navigation to the first example within 300 milliseconds.",
+    "navigationTime": {
+        "description": "User-defined navigation time in milliseconds.",
+        "type": "Number",
+        "default": "300"
+    },
+    "navigationTarget": {
+        "description": "Navigate on the page to this HTML element (selector). For a class, type in the first position . (period), if it is an ID, there must be a # (hash) in the first position. ",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
+    "html": {
+        "description": "Custom HTML that is displayed if the key 'navigationTarget' does not have a . (period) or # (hash) in the first position.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
 };
 
 export default EN;

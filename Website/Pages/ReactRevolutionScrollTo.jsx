@@ -9,15 +9,38 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import { host } from '../Globals';
-
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ScrollTo } from 'react-revolution';
 
+<ScrollTo
+    id='uuid-2'
+    navigationTime={1000}
+    navigationTarget='bottom'
+/>
 `;
 
-const cssExample = ``;
+const codeExample2 = `import { ScrollTo } from 'react-revolution';
+
+<ScrollTo
+    html={
+        <div class="to-top">
+            <div class="arrow">
+                🔝
+            </div>
+        </div>
+    }
+    navigationTime={300}
+    navigationTarget='#uuid-2'
+/>
+`;
+
+const cssExample = `.rr-scroll-to{
+    .to-bottom,
+    .to-top{
+        margin: auto;
+    }
+}`;
 
 class ReactRevolutionScrollTo extends React.Component {
     constructor(props) {
@@ -28,7 +51,7 @@ class ReactRevolutionScrollTo extends React.Component {
         this.examples = [
             {
                 title: 'ScrollTo',
-                description: '',
+                description: trans('scroll-to-desc-1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -37,9 +60,32 @@ class ReactRevolutionScrollTo extends React.Component {
                 html: '',
                 live: (
                     <ScrollTo
-                        html=''
-                        navigationTime={3000}
-                        navigationTarget='bottom'
+                        id='uuid-2'
+                        navigationTime={1000}
+                        navigationTarget='top'
+                    />
+                )
+            },
+            {
+                title: 'ScrollTo',
+                description: trans('scroll-to-desc-2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <ScrollTo
+                        html={
+                            <div class="to-top">
+                                <div class="arrow">
+                                    🔝
+                                </div>
+                            </div>
+                        }
+                        navigationTime={300}
+                        navigationTarget='#uuid-2'
                     />
                 )
             },
