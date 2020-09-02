@@ -68,6 +68,11 @@ class ScrollTo extends React.Component
     navigationTargetTopOfWebpage(navigationTime) {
         navigationTime = navigationTime/10;
         let userOnXPosition = document.documentElement.scrollTop;
+
+        if(0 == userOnXPosition){
+            return null;
+        }
+
         let pxToAdd = (userOnXPosition / navigationTime)*4;
         let xTop = setInterval( () => {
             userOnXPosition -= (pxToAdd);

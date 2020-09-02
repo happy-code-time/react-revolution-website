@@ -191,6 +191,8 @@
       height: calc(100% - 60px);
       overflow-x: hidden;
       overflow-y: hidden;
+      scrollbar-color: rgba(122,122,122,.88) transparent;
+      scrollbar-width: thin;
   
       .single-entry {
         border-radius: 0px;

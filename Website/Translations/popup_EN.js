@@ -1049,7 +1049,7 @@ const EN = {
         "default": "300"
     },
     "navigationTarget": {
-        "description": "Navigate on the page to this HTML element (selector). For a class, type in the first position . (period), if it is an ID, there must be a # (hash) in the first position. ",
+        "description": "Navigate on the page to this HTML element (selector). For a class, type in the first position . (period), if it is an ID, there must be a # (hash) in the first position. If the key 'html' are empty/undefined and the value is 'bottom' - then the module returns an scroll to bottom predefined html and scroll to bottom functionality, if the value is 'top'  - then the module retuns an scroll to top predefined html and scroll to top functionality.",
         "type": "JSX | String",
         "default": "<empty string>"
     },
@@ -1058,6 +1058,86 @@ const EN = {
         "type": "JSX | String",
         "default": "<empty string>"
     },
+    "persistUserSelection": {
+        "description": "Save the current setting of the toggled sidebar. If the user refresh the page, then the sidebars previous state are used.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "clearPersistUserSelection": {
+        "description": "Clear the saved sidebars previous state.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "sidebarMinifiedAt": {
+        "description": "If the key 'autopilot' are true then minify the sidebar to the min width, if false then hide the sidebar - sidebar are toggled with the 'toggleMenuHtml' key.",
+        "type": "Number",
+        "default": "720"
+    },
+    "sidebarMaxifiedAt": {
+        "description": "Maxify the previously minified sidebar to the main (base) width.",
+        "type": "Number",
+        "default": "1024"
+    },
+    "displayMinifyMaxifyIcon": {
+        "description": "Render the sidebars toggling HTML - the JSX from the key 'toggleMenuHtml'.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "minify": {
+        "description": "Is the sidebar (completely) minified.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "autopilot": {
+        "description": "If true then the resize event listener are resizing the sidebar in 3 steps. If false then the resize event listener are resizing the sidebar in 2 steps.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "toggleMenuHtml": {
+        "description": "Custom JSX used as toggling icon for the sidebar. This HTML are located inside the headers content.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "closeMenuHtml": {
+        "description": "Custom JSX used as close icon on the sidebar if the documents width lower then the value passed to the module with the key 'sidebarMinifiedAt'.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "moduleSidebar": {
+        "description": "The module 'MenuClickHorizontal'.",
+        "type": "Module",
+        "default": "undefined"
+    },
+    "headerData": {
+        "description": "Custom JSX inside the headers area.",
+        "type": "Module",
+        "default": "<empty string>"
+    },
+    "headerProps": {
+        "description": "Header div`s properties.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "contentData": {
+        "description": "Custom JSX inside the content area.",
+        "type": "Module",
+        "default": "<empty string>"
+    },
+    "contentProps": {
+        "description": "Content div`s properties.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "footerData": {
+        "description": "Custom JSX inside the footer area.",
+        "type": "Module",
+        "default": "<empty string>"
+    },
+    "footerProps": {
+        "description": "Footer div`s properties.",
+        "type": "Object",
+        "default": "{}"
+    }
 };
 
 export default EN;

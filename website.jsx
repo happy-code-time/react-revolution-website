@@ -45,6 +45,8 @@ import ReactRevolutionClouds404 from './Website/Pages/ReactRevolutionClouds404';
 
 import ReactRevolutionCloudsMountains404 from './Website/Pages/ReactRevolutionCloudsMountains404';
 
+import ReactRevolutionContainer from './Website/Pages/ReactRevolutionContainer';
+
 import ReactRevolutionCustomSuggestion from './Website/Pages/ReactRevolutionCustomSuggestion';
 
 import ReactRevolutionFullScreenListArray from './Website/Pages/ReactRevolutionFullScreenListArray';
@@ -291,6 +293,10 @@ class App extends React.Component {
                       href: `${host}#/react-revolution-clipboard`,
                     },
                     {
+                      text: 'Container',
+                      href: `${host}#/react-revolution-container`,
+                    },
+                    {
                       text: 'CustomSuggestion',
                       href: `${host}#/react-revolution-custom-suggestion`,
                     },
@@ -528,6 +534,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-clipboard" render={(props) => (<ReactRevolutionClipboard {...props} />)} />
               <Route exact path="/react-revolution-clouds-404" render={(props) => (<ReactRevolutionClouds404 {...props} />)} />
               <Route exact path="/react-revolution-clouds-mountains-404" render={(props) => (<ReactRevolutionCloudsMountains404 {...props} />)} />
+              <Route exact path="/react-revolution-container" render={(props) => (<ReactRevolutionContainer {...props} />)} />
               <Route exact path="/react-revolution-custom-suggestion" render={(props) => (<ReactRevolutionCustomSuggestion {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-array" render={(props) => (<ReactRevolutionFullScreenListArray {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-object" render={(props) => (<ReactRevolutionFullScreenListObject {...props} />)} />

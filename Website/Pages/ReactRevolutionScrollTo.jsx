@@ -24,10 +24,8 @@ const codeExample2 = `import { ScrollTo } from 'react-revolution';
 
 <ScrollTo
     html={
-        <div class="to-top">
-            <div class="arrow">
-                🔝
-            </div>
+        <div class="arrow">
+            🔝
         </div>
     }
     navigationTime={300}
@@ -78,10 +76,8 @@ class ReactRevolutionScrollTo extends React.Component {
                 live: (
                     <ScrollTo
                         html={
-                            <div class="to-top">
-                                <div class="arrow">
-                                    🔝
-                                </div>
+                            <div class="arrow">
+                                🔝
                             </div>
                         }
                         navigationTime={300}
@@ -163,28 +159,16 @@ class ReactRevolutionScrollTo extends React.Component {
                                     values: 'addClass'
                                 },
                                 {
-                                    key: 'image',
-                                    values: 'image'
+                                    key: 'navigationTime',
+                                    values: 'navigationTime'
                                 },
                                 {
-                                    key: 'moduleMenu',
-                                    values: 'moduleMenu'
+                                    key: 'navigationTarget',
+                                    values: 'navigationTarget'
                                 },
                                 {
-                                    key: 'textLong',
-                                    values: 'textLong'
-                                },
-                                {
-                                    key: 'textShort',
-                                    values: 'textShort'
-                                },
-                                {
-                                    key: 'href',
-                                    values: 'href'
-                                },
-                                {
-                                    key: 'hrefProps',
-                                    values: 'hrefProps'
+                                    key: 'html',
+                                    values: 'html'
                                 },
                             ],
                             'rr-scroll-to'

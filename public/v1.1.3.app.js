@@ -261,6 +261,15 @@ var getAllAvailableModulesNames = function getAllAvailableModulesNames() {
     name: 'Clipboard',
     link: 'react-revolution-clipboard'
   }, {
+    name: 'Clouds-404',
+    link: 'react-revolution-clouds-404'
+  }, {
+    name: 'CloudsMountains-404',
+    link: 'react-revolution-clouds-mountains-404'
+  }, {
+    name: 'Container',
+    link: 'react-revolution-container'
+  }, {
     name: 'CustomSuggestion',
     link: 'react-revolution-custom-suggestion'
   }, {
@@ -294,6 +303,9 @@ var getAllAvailableModulesNames = function getAllAvailableModulesNames() {
     name: 'InputSuggestionObject',
     link: 'react-revolution-input-suggestion-object'
   }, {
+    name: 'Lightbulb-404',
+    link: 'react-revolution-lightbulb-404'
+  }, {
     name: 'LoadingBoxTop',
     link: 'react-revolution-loading-box-top'
   }, {
@@ -326,19 +338,9 @@ var getAllAvailableModulesNames = function getAllAvailableModulesNames() {
   }, {
     name: 'TextWriter',
     link: 'react-revolution-text-writer'
-  }, // 404
-  {
-    name: 'Clouds-404',
-    link: 'react-revolution-clouds-404'
-  }, {
-    name: 'CloudsMountains-404',
-    link: 'react-revolution-clouds-mountains-404'
   }, {
     name: 'Water-404',
     link: 'react-revolution-water-404'
-  }, {
-    name: 'Lightbulb-404',
-    link: 'react-revolution-lightbulb-404'
   }];
 };
 
@@ -545,7 +547,7 @@ var version = '1.1.3';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
 var author = "David Janitzek";
-var host = "http://localhost:3000/";
+var host = "https://react-revolution.j.pl/";
 
 
 /***/ }),
@@ -598,7 +600,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      host: "http://localhost:3000/"
+      host: "https://react-revolution.j.pl/"
     };
     return _this;
   }
@@ -1269,7 +1271,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Home, [{
     key: "generateRandomText",
     value: function generateRandomText() {
-      var items = ['You Are Awesome', 'By David Janitzek'];
+      var items = ['You Are Awesome', 'By David Janitzek', "It's so good to see you"];
       return items[Math.floor(Math.random() * items.length)];
     }
   }, {
@@ -1467,7 +1469,8 @@ var ReactRevolutionAccordion = /*#__PURE__*/function (_React$Component) {
     _this.countCallbacks = 0;
     _this.examples = [{
       title: 'Accordion',
-      description: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('accordion.description'),
+      // description: trans('accordion.description'),
+      description: '',
       reactTextBefore: '',
       react: codeExample1,
       reactTextAfter: '',
@@ -3068,6 +3071,299 @@ var ReactRevolutionCloudsMountains404 = /*#__PURE__*/function (_React$Component)
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionCloudsMountains404);
+
+/***/ }),
+
+/***/ "./Website/Pages/ReactRevolutionContainer.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+/* harmony import */ var _Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Functions/buildTableKeysStructure.js");
+/* harmony import */ var _Functions_getDescriptionForstyle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Functions/getDescriptionForstyle.js");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+
+var codeExample1 = "import { Container, SideBar, MenuClickHorizontal } from 'react-revolution';\n\n<Container\n    addClass='container-example'\n    persistUserSelection={false}\n    clearPersistUserSelection={true} \n    sidebarMinifiedAt={1024}\n    sidebarMaxifiedAt={720}\n    displayMinifyMaxifyIcon={true}\n    minify={false}\n    autopilot={true}\n    toggleMenuHtml={\n        <i className=\"fas fa-bars \" />\n    }\n    closeMenuHtml={\n        <i className=\"fas fa-angle-left\" />\n    }\n    moduleSidebar={\n        <SideBar\n            image={<img alt=\"image\" src='./public/images/icon-48.png' />}\n            textLong='text long'\n            textShort='text short'\n            href={undefined}\n            globalStyle={true}\n            moduleMenu={\n                <MenuClickHorizontal\n                    reactRouter={false}\n                    animation='height'\n                    dropDown={\n                        (\n                            <i className=\"fas fa-angle-down dropDownIcon\"></i>\n                        )\n                    }\n                    data={\n                        [\n                            {\n                                icon: <i className=\"fas fa-golf-ball\"></i>,\n                                text: 'Golf',\n                                data: [\n                                    {\n                                        icon: <i className=\"fas fa-golf-ball\"></i>,\n                                        text: 'Golf 1'\n                                    },\n                                    {\n                                        icon: <i className=\"fas fa-golf-ball\"></i>,\n                                        text: 'Golf 2'\n                                    }\n                                ]\n                            },\n                            {\n                                icon: <i className=\"fas fa-pump-soap\"></i>,\n                                text: 'Pump Soap',\n                                data: [\n                                    {\n                                        icon: <i className=\"fas fa-pump-soap\"></i>,\n                                        text: 'Soap 1'\n                                    },\n                                    {\n                                        icon: <i className=\"fas fa-pump-soap\"></i>,\n                                        text: 'Soap 2'\n                                    }\n                                ]\n                            },\n                            {\n                                icon: <i className=\"fas fa-pizza-slice\"></i>,\n                                text: 'Pizza',\n                                data: [\n                                    {\n                                        icon: <i className=\"fas fa-pizza-slice\"></i>,\n                                        text: 'Pizza 1'\n                                    },\n                                    {\n                                        icon: <i className=\"fas fa-pizza-slice\"></i>,\n                                        text: 'Pizza 2'\n                                    }\n                                ]\n                            },\n                            {\n                                icon: <i className=\"fas fa-ice-cream\"></i>,\n                                text: 'Ice',\n                                data: [\n                                    {\n                                        icon: <i className=\"fas fa-ice-cream\"></i>,\n                                        text: 'Ice 1'\n                                    },\n                                    {\n                                        icon: <i className=\"fas fa-ice-cream\"></i>,\n                                        text: 'Ice 2'\n                                    }\n                                ]\n                            },\n                        ]\n                    }\n                />\n            }\n        />\n    }\n    headerProps={undefined}\n    headerData={undefined}\n    contentProps={undefined}\n    contentData={<div className='CONTENT'/>}\n    footerProps={undefined}\n    footerData={<div className='FOOTER'/>}\n/>";
+var cssExample = ".rr-container.container-example {\n    width: 100%;\n    height: 100%;\n    min-height: 100vh;\n    border: 1px solid silver;\n\n    .SideBar {\n        width: 150px;\n        transition-duration: $default_transition;\n\n        .logo{\n            margin-left: 5px;\n        }\n\n        .rr-menu-click-horizontal {\n            height: calc(100% - 60px);\n            overflow-x: hidden;\n            overflow-y: hidden;\n\n            .single-entry {\n                border-radius: 0px;\n                margin: 7px 10px;\n                border: none;\n                display: block;\n                width: 100%;\n                overflow: hidden;\n                text-overflow: ellipsis;\n                white-space: nowrap;\n                transition-duration: $default_transition;\n\n                i{\n                    display: inline-block;\n                    font-size: 1.3rem;\n                    margin: 0 25px 0 5px;\n                }\n\n                .text,\n                a {\n                    color: #7c8695;\n                    font-size: 0.87rem;\n                    letter-spacing: 0.0111rem;\n                    transition-duration: $default_transition;\n                    padding-left: 0px;\n                }\n\n                .hasChildren {\n                    font-weight: bold;\n                }\n            }\n        }\n\n        .rr-menu-click-horizontal:hover {\n            overflow-y: auto;\n        }\n    }\n    .SideBar.SideBar-min {\n        width: 50px;\n    }\n    .SideBar.SideBar-min:hover {\n        width: 150px;\n    }\n    .Content{\n        overflow-y: auto;\n        overflow-x: hidden;\n        scrollbar-color: rgba(122,122,122,.88) transparent;\n        scrollbar-width: thin;\n        height: 100vh;\n\n        @media screen and (min-width: 720px){\n            width: calc(100% - 150px);\n            left: 150px;\n        }\n        width: 100%;\n        left: 0px;\n    }\n    .Content.Content-min{\n        width: calc(100% - 50px);\n        left: 50px;\n    }\n\n    .CONTENT,\n    .FOOTER{\n        width: calc(100% - 20px);\n        border-radius: 10px;\n        border:1px dashed black;\n        margin: 10px;\n    }\n\n    .CONTENT{\n        height: calc(80vh - 20px);\n    }\n\n    .FOOTER{\n        height: calc(20vh - 20px);\n    }\n}";
+
+var ReactRevolutionClouds404 = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionClouds404, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionClouds404);
+
+  function ReactRevolutionClouds404(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionClouds404);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'Container',
+      description: '',
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: '',
+      css: cssExample,
+      html: '',
+      live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Container"], {
+        addClass: "container-example",
+        persistUserSelection: false // set local sotrage on click
+        ,
+        clearPersistUserSelection: true // do not remove the local storage on component-did-mount
+        ,
+        sidebarMinifiedAt: 1024,
+        sidebarMaxifiedAt: 720,
+        displayMinifyMaxifyIcon: true,
+        minify: false,
+        autopilot: true,
+        toggleMenuHtml: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          className: "fas fa-bars "
+        }),
+        closeMenuHtml: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          className: "fas fa-angle-left"
+        }),
+        moduleSidebar: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["SideBar"], {
+          image: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("img", {
+            alt: "image",
+            src: "./public/images/icon-48.png"
+          }),
+          textLong: "text long",
+          textShort: "text short",
+          href: undefined,
+          globalStyle: true,
+          moduleMenu: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["MenuClickHorizontal"], {
+            reactRouter: false,
+            animation: "height",
+            dropDown: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+              className: "fas fa-angle-down dropDownIcon"
+            }),
+            data: [{
+              icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                className: "fas fa-golf-ball"
+              }),
+              text: 'Golf',
+              data: [{
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-golf-ball"
+                }),
+                text: 'Golf 1'
+              }, {
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-golf-ball"
+                }),
+                text: 'Golf 2'
+              }]
+            }, {
+              icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                className: "fas fa-pump-soap"
+              }),
+              text: 'Pump Soap',
+              data: [{
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-pump-soap"
+                }),
+                text: 'Soap 1'
+              }, {
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-pump-soap"
+                }),
+                text: 'Soap 2'
+              }]
+            }, {
+              icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                className: "fas fa-pizza-slice"
+              }),
+              text: 'Pizza',
+              data: [{
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-pizza-slice"
+                }),
+                text: 'Pizza 1'
+              }, {
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-pizza-slice"
+                }),
+                text: 'Pizza 2'
+              }]
+            }, {
+              icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                className: "fas fa-ice-cream"
+              }),
+              text: 'Ice',
+              data: [{
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-ice-cream"
+                }),
+                text: 'Ice 1'
+              }, {
+                icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+                  className: "fas fa-ice-cream"
+                }),
+                text: 'Ice 2'
+              }]
+            }]
+          })
+        }),
+        headerProps: undefined,
+        headerData: undefined,
+        contentProps: undefined,
+        contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+          className: "CONTENT"
+        }),
+        footerProps: undefined,
+        footerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+          className: "FOOTER"
+        })
+      })
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionClouds404, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }), Object(_Functions_getDescriptionForstyle__WEBPACK_IMPORTED_MODULE_11__["default"])('rr-container'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+        className: "h1-title border-none text-center mb-4"
+      }, Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('keyUsageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["Table"], {
+        mediaBreak: 1024,
+        addClass: "rr-table-website",
+        keysToRead: ['key', 'value', 'type', 'default'],
+        title: [Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('table.title.key'), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('table.title.description'), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('table.title.type'), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('table.title.default')],
+        data: Object(_Functions_buildTableKeysStructure__WEBPACK_IMPORTED_MODULE_10__["default"])([{
+          key: 'globalStyle',
+          values: 'globalStyle'
+        }, {
+          key: 'moduleStyle',
+          values: 'moduleStyle'
+        }, {
+          key: 'id',
+          values: 'id'
+        }, {
+          key: 'defaultClass',
+          values: 'class'
+        }, {
+          key: 'addClass',
+          values: 'addClass'
+        }, {
+          key: 'persistUserSelection',
+          values: 'persistUserSelection'
+        }, {
+          key: 'clearPersistUserSelection',
+          values: 'clearPersistUserSelection'
+        }, {
+          key: 'sidebarMinifiedAt',
+          values: 'sidebarMinifiedAt'
+        }, {
+          key: 'sidebarMaxifiedAt',
+          values: 'sidebarMaxifiedAt'
+        }, {
+          key: 'displayMinifyMaxifyIcon',
+          values: 'displayMinifyMaxifyIcon'
+        }, {
+          key: 'minify',
+          values: 'minify'
+        }, {
+          key: 'autopilot',
+          values: 'autopilot'
+        }, {
+          key: 'toggleMenuHtml',
+          values: 'toggleMenuHtml'
+        }, {
+          key: 'closeMenuHtml',
+          values: 'closeMenuHtml'
+        }, {
+          key: 'moduleSidebar',
+          values: 'moduleSidebar'
+        }, {
+          key: 'headerProps',
+          values: 'headerProps'
+        }, {
+          key: 'headerData',
+          values: 'headerData'
+        }, {
+          key: 'contentProps',
+          values: 'contentProps'
+        }, {
+          key: 'contentData',
+          values: 'contentData'
+        }, {
+          key: 'footerProps',
+          values: 'footerProps'
+        }, {
+          key: 'footerData',
+          values: 'footerData'
+        }], 'rr-container')
+      }));
+    }
+  }]);
+
+  return ReactRevolutionClouds404;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionClouds404);
 
 /***/ }),
 
@@ -8199,7 +8495,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 var codeExample1 = "import { ScrollTo } from 'react-revolution';\n\n<ScrollTo\n    id='uuid-2'\n    navigationTime={1000}\n    navigationTarget='bottom'\n/>\n";
-var codeExample2 = "import { ScrollTo } from 'react-revolution';\n\n<ScrollTo\n    html={\n        <div class=\"to-top\">\n            <div class=\"arrow\">\n                \uD83D\uDD1D\n            </div>\n        </div>\n    }\n    navigationTime={300}\n    navigationTarget='#uuid-2'\n/>\n";
+var codeExample2 = "import { ScrollTo } from 'react-revolution';\n\n<ScrollTo\n    html={\n        <div class=\"arrow\">\n            \uD83D\uDD1D\n        </div>\n    }\n    navigationTime={300}\n    navigationTarget='#uuid-2'\n/>\n";
 var cssExample = ".rr-scroll-to{\n    .to-bottom,\n    .to-top{\n        margin: auto;\n    }\n}";
 
 var ReactRevolutionScrollTo = /*#__PURE__*/function (_React$Component) {
@@ -8240,10 +8536,8 @@ var ReactRevolutionScrollTo = /*#__PURE__*/function (_React$Component) {
       html: '',
       live: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["ScrollTo"], {
         html: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
-          "class": "to-top"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
           "class": "arrow"
-        }, "\uD83D\uDD1D")),
+        }, "\uD83D\uDD1D"),
         navigationTime: 300,
         navigationTarget: "#uuid-2"
       })
@@ -8308,23 +8602,14 @@ var ReactRevolutionScrollTo = /*#__PURE__*/function (_React$Component) {
           key: 'addClass',
           values: 'addClass'
         }, {
-          key: 'image',
-          values: 'image'
+          key: 'navigationTime',
+          values: 'navigationTime'
         }, {
-          key: 'moduleMenu',
-          values: 'moduleMenu'
+          key: 'navigationTarget',
+          values: 'navigationTarget'
         }, {
-          key: 'textLong',
-          values: 'textLong'
-        }, {
-          key: 'textShort',
-          values: 'textShort'
-        }, {
-          key: 'href',
-          values: 'href'
-        }, {
-          key: 'hrefProps',
-          values: 'hrefProps'
+          key: 'html',
+          values: 'html'
         }], 'rr-scroll-to')
       }));
     }
@@ -10211,13 +10496,77 @@ var DE = (_DE = {
   "type": "Number",
   "default": "300"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "navigationTarget", {
-  "description": "Navigiere auf der Seite zu diesen HTML Element (Selektor). Für eine Klasse, Tippe an der ersten Stelle ein . (Punkt), falls es eine ID ist, muss an der 1 Stelle ein # (Hash) stehen.",
+  "description": "Navigieren Sie auf der Seite zu diesem HTML-Element (Selektor). Geben Sie für eine Klasse die erste Position ein. (Punkt) Wenn es sich um eine ID handelt, muss an der ersten Position ein # (Hash) stehen. Wenn der Schlüssel 'html' leer / undefiniert ist und der Wert 'bottom' lautet, gibt das Modul einen vordefinierten HTML-Bildlauf nach unten und eine Bildlauffunktion nach unten zurück. Wenn der Wert 'top' lautet, führt das Modul einen Bildlauf nach oben durch vordefiniertes HTML und scrollen Sie zur obersten Funktionalität.",
   "type": "JSX | String",
   "default": "<leere Zeichenfolge>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "html", {
   "description": "Benutzerdefiniertes HTML das angezeigt wird, falls der Key 'navigationTarget' keinen . (Punkt) oder # (Hash) an der ersten Stelle stehen hat.",
   "type": "JSX | String",
   "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "persistUserSelection", {
+  "description": "Speichern Sie die aktuelle Einstellung der umgeschalteten Seitenleiste. Wenn der Benutzer die Seite aktualisiert, wird der vorherige Status der Seitenleiste verwendet.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "clearPersistUserSelection", {
+  "description": "Löschen Sie den vorherigen Status der gespeicherten Seitenleisten.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "sidebarMinifiedAt", {
+  "description": "Wenn die Taste 'autopilot' true ist, minimieren Sie die Seitenleiste auf die minimale Breite. Wenn false, wird die Seitenleiste ausgeblendet. Die Seitenleiste wird mit der Taste 'toggleMenuHtml' umgeschaltet.",
+  "type": "Number",
+  "default": "720"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "sidebarMaxifiedAt", {
+  "description": "Maximieren Sie die zuvor minimierte Seitenleiste auf die Hauptbreite (Basisbreite).",
+  "type": "Number",
+  "default": "1024"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "displayMinifyMaxifyIcon", {
+  "description": "Rendern Sie die Seitenleisten, um HTML umzuschalten - die JSX aus dem Schlüssel 'toggleMenuHtml'.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "minify", {
+  "description": "Ist die Seitenleiste (vollständig) minimiert?",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "autopilot", {
+  "description": "Wenn true, ändert der Listener für Größenänderungsereignisse die Seitenleiste in 3 Schritten. Wenn false, ändert der Listener für Größenänderungsereignisse die Seitenleiste in 2 Schritten.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "toggleMenuHtml", {
+  "description": "Benutzerdefiniertes JSX, das als Umschalt-Symbol für die Seitenleiste verwendet wird. Dieser HTML-Code befindet sich im Inhalt der Kopfzeilen.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "closeMenuHtml", {
+  "description": "Benutzerdefiniertes JSX wird als Schließsymbol in der Seitenleiste verwendet, wenn die Dokumentbreite geringer ist als der Wert, der mit dem Schlüssel 'sidebarMinifiedAt' an das Modul übergeben wurde.",
+  "type": "String | JSX",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "moduleSidebar", {
+  "description": "Das Modul 'MenuClickHorizontal'.",
+  "type": "Modul",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "headerData", {
+  "description": "Benutzerdefiniertes JSX im Header-Bereich.",
+  "type": "Modul",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "headerProps", {
+  "description": "Eigenschaften von Header div.",
+  "type": "Objekt",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "contentData", {
+  "description": "Benutzerdefiniertes JSX im Inhaltsbereich.",
+  "type": "Modul",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "contentProps", {
+  "description": "Eigenschaften von Content div.",
+  "type": "Objekt",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "footerData", {
+  "description": "Benutzerdefiniertes JSX im Fußzeilenbereich.",
+  "type": "Modul",
+  "default": "<leere Zeichenfolge>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "footerProps", {
+  "description": "Footer div`s Eigenschaften.",
+  "type": "Objekt",
+  "default": "{}"
 }), _DE);
 /* harmony default export */ __webpack_exports__["default"] = (DE);
 
@@ -11048,13 +11397,77 @@ var EN = (_EN = {
   "type": "Number",
   "default": "300"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "navigationTarget", {
-  "description": "Navigate on the page to this HTML element (selector). For a class, type in the first position . (period), if it is an ID, there must be a # (hash) in the first position. ",
+  "description": "Navigate on the page to this HTML element (selector). For a class, type in the first position . (period), if it is an ID, there must be a # (hash) in the first position. If the key 'html' are empty/undefined and the value is 'bottom' - then the module returns an scroll to bottom predefined html and scroll to bottom functionality, if the value is 'top'  - then the module retuns an scroll to top predefined html and scroll to top functionality.",
   "type": "JSX | String",
   "default": "<empty string>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "html", {
   "description": "Custom HTML that is displayed if the key 'navigationTarget' does not have a . (period) or # (hash) in the first position.",
   "type": "JSX | String",
   "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "persistUserSelection", {
+  "description": "Save the current setting of the toggled sidebar. If the user refresh the page, then the sidebars previous state are used.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "clearPersistUserSelection", {
+  "description": "Clear the saved sidebars previous state.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "sidebarMinifiedAt", {
+  "description": "If the key 'autopilot' are true then minify the sidebar to the min width, if false then hide the sidebar - sidebar are toggled with the 'toggleMenuHtml' key.",
+  "type": "Number",
+  "default": "720"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "sidebarMaxifiedAt", {
+  "description": "Maxify the previously minified sidebar to the main (base) width.",
+  "type": "Number",
+  "default": "1024"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "displayMinifyMaxifyIcon", {
+  "description": "Render the sidebars toggling HTML - the JSX from the key 'toggleMenuHtml'.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "minify", {
+  "description": "Is the sidebar (completely) minified.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "autopilot", {
+  "description": "If true then the resize event listener are resizing the sidebar in 3 steps. If false then the resize event listener are resizing the sidebar in 2 steps.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "toggleMenuHtml", {
+  "description": "Custom JSX used as toggling icon for the sidebar. This HTML are located inside the headers content.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "closeMenuHtml", {
+  "description": "Custom JSX used as close icon on the sidebar if the documents width lower then the value passed to the module with the key 'sidebarMinifiedAt'.",
+  "type": "String | JSX",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "moduleSidebar", {
+  "description": "The module 'MenuClickHorizontal'.",
+  "type": "Module",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "headerData", {
+  "description": "Custom JSX inside the headers area.",
+  "type": "Module",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "headerProps", {
+  "description": "Header div`s properties.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "contentData", {
+  "description": "Custom JSX inside the content area.",
+  "type": "Module",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "contentProps", {
+  "description": "Content div`s properties.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "footerData", {
+  "description": "Custom JSX inside the footer area.",
+  "type": "Module",
+  "default": "<empty string>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "footerProps", {
+  "description": "Footer div`s properties.",
+  "type": "Object",
+  "default": "{}"
 }), _EN);
 /* harmony default export */ __webpack_exports__["default"] = (EN);
 
@@ -11715,11 +12128,11 @@ var PL = (_PL = {
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pagination.totalPages", {
   "description": "Całkowita liczba dostępnych stron.",
   "type": "Number",
-  "domyślny": "0"
+  "default": "0"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pagination.globalCount", {
   "description": "Całkowita liczba dostępnych pozycji.",
   "type": "Number",
-  "domyślny": "0"
+  "default": "0"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "pagination.alignPagesItems", {
   "description": "Struktura renderowanych elementów. Dostępne opcje: 1, 2, 3, 4, 5.",
   "type": "Number",
@@ -11885,13 +12298,77 @@ var PL = (_PL = {
   "type": "Number",
   "default": "300"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "navigationTarget", {
-  "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). ",
+  "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). Jeśli klucz `` html '' jest pusty / niezdefiniowany, a wartość jest 'bottom' - wówczas moduł zwraca przewijanie do dołu predefiniowany html i przewijanie do dołu funkcjonalność, jeśli wartość to 'top' - wówczas moduł ponownie dostraja przewijanie do góry predefiniowany html i przewijanie do góry funkcjonalności. ",
   "type": "JSX | String",
   "default": "<pusty ciąg>"
 }), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "html", {
   "description": "Niestandardowy kod HTML, który jest wyświetlany, jeśli klucz 'navigationTarget' nie ma znaku. (kropka) lub # (krzyżyka) na pierwszej pozycji.",
   "type": "JSX | String",
   "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "persistUserSelection", {
+  "description": "Zapisz bieżące ustawienia przełączanego paska bocznego. Jeśli użytkownik odświeży stronę, zostaną użyte poprzednie ustawienia pasków bocznych.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "clearPersistUserSelection", {
+  "description": "Wyczyść poprzedni stan zapisanych pasków bocznych.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "sidebarMinifiedAt", {
+  "description": "Jeśli klucz 'autopilot' jest prawdziwy, zmniejsz pasek boczny do minimalnej szerokości, jeśli fałsz, ukryj pasek boczny - przełącza się go za pomocą klawisza 'toggleMenuHtml'.",
+  "type": "Number",
+  "default": "720"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "sidebarMaxifiedAt", {
+  "description": "Maksymalizuj poprzednio zminimalizowany pasek boczny do szerokości głównej (bazowej).",
+  "type": "Number",
+  "default": "1024"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "displayMinifyMaxifyIcon", {
+  "description": "Renderuj boczne paski przełączające HTML - JSX z klucza 'toggleMenuHtml'.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "minify", {
+  "description": "Czy pasek boczny (całkowicie) jest zminimalizowany.",
+  "type": "Boolean",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "autopilot", {
+  "description": "Jeśli prawda, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 3 krokach. Jeśli wartość false, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 2 krokach.",
+  "type": "Boolean",
+  "default": "False"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "toggleMenuHtml", {
+  "description": "Niestandardowy JSX używany jako ikona przełączająca na pasku bocznym. Ten kod HTML znajduje się w treści nagłówków.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "closeMenuHtml", {
+  "description": "Niestandardowy JSX używany jako ikona zamykania na pasku bocznym, jeśli szerokość dokumentów jest mniejsza niż wartość przekazana do modułu za pomocą klucza 'sidebarMinifiedAt'.",
+  "type": "String | JSX",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "moduleSidebar", {
+  "description": "Moduł 'MenuClickHorizontal'.",
+  "type": "Moduł",
+  "default": "undefined"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "headerData", {
+  "description": "Niestandardowy JSX w obszarze nagłówków.",
+  "type": "Moduł",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "headerProps", {
+  "description": "Właściwości elementu div nagłówka.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "contentData", {
+  "description": "Niestandardowy JSX w obszarze zawartości.",
+  "type": "Moduł",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "contentProps", {
+  "description": "Właściwości div środkowej części.",
+  "type": "Object",
+  "default": "{}"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "footerData", {
+  "description": "Niestandardowy JSX w obszarze stopki.",
+  "type": "Moduł",
+  "default": "<pusty ciąg>"
+}), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "footerProps", {
+  "description": "Właściwości elementu div stopki.",
+  "type": "Object",
+  "default": "{}"
 }), _PL);
 /* harmony default export */ __webpack_exports__["default"] = (PL);
 
@@ -23240,7 +23717,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \r\n   v2.0 | 20110126\r\n   License: none (public domain)\r\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\r\n * Popup box\r\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\r\n   * Popup box\r\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\r\n   * Popup box\r\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\r\n     * Minify or toggle menu icon\r\n     */\n    /*\r\n     * Popup\r\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\r\n         * Minified second Content\r\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\r\n * Main first sidebar\r\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\r\n * Minified second sidebar\r\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\r\n     * Animation drop down icon - down\r\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\r\n     * Animate the toggling elements\r\n     */\n  /*\r\n     * Keep the original state\r\n     * without animation while set state\r\n     * on current toggled items\r\n     */\n  /*\r\n     * Toggled menu entry to show the drop down icon \r\n     * to the direction: up\r\n     */\n  /*\r\n     * Toggle drow down icon back to initial state\r\n     * to the direction: down\r\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    height: calc(100vh - 60px);\n    display: flex;\n    background-image: url(\"https://react-revolution.j.pl/public/images/background.jpg\");\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #1873CC; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: white;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 6rem; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica,\r Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 7px 10px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \r\n   v2.0 | 20110126\r\n   License: none (public domain)\r\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\r\n * Popup box\r\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\r\n   * Popup box\r\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\r\n   * Popup box\r\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\r\n     * Minify or toggle menu icon\r\n     */\n    /*\r\n     * Popup\r\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\r\n         * Minified second Content\r\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\r\n * Main first sidebar\r\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\r\n * Minified second sidebar\r\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\r\n     * Animation drop down icon - down\r\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\r\n     * Animate the toggling elements\r\n     */\n  /*\r\n     * Keep the original state\r\n     * without animation while set state\r\n     * on current toggled items\r\n     */\n  /*\r\n     * Toggled menu entry to show the drop down icon \r\n     * to the direction: up\r\n     */\n  /*\r\n     * Toggle drow down icon back to initial state\r\n     * to the direction: down\r\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    min-height: calc(70vh - 60px);\n    display: flex;\n    background-color: white; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2.3rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: #72777a;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title h2 {\n        font-size: 1.2rem; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 7rem;\n        color: #1873CC; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px;\n  scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n  scrollbar-width: thin; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n#app .Generator .rr-container.container-example {\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n  border: 1px solid silver; }\n  #app .Generator .rr-container.container-example .SideBar {\n    width: 150px;\n    transition-duration: 200ms; }\n    #app .Generator .rr-container.container-example .SideBar .logo {\n      margin-left: 5px; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal {\n      height: calc(100% - 60px);\n      overflow-x: hidden;\n      overflow-y: hidden; }\n      #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry {\n        border-radius: 0px;\n        margin: 7px 10px;\n        border: none;\n        display: block;\n        width: 100%;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        transition-duration: 200ms; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry i {\n          display: inline-block;\n          font-size: 1.3rem;\n          margin: 0 25px 0 5px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .text,\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry a {\n          color: #7c8695;\n          font-size: 0.87rem;\n          letter-spacing: 0.0111rem;\n          transition-duration: 200ms;\n          padding-left: 0px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n          font-weight: bold; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal:hover {\n      overflow-y: auto; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min {\n    width: 50px; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min:hover {\n    width: 150px; }\n  #app .Generator .rr-container.container-example .Content {\n    overflow-y: auto;\n    overflow-x: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin;\n    height: 100vh;\n    width: 100%;\n    left: 0px; }\n    @media screen and (min-width: 720px) {\n      #app .Generator .rr-container.container-example .Content {\n        width: calc(100% - 150px);\n        left: 150px; } }\n  #app .Generator .rr-container.container-example .Content.Content-min {\n    width: calc(100% - 50px);\n    left: 50px; }\n  #app .Generator .rr-container.container-example .CONTENT,\n  #app .Generator .rr-container.container-example .FOOTER {\n    width: calc(100% - 20px);\n    border-radius: 10px;\n    border: 1px dashed black;\n    margin: 10px; }\n  #app .Generator .rr-container.container-example .CONTENT {\n    height: calc(80vh - 20px); }\n  #app .Generator .rr-container.container-example .FOOTER {\n    height: calc(20vh - 20px); }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica,\r Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 7px 10px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n", ""]);
 
 
 
@@ -39412,15 +39889,15 @@ module.exports = function (e) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return xt;
+    return Dt;
   }), a.d(t, "uuid", function () {
     return se;
   }), a.d(t, "disableHtmlScroll", function () {
-    return pe;
+    return Ce;
   }), a.d(t, "enableHtmlScroll", function () {
-    return ve;
+    return Se;
   }), a.d(t, "scrollTopListener", function () {
-    return Dt;
+    return Tt;
   }), a.d(t, "Accordion", function () {
     return w;
   }), a.d(t, "Breadcrumbs", function () {
@@ -39435,56 +39912,58 @@ module.exports = function (e) {
     return oe;
   }), a.d(t, "Clipboard", function () {
     return ue;
-  }), a.d(t, "FullScreenListArray", function () {
+  }), a.d(t, "Clouds404", function () {
     return fe;
-  }), a.d(t, "FullScreenListObject", function () {
+  }), a.d(t, "CloudsMountains404", function () {
     return he;
-  }), a.d(t, "FullScreenOverlay", function () {
+  }), a.d(t, "Container", function () {
+    return ve;
+  }), a.d(t, "FullScreenListArray", function () {
     return ye;
+  }), a.d(t, "FullScreenListObject", function () {
+    return ke;
+  }), a.d(t, "FullScreenOverlay", function () {
+    return Ne;
   }), a.d(t, "GlobalMessages", function () {
-    return Se;
-  }), a.d(t, "Icons", function () {
-    return Pe;
-  }), a.d(t, "InputAnimation", function () {
     return we;
-  }), a.d(t, "InputFile", function () {
-    return Re;
-  }), a.d(t, "InputFileDragDrop", function () {
+  }), a.d(t, "Icons", function () {
+    return Oe;
+  }), a.d(t, "InputAnimation", function () {
     return Ie;
-  }), a.d(t, "InputSuggestionArray", function () {
+  }), a.d(t, "InputFile", function () {
     return Fe;
+  }), a.d(t, "InputFileDragDrop", function () {
+    return ze;
+  }), a.d(t, "InputSuggestionArray", function () {
+    return He;
   }), a.d(t, "InputSuggestionObject", function () {
-    return Be;
+    return Je;
+  }), a.d(t, "Lightbulb404", function () {
+    return qe;
   }), a.d(t, "LoadingBoxTop", function () {
-    return je;
+    return Ze;
   }), a.d(t, "LoadOnScroll", function () {
-    return Ke;
+    return Ye;
   }), a.d(t, "MenuClickHorizontal", function () {
     return W;
   }), a.d(t, "PagerStatic", function () {
-    return _e;
+    return Xe;
   }), a.d(t, "PagerDynamic", function () {
-    return Ze;
-  }), a.d(t, "Table", function () {
-    return Ye;
-  }), a.d(t, "TextWriter", function () {
-    return Qe;
-  }), a.d(t, "PopupBox", function () {
-    return et;
-  }), a.d(t, "ScrollTo", function () {
     return at;
-  }), a.d(t, "SideBar", function () {
+  }), a.d(t, "Table", function () {
     return lt;
+  }), a.d(t, "TextWriter", function () {
+    return st;
+  }), a.d(t, "PopupBox", function () {
+    return ot;
+  }), a.d(t, "ScrollTo", function () {
+    return ut;
+  }), a.d(t, "SideBar", function () {
+    return ft;
   }), a.d(t, "SourceCode", function () {
-    return vt;
-  }), a.d(t, "Clouds404", function () {
-    return yt;
-  }), a.d(t, "CloudsMountains404", function () {
-    return kt;
-  }), a.d(t, "Water404", function () {
-    return St;
-  }), a.d(t, "Lightbulb404", function () {
     return Nt;
+  }), a.d(t, "Water404", function () {
+    return Pt;
   });
 
   var n = a(8),
@@ -39524,7 +40003,7 @@ module.exports = function (e) {
     }
     return t;
   },
-      N = "http://localhost:3000/",
+      N = "https://react-revolution.j.pl/",
       x = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-pager-static", "rr-popupbox", "rr-sidebar", "rr-sourcecode", "rr-table", "rr-text-writer", "rr-clouds-404", "rr-clouds-mountains-404", "rr-water-404", "rr-lightbulb-404"],
       P = function P(e, t, a) {
     var n = "".concat(N, "/public/react-revolution/").concat("v1.1.3", "/css/").concat(a, ".css"),
@@ -39826,13 +40305,13 @@ module.exports = function (e) {
       L = function L(e) {
     return new T().extract(e);
   },
-      O = a(11),
-      R = a.n(O),
-      M = a(15),
-      I = a.n(M);
+      M = a(11),
+      O = a.n(M),
+      R = a(15),
+      I = a.n(R);
 
-  function A() {
-    return (A = Object.assign || function (e) {
+  function B() {
+    return (B = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -39845,7 +40324,7 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function F(e) {
+  function A(e) {
     return "/" === e.charAt(0);
   }
 
@@ -39857,15 +40336,15 @@ module.exports = function (e) {
     e.pop();
   }
 
-  var B = function B(e, t) {
+  var F = function F(e, t) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
         l = t && t.split("/") || [],
-        i = e && F(e),
-        s = t && F(t),
+        i = e && A(e),
+        s = t && A(t),
         r = i || s;
-    if (e && F(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
+    if (e && A(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
     if (l.length) {
       var o = l[l.length - 1];
@@ -39880,7 +40359,7 @@ module.exports = function (e) {
     if (!r) for (; c--; c) {
       l.unshift("..");
     }
-    !r || "" === l[0] || l[0] && F(l[0]) || l.unshift("");
+    !r || "" === l[0] || l[0] && A(l[0]) || l.unshift("");
     var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
@@ -39899,7 +40378,7 @@ module.exports = function (e) {
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (l = A({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
+    }(e)).state = t : (void 0 === (l = B({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
 
     try {
       l.pathname = decodeURI(l.pathname);
@@ -39907,12 +40386,12 @@ module.exports = function (e) {
       throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = B(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = F(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
 
-  var j = Object.assign || function (e) {
+  var z = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var a = arguments[t];
 
@@ -39924,29 +40403,29 @@ module.exports = function (e) {
     return e;
   };
 
-  function z(e, t) {
+  function j(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function K(e, t) {
+  function H(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != _typeof(t) && "function" != typeof t ? e : t;
   }
 
-  var H = function H(e) {
+  var K = function K(e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
       J = function (e) {
     function t() {
       var a, n;
-      z(this, t);
+      j(this, t);
 
       for (var l = arguments.length, i = Array(l), s = 0; s < l; s++) {
         i[s] = arguments[s];
       }
 
-      return a = n = K(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !H(e)) {
+      return a = n = H(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !K(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
@@ -39954,7 +40433,7 @@ module.exports = function (e) {
               i = a.to;
           l ? t.replace(i) : t.push(i);
         }
-      }, K(n, a);
+      }, H(n, a);
     }
 
     return function (e, t) {
@@ -39985,7 +40464,7 @@ module.exports = function (e) {
       var l = this.context.router.history,
           i = "string" == typeof t ? U(t, null, null, l.location) : t,
           s = l.createHref(i);
-      return k.a.createElement("a", j({}, n, {
+      return k.a.createElement("a", z({}, n, {
         onClick: this.handleClick,
         href: s,
         ref: a
@@ -39994,19 +40473,19 @@ module.exports = function (e) {
   }(k.a.Component);
 
   J.propTypes = {
-    onClick: R.a.func,
-    target: R.a.string,
-    replace: R.a.bool,
-    to: R.a.oneOfType([R.a.string, R.a.object]).isRequired,
-    innerRef: R.a.oneOfType([R.a.string, R.a.func])
+    onClick: O.a.func,
+    target: O.a.string,
+    replace: O.a.bool,
+    to: O.a.oneOfType([O.a.string, O.a.object]).isRequired,
+    innerRef: O.a.oneOfType([O.a.string, O.a.func])
   }, J.defaultProps = {
     replace: !1
   }, J.contextTypes = {
-    router: R.a.shape({
-      history: R.a.shape({
-        push: R.a.func.isRequired,
-        replace: R.a.func.isRequired,
-        createHref: R.a.func.isRequired
+    router: O.a.shape({
+      history: O.a.shape({
+        push: O.a.func.isRequired,
+        replace: O.a.func.isRequired,
+        createHref: O.a.func.isRequired
       }).isRequired
     }).isRequired
   };
@@ -41348,6 +41827,694 @@ module.exports = function (e) {
 
     function a(e) {
       var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clouds-404",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
+        link: e.link && s()({}) == s()(e.link) ? e.link : {},
+        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
+        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
+        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
+        bad: s()(!0) == s()(e.bad) && e.bad
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+      }
+    }, {
+      key: "callback",
+      value: function value(e) {
+        var t = this.state.link;
+
+        if (t) {
+          var a = t.callback;
+          a && "function" == typeof a && a(e);
+        }
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.reactRouter,
+            n = t.text404,
+            i = t.text1,
+            r = t.text2,
+            o = t.bad,
+            c = t.addClass,
+            u = t.defaultClass,
+            d = t.id,
+            f = t.link,
+            m = f.href,
+            h = f.text,
+            p = f.props;
+        return k.a.createElement("div", {
+          className: "".concat(u, " ").concat(c),
+          id: d
+        }, k.a.createElement("div", {
+          className: "holder-404"
+        }, k.a.createElement("div", {
+          className: "cloud cloud-1"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-2"
+        }), 1 == o && k.a.createElement("div", {
+          className: "cloud cloud-3 bad-cloud-3"
+        }, k.a.createElement("div", {
+          className: "bolt bolt-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        })))), k.a.createElement("div", {
+          className: "bolt bolt-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        }))))), 0 == o && k.a.createElement("div", {
+          className: "cloud cloud-3"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-4"
+        }), 1 == o && k.a.createElement("div", {
+          className: "cloud cloud-5 bad-cloud-5"
+        }, k.a.createElement("div", {
+          className: "bolt bolt-3"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        })))), k.a.createElement("div", {
+          className: "bolt bolt-4"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        }))))), 0 == o && k.a.createElement("div", {
+          className: "cloud cloud-5"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-6"
+        })), k.a.createElement("div", {
+          className: "content-404"
+        }, k.a.createElement("div", {
+          className: "text-404"
+        }, n), k.a.createElement("hr", null), k.a.createElement("div", {
+          className: "text-1"
+        }, i), k.a.createElement("div", {
+          className: "text-2"
+        }, r), m && s()("8") == s()(m) && 1 == a && k.a.createElement(_, l()({
+          className: "button-navigation",
+          to: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h), m && s()("8") == s()(m) && !1 === a && k.a.createElement("a", l()({
+          className: "button-navigation",
+          href: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h)));
+      }
+    }]), a;
+  }(b.Component);
+
+  function me(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var he = function (e) {
+    h()(a, e);
+    var t = me(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clouds-mountains-404",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
+        link: e.link && s()({}) == s()(e.link) ? e.link : {},
+        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
+        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
+        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
+        bad: s()(!0) == s()(e.bad) && e.bad
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+      }
+    }, {
+      key: "callback",
+      value: function value(e) {
+        var t = this.state.link;
+
+        if (t) {
+          var a = t.callback;
+          a && "function" == typeof a && a(e);
+        }
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.reactRouter,
+            n = t.link,
+            i = t.text404,
+            r = t.text1,
+            o = t.text2,
+            c = t.bad,
+            u = t.addClass,
+            d = t.defaultClass,
+            f = t.id,
+            m = n.href,
+            h = n.text,
+            p = n.props;
+        return k.a.createElement("div", {
+          className: "".concat(d, " ").concat(u),
+          id: f
+        }, k.a.createElement("div", {
+          className: "holder-404"
+        }, k.a.createElement("div", {
+          className: "cloud cloud-1"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-2"
+        }), 1 == c && k.a.createElement("div", {
+          className: "cloud cloud-3 bad-cloud-3"
+        }, k.a.createElement("div", {
+          className: "bolt bolt-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        })))), k.a.createElement("div", {
+          className: "bolt bolt-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        }))))), 0 == c && k.a.createElement("div", {
+          className: "cloud cloud-3"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-4"
+        }), 1 == c && k.a.createElement("div", {
+          className: "cloud cloud-5 bad-cloud-5"
+        }, k.a.createElement("div", {
+          className: "bolt bolt-3"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        })))), k.a.createElement("div", {
+          className: "bolt bolt-4"
+        }, k.a.createElement("div", {
+          className: "bolt-part-1"
+        }, k.a.createElement("div", {
+          className: "bolt-part-2"
+        }, k.a.createElement("div", {
+          className: "bolt-part-3"
+        }))))), 0 == c && k.a.createElement("div", {
+          className: "cloud cloud-5"
+        }), k.a.createElement("div", {
+          className: "cloud cloud-6"
+        })), k.a.createElement("div", {
+          className: "mountains-holder-1"
+        }, k.a.createElement("div", {
+          className: "mountain"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        }))), k.a.createElement("div", {
+          className: "mountain-two"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        }))), k.a.createElement("div", {
+          className: "mountain-three"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        })))), k.a.createElement("div", {
+          className: "mountains-holder-2"
+        }, k.a.createElement("div", {
+          className: "mountain"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        }))), k.a.createElement("div", {
+          className: "mountain-two"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        }))), k.a.createElement("div", {
+          className: "mountain-three"
+        }, k.a.createElement("div", {
+          className: "mountain-top"
+        }, k.a.createElement("div", {
+          className: "mountain-cap-1"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-2"
+        }), k.a.createElement("div", {
+          className: "mountain-cap-3"
+        })))), k.a.createElement("div", {
+          className: "content-404"
+        }, k.a.createElement("div", {
+          className: "text-404"
+        }, i), k.a.createElement("hr", null), k.a.createElement("div", {
+          className: "text-1"
+        }, r), k.a.createElement("div", {
+          className: "text-2"
+        }, o), m && s()("8") == s()(m) && 1 == a && k.a.createElement(_, l()({
+          className: "button-navigation",
+          to: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h), m && s()("8") == s()(m) && !1 === a && k.a.createElement("a", l()({
+          className: "button-navigation",
+          href: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h)));
+      }
+    }]), a;
+  }(b.Component);
+
+  function pe(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var ve = function (e) {
+    h()(a, e);
+    var t = pe(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).getClassNamesContent = n.getClassNamesContent.bind(f()(n)), n.getClassNamesSidebar = n.getClassNamesSidebar.bind(f()(n)), n.sideBar = n.sideBar.bind(f()(n)), n.resizeView = n.resizeView.bind(f()(n)), n.handleClick = n.handleClick.bind(f()(n)), n.state = {
+        href: window.location.href,
+        minifiedSecondSideBar: !0,
+        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-container",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        moduleSidebar: e.moduleSidebar && s()({}) == s()(e.moduleSidebar) ? e.moduleSidebar : void 0,
+        persistUserSelection: s()(!0) == s()(e.persistUserSelection) ? e.persistUserSelection : void 0,
+        clearPersistUserSelection: s()(!0) == s()(e.clearPersistUserSelection) ? e.clearPersistUserSelection : void 0,
+        sidebarMinifiedAt: s()(8) == s()(e.sidebarMinifiedAt) ? e.sidebarMinifiedAt : 720,
+        sidebarMaxifiedAt: s()(8) == s()(e.sidebarMaxifiedAt) ? e.sidebarMaxifiedAt : 1024,
+        displayMinifyMaxifyIcon: s()(!0) == s()(e.displayMinifyMaxifyIcon) ? e.displayMinifyMaxifyIcon : void 0,
+        minify: s()(!0) == s()(e.minify) && e.minify,
+        headerProps: e.headerProps && s()({}) == s()(e.headerProps) ? e.headerProps : {},
+        headerData: e.headerData && s()({}) == s()(e.headerData) ? e.headerData : void 0,
+        contentProps: e.contentProps && s()({}) == s()(e.contentProps) ? e.contentProps : {},
+        contentData: e.contentData ? e.contentData : void 0,
+        footerData: e.footerData ? e.footerData : void 0,
+        footerProps: e.footerProps && s()({}) == s()(e.footerProps) ? e.footerProps : {},
+        autopilot: s()(!0) == s()(e.autopilot) && e.autopilot,
+        closeMenuHtml: e.closeMenuHtml ? e.closeMenuHtml : "",
+        toggleMenuHtml: e.toggleMenuHtml ? e.toggleMenuHtml : ""
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+        var e = this.state.clearPersistUserSelection;
+        (e || void 0 === e) && localStorage.removeItem("persistUserSelection"), window.addEventListener("resize", this.resizeView), window.addEventListener("mousedown", this.handleClick), this.resizeView();
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function value() {
+        window.removeEventListener("resize", this.resizeView), window.removeEventListener("mousedown", this.handleClick);
+      }
+    }, {
+      key: "handleClick",
+      value: function value(e) {
+        var t = this,
+            a = this.state,
+            n = a.minifiedSecondSideBar,
+            l = a.href,
+            i = a.sidebarMaxifiedAt;
+        this.nodeSideBar && !this.nodeSideBar.contains(e.target) && this.nodeSideBar.classList && this.nodeSideBar.classList.contains("SidebarMinified") && (this.nodeSideBar.classList.remove("opened"), n || setTimeout(function () {
+          t.setState({
+            minifiedSecondSideBar: !0
+          });
+        }, 100)), setTimeout(function () {
+          i && i >= document.documentElement.getBoundingClientRect().width && t.resizeView(), t.nodeSideBar && t.nodeSideBar.classList && t.nodeSideBar.classList.contains("SidebarMinified") && l !== window.location.href && (t.setState({
+            href: window.location.href
+          }), n || setTimeout(function () {
+            t.setState({
+              minifiedSecondSideBar: !0
+            });
+          }, 0));
+        }, 300);
+      }
+    }, {
+      key: "resizeView",
+      value: function value() {
+        var e = this.state,
+            t = e.autopilot,
+            a = e.persistUserSelection,
+            n = e.sidebarMinifiedAt,
+            l = e.sidebarMaxifiedAt,
+            i = e.minify;
+        if (a && null !== localStorage.getItem("persistUserSelection")) try {
+          var s = JSON.parse(localStorage.getItem("persistUserSelection")),
+              r = s.sidebarMin,
+              o = s.contentMin,
+              c = s.isMinified,
+              u = s.minifiedSecondSideBar;
+          return this.setState({
+            sidebarMin: r,
+            contentMin: o,
+            isMinified: c,
+            minifiedSecondSideBar: u
+          });
+        } catch (e) {}
+        if (i) return this.setState({
+          sidebarMin: !0,
+          contentMin: !0,
+          isMinified: !0
+        });
+        var d = document.documentElement.getBoundingClientRect().width;
+
+        if (t) {
+          if (d <= n) {
+            if (d > l) return this.setState({
+              sidebarMin: !0,
+              contentMin: !0,
+              isMinified: !1,
+              minifiedSecondSideBar: !0
+            });
+            if (d < l) return this.setState({
+              sidebarMin: !0,
+              contentMin: !0,
+              isMinified: !0
+            });
+          }
+
+          if (d >= l) return this.setState({
+            sidebarMin: !1,
+            contentMin: !1,
+            isMinified: !1,
+            minifiedSecondSideBar: !0
+          });
+        } else {
+          if (d >= l) return this.setState({
+            sidebarMin: !1,
+            contentMin: !1,
+            isMinified: !1,
+            minifiedSecondSideBar: !0
+          });
+          if (d <= n) return this.setState({
+            sidebarMin: !0,
+            contentMin: !0,
+            isMinified: !0
+          });
+          if (d < l) return this.setState({
+            sidebarMin: !0,
+            contentMin: !0,
+            isMinified: !1,
+            minifiedSecondSideBar: !0
+          });
+        }
+
+        return null;
+      }
+    }, {
+      key: "getClassNamesSidebar",
+      value: function value() {
+        var e = this.state,
+            t = e.sidebarMin;
+        return e.contentMin || t ? "SideBar SideBar-min" : "SideBar";
+      }
+    }, {
+      key: "getClassNamesContent",
+      value: function value() {
+        var e = this.state,
+            t = e.contentMin,
+            a = e.sidebarMin;
+        return this.state.isMinified ? this.state.minifiedSecondSideBar ? "Content minified" : "Content minified opened" : t || a ? "Content Content-min" : "Content";
+      }
+    }, {
+      key: "sideBar",
+      value: function value() {
+        var e = this;
+        this.state.isMinified ? this.setState({
+          minifiedSecondSideBar: !this.state.minifiedSecondSideBar
+        }, function () {
+          var t = e.state,
+              a = t.sidebarMin,
+              n = t.contentMin,
+              l = t.isMinified,
+              i = t.minifiedSecondSideBar;
+          t.persistUserSelection && localStorage.setItem("persistUserSelection", JSON.stringify({
+            sidebarMin: a,
+            contentMin: n,
+            isMinified: l,
+            minifiedSecondSideBar: i
+          }));
+        }) : this.setState({
+          sidebarMin: !this.state.sidebarMin,
+          contentMin: !this.state.contentMin
+        }, function () {
+          var t = e.state,
+              a = t.sidebarMin,
+              n = t.contentMin,
+              l = t.isMinified,
+              i = t.minifiedSecondSideBar;
+          t.persistUserSelection && localStorage.setItem("persistUserSelection", JSON.stringify({
+            sidebarMin: a,
+            contentMin: n,
+            isMinified: l,
+            minifiedSecondSideBar: i
+          }));
+        });
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.addClass,
+            n = t.defaultClass,
+            i = t.id,
+            s = t.moduleSidebar,
+            r = t.toggleMenuHtml,
+            o = t.closeMenuHtml,
+            c = t.headerData,
+            u = t.headerProps,
+            d = t.contentData,
+            f = t.contentProps,
+            m = t.displayMinifyMaxifyIcon,
+            h = t.footerData,
+            p = (t.footerProps, this.getClassNamesSidebar()),
+            v = this.getClassNamesContent(),
+            g = "".concat(this.state.isMinified ? this.state.minifiedSecondSideBar ? "SideBar SidebarMinified" : "SideBar SidebarMinified opened" : p);
+        return k.a.createElement("div", {
+          id: i,
+          className: "".concat(n, " ").concat(a)
+        }, k.a.createElement("div", {
+          ref: function ref(t) {
+            return e.nodeSideBar = t;
+          },
+          className: g
+        }, this.state.isMinified && k.a.createElement("span", {
+          className: "close-side-bar action-icon",
+          onClick: function onClick(t) {
+            return e.sideBar();
+          }
+        }, o), s && s), k.a.createElement("div", l()({
+          className: v
+        }, f), k.a.createElement("div", l()({
+          className: "header"
+        }, u), m && k.a.createElement("span", {
+          className: "minify-menu",
+          onClick: function onClick(t) {
+            return e.sideBar();
+          }
+        }, r), c && c), d && k.a.createElement("div", {
+          className: "content"
+        }, d), h && k.a.createElement("div", {
+          className: "footer"
+        }, h)));
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function value(e, t) {
+        if (C(["moduleSidebar", "headerData", "contentData", "persistUserSelection", "sidebarMinifiedAt", "sidebarMaxifiedAt", "displayMinifyMaxifyIcon", "minify", "footerData"], e, t)) {
+          if (t.persistUserSelection && null !== localStorage.getItem("persistUserSelection")) try {
+            var a = localStorage.getItem("persistUserSelection");
+            return {
+              sidebarMin: a.sidebarMin,
+              contentMin: a.contentMin,
+              isMinified: a.isMinified,
+              minifiedSecondSideBar: a.minifiedSecondSideBar
+            };
+          } catch (e) {}
+          return t.minify !== e.minify ? e.minify ? {
+            sidebarMin: !0,
+            contentMin: !0,
+            isMinified: !0,
+            minify: !0,
+            minifiedSecondSideBar: !0
+          } : {
+            sidebarMin: !1,
+            contentMin: !1,
+            isMinified: !1,
+            minify: !1
+          } : {
+            moduleSidebar: e.moduleSidebar && s()({}) == s()(e.moduleSidebar) ? e.moduleSidebar : void 0,
+            headerData: e.headerData && s()({}) == s()(e.headerData) ? e.headerData : void 0,
+            contentData: e.contentData && s()({}) == s()(e.contentData) ? e.contentData : void 0,
+            persistUserSelection: s()(!0) == s()(e.persistUserSelection) ? e.persistUserSelection : void 0,
+            clearPersistUserSelection: s()(!0) == s()(e.clearPersistUserSelection) ? e.clearPersistUserSelection : void 0,
+            sidebarMinifiedAt: s()(8) == s()(e.sidebarMinifiedAt) ? e.sidebarMinifiedAt : 720,
+            sidebarMaxifiedAt: s()(8) == s()(e.sidebarMaxifiedAt) ? e.sidebarMaxifiedAt : 1024,
+            displayMinifyMaxifyIcon: s()(!0) == s()(e.displayMinifyMaxifyIcon) ? e.displayMinifyMaxifyIcon : void 0,
+            minify: e.minify,
+            footerData: e.footerData
+          };
+        }
+
+        return null;
+      }
+    }]), a;
+  }(k.a.Component);
+
+  function ge(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var ye = function (e) {
+    h()(a, e);
+    var t = ge(a);
+
+    function a(e) {
+      var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.callbackClose = n.callbackClose.bind(f()(n)), n.setValue = n.setValue.bind(f()(n)), n.buildListJsx = n.buildListJsx.bind(f()(n)), n.removeEscEventListener = n.removeEscEventListener.bind(f()(n)), n.addEscEventListener = n.addEscEventListener.bind(f()(n)), n.EscListener = n.EscListener.bind(f()(n)), n.getDefaultClass = n.getDefaultClass.bind(f()(n)), n.state = {
         filteredData: [],
         inputValue: "",
@@ -41573,7 +42740,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function me(e) {
+  function be(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -41599,9 +42766,9 @@ module.exports = function (e) {
     };
   }
 
-  var he = function (e) {
+  var ke = function (e) {
     h()(a, e);
-    var t = me(a);
+    var t = be(a);
 
     function a(e) {
       var n;
@@ -41829,14 +42996,14 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      pe = function pe() {
+      Ce = function Ce() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      ve = function ve() {
+      Se = function Se() {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function ge(e) {
+  function Ee(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -41862,9 +43029,9 @@ module.exports = function (e) {
     };
   }
 
-  var ye = function (e) {
+  var Ne = function (e) {
     h()(a, e);
-    var t = ge(a);
+    var t = Ee(a);
 
     function a(e) {
       var n;
@@ -41894,12 +43061,12 @@ module.exports = function (e) {
             t = e.closeOnEsc,
             a = e.disableScroll,
             n = e.display;
-        t && window.addEventListener("keydown", this.EscListener, !1), n && a && pe();
+        t && window.addEventListener("keydown", this.EscListener, !1), n && a && Ce();
       }
     }, {
       key: "componentWillUnmount",
       value: function value() {
-        ve(), window.removeEventListener("keydown", this.EscListener, !1);
+        Se(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -41907,15 +43074,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && pe(), void (a && ve());
-        ve(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && Ce(), void (a && Se());
+        Se(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function value(e) {
         if (27 === e.keyCode) {
           var t = this.state.callbackClose;
-          t && "function" == typeof t && (ve(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (Se(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -41925,7 +43092,7 @@ module.exports = function (e) {
             a = this.state,
             n = a.closeOnClick,
             l = a.callbackClose;
-        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (ve(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (Se(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -42001,10 +43168,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      be = a(12),
-      ke = a.n(be);
+      xe = a(12),
+      Pe = a.n(xe);
 
-  function Ce(e) {
+  function De(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -42030,9 +43197,9 @@ module.exports = function (e) {
     };
   }
 
-  var Se = function (e) {
+  var we = function (e) {
     h()(a, e);
-    var t = Ce(a);
+    var t = De(a);
 
     function a(e) {
       var n;
@@ -42118,7 +43285,7 @@ module.exports = function (e) {
             }
 
             e.setState({
-              messagesApp: [].concat(ke()(t), ke()(a))
+              messagesApp: [].concat(Pe()(t), Pe()(a))
             });
           }
         }, t);
@@ -42187,7 +43354,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ee(e) {
+  function Te(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -42213,7 +43380,7 @@ module.exports = function (e) {
     };
   }
 
-  var Ne = {
+  var Le = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -42267,15 +43434,15 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      xe = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      Pe = function (e) {
+      Me = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      Oe = function (e) {
     h()(a, e);
-    var t = Ee(a);
+    var t = Te(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
-        icons: Ne,
+        icons: Le,
         moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
         globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
@@ -42284,7 +43451,7 @@ module.exports = function (e) {
         iconsType: e.iconsType && s()("8") == s()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
-        renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : xe,
+        renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : Me,
         translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
         custom: e.custom && s()([]) == s()(e.custom) ? e.custom : void 0
       }, n;
@@ -42373,7 +43540,7 @@ module.exports = function (e) {
           id: e.id && s()("8") == s()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: s()(!0) != s()(e.displayTabs) || e.displayTabs,
-          renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : xe,
+          renderItems: e.renderItems && s()([]) == s()(e.renderItems) ? e.renderItems : Me,
           translations: e.translations && s()({}) == s()(e.translations) ? e.translations : void 0,
           custom: e.custom && s()({}) == s()(e.custom) ? e.custom : void 0
         } : null;
@@ -42381,7 +43548,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function De(e) {
+  function Re(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -42407,10 +43574,10 @@ module.exports = function (e) {
     };
   }
 
-  var we = function (e) {
+  var Ie = function (e) {
     h()(n, e);
     var t,
-        a = De(n);
+        a = Re(n);
 
     function n(e) {
       var t;
@@ -42607,10 +43774,10 @@ module.exports = function (e) {
       }
     }]), n;
   }(b.Component),
-      Te = a(13),
-      Le = a.n(Te);
+      Be = a(13),
+      Ae = a.n(Be);
 
-  function Oe(e) {
+  function Ve(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -42636,9 +43803,9 @@ module.exports = function (e) {
     };
   }
 
-  var Re = function (e) {
+  var Fe = function (e) {
     h()(a, e);
-    var t = Oe(a);
+    var t = Ve(a);
 
     function a(e) {
       var n;
@@ -42791,7 +43958,7 @@ module.exports = function (e) {
           },
           placeholder: s,
           id: o
-        }, Le()(e, "type", "file"), Le()(e, "name", "files[]"), e), u)), k.a.createElement("label", {
+        }, Ae()(e, "type", "file"), Ae()(e, "name", "files[]"), e), u)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files",
           onClick: function onClick() {
@@ -42817,7 +43984,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Me(e) {
+  function Ue(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -42843,9 +44010,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ie = function (e) {
+  var ze = function (e) {
     h()(a, e);
-    var t = Me(a);
+    var t = Ue(a);
 
     function a(e) {
       var n;
@@ -43053,7 +44220,7 @@ module.exports = function (e) {
           },
           placeholder: i,
           id: r
-        }, Le()(e, "type", "file"), Le()(e, "name", "files[]"), e), m)), k.a.createElement("label", {
+        }, Ae()(e, "type", "file"), Ae()(e, "name", "files[]"), e), m)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, k.a.createElement("div", {
@@ -43086,7 +44253,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ae(e) {
+  function je(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -43112,9 +44279,9 @@ module.exports = function (e) {
     };
   }
 
-  var Fe = function (e) {
+  var He = function (e) {
     h()(a, e);
-    var t = Ae(a);
+    var t = je(a);
 
     function a(e) {
       var n;
@@ -43385,7 +44552,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ve(e) {
+  function Ke(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -43411,9 +44578,9 @@ module.exports = function (e) {
     };
   }
 
-  var Be = function (e) {
+  var Je = function (e) {
     h()(a, e);
-    var t = Ve(a);
+    var t = Ke(a);
 
     function a(e) {
       var n;
@@ -43707,7 +44874,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ue(e) {
+  function _e(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -43733,9 +44900,155 @@ module.exports = function (e) {
     };
   }
 
-  var je = function (e) {
+  var qe = function (e) {
     h()(a, e);
-    var t = Ue(a);
+
+    var t = _e(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).state = {
+        active: !0,
+        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-lightbulb-404",
+        id: e.id && s()("8") == s()(e.id) ? e.id : "",
+        reactRouter: !!n.props.reactRouter && n.props.reactRouter,
+        link: e.link && s()({}) == s()(e.link) ? e.link : {},
+        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
+        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
+        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
+        bad: s()(!0) == s()(e.bad) && e.bad
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function value() {
+        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
+      }
+    }, {
+      key: "callback",
+      value: function value(e) {
+        var t = this.state.link;
+
+        if (t) {
+          var a = t.callback;
+          a && "function" == typeof a && a(e);
+        }
+      }
+    }, {
+      key: "toggleLight",
+      value: function value(e) {
+        e && this.setState({
+          active: !1
+        }), e || this.setState({
+          active: !0
+        });
+      }
+    }, {
+      key: "render",
+      value: function value() {
+        var e = this,
+            t = this.state,
+            a = t.active,
+            n = t.reactRouter,
+            i = t.link,
+            r = t.text404,
+            o = t.text1,
+            c = t.text2,
+            u = (t.bad, t.addClass),
+            d = t.defaultClass,
+            f = t.id,
+            m = i.href,
+            h = i.text,
+            p = i.props;
+        return k.a.createElement("div", {
+          className: "".concat(d, " ").concat(u),
+          id: f
+        }, k.a.createElement("div", {
+          className: "holder-404"
+        }, k.a.createElement("div", {
+          className: "content-404"
+        }, k.a.createElement("div", {
+          className: "container"
+        }, k.a.createElement("div", {
+          className: "text-404"
+        }, r), k.a.createElement("hr", null), k.a.createElement("div", {
+          className: "lightbulb-holder"
+        }, k.a.createElement("div", {
+          className: "base"
+        }), k.a.createElement("div", {
+          className: "lightbulb-".concat(a ? "on" : "off")
+        })), k.a.createElement("div", {
+          className: "buttons-container"
+        }, k.a.createElement("div", {
+          className: "buttons"
+        }, k.a.createElement("div", {
+          className: 1 == a ? "on active" : "on",
+          onClick: function onClick() {
+            return e.toggleLight(!1);
+          }
+        }), k.a.createElement("div", {
+          className: 0 == a ? "off active" : "off",
+          onClick: function onClick() {
+            return e.toggleLight(!0);
+          }
+        }))), k.a.createElement("div", {
+          className: "text-1"
+        }, o), k.a.createElement("div", {
+          className: "text-2"
+        }, c, !a && k.a.createElement("div", {
+          className: ""
+        })), m && s()("8") == s()(m) && 1 == n && k.a.createElement(_, l()({
+          className: "button-navigation",
+          to: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h), m && s()("8") == s()(m) && !1 === n && k.a.createElement("a", l()({
+          className: "button-navigation",
+          href: m
+        }, p, {
+          onClick: function onClick(t) {
+            return e.callback(t);
+          }
+        }), h)))));
+      }
+    }]), a;
+  }(b.Component);
+
+  function We(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return v()(this, a);
+    };
+  }
+
+  var Ze = function (e) {
+    h()(a, e);
+    var t = We(a);
 
     function a(e) {
       var n;
@@ -43782,7 +45095,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function ze(e) {
+  function Ge(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -43808,9 +45121,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ke = function (e) {
+  var Ye = function (e) {
     h()(a, e);
-    var t = ze(a);
+    var t = Ge(a);
 
     function a(e) {
       var n;
@@ -43955,7 +45268,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function He(e) {
+  function $e(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -43981,10 +45294,10 @@ module.exports = function (e) {
     };
   }
 
-  var Je = 0,
-      _e = function (e) {
+  var Qe = 0,
+      Xe = function (e) {
     h()(a, e);
-    var t = He(a);
+    var t = $e(a);
 
     function a(e) {
       var n;
@@ -44396,10 +45709,10 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         if (C(["searchValue"], e, t)) {
-          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == Je) return Je += 1, {
+          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == Qe) return Qe += 1, {
             searchValue: e.searchValue
           };
-          if (e.searchValue && "" !== e.searchValue && 0 !== Je && e.searchValue !== t.searchValue) return Je += 1, {
+          if (e.searchValue && "" !== e.searchValue && 0 !== Qe && e.searchValue !== t.searchValue) return Qe += 1, {
             searchValue: t.searchValue
           };
         }
@@ -44469,7 +45782,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function qe(e) {
+  function et(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -44495,10 +45808,10 @@ module.exports = function (e) {
     };
   }
 
-  var We = 0,
-      Ze = function (e) {
+  var tt = 0,
+      at = function (e) {
     h()(a, e);
-    var t = qe(a);
+    var t = et(a);
 
     function a(e) {
       var n;
@@ -44665,7 +45978,7 @@ module.exports = function (e) {
         var L = k.a.createElement("div", {
           className: "total"
         }, o && o, a, c && c),
-            O = k.a.createElement("span", {
+            M = k.a.createElement("span", {
           className: "buttons flex"
         }, k.a.createElement("span", {
           onClick: function onClick(t) {
@@ -44713,32 +46026,32 @@ module.exports = function (e) {
             return k.a.createElement("div", {
               key: se(),
               className: "paging"
-            }, r && L, O);
+            }, r && L, M);
 
           case 2:
             return k.a.createElement("div", {
               key: se(),
               className: "paging"
-            }, O, r && L);
+            }, M, r && L);
 
           case 3:
             return k.a.createElement("div", {
               key: se(),
               className: "paging"
-            }, r && L, O);
+            }, r && L, M);
 
           case 4:
           case 5:
             return k.a.createElement("div", {
               key: se(),
               className: "paging"
-            }, O, r && L);
+            }, M, r && L);
 
           default:
             return k.a.createElement("div", {
               key: se(),
               className: "paging"
-            }, r && L, O);
+            }, r && L, M);
         }
       }
     }, {
@@ -44940,10 +46253,10 @@ module.exports = function (e) {
       key: "getDerivedStateFromProps",
       value: function value(e, t) {
         if (C(["searchValue"], e, t)) {
-          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == We) return We += 1, {
+          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == tt) return tt += 1, {
             searchValue: e.searchValue
           };
-          if (e.searchValue && "" !== e.searchValue && 0 !== We && e.searchValue !== t.searchValue) return We += 1, {
+          if (e.searchValue && "" !== e.searchValue && 0 !== tt && e.searchValue !== t.searchValue) return tt += 1, {
             searchValue: t.searchValue
           };
         }
@@ -45001,7 +46314,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ge(e) {
+  function nt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -45027,9 +46340,9 @@ module.exports = function (e) {
     };
   }
 
-  var Ye = function (e) {
+  var lt = function (e) {
     h()(a, e);
-    var t = Ge(a);
+    var t = nt(a);
 
     function a(e) {
       var n;
@@ -45151,7 +46464,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function $e(e) {
+  function it(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -45177,9 +46490,9 @@ module.exports = function (e) {
     };
   }
 
-  var Qe = function (e) {
+  var st = function (e) {
     h()(a, e);
-    var t = $e(a);
+    var t = it(a);
 
     function a(e) {
       var n;
@@ -45318,7 +46631,7 @@ module.exports = function (e) {
                                       });
                                     }, l)), i.next = 4, e.writerPromise(h[m]).then(function (t) {
                                       p.push(t), e.setState({
-                                        written: [].concat(ke()(r), p, ke()(o), ke()(f))
+                                        written: [].concat(Pe()(r), p, Pe()(o), Pe()(f))
                                       });
                                     });
 
@@ -45374,7 +46687,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Xe(e) {
+  function rt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -45400,9 +46713,9 @@ module.exports = function (e) {
     };
   }
 
-  var et = function (e) {
+  var ot = function (e) {
     h()(a, e);
-    var t = Xe(a);
+    var t = rt(a);
 
     function a(e) {
       var n;
@@ -45523,7 +46836,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function tt(e) {
+  function ct(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -45549,9 +46862,9 @@ module.exports = function (e) {
     };
   }
 
-  var at = function (e) {
+  var ut = function (e) {
     h()(a, e);
-    var t = tt(a);
+    var t = ct(a);
 
     function a(e) {
       var n;
@@ -45612,8 +46925,9 @@ module.exports = function (e) {
       key: "navigationTargetTopOfWebpage",
       value: function value(e) {
         e /= 10;
-        var t = document.documentElement.scrollTop,
-            a = t / e * 4,
+        var t = document.documentElement.scrollTop;
+        if (0 == t) return null;
+        var a = t / e * 4,
             n = setInterval(function () {
           t -= a, document.documentElement.scrollTop = t, -10 >= t && clearInterval(n);
         }, 1);
@@ -45691,7 +47005,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function nt(e) {
+  function dt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -45717,9 +47031,9 @@ module.exports = function (e) {
     };
   }
 
-  var lt = function (e) {
+  var ft = function (e) {
     h()(a, e);
-    var t = nt(a);
+    var t = dt(a);
 
     function a(e) {
       var n;
@@ -45801,8 +47115,8 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      it = void 0,
-      st = function st(e, t, a) {
+      mt = void 0,
+      ht = function ht(e, t, a) {
     if (0 === e.indexOf("</") && ">" == a && (t.push({
       data: "<",
       className: "tag-start"
@@ -45847,7 +47161,7 @@ module.exports = function (e) {
       className: "tag-end"
     }), e = ""), -1 !== e.indexOf("<") && ">" == e.charAt(e.length - 1)) {
       var n = e.substring(0, e.indexOf("<"));
-      (t = it.extractNotFiltered(t, n)).push({
+      (t = mt.extractNotFiltered(t, n)).push({
         data: "<",
         className: "tag-start"
       }), t.push({
@@ -45879,7 +47193,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      rt = function rt(e, t, a, n) {
+      pt = function pt(e, t, a, n) {
     var l = e.substring(0, e.indexOf("="));
     return 1 !== e.indexOf('="') && '"' == a && "start" !== n && "" !== l && (n = "start", t.push({
       data: l,
@@ -45908,7 +47222,7 @@ module.exports = function (e) {
       attribute: n
     };
   },
-      ot = function ot(e, t) {
+      vt = function vt(e, t) {
     return e && "=" == e.charAt(e.length - 1) && (t.push({
       className: "var",
       data: e.substring(0, e.length - 1)
@@ -45920,7 +47234,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      ct = function ct(e, t) {
+      gt = function gt(e, t) {
     return e && ":" == e.charAt(e.length - 1) && (t.push({
       className: "object-property",
       data: e.substring(0, e.length - 1)
@@ -45932,7 +47246,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      ut = function ut(e, t, a) {
+      yt = function yt(e, t, a) {
     if (-1 !== e.indexOf("(") && -1 !== e.indexOf(")") && !a) {
       var n = e.substring(0, e.indexOf("("));
       a = !0, t.push({
@@ -45957,7 +47271,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      dt = function dt(e, t, a) {
+      bt = function bt(e, t, a) {
     if (a) for (var n = 0; n <= a.length - 1; n++) {
       if (a[n]) {
         var l = a[n],
@@ -45979,7 +47293,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      ft = function ft(e, t) {
+      kt = function kt(e, t) {
     if (e && -1 !== e.indexOf("'")) {
       var a = e.substring(0, e.indexOf("'"));
       a && t.push({
@@ -45996,7 +47310,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      mt = function mt(e, t) {
+      Ct = function Ct(e, t) {
     if (e && -1 !== e.indexOf("{")) {
       var a = e.substring(0, e.indexOf("{"));
       a && t.push({
@@ -46069,7 +47383,7 @@ module.exports = function (e) {
     };
   };
 
-  function ht(e) {
+  function St(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -46095,11 +47409,11 @@ module.exports = function (e) {
     };
   }
 
-  var pt = ["tags", "properties", "variables", "objectProperty", "functions", "words", "quotes", "brackets"],
-      vt = function (e) {
+  var Et = ["tags", "properties", "variables", "objectProperty", "functions", "words", "quotes", "brackets"],
+      Nt = function (e) {
     h()(n, e);
     var t,
-        a = ht(n);
+        a = St(n);
 
     function n(e) {
       var t;
@@ -46120,7 +47434,7 @@ module.exports = function (e) {
         searchSensitive: s()(!0) !== s()(e.searchSensitive) || e.searchSensitive,
         lineNumberNewLine: s()(!0) !== s()(e.lineNumberNewLine) || e.lineNumberNewLine,
         noDataText: e.noDataText && s()("8") == s()(e.noDataText) ? e.noDataText : "",
-        sourceCode: e.sourceCode && s()([]) == s()(e.sourceCode) ? e.sourceCode : pt,
+        sourceCode: e.sourceCode && s()([]) == s()(e.sourceCode) ? e.sourceCode : Et,
         fallbackNoData: e.fallbackNoData ? e.fallbackNoData : "",
         fallbackNoDataSearch: e.fallbackNoDataSearch ? e.fallbackNoDataSearch : ""
       }, t.inputNode = k.a.createRef(), t;
@@ -46234,9 +47548,9 @@ module.exports = function (e) {
                 s.push({
                   codes: u
                 }), i == o && (this.setState({
-                  lines: [].concat(ke()(this.state.lines), ke()(s))
+                  lines: [].concat(Pe()(this.state.lines), Pe()(s))
                 }), s = []), r == t.length - 1 && (this.setState({
-                  lines: [].concat(ke()(this.state.lines), ke()(s))
+                  lines: [].concat(Pe()(this.state.lines), Pe()(s))
                 }), s = []);
 
               case 21:
@@ -46271,44 +47585,44 @@ module.exports = function (e) {
                 d += u[f];
 
                 for (var h = 0; h <= l.length - 1; h++) {
-                  if (s()("8") == s()(l[h]) && pt.includes(l[h])) {
+                  if (s()("8") == s()(l[h]) && Et.includes(l[h])) {
                     if ("tags" == l[h] && d.length) {
-                      var p = st(d, r, m);
+                      var p = ht(d, r, m);
                       d = p.characters, r = p.lines;
                     }
 
                     if ("properties" == l[h] && d.length) {
-                      var v = rt(d, r, m, o);
+                      var v = pt(d, r, m, o);
                       d = v.characters, r = v.lines, o = v.attribute;
                     }
 
                     if ("variables" == l[h] && d.length) {
-                      var g = ot(d, r);
+                      var g = vt(d, r);
                       d = g.characters, r = g.lines;
                     }
 
                     if ("objectProperty" == l[h] && d.length) {
-                      var y = ct(d, r);
+                      var y = gt(d, r);
                       d = y.characters, r = y.lines;
                     }
 
                     if ("functions" == l[h] && d.length) {
-                      var b = ut(d, r);
+                      var b = yt(d, r);
                       d = b.characters, r = b.lines;
                     }
 
                     if ("words" == l[h] && d.length) {
-                      var k = dt(d, r, n);
+                      var k = bt(d, r, n);
                       d = k.characters, r = k.lines;
                     }
 
                     if ("quotes" == l[h] && d.length) {
-                      var C = ft(d, r);
+                      var C = kt(d, r);
                       d = C.characters, r = C.lines;
                     }
 
                     if ("brackets" == l[h] && d.length) {
-                      var S = mt(d, r);
+                      var S = Ct(d, r);
                       d = S.characters, r = S.lines;
                     }
                   }
@@ -46343,44 +47657,44 @@ module.exports = function (e) {
               d += u[f];
 
               for (var h = 0; h <= n.length - 1; h++) {
-                if (s()("8") == s()(n[h]) && pt.includes(n[h])) {
+                if (s()("8") == s()(n[h]) && Et.includes(n[h])) {
                   if ("tags" == n[h] && d.length) {
-                    var p = st(d, i, m);
+                    var p = ht(d, i, m);
                     d = p.characters, i = p.lines;
                   }
 
                   if ("properties" == n[h] && d.length) {
-                    var v = rt(d, i, m, r);
+                    var v = pt(d, i, m, r);
                     d = v.characters, i = v.lines, r = v.attribute;
                   }
 
                   if ("variables" == n[h] && d.length) {
-                    var g = ot(d, i);
+                    var g = vt(d, i);
                     d = g.characters, i = g.lines;
                   }
 
                   if ("objectProperty" == n[h] && d.length) {
-                    var y = ct(d, i);
+                    var y = gt(d, i);
                     d = y.characters, i = y.lines;
                   }
 
                   if ("functions" == n[h] && d.length) {
-                    var b = ut(d, i, c);
+                    var b = yt(d, i, c);
                     d = b.characters, i = b.lines;
                   }
 
                   if ("words" == n[h] && d.length) {
-                    var k = dt(d, i, a);
+                    var k = bt(d, i, a);
                     d = k.characters, i = k.lines;
                   }
 
                   if ("quotes" == n[h] && d.length) {
-                    var C = ft(d, i);
+                    var C = kt(d, i);
                     d = C.characters, i = C.lines;
                   }
 
                   if ("brackets" == n[h] && d.length) {
-                    var S = mt(d, i);
+                    var S = Ct(d, i);
                     d = S.characters, i = S.lines;
                   }
                 }
@@ -46485,7 +47799,7 @@ module.exports = function (e) {
           searchSensitive: s()(!0) !== s()(e.searchSensitive) || e.searchSensitive,
           lineNumberNewLine: s()(!0) !== s()(e.lineNumberNewLine) || e.lineNumberNewLine,
           noDataText: e.noDataText && s()("8") == s()(e.noDataText) ? e.noDataText : "",
-          sourceCode: e.sourceCode && s()([]) == s()(e.sourceCode) ? e.sourceCode : pt,
+          sourceCode: e.sourceCode && s()([]) == s()(e.sourceCode) ? e.sourceCode : Et,
           fallbackNoData: e.fallbackNoData ? e.fallbackNoData : "",
           fallbackNoDataSearch: e.fallbackNoDataSearch ? e.fallbackNoDataSearch : ""
         } : null;
@@ -46493,7 +47807,7 @@ module.exports = function (e) {
     }]), n;
   }(b.Component);
 
-  function gt(e) {
+  function xt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -46519,391 +47833,9 @@ module.exports = function (e) {
     };
   }
 
-  var yt = function (e) {
+  var Pt = function (e) {
     h()(a, e);
-    var t = gt(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
-        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clouds-404",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
-        link: e.link && s()({}) == s()(e.link) ? e.link : {},
-        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
-        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
-        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
-        bad: s()(!0) == s()(e.bad) && e.bad
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-      }
-    }, {
-      key: "callback",
-      value: function value(e) {
-        var t = this.state.link;
-
-        if (t) {
-          var a = t.callback;
-          a && "function" == typeof a && a(e);
-        }
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.reactRouter,
-            n = t.text404,
-            i = t.text1,
-            r = t.text2,
-            o = t.bad,
-            c = t.addClass,
-            u = t.defaultClass,
-            d = t.id,
-            f = t.link,
-            m = f.href,
-            h = f.text,
-            p = f.props;
-        return k.a.createElement("div", {
-          className: "".concat(u, " ").concat(c),
-          id: d
-        }, k.a.createElement("div", {
-          className: "holder-404"
-        }, k.a.createElement("div", {
-          className: "cloud cloud-1"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-2"
-        }), 1 == o && k.a.createElement("div", {
-          className: "cloud cloud-3 bad-cloud-3"
-        }, k.a.createElement("div", {
-          className: "bolt bolt-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        })))), k.a.createElement("div", {
-          className: "bolt bolt-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        }))))), 0 == o && k.a.createElement("div", {
-          className: "cloud cloud-3"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-4"
-        }), 1 == o && k.a.createElement("div", {
-          className: "cloud cloud-5 bad-cloud-5"
-        }, k.a.createElement("div", {
-          className: "bolt bolt-3"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        })))), k.a.createElement("div", {
-          className: "bolt bolt-4"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        }))))), 0 == o && k.a.createElement("div", {
-          className: "cloud cloud-5"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-6"
-        })), k.a.createElement("div", {
-          className: "content-404"
-        }, k.a.createElement("div", {
-          className: "text-404"
-        }, n), k.a.createElement("hr", null), k.a.createElement("div", {
-          className: "text-1"
-        }, i), k.a.createElement("div", {
-          className: "text-2"
-        }, r), m && s()("8") == s()(m) && 1 == a && k.a.createElement(_, l()({
-          className: "button-navigation",
-          to: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h), m && s()("8") == s()(m) && !1 === a && k.a.createElement("a", l()({
-          className: "button-navigation",
-          href: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h)));
-      }
-    }]), a;
-  }(b.Component);
-
-  function bt(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return v()(this, a);
-    };
-  }
-
-  var kt = function (e) {
-    h()(a, e);
-    var t = bt(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
-        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-clouds-mountains-404",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        reactRouter: s()(!0) == s()(e.reactRouter) && e.reactRouter,
-        link: e.link && s()({}) == s()(e.link) ? e.link : {},
-        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
-        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
-        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
-        bad: s()(!0) == s()(e.bad) && e.bad
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-      }
-    }, {
-      key: "callback",
-      value: function value(e) {
-        var t = this.state.link;
-
-        if (t) {
-          var a = t.callback;
-          a && "function" == typeof a && a(e);
-        }
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.reactRouter,
-            n = t.link,
-            i = t.text404,
-            r = t.text1,
-            o = t.text2,
-            c = t.bad,
-            u = t.addClass,
-            d = t.defaultClass,
-            f = t.id,
-            m = n.href,
-            h = n.text,
-            p = n.props;
-        return k.a.createElement("div", {
-          className: "".concat(d, " ").concat(u),
-          id: f
-        }, k.a.createElement("div", {
-          className: "holder-404"
-        }, k.a.createElement("div", {
-          className: "cloud cloud-1"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-2"
-        }), 1 == c && k.a.createElement("div", {
-          className: "cloud cloud-3 bad-cloud-3"
-        }, k.a.createElement("div", {
-          className: "bolt bolt-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        })))), k.a.createElement("div", {
-          className: "bolt bolt-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        }))))), 0 == c && k.a.createElement("div", {
-          className: "cloud cloud-3"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-4"
-        }), 1 == c && k.a.createElement("div", {
-          className: "cloud cloud-5 bad-cloud-5"
-        }, k.a.createElement("div", {
-          className: "bolt bolt-3"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        })))), k.a.createElement("div", {
-          className: "bolt bolt-4"
-        }, k.a.createElement("div", {
-          className: "bolt-part-1"
-        }, k.a.createElement("div", {
-          className: "bolt-part-2"
-        }, k.a.createElement("div", {
-          className: "bolt-part-3"
-        }))))), 0 == c && k.a.createElement("div", {
-          className: "cloud cloud-5"
-        }), k.a.createElement("div", {
-          className: "cloud cloud-6"
-        })), k.a.createElement("div", {
-          className: "mountains-holder-1"
-        }, k.a.createElement("div", {
-          className: "mountain"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        }))), k.a.createElement("div", {
-          className: "mountain-two"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        }))), k.a.createElement("div", {
-          className: "mountain-three"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        })))), k.a.createElement("div", {
-          className: "mountains-holder-2"
-        }, k.a.createElement("div", {
-          className: "mountain"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        }))), k.a.createElement("div", {
-          className: "mountain-two"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        }))), k.a.createElement("div", {
-          className: "mountain-three"
-        }, k.a.createElement("div", {
-          className: "mountain-top"
-        }, k.a.createElement("div", {
-          className: "mountain-cap-1"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-2"
-        }), k.a.createElement("div", {
-          className: "mountain-cap-3"
-        })))), k.a.createElement("div", {
-          className: "content-404"
-        }, k.a.createElement("div", {
-          className: "text-404"
-        }, i), k.a.createElement("hr", null), k.a.createElement("div", {
-          className: "text-1"
-        }, r), k.a.createElement("div", {
-          className: "text-2"
-        }, o), m && s()("8") == s()(m) && 1 == a && k.a.createElement(_, l()({
-          className: "button-navigation",
-          to: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h), m && s()("8") == s()(m) && !1 === a && k.a.createElement("a", l()({
-          className: "button-navigation",
-          href: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h)));
-      }
-    }]), a;
-  }(b.Component);
-
-  function Ct(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return v()(this, a);
-    };
-  }
-
-  var St = function (e) {
-    h()(a, e);
-    var t = Ct(a);
+    var t = xt(a);
 
     function a(e) {
       var n;
@@ -47158,153 +48090,8 @@ module.exports = function (e) {
         }), p)));
       }
     }]), a;
-  }(b.Component);
-
-  function Et(e) {
-    var t = function () {
-      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" == typeof Proxy) return !0;
-
-      try {
-        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
-      } catch (e) {
-        return !1;
-      }
-    }();
-
-    return function () {
-      var a,
-          n = y()(e);
-
-      if (t) {
-        var l = y()(this).constructor;
-        a = Reflect.construct(n, arguments, l);
-      } else a = n.apply(this, arguments);
-
-      return v()(this, a);
-    };
-  }
-
-  var Nt = function (e) {
-    h()(a, e);
-    var t = Et(a);
-
-    function a(e) {
-      var n;
-      return o()(this, a), (n = t.call(this, e)).state = {
-        active: !0,
-        moduleStyle: s()(!0) == s()(e.moduleStyle) && e.moduleStyle,
-        globalStyle: s()(!0) == s()(e.globalStyle) && e.globalStyle,
-        addClass: e.addClass && s()("8") == s()(e.addClass) ? e.addClass : "",
-        defaultClass: e.defaultClass && s()("8") == s()(e.defaultClass) ? e.defaultClass : "rr-lightbulb-404",
-        id: e.id && s()("8") == s()(e.id) ? e.id : "",
-        reactRouter: !!n.props.reactRouter && n.props.reactRouter,
-        link: e.link && s()({}) == s()(e.link) ? e.link : {},
-        text404: e.text404 && s()("8") == s()(e.text404) ? e.text404 : "404",
-        text1: e.text1 && s()("8") == s()(e.text1) ? e.text1 : "requested page",
-        text2: e.text2 && s()("8") == s()(e.text2) ? e.text2 : "was not found",
-        bad: s()(!0) == s()(e.bad) && e.bad
-      }, n;
-    }
-
-    return u()(a, [{
-      key: "componentDidMount",
-      value: function value() {
-        P(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-      }
-    }, {
-      key: "callback",
-      value: function value(e) {
-        var t = this.state.link;
-
-        if (t) {
-          var a = t.callback;
-          a && "function" == typeof a && a(e);
-        }
-      }
-    }, {
-      key: "toggleLight",
-      value: function value(e) {
-        e && this.setState({
-          active: !1
-        }), e || this.setState({
-          active: !0
-        });
-      }
-    }, {
-      key: "render",
-      value: function value() {
-        var e = this,
-            t = this.state,
-            a = t.active,
-            n = t.reactRouter,
-            i = t.link,
-            r = t.text404,
-            o = t.text1,
-            c = t.text2,
-            u = (t.bad, t.addClass),
-            d = t.defaultClass,
-            f = t.id,
-            m = i.href,
-            h = i.text,
-            p = i.props;
-        return k.a.createElement("div", {
-          className: "".concat(d, " ").concat(u),
-          id: f
-        }, k.a.createElement("div", {
-          className: "holder-404"
-        }, k.a.createElement("div", {
-          className: "content-404"
-        }, k.a.createElement("div", {
-          className: "container"
-        }, k.a.createElement("div", {
-          className: "text-404"
-        }, r), k.a.createElement("hr", null), k.a.createElement("div", {
-          className: "lightbulb-holder"
-        }, k.a.createElement("div", {
-          className: "base"
-        }), k.a.createElement("div", {
-          className: "lightbulb-".concat(a ? "on" : "off")
-        })), k.a.createElement("div", {
-          className: "buttons-container"
-        }, k.a.createElement("div", {
-          className: "buttons"
-        }, k.a.createElement("div", {
-          className: 1 == a ? "on active" : "on",
-          onClick: function onClick() {
-            return e.toggleLight(!1);
-          }
-        }), k.a.createElement("div", {
-          className: 0 == a ? "off active" : "off",
-          onClick: function onClick() {
-            return e.toggleLight(!0);
-          }
-        }))), k.a.createElement("div", {
-          className: "text-1"
-        }, o), k.a.createElement("div", {
-          className: "text-2"
-        }, c, !a && k.a.createElement("div", {
-          className: ""
-        })), m && s()("8") == s()(m) && 1 == n && k.a.createElement(_, l()({
-          className: "button-navigation",
-          to: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h), m && s()("8") == s()(m) && !1 === n && k.a.createElement("a", l()({
-          className: "button-navigation",
-          href: m
-        }, p, {
-          onClick: function onClick(t) {
-            return e.callback(t);
-          }
-        }), h)))));
-      }
-    }]), a;
   }(b.Component),
-      xt = function xt() {
+      Dt = function Dt() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
@@ -47325,9 +48112,9 @@ module.exports = function (e) {
       }
     }
   },
-      Pt = function () {
+      wt = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = Le()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = Ae()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -47438,8 +48225,8 @@ module.exports = function (e) {
       }
     }]), e;
   }(),
-      Dt = function Dt(e, t) {
-    var a = new Pt();
+      Tt = function Tt(e, t) {
+    var a = new wt();
     e && s()(8) == s()(e) && a.setScrollTime(e), t && s()("8") == s()(t) && a.setScrollBehavior(t);
 
     var n = function n() {
@@ -47495,30 +48282,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Pages_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("./Website/Pages/ReactRevolutionClipboard.jsx");
 /* harmony import */ var _Website_Pages_ReactRevolutionClouds404__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/ReactRevolutionClouds404.jsx");
 /* harmony import */ var _Website_Pages_ReactRevolutionCloudsMountains404__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/ReactRevolutionCloudsMountains404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/ReactRevolutionCustomSuggestion.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListArray.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListObject.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenOverlay.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/ReactRevolutionGlobalMessages.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/ReactRevolutionIcons.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/ReactRevolutionInputAnimation.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFile.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFileDragDrop.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionArray.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionObject.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/ReactRevolutionLightbulb404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadingBoxTop.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/ReactRevolutionMenuClickHorizontal.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerStatic.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerDynamic.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__("./Website/Pages/ReactRevolutionPopupBox.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadOnScroll.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__("./Website/Pages/ReactRevolutionScrollTo.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__("./Website/Pages/ReactRevolutionSourceCode.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__("./Website/Pages/ReactRevolutionSidebar.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__("./Website/Pages/ReactRevolutionTable.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__("./Website/Pages/ReactRevolutionTextWriter.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__("./Website/Pages/ReactRevolutionWater404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/ReactRevolutionContainer.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/ReactRevolutionCustomSuggestion.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListArray.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListObject.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenOverlay.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/ReactRevolutionGlobalMessages.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/ReactRevolutionIcons.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/ReactRevolutionInputAnimation.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFile.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFileDragDrop.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionArray.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionObject.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/ReactRevolutionLightbulb404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadingBoxTop.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__("./Website/Pages/ReactRevolutionMenuClickHorizontal.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerStatic.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerDynamic.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__("./Website/Pages/ReactRevolutionPopupBox.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadOnScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__("./Website/Pages/ReactRevolutionScrollTo.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__("./Website/Pages/ReactRevolutionSourceCode.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__("./Website/Pages/ReactRevolutionSidebar.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__("./Website/Pages/ReactRevolutionTable.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__("./Website/Pages/ReactRevolutionTextWriter.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__("./Website/Pages/ReactRevolutionWater404.jsx");
 
 
 
@@ -47581,6 +48369,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
 var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(App, _React$Component);
 
@@ -47598,7 +48387,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
-      host: "http://localhost:3000/",
+      host: "https://react-revolution.j.pl/",
       suggestions: [],
       inputValue: ''
     };
@@ -47611,7 +48400,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if ('' == window.location.hash || 'http:' == window.location.protocol && "http://localhost:3000/" == 'https://react-revolution.j.pl/') {
+      if ('' == window.location.hash || 'http:' == window.location.protocol && "https://react-revolution.j.pl/" == 'https://react-revolution.j.pl/') {
         window.location.href = "".concat(this.state.host, "#/");
       }
 
@@ -47787,6 +48576,9 @@ var App = /*#__PURE__*/function (_React$Component) {
             }, {
               text: 'Clipboard',
               href: "".concat(host, "#/react-revolution-clipboard")
+            }, {
+              text: 'Container',
+              href: "".concat(host, "#/react-revolution-container")
             }, {
               text: 'CustomSuggestion',
               href: "".concat(host, "#/react-revolution-custom-suggestion")
@@ -48010,147 +48802,153 @@ var App = /*#__PURE__*/function (_React$Component) {
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
+          path: "/react-revolution-container",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_28__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
           path: "/react-revolution-custom-suggestion",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_28__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_29__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_29__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_30__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_30__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_31__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-overlay",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_31__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_32__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-global-messages",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_32__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_33__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-icons",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_33__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_34__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-animation",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_34__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_35__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-file",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_35__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_36__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-file-drag-drop",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_36__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_37__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_37__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_38__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_38__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_39__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-loading-box-top",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_40__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_41__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-menu-click-horizontal",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_41__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_42__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-pager-static",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_42__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_43__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-pager-dynamic",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_43__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_44__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-popup-box",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_44__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_45__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-load-on-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_45__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_46__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-lightbulb-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_39__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_40__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-sidebar",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_48__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_49__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-text-writer",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_50__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_51__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-table",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_49__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_50__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-scroll-to",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_46__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_47__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-source-code",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_47__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_48__["default"], props);
           }
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
           exact: true,
           path: "/react-revolution-water-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_51__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__["default"], props);
           }
         }))),
         footerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_11__["default"], null)

@@ -25,6 +25,7 @@ class Home extends React.Component {
         const items = [
             'You Are Awesome',
             'By David Janitzek',
+            "It's so good to see you"
         ];
 
         return items[Math.floor(Math.random() * items.length)];

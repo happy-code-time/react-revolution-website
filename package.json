@@ -6,7 +6,7 @@
   "scripts": {
     "build:module": "node ./node_modules/.bin/webpack --config webpack.module.production.js --mode production",
     "build:module:dev": "node node_modules/webpack/bin/webpack.js --config webpack.module.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
-    "build:website": "node ./node_modules/.bin/webpack --config webpack.website.production.js --mode production",
+    "build:website": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --progress --profile --colors",
     "build:website:dev": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
     "server": "lite-server -c bs-config.json",
     "compile": "./node_modules/.bin/gulp compile",

@@ -1,4 +1,10 @@
 .Content {
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  // scrollbar-color: rgba(122,122,122,.88) transparent;
+  // scrollbar-width: thin;
+  // height: 100vh;
+
   .head {
     background-color: #1873cc;
     border-bottom: none;
@@ -11,18 +17,15 @@
 
   .main-title-box {
     width: 100vw;
-    height: calc(100vh - 60px);
+    min-height: calc(70vh - 60px);
     display: flex;
-    background-image: url("https://react-revolution.j.pl/public/images/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $dodgerblue;
+    background-color: $white;
 
     .main-title {
       margin: 5vh auto;
 
       h1 {
-        font-size: 2rem;
+        font-size: 2.3rem;
         letter-spacing: 0.07rem;
       }
 
@@ -30,14 +33,19 @@
       h2,
       i {
         display: block;
-        color: $white;
+        color: #72777a;
         margin: 20px auto;
         text-align: center;
       }
 
+      h2{
+        font-size: 1.2rem;
+      }
+
       i {
         margin: 10vh auto;
-        font-size: 6rem;
+        font-size: 7rem;
+        color: $dodgerblue;
       }
     }
   }

@@ -142,7 +142,8 @@ class ReactRevolutionAccordion extends React.Component {
         this.examples = [
             {
                 title: 'Accordion',
-                description: trans('accordion.description'),
+                // description: trans('accordion.description'),
+                description: '',
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',

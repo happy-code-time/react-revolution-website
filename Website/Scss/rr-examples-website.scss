@@ -1,71 +1,78 @@
-#app .Generator{
+#app .Generator {
+
     // Cards
     .rr-cards {
         max-width: 1140px;
         margin: 0 auto;
-        
-        .card{
+
+        .card {
             width: calc(100% - 20px);
             margin: 10px;
         }
     }
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
         .rr-cards {
-            .card{
+            .card {
                 width: 25% !important;
                 margin: 30px calc(4% - 2px) !important;
             }
         }
     }
+
     // Cards scroll
-    .section-cards-scroll{
+    .section-cards-scroll {
         height: 300px;
+        scrollbar-color: rgba(122,122,122,.88) transparent;
+        scrollbar-width: thin;
 
         .rr-cards-scroll {
             max-width: 1140px;
             margin: 0 auto;
-            
-            .card{
+
+            .card {
                 width: calc(100% - 20px);
                 margin: 10px;
-                
-                .content{
+
+                .content {
                     height: 100px;
                 }
             }
         }
-    
-        @media screen and (min-width: 1024px){
+
+        @media screen and (min-width: 1024px) {
             .rr-cards-scroll {
-                .card{
+                .card {
                     width: 25% !important;
                     margin: 30px calc(4% - 2px) !important;
                 }
             }
         }
     }
+
     // Cards scroll callback
-    .section-cards-scroll-callback{
+    .section-cards-scroll-callback {
         height: 500px;
 
         .rr-cards-scroll-callback {
             max-width: 1140px;
             margin: 0 auto;
-            
-            .cards-group{
+            scrollbar-color: rgba(122,122,122,.88) transparent;
+            scrollbar-width: thin;
 
-                .card{
+            .cards-group {
 
-                    @media screen and (min-width: 1024px){
+                .card {
+
+                    @media screen and (min-width: 1024px) {
                         width: 25%;
                         margin: 30px calc(4% - 2px);
                     }
-    
+
                     width: calc(100% - 20px);
                     margin: 10px;
-                    
-                    .content{
+
+                    .content {
                         height: 100px;
                     }
                 }
@@ -73,18 +80,18 @@
         }
     }
 
-    .rr-revolution-button-clipboard{
+    .rr-revolution-button-clipboard {
         box-sizing: border-box;
         padding: 10px 15px;
         border-radius: 3px;
         margin: 0 auto;
-        background-color: rgb(244,69,89);
-        box-shadow: 0px 0px 3px rgb(244,69,89);
+        background-color: rgb(244, 69, 89);
+        box-shadow: 0px 0px 3px rgb(244, 69, 89);
         font-size: 0.87rem;
-        color: rgb(255,255,255);
+        color: rgb(255, 255, 255);
     }
 
-    .fullscreen-overlay-example{
+    .fullscreen-overlay-example {
         position: absolute; // important
         top: 20vh; // important
         left: 35vw; // important
@@ -93,54 +100,57 @@
         display: flex;
         flex-direction: column;
         border-radius: 3px;
-        background-color: rgb(255,255,255);
+        background-color: rgb(255, 255, 255);
 
-        p{
+        p {
             margin: auto;
         }
 
-        .dimmed:hover{
+        .dimmed:hover {
             cursor: pointer;
         }
     }
 
-    .rr-icons{
+    .rr-icons {
         width: 50vw;
         min-width: 500px;
         margin: 0 auto;
-        border: 1px solid rgb(222,222,222);
+        border: 1px solid rgb(222, 222, 222);
         border-radius: 3px;
     }
 
-    .rr-input-file {        
+    .rr-input-file {
         .label {
-          margin: 0 8px;
+            margin: 0 8px;
         }
     }
 
-    .rr-revolution-popupbox-example{
+    .rr-revolution-popupbox-example {
         width: 50px;
         height: 50px;
-        margin:0 auto;
+        margin: 0 auto;
         text-align: center;
 
-        .rr-popupbox{
+        .rr-popupbox {
             float: left;
         }
-        .icon{
-            color: rgb(69,69,69);
+
+        .icon {
+            color: rgb(69, 69, 69);
         }
-        .icon:hover{
+
+        .icon:hover {
             cursor: pointer;
         }
-        .box{
+
+        .box {
             width: 200px;
             height: 100px;
-            background-color: rgb(255,255,255);
+            background-color: rgb(255, 255, 255);
         }
     }
 
-    .rr-revolution-sidebar-example{
+    .rr-revolution-sidebar-example {
         position: relative;
         min-height: 300px;
         height: 50vh;
@@ -150,7 +160,7 @@
         box-sizing: border-box;
         padding: 2px;
 
-        .rr-sidebar{
+        .rr-sidebar {
             border: 1px solid #dadce0;
             border-radius: 3px;
             height: calc(100% - 2px); // to see the border
@@ -158,7 +168,7 @@
         }
     }
 
-    .rr-revolution-loadonscroll-example{
+    .rr-revolution-loadonscroll-example {
         min-width: 300px;
         width: 50vw;
         height: 200px;
@@ -166,81 +176,82 @@
         overflow-x: hidden;
         overflow-y: auto;
 
-        p{
+        p {
             line-height: 30px;
         }
     }
 
-    .rr-table-key-value{
-        .title{
+    .rr-table-key-value {
+        .title {
             background-color: #1873cc;
 
             .key,
-            .value{
-                color: rgb(255,255,255);
+            .value {
+                color: rgb(255, 255, 255);
             }
 
-            .value{
+            .value {
                 border-left: unset;
             }
         }
 
-        .key{
+        .key {
             width: 70px;
         }
 
-        .value{
-            @media screen and (min-width: 1024px){
-                padding-left: 20px;                
+        .value {
+            @media screen and (min-width: 1024px) {
+                padding-left: 20px;
             }
+
             box-sizing: border-box;
             padding-left: 5px;
             width: calc(100% - 70px);
         }
     }
 
-    .rr-breadcrumbs-example{
+    .rr-breadcrumbs-example {
         width: 100%;
         min-height: 50px;
         line-height: 50px;
 
-        .single-entry-delimiter{
-            color: rgb(82,82,82);
+        .single-entry-delimiter {
+            color: rgb(82, 82, 82);
         }
 
         span,
-        a{
-            color: rgb(163,163,163);
+        a {
+            color: rgb(163, 163, 163);
         }
 
-        a{
-            margin:0 5px;
+        a {
+            margin: 0 5px;
         }
 
-        .menu-span{   
+        .menu-span {
 
-            .text{
+            .text {
                 min-width: 65px;
-                text-align: center; 
+                text-align: center;
             }
 
-            .text:hover{
+            .text:hover {
                 cursor: pointer;
             }
 
-            .hasChildren{
+            .hasChildren {
                 border: unset;
             }
 
-            .children{
+            .children {
                 position: absolute;
                 width: 100%;
-                padding:0;
-                background-color: rgb(255,255,255);
+                padding: 0;
+                background-color: rgb(255, 255, 255);
                 border-radius: 3px;
-                box-shadow: 0px 0px 3px rgb(122,122,122);
+                box-shadow: 0px 0px 3px rgb(122, 122, 122);
 
-                .child{
+                .child {
                     box-sizing: border-box;
                     margin: 5px 0;
                     padding: 0 5px;
@@ -249,95 +260,193 @@
         }
     }
 
-    .rr-pager-dynamic{
-        ul{
+    .rr-pager-dynamic {
+        ul {
             position: relative;
 
-            .pager-loading{
+            .pager-loading {
                 position: absolute;
-                top:0;
+                top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(222,222,222,.44);
+                background-color: rgba(222, 222, 222, .44);
                 text-align: center;
                 display: flex;
                 vertical-align: middle;
 
-                p{
+                p {
                     margin: auto;
                 }
             }
         }
     }
-    
+
     .rr-pager-static,
     .rr-pager-dynamic {
-        
-        ul{
+
+        ul {
             box-sizing: border-box;
             padding: 10px;
             height: 320px;
-            border: 1px solid rgb(222,222,222);
+            border: 1px solid rgb(222, 222, 222);
             margin: 10px 0;
             border-radius: 3px;
         }
-    
-        .pagination-paging{
+
+        .pagination-paging {
             display: flex;
             justify-content: space-around;
             min-width: 200px;
         }
 
-        .pagination-pages{
+        .pagination-pages {
             width: 100%;
             text-align: center;
             clear: both;
         }
 
-        .buttons{
+        .buttons {
             margin: 10px calc(50% - 155px);
             width: 310px;
             box-sizing: border-box;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgb(222,222,222);
+            border-bottom: 1px solid rgb(222, 222, 222);
             border-radius: 3px;
         }
-    
+
         .previous-page,
         .current-page,
-        .next-page{
+        .next-page {
             display: inline-block;
             width: 30px;
             height: 30px;
             text-align: center;
             line-height: 30px;
             border-radius: 3px;
-            border:1px solid rgb(222,222,222);
+            border: 1px solid rgb(222, 222, 222);
             margin: 0 5px;
         }
-    
-        .current-page{
+
+        .current-page {
             background-color: #1873cc;
-            color: rgb(255,255,255)
+            color: rgb(255, 255, 255)
         }
-    
-        .delete{
+
+        .delete {
             display: inline-block;
             width: 30px;
             text-align: center;
             color: #FF4469;
         }
-    
-        .delete:hover{
+
+        .delete:hover {
             cursor: pointer;
         }
     }
 
-    .rr-scroll-to{
+    .rr-scroll-to {
+
         .to-bottom,
-        .to-top{
+        .to-top {
             margin: auto;
+        }
+    }
+
+    .rr-container.container-example {
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        border: 1px solid silver;
+
+        .SideBar {
+            width: 150px;
+            transition-duration: $default_transition;
+
+            .logo{
+                margin-left: 5px;
+            }
+
+            .rr-menu-click-horizontal {
+                height: calc(100% - 60px);
+                overflow-x: hidden;
+                overflow-y: hidden;
+
+                .single-entry {
+                    border-radius: 0px;
+                    margin: 7px 10px;
+                    border: none;
+                    display: block;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    transition-duration: $default_transition;
+
+                    i{
+                        display: inline-block;
+                        font-size: 1.3rem;
+                        margin: 0 25px 0 5px;
+                    }
+
+                    .text,
+                    a {
+                        color: #7c8695;
+                        font-size: 0.87rem;
+                        letter-spacing: 0.0111rem;
+                        transition-duration: $default_transition;
+                        padding-left: 0px;
+                    }
+
+                    .hasChildren {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .rr-menu-click-horizontal:hover {
+                overflow-y: auto;
+            }
+        }
+        .SideBar.SideBar-min {
+            width: 50px;
+        }
+        .SideBar.SideBar-min:hover {
+            width: 150px;
+        }
+        .Content{
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-color: rgba(122,122,122,.88) transparent;
+            scrollbar-width: thin;
+            height: 100vh;
+
+            @media screen and (min-width: 720px){
+                width: calc(100% - 150px);
+                left: 150px;
+            }
+            width: 100%;
+            left: 0px;
+        }
+        .Content.Content-min{
+            width: calc(100% - 50px);
+            left: 50px;
+        }
+
+        .CONTENT,
+        .FOOTER{
+            width: calc(100% - 20px);
+            border-radius: 10px;
+            border:1px dashed black;
+            margin: 10px;
+        }
+
+        .CONTENT{
+            height: calc(80vh - 20px);
+        }
+
+        .FOOTER{
+            height: calc(20vh - 20px);
         }
     }
 }

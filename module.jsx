@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Lightbulb404 } from './react-revolution/public/react-revolution';
+import { Container, SideBar, MenuClickHorizontal } from './react-revolution/public/react-revolution';
 
 //import { Breadcrumbs } from 'react-revolution';
 
-import './react-revolution/sass/rr-lightbulb-404.scss';
+import './react-revolution/sass/rr-container.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -57,18 +57,109 @@ class App extends React.Component {
         console.info(data);
     }
 
-    callback(e){
+    callback(e) {
         console.log(e);
     }
 
     render() {
         return (
-            <Lightbulb404 
-                link={
-                    {
-                        text: '3333',
-                        href: '333'
-                    }
+            <Container
+                persistUserSelection={false} // set local sotrage on click
+                clearPersistUserSelection={true} // do not remove the local storage on component did mount
+                sidebarMinifiedAt={1024}
+                sidebarMaxifiedAt={720}
+                displayMinifyMaxifyIcon={true}
+                minify={false}
+                autopilot={true}
+                toggleMenuHtml={
+                    <i className="fas fa-bars " />
+                }
+                closeMenuHtml={
+                    <i className="fas fa-angle-left" />
+                }
+                moduleSidebar={
+                    <SideBar
+                        image={<img alt="image" src='./public/images/icon-48.png' />}
+                        textLong='text long'
+                        textShort='text short'
+                        href={undefined}
+                        globalStyle={true} // load css for react-revolution globally
+                        moduleMenu={
+                            <MenuClickHorizontal
+                                reactRouter={false}
+                                animation='height'
+                                dropDown={
+                                    (
+                                        <i className="fas fa-angle-down dropDownIcon"></i>
+                                    )
+                                }
+                                data={
+                                    [
+                                        {
+                                            icon: <i className="fas fa-golf-ball"></i>,
+                                            text: 'Golf',
+                                            data: [
+                                                {
+                                                    text: 'Golf 1'
+                                                },
+                                                {
+                                                    text: 'Golf 2'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            icon: <i className="fas fa-pump-soap"></i>,
+                                            text: 'Pump Soap',
+                                            data: [
+                                                {
+                                                    text: 'Soap 1'
+                                                },
+                                                {
+                                                    text: 'Soap 2'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            icon: <i className="fas fa-puzzle-piece"></i>,
+                                            text: 'Puzzle',
+                                            data: [
+                                                {
+                                                    text: 'Puzzle 1'
+                                                },
+                                                {
+                                                    text: 'Puzzle 2'
+                                                }
+                                            ]
+                                        },
+                                    ]
+                                }
+                            />
+                        }
+                    />
+                }
+                headerProps={undefined}
+                headerData={
+                    (
+                        <p>
+                            HEADER
+                        </p>
+                    )
+                }
+                contentProps={undefined}
+                contentData={
+                    (
+                        <p>
+                            CONTENT
+                        </p>
+                    )
+                }
+                footerProps={undefined}
+                footerData={
+                    (
+                        <p>
+                            FOOTER
+                        </p>
+                    )
                 }
             />
         )

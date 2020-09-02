@@ -832,12 +832,12 @@ const PL = {
     "pagination.totalPages": {
         "description": "Całkowita liczba dostępnych stron.",
         "type": "Number",
-        "domyślny": "0"
+        "default": "0"
     },
     "pagination.globalCount": {
         "description": "Całkowita liczba dostępnych pozycji.",
         "type": "Number",
-        "domyślny": "0"
+        "default": "0"
     },
     "pagination.alignPagesItems": {
         "description": "Struktura renderowanych elementów. Dostępne opcje: 1, 2, 3, 4, 5.",
@@ -1049,7 +1049,7 @@ const PL = {
         "default": "300"
     },
     "navigationTarget": {
-        "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). ",
+        "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). Jeśli klucz `` html '' jest pusty / niezdefiniowany, a wartość jest 'bottom' - wówczas moduł zwraca przewijanie do dołu predefiniowany html i przewijanie do dołu funkcjonalność, jeśli wartość to 'top' - wówczas moduł ponownie dostraja przewijanie do góry predefiniowany html i przewijanie do góry funkcjonalności. ",
         "type": "JSX | String",
         "default": "<pusty ciąg>"
     },
@@ -1058,6 +1058,86 @@ const PL = {
         "type": "JSX | String",
         "default": "<pusty ciąg>"
     },
+    "persistUserSelection": {
+        "description": "Zapisz bieżące ustawienia przełączanego paska bocznego. Jeśli użytkownik odświeży stronę, zostaną użyte poprzednie ustawienia pasków bocznych.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "clearPersistUserSelection": {
+        "description": "Wyczyść poprzedni stan zapisanych pasków bocznych.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "sidebarMinifiedAt": {
+        "description": "Jeśli klucz 'autopilot' jest prawdziwy, zmniejsz pasek boczny do minimalnej szerokości, jeśli fałsz, ukryj pasek boczny - przełącza się go za pomocą klawisza 'toggleMenuHtml'.",
+        "type": "Number",
+        "default": "720"
+    },
+    "sidebarMaxifiedAt": {
+        "description": "Maksymalizuj poprzednio zminimalizowany pasek boczny do szerokości głównej (bazowej).",
+        "type": "Number",
+        "default": "1024"
+    },
+    "displayMinifyMaxifyIcon": {
+        "description": "Renderuj boczne paski przełączające HTML - JSX z klucza 'toggleMenuHtml'.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "minify": {
+        "description": "Czy pasek boczny (całkowicie) jest zminimalizowany.",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    "autopilot": {
+        "description": "Jeśli prawda, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 3 krokach. Jeśli wartość false, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 2 krokach.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "toggleMenuHtml": {
+        "description": "Niestandardowy JSX używany jako ikona przełączająca na pasku bocznym. Ten kod HTML znajduje się w treści nagłówków.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "closeMenuHtml": {
+        "description": "Niestandardowy JSX używany jako ikona zamykania na pasku bocznym, jeśli szerokość dokumentów jest mniejsza niż wartość przekazana do modułu za pomocą klucza 'sidebarMinifiedAt'.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "moduleSidebar": {
+        "description": "Moduł 'MenuClickHorizontal'.",
+        "type": "Moduł",
+        "default": "undefined"
+    },
+    "headerData": {
+        "description": "Niestandardowy JSX w obszarze nagłówków.",
+        "type": "Moduł",
+        "default": "<pusty ciąg>"
+    },
+    "headerProps": {
+        "description": "Właściwości elementu div nagłówka.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "contentData": {
+        "description": "Niestandardowy JSX w obszarze zawartości.",
+        "type": "Moduł",
+        "default": "<pusty ciąg>"
+    },
+    "contentProps": {
+        "description": "Właściwości div środkowej części.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "footerData": {
+        "description": "Niestandardowy JSX w obszarze stopki.",
+        "type": "Moduł",
+        "default": "<pusty ciąg>"
+    },
+    "footerProps": {
+        "description": "Właściwości elementu div stopki.",
+        "type": "Object",
+        "default": "{}"
+    }
 };
 
 export default PL;

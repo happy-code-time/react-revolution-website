@@ -1,21 +1,17 @@
 .rr-scroll-to{
     .to-top,
     .to-bottom{
-        width:50px;
-        height:50px;
+        width: 40px;
+        height:40px;
         border-radius:50%;
-        background:rgba(30,50,80,7);
-        cursor:pointer;
+        border: 1px solid #dadce0;
     }
     .to-top:hover,
     .to-bottom:hover{
         cursor: pointer;
     }
     .arrow{
-        font-size:22px;
-        font-weight: 600;
-        color:rgb(255,255,255);
         text-align:center;
-        line-height:45px;
+        line-height:40px;
     }
 }

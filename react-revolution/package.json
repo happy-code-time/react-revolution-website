@@ -4,7 +4,7 @@
   "description": "React Revolution - build interactive modules for react projects",
   "main": "public/react-revolution.js",
   "scripts": {
-    "build": "node ./node_modules/.bin/webpack --config webpack.config.production.js --module-bind js=babel-loader --progress --profile --colors",
+    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.production.js --module-bind js=babel-loader --progress --profile --colors",
     "build:dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.production.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors"
   },
   "keywords": [
@@ -12,6 +12,7 @@
     "Accordion",
     "Breadcrumbs",
     "Cards ",
+    "Container",
     "ScrollTo",
     "Clipboard",
     "GlobalMessages",
@@ -24,12 +25,14 @@
     "Pagination",
     "Menu",
     "PopupBox",
+    "ScrollTo",
     "SideBar",
     "SourceCode",
     "Suggestion",
     "Table",
     "TextWriter",
-    "404"
+    "404",
+    "NotFound"
   ],
   "author": "David Janitzek",
   "email": "david.janitzek@gmail.com",
