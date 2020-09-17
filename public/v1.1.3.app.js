@@ -126,26 +126,27 @@ var buildModulesJsx = function buildModulesJsx() {
       css = object.css,
       html = object.html,
       description = object.description,
-      live = object.live;
+      live = object.live,
+      isFunction = object.isFunction;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "code-example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     className: "h1-title border-none text-center"
   }, title), description && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "description"
-  }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, description), live && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle'), " ").concat(count),
     className: "h1-example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-user"
-  }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle')), live, reactTextBefore && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle')), live && live, reactTextBefore && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "description"
   }, reactTextBefore), react && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    title: "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle'), " ").concat(count),
+    title: isFunction ? "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactFunctionTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle'), " ").concat(count) : "".concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactCodeTitle'), " - ").concat(Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('exampleTitle'), " ").concat(count),
     className: "h1-example"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fas fa-atom"
-  }), Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
+  }), isFunction ? Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactFunctionTitle') : Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_2__["default"])('reactCodeTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_1__["SourceCode"], {
     lineNumber: true,
     layout: "dark",
     code: react
@@ -543,11 +544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appName", function() { return appName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appNameShort", function() { return appNameShort; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "host", function() { return host; });
-var version = '1.1.3';
+var version = '1.1.4';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
 var author = "David Janitzek";
-var host = "https://react-revolution.j.pl/";
+var host = "http://localhost:3000/";
 
 
 /***/ }),
@@ -600,7 +601,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      host: "https://react-revolution.j.pl/"
+      host: "http://localhost:3000/"
     };
     return _this;
   }
@@ -4423,6 +4424,446 @@ var ReactRevolutionFullScreenOverlay = /*#__PURE__*/function (_React$Component) 
 
 ;
 /* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionFullScreenOverlay);
+
+/***/ }),
+
+/***/ "./Website/Pages/ReactRevolutionFunctionDisableHtmlScroll.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { disableHtmlScroll } from 'react-revolution';";
+var jsExample1 = "disableHtmlScroll();";
+
+var ReactRevolutionFunctionDisableHtmlScroll = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionFunctionDisableHtmlScroll, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionFunctionDisableHtmlScroll);
+
+  function ReactRevolutionFunctionDisableHtmlScroll(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionFunctionDisableHtmlScroll);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'disableHtmlScroll',
+      description: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('description_disableHtmlScroll'),
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: '',
+      isFunction: true
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFunctionDisableHtmlScroll, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return ReactRevolutionFunctionDisableHtmlScroll;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionFunctionDisableHtmlScroll);
+
+/***/ }),
+
+/***/ "./Website/Pages/ReactRevolutionFunctionEnableHtmlScroll.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { enableHtmlScroll } from 'react-revolution';";
+var jsExample1 = "enableHtmlScroll();";
+
+var ReactRevolutionFunctionEnableHtmlScroll = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionFunctionEnableHtmlScroll, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionFunctionEnableHtmlScroll);
+
+  function ReactRevolutionFunctionEnableHtmlScroll(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionFunctionEnableHtmlScroll);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'enableHtmlScroll',
+      description: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('description_enableHtmlScroll'),
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: '',
+      isFunction: true
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFunctionEnableHtmlScroll, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return ReactRevolutionFunctionEnableHtmlScroll;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionFunctionEnableHtmlScroll);
+
+/***/ }),
+
+/***/ "./Website/Pages/ReactRevolutionFunctionScrollTopListener.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { scrollTopListener } from 'react-revolution';";
+var jsExample1 = "componentDidMount() {\n    scrollTopListener(0);\n}";
+
+var ReactRevolutionFunctionScrollTopListener = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionFunctionScrollTopListener, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionFunctionScrollTopListener);
+
+  function ReactRevolutionFunctionScrollTopListener(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionFunctionScrollTopListener);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'scrollTopListener',
+      description: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('description_scrollTopListener'),
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: '',
+      isFunction: true
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFunctionScrollTopListener, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return ReactRevolutionFunctionScrollTopListener;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionFunctionScrollTopListener);
+
+/***/ }),
+
+/***/ "./Website/Pages/ReactRevolutionFunctionUuid.jsx":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _Translations_trans__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Functions/buildModulesJsx.jsx");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var codeExample1 = "import { uuid } from 'react-revolution';";
+var jsExample1 = "<span \n    key={uuid()}\n/>";
+
+var ReactRevolutionFunctionUuid = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(ReactRevolutionFunctionUuid, _React$Component);
+
+  var _super = _createSuper(ReactRevolutionFunctionUuid);
+
+  function ReactRevolutionFunctionUuid(props) {
+    var _this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, ReactRevolutionFunctionUuid);
+
+    _this = _super.call(this, props);
+    _this.loadOnScrollCallback = _this.loadOnScrollCallback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.countCallbacks = 0;
+    _this.examples = [{
+      title: 'uuid',
+      description: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('description_uuid'),
+      reactTextBefore: '',
+      react: codeExample1,
+      reactTextAfter: '',
+      js: jsExample1,
+      css: '',
+      html: '',
+      live: Object(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["uuid"])(),
+      isFunction: true
+    }];
+    return _this;
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(ReactRevolutionFunctionUuid, [{
+    key: "loadOnScrollCallback",
+    value: function loadOnScrollCallback() {
+      var _this2 = this;
+
+      this.countCallbacks += 1;
+
+      if (this.countCallbacks === this.examples.length) {
+        return 'break';
+      }
+
+      return new Promise(function (resolve) {
+        resolve(Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2.examples[_this2.countCallbacks]), _this2.countCallbacks + 1);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
+        className: "Generator"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadOnScroll"], {
+        scrollReference: false,
+        minify: 40,
+        callback: this.loadOnScrollCallback,
+        loadMoreLoadingIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution_public_react_revolution__WEBPACK_IMPORTED_MODULE_7__["LoadingBoxTop"], {
+          text: Object(_Translations_trans__WEBPACK_IMPORTED_MODULE_8__["default"])('loading')
+        }),
+        data: Object(_Functions_buildModulesJsx__WEBPACK_IMPORTED_MODULE_9__["default"])(this.examples[0], 1) // Default as the first example 
+
+      }));
+    }
+  }]);
+
+  return ReactRevolutionFunctionUuid;
+}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (ReactRevolutionFunctionUuid);
 
 /***/ }),
 
@@ -9686,6 +10127,12 @@ var _DE;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var DE = (_DE = {
+  functions: 'Funktionen',
+  components: 'Komponente',
+  description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
+  description_disableHtmlScroll: 'Der HTML Tag bekommt die Attribute: class="overflow-hidden" und style="overflow: hidden;" damit ein Benutzer innerhalb der Webseite nicht scrollen darf.',
+  description_enableHtmlScroll: 'Dem HTML Tag wird die Klasse "overflow-hidden" entfernt und der Style: "overflow: hidden;". Der Benutzer hat wieder die Möglichkeit innerhalb der Website zu scrollen.',
+  description_scrollTopListener: "Scrollen Sie bei jeder Änderung des Speicherorts (window.location) zum Anfang der aktuellen Seite. Zu Beginn muss die Funktion aufgerufen werden, um den Listener für Standortänderungen zu initialisieren. Diese Funktion benötigt 3 zusätzliche Argumente. Argument 1: Zeit (in Millisekunden), um zum Seitenanfang zu scrollen, Argument 2: Bildlaufverhalten - 'auto','smooth','inherit','initial','unset', Argument 3: Entfernen Sie den Listener (boolean). Um den Listener zu entfernen, übergeben Sie dem Wert 3 den Wert true (standardmäßig wird der Wert auf false gesetzt).",
   is: 'ist',
   iconTokenFrom: 'Icon entnommen von',
   openSourceText: 'Ein kostenloses Open Source Projekt',
@@ -9707,7 +10154,7 @@ var DE = (_DE = {
   documentation: 'Dokumenation',
   modules: 'Module',
   getStarted: 'Jetzt Anfangen'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Anwendungsbeispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'Code des obigen Moduls'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "cssCodeTitle", 'Zusätzlicher CSS Code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "jsCodeTitle", 'Zusätzlicher Javascript Code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loading", 'Laden...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "keyUsageTitle", 'Keys Erläuterungen'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.key", 'Schlüssel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.description", 'Beschreibung'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.type", 'Typ'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.default", 'Standard'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "id", {
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "usefullLinks", 'Nützliche Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rights", 'Rechte'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "rigthsText", 'Alle Rechte vorbehalten'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "exampleTitle", 'Anwendungsbeispiel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactCodeTitle", 'Code des oberen Moduls'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "reactFunctionTitle", 'Code der oberen Funktion'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "cssCodeTitle", 'Zusätzlicher CSS Code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "jsCodeTitle", 'Zusätzlicher Javascript Code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "loading", 'Laden...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "keyUsageTitle", 'Keys Erläuterungen'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.key", 'Schlüssel'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.description", 'Beschreibung'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.type", 'Typ'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "table.title.default", 'Standard'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_DE, "id", {
   "description": 'Setzte eine id für das Root Element dieses Modules.',
   "type": 'String',
   "default": '<leere Zeichenfolge>'
@@ -10587,6 +11034,12 @@ var _EN;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var EN = (_EN = {
+  functions: 'Functions',
+  components: 'Components',
+  description_uuid: 'The uuid function returns always an unique string based on a random number and the current timestamp.',
+  description_disableHtmlScroll: 'The HTML tag will have the attributes: class = "overflow-hidden" and style = "overflow: hidden;" so that a user is not allowed to scroll which of the website.',
+  description_enableHtmlScroll: 'The class "overflow-hidden" and the style: "overflow: hidden;" are removed from the HTML tag. The user again has the option to scroll within the website.',
+  description_scrollTopListener: "Scroll to the top of the current page on each location (window.location) change. Initial the function has to be called (best way is to call the function on componentDidMount) to initialise the location change listener. This function take 3 additional arguments. Argment 1: time (in miliseconds) to scroll to top of the page, argument 2: scroll behavior - 'auto','smooth','inherit','initial','unset', argument 3: remove the listener (boolean). To remove the listener pass to the 3 argument the value true (default the value is set to false).",
   is: 'is',
   iconTokenFrom: 'Icon token from',
   openSourceText: 'A Free Open Source Project',
@@ -10608,7 +11061,7 @@ var EN = (_EN = {
   documentation: 'Documentation',
   modules: 'Modules',
   getStarted: 'Get started'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "usefullLinks", 'Useful Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rights", 'Rights'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rigthsText", 'All rights reserved'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "exampleTitle", 'Live example'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactCodeTitle", 'Above modules react code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cssCodeTitle", 'Additional css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "jsCodeTitle", 'Additional javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loading", 'Loading...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "keyUsageTitle", 'Keys Explanations'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.key", 'Key'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.description", 'Description'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.type", 'Type'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.default", 'Default'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "id", {
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "installation", 'Installation'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "usefullLinks", 'Useful Links'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rights", 'Rights'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "rigthsText", 'All rights reserved'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "author", 'Author'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "exampleTitle", 'Live example'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactCodeTitle", 'Above modules react code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "reactFunctionTitle", 'Above functions react code'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "cssCodeTitle", 'Additional css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "jsCodeTitle", 'Additional javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "loading", 'Loading...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "keyUsageTitle", 'Keys Explanations'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.key", 'Key'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.description", 'Description'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.type", 'Type'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "table.title.default", 'Default'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_EN, "id", {
   "description": 'Set an id for the root element of this module.',
   "type": 'String',
   "default": '<empty string>'
@@ -11488,6 +11941,12 @@ var _PL;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var PL = (_PL = {
+  functions: 'Funkcje',
+  components: 'Komponenty',
+  description_uuid: 'Funkcja uuid zawsze zwraca unikalny ciąg oparty na liczbie losowej i aktualnej sygnaturze czasowej.',
+  description_disableHtmlScroll: 'Tag HTML otrzymuje atrybuty: class = "overflow-hidden" i style = "overflow: hidden;" aby użytkownik nie mógł przewijać strony internetowej.',
+  description_enableHtmlScroll: 'Klasa „overflow-hidden” i styl: „overflow: hidden;” są usuwane z tagu HTML. Użytkownik ponownie ma możliwość przewijania strony.',
+  description_scrollTopListener: "Przewiń do góry bieżącej strony w każdej zmianie lokalizacji (window.location). Najpierw należy wywołać funkcję, aby zainicjować odbiornik zmiany lokalizacji. Ta funkcja przyjmuje 3 dodatkowe argumenty. Argument 1: czas (w milisekundach) przewijania na górę strony, argument 2: zachowanie przewijania - 'auto','smooth','inherit','initial','unset', argument 3: usuń odbiornik (wartość logiczna). Aby usunąć detektor, należy przekazać argumentowi 3 wartość true (domyślnie wartość jest ustawiona na false).",
   is: 'jest',
   iconTokenFrom: 'Ikonka wzięta z',
   openSourceText: 'Darmowy projekt Open Source',
@@ -11509,7 +11968,7 @@ var PL = (_PL = {
   documentation: 'Dokumentacja',
   modules: 'Moduły',
   getStarted: 'Rozpocznij swoją przygodę'
-}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "installation", 'Instalacja'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "usefullLinks", 'Użyteczne linki'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rights", 'Prawa'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rigthsText", 'Wszelkie prawa zastrzeżone'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "author", 'Autor'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "exampleTitle", 'Przykład użycia'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactCodeTitle", 'Kod powyższego modułu'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cssCodeTitle", 'Dodatkowy kod css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "jsCodeTitle", 'Dodatkowy kod javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loading", 'Ładowanie...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "keyUsageTitle", 'Wyjaśnienia Kluczy'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.key", 'Klucz'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.description", 'description'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.type", 'Typ'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.default", 'Domyślnie'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "id", {
+}, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "installation", 'Instalacja'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "feedback", 'Feedback'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "usefullLinks", 'Użyteczne linki'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rights", 'Prawa'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "rigthsText", 'Wszelkie prawa zastrzeżone'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "author", 'Autor'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "exampleTitle", 'Przykład użycia'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactCodeTitle", 'Kod powyższego modułu'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "reactFunctionTitle", 'Kod powyższej funkcji'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "cssCodeTitle", 'Dodatkowy kod css'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "jsCodeTitle", 'Dodatkowy kod javascript'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "loading", 'Ładowanie...'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "keyUsageTitle", 'Wyjaśnienia Kluczy'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.key", 'Klucz'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.description", 'description'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.type", 'Typ'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "table.title.default", 'Domyślnie'), _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_PL, "id", {
   "description": 'Ustaw id dla głównego elementu tego modułu.',
   "type": 'Ciąg',
   "default": '<pusty ciąg>'
@@ -23717,7 +24176,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    min-height: calc(70vh - 60px);\n    display: flex;\n    background-color: white; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2.3rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: #72777a;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title h2 {\n        font-size: 1.2rem; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 7rem;\n        color: #1873CC; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px;\n  scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n  scrollbar-width: thin; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n#app .Generator .rr-container.container-example {\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n  border: 1px solid silver; }\n  #app .Generator .rr-container.container-example .SideBar {\n    width: 150px;\n    transition-duration: 200ms; }\n    #app .Generator .rr-container.container-example .SideBar .logo {\n      margin-left: 5px; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal {\n      height: calc(100% - 60px);\n      overflow-x: hidden;\n      overflow-y: hidden; }\n      #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry {\n        border-radius: 0px;\n        margin: 7px 10px;\n        border: none;\n        display: block;\n        width: 100%;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        transition-duration: 200ms; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry i {\n          display: inline-block;\n          font-size: 1.3rem;\n          margin: 0 25px 0 5px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .text,\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry a {\n          color: #7c8695;\n          font-size: 0.87rem;\n          letter-spacing: 0.0111rem;\n          transition-duration: 200ms;\n          padding-left: 0px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n          font-weight: bold; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal:hover {\n      overflow-y: auto; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min {\n    width: 50px; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min:hover {\n    width: 150px; }\n  #app .Generator .rr-container.container-example .Content {\n    overflow-y: auto;\n    overflow-x: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin;\n    height: 100vh;\n    width: 100%;\n    left: 0px; }\n    @media screen and (min-width: 720px) {\n      #app .Generator .rr-container.container-example .Content {\n        width: calc(100% - 150px);\n        left: 150px; } }\n  #app .Generator .rr-container.container-example .Content.Content-min {\n    width: calc(100% - 50px);\n    left: 50px; }\n  #app .Generator .rr-container.container-example .CONTENT,\n  #app .Generator .rr-container.container-example .FOOTER {\n    width: calc(100% - 20px);\n    border-radius: 10px;\n    border: 1px dashed black;\n    margin: 10px; }\n  #app .Generator .rr-container.container-example .CONTENT {\n    height: calc(80vh - 20px); }\n  #app .Generator .rr-container.container-example .FOOTER {\n    height: calc(20vh - 20px); }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 7px 10px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    min-height: calc(70vh - 60px);\n    display: flex;\n    background-color: white; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2.3rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: #72777a;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title h2 {\n        font-size: 1.2rem; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 7rem;\n        color: #1873CC; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px;\n  scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n  scrollbar-width: thin; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n#app .Generator .rr-container.container-example {\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n  border: 1px solid silver; }\n  #app .Generator .rr-container.container-example .SideBar {\n    width: 150px;\n    transition-duration: 200ms; }\n    #app .Generator .rr-container.container-example .SideBar .logo {\n      margin-left: 5px; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal {\n      height: calc(100% - 60px);\n      overflow-x: hidden;\n      overflow-y: hidden; }\n      #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry {\n        border-radius: 0px;\n        margin: 7px 10px;\n        border: none;\n        display: block;\n        width: 100%;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        transition-duration: 200ms; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry i {\n          display: inline-block;\n          font-size: 1.3rem;\n          margin: 0 25px 0 5px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .text,\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry a {\n          color: #7c8695;\n          font-size: 0.87rem;\n          letter-spacing: 0.0111rem;\n          transition-duration: 200ms;\n          padding-left: 0px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n          font-weight: bold; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal:hover {\n      overflow-y: auto; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min {\n    width: 50px; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min:hover {\n    width: 150px; }\n  #app .Generator .rr-container.container-example .Content {\n    overflow-y: auto;\n    overflow-x: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin;\n    height: 100vh;\n    width: 100%;\n    left: 0px; }\n    @media screen and (min-width: 720px) {\n      #app .Generator .rr-container.container-example .Content {\n        width: calc(100% - 150px);\n        left: 150px; } }\n  #app .Generator .rr-container.container-example .Content.Content-min {\n    width: calc(100% - 50px);\n    left: 50px; }\n  #app .Generator .rr-container.container-example .CONTENT,\n  #app .Generator .rr-container.container-example .FOOTER {\n    width: calc(100% - 20px);\n    border-radius: 10px;\n    border: 1px dashed black;\n    margin: 10px; }\n  #app .Generator .rr-container.container-example .CONTENT {\n    height: calc(80vh - 20px); }\n  #app .Generator .rr-container.container-example .FOOTER {\n    height: calc(20vh - 20px); }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 5px 0px 0px 5px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n", ""]);
 
 
 
@@ -39898,6 +40357,8 @@ module.exports = function (e) {
     return Se;
   }), a.d(t, "scrollTopListener", function () {
     return Tt;
+  }), a.d(t, "urlExtract", function () {
+    return L;
   }), a.d(t, "Accordion", function () {
     return w;
   }), a.d(t, "Breadcrumbs", function () {
@@ -40006,8 +40467,8 @@ module.exports = function (e) {
       N = "https://react-revolution.j.pl/",
       x = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-pager-static", "rr-popupbox", "rr-sidebar", "rr-sourcecode", "rr-table", "rr-text-writer", "rr-clouds-404", "rr-clouds-mountains-404", "rr-water-404", "rr-lightbulb-404"],
       P = function P(e, t, a) {
-    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.3", "/css/").concat(a, ".css"),
-        l = "".concat(N, "/public/react-revolution/").concat("v1.1.3", "/css/react-revolution.css"),
+    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.4", "/css/").concat(a, ".css"),
+        l = "".concat(N, "/public/react-revolution/").concat("v1.1.4", "/css/react-revolution.css"),
         i = document.createElement("link");
     i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css");
 
@@ -48226,14 +48687,15 @@ module.exports = function (e) {
     }]), e;
   }(),
       Tt = function Tt(e, t) {
-    var a = new wt();
-    e && s()(8) == s()(e) && a.setScrollTime(e), t && s()("8") == s()(t) && a.setScrollBehavior(t);
+    var a = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+        n = new wt();
+    e && s()(8) == s()(e) && !a && n.setScrollTime(e), t && s()("8") == s()(t) && !a && n.setScrollBehavior(t);
 
-    var n = function n() {
-      a.scrollTop();
+    var l = function l() {
+      n.scrollTop();
     };
 
-    document.documentElement && (a.setCurrentHref(window.location.href), document.documentElement.removeEventListener("click", n, !1), document.documentElement.addEventListener("click", n, !1));
+    document.documentElement && a && (n.clearInterval(), document.documentElement.removeEventListener("click", l, !1)), document.documentElement && (n.setCurrentHref(window.location.href), document.documentElement.removeEventListener("click", l, !1), document.documentElement.addEventListener("click", l, !1));
   };
 }]);
 
@@ -48307,6 +48769,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__("./Website/Pages/ReactRevolutionTable.jsx");
 /* harmony import */ var _Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__("./Website/Pages/ReactRevolutionTextWriter.jsx");
 /* harmony import */ var _Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__("./Website/Pages/ReactRevolutionWater404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionUuid.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionDisableHtmlScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionEnableHtmlScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionScrollTopListener.jsx");
 
 
 
@@ -48369,6 +48835,14 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+/**
+ * React Revolution Functions
+ */
+
+
+
+
+
 
 var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(App, _React$Component);
@@ -48387,7 +48861,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
-      host: "https://react-revolution.j.pl/",
+      host: "http://localhost:3000/",
       suggestions: [],
       inputValue: ''
     };
@@ -48400,11 +48874,11 @@ var App = /*#__PURE__*/function (_React$Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if ('' == window.location.hash || 'http:' == window.location.protocol && "https://react-revolution.j.pl/" == 'https://react-revolution.j.pl/') {
+      if ('' == window.location.hash || 'http:' == window.location.protocol && "http://localhost:3000/" == 'https://react-revolution.j.pl/') {
         window.location.href = "".concat(this.state.host, "#/");
       }
 
-      Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["scrollTopListener"])(0);
+      Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["scrollTopListener"])(0, '', false);
       this.setOnClickEvent();
       this.changeSidebarMinifiedState();
     }
@@ -48556,119 +49030,139 @@ var App = /*#__PURE__*/function (_React$Component) {
               className: "fas fa-angle-down dropDownIcon"
             }),
             data: [{
-              text: 'Accordion',
-              href: "".concat(host, "#/react-revolution-accordion")
-            }, {
-              text: 'Breadcrumbs',
-              href: "".concat(host, "#/react-revolution-breadcrumbs")
-            }, {
-              text: 'Cards',
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('components'),
+              toggled: true,
               data: [{
+                text: 'Accordion',
+                href: "".concat(host, "#/react-revolution-accordion")
+              }, {
+                text: 'Breadcrumbs',
+                href: "".concat(host, "#/react-revolution-breadcrumbs")
+              }, {
                 text: 'Cards',
-                href: "".concat(host, "#/react-revolution-cards")
+                data: [{
+                  text: 'Cards',
+                  href: "".concat(host, "#/react-revolution-cards")
+                }, {
+                  text: 'CardsScroll',
+                  href: "".concat(host, "#/react-revolution-cards-scroll")
+                }, {
+                  text: 'CardsScrollCallback',
+                  href: "".concat(host, "#/react-revolution-cards-scroll-callback")
+                }]
               }, {
-                text: 'CardsScroll',
-                href: "".concat(host, "#/react-revolution-cards-scroll")
+                text: 'Clipboard',
+                href: "".concat(host, "#/react-revolution-clipboard")
               }, {
-                text: 'CardsScrollCallback',
-                href: "".concat(host, "#/react-revolution-cards-scroll-callback")
+                text: 'Container',
+                href: "".concat(host, "#/react-revolution-container")
+              }, {
+                text: 'CustomSuggestion',
+                href: "".concat(host, "#/react-revolution-custom-suggestion")
+              }, {
+                text: 'FullScreen',
+                data: [{
+                  text: 'FullScreenListArray',
+                  href: "".concat(host, "#/react-revolution-fullscreen-list-array")
+                }, {
+                  text: 'FullScreenListObject',
+                  href: "".concat(host, "#/react-revolution-fullscreen-list-object")
+                }, {
+                  text: 'FullScreenOverlay',
+                  href: "".concat(host, "#/react-revolution-fullscreen-overlay")
+                }]
+              }, {
+                text: 'GlobalMessages',
+                href: "".concat(host, "#/react-revolution-global-messages")
+              }, {
+                text: 'Icons',
+                href: "".concat(host, "#/react-revolution-icons")
+              }, {
+                text: 'Input',
+                data: [{
+                  text: 'InputAnimation',
+                  href: "".concat(host, "#/react-revolution-input-animation")
+                }, {
+                  text: 'InputFile',
+                  href: "".concat(host, "#/react-revolution-input-file")
+                }, {
+                  text: 'InputFileDragDrop',
+                  href: "".concat(host, "#/react-revolution-input-file-drag-drop")
+                }, {
+                  text: 'InputSuggestionArray',
+                  href: "".concat(host, "#/react-revolution-input-suggestion-array")
+                }, {
+                  text: 'InputSuggestionObject',
+                  href: "".concat(host, "#/react-revolution-input-suggestion-object")
+                }]
+              }, {
+                text: 'LoadingBoxTop',
+                href: "".concat(host, "#/react-revolution-loading-box-top")
+              }, {
+                text: 'LoadOnScroll',
+                href: "".concat(host, "#/react-revolution-load-on-scroll")
+              }, {
+                text: 'MenuClickHorizontal',
+                href: "".concat(host, "#/react-revolution-menu-click-horizontal")
+              }, {
+                text: 'NotFound',
+                data: [{
+                  text: 'Clouds404',
+                  href: "".concat(host, "#/react-revolution-clouds-404")
+                }, {
+                  text: 'CloudsMountains404',
+                  href: "".concat(host, "#/react-revolution-clouds-mountains-404")
+                }, {
+                  text: 'Water404',
+                  href: "".concat(host, "#/react-revolution-water-404")
+                }, {
+                  text: 'Lightbulb404',
+                  href: "".concat(host, "#/react-revolution-lightbulb-404")
+                }]
+              }, {
+                text: 'Pagination',
+                data: [{
+                  text: 'PagerStatic',
+                  href: "".concat(host, "#/react-revolution-pager-static")
+                }, {
+                  text: 'PagerDynamic',
+                  href: "".concat(host, "#/react-revolution-pager-dynamic")
+                }]
+              }, {
+                text: 'PopupBox',
+                href: "".concat(host, "#/react-revolution-popup-box")
+              }, {
+                text: 'ScrollTo',
+                href: "".concat(host, "#/react-revolution-scroll-to")
+              }, {
+                text: 'SideBar',
+                href: "".concat(host, "#/react-revolution-sidebar")
+              }, {
+                text: 'SourceCode',
+                href: "".concat(host, "#/react-revolution-source-code")
+              }, {
+                text: 'Table',
+                href: "".concat(host, "#/react-revolution-table")
+              }, {
+                text: 'TextWriter',
+                href: "".concat(host, "#/react-revolution-text-writer")
               }]
             }, {
-              text: 'Clipboard',
-              href: "".concat(host, "#/react-revolution-clipboard")
-            }, {
-              text: 'Container',
-              href: "".concat(host, "#/react-revolution-container")
-            }, {
-              text: 'CustomSuggestion',
-              href: "".concat(host, "#/react-revolution-custom-suggestion")
-            }, {
-              text: 'FullScreen',
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('functions'),
+              toggled: true,
               data: [{
-                text: 'FullScreenListArray',
-                href: "".concat(host, "#/react-revolution-fullscreen-list-array")
+                text: 'uuid',
+                href: "".concat(host, "#/react-revolution-function-uuid")
               }, {
-                text: 'FullScreenListObject',
-                href: "".concat(host, "#/react-revolution-fullscreen-list-object")
+                text: 'disableHtmlScroll',
+                href: "".concat(host, "#/react-revolution-function-disable-html-scroll")
               }, {
-                text: 'FullScreenOverlay',
-                href: "".concat(host, "#/react-revolution-fullscreen-overlay")
+                text: 'enableHtmlScroll',
+                href: "".concat(host, "#/react-revolution-function-enable-html-scroll")
+              }, {
+                text: 'scrollTopListener',
+                href: "".concat(host, "#/react-revolution-function-scroll-top-listener")
               }]
-            }, {
-              text: 'GlobalMessages',
-              href: "".concat(host, "#/react-revolution-global-messages")
-            }, {
-              text: 'Icons',
-              href: "".concat(host, "#/react-revolution-icons")
-            }, {
-              text: 'Input',
-              data: [{
-                text: 'InputAnimation',
-                href: "".concat(host, "#/react-revolution-input-animation")
-              }, {
-                text: 'InputFile',
-                href: "".concat(host, "#/react-revolution-input-file")
-              }, {
-                text: 'InputFileDragDrop',
-                href: "".concat(host, "#/react-revolution-input-file-drag-drop")
-              }, {
-                text: 'InputSuggestionArray',
-                href: "".concat(host, "#/react-revolution-input-suggestion-array")
-              }, {
-                text: 'InputSuggestionObject',
-                href: "".concat(host, "#/react-revolution-input-suggestion-object")
-              }]
-            }, {
-              text: 'LoadingBoxTop',
-              href: "".concat(host, "#/react-revolution-loading-box-top")
-            }, {
-              text: 'LoadOnScroll',
-              href: "".concat(host, "#/react-revolution-load-on-scroll")
-            }, {
-              text: 'MenuClickHorizontal',
-              href: "".concat(host, "#/react-revolution-menu-click-horizontal")
-            }, {
-              text: 'NotFound',
-              data: [{
-                text: 'Clouds404',
-                href: "".concat(host, "#/react-revolution-clouds-404")
-              }, {
-                text: 'CloudsMountains404',
-                href: "".concat(host, "#/react-revolution-clouds-mountains-404")
-              }, {
-                text: 'Water404',
-                href: "".concat(host, "#/react-revolution-water-404")
-              }, {
-                text: 'Lightbulb404',
-                href: "".concat(host, "#/react-revolution-lightbulb-404")
-              }]
-            }, {
-              text: 'Pagination',
-              data: [{
-                text: 'PagerStatic',
-                href: "".concat(host, "#/react-revolution-pager-static")
-              }, {
-                text: 'PagerDynamic',
-                href: "".concat(host, "#/react-revolution-pager-dynamic")
-              }]
-            }, {
-              text: 'PopupBox',
-              href: "".concat(host, "#/react-revolution-popup-box")
-            }, {
-              text: 'ScrollTo',
-              href: "".concat(host, "#/react-revolution-scroll-to")
-            }, {
-              text: 'SideBar',
-              href: "".concat(host, "#/react-revolution-sidebar")
-            }, {
-              text: 'SourceCode',
-              href: "".concat(host, "#/react-revolution-source-code")
-            }, {
-              text: 'Table',
-              href: "".concat(host, "#/react-revolution-table")
-            }, {
-              text: 'TextWriter',
-              href: "".concat(host, "#/react-revolution-text-writer")
             }]
           })
         }),
@@ -48949,6 +49443,30 @@ var App = /*#__PURE__*/function (_React$Component) {
           path: "/react-revolution-water-404",
           render: function render(props) {
             return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-function-uuid",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_53__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-function-disable-html-scroll",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_54__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-function-enable-html-scroll",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+          exact: true,
+          path: "/react-revolution-function-scroll-top-listener",
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_56__["default"], props);
           }
         }))),
         footerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_11__["default"], null)

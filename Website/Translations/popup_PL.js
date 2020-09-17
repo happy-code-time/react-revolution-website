@@ -3,6 +3,13 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    functions: 'Funkcje',
+    components: 'Komponenty',
+    description_uuid: 'Funkcja uuid zawsze zwraca unikalny ciąg oparty na liczbie losowej i aktualnej sygnaturze czasowej.',
+    description_disableHtmlScroll: 'Tag HTML otrzymuje atrybuty: class = "overflow-hidden" i style = "overflow: hidden;" aby użytkownik nie mógł przewijać strony internetowej.',
+    description_enableHtmlScroll: 'Klasa „overflow-hidden” i styl: „overflow: hidden;” są usuwane z tagu HTML. Użytkownik ponownie ma możliwość przewijania strony.',
+    description_scrollTopListener: "Przewiń do góry bieżącej strony w każdej zmianie lokalizacji (window.location). Najpierw należy wywołać funkcję, aby zainicjować odbiornik zmiany lokalizacji. Ta funkcja przyjmuje 3 dodatkowe argumenty. Argument 1: czas (w milisekundach) przewijania na górę strony, argument 2: zachowanie przewijania - 'auto','smooth','inherit','initial','unset', argument 3: usuń odbiornik (wartość logiczna). Aby usunąć detektor, należy przekazać argumentowi 3 wartość true (domyślnie wartość jest ustawiona na false).",
+    description_urlExtract: 'Wyodrębnia adresy URL z poszczególnych ścieżek window.location, klucza i jego wartości. Funkcja otrzymuje 1 opcjonalny argument: isHashRouter (boolean) - domyślnie przesyłana wartość jest niezdefiniowana. Ta funkcja wyodrębnia ścieżki i wartości kluczy dla window.location: „href”, „hash” i „path”.',
     is: 'jest',
     iconTokenFrom: 'Ikonka wzięta z',
     openSourceText: 'Darmowy projekt Open Source',
@@ -32,6 +39,7 @@ const PL = {
     author: 'Autor',
     exampleTitle: 'Przykład użycia',
     reactCodeTitle: 'Kod powyższego modułu',
+    reactFunctionTitle: 'Kod powyższej funkcji',
     cssCodeTitle: 'Dodatkowy kod css',
     jsCodeTitle: 'Dodatkowy kod javascript',
     loading: 'Ładowanie...',

@@ -80,6 +80,8 @@ import enableHtmlScroll from './Functions/enableHtmlScroll';
 
 import scrollTopListener from './Functions/scrollTopListener';
 
+import urlExtract from './Functions/urlExtract';
+
 export {
     /**
      * Functions
@@ -89,6 +91,7 @@ export {
     disableHtmlScroll,
     enableHtmlScroll,
     scrollTopListener,
+    urlExtract,
     /**
      * Modules
      */

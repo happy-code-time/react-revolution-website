@@ -3,6 +3,13 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    functions: 'Functions',
+    components: 'Components',
+    description_uuid: 'The uuid function returns always an unique string based on a random number and the current timestamp.',
+    description_disableHtmlScroll: 'The HTML tag will have the attributes: class = "overflow-hidden" and style = "overflow: hidden;" so that a user is not allowed to scroll which of the website.',
+    description_enableHtmlScroll: 'The class "overflow-hidden" and the style: "overflow: hidden;" are removed from the HTML tag. The user again has the option to scroll within the website.',
+    description_scrollTopListener: "Scroll to the top of the current page on each location (window.location) change. Initial the function has to be called (best way is to call the function on componentDidMount) to initialise the location change listener. This function take 3 additional arguments. Argment 1: time (in miliseconds) to scroll to top of the page, argument 2: scroll behavior - 'auto','smooth','inherit','initial','unset', argument 3: remove the listener (boolean). To remove the listener pass to the 3 argument the value true (default the value is set to false).",
+    description_urlExtract: 'Extracts the URL on individual paths of the window.location, key and its values. The function receives 1 optional argument: isHashRouter (boolean) - by default the transferred value is undefined. This function extracts paths and key values for the window.location: "href", "hash" and "path".',
     is: 'is',
     iconTokenFrom: 'Icon token from',
     openSourceText: 'A Free Open Source Project',
@@ -32,6 +39,7 @@ const EN = {
     author: 'Author',
     exampleTitle: 'Live example',
     reactCodeTitle: 'Above modules react code',
+    reactFunctionTitle: 'Above functions react code',
     cssCodeTitle: 'Additional css',
     jsCodeTitle: 'Additional javascript',
     loading: 'Loading...',

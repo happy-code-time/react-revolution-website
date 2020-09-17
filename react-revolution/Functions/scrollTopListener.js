@@ -1,3 +1,5 @@
+var globalRemoveListenerRemoveListener = false;
+
 class ScrollToTop 
 {
     constructor(){
@@ -54,7 +56,7 @@ class ScrollToTop
      */
     setScrollBehavior(scrollBehavior){
 
-        if(this.state.availableScrollBehaviors.includes(scrollBehavior)){
+        if(this.state.availableScrollBehaviors.includes(scrollBehavior) && !globalRemoveListenerRemoveListener){
             this.state.scrollBehavior = scrollBehavior;
         }
 
@@ -175,6 +177,10 @@ class ScrollToTop
      */
     setScrollTopInterval(currentScrollTop, intervalTime){
 
+        if(!globalRemoveListenerRemoveListener){
+            this.clearScrollTopInterval();
+        }
+
         if(0 == intervalTime){
             return document.documentElement.scrollTop = 0;
         }
@@ -232,20 +238,32 @@ class ScrollToTop
  * Public function
  * @param {number} time 
  */
-const scrollTopListener = (time, scrollBehavior) => {
+const scrollTopListener = (time = 0, scrollBehavior = '', removeListener = false) => {
+    globalRemoveListenerRemoveListener = removeListener;
     const scrollToTop = new ScrollToTop();
 
-    if(time && typeof 8 == typeof time){
+    if(time && typeof 8 == typeof time && !globalRemoveListenerRemoveListener){
         scrollToTop.setScrollTime(time);
     }
 
-    if(scrollBehavior && typeof '8' == typeof scrollBehavior){
+    if(scrollBehavior && typeof '8' == typeof scrollBehavior && !globalRemoveListenerRemoveListener){
         scrollToTop.setScrollBehavior(scrollBehavior);
     }
 
     const clickListener = () => {
         scrollToTop.scrollTop();
     };
+
+    const checker = setInterval( () => {
+        if(globalRemoveListenerRemoveListener){
+            document.documentElement.removeEventListener('click', clickListener, false);            
+            clearInterval(checker);
+        }
+    }, 5000);
+
+    if(document.documentElement && globalRemoveListenerRemoveListener){
+        return document.documentElement.removeEventListener('click', clickListener, false);
+    }
 
     if(document.documentElement){
         scrollToTop.setCurrentHref(window.location.href);

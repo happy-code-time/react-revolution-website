@@ -5,7 +5,7 @@ import { Clipboard, SourceCode } from '../../react-revolution/public/react-revol
 import trans from '../Translations/trans';
 
 const buildModulesJsx = (object = {}, count = 1) => {
-    const { title, reactTextBefore, react, reactTextAfter, js, css, html, description, live } = object;
+    const { title, reactTextBefore, react, reactTextAfter, js, css, html, description, live, isFunction } = object;
 
     return (
         <div className="code-example">
@@ -22,17 +22,20 @@ const buildModulesJsx = (object = {}, count = 1) => {
                     }
                 </p>
             }
-            <h1
-                title={`${trans('exampleTitle')} ${count}`}
-                className="h1-example"
-            >
-                <i className="fas fa-user" />
-                {
-                    trans('exampleTitle')
-                }
-            </h1>
             {
-                live
+                live &&
+                <h1
+                    title={`${trans('exampleTitle')} ${count}`}
+                    className="h1-example"
+                >
+                    <i className="fas fa-user" />
+                    {
+                        trans('exampleTitle')
+                    }
+                </h1>
+            }
+            {
+                live && live
             }
             {
                 reactTextBefore &&
@@ -46,12 +49,12 @@ const buildModulesJsx = (object = {}, count = 1) => {
                 react &&
                 <span>
                     <h1
-                        title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} ${count}`}
+                        title={isFunction ? `${trans('reactFunctionTitle')} - ${trans('exampleTitle')} ${count}` : `${trans('reactCodeTitle')} - ${trans('exampleTitle')} ${count}`}
                         className="h1-example"
                     >
                         <i className="fas fa-atom" />
                         {
-                            trans('reactCodeTitle')
+                            isFunction ? trans('reactFunctionTitle') : trans('reactCodeTitle')
                         }
                     </h1>
                     <SourceCode

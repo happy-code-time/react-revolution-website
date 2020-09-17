@@ -1,0 +1,138 @@
+@import './globals.scss';
+
+.rr-menu-click-horizontal{
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    .parent .hasChildren{
+        position: relative;
+        user-select: none;
+    }
+
+    .parent .children {
+        padding-left: 10px;
+    }
+
+    .single-entry{
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 10px 0;
+
+        a{
+            text-decoration: none;
+        }
+        
+        .data{
+            margin: 10px 0;
+        }
+
+        .text{
+            padding: 7px 10px;
+        }
+
+        .hasChildren:hover{
+            cursor: pointer;
+        }
+    }
+
+    // Animation: height
+    .toggling.animation-height .children{
+
+        @keyframes toggleMenuEntriesHeight {
+            0%{
+                max-height: 0px;
+            }
+            100%{
+                max-height: 500px;
+                overflow: visible;
+            }
+        }
+
+        max-height: 0px;
+        overflow: hidden;
+        animation: toggleMenuEntriesHeight $default_transition ease-in forwards;
+    }
+
+    .animation-height .children{
+        max-height: 1000000px;
+    }
+
+    .animation-height-back .children{
+        @keyframes toggleMenuEntriesHeightBack {
+            0%{
+                max-height: 300px;
+            }
+            100%{
+                max-height: 0px;
+            }
+        }
+        overflow: hidden;
+        animation: toggleMenuEntriesHeightBack $default_transition ease-in forwards;
+    }
+
+    // Animation: scale
+    .toggling.animation-scale .children{
+
+        @keyframes toggleMenuEntriesScale {
+            0%{
+                transform: scaleY(0);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+        }
+        transform-origin: top;
+        transform: scaleY(0);
+        animation: toggleMenuEntriesScale $default_transition ease-in forwards;
+    }
+
+    .toggled.animation-scale .children{
+        transform: scaleY(1);
+    }
+
+    .animation-scale-back .children{
+        @keyframes toggleMenuEntriesScaleBack {
+            0%{
+                transform: scaleY(1);
+            }
+            100%{
+                transform: scaleY(0);
+            }
+        }
+        transform-origin: top;
+        transform: scaleY(1);
+        animation: toggleMenuEntriesScaleBack $default_transition ease-in forwards;
+    }
+
+    // Animation: opacity
+    .toggling.animation-opacity .children{
+
+        @keyframes toggleMenuEntriesOpacity {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        opacity: 0;
+        animation: toggleMenuEntriesOpacity $default_transition ease-in forwards;
+    }
+
+    .animation-opacity .children{
+        opacity: 1;
+    }
+
+    .animation-opacity-back .children{
+        @keyframes toggleMenuEntriesOpacityBack {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        opacity: 1;
+        animation: toggleMenuEntriesOpacityBack $default_transition ease-in forwards;
+    }
+}

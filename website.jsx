@@ -95,6 +95,19 @@ import ReactRevolutionTextWriter from './Website/Pages/ReactRevolutionTextWriter
 
 import ReactRevolutionWater404 from './Website/Pages/ReactRevolutionWater404';
 
+/**
+ * React Revolution Functions
+ */
+import ReactRevolutionFunctionUuid from './Website/Pages/ReactRevolutionFunctionUuid';
+
+import ReactRevolutionFunctionDisableHtmlScroll from './Website/Pages/ReactRevolutionFunctionDisableHtmlScroll';
+
+import ReactRevolutionFunctionEnableHtmlScroll from './Website/Pages/ReactRevolutionFunctionEnableHtmlScroll';
+
+import ReactRevolutionFunctionScrollTopListener from './Website/Pages/ReactRevolutionFunctionScrollTopListener';
+
+import ReactRevolutionFunctionUrlExtract from './Website/Pages/ReactRevolutionFunctionUrlExtract';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -131,7 +144,7 @@ class App extends React.Component {
     document.removeEventListener('click', this.checkLocation);
     clearInterval(this.locationCheck);
   }
-  
+
   /**
  * Check if the website using a react-router
  * and if the url changed then reload the protector functionalitty
@@ -176,8 +189,8 @@ class App extends React.Component {
     const hash = window.location.hash;
 
     if ('#/' == hash && !minifySidebard) {
-      return this.setState({ 
-        minifySidebard: true 
+      return this.setState({
+        minifySidebard: true
       });
     }
 
@@ -201,7 +214,7 @@ class App extends React.Component {
 
   searchForModule(inputValue) {
 
-    if(!inputValue){
+    if (!inputValue) {
       inputValue = '';
     }
 
@@ -264,161 +277,193 @@ class App extends React.Component {
                 data={
                   [
                     {
-                      text: 'Accordion',
-                      href: `${host}#/react-revolution-accordion`,
-                    },
-                    {
-                      text: 'Breadcrumbs',
-                      href: `${host}#/react-revolution-breadcrumbs`,
-                    },
-                    {
-                      text: 'Cards',
+                      text: trans('components'),
+                      toggled: true,
                       data: [
+                        {
+                          text: 'Accordion',
+                          href: `${host}#/react-revolution-accordion`,
+                        },
+                        {
+                          text: 'Breadcrumbs',
+                          href: `${host}#/react-revolution-breadcrumbs`,
+                        },
                         {
                           text: 'Cards',
-                          href: `${host}#/react-revolution-cards`,
+                          data: [
+                            {
+                              text: 'Cards',
+                              href: `${host}#/react-revolution-cards`,
+                            },
+                            {
+                              text: 'CardsScroll',
+                              href: `${host}#/react-revolution-cards-scroll`,
+                            },
+                            {
+                              text: 'CardsScrollCallback',
+                              href: `${host}#/react-revolution-cards-scroll-callback`,
+                            },
+                          ]
                         },
                         {
-                          text: 'CardsScroll',
-                          href: `${host}#/react-revolution-cards-scroll`,
+                          text: 'Clipboard',
+                          href: `${host}#/react-revolution-clipboard`,
                         },
                         {
-                          text: 'CardsScrollCallback',
-                          href: `${host}#/react-revolution-cards-scroll-callback`,
+                          text: 'Container',
+                          href: `${host}#/react-revolution-container`,
+                        },
+                        {
+                          text: 'CustomSuggestion',
+                          href: `${host}#/react-revolution-custom-suggestion`,
+                        },
+                        {
+                          text: 'FullScreen',
+                          data: [
+                            {
+                              text: 'FullScreenListArray',
+                              href: `${host}#/react-revolution-fullscreen-list-array`,
+                            },
+                            {
+                              text: 'FullScreenListObject',
+                              href: `${host}#/react-revolution-fullscreen-list-object`,
+                            },
+                            {
+                              text: 'FullScreenOverlay',
+                              href: `${host}#/react-revolution-fullscreen-overlay`,
+                            }
+                          ]
+                        },
+                        {
+                          text: 'GlobalMessages',
+                          href: `${host}#/react-revolution-global-messages`,
+                        },
+                        {
+                          text: 'Icons',
+                          href: `${host}#/react-revolution-icons`,
+                        },
+                        {
+                          text: 'Input',
+                          data: [
+                            {
+                              text: 'InputAnimation',
+                              href: `${host}#/react-revolution-input-animation`,
+                            },
+                            {
+                              text: 'InputFile',
+                              href: `${host}#/react-revolution-input-file`,
+                            },
+                            {
+                              text: 'InputFileDragDrop',
+                              href: `${host}#/react-revolution-input-file-drag-drop`,
+                            },
+                            {
+                              text: 'InputSuggestionArray',
+                              href: `${host}#/react-revolution-input-suggestion-array`,
+                            },
+                            {
+                              text: 'InputSuggestionObject',
+                              href: `${host}#/react-revolution-input-suggestion-object`,
+                            }
+                          ]
+                        },
+                        {
+                          text: 'LoadingBoxTop',
+                          href: `${host}#/react-revolution-loading-box-top`,
+                        },
+                        {
+                          text: 'LoadOnScroll',
+                          href: `${host}#/react-revolution-load-on-scroll`,
+                        },
+                        {
+                          text: 'MenuClickHorizontal',
+                          href: `${host}#/react-revolution-menu-click-horizontal`,
+                        },
+                        {
+                          text: 'NotFound',
+                          data: [
+                            {
+                              text: 'Clouds404',
+                              href: `${host}#/react-revolution-clouds-404`,
+                            },
+                            {
+                              text: 'CloudsMountains404',
+                              href: `${host}#/react-revolution-clouds-mountains-404`,
+                            },
+                            {
+                              text: 'Water404',
+                              href: `${host}#/react-revolution-water-404`,
+                            },
+                            {
+                              text: 'Lightbulb404',
+                              href: `${host}#/react-revolution-lightbulb-404`,
+                            },
+                          ]
+                        },
+                        {
+                          text: 'Pagination',
+                          data: [
+                            {
+                              text: 'PagerStatic',
+                              href: `${host}#/react-revolution-pager-static`,
+                            },
+                            {
+                              text: 'PagerDynamic',
+                              href: `${host}#/react-revolution-pager-dynamic`,
+                            },
+                          ]
+                        },
+                        {
+                          text: 'PopupBox',
+                          href: `${host}#/react-revolution-popup-box`,
+                        },
+                        {
+                          text: 'ScrollTo',
+                          href: `${host}#/react-revolution-scroll-to`,
+                        },
+                        {
+                          text: 'SideBar',
+                          href: `${host}#/react-revolution-sidebar`,
+                        },
+                        {
+                          text: 'SourceCode',
+                          href: `${host}#/react-revolution-source-code`,
+                        },
+                        {
+                          text: 'Table',
+                          href: `${host}#/react-revolution-table`,
+                        },
+                        {
+                          text: 'TextWriter',
+                          href: `${host}#/react-revolution-text-writer`,
                         },
                       ]
                     },
                     {
-                      text: 'Clipboard',
-                      href: `${host}#/react-revolution-clipboard`,
-                    },
-                    {
-                      text: 'Container',
-                      href: `${host}#/react-revolution-container`,
-                    },
-                    {
-                      text: 'CustomSuggestion',
-                      href: `${host}#/react-revolution-custom-suggestion`,
-                    },
-                    {
-                      text: 'FullScreen',
+                      text: trans('functions'),
+                      toggled: true,
                       data: [
                         {
-                          text: 'FullScreenListArray',
-                          href: `${host}#/react-revolution-fullscreen-list-array`,
+                          text: 'disableHtmlScroll',
+                          href: `${host}#/react-revolution-function-disable-html-scroll`,
                         },
                         {
-                          text: 'FullScreenListObject',
-                          href: `${host}#/react-revolution-fullscreen-list-object`,
+                          text: 'enableHtmlScroll',
+                          href: `${host}#/react-revolution-function-enable-html-scroll`,
                         },
                         {
-                          text: 'FullScreenOverlay',
-                          href: `${host}#/react-revolution-fullscreen-overlay`,
-                        }
-                      ]
-                    },
-                    {
-                      text: 'GlobalMessages',
-                      href: `${host}#/react-revolution-global-messages`,
-                    },
-                    {
-                      text: 'Icons',
-                      href: `${host}#/react-revolution-icons`,
-                    },
-                    {
-                      text: 'Input',
-                      data: [
-                        {
-                          text: 'InputAnimation',
-                          href: `${host}#/react-revolution-input-animation`,
+                          text: 'scrollTopListener',
+                          href: `${host}#/react-revolution-function-scroll-top-listener`,
                         },
                         {
-                          text: 'InputFile',
-                          href: `${host}#/react-revolution-input-file`,
+                          text: 'urlExtract',
+                          href: `${host}#/react-revolution-function-url-extract`,
                         },
                         {
-                          text: 'InputFileDragDrop',
-                          href: `${host}#/react-revolution-input-file-drag-drop`,
-                        },
-                        {
-                          text: 'InputSuggestionArray',
-                          href: `${host}#/react-revolution-input-suggestion-array`,
-                        },
-                        {
-                          text: 'InputSuggestionObject',
-                          href: `${host}#/react-revolution-input-suggestion-object`,
-                        }
-                      ]
-                    },
-                    {
-                      text: 'LoadingBoxTop',
-                      href: `${host}#/react-revolution-loading-box-top`,
-                    },
-                    {
-                      text: 'LoadOnScroll',
-                      href: `${host}#/react-revolution-load-on-scroll`,
-                    },
-                    {
-                      text: 'MenuClickHorizontal',
-                      href: `${host}#/react-revolution-menu-click-horizontal`,
-                    },
-                    {
-                      text: 'NotFound',
-                      data: [
-                        {
-                          text: 'Clouds404',
-                          href: `${host}#/react-revolution-clouds-404`,
-                        },
-                        {
-                          text: 'CloudsMountains404',
-                          href: `${host}#/react-revolution-clouds-mountains-404`,
-                        },
-                        {
-                          text: 'Water404',
-                          href: `${host}#/react-revolution-water-404`,
-                        },
-                        {
-                          text: 'Lightbulb404',
-                          href: `${host}#/react-revolution-lightbulb-404`,
+                          text: 'uuid',
+                          href: `${host}#/react-revolution-function-uuid`,
                         },
                       ]
-                    },
-                    {
-                      text: 'Pagination',
-                      data: [
-                        {
-                          text: 'PagerStatic',
-                          href: `${host}#/react-revolution-pager-static`,
-                        },
-                        {
-                          text: 'PagerDynamic',
-                          href: `${host}#/react-revolution-pager-dynamic`,
-                        },
-                      ]
-                    },
-                    {
-                      text: 'PopupBox',
-                      href: `${host}#/react-revolution-popup-box`,
-                    },
-                    {
-                      text: 'ScrollTo',
-                      href: `${host}#/react-revolution-scroll-to`,
-                    },
-                    {
-                      text: 'SideBar',
-                      href: `${host}#/react-revolution-sidebar`,
-                    },
-                    {
-                      text: 'SourceCode',
-                      href: `${host}#/react-revolution-source-code`,
-                    },
-                    {
-                      text: 'Table',
-                      href: `${host}#/react-revolution-table`,
-                    },
-                    {
-                      text: 'TextWriter',
-                      href: `${host}#/react-revolution-text-writer`,
                     },
                   ]
                 }
@@ -526,6 +571,7 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" render={(props) => (<Home {...props} />)} />
+              {/* Components */}
               <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
               <Route exact path="/react-revolution-breadcrumbs" render={(props) => (<ReactRevolutionBreadcrumbs {...props} />)} />
               <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
@@ -559,10 +605,16 @@ class App extends React.Component {
               <Route exact path="/react-revolution-scroll-to" render={(props) => (<ReactRevolutionScrollTo {...props} />)} />
               <Route exact path="/react-revolution-source-code" render={(props) => (<ReactRevolutionSourceCode {...props} />)} />
               <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />
+              {/* Functions */}
+              <Route exact path="/react-revolution-function-uuid" render={(props) => (<ReactRevolutionFunctionUuid {...props} />)} />
+              <Route exact path="/react-revolution-function-disable-html-scroll" render={(props) => (<ReactRevolutionFunctionDisableHtmlScroll {...props} />)} />
+              <Route exact path="/react-revolution-function-enable-html-scroll" render={(props) => (<ReactRevolutionFunctionEnableHtmlScroll {...props} />)} />
+              <Route exact path="/react-revolution-function-scroll-top-listener" render={(props) => (<ReactRevolutionFunctionScrollTopListener {...props} />)} />
+              <Route exact path="/react-revolution-function-url-extract" render={(props) => (<ReactRevolutionFunctionUrlExtract {...props} />)} />
             </Switch>
           </Router>
         }
-        footerData={<ScrollTop/>}
+        footerData={<ScrollTop />}
       />
     );
   }

@@ -3,6 +3,13 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    functions: 'Funktionen',
+    components: 'Komponente',
+    description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
+    description_disableHtmlScroll: 'Der HTML Tag bekommt die Attribute: class="overflow-hidden" und style="overflow: hidden;" damit ein Benutzer innerhalb der Webseite nicht scrollen darf.',
+    description_enableHtmlScroll: 'Dem HTML Tag wird die Klasse "overflow-hidden" entfernt und der Style: "overflow: hidden;". Der Benutzer hat wieder die Möglichkeit innerhalb der Website zu scrollen.',
+    description_scrollTopListener: "Scrollen Sie bei jeder Änderung des Speicherorts (window.location) zum Anfang der aktuellen Seite. Zu Beginn muss die Funktion aufgerufen werden, um den Listener für Standortänderungen zu initialisieren. Diese Funktion benötigt 3 zusätzliche Argumente. Argument 1: Zeit (in Millisekunden), um zum Seitenanfang zu scrollen, Argument 2: Bildlaufverhalten - 'auto','smooth','inherit','initial','unset', Argument 3: Entfernen Sie den Listener (boolean). Um den Listener zu entfernen, übergeben Sie dem Wert 3 den Wert true (standardmäßig wird der Wert auf false gesetzt).",
+    description_urlExtract: 'Extrahiert die URL auf einzelen Pfade des window.location, Schlüssel und dessen Werte. Die Funktion erhällt 1 optionales Argument: isHashRouter (boolean) - standardmäßig ist der übergebene Wert undefined. Diese Funktion extrahiert Pfade und Schlüsselwerte für die window.location: "href", "hash" und "path".',
     is: 'ist',
     iconTokenFrom: 'Icon entnommen von',
     openSourceText: 'Ein kostenloses Open Source Projekt',
@@ -31,7 +38,8 @@ const DE = {
     rigthsText: 'Alle Rechte vorbehalten',
     author: 'Author',
     exampleTitle: 'Anwendungsbeispiel',
-    reactCodeTitle: 'Code des obigen Moduls',
+    reactCodeTitle: 'Code des oberen Moduls',
+    reactFunctionTitle: 'Code der oberen Funktion',
     cssCodeTitle: 'Zusätzlicher CSS Code',
     jsCodeTitle: 'Zusätzlicher Javascript Code',
     loading: 'Laden...',

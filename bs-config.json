@@ -1,9 +1,9 @@
 {  
     "port": 3000,  
     "server": {    
-        "baseDir": "C:\\Users\\cryptcat\\Desktop\\react-revolution",
+        "baseDir": "/home/david/Desktop/react-revolution",
         "files": [
-            "./development.html",
+            "./index.html",
             "./module/**/*.{jsx}"
         ]
     }
