@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    back_404: 'Startseite',
     functions: 'Funktionen',
     components: 'Komponente',
     description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
@@ -16,7 +17,7 @@ const DE = {
     changeLanguageTitle: 'Sprache ändern',
     changeTintTitle: 'Layout ändern',
     lightTheme: 'Hell',
-    darkTheme: 'Dunkel (kommt in kürze)',
+    darkTheme: 'Dunkel',
     searchForModule: 'Module Suche',
     clickToNavToTheModule: 'Navigieren Sie zu diesem Modul',
     fast: 'Schnell',

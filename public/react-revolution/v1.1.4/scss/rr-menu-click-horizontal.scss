@@ -9,8 +9,9 @@
         user-select: none;
     }
 
-    .parent .children {
-        padding-left: 10px;
+    .children,
+    .single-entry{
+      padding: 0px;
     }
 
     .single-entry{
@@ -27,13 +28,86 @@
         }
 
         .text{
-            padding: 7px 10px;
+            padding: 8px 10px;
         }
 
         .hasChildren:hover{
             cursor: pointer;
         }
     }
+
+    .children-n-1,
+    .children-n-2,
+    .children-n-3,
+    .children-n-4,
+    .children-n-5,
+    .children-n-6,
+    .children-n-7,
+    .children-n-8,
+    .children-n-9,
+    .children-n-10{
+        box-sizing: border-box;
+    } 
+
+    .children-n-1{
+        .child{
+          padding-left: 20px;
+        }
+    } 
+
+    .children-n-2{
+        .child{
+          padding-left: 30px;
+        }
+    } 
+
+    .children-n-3{
+        .child{
+          padding-left: 40px;
+        }
+    } 
+
+    .children-n-4{
+        .child{
+          padding-left: 50px;
+        }
+    } 
+
+    .children-n-5{
+        .child{
+          padding-left: 60px;
+        }
+    } 
+
+    .children-n-6{
+        .child{
+          padding-left: 70px;
+        }
+    } 
+
+    .children-n-7{
+        .child{
+          padding-left: 80px;
+        }
+    } 
+
+    .children-n-8{
+        .child{
+          padding-left: 90px;
+        }
+    } 
+
+    .children-n-9{
+        .child{
+          padding-left: 100px;
+        }
+    } 
+
+    .children-n-10{
+        .child{
+          padding-left: 110px;
+        }
+    } 
 
     // Animation: height
     .toggling.animation-height .children{

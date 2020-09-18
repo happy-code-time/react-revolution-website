@@ -10,7 +10,7 @@ import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
 import ScrollTop from './Website/Modules/ScrollTop';
 
-import { scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
+import { CloudsMountains404, scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -138,6 +138,8 @@ class App extends React.Component {
     scrollTopListener(0);
     this.setOnClickEvent();
     this.changeSidebarMinifiedState();
+    const layout = this.getLocalStorageValue('layout', 'light');
+    this.setAppLayout(layout);
   }
 
   componentWillUnmount() {
@@ -145,10 +147,20 @@ class App extends React.Component {
     clearInterval(this.locationCheck);
   }
 
+  getLocalStorageValue(valueToGet, defaultValue){
+    let value = localStorage.getItem(valueToGet);
+
+    if(null == value){
+      value = defaultValue;
+    }
+
+    return value;
+  }
+
   /**
- * Check if the website using a react-router
- * and if the url changed then reload the protector functionalitty
- */
+   * Check if the website using a react-router
+   * and if the url changed then reload the protector functionalitty
+   */
   setOnClickEvent() {
     document.removeEventListener('click', this.checkLocation);
     document.addEventListener('click', this.checkLocation);
@@ -205,11 +217,29 @@ class App extends React.Component {
   }
 
   setLayout(layout) {
+
     if (!possibleLayouts.includes(layout)) {
       layout = 'light';
     }
 
     localStorage.setItem('layout', layout);
+    this.setAppLayout(layout);
+  }
+
+  setAppLayout(layout){
+    const app = document.getElementById('app');
+
+    if (!possibleLayouts.includes(layout)) {
+      layout = 'light';
+    }
+
+    if(app){
+      app.removeAttribute('class');
+
+      if(layout !== 'light'){
+        app.setAttribute('class', layout);
+      }
+    }
   }
 
   searchForModule(inputValue) {
@@ -611,6 +641,23 @@ class App extends React.Component {
               <Route exact path="/react-revolution-function-enable-html-scroll" render={(props) => (<ReactRevolutionFunctionEnableHtmlScroll {...props} />)} />
               <Route exact path="/react-revolution-function-scroll-top-listener" render={(props) => (<ReactRevolutionFunctionScrollTopListener {...props} />)} />
               <Route exact path="/react-revolution-function-url-extract" render={(props) => (<ReactRevolutionFunctionUrlExtract {...props} />)} />
+              {/* 404 */}
+              <Route 
+                render={(props) => (
+                  <CloudsMountains404 
+                    addClass='page-not-found-404' 
+                    link={
+                      {
+                        reactRouter: true,
+                        text: trans('back_404'),
+                        href: '/'
+                      }
+                    }
+                    {...props} 
+
+                  />
+                )} 
+              />
             </Switch>
           </Router>
         }

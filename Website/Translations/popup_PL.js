@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    back_404: 'Strona główna',
     functions: 'Funkcje',
     components: 'Komponenty',
     description_uuid: 'Funkcja uuid zawsze zwraca unikalny ciąg oparty na liczbie losowej i aktualnej sygnaturze czasowej.',
@@ -16,7 +17,7 @@ const PL = {
     changeLanguageTitle: 'Zmień język',
     changeTintTitle: 'Wygląd strony',
     lightTheme: 'Jasny',
-    darkTheme: 'Ciemny (w przygotowaniu)',
+    darkTheme: 'Ciemny',
     searchForModule: 'Szukanie modułu',
     clickToNavToTheModule: 'Nawigacja do tego modułu',
     fast: 'Szybki',

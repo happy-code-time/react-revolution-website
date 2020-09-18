@@ -505,7 +505,7 @@ var setLanguage = function setLanguage() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var possibleLayouts = [['dark', 'light']];
+var possibleLayouts = ['dark', 'light'];
 /* harmony default export */ __webpack_exports__["default"] = (possibleLayouts);
 
 /***/ }),
@@ -544,11 +544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appName", function() { return appName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appNameShort", function() { return appNameShort; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "host", function() { return host; });
-var version = '1.1.4';
+var version = '1.1.5';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
 var author = "David Janitzek";
-var host = "https://react-revolution.j.pl/";
+var host = "http://localhost:3000/";
 
 
 /***/ }),
@@ -601,7 +601,7 @@ var Footer = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      host: "https://react-revolution.j.pl/"
+      host: "http://localhost:3000/"
     };
     return _this;
   }
@@ -10237,6 +10237,7 @@ var _DE;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var DE = (_DE = {
+  back_404: 'Startseite',
   functions: 'Funktionen',
   components: 'Komponente',
   description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
@@ -10250,7 +10251,7 @@ var DE = (_DE = {
   changeLanguageTitle: 'Sprache ändern',
   changeTintTitle: 'Layout ändern',
   lightTheme: 'Hell',
-  darkTheme: 'Dunkel (kommt in kürze)',
+  darkTheme: 'Dunkel',
   searchForModule: 'Module Suche',
   clickToNavToTheModule: 'Navigieren Sie zu diesem Modul',
   fast: 'Schnell',
@@ -11145,6 +11146,7 @@ var _EN;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var EN = (_EN = {
+  back_404: 'Homepage',
   functions: 'Functions',
   components: 'Components',
   description_uuid: 'The uuid function returns always an unique string based on a random number and the current timestamp.',
@@ -11158,7 +11160,7 @@ var EN = (_EN = {
   changeLanguageTitle: 'Change language',
   changeTintTitle: 'Change layout',
   lightTheme: 'Light',
-  darkTheme: 'Dark (coming soon)',
+  darkTheme: 'Dark',
   searchForModule: 'Module search',
   clickToNavToTheModule: 'Navigate to this module',
   fast: 'Fast',
@@ -12053,6 +12055,7 @@ var _PL;
 
 var len = Object(_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_1__["default"])().length - 1;
 var PL = (_PL = {
+  back_404: 'Strona główna',
   functions: 'Funkcje',
   components: 'Komponenty',
   description_uuid: 'Funkcja uuid zawsze zwraca unikalny ciąg oparty na liczbie losowej i aktualnej sygnaturze czasowej.',
@@ -12066,7 +12069,7 @@ var PL = (_PL = {
   changeLanguageTitle: 'Zmień język',
   changeTintTitle: 'Wygląd strony',
   lightTheme: 'Jasny',
-  darkTheme: 'Ciemny (w przygotowaniu)',
+  darkTheme: 'Ciemny',
   searchForModule: 'Szukanie modułu',
   clickToNavToTheModule: 'Nawigacja do tego modułu',
   fast: 'Szybki',
@@ -13108,6 +13111,31 @@ function _extends() {
 
   return _extends.apply(this, arguments);
 }
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/extends.js":
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
 
 /***/ }),
 
@@ -24289,7 +24317,7 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    min-height: calc(70vh - 60px);\n    display: flex;\n    background-color: white; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2.3rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: #72777a;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title h2 {\n        font-size: 1.2rem; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 7rem;\n        color: #1873CC; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px;\n  scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n  scrollbar-width: thin; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n#app .Generator .rr-container.container-example {\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n  border: 1px solid silver; }\n  #app .Generator .rr-container.container-example .SideBar {\n    width: 150px;\n    transition-duration: 200ms; }\n    #app .Generator .rr-container.container-example .SideBar .logo {\n      margin-left: 5px; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal {\n      height: calc(100% - 60px);\n      overflow-x: hidden;\n      overflow-y: hidden; }\n      #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry {\n        border-radius: 0px;\n        margin: 7px 10px;\n        border: none;\n        display: block;\n        width: 100%;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        transition-duration: 200ms; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry i {\n          display: inline-block;\n          font-size: 1.3rem;\n          margin: 0 25px 0 5px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .text,\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry a {\n          color: #7c8695;\n          font-size: 0.87rem;\n          letter-spacing: 0.0111rem;\n          transition-duration: 200ms;\n          padding-left: 0px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n          font-weight: bold; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal:hover {\n      overflow-y: auto; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min {\n    width: 50px; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min:hover {\n    width: 150px; }\n  #app .Generator .rr-container.container-example .Content {\n    overflow-y: auto;\n    overflow-x: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin;\n    height: 100vh;\n    width: 100%;\n    left: 0px; }\n    @media screen and (min-width: 720px) {\n      #app .Generator .rr-container.container-example .Content {\n        width: calc(100% - 150px);\n        left: 150px; } }\n  #app .Generator .rr-container.container-example .Content.Content-min {\n    width: calc(100% - 50px);\n    left: 50px; }\n  #app .Generator .rr-container.container-example .CONTENT,\n  #app .Generator .rr-container.container-example .FOOTER {\n    width: calc(100% - 20px);\n    border-radius: 10px;\n    border: 1px dashed black;\n    margin: 10px; }\n  #app .Generator .rr-container.container-example .CONTENT {\n    height: calc(80vh - 20px); }\n  #app .Generator .rr-container.container-example .FOOTER {\n    height: calc(20vh - 20px); }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 5px 0px 0px 5px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n", ""]);
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\nhtml {\n  display: table;\n  width: 100vw;\n  max-width: 100%;\n  overflow-x: hidden; }\n\n.bc-a {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-b {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-c {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-d {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-e {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-f {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-g {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-h {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-i {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-j {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-k {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-l {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-m {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-n {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-o {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-p {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-q {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-r {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-s {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-t {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-u {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-v {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-w {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-x {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-y {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bc-z {\n  background-color: rgba(0, 105, 148, 0.8); }\n\n.bg-dark-link {\n  background-color: #2D3748 !important; }\n\n* {\n  font-family: Helvetica Neue, Arial, sans-serif; }\n\n.w-100 {\n  width: 100% !important; }\n\n.text-elipsis {\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.block {\n  display: block; }\n\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.flex-start {\n  justify-content: flex-start; }\n\n.flex-space-around {\n  justify-content: space-around; }\n\n.flex-space-between {\n  justify-content: space-between; }\n\n.relative {\n  position: relative; }\n\n.m0 {\n  margin: 0 !important; }\n\n.mt-1 {\n  margin-top: 10px; }\n\n.mt-2 {\n  margin-top: 20px; }\n\n.mt-3 {\n  margin-top: 30px; }\n\n.mt-4 {\n  margin-top: 40px; }\n\n.mb-2 {\n  margin-bottom: 20px; }\n\n.mb-3 {\n  margin-bottom: 30px; }\n\n.mb-4 {\n  margin-bottom: 40px; }\n\n.font-input {\n  font-weight: 400;\n  font-size: 1rem;\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.ff-title {\n  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }\n\n.h1-title {\n  color: #202124;\n  font-size: 1.6rem;\n  font-weight: 400;\n  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;\n  letter-spacing: 0.01123rem; }\n\n.text-center {\n  text-align: center; }\n\n.ff-roboto {\n  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }\n\n.buttons-group {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 20px 5%; }\n\n.buttons-group-delete-account {\n  box-sizing: border-box;\n  padding: 10px;\n  max-width: 90%;\n  margin: 0 5%; }\n\n.yellow {\n  color: #ffeb3b; }\n\n.red {\n  color: #f44559; }\n\n.green {\n  color: #47b476; }\n\n.lime {\n  color: #C3FAE8; }\n\n.dodgerblue {\n  color: #1873CC; }\n\n.little-gray {\n  color: rgba(69, 69, 69, 0.7); }\n\n.action-icon {\n  color: #313435;\n  opacity: 0.8; }\n\n.action-icon:hover {\n  cursor: pointer; }\n\n.d-block {\n  display: block !important; }\n\n.d-none {\n  display: none !important; }\n\n.py-2 {\n  padding: 20px 0; }\n\n.my-2 {\n  margin: 20px 0; }\n\n.my-0 {\n  margin: 0px 0 !important; }\n\n.no-padding {\n  padding: 0px !important; }\n\n.mr-2 {\n  margin-right: 20px; }\n\nh1,\n.h1 {\n  color: rgba(0, 0, 0, 0.77); }\n\n.text-center {\n  text-align: center; }\n\n.icon-security {\n  color: rgba(248, 165, 27, 0.7); }\n\n.icon-images {\n  color: rgba(30, 144, 255, 0.8); }\n\n.icon-messages {\n  color: #7a7a7a; }\n\n.icon-iframes {\n  color: rgba(71, 180, 118, 0.7); }\n\n.icon-cookies {\n  color: #deb887; }\n\n.cursor-pointer {\n  cursor: pointer; }\n\n.ellipsis {\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n  word-wrap: none;\n  text-overflow: ellipsis; }\n\n.button-action {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  background-color: #1873CC;\n  box-shadow: 0px 0px 3px #1873CC;\n  color: white;\n  font-size: 0.87rem;\n  transition-duration: 200ms;\n  border: 1px solid transparent;\n  display: inline-block;\n  margin: 10px 0;\n  text-decoration: none; }\n\n.button-action:hover {\n  border: 1px solid #1873CC;\n  cursor: pointer; }\n\n.rr-sourcecode {\n  border-radius: 5px; }\n  .rr-sourcecode .code {\n    background-color: #2D3748;\n    overflow: hidden;\n    border-radius: 5px;\n    box-sizing: border-box; }\n    .rr-sourcecode .code .single-code-line-first .line-number,\n    .rr-sourcecode .code .single-code-line-first .line-code {\n      padding-top: 10px; }\n    .rr-sourcecode .code .single-code-line-last .line-number,\n    .rr-sourcecode .code .single-code-line-last .line-code {\n      padding-bottom: 10px; }\n    .rr-sourcecode .code .line-number {\n      box-sizing: border-box;\n      padding: 3px 0 3px 7px;\n      color: #718096;\n      font-size: 0.77rem;\n      margin-right: 10px; }\n    .rr-sourcecode .code .line-code {\n      box-sizing: border-box;\n      padding: 3px 0;\n      letter-spacing: 0.077rem;\n      font-size: 0.87rem; }\n\n.title-border {\n  box-sizing: border-box;\n  padding: 10px 0;\n  margin: 10px 0 20px 0;\n  color: #72777a;\n  border-bottom: 1px solid #dadce0;\n  font-size: 1.1rem; }\n  .title-border i {\n    margin: 0 10px; }\n\n/*\n * Popup box\n */\n@keyframes displayBoxEasyIn {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n@keyframes displayBoxEasyInMinified {\n  0% {\n    transform: scale(0);\n    opacity: 0; }\n  100% {\n    transform: scale(1);\n    opacity: 1; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOut {\n  0% {\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0; } }\n\n/*\n   * Popup box\n   */\n@keyframes displayBoxEasyOutMinified {\n  0% {\n    width: 100%;\n    transform: scale(1);\n    opacity: 1; }\n  100% {\n    transform: scale(0);\n    opacity: 0;\n    width: 0; } }\n\n@keyframes scale0 {\n  0% {\n    transform: scale(1); }\n  100% {\n    transform: scale(0); } }\n\n@keyframes opacity {\n  0% {\n    opacity: 0; }\n  100% {\n    opacity: 1; } }\n\n@keyframes opacity_back {\n  0% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes opacityScaleTopLeft {\n  0% {\n    width: 0vw;\n    height: 0vh;\n    top: 50vh;\n    right: 50vw;\n    opacity: 0;\n    transform: scaleZ(0); }\n  100% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); } }\n\n@keyframes opacityScaleTopLeft_back {\n  0% {\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    right: 0;\n    opacity: 1;\n    transform: scaleZ(1); }\n  100% {\n    top: 50vh;\n    right: 50vw;\n    width: 0vw;\n    height: 0vh;\n    opacity: 0;\n    transform: scaleZ(0); } }\n\n@keyframes showMessagesMenuContent {\n  0% {\n    left: 100vw; }\n  100% {\n    left: 253px; } }\n\n@keyframes hideMessagesMenuContent {\n  0% {\n    left: 253px; }\n  100% {\n    left: 100vw; } }\n\n@keyframes toggleChatMenuIn {\n  0% {\n    top: 100px; }\n  100% {\n    top: -70px; } }\n\n@keyframes toggleChatMenuOut {\n  0% {\n    top: -70px; }\n  100% {\n    top: 100px; } }\n\n@keyframes animateLoadingChatDiv {\n  0% {\n    left: -40%; }\n  100% {\n    left: 140%; } }\n\n@keyframes scaleIt {\n  0% {\n    transform: scale(1); }\n  20% {\n    transform: scale(0.8); }\n  40% {\n    transform: scale(1); }\n  60% {\n    transform: scale(1.1); }\n  100% {\n    transform: scale(1); } }\n\n@keyframes scaleItCopyToClipboard {\n  0% {\n    transform: scale(1); }\n  33% {\n    transform: scale(0.7); }\n  66% {\n    transform: scale(1.2); }\n  100% {\n    transform: scale(1); } }\n\n.Content {\n  position: absolute;\n  left: 250px;\n  width: calc(100% - 250px);\n  top: 0;\n  z-index: 2; }\n  .Content .head {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    box-sizing: border-box;\n    padding: 10px 20px;\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 3;\n    /*\n     * Minify or toggle menu icon\n     */\n    /*\n     * Popup\n     */ }\n    .Content .head i {\n      transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul .suggestions {\n      max-height: 50vh; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li {\n      transition-duration: 200ms; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li a, .Content .head .rr-custom-suggestion .suggestions-area .ul li p {\n        transition-duration: 200ms; }\n    .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover {\n      background-color: #1873CC; }\n      .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover a, .Content .head .rr-custom-suggestion .suggestions-area .ul li:hover p {\n        color: white; }\n    .Content .head .minify-menu {\n      color: white;\n      float: left;\n      box-sizing: border-box;\n      padding: 12px 13px;\n      border-radius: 50%;\n      transition-duration: 200ms; }\n    .Content .head .minify-menu:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer; }\n    .Content .head .popup-box-main {\n      position: relative;\n      float: right; }\n    .Content .head .popup-box-icon {\n      box-sizing: border-box;\n      padding: 10px;\n      border-radius: 50%;\n      transition-duration: 200ms;\n      position: relative;\n      font-size: 1.12rem;\n      margin-right: 10px; }\n    .Content .head .popup-box-icon:hover {\n      background-color: rgba(199, 199, 199, 0.2);\n      cursor: pointer;\n      color: #454545; }\n  .Content .ContentBody {\n    padding-top: 60px; }\n\n.Content-min {\n  left: 180px;\n  width: calc(100% - 180px); }\n\n/*\n         * Minified second Content\n         */\n.Content.minified {\n  left: 0;\n  width: 100vw; }\n\n.close-side-bar {\n  display: block;\n  position: absolute;\n  top: 20px;\n  right: 15px;\n  font-size: 10px;\n  border-radius: 50%;\n  border: 1px solid #313435;\n  width: 16px;\n  height: 16px;\n  line-height: 13px;\n  text-align: left;\n  box-sizing: border-box;\n  padding-left: 4px;\n  z-index: 2; }\n\n/*\n * Main first sidebar\n */\n.SideBar {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 250px;\n  height: 100vh;\n  border-right: 1px solid #dadce0;\n  overflow: hidden;\n  transition-duration: 200ms;\n  background-color: white;\n  z-index: 2; }\n  .SideBar .title-logo {\n    width: 100%;\n    height: 60px;\n    border-bottom: 1px solid #dadce0;\n    display: flex;\n    box-sizing: border-box;\n    padding: 10px 8px;\n    transition-duration: 200ms; }\n    .SideBar .title-logo .logo {\n      margin: 5px 0px 0px 0px; }\n      .SideBar .title-logo .logo img {\n        width: 32px;\n        height: 32px; }\n    .SideBar .title-logo .version {\n      color: rgba(69, 69, 69, 0.7); }\n      .SideBar .title-logo .version .name {\n        color: #454545; }\n      .SideBar .title-logo .version .name,\n      .SideBar .title-logo .version i {\n        line-height: 28px;\n        box-sizing: border-box;\n        padding-left: 13px;\n        font-size: 0.87rem; }\n      .SideBar .title-logo .version i {\n        font-size: 0.753rem;\n        line-height: 3px; }\n\n.SideBar.SideBar-min {\n  width: 180px;\n  transition-duration: 200ms; }\n  .SideBar.SideBar-min .drop-down {\n    opacity: 0; }\n\n.SideBar.SideBar-min:hover {\n  width: 250px;\n  z-index: 3; }\n  .SideBar.SideBar-min:hover .drop-down {\n    opacity: 1; }\n\n/*\n * Minified second sidebar\n */\n.SidebarMinified {\n  width: 250px;\n  left: -300px;\n  transition-duration: 200ms; }\n\n.SidebarMinified.opened {\n  width: 250px;\n  left: 0px;\n  background-color: white;\n  z-index: 3; }\n\n.main-menu {\n  /*\n     * Animation drop down icon - down\n     */\n  padding-top: 30px;\n  list-style-type: none;\n  overflow: hidden;\n  overflow-anchor: none;\n  position: relative;\n  height: calc(100vh - 120px);\n  list-style: none;\n  margin: 0;\n  overflow: auto;\n  overflow-x: hidden;\n  padding: 0;\n  position: relative;\n  padding-bottom: 50px;\n  /*\n     * Animate the toggling elements\n     */\n  /*\n     * Keep the original state\n     * without animation while set state\n     * on current toggled items\n     */\n  /*\n     * Toggled menu entry to show the drop down icon \n     * to the direction: up\n     */\n  /*\n     * Toggle drow down icon back to initial state\n     * to the direction: down\n     */ }\n\n@keyframes rotateToggledLeft {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n\n@keyframes rotateToggledRight {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleLeft {\n  0% {\n    transform: rotateZ(-43deg); }\n  100% {\n    transform: rotateZ(43deg); } }\n\n@keyframes rotateToggleRight {\n  0% {\n    transform: rotateZ(43deg); }\n  100% {\n    transform: rotateZ(-43deg); } }\n  .main-menu ul {\n    list-style: none;\n    margin: 0;\n    padding: 0; }\n  .main-menu .single-entry {\n    position: relative;\n    margin-top: 5px;\n    list-style-type: none;\n    color: #72777a;\n    letter-spacing: 0.2px;\n    transition-duration: 200ms;\n    font-weight: 500;\n    position: relative;\n    white-space: nowrap;\n    color: #72777a;\n    text-decoration: none;\n    height: 40px;\n    line-height: 40px;\n    box-sizing: border-box;\n    padding: 0px 15px;\n    display: inline-block;\n    width: 100%; }\n    .main-menu .single-entry .text {\n      font-size: 0.87rem;\n      margin-left: 20px; }\n    .main-menu .single-entry .icon {\n      font-size: 0.93rem;\n      margin: 10px 2px; }\n    .main-menu .single-entry .drop-down {\n      position: absolute;\n      top: 10px;\n      right: 15px;\n      transition-duration: 200ms; }\n    .main-menu .single-entry .drop-down:before,\n    .main-menu .single-entry .drop-down:after {\n      content: '';\n      position: absolute;\n      top: 5px;\n      width: 1px;\n      height: 10px;\n      overflow: hidden;\n      transition-duration: 200ms;\n      background-color: #272727; }\n    .main-menu .single-entry .drop-down:before {\n      right: 0; }\n    .main-menu .single-entry .drop-down:after {\n      right: 6px; }\n\n@keyframes showLiItems {\n  0% {\n    height: 0px;\n    overflow: hidden; }\n  100% {\n    height: 40px;\n    overflow: unset; } }\n\n@keyframes hideLiItems {\n  0% {\n    height: 40px;\n    overflow: unset; }\n  100% {\n    height: 0px;\n    overflow: hidden; } }\n  .main-menu .toggled ul li {\n    height: 0px;\n    overflow: hidden;\n    animation: showLiItems 350ms forwards ease-in;\n    transition-duration: 200ms; }\n  .main-menu .toggle-back .static {\n    animation: hideLiItems 350ms forwards ease-in; }\n  .main-menu ul .static {\n    height: 40px;\n    overflow: unset; }\n  .main-menu ul .dynamic {\n    height: auto;\n    overflow: unset; }\n  .main-menu .single-entry:hover {\n    cursor: pointer;\n    background-color: rgba(222, 222, 222, 0.6); }\n  .main-menu .drop-down.toggle:before {\n    transform: rotateZ(43deg); }\n  .main-menu .drop-down.toggle:after {\n    transform: rotateZ(-43deg); }\n  .main-menu .drop-down.persist-toggled:before {\n    transform: rotateZ(-43deg) !important; }\n  .main-menu .drop-down.persist-toggled:after {\n    transform: rotateZ(43deg) !important; }\n  .main-menu .drop-down.toggled:before {\n    animation: rotateToggledLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggled:after {\n    animation: rotateToggledRight 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:before {\n    animation: rotateToggleLeft 350ms forwards linear; }\n  .main-menu .drop-down.toggle-back:after {\n    animation: rotateToggleRight 350ms forwards linear; }\n\n.Content .head {\n  background-color: #1873cc;\n  border-bottom: none; }\n\n.Home {\n  width: 100vw;\n  min-height: 100vh; }\n  .Home .main-title-box {\n    width: 100vw;\n    min-height: calc(70vh - 60px);\n    display: flex;\n    background-color: white; }\n    .Home .main-title-box .main-title {\n      margin: 5vh auto; }\n      .Home .main-title-box .main-title h1 {\n        font-size: 2.3rem;\n        letter-spacing: 0.07rem; }\n      .Home .main-title-box .main-title h1,\n      .Home .main-title-box .main-title h2,\n      .Home .main-title-box .main-title i {\n        display: block;\n        color: #72777a;\n        margin: 20px auto;\n        text-align: center; }\n      .Home .main-title-box .main-title h2 {\n        font-size: 1.2rem; }\n      .Home .main-title-box .main-title i {\n        margin: 10vh auto;\n        font-size: 7rem;\n        color: #1873CC; }\n  .Home .rr-cards {\n    max-height: unset;\n    max-width: 1400px;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    .Home .rr-cards .cards-group {\n      flex-direction: column; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group {\n          flex-direction: row; } }\n      .Home .rr-cards .cards-group .card {\n        border: none;\n        transition-duration: 200ms;\n        width: 80%;\n        margin: 10px auto; }\n        @media screen and (min-width: 1024px) {\n          .Home .rr-cards .cards-group .card {\n            width: 250px;\n            margin: 30px auto; } }\n        .Home .rr-cards .cards-group .card .title {\n          color: #72777a;\n          text-align: center;\n          background-color: transparent;\n          line-height: 40px;\n          font-size: 1.1rem;\n          font-weight: 400;\n          border-bottom: 2px solid rgba(222, 222, 222, 0.55); }\n          .Home .rr-cards .cards-group .card .title i {\n            display: block;\n            font-size: 3rem;\n            margin: 20px auto; }\n        .Home .rr-cards .cards-group .card .content {\n          width: 90%;\n          margin: 20px 5%;\n          color: #72777a;\n          text-align: center;\n          font-size: 1.36rem;\n          letter-spacing: 0.122rem;\n          line-height: 30px; }\n      @media screen and (min-width: 1024px) {\n        .Home .rr-cards .cards-group .card-middle {\n          margin: 30px 5%; } }\n  .Home .example {\n    flex-direction: column;\n    max-width: 1400px;\n    margin: 20px auto;\n    box-sizing: border-box;\n    padding: 0 20px; }\n    @media screen and (min-width: 1024px) {\n      .Home .example {\n        flex-direction: row; } }\n    .Home .example .example-1,\n    .Home .example .example-2 {\n      width: calc(100% - 40px);\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-1,\n        .Home .example .example-2 {\n          width: 50%;\n          margin: 20px 0; } }\n    .Home .example .example-2 {\n      height: 100%;\n      margin: 20px;\n      transition-duration: 200ms; }\n      @media screen and (min-width: 1024px) {\n        .Home .example .example-2 {\n          margin-left: 50px;\n          margin-right: 0px; } }\n  .Home .install-buttons .install {\n    width: 100%;\n    height: auto;\n    flex-direction: column; }\n    @media screen and (min-width: 720px) {\n      .Home .install-buttons .install {\n        width: 50%;\n        flex-direction: row; } }\n    .Home .install-buttons .install .code {\n      display: inline-block;\n      padding: 3px 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-number,\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      min-height: 30px;\n      line-height: 30px;\n      margin: 0; }\n    .Home .install-buttons .install .rr-sourcecode-install .line-code {\n      width: 100%;\n      padding: 0 20px;\n      color: white; }\n  .Home .documentation {\n    width: 100%; }\n    .Home .documentation .button-action {\n      background-color: #47b476;\n      box-shadow: 0px 0px 3px #47b476; }\n    .Home .documentation .button-action:hover {\n      border: 1px solid #47b476; }\n\n.Footer {\n  width: 100%;\n  min-height: 50px;\n  background-color: #2D3748; }\n  .Footer .content {\n    margin: 0 auto;\n    max-width: 1400px; }\n  .Footer .card {\n    width: calc(100% - 20px);\n    margin: 10px;\n    min-height: unset;\n    border: none; }\n    @media screen and (min-width: 1024px) {\n      .Footer .card {\n        width: 33%;\n        margin: 30px calc(1.5% - 2px); } }\n    .Footer .card .title {\n      color: white;\n      border-bottom: 1px solid white;\n      background-color: transparent; }\n      .Footer .card .title i {\n        margin-right: 10px; }\n  .Footer .code {\n    margin: 0;\n    padding: 0 10px; }\n  .Footer .button-action {\n    background-color: #47b476;\n    box-shadow: 0px 0px 3px #47b476;\n    margin: 5px 10px 5px 0; }\n    .Footer .button-action a {\n      text-decoration: none;\n      color: white; }\n  .Footer .button-action:hover {\n    border: 1px solid #47b476; }\n  .Footer .text {\n    font-size: 0.87rem;\n    color: white;\n    line-height: 35px; }\n\n.Generator {\n  margin-top: 70px;\n  box-sizing: border-box;\n  padding: 20px 10px;\n  width: 100%;\n  min-height: 100vh;\n  height: auto; }\n  .Generator .h1-example {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 10px 0;\n    margin: 10px 0; }\n    .Generator .h1-example i {\n      margin: 0 20px 0 10px; }\n  .Generator .code {\n    padding: 10px; }\n  .Generator .description {\n    font-size: 0.87rem;\n    letter-spacing: 0.078rem;\n    box-sizing: border-box;\n    padding: 20px 10px 10px 10px;\n    line-height: 30px; }\n  .Generator .a-description {\n    color: #72777a;\n    text-decoration: none;\n    display: block;\n    padding: 5px 0;\n    line-height: 20px;\n    transition-duration: 200ms; }\n  .Generator .a-description:hover {\n    color: #454545; }\n  .Generator .rr-table {\n    width: 100%; }\n    .Generator .rr-table li {\n      width: 100%;\n      min-height: 30px;\n      line-height: 30px;\n      box-sizing: border-box;\n      padding: 5px 10px; }\n    .Generator .rr-table .span,\n    .Generator .rr-table .span-title {\n      display: block;\n      font-size: 0.87rem;\n      color: #72777a; }\n    .Generator .rr-table .span-1,\n    .Generator .rr-table .span-2 {\n      width: 15%;\n      margin-left: 5px; }\n    .Generator .rr-table .title {\n      display: none; }\n      @media screen and (min-width: 1024px) {\n        .Generator .rr-table .title {\n          display: flex; } }\n      .Generator .rr-table .title span {\n        font-weight: bold; }\n    .Generator .rr-table .span-title {\n      margin-left: 5px;\n      font-weight: bold; }\n  .Generator .rr-table.rr-table-website .span-1 {\n    overflow: hidden;\n    word-wrap: none;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3 {\n    border: none; }\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    margin-left: 5px; }\n  .Generator .rr-table.rr-table-website .span-1,\n  .Generator .rr-table.rr-table-website .span-2,\n  .Generator .rr-table.rr-table-website .span-3,\n  .Generator .rr-table.rr-table-website .span-4 {\n    width: calc(100% - 10px); }\n  @media screen and (min-width: 1024px) {\n    .Generator .rr-table.rr-table-website {\n      width: 100%; }\n      .Generator .rr-table.rr-table-website .span-1,\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        border-right: 1px solid rgba(222, 222, 222, 0.5); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3,\n      .Generator .rr-table.rr-table-website .span-4 {\n        margin-left: 20px; }\n      .Generator .rr-table.rr-table-website .span-1 {\n        width: calc(20% - 20px);\n        min-width: calc(20% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2,\n      .Generator .rr-table.rr-table-website .span-3 {\n        width: calc(15% - 20px);\n        min-width: calc(15% - 20px); }\n      .Generator .rr-table.rr-table-website .span-2 {\n        width: calc(50% - 40px);\n        min-width: calc(50% - 40px); }\n      .Generator .rr-table.rr-table-website .title {\n        display: flex; } }\n  .Generator .no-data {\n    width: 100%;\n    height: 50px;\n    line-height: 50px;\n    text-align: center; }\n    .Generator .no-data p {\n      width: 200px;\n      height: 100%;\n      border-radius: 3px;\n      background-color: #dedede;\n      display: inline-block;\n      color: #7a7a7a;\n      font-size: 0.87rem; }\n\n#app .Generator .rr-cards {\n  max-width: 1140px;\n  margin: 0 auto; }\n  #app .Generator .rr-cards .card {\n    width: calc(100% - 20px);\n    margin: 10px; }\n\n@media screen and (min-width: 1024px) {\n  #app .Generator .rr-cards .card {\n    width: 25% !important;\n    margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll {\n  height: 300px;\n  scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n  scrollbar-width: thin; }\n  #app .Generator .section-cards-scroll .rr-cards-scroll {\n    max-width: 1140px;\n    margin: 0 auto; }\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      #app .Generator .section-cards-scroll .rr-cards-scroll .card .content {\n        height: 100px; }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .section-cards-scroll .rr-cards-scroll .card {\n      width: 25% !important;\n      margin: 30px calc(4% - 2px) !important; } }\n\n#app .Generator .section-cards-scroll-callback {\n  height: 500px; }\n  #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback {\n    max-width: 1140px;\n    margin: 0 auto;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n      width: calc(100% - 20px);\n      margin: 10px; }\n      @media screen and (min-width: 1024px) {\n        #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card {\n          width: 25%;\n          margin: 30px calc(4% - 2px); } }\n      #app .Generator .section-cards-scroll-callback .rr-cards-scroll-callback .cards-group .card .content {\n        height: 100px; }\n\n#app .Generator .rr-revolution-button-clipboard {\n  box-sizing: border-box;\n  padding: 10px 15px;\n  border-radius: 3px;\n  margin: 0 auto;\n  background-color: #f44559;\n  box-shadow: 0px 0px 3px #f44559;\n  font-size: 0.87rem;\n  color: white; }\n\n#app .Generator .fullscreen-overlay-example {\n  position: absolute;\n  top: 20vh;\n  left: 35vw;\n  width: 30vw;\n  height: 30vh;\n  display: flex;\n  flex-direction: column;\n  border-radius: 3px;\n  background-color: white; }\n  #app .Generator .fullscreen-overlay-example p {\n    margin: auto; }\n  #app .Generator .fullscreen-overlay-example .dimmed:hover {\n    cursor: pointer; }\n\n#app .Generator .rr-icons {\n  width: 50vw;\n  min-width: 500px;\n  margin: 0 auto;\n  border: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-input-file .label {\n  margin: 0 8px; }\n\n#app .Generator .rr-revolution-popupbox-example {\n  width: 50px;\n  height: 50px;\n  margin: 0 auto;\n  text-align: center; }\n  #app .Generator .rr-revolution-popupbox-example .rr-popupbox {\n    float: left; }\n  #app .Generator .rr-revolution-popupbox-example .icon {\n    color: #454545; }\n  #app .Generator .rr-revolution-popupbox-example .icon:hover {\n    cursor: pointer; }\n  #app .Generator .rr-revolution-popupbox-example .box {\n    width: 200px;\n    height: 100px;\n    background-color: white; }\n\n#app .Generator .rr-revolution-sidebar-example {\n  position: relative;\n  min-height: 300px;\n  height: 50vh;\n  width: 200px;\n  margin: 0 10px;\n  overflow: hidden;\n  box-sizing: border-box;\n  padding: 2px; }\n  #app .Generator .rr-revolution-sidebar-example .rr-sidebar {\n    border: 1px solid #dadce0;\n    border-radius: 3px;\n    height: calc(100% - 2px);\n    width: calc(100% - 2px); }\n\n#app .Generator .rr-revolution-loadonscroll-example {\n  min-width: 300px;\n  width: 50vw;\n  height: 200px;\n  margin: 0 auto;\n  overflow-x: hidden;\n  overflow-y: auto; }\n  #app .Generator .rr-revolution-loadonscroll-example p {\n    line-height: 30px; }\n\n#app .Generator .rr-table-key-value .title {\n  background-color: #1873cc; }\n  #app .Generator .rr-table-key-value .title .key,\n  #app .Generator .rr-table-key-value .title .value {\n    color: white; }\n  #app .Generator .rr-table-key-value .title .value {\n    border-left: unset; }\n\n#app .Generator .rr-table-key-value .key {\n  width: 70px; }\n\n#app .Generator .rr-table-key-value .value {\n  box-sizing: border-box;\n  padding-left: 5px;\n  width: calc(100% - 70px); }\n  @media screen and (min-width: 1024px) {\n    #app .Generator .rr-table-key-value .value {\n      padding-left: 20px; } }\n\n#app .Generator .rr-breadcrumbs-example {\n  width: 100%;\n  min-height: 50px;\n  line-height: 50px; }\n  #app .Generator .rr-breadcrumbs-example .single-entry-delimiter {\n    color: #525252; }\n  #app .Generator .rr-breadcrumbs-example span,\n  #app .Generator .rr-breadcrumbs-example a {\n    color: #a3a3a3; }\n  #app .Generator .rr-breadcrumbs-example a {\n    margin: 0 5px; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text {\n    min-width: 65px;\n    text-align: center; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .text:hover {\n    cursor: pointer; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .hasChildren {\n    border: unset; }\n  #app .Generator .rr-breadcrumbs-example .menu-span .children {\n    position: absolute;\n    width: 100%;\n    padding: 0;\n    background-color: white;\n    border-radius: 3px;\n    box-shadow: 0px 0px 3px #7a7a7a; }\n    #app .Generator .rr-breadcrumbs-example .menu-span .children .child {\n      box-sizing: border-box;\n      margin: 5px 0;\n      padding: 0 5px; }\n\n#app .Generator .rr-pager-dynamic ul {\n  position: relative; }\n  #app .Generator .rr-pager-dynamic ul .pager-loading {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(222, 222, 222, 0.44);\n    text-align: center;\n    display: flex;\n    vertical-align: middle; }\n    #app .Generator .rr-pager-dynamic ul .pager-loading p {\n      margin: auto; }\n\n#app .Generator .rr-pager-static ul,\n#app .Generator .rr-pager-dynamic ul {\n  box-sizing: border-box;\n  padding: 10px;\n  height: 320px;\n  border: 1px solid #dedede;\n  margin: 10px 0;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .pagination-paging,\n#app .Generator .rr-pager-dynamic .pagination-paging {\n  display: flex;\n  justify-content: space-around;\n  min-width: 200px; }\n\n#app .Generator .rr-pager-static .pagination-pages,\n#app .Generator .rr-pager-dynamic .pagination-pages {\n  width: 100%;\n  text-align: center;\n  clear: both; }\n\n#app .Generator .rr-pager-static .buttons,\n#app .Generator .rr-pager-dynamic .buttons {\n  margin: 10px calc(50% - 155px);\n  width: 310px;\n  box-sizing: border-box;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #dedede;\n  border-radius: 3px; }\n\n#app .Generator .rr-pager-static .previous-page,\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-static .next-page,\n#app .Generator .rr-pager-dynamic .previous-page,\n#app .Generator .rr-pager-dynamic .current-page,\n#app .Generator .rr-pager-dynamic .next-page {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  line-height: 30px;\n  border-radius: 3px;\n  border: 1px solid #dedede;\n  margin: 0 5px; }\n\n#app .Generator .rr-pager-static .current-page,\n#app .Generator .rr-pager-dynamic .current-page {\n  background-color: #1873cc;\n  color: white; }\n\n#app .Generator .rr-pager-static .delete,\n#app .Generator .rr-pager-dynamic .delete {\n  display: inline-block;\n  width: 30px;\n  text-align: center;\n  color: #FF4469; }\n\n#app .Generator .rr-pager-static .delete:hover,\n#app .Generator .rr-pager-dynamic .delete:hover {\n  cursor: pointer; }\n\n#app .Generator .rr-scroll-to .to-bottom,\n#app .Generator .rr-scroll-to .to-top {\n  margin: auto; }\n\n#app .Generator .rr-container.container-example {\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n  border: 1px solid silver; }\n  #app .Generator .rr-container.container-example .SideBar {\n    width: 150px;\n    transition-duration: 200ms; }\n    #app .Generator .rr-container.container-example .SideBar .logo {\n      margin-left: 5px; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal {\n      height: calc(100% - 60px);\n      overflow-x: hidden;\n      overflow-y: hidden; }\n      #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry {\n        border-radius: 0px;\n        margin: 7px 10px;\n        border: none;\n        display: block;\n        width: 100%;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        white-space: nowrap;\n        transition-duration: 200ms; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry i {\n          display: inline-block;\n          font-size: 1.3rem;\n          margin: 0 25px 0 5px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .text,\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry a {\n          color: #7c8695;\n          font-size: 0.87rem;\n          letter-spacing: 0.0111rem;\n          transition-duration: 200ms;\n          padding-left: 0px; }\n        #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n          font-weight: bold; }\n    #app .Generator .rr-container.container-example .SideBar .rr-menu-click-horizontal:hover {\n      overflow-y: auto; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min {\n    width: 50px; }\n  #app .Generator .rr-container.container-example .SideBar.SideBar-min:hover {\n    width: 150px; }\n  #app .Generator .rr-container.container-example .Content {\n    overflow-y: auto;\n    overflow-x: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin;\n    height: 100vh;\n    width: 100%;\n    left: 0px; }\n    @media screen and (min-width: 720px) {\n      #app .Generator .rr-container.container-example .Content {\n        width: calc(100% - 150px);\n        left: 150px; } }\n  #app .Generator .rr-container.container-example .Content.Content-min {\n    width: calc(100% - 50px);\n    left: 50px; }\n  #app .Generator .rr-container.container-example .CONTENT,\n  #app .Generator .rr-container.container-example .FOOTER {\n    width: calc(100% - 20px);\n    border-radius: 10px;\n    border: 1px dashed black;\n    margin: 10px; }\n  #app .Generator .rr-container.container-example .CONTENT {\n    height: calc(80vh - 20px); }\n  #app .Generator .rr-container.container-example .FOOTER {\n    height: calc(20vh - 20px); }\n\n* {\n  font-family: \"HelveticaNeue\", \"Helvetica Neue\", \"Helvetica-Neue\", Helvetica, Arial, sans-serif; }\n\n*::selection {\n  background-color: #1873CC;\n  color: white; }\n\n#app .ScrollTop {\n  position: fixed;\n  bottom: 10px;\n  right: 20px;\n  z-index: 10;\n  width: 40px;\n  height: 40px;\n  border-radius: 10px;\n  background-color: #1d1d1d; }\n  #app .ScrollTop i {\n    display: block;\n    line-height: 40px;\n    text-align: center;\n    color: white; }\n  #app .ScrollTop i:hover {\n    cursor: pointer; }\n\n#app .icon-container .rr-popupbox {\n  float: right; }\n  #app .icon-container .rr-popupbox .popup-box-icon {\n    color: white; }\n  #app .icon-container .rr-popupbox .box.top-right {\n    width: 220px;\n    right: 20px;\n    top: 55px;\n    background-color: white;\n    /* POPUP link to view all of current type */ }\n    @media screen and (min-width: 720px) {\n      #app .icon-container .rr-popupbox .box.top-right {\n        width: 300px; } }\n    #app .icon-container .rr-popupbox .box.top-right h1 {\n      font-weight: 400;\n      color: #313435;\n      font-size: 0.97rem;\n      box-sizing: border-box;\n      padding: 15px 10px;\n      border-bottom: 1px solid rgba(0, 0, 0, 0.0625); }\n      #app .icon-container .rr-popupbox .box.top-right h1 i {\n        color: inherit;\n        font-size: 0.97rem;\n        margin-right: 10px; }\n    #app .icon-container .rr-popupbox .box.top-right ul {\n      list-style: none;\n      margin: 0px;\n      padding: 0px; }\n      #app .icon-container .rr-popupbox .box.top-right ul li {\n        margin: 0px;\n        padding: 0px;\n        position: relative;\n        font-size: 0.87rem;\n        color: #72777a;\n        letter-spacing: 0.2px;\n        border-bottom: 1px solid rgba(0, 0, 0, 0.0625);\n        z-index: 1;\n        transition-duration: 200ms;\n        height: 40px;\n        line-height: 30px;\n        box-sizing: border-box;\n        padding: 5px 10px; }\n    #app .icon-container .rr-popupbox .box.top-right li:hover {\n      background-color: #1873CC;\n      color: white;\n      cursor: pointer; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all {\n      display: block;\n      height: 50px;\n      line-height: 30px;\n      color: #7c8695;\n      font-size: 0.923rem;\n      box-sizing: border-box;\n      padding: 10px 20px;\n      text-align: center;\n      transition-duration: 200ms;\n      text-decoration: none; }\n      #app .icon-container .rr-popupbox .box.top-right .popup-box-all i {\n        font-size: 0.87rem;\n        margin-left: 20px; }\n    #app .icon-container .rr-popupbox .box.top-right .popup-box-all:hover {\n      cursor: pointer;\n      background-color: #2165D6;\n      color: white; }\n\n#app .rr-sidebar .logo-text {\n  display: flex;\n  height: 60px;\n  text-decoration: none;\n  color: #72777a; }\n  #app .rr-sidebar .logo-text .logo {\n    margin: 8px 10px 0 17px; }\n    #app .rr-sidebar .logo-text .logo img {\n      width: 40px;\n      height: 40px; }\n  #app .rr-sidebar .logo-text .text {\n    display: flex;\n    flex-direction: column; }\n    #app .rr-sidebar .logo-text .text .long,\n    #app .rr-sidebar .logo-text .text .short {\n      display: inline-block;\n      overflow: hidden;\n      white-space: nowrap;\n      word-wrap: none;\n      text-overflow: ellipsis; }\n    #app .rr-sidebar .logo-text .text .long {\n      margin: 13px 0 5px 5px;\n      font-size: 0.923rem; }\n    #app .rr-sidebar .logo-text .text .short {\n      margin-left: 5px;\n      font-size: 0.644rem; }\n\n#app .SideBar {\n  transition-duration: 200ms; }\n  #app .SideBar .rr-menu-click-horizontal {\n    height: calc(100% - 60px);\n    overflow-x: hidden;\n    overflow-y: hidden;\n    scrollbar-color: rgba(122, 122, 122, 0.88) transparent;\n    scrollbar-width: thin; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry {\n      border-radius: 0px;\n      margin: 5px 0px 0px 0px;\n      border: none;\n      display: block;\n      width: 100%;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .text,\n      #app .SideBar .rr-menu-click-horizontal .single-entry a {\n        color: #7c8695;\n        font-size: 0.87rem;\n        letter-spacing: 0.0111rem;\n        transition-duration: 200ms; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .child {\n        border-top: 1px solid transparent;\n        border-bottom: 1px solid transparent; }\n      #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren {\n        font-weight: bold; }\n    #app .SideBar .rr-menu-click-horizontal .single-entry .hasChildren:hover {\n      background-color: rgba(222, 222, 222, 0.22); }\n    #app .SideBar .rr-menu-click-horizontal .single-entry .child:hover {\n      background-color: rgba(222, 222, 222, 0.22);\n      border-top: 1px solid rgba(222, 222, 222, 0.66);\n      border-bottom: 1px solid rgba(222, 222, 222, 0.66); }\n  #app .SideBar .rr-menu-click-horizontal:hover {\n    overflow-y: auto; }\n\n#app .SideBar.SideBar-min .text,\n#app .SideBar.SideBar-min a {\n  font-size: 0.77rem !important;\n  letter-spacing: 0.00511rem !important; }\n\n#app .SideBar.SideBar-min .long {\n  font-size: 0.67rem !important; }\n\n.rr-clipboard .rr-sourcecode {\n  width: 100%; }\n  .rr-clipboard .rr-sourcecode .code {\n    padding: 5px; }\n\n.rr-sourcecode {\n  width: calc(100% - 20px); }\n  .rr-sourcecode .code li {\n    letter-spacing: 0.0144rem;\n    font-size: 0.78rem; }\n    .rr-sourcecode .code li .line-code {\n      min-height: 20px; }\n  .rr-sourcecode span {\n    color: white; }\n  .rr-sourcecode .tag-start,\n  .rr-sourcecode .tag-end,\n  .rr-sourcecode .slash,\n  .rr-sourcecode .equal,\n  .rr-sourcecode .quote {\n    color: #93DDF7; }\n  .rr-sourcecode .tag-name,\n  .rr-sourcecode .key {\n    color: #49B095; }\n  .rr-sourcecode .attribute-value {\n    color: #B5EE85; }\n  .rr-sourcecode .var,\n  .rr-sourcecode .object-property {\n    color: #45A0E9; }\n  .rr-sourcecode .not-filtered,\n  .rr-sourcecode .no-match,\n  .rr-sourcecode .value {\n    color: white; }\n  .rr-sourcecode .line-number {\n    color: #C2C2C2; }\n  .rr-sourcecode .variable-dollar {\n    color: #F44567; }\n  .rr-sourcecode .bracket {\n    color: #ccc; }\n  .rr-sourcecode .function-arguments {\n    color: orange; }\n  .rr-sourcecode .variable-name,\n  .rr-sourcecode .attribute-name,\n  .rr-sourcecode .function-name {\n    color: mediumseagreen; }\n  .rr-sourcecode .bracket-value {\n    color: #ccc; }\n\n#app.dark .head,\n#app.dark .SidebarMinified.opened,\n#app.dark .rr-sidebar {\n  background-color: #242526; }\n\n#app.dark .action-icon {\n  color: #7a7a7a; }\n\n#app.dark .close-side-bar {\n  border: 1px solid #7a7a7a; }\n\n#app.dark .Home,\n#app.dark .Home .main-title-box,\n#app.dark .rr-cards,\n#app.dark .ContentBody,\n#app.dark .Content,\n#app.dark .Footer {\n  background-color: #18191A; }\n\n#app.dark .font-input.title {\n  background-color: #18191A; }\n\n#app.dark .font-input.title {\n  color: white; }\n\n#app.dark .rr-input-animation .font-input,\n#app.dark .rr-input-animation.focus .title {\n  color: #1873CC; }\n\n#app.dark .Home .main-title h1,\n#app.dark .rr-cards .content,\n#app.dark .title-border {\n  color: white; }\n\n#app.dark .SideBar .rr-menu-click-horizontal .single-entry .text.child,\n#app.dark .description {\n  color: #acacac; }\n\n#app.dark .SideBar .rr-menu-click-horizontal .single-entry .text.hasChildren,\n#app.dark .h1-example,\n#app.dark .h1-title {\n  color: white; }\n\n#app.dark .rr-cards .title i,\n#app.dark .h1-example i,\n#app.dark .a-description {\n  color: rgba(30, 144, 255, 0.4); }\n\n#app.dark .rr-clipboard .button-action {\n  background-color: rgba(30, 144, 255, 0.4); }\n\n#app.dark .a-description:hover,\n#app.dark .arrow {\n  color: #1873CC; }\n\n.page-not-found-404 {\n  min-height: 100vh; }\n  .page-not-found-404 .content-404 {\n    margin: 0 auto; }\n", ""]);
 
 
 
@@ -40571,17 +40599,18 @@ module.exports = function (e) {
     return "".concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random())).concat(Math.floor(1e6 * Math.random()));
   },
       E = function e() {
-    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [];
-    if (t && t.length) for (var a = 0; a <= t.length - 1; a++) {
-      null == t[a].toggled && (t[a].toggled = !1), null == t[a].uuid && (t[a].unique = "".concat(S())), null == t[a].uuid && (t[a].iconId = "".concat(S())), null == t[a].classList && (t[a].classList = ""), t[a].data && s()([]) == s()(t[a].data) && t[a].data.length && e(t[a].data);
+    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+        a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0;
+    if (t && t.length) for (var n = 0; n <= t.length - 1; n++) {
+      null == t[n].toggled && (t[n].toggled = !1), null == t[n].uuid && (t[n].unique = "".concat(S())), null == t[n].uuid && (t[n].iconId = "".concat(S())), null == t[n].classList && (t[n].classList = ""), null == t[n].loopCount && (t[n].loopCount = 1), a && t[n].data && s()([]) == s()(t[n].data) && t[n].data.length && (t[n].childrensNestedCount = a.childrensNestedCount + 1), a || (t[n].childrensNestedCount = 1), t[n].data && s()([]) == s()(t[n].data) && t[n].data.length && e(t[n].data, t[n]);
     }
     return t;
   },
-      N = "https://react-revolution.j.pl/",
+      N = "http://localhost:3000/",
       x = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-pager-static", "rr-popupbox", "rr-sidebar", "rr-sourcecode", "rr-table", "rr-text-writer", "rr-clouds-404", "rr-clouds-mountains-404", "rr-water-404", "rr-lightbulb-404"],
       P = function P(e, t, a) {
-    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.4", "/css/").concat(a, ".css"),
-        l = "".concat(N, "/public/react-revolution/").concat("v1.1.4", "/css/react-revolution.css"),
+    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.5", "/css/").concat(a, ".css"),
+        l = "".concat(N, "/public/react-revolution/").concat("v1.1.5", "/css/react-revolution.css"),
         i = document.createElement("link");
     i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css");
 
@@ -40674,7 +40703,8 @@ module.exports = function (e) {
               d = r.unique,
               f = r.classList,
               m = r.props,
-              h = t[_i].data;
+              h = r.childrensNestedCount,
+              p = t[_i].data;
           f || (f = ""), m && s()(m) === s()({}) || (m = {});
 
           try {
@@ -40685,15 +40715,15 @@ module.exports = function (e) {
 
           n.push(k.a.createElement("div", l()({
             key: S(),
-            className: "single-entry ".concat(f, " ").concat(h && 0 !== h.length ? "hasChildren" : "")
+            className: "single-entry ".concat(f, " ").concat(p && 0 !== p.length ? "hasChildren" : "")
           }, m), k.a.createElement("div", {
-            className: "text ".concat(a ? "child" : "", " ").concat(h && 0 !== h.length ? "hasChildren" : "", " ").concat(c ? "hasData" : ""),
+            className: "text ".concat(a ? "child" : "", " ").concat(p && 0 !== p.length ? "hasChildren" : "", " ").concat(c ? "hasData" : ""),
             onClick: function onClick() {
               return e.toggle(d);
             }
-          }, o), u && h && 0 !== h.length && k.a.createElement("div", {
-            className: "children"
-          }, e.buildDataRecursive(h, !0)), u && null == h && c && k.a.createElement("div", {
+          }, o), u && p && 0 !== p.length && k.a.createElement("div", {
+            className: "children children-n-".concat(h)
+          }, e.buildDataRecursive(p, !0)), u && null == p && c && k.a.createElement("div", {
             className: "data"
           }, c)));
         }, r = 0; r <= t.length - 1; r++) {
@@ -41141,10 +41171,11 @@ module.exports = function (e) {
               f = o.props,
               m = o.classList,
               h = o.href,
-              p = o.icon;
+              p = o.icon,
+              v = o.childrensNestedCount;
           h && s()("8") == s()(h) && (h = h.toLowerCase());
-          var v = t[_r2].data ? t[_r2].data : [],
-              g = !!t[_r2].data;
+          var g = t[_r2].data ? t[_r2].data : [],
+              y = !!t[_r2].data;
           m || (m = ""), f && s()(f) === s()({}) || (f = {});
 
           try {
@@ -41153,30 +41184,30 @@ module.exports = function (e) {
             f = {};
           }
 
-          var y = "";
-          n && v && 0 == v.length && (y = k.a.createElement(_, {
+          var b = "";
+          n && g && 0 == g.length && (b = k.a.createElement(_, {
             to: h,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
-              return e.toggle(d, g);
+              return e.toggle(d, y);
             }
-          }, p && p, c)), !n && v && 0 == v.length && (y = k.a.createElement("a", {
+          }, p && p, c)), !n && g && 0 == g.length && (b = k.a.createElement("a", {
             href: h,
             className: "text ".concat(a ? "child" : ""),
             onClick: function onClick() {
-              return e.toggle(d, g);
+              return e.toggle(d, y);
             }
-          }, p && p, c)), v && 0 !== v.length && (y = k.a.createElement("div", {
+          }, p && p, c)), g && 0 !== g.length && (b = k.a.createElement("div", {
             className: "text hasChildren ".concat(a ? " child" : ""),
             onClick: function onClick() {
-              return e.toggle(d, g);
+              return e.toggle(d, y);
             }
           }, p && p, c)), i.push(k.a.createElement("div", l()({
             key: S(),
-            className: "single-entry ".concat(m, " ").concat(v && 0 !== v.length ? "parent" : "")
-          }, f), y, u && v && 0 !== v.length && k.a.createElement("div", {
-            className: "children"
-          }, e.buildDataRecursive(v, !0))));
+            className: "single-entry ".concat(m, " ").concat(g && 0 !== g.length ? "parent" : "")
+          }, f), b, u && g && 0 !== g.length && k.a.createElement("div", {
+            className: "children children-n-".concat(v)
+          }, e.buildDataRecursive(g, !0))));
         }, o = 0; o <= t.length - 1; o++) {
           r(o);
         }
@@ -48827,74 +48858,76 @@ module.exports = function (e) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _Website_Pages_Home__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./Website/Pages/Home.jsx");
-/* harmony import */ var _Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Modules/WebsiteContainer.jsx");
-/* harmony import */ var _Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Modules/ScrollTop.jsx");
-/* harmony import */ var _react_revolution__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./react-revolution/public/react-revolution.js");
-/* harmony import */ var _react_revolution__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_react_revolution__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _Website_Globals__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./Website/Globals/index.jsx");
-/* harmony import */ var _Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./Website/Translations/trans.js");
-/* harmony import */ var _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./Website/Functions/language/possibleLanguagesLong.js");
-/* harmony import */ var _Website_Functions_language_setLanguage__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./Website/Functions/language/setLanguage.js");
-/* harmony import */ var _Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./Website/Functions/possibleLayouts.js");
-/* harmony import */ var _Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Functions/getAllAvailableModulesNames.js");
-/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./Website/Scss/index.scss");
-/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _Website_Pages_ReactRevolutionAccordion__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./Website/Pages/ReactRevolutionAccordion.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./Website/Pages/ReactRevolutionBreadcrumbs.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./Website/Pages/ReactRevolutionCards.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./Website/Pages/ReactRevolutionCardsScroll.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./Website/Pages/ReactRevolutionCardsScrollCallback.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("./Website/Pages/ReactRevolutionClipboard.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionClouds404__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/ReactRevolutionClouds404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCloudsMountains404__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/ReactRevolutionCloudsMountains404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/ReactRevolutionContainer.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/ReactRevolutionCustomSuggestion.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListArray.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListObject.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenOverlay.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/ReactRevolutionGlobalMessages.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/ReactRevolutionIcons.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/ReactRevolutionInputAnimation.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFile.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFileDragDrop.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionArray.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionObject.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/ReactRevolutionLightbulb404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadingBoxTop.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__("./Website/Pages/ReactRevolutionMenuClickHorizontal.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerStatic.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerDynamic.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__("./Website/Pages/ReactRevolutionPopupBox.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadOnScroll.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__("./Website/Pages/ReactRevolutionScrollTo.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__("./Website/Pages/ReactRevolutionSourceCode.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__("./Website/Pages/ReactRevolutionSidebar.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__("./Website/Pages/ReactRevolutionTable.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__("./Website/Pages/ReactRevolutionTextWriter.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__("./Website/Pages/ReactRevolutionWater404.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionUuid.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionDisableHtmlScroll.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionEnableHtmlScroll.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionScrollTopListener.jsx");
-/* harmony import */ var _Website_Pages_ReactRevolutionFunctionUrlExtract__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionUrlExtract.jsx");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/@babel/runtime/helpers/extends.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _Website_Pages_Home__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./Website/Pages/Home.jsx");
+/* harmony import */ var _Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./Website/Modules/WebsiteContainer.jsx");
+/* harmony import */ var _Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./Website/Modules/ScrollTop.jsx");
+/* harmony import */ var _react_revolution__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./react-revolution/public/react-revolution.js");
+/* harmony import */ var _react_revolution__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_react_revolution__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _Website_Globals__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./Website/Globals/index.jsx");
+/* harmony import */ var _Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./Website/Translations/trans.js");
+/* harmony import */ var _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__("./Website/Functions/language/possibleLanguagesLong.js");
+/* harmony import */ var _Website_Functions_language_setLanguage__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__("./Website/Functions/language/setLanguage.js");
+/* harmony import */ var _Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__("./Website/Functions/possibleLayouts.js");
+/* harmony import */ var _Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__("./Website/Functions/getAllAvailableModulesNames.js");
+/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__("./Website/Scss/index.scss");
+/* harmony import */ var _Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_Website_Scss_index_scss__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _Website_Pages_ReactRevolutionAccordion__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__("./Website/Pages/ReactRevolutionAccordion.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__("./Website/Pages/ReactRevolutionBreadcrumbs.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__("./Website/Pages/ReactRevolutionCards.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__("./Website/Pages/ReactRevolutionCardsScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__("./Website/Pages/ReactRevolutionCardsScrollCallback.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__("./Website/Pages/ReactRevolutionClipboard.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionClouds404__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__("./Website/Pages/ReactRevolutionClouds404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCloudsMountains404__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__("./Website/Pages/ReactRevolutionCloudsMountains404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__("./Website/Pages/ReactRevolutionContainer.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__("./Website/Pages/ReactRevolutionCustomSuggestion.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListArray.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenListObject.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__("./Website/Pages/ReactRevolutionFullScreenOverlay.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__("./Website/Pages/ReactRevolutionGlobalMessages.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__("./Website/Pages/ReactRevolutionIcons.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__("./Website/Pages/ReactRevolutionInputAnimation.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFile.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__("./Website/Pages/ReactRevolutionInputFileDragDrop.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionArray.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__("./Website/Pages/ReactRevolutionInputSuggestionObject.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__("./Website/Pages/ReactRevolutionLightbulb404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadingBoxTop.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__("./Website/Pages/ReactRevolutionMenuClickHorizontal.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerStatic.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__("./Website/Pages/ReactRevolutionPagerDynamic.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__("./Website/Pages/ReactRevolutionPopupBox.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__("./Website/Pages/ReactRevolutionLoadOnScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__("./Website/Pages/ReactRevolutionScrollTo.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__("./Website/Pages/ReactRevolutionSourceCode.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__("./Website/Pages/ReactRevolutionSidebar.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__("./Website/Pages/ReactRevolutionTable.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__("./Website/Pages/ReactRevolutionTextWriter.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__("./Website/Pages/ReactRevolutionWater404.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionUuid.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionDisableHtmlScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionEnableHtmlScroll.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionScrollTopListener.jsx");
+/* harmony import */ var _Website_Pages_ReactRevolutionFunctionUrlExtract__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__("./Website/Pages/ReactRevolutionFunctionUrlExtract.jsx");
 
 
 
@@ -48902,7 +48935,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4___default()(this, result); }; }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5___default()(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -48968,23 +49002,23 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 var App = /*#__PURE__*/function (_React$Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default()(App, _React$Component);
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(App, _React$Component);
 
   var _super = _createSuper(App);
 
   function App(props) {
     var _this;
 
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, App);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, App);
 
     _this = _super.call(this, props);
-    _this.setOnClickEvent = _this.setOnClickEvent.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
-    _this.checkLocation = _this.checkLocation.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
-    _this.changeSidebarMinifiedState = _this.changeSidebarMinifiedState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
-    _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    _this.setOnClickEvent = _this.setOnClickEvent.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.checkLocation = _this.checkLocation.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.changeSidebarMinifiedState = _this.changeSidebarMinifiedState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
+    _this.searchForModule = _this.searchForModule.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
-      host: "https://react-revolution.j.pl/",
+      host: "http://localhost:3000/",
       suggestions: [],
       inputValue: ''
     };
@@ -48994,16 +49028,18 @@ var App = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(App, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if ('' == window.location.hash || 'http:' == window.location.protocol && "https://react-revolution.j.pl/" == 'https://react-revolution.j.pl/') {
+      if ('' == window.location.hash || 'http:' == window.location.protocol && "http://localhost:3000/" == 'https://react-revolution.j.pl/') {
         window.location.href = "".concat(this.state.host, "#/");
       }
 
-      Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["scrollTopListener"])(0);
+      Object(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["scrollTopListener"])(0);
       this.setOnClickEvent();
       this.changeSidebarMinifiedState();
+      var layout = this.getLocalStorageValue('layout', 'light');
+      this.setAppLayout(layout);
     }
   }, {
     key: "componentWillUnmount",
@@ -49011,10 +49047,21 @@ var App = /*#__PURE__*/function (_React$Component) {
       document.removeEventListener('click', this.checkLocation);
       clearInterval(this.locationCheck);
     }
+  }, {
+    key: "getLocalStorageValue",
+    value: function getLocalStorageValue(valueToGet, defaultValue) {
+      var value = localStorage.getItem(valueToGet);
+
+      if (null == value) {
+        value = defaultValue;
+      }
+
+      return value;
+    }
     /**
-    * Check if the website using a react-router
-    * and if the url changed then reload the protector functionalitty
-    */
+     * Check if the website using a react-router
+     * and if the url changed then reload the protector functionalitty
+     */
 
   }, {
     key: "setOnClickEvent",
@@ -49076,18 +49123,36 @@ var App = /*#__PURE__*/function (_React$Component) {
     value: function setLanguage() {
       var language = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'English';
 
-      Object(_Website_Functions_language_setLanguage__WEBPACK_IMPORTED_MODULE_16__["default"])(language);
+      Object(_Website_Functions_language_setLanguage__WEBPACK_IMPORTED_MODULE_17__["default"])(language);
 
       window.location.reload();
     }
   }, {
     key: "setLayout",
     value: function setLayout(layout) {
-      if (!_Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_17__["default"].includes(layout)) {
+      if (!_Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_18__["default"].includes(layout)) {
         layout = 'light';
       }
 
       localStorage.setItem('layout', layout);
+      this.setAppLayout(layout);
+    }
+  }, {
+    key: "setAppLayout",
+    value: function setAppLayout(layout) {
+      var app = document.getElementById('app');
+
+      if (!_Website_Functions_possibleLayouts__WEBPACK_IMPORTED_MODULE_18__["default"].includes(layout)) {
+        layout = 'light';
+      }
+
+      if (app) {
+        app.removeAttribute('class');
+
+        if (layout !== 'light') {
+          app.setAttribute('class', layout);
+        }
+      }
     }
   }, {
     key: "searchForModule",
@@ -49097,17 +49162,17 @@ var App = /*#__PURE__*/function (_React$Component) {
       }
 
       var host = this.state.host;
-      var allModules = Object(_Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_18__["default"])();
+      var allModules = Object(_Website_Functions_getAllAvailableModulesNames__WEBPACK_IMPORTED_MODULE_19__["default"])();
       var suggestions = [];
       allModules.map(function (object) {
         if (-1 !== object.name.toLowerCase().indexOf(inputValue.toLowerCase())) {
           suggestions.push({
             href: "".concat(host, "#/").concat(object.link),
-            jsx: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("p", {
+            jsx: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("p", {
               className: "text-elipsis"
             }, object.name),
             props: {
-              title: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('clickToNavToTheModule')
+              title: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('clickToNavToTheModule')
             }
           });
         }
@@ -49125,7 +49190,7 @@ var App = /*#__PURE__*/function (_React$Component) {
           host = _this$state.host,
           suggestions = _this$state.suggestions,
           inputValue = _this$state.inputValue;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Modules_WebsiteContainer__WEBPACK_IMPORTED_MODULE_11__["default"], {
         persistUserSelection: false // set local sotrage on click
         ,
         clearPersistUserSelection: true // do not remove the local storage on component did mount
@@ -49136,24 +49201,24 @@ var App = /*#__PURE__*/function (_React$Component) {
         sidebarMaxifiedAt: 1024,
         displayMinifyMaxifyIcon: true,
         minify: minifySidebard,
-        moduleSidebar: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["SideBar"], {
-          image: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("img", {
+        moduleSidebar: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["SideBar"], {
+          image: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("img", {
             alt: "image",
             src: "./public/images/icon-48.png"
           }),
-          textLong: _Website_Globals__WEBPACK_IMPORTED_MODULE_13__["appNameShort"],
-          textShort: "v".concat(_Website_Globals__WEBPACK_IMPORTED_MODULE_13__["version"]),
+          textLong: _Website_Globals__WEBPACK_IMPORTED_MODULE_14__["appNameShort"],
+          textShort: "v".concat(_Website_Globals__WEBPACK_IMPORTED_MODULE_14__["version"]),
           href: "".concat(host, "#/"),
           globalStyle: true // load css for react-revolution globally
           ,
-          moduleMenu: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["MenuClickHorizontal"], {
+          moduleMenu: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["MenuClickHorizontal"], {
             reactRouter: false,
             animation: "height",
-            dropDown: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+            dropDown: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
               className: "fas fa-angle-down dropDownIcon"
             }),
             data: [{
-              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('components'),
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('components'),
               toggled: true,
               data: [{
                 text: 'Accordion',
@@ -49271,7 +49336,7 @@ var App = /*#__PURE__*/function (_React$Component) {
                 href: "".concat(host, "#/react-revolution-text-writer")
               }]
             }, {
-              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('functions'),
+              text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('functions'),
               toggled: true,
               data: [{
                 text: 'disableHtmlScroll',
@@ -49293,71 +49358,71 @@ var App = /*#__PURE__*/function (_React$Component) {
           })
         }),
         headerClassName: '',
-        headerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", {
+        headerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", {
           className: "icon-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["PopupBox"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["PopupBox"], {
           defaultClass: false,
           id: false,
           animationTime: 300,
           animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
-          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-globe-europe popup-box-icon"
           }),
-          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
             className: "ellipsis"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-globe-europe"
-          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('changeLanguageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("ul", null, _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_15__["default"].map(function (language) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("li", {
+          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('changeLanguageTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("ul", null, _Website_Functions_language_possibleLanguagesLong__WEBPACK_IMPORTED_MODULE_16__["default"].map(function (language) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("li", {
               className: "ellipsis",
-              key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["uuid"])(),
+              key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["uuid"])(),
               onClick: function onClick() {
                 return _this2.setLanguage(language);
               }
             }, language);
           })))
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["PopupBox"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["PopupBox"], {
           defaultClass: false,
           id: false,
           animationTime: 300,
           animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
-          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-tint popup-box-icon"
           }),
-          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
             className: "ellipsis"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-tint"
-          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('changeTintTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("li", {
+          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('changeTintTitle')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("li", {
             className: "ellipsis",
-            key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["uuid"])(),
+            key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["uuid"])(),
             onClick: function onClick() {
               return _this2.setLayout('light');
             }
-          }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('lightTheme')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("li", {
+          }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('lightTheme')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("li", {
             className: "ellipsis",
-            key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["uuid"])(),
+            key: Object(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["uuid"])(),
             onClick: function onClick() {
               return _this2.setLayout('dark');
             }
-          }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('darkTheme'))))
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["PopupBox"], {
+          }, Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('darkTheme'))))
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["PopupBox"], {
           defaultClass: false,
           id: false,
           animationTime: 300,
           animation: "top-right" // top-left, top-right, bottom-left, bottom-right
           ,
-          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-search popup-box-icon"
           }),
-          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h1", {
+          data: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("h1", {
             className: "ellipsis"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("i", {
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("i", {
             className: "fas fa-search"
-          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('searchForModule')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_12__["CustomSuggestion"], {
-            inputPlaceholder: "".concat(Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_14__["default"])('searchForModule')),
+          }), Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('searchForModule')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["CustomSuggestion"], {
+            inputPlaceholder: "".concat(Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('searchForModule')),
             suggestions: suggestions,
             callback: this.searchForModule,
             callbackRerender: true,
@@ -49366,250 +49431,261 @@ var App = /*#__PURE__*/function (_React$Component) {
             type: "text"
           }))
         })),
-        contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        contentData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_Home__WEBPACK_IMPORTED_MODULE_9__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_Home__WEBPACK_IMPORTED_MODULE_10__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-accordion",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionAccordion__WEBPACK_IMPORTED_MODULE_20__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionAccordion__WEBPACK_IMPORTED_MODULE_21__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-breadcrumbs",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_21__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionBreadcrumbs__WEBPACK_IMPORTED_MODULE_22__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-cards",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_22__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionCards__WEBPACK_IMPORTED_MODULE_23__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-cards-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_23__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionCardsScroll__WEBPACK_IMPORTED_MODULE_24__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-cards-scroll-callback",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_24__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionCardsScrollCallback__WEBPACK_IMPORTED_MODULE_25__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-clipboard",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_25__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionClipboard__WEBPACK_IMPORTED_MODULE_26__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-clouds-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionClouds404__WEBPACK_IMPORTED_MODULE_26__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionClouds404__WEBPACK_IMPORTED_MODULE_27__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-clouds-mountains-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCloudsMountains404__WEBPACK_IMPORTED_MODULE_27__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionCloudsMountains404__WEBPACK_IMPORTED_MODULE_28__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-container",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_28__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionContainer__WEBPACK_IMPORTED_MODULE_29__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-custom-suggestion",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_29__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionCustomSuggestion__WEBPACK_IMPORTED_MODULE_30__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_30__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListArray__WEBPACK_IMPORTED_MODULE_31__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-list-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_31__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenListObject__WEBPACK_IMPORTED_MODULE_32__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-fullscreen-overlay",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_32__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFullScreenOverlay__WEBPACK_IMPORTED_MODULE_33__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-global-messages",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_33__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionGlobalMessages__WEBPACK_IMPORTED_MODULE_34__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-icons",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_34__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionIcons__WEBPACK_IMPORTED_MODULE_35__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-input-animation",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_35__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionInputAnimation__WEBPACK_IMPORTED_MODULE_36__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-input-file",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_36__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionInputFile__WEBPACK_IMPORTED_MODULE_37__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-input-file-drag-drop",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_37__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionInputFileDragDrop__WEBPACK_IMPORTED_MODULE_38__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-array",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_38__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionArray__WEBPACK_IMPORTED_MODULE_39__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-input-suggestion-object",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_39__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionInputSuggestionObject__WEBPACK_IMPORTED_MODULE_40__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-loading-box-top",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_41__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionLoadingBoxTop__WEBPACK_IMPORTED_MODULE_42__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-menu-click-horizontal",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_42__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionMenuClickHorizontal__WEBPACK_IMPORTED_MODULE_43__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-pager-static",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_43__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionPagerStatic__WEBPACK_IMPORTED_MODULE_44__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-pager-dynamic",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_44__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionPagerDynamic__WEBPACK_IMPORTED_MODULE_45__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-popup-box",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_45__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionPopupBox__WEBPACK_IMPORTED_MODULE_46__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-load-on-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_46__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionLoadOnScroll__WEBPACK_IMPORTED_MODULE_47__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-lightbulb-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_40__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionLightbulb404__WEBPACK_IMPORTED_MODULE_41__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-sidebar",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_49__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionSidebar__WEBPACK_IMPORTED_MODULE_50__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-text-writer",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_51__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionTextWriter__WEBPACK_IMPORTED_MODULE_52__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-table",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_50__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionTable__WEBPACK_IMPORTED_MODULE_51__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-scroll-to",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_47__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionScrollTo__WEBPACK_IMPORTED_MODULE_48__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-source-code",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_48__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionSourceCode__WEBPACK_IMPORTED_MODULE_49__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-water-404",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_52__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionWater404__WEBPACK_IMPORTED_MODULE_53__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-function-uuid",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_53__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFunctionUuid__WEBPACK_IMPORTED_MODULE_54__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-function-disable-html-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_54__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFunctionDisableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-function-enable-html-scroll",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_55__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFunctionEnableHtmlScroll__WEBPACK_IMPORTED_MODULE_56__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-function-scroll-top-listener",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_56__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFunctionScrollTopListener__WEBPACK_IMPORTED_MODULE_57__["default"], props);
           }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__["Route"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
           exact: true,
           path: "/react-revolution-function-url-extract",
           render: function render(props) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Pages_ReactRevolutionFunctionUrlExtract__WEBPACK_IMPORTED_MODULE_57__["default"], props);
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Pages_ReactRevolutionFunctionUrlExtract__WEBPACK_IMPORTED_MODULE_58__["default"], props);
+          }
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__["Route"], {
+          render: function render(props) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution__WEBPACK_IMPORTED_MODULE_13__["CloudsMountains404"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+              addClass: "page-not-found-404",
+              link: {
+                reactRouter: true,
+                text: Object(_Website_Translations_trans__WEBPACK_IMPORTED_MODULE_15__["default"])('back_404'),
+                href: '/'
+              }
+            }, props));
           }
         }))),
-        footerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_11__["default"], null)
+        footerData: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Website_Modules_ScrollTop__WEBPACK_IMPORTED_MODULE_12__["default"], null)
       });
     }
   }]);
 
   return App;
-}(react__WEBPACK_IMPORTED_MODULE_6___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component);
 
-react_dom__WEBPACK_IMPORTED_MODULE_8___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(App, null), document.getElementById('app'));
+react_dom__WEBPACK_IMPORTED_MODULE_9___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
 

@@ -193,10 +193,10 @@
       overflow-y: hidden;
       scrollbar-color: rgba(122,122,122,.88) transparent;
       scrollbar-width: thin;
-  
+
       .single-entry {
         border-radius: 0px;
-        margin: 5px 0px 0px 5px;
+        margin: 5px 0px 0px 0px;
         border: none;
         display: block;
         width: 100%;
@@ -213,10 +213,23 @@
           transition-duration: $default_transition;
         }
 
+        .child{
+          border-top: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+        }
+
         .hasChildren{
           font-weight: bold;
         }
       }
+      .single-entry .hasChildren:hover{
+        background-color: rgba(222,222,222,.22);
+      } 
+      .single-entry .child:hover{
+        background-color: rgba(222,222,222,.22);
+        border-top: 1px solid rgba(222,222,222,.66);
+        border-bottom: 1px solid rgba(222,222,222,.66);
+      } 
     }
   
     .rr-menu-click-horizontal:hover {
@@ -317,5 +330,71 @@
 
   .bracket-value{
     color: #ccc;
+  }
+}
+
+#app.dark{
+  .head,
+  .SidebarMinified.opened,
+  .rr-sidebar{
+    background-color: #242526; //rgb(0, 0, 0);
+  }
+  .action-icon{
+    color: rgb(122,122,122);
+  }
+  .close-side-bar{
+    border: 1px solid rgb(122,122,122);
+  }
+  .Home,
+  .Home .main-title-box,
+  .rr-cards,
+  .ContentBody,
+  .Content,
+  .Footer{
+    background-color: #18191A;
+  }
+  .font-input.title{
+    background-color: #18191A;
+  }
+  .font-input.title{
+    color: $white;
+  }
+  .rr-input-animation .font-input,
+  .rr-input-animation.focus .title{
+    color: $dodgerblue;
+  }
+  .Home .main-title h1,
+  .rr-cards .content,
+  .title-border{
+    color: $white;
+  }
+  .SideBar .rr-menu-click-horizontal .single-entry .text.child,
+  .description{
+    color: rgb(172,172,172);
+  }
+  .SideBar .rr-menu-click-horizontal .single-entry .text.hasChildren,
+  .h1-example,
+  .h1-title{
+    color: $white;
+  }
+  .rr-cards .title i,
+  .h1-example i,
+  .a-description{
+    color: $dodgerblue-light-l;
+  }
+  .rr-clipboard .button-action{
+    background-color: $dodgerblue-light-l;
+  }
+  .a-description:hover,
+  .arrow{
+    color: $dodgerblue;
+  }
+}
+
+.page-not-found-404{
+  min-height: 100vh;
+
+  .content-404{
+    margin: 0 auto;
   }
 }
