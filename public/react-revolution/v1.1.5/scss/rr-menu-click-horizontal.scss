@@ -9,9 +9,12 @@
         user-select: none;
     }
 
-    .children,
+    .children{
+      padding: 5px 0 0 0;
+    }
+
     .single-entry{
-      padding: 0px;
+      padding: 1px 0;
     }
 
     .single-entry{
@@ -51,63 +54,70 @@
 
     .children-n-1{
         .child{
-          padding-left: 20px;
+          padding-left: 25px;
         }
     } 
 
     .children-n-2{
         .child{
-          padding-left: 30px;
+          padding-left: 40px;
         }
     } 
 
     .children-n-3{
         .child{
-          padding-left: 40px;
+          padding-left: 55px;
         }
     } 
 
     .children-n-4{
         .child{
-          padding-left: 50px;
+          padding-left: 70px;
         }
     } 
 
     .children-n-5{
         .child{
-          padding-left: 60px;
+          padding-left: 85px;
         }
     } 
 
     .children-n-6{
         .child{
-          padding-left: 70px;
+          padding-left: 100px;
         }
     } 
 
     .children-n-7{
         .child{
-          padding-left: 80px;
+          padding-left: 115px;
         }
     } 
 
     .children-n-8{
         .child{
-          padding-left: 90px;
+          padding-left: 130px;
         }
     } 
 
     .children-n-9{
         .child{
-          padding-left: 100px;
+          padding-left: 145px;
         }
     } 
 
     .children-n-10{
         .child{
-          padding-left: 110px;
+          padding-left: 160px;
         }
     } 
+
+    // If dashed option are true
+    .dashed{
+        padding-left: 10px !important;
+        border-left: 1px dashed rgba(122,122,122,.43);
+        margin-left: 10px;
+    }
 
     // Animation: height
     .toggling.animation-height .children{

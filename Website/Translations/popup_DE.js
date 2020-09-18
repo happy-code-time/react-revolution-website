@@ -1148,7 +1148,13 @@ const DE = {
         "description": "Footer div`s Eigenschaften.",
         "type": "Objekt",
         "default": "{}"
-    }
+    },
+    "dashed" : {
+        "description": "Generiere auf der linken Seite des aufgeklappten Menü Elementes ein ge-dashen Rand.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "dashed_example": "Ein Beispiel mit dem übergebenen Key 'dashed={true}'."
 };
 
 export default DE;

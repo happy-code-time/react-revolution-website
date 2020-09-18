@@ -32,6 +32,7 @@ class MenuClickHorizontal extends React.Component {
             reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
             closeOnClickOutside: typeof true == typeof props.closeOnClickOutside ? props.closeOnClickOutside : false,
+            dashed: typeof true == typeof props.dashed ? props.dashed : false,
         };
 
         this.refNode = React.createRef();
@@ -68,7 +69,7 @@ class MenuClickHorizontal extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation', 'closeOnClickOutside', 'dashed'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu-click-horizontal',
@@ -76,6 +77,8 @@ class MenuClickHorizontal extends React.Component {
                 data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
                 reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
                 animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
+                closeOnClickOutside: typeof true == typeof props.closeOnClickOutside ? props.closeOnClickOutside : false,
+                dashed: typeof true == typeof props.dashed ? props.dashed : false,
             };
         }
 
@@ -83,12 +86,12 @@ class MenuClickHorizontal extends React.Component {
     }
 
     buildDataRecursive(data = [], isChild = false) {
-        const { reactRouter } = this.state;
+        const { reactRouter, dashed } = this.state;
         const jsx = [];
 
         if (data && data.length) {
             for (let x = 0; x <= data.length - 1; x++) {
-                let { text, toggled, unique, props, classList, href, icon, childrensNestedCount } = data[x];
+                let { text, toggled, unique, props, classList, href, icon, childrensNestedCount, key } = data[x];
 
                 if (href && typeof '8' == typeof href) {
                     href = href.toLowerCase();
@@ -166,7 +169,7 @@ class MenuClickHorizontal extends React.Component {
                 }
                 jsx.push(
                     <div
-                        key={uuid()}
+                        key={key}
                         className={`single-entry ${classList} ${(dataChildren && 0 !== dataChildren.length) ? 'parent' : ''}`}
                         {...props}
                     >
@@ -175,7 +178,7 @@ class MenuClickHorizontal extends React.Component {
                         }
                         {
                             toggled && dataChildren && 0 !== dataChildren.length &&
-                            <div className={`children children-n-${childrensNestedCount}`}>
+                            <div className={`children ${dashed ? 'dashed' : `children-n-${childrensNestedCount}`}`}>
                                 {
                                     this.buildDataRecursive(dataChildren, true)
                                 }

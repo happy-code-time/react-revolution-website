@@ -1146,7 +1146,13 @@ const PL = {
         "description": "Właściwości elementu div stopki.",
         "type": "Object",
         "default": "{}"
-    }
+    },
+    "dashed" : {
+        "description": "Narysuj po lewej stronie przerywaną ramkę dla każdego otwartego wpisu menu.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "dashed_example": "Przykład z użyciem klucza'dashed={true}'."
 };
 
 export default PL;

@@ -80,7 +80,7 @@ class Accordion extends React.Component {
 
         if(data && data.length){
             for(let x = 0; x <= data.length-1; x++){
-                let { text, dataToggle, toggled, unique, classList, props, childrensNestedCount } = data[x];
+                let { text, dataToggle, toggled, unique, classList, props, childrensNestedCount, key } = data[x];
                 const dataChildren = data[x].data;
 
                 if(!classList){
@@ -100,7 +100,7 @@ class Accordion extends React.Component {
 
                 jsx.push(
                     <div 
-                        key={uuid()} 
+                        key={key}
                         className={`single-entry ${classList} ${(dataChildren && 0 !== dataChildren.length) ? 'hasChildren' : ''}`}
                         {...props}
                     >

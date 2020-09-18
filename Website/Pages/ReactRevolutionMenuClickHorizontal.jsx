@@ -15,60 +15,145 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
 
 <MenuClickHorizontal
+    addClass='rr-menu-click-horizontal-example'
     reactRouter={false}
     animation='height' // height, scale, opacity
     data={
         [
             {
-                text: 'Entry 1 - no childs',
-                href: '#',
-            },
-            {
-                text: 'Entry 2 - toggle childs',
+                text: 'Deep 1',
                 data: [
                     {
-                        text: 'Child 1',
-                        href: '#',
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
                     },
                     {
-                        text: 'Child 2',
-                        href: '#',
-                    },
-                    {
-                        text: 'Child 3',
-                        href: '#',
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
                     },
                 ]
             },
             {
-                text: 'Entry 3 - toggle childs',
+                text: 'Deep 1',
                 data: [
                     {
-                        text: 'Child 1',
-                        href: '#',
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
                     },
                     {
-                        text: 'Child 2',
-                        href: '#',
-                    },
-                    {
-                        text: 'Child 3',
-                        href: '#',
-                    },
-                    {
-                        text: 'Child 4',
-                        href: '#',
-                    },
-                    {
-                        text: 'Child 5',
-                        href: '#',
-                    },
-                    {
-                        text: 'Child 6',
-                        href: '#',
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
                     },
                 ]
-            }
+            },
         ]
     }
 />`;
@@ -76,6 +161,154 @@ const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
 const codeExample2 = `import { MenuClickHorizontal } from 'react-revolution';
 
 <MenuClickHorizontal
+    dashed={true}
+    addClass='rr-menu-click-horizontal-example'
+    reactRouter={false}
+    animation='height' // height, scale, opacity
+    data={
+        [
+            {
+                text: 'Deep 1',
+                data: [
+                    {
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                ]
+            },
+            {
+                text: 'Deep 1',
+                data: [
+                    {
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        text: 'Deep 2',
+                        data: [
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                            {
+                                text: 'Deep 3',
+                                data: [
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                    {
+                                        text: 'Deep 4 ...',
+                                        href: '#/',
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                ]
+            },
+        ]
+    }
+/>`;
+
+const codeExample3 = `import { MenuClickHorizontal } from 'react-revolution';
+
+<MenuClickHorizontal
+    addClass='rr-menu-click-horizontal-example'
     closeOnClickOutside={true}
     reactRouter={false}
     animation='height' // height, scale, opacity
@@ -135,6 +368,24 @@ const codeExample2 = `import { MenuClickHorizontal } from 'react-revolution';
     }
 />`;
 
+const cssExample = `.rr-menu-click-horizontal-example{
+    border-radius: 5px;
+    border: 1px solid rgb(222,222,222);
+    width: 250px;
+    box-sizing: border-box;
+    padding: 5px;
+
+    a,
+    .text{
+        text-decoration: none;
+        color: #7c8695;
+    }
+
+    .hasChildren{
+        font-weight: 550;
+    }
+}`;
+
 class ReactRevolutionMenuClickHorizontal extends React.Component {
     constructor(props) {
         super(props);
@@ -149,64 +400,305 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                 react: codeExample1,
                 reactTextAfter: '',
                 js: '',
-                css: '',
+                css: cssExample,
                 html: '',
                 live: (
                     <MenuClickHorizontal
+                        addClass='rr-menu-click-horizontal-example'
                         reactRouter={false}
                         animation='height' // height, scale, opacity
                         data={
                             [
                                 {
-                                    text: 'Link',
-                                    href: '#',
-                                },
-                                {
-                                    text: 'Toggle',
+                                    text: 'Deep 1',
                                     data: [
                                         {
-                                            text: 'Child 1',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
                                         },
                                         {
-                                            text: 'Child 2',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
-                                        },
-                                        {
-                                            text: 'Child 3',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
                                         },
                                     ]
                                 },
                                 {
-                                    text: 'Toggle',
+                                    text: 'Deep 1',
                                     data: [
                                         {
-                                            text: 'Child 1',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
                                         },
                                         {
-                                            text: 'Child 2',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
-                                        },
-                                        {
-                                            text: 'Child 3',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
-                                        },
-                                        {
-                                            text: 'Child 4',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
-                                        },
-                                        {
-                                            text: 'Child 5',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
-                                        },
-                                        {
-                                            text: 'Child 6',
-                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
                                         },
                                     ]
-                                }
+                                },
+                            ]
+                        }
+                    />
+                )
+            },
+            {
+                title: 'MenuClickHorizontal',
+                description: trans('dashed_example'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <MenuClickHorizontal
+                        addClass='rr-menu-click-horizontal-example'
+                        reactRouter={false}
+                        dashed={true}
+                        animation='height' // height, scale, opacity
+                        data={
+                            [
+                                {
+                                    text: 'Deep 1',
+                                    data: [
+                                        {
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    text: 'Deep 1',
+                                    data: [
+                                        {
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            text: 'Deep 2',
+                                            data: [
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                                {
+                                                    text: 'Deep 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                        {
+                                                            text: 'Deep 4 ...',
+                                                            href: `${host}#/react-revolution-menu-click-horizontal`,
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
                             ]
                         }
                     />
@@ -216,13 +708,14 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                 title: 'MenuClickHorizontal',
                 description: trans('accordion.description2'),
                 reactTextBefore: '',
-                react: codeExample2,
+                react: codeExample3,
                 reactTextAfter: '',
                 js: '',
-                css: '',
+                css: cssExample,
                 html: '',
                 live: (
                     <MenuClickHorizontal
+                        addClass='rr-menu-click-horizontal-example'
                         closeOnClickOutside={true}
                         reactRouter={false}
                         animation='height' // height, scale, opacity
@@ -351,6 +844,10 @@ class ReactRevolutionMenuClickHorizontal extends React.Component {
                                 {
                                     key: 'addClass',
                                     values: 'addClass'
+                                },
+                                {
+                                    key: 'dashed',
+                                    values: 'dashed'
                                 },
                                 {
                                     key: 'reactRouter',

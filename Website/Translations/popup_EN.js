@@ -1146,7 +1146,13 @@ const EN = {
         "description": "Footer div`s properties.",
         "type": "Object",
         "default": "{}"
-    }
+    },
+    "dashed" : {
+        "description": "Draw, on the left side, for each toggle menu entry a dashed border.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "dashed_example": "Example with the usage of the key 'dashed={true}'."
 };
 
 export default EN;

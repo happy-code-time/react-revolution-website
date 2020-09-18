@@ -449,4 +449,22 @@
             height: calc(20vh - 20px);
         }
     }
+
+    .rr-menu-click-horizontal-example{
+        border-radius: 5px;
+        border: 1px solid rgb(222,222,222);
+        width: 250px;
+        box-sizing: border-box;
+        padding: 5px;
+
+        a,
+        .text{
+            text-decoration: none;
+            color: #7c8695;
+        }
+
+        .hasChildren{
+            font-weight: 550;
+        }
+    }
 }

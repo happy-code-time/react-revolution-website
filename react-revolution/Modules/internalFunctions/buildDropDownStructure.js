@@ -14,6 +14,10 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
                 data[x].unique = `${uuid()}`;
             }
 
+            if(undefined == data[x].key){
+                data[x].key = `single-entry-${x}${data[x].text ? data[x].text : ''}`;
+            }
+
             if(undefined == data[x].uuid){
                 data[x].iconId = `${uuid()}`;
             }
