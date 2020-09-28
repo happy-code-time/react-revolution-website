@@ -88,7 +88,8 @@ const cssExample = `.rr-table{
     }
 }`;
 
-class ReactRevolutionTable extends React.Component {
+class ReactRevolutionTable extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

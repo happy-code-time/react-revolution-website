@@ -316,7 +316,8 @@ const cssExample = `.rr-pager-static {
     }
 }`;
 
-class ReactRevolutionPagerStatic extends React.Component {
+class ReactRevolutionPagerStatic extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

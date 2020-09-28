@@ -8,7 +8,8 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 import MenuClickHorizontal from '../MenuClickHorizontal';
 
-class Breadcrumbs extends React.Component {
+class Breadcrumbs extends React.Component 
+{
     constructor(props) {
         super(props);
 

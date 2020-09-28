@@ -4,7 +4,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Container extends React.Component {
+class Container extends React.Component 
+{
     constructor(props) {
         super(props);
         this.getClassNamesContent = this.getClassNamesContent.bind(this);

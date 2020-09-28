@@ -18,10 +18,16 @@ import { Breadcrumbs } from 'react-revolution';
 />
 ```
 
-### Current available modules
+### Modules
 
 Accordion
 - [https://react-revolution.j.pl/#/react-revolution-accordion](https://react-revolution.j.pl/#/react-revolution-accordion)
+
+Articles
+- [https://react-revolution.j.pl/#/react-revolution-articles](https://react-revolution.j.pl/#/react-revolution-articles)
+
+ArticlesImages
+- [https://react-revolution.j.pl/#/react-revolution-articles-images](https://react-revolution.j.pl/#/react-revolution-articles-images)
 
 Breadcrumbs
 - [https://react-revolution.j.pl/#/react-revolution-breadcrumbs](https://react-revolution.j.pl/#/react-revolution-breadcrumbs)
@@ -120,7 +126,7 @@ Water404
 - [https://react-revolution.j.pl/#/react-revolution-water-404](https://react-revolution.j.pl/#/react-revolution-water-404)
 
 
-### Current available functions
+### Functions
 
 
 **disableHtmlScroll** - The HTML tag will have the attributes: class = "overflow-hidden" and style = "overflow: hidden;" so that a user is not allowed to scroll which of the website.
@@ -142,3 +148,9 @@ Water404
 **uuid** - Extracts the URL on individual paths of the window.location, key and its values. The function receives 1 optional argument: isHashRouter (boolean) - by default the transferred value is undefined. This function extracts paths and key values for the window.location: "href", "hash" and "path".
 
 - [https://react-revolution.j.pl/#/react-revolution-function-uuid](https://react-revolution.j.pl/#/react-revolution-function-uuid)
+
+### ChangeLog
+
+- v1.1.7
+    - Added new module: Articles
+    - Added new module: ArticlesImages

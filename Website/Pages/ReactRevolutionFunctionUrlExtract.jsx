@@ -71,7 +71,8 @@ const jsExample1 = `const data = urlExtract();
 }`;
 
 
-class ReactRevolutionFunctionUrlExtract extends React.Component {
+class ReactRevolutionFunctionUrlExtract extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

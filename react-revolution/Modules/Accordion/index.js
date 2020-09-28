@@ -8,7 +8,8 @@ import buildDropDownStructure from '../internalFunctions/buildDropDownStructure'
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Accordion extends React.Component {
+class Accordion extends React.Component 
+{
 
     constructor(props) {
         super(props);
@@ -265,6 +266,7 @@ class Accordion extends React.Component {
                 ref={this.refNode}
                 className={`${defaultClass} ${addClass}`} 
                 id={id}
+                tabIndex="0"
             >
             {
                 this.buildDataRecursive(data)

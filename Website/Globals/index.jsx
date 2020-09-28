@@ -1,4 +1,4 @@
-const version = '1.1.6';
+const version = '1.1.7';
 
 const appName = 'React Revolution';
 
@@ -6,7 +6,7 @@ const appNameShort = 'React Revolution';
 
 const author = `David Janitzek`
 
-const host = process.env.HOST;
+const host = ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD;
 
 export {
     author,

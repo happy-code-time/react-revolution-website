@@ -40,7 +40,8 @@ const cssExample = `.rr-scroll-to{
     }
 }`;
 
-class ReactRevolutionScrollTo extends React.Component {
+class ReactRevolutionScrollTo extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

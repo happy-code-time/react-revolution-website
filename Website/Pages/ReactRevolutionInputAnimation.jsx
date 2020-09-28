@@ -68,7 +68,8 @@ callbackOnInput(inputValue) {
     return inputValue;
 }`;
 
-class ReactRevolutionInputAnimation extends React.Component {
+class ReactRevolutionInputAnimation extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

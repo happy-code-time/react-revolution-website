@@ -212,7 +212,8 @@ const cssExample = `.rr-container.container-example {
     }
 }`;
 
-class ReactRevolutionClouds404 extends React.Component {
+class ReactRevolutionClouds404 extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

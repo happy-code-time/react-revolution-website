@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Cards extends React.Component {
+class Cards extends React.Component 
+{
     
     constructor(props) {
         super(props);
@@ -65,7 +66,11 @@ class Cards extends React.Component {
     }
 
     componentWillUnmount(){
-        window.removeEventListener('resize', this.resize);
+        const { mediaBreak } = this.state;
+
+        if(mediaBreak){
+            window.removeEventListener('resize', this.resize);
+        }
     }
 
     resize(){
@@ -99,7 +104,7 @@ class Cards extends React.Component {
 
         let singleLines = [];
         let c = 0;
-        const clsCardsHolder = `cards-group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
+        const clsCardsHolder = `group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
 
         data.map( singleData => {
             const { title, content, footer, props } = singleData;

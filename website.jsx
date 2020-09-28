@@ -31,6 +31,10 @@ import './Website/Scss/index.scss';
  */
 import ReactRevolutionAccordion from './Website/Pages/ReactRevolutionAccordion';
 
+import ReactRevolutionArticles from './Website/Pages/ReactRevolutionArticles';
+
+import ReactRevolutionArticlesImages from './Website/Pages/ReactRevolutionArticlesImages';
+
 import ReactRevolutionBreadcrumbs from './Website/Pages/ReactRevolutionBreadcrumbs';
 
 import ReactRevolutionCards from './Website/Pages/ReactRevolutionCards';
@@ -119,7 +123,7 @@ class App extends React.Component {
 
     this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
-      host: process.env.HOST,
+      host: ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD,
       suggestions: [],
       inputValue: '',
     };
@@ -131,7 +135,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    if ('' == window.location.hash || 'http:' == window.location.protocol && process.env.HOST == 'https://react-revolution.j.pl/') {
+    if ('' == window.location.hash || 'http:' == window.location.protocol && 'dev' !== process.env.MODE) {
       window.location.href = `${this.state.host}#/`;
     }
 
@@ -147,10 +151,10 @@ class App extends React.Component {
     clearInterval(this.locationCheck);
   }
 
-  getLocalStorageValue(valueToGet, defaultValue){
+  getLocalStorageValue(valueToGet, defaultValue) {
     let value = localStorage.getItem(valueToGet);
 
-    if(null == value){
+    if (null == value) {
       value = defaultValue;
     }
 
@@ -226,17 +230,17 @@ class App extends React.Component {
     this.setAppLayout(layout);
   }
 
-  setAppLayout(layout){
+  setAppLayout(layout) {
     const app = document.getElementById('app');
 
     if (!possibleLayouts.includes(layout)) {
       layout = 'light';
     }
 
-    if(app){
+    if (app) {
       app.removeAttribute('class');
 
-      if(layout !== 'light'){
+      if (layout !== 'light') {
         app.setAttribute('class', layout);
       }
     }
@@ -313,6 +317,19 @@ class App extends React.Component {
                         {
                           text: 'Accordion',
                           href: `${host}#/react-revolution-accordion`,
+                        },
+                        {
+                          text: 'Articles',
+                          data: [
+                            {
+                              text: 'Articles',
+                              href: `${host}#/react-revolution-articles`,
+                            },
+                            {
+                              text: 'ArticlesImages',
+                              href: `${host}#/react-revolution-articles-images`,
+                            },
+                          ]
                         },
                         {
                           text: 'Breadcrumbs',
@@ -603,6 +620,8 @@ class App extends React.Component {
               <Route exact path="/" render={(props) => (<Home {...props} />)} />
               {/* Components */}
               <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
+              <Route exact path="/react-revolution-articles" render={(props) => (<ReactRevolutionArticles {...props} />)} />
+              <Route exact path="/react-revolution-articles-images" render={(props) => (<ReactRevolutionArticlesImages {...props} />)} />
               <Route exact path="/react-revolution-breadcrumbs" render={(props) => (<ReactRevolutionBreadcrumbs {...props} />)} />
               <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
@@ -642,10 +661,10 @@ class App extends React.Component {
               <Route exact path="/react-revolution-function-scroll-top-listener" render={(props) => (<ReactRevolutionFunctionScrollTopListener {...props} />)} />
               <Route exact path="/react-revolution-function-url-extract" render={(props) => (<ReactRevolutionFunctionUrlExtract {...props} />)} />
               {/* 404 */}
-              <Route 
+              <Route
                 render={(props) => (
-                  <CloudsMountains404 
-                    addClass='page-not-found-404' 
+                  <CloudsMountains404
+                    addClass='page-not-found-404'
                     link={
                       {
                         reactRouter: true,
@@ -653,10 +672,9 @@ class App extends React.Component {
                         href: '/'
                       }
                     }
-                    {...props} 
-
+                    {...props}
                   />
-                )} 
+                )}
               />
             </Switch>
           </Router>

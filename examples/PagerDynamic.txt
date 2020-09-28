@@ -8,7 +8,8 @@ import { PagerDynamic, LoadingBoxTop, uuid } from './react-revolution/public/rea
 
 import './react-revolution/sass/rr-pager-static.scss';
 
-class App extends React.Component {
+class App extends React.Component 
+{
   constructor(props) {
     super(props);
     this.pageData = this.pageData.bind(this);

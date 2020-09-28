@@ -333,6 +333,25 @@
   }
 }
 
+.rr-articles-production{
+  .single-entry {
+    margin: 10px 0;
+    
+    .rr-sourcecode {
+          width: 100%;
+      }
+      
+      .h1-example{
+          margin: 0;
+          padding: 0;
+      }
+
+    .title:hover{
+        cursor: pointer;
+    }
+  }
+}
+
 #app.dark{
   .head,
   .SidebarMinified.opened,

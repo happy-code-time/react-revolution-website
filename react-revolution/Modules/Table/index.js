@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Table extends React.Component {
+class Table extends React.Component 
+{
 
     constructor(props) {
         super(props);

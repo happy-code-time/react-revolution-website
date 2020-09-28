@@ -8,7 +8,8 @@ import enableHtmlScroll from '../../Functions/enableHtmlScroll';
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class FullScreenOverlay extends React.Component {
+class FullScreenOverlay extends React.Component 
+{
 
     constructor(props) {
         super(props);

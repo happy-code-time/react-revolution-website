@@ -133,7 +133,8 @@ const codeExample3 = `import { Accordion } from 'react-revolution';
     }
 />`;
 
-class ReactRevolutionAccordion extends React.Component {
+class ReactRevolutionAccordion extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

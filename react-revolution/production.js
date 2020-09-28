@@ -1,6 +1,10 @@
 /**
  * Modules
  */
+import Articles from './Modules/Articles';
+
+import ArticlesImages from './Modules/ArticlesImages';
+
 import Accordion from './Modules/Accordion';
 
 import Breadcrumbs from './Modules/Breadcrumbs';
@@ -96,6 +100,8 @@ export {
      * Modules
      */
     Accordion,
+    Articles,
+    ArticlesImages,
     Breadcrumbs,
     Cards,
     CardsScroll,

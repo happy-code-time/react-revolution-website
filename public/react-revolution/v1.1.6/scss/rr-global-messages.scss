@@ -13,7 +13,7 @@
   .single-error {
     background-color: $white;
     border: 1px solid $border-color;
-    border-radius: 5px;
+    border-radius: $border-radius;
     margin: 10px 0;
     position: relative;
     max-width: 350px;

@@ -7,7 +7,8 @@ import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revoluti
 
 import homeExample from '../CodeExamples/homeExample';
 
-class Home extends React.Component {
+class Home extends React.Component 
+{
     constructor(props) {
         super(props);
 

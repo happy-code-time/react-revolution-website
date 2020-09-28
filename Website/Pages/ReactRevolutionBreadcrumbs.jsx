@@ -118,7 +118,8 @@ const cssExample = `.rr-breadcrumbs-example{
     }
 }`;
 
-class ReactRevolutionBreadcrumbs extends React.Component {
+class ReactRevolutionBreadcrumbs extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

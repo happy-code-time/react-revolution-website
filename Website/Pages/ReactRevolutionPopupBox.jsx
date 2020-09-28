@@ -108,7 +108,8 @@ const cssExample = `.rr-revolution-popupbox-example{
     }
 }`;
 
-class ReactRevolutionPopupBox extends React.Component {
+class ReactRevolutionPopupBox extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

@@ -85,7 +85,8 @@ callback(file, type) {
     console.info(file);
 }`;
 
-class ReactRevolutionInputFileDragDrop extends React.Component {
+class ReactRevolutionInputFileDragDrop extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

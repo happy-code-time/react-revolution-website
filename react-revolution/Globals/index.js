@@ -1,8 +1,10 @@
-const version = 'v1.1.6';
+const version = 'v1.1.7';
 
-const host = 'https://react-revolution.j.pl/';
+let host = 'https://react-revolution.j.pl/';
 
-//const host = 'http://localhost:3000/';
+if('dev' == process.env.MODE){
+    host = 'http://localhost:3000/';
+}
 
 export {
     version,

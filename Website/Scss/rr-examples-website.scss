@@ -60,7 +60,7 @@
             scrollbar-color: rgba(122,122,122,.88) transparent;
             scrollbar-width: thin;
 
-            .cards-group {
+            .group {
 
                 .card {
 
@@ -465,6 +465,76 @@
 
         .hasChildren{
             font-weight: 550;
+        }
+    }
+
+    .rr-articles-example{
+        
+        .single-entry:hover{
+            cursor: pointer;
+        }
+    }
+
+    .rr-articles-example{
+        .single-entry:hover{
+            cursor: pointer;
+        }
+    }
+
+    .rr-articles-example{
+
+        .single-entry:hover{
+            cursor: pointer;
+        }
+
+        .data-toggled:hover{
+            cursor: text;
+        }
+    }
+
+    .rr-articles-images-example{
+        
+        .single-entry{
+            padding: 10px;
+            width: calc(100% - 20px);
+
+            .image-holder{
+                padding-right: 15px;
+
+                .image{
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .text:hover{
+            cursor: pointer;
+        }
+    }
+
+    .rr-articles-images-example{
+        
+        .single-entry{
+            padding: 10px;
+            width: calc(100% - 20px);
+
+            .image-holder{
+                padding-right: 15px;
+
+                .image{
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .text:hover{
+            cursor: pointer;
+        }
+
+        .data-toggled:hover{
+            cursor: text;
         }
     }
 }

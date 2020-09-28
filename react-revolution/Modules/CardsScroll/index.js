@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class CardsScroll extends React.Component {
+class CardsScroll extends React.Component 
+{
     
     constructor(props) {
         super(props);
@@ -83,7 +84,12 @@ class CardsScroll extends React.Component {
 
     componentWillUnmount(){
         this.removeScrollEvent();
-        window.removeEventListener('resize', this.resize);
+        
+        const { mediaBreak } = this.state;
+
+        if(mediaBreak){
+            window.removeEventListener('resize', this.resize);
+        }
     }
 
     resize(){

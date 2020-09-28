@@ -175,7 +175,8 @@ const cssExample = `.rr-sourcecode{
     }
 }`;
 
-class ReactRevolutionSourceCode extends React.Component {
+class ReactRevolutionSourceCode extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

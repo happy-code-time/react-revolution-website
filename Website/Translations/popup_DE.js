@@ -39,10 +39,10 @@ const DE = {
     rigthsText: 'Alle Rechte vorbehalten',
     author: 'Author',
     exampleTitle: 'Anwendungsbeispiel',
-    reactCodeTitle: 'Code des oberen Moduls',
-    reactFunctionTitle: 'Code der oberen Funktion',
-    cssCodeTitle: 'Zusätzlicher CSS Code',
-    jsCodeTitle: 'Zusätzlicher Javascript Code',
+    reactCodeTitle: 'React Code',
+    reactFunctionTitle: 'Funktionen Code',
+    cssCodeTitle: 'CSS Code',
+    jsCodeTitle: 'Javascript Code',
     loading: 'Laden...',
     keyUsageTitle: 'Keys Erläuterungen',
     "table.title.key" : 'Schlüssel',
@@ -964,12 +964,12 @@ const DE = {
     },
     "promiseLine": {
         "description": "Funktioniert nur, wenn der Schlüssel \"Versprechen\" auf \"Wahr\" gesetzt ist. Machen Sie in der Zeilennummer x eine \"Pause\" (Zeitüberschreitung zum Auflösen des aktuellen Versprechens), um die kritische CPU-Auslastung zu stoppen, wenn die übergebene Zeichenfolge / der Code länger ist dann 10.000 Codezeilen. ",
-        "type": "Nummer",
+        "type": "Number",
         "default": "1000"
     },
     "promiseTime": {
         "description": "Funktioniert nur, wenn der Schlüssel \"Versprechen\" auf \"Wahr\" gesetzt ist. Zeitpunkt des Timeouts zum Auflösen der aktuellen Zeilen Versprechen in Kombination mit dem Schlüssel \"VersprechenLine\".",
-        "type": "Nummer",
+        "type": "Number",
         "default": "500"
     },
     "matcher": {
@@ -1154,7 +1154,95 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
-    "dashed_example": "Ein Beispiel mit dem übergebenen Key 'dashed={true}'."
+    "dashed_example": "Ein Beispiel mit dem übergebenen Key 'dashed={true}'.",
+    "articles.animation": {
+        "description": "Eine Animation beim Umschalten des Artikels. Animationen, die verwendet werden können: 'height', 'scale', 'opacity'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.animation.images": {
+        "description": "Eine Animation beim Umschalten des Artikels. Animationen, die verwendet werden können: 'scale'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.title": {
+        "description": "Titel des Artikels.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.titleProps": {
+        "description": "Die HTML-Tag-Attribute der Titel.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "articles.text": {
+        "description": "Text des Artikels.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.textProps": {
+        "description": "Die Text-HTML-Tags-Attribute.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "articles.image": {
+        "description": "URL des Bildes.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.imageProps": {
+        "description": "Die HTML-Tags-Attribute der Bilder.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "articles.imageData": {
+        "description": "Benutzerdefinierte Daten im Bild.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.dataToggle": {
+        "description": "Wichtige benutzerdefinierte Daten, die nach dem Klicken auf den Artikel umgeschaltet werden.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.border": {
+        "description": "Object.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "articles.border.site": {
+        "description": "Richten Sie den Rand auf der Site aus: 'oben', 'rechts', 'unten', 'links'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.border.width": {
+        "description": "Die Rahmenbreite in px.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "articles.border.color": {
+        "description": "Die Farbe des Rahmens. Werte, die als Farbe verwendet werden können: Zeichenfolge, rgb / rgba und HEX.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.toggleOn": {
+        "description": "Umschaltung passiert nach dem Klick auf das Element. Verfügbare Optionen: 'title', 'text'. Standard mäßig wird nur ein Klick auf die ganze 'box' (Artikel Box) akzeptiert und bewirkt ein toggle Effeckt.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.itemsPerLine": {
+        "description": "Anzahl der Elemente die in einer 'Zeile' generiert werden sollen.",
+        "type": "Number",
+        "default": "3"
+    },
+    "articles.persist": {
+        "description": "Die angezeigten Daten (die aufgeklappt wurden) sollen bestehend bleiben.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "articles.description.1": "Beispiel mit der Verwendung des Schlüssels 'border'.",
+    "articles.description.2": "Beispiel mit der Schlüsselverwendung closeOnClickOutside={true}. Dies bedeutet, dass alle umgeschalteten Artikel geschlossen werden, wenn der Benutzer außerhalb des Moduls klickt.",
+    "articles.description.3": "Beispiel mit der Schlüsselverwendung persist={true}."
 };
 
 export default DE;

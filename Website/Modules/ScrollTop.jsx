@@ -1,6 +1,7 @@
 import React from 'react';
 
-class ScrollTop extends React.Component {
+class ScrollTop extends React.Component 
+{
     constructor(props) {
         super(props);
         this.scrollEvent = this.scrollEvent.bind(this);

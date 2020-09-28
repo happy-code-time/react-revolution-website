@@ -149,7 +149,8 @@ const jsExample2 = `searchState(inputValue, isClickEvent) {
 }`;
 
 
-class ReactRevolutionCustomSuggestion extends React.Component {
+class ReactRevolutionCustomSuggestion extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

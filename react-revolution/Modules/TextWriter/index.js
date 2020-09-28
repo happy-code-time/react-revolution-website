@@ -4,7 +4,8 @@ import uuid from '../internalFunctions/uuid';
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class TextWriter extends React.Component {
+class TextWriter extends React.Component 
+{
 
     constructor(props) {
         super(props);

@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class CardsScrollCallback extends React.Component {
+class CardsScrollCallback extends React.Component 
+{
 
     constructor(props) {
         super(props);
@@ -85,7 +86,12 @@ class CardsScrollCallback extends React.Component {
 
     componentWillUnmount() {
         this.removeScrollEvent();
-        window.removeEventListener('resize', this.resize);
+
+        const { mediaBreak } = this.state;
+
+        if(mediaBreak){
+            window.removeEventListener('resize', this.resize);
+        }
     }
 
     resize(){

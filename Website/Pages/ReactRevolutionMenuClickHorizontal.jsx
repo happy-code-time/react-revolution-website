@@ -386,7 +386,8 @@ const cssExample = `.rr-menu-click-horizontal-example{
     }
 }`;
 
-class ReactRevolutionMenuClickHorizontal extends React.Component {
+class ReactRevolutionMenuClickHorizontal extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

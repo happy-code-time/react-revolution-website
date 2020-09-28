@@ -88,7 +88,8 @@ const cssExample = `.rr-revolution-loadonscroll-example{
 }`;
 
 
-class ReactRevolutionLoadOnScroll extends React.Component {
+class ReactRevolutionLoadOnScroll extends React.Component 
+{
 
     constructor(props) {
         super(props);

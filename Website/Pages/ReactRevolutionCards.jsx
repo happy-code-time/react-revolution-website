@@ -67,7 +67,8 @@ const cssExample =  `.rr-cards {
     }
 }`;
 
-class ReactRevolutionCards extends React.Component {
+class ReactRevolutionCards extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

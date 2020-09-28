@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class LoadOnScroll extends React.Component {
+class LoadOnScroll extends React.Component 
+{
 
     constructor(props) {
         super(props);

@@ -1,6 +1,8 @@
 const TerserPlugin = require('terser-webpack-plugin');
 
-var path = require('path');
+const Dotenv = require('dotenv-webpack');
+
+const path = require('path');
 
 module.exports = {
   optimization: {
@@ -61,5 +63,8 @@ module.exports = {
   },
   externals: {
     'react': 'commonjs react'
-  }
+  },
+  plugins: [
+    new Dotenv(),
+  ]
 };

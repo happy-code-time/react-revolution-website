@@ -4,7 +4,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class SideBar extends React.Component {
+class SideBar extends React.Component 
+{
 
   constructor(props) {
     super(props);

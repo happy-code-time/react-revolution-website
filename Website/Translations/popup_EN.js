@@ -39,10 +39,10 @@ const EN = {
     rigthsText: 'All rights reserved',
     author: 'Author',
     exampleTitle: 'Live example',
-    reactCodeTitle: 'Above modules react code',
-    reactFunctionTitle: 'Above functions react code',
-    cssCodeTitle: 'Additional css',
-    jsCodeTitle: 'Additional javascript',
+    reactCodeTitle: 'React code',
+    reactFunctionTitle: 'Functions code',
+    cssCodeTitle: 'Css code',
+    jsCodeTitle: 'Javascript code',
     loading: 'Loading...',
     keyUsageTitle: 'Keys Explanations',
     "table.title.key" : 'Key',
@@ -720,7 +720,7 @@ const EN = {
     "bread.overwriteText" : {
         "description": "Has to be used with the key: 'moduleMenu'. If true then the first menu childs key: 'text' are displayed instead of the breadcrumbs path. If false then the menus first childs key: 'text' are ignored.",
         "type": "Boolean",
-        "default": "false"
+        "default": "False"
     },
     "bread.moduleMenu" : {
         "description": "Attached the module: 'MenuClickHorizontal' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
@@ -730,7 +730,7 @@ const EN = {
     "closeOnClickOutside": {
         "description": "If true and the user does not click inside the module content, then all expanded elements will be toggled back - closed.",
         "type": "Boolean",
-        "default": "false"
+        "default": "False"
     },
     /**
      * Descriptions
@@ -1152,7 +1152,95 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
-    "dashed_example": "Example with the usage of the key 'dashed={true}'."
+    "dashed_example": "Example with the usage of the key 'dashed={true}'.",
+    "articles.animation": {
+        "description": "An animation when toggling the article. Animations that can be used: 'height', 'scale', 'opacity'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.animation.images": {
+        "description": "An animation when toggling the article. Animations that can be used: 'scale'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.title": {
+        "description": "Title of the article.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.titleProps": {
+        "description": "The titles HTML tags attributes.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.text": {
+        "description": "Text of the article.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.textProps": {
+        "description": "The text HTML tags attributes.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.image": {
+        "description": "Url of the image.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.imageProps": {
+        "description": "The images HTML tags attributes.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.imageData": {
+        "description": "Custom data inside the image.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.dataToggle": {
+        "description": "Main custom data to toggle after the article has been clicked.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.border": {
+        "description": "Object.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.border.site": {
+        "description": "Align the border on the site: 'top', 'right', 'bottom', 'left'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.border.width": {
+        "description": "The borders width in px.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "articles.border.color": {
+        "description": "The color of the border. Values that can be used as color: string, rgb/rgba and HEX.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.toggleOn": {
+        "description": "Switching happens after clicking on the element. Available options: 'title', 'text'. By default, only one click on the whole 'box' (article box) is accepted and causes a toggle effect.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.itemsPerLine": {
+        "description": "Number of elements rendered in a single 'line'.",
+        "type": "Number",
+        "default": "3"
+    },
+    "articles.persist": {
+        "description": "After toggling an element, this element should be persisted (the toggle back functionality are not available).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "articles.description.1": "Example with the key usage 'border'.",
+    "articles.description.2": "Example with the key usage closeOnClickOutside={true}. Its mean close all toggled articles if the user make a click outside the module.",
+    "articles.description.3": "Example with the key usage persist={true}.",
 };
 
 export default EN;

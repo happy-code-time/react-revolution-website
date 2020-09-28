@@ -8,6 +8,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
+import generateArticles from '../Globals/generateArticles';
+
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
 
     <div
@@ -147,52 +149,72 @@ class ReactRevolutionGlobalMessages extends React.Component {
                             },
                         }}
                     />
-                    <h1
-                        title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-atom" />
-                        {
-                            trans('reactCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        lineNumber={true}
-                        layout='dark'
-                        code={codeExample1}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div title={trans('copyToClipboard')} className="button-action">
-                                <i className="far fa-clipboard"></i>
-                            </div>
-                        )}
-                        clipboard={codeExample1}
-                    />
-                    <h1
-                        title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fab fa-node-js" />
-                        {
-                            trans('jsCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        lineNumber={true}
-                        layout='dark'
-                        code={jsExample}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div title={trans('copyToClipboard')} className="button-action">
-                                <i className="far fa-clipboard"></i>
-                            </div>
-                        )}
-                        clipboard={jsExample}
-                    />
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample1}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample1}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
                 </div>
                 <div className="code-example mt-4">
                     <h1 className="h1-title border-none text-center">
@@ -240,52 +262,72 @@ class ReactRevolutionGlobalMessages extends React.Component {
                             },
                         }}
                     />
-                    <h1
-                        title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-atom" />
-                        {
-                            trans('reactCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        lineNumber={true}
-                        layout='dark'
-                        code={codeExample2}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div title={trans('copyToClipboard')} className="button-action">
-                                <i className="far fa-clipboard"></i>
-                            </div>
-                        )}
-                        clipboard={codeExample2}
-                    />
-                    <h1
-                        title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fab fa-node-js" />
-                        {
-                            trans('jsCodeTitle')
-                        }
-                    </h1>
-                    <SourceCode
-                        lineNumber={true}
-                        layout='dark'
-                        code={jsExample}
-                    />
-                    <Clipboard
-                        animation='jump' // scale, jump
-                        data={(
-                            <div title={trans('copyToClipboard')} className="button-action">
-                                <i className="far fa-clipboard"></i>
-                            </div>
-                        )}
-                        clipboard={jsExample}
-                    />
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
                 </div>
                 {
                     getDescriptionForstyle('rr-global-messages')

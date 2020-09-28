@@ -6,13 +6,10 @@ import { author } from '../Globals';
 
 import trans from '../Translations/trans';
 
-class Footer extends React.Component {
+class Footer extends React.Component 
+{
     constructor(props) {
         super(props);
-
-        this.state = {
-            host: process.env.HOST
-        }
     }
 
     getCurrentYearText() {
@@ -27,8 +24,6 @@ class Footer extends React.Component {
     }
 
     render() {
-        const { host } = this.state;
-
         return (
             <div className="Footer">
 

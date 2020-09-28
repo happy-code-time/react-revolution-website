@@ -11,7 +11,8 @@ import { exampleHome, exampleInstallationNpm, exampleInstallationYarn } from '..
 
 import Footer from '../Modules/Footer';
 
-class Home extends React.Component {
+class Home extends React.Component 
+{
     constructor(props) {
         super(props);
 

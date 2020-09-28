@@ -8,7 +8,8 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 let PagerStaticUpdatedCountGetDerivedStateFromPropsCheck = 0;
 
-class PagerStatic extends React.Component {
+class PagerStatic extends React.Component 
+{
 
     constructor(props) {
         super(props);

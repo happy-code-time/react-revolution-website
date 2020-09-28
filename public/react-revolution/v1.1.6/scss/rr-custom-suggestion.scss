@@ -6,7 +6,7 @@
   
     .input{
       border: 1px solid rgba(69, 69, 69, 0.1);
-      border-radius: 5px;
+      border-radius: $border-radius;
     }
   
     input {
@@ -38,7 +38,7 @@
     .suggestions-area {
       position: relative;
       background-color: transparent;
-      border-radius: 5px;
+      border-radius: $border-radius;
       box-sizing: border-box;
       z-index: 3;
       width: 100%;
@@ -52,7 +52,7 @@
         width: auto;
         border: 1px solid $border-color;
         z-index: 2;
-        border-radius: 5px;
+        border-radius: $border-radius;
         background-color: $white;
         margin: 0;
         padding: 0;

@@ -19,7 +19,7 @@
 
     .single-entry{
         box-sizing: border-box;
-        border-radius: 5px;
+        border-radius: $border-radius;
         margin: 10px 0;
 
         a{

@@ -11,7 +11,7 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
             }
 
             if(undefined == data[x].uuid){
-                data[x].unique = `${uuid()}`;
+                data[x].unique = `${uuid()}${uuid()}${uuid()}`;
             }
 
             if(undefined == data[x].key){

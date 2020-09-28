@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class CustomSuggestion extends React.Component {
+class CustomSuggestion extends React.Component 
+{
 
     constructor(props) {
         super(props);

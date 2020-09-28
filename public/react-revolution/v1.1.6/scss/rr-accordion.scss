@@ -2,7 +2,7 @@
 
 .rr-accordion{
     box-sizing: border-box;
-    padding: 5px 10px;
+    padding: 5px 0;
 
     .single-entry{
         box-sizing: border-box;
@@ -94,7 +94,7 @@
 
     .single-entry.hasChildren{
         border: 1px solid rgba(122,122,122, .33);
-        border-radius: 5px;
+        border-radius: $border-radius;
     }
 
     .text.hasChildren:hover,

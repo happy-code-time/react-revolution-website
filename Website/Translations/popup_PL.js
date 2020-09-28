@@ -39,10 +39,10 @@ const PL = {
     rigthsText: 'Wszelkie prawa zastrzeżone',
     author: 'Autor',
     exampleTitle: 'Przykład użycia',
-    reactCodeTitle: 'Kod powyższego modułu',
-    reactFunctionTitle: 'Kod powyższej funkcji',
-    cssCodeTitle: 'Dodatkowy kod css',
-    jsCodeTitle: 'Dodatkowy kod javascript',
+    reactCodeTitle: 'Kod react',
+    reactFunctionTitle: 'Kod funkcji',
+    cssCodeTitle: 'Kod css',
+    jsCodeTitle: 'Kod javascript',
     loading: 'Ładowanie...',
     keyUsageTitle: 'Wyjaśnienia Kluczy',
     "table.title.key" : 'Klucz',
@@ -73,7 +73,7 @@ const PL = {
         "default": "undefined"
     },
     "accordion.animation": {
-        "description": "Animacja podczas otwierania i zamykania akordeonu. Animacje, które można wykorzystać: 'wysokość', 'skala', 'krycie'.",
+        "description": "Animacja podczas otwierania i zamykania akordeonu. Animacje, które można wykorzystać: 'height', 'scale', 'opacity'.",
         "type": "String",
         "default": "undefined"
     },
@@ -1152,7 +1152,95 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
-    "dashed_example": "Przykład z użyciem klucza'dashed={true}'."
+    "dashed_example": "Przykład z użyciem klucza'dashed={true}'.",
+    "articles.animation": {
+        "description": "Animacja podczas przełączania artykułu. Animacje, które można wykorzystać: 'height', 'scale', 'opacity'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.animation.images": {
+        "description": "Animacja podczas przełączania artykułu. Animacje, które można wykorzystać: 'scale'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.title": {
+        "description": "Tytuł artykułu.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.titleProps": {
+        "description": "Atrybuty tagów HTML tytułów.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.text": {
+        "description": "Tekst artykułu.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.textProps": {
+        "description": "Tekstowe atrybuty tagów HTML.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.image": {
+        "description": "URL obrazu.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.imageProps": {
+        "description": "Atrybuty tagów HTML obrazów.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.imageData": {
+        "description": "Niestandardowe dane w obrazie.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.dataToggle": {
+        "description": "Główne dane niestandardowe do przełączenia po kliknięciu artykułu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "articles.border": {
+        "description": "Obiekt.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "articles.border.site": {
+        "description": "Wyrównaj obramowanie na stronie: 'góra', 'prawo', 'dół', 'lewa'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.border.width": {
+        "description": "Szerokość obramowania w pikselach.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "articles.border.color": {
+        "description": "Kolor obramowania. Wartości, które mogą być użyte jako kolor: string, rgb / rgba i HEX.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.toggleOn": {
+        "description": "Przełączanie następuje po kliknięciu elementu. Dostępne opcje: 'title' lub 'text'. Domyślnie tylko jedno kliknięcie na całej „ramce” (ramce z artykułami) jest akceptowane i powoduje efekt przełączania.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "articles.itemsPerLine": {
+        "description": "Liczba elementów w jednym 'rzędzie' (linii).",
+        "type": "Number",
+        "default": "3"
+    },    
+    "articles.persist": {
+        "description": "Przełączony element (dane pojedynczego elementu) pozostaje czyli brak możliwości schowania elementu/ danych z powrotem.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "articles.description.1": "Przykład z kluczem: 'border'.",
+    "articles.description.2": "Przykład z użyciem klucza closeOnClickOutside={true}. Oznacza to zamknięcie wszystkich przełączanych artykułów, jeśli użytkownik wykona kliknięcie poza modułem.",
+    "articles.description.3": "Przykład z użyciem klucza persist={true}.",
 };
 
 export default PL;

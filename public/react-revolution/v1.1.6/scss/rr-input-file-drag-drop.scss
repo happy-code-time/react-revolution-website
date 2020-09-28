@@ -8,7 +8,7 @@
   .label {
     position: relative;
     display: block;
-    border-radius: 5px;
+    border-radius: $border-radius;
     box-sizing: border-box;
     padding: 5px 10px;
     z-index: 1;

@@ -4,7 +4,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class InputFileDragDrop extends React.Component {
+class InputFileDragDrop extends React.Component 
+{
     constructor(props) {
         super(props);
         this.handleDroppedFiles = this.handleDroppedFiles.bind(this);

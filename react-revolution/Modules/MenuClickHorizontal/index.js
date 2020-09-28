@@ -10,7 +10,8 @@ import buildDropDownStructure from '../internalFunctions/buildDropDownStructure'
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class MenuClickHorizontal extends React.Component {
+class MenuClickHorizontal extends React.Component 
+{
 
     constructor(props) {
         super(props);

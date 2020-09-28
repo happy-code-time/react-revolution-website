@@ -40,7 +40,8 @@ const codeExample2 = `import { TextWriter } from 'react-revolution';
     }
 />`;
 
-class ReactRevolutionTextWriter extends React.Component {
+class ReactRevolutionTextWriter extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

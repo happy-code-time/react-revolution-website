@@ -4,7 +4,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './module.jsx');
 
-const version = 'v1.1.6';
+const version = 'v1.1.7';
 
 module.exports = {
     devtool: false,

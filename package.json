@@ -1,12 +1,12 @@
 {
   "name": "davids-react-revolution",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Create fast modern responisive websites elements",
   "main": "index.jsx",
   "scripts": {
     "build:module": "node ./node_modules/.bin/webpack --config webpack.module.production.js --mode production",
     "build:module:dev": "node node_modules/webpack/bin/webpack.js --config webpack.module.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
-    "build:website": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --progress --profile --colors",
+    "build:website": "node node_modules/webpack/bin/webpack.js --config webpack.website.production.js --module-bind js=babel-loader --progress --profile --colors",
     "build:website:dev": "node node_modules/webpack/bin/webpack.js --config webpack.website.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
     "server": "lite-server -c bs-config.json",
     "compile": "./node_modules/.bin/gulp compile",
@@ -34,7 +34,7 @@
     "react-router-dom": "^4.3.1",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
-    "url-loader": "^1.1.6",
+    "url-loader": "^1.1.7",
     "webpack": "^4.41.2"
   },
   "devDependencies": {
@@ -56,7 +56,7 @@
     "gulp4-run-sequence": "^1.0.1",
     "imagemin-jpeg-recompress": "^7.0.0",
     "lite-server": "^2.5.4",
-    "react-revolution": "^1.1.6",
+    "react-revolution": "^1.1.7",
     "terser-webpack-plugin": "^1.4.4",
     "webpack-cli": "^3.3.10",
     "webpack-obfuscator": "^1.4.0"

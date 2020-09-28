@@ -253,7 +253,8 @@ const cssExample = `.rr-pager-dynamic {
     }
 }`;
 
-class ReactRevolutionPagerDynamic extends React.Component {
+class ReactRevolutionPagerDynamic extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

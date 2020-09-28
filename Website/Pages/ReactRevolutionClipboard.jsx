@@ -67,7 +67,8 @@ const cssExample = `.rr-revolution-button-clipboard{
     color: rgb(255,255,255);
 }`;
 
-class ReactRevolutionClipboard extends React.Component {
+class ReactRevolutionClipboard extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

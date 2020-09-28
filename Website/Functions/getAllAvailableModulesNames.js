@@ -5,6 +5,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-accordion'
         },
         {
+            name: 'Articles',
+            link: 'react-revolution-articles'
+        },
+        {
             name: 'Breadcrumbs',
             link: 'react-revolution-breadcrumbs'
         },
@@ -131,6 +135,26 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'Water-404',
             link: 'react-revolution-water-404'
+        },
+        {
+            name: 'disableHtmlScroll (function)',
+            link: 'react-revolution-function-disable-html-scroll'
+        },
+        {
+            name: 'enableHtmlScroll (function)',
+            link: 'react-revolution-function-enable-html-scroll'
+        },
+        {
+            name: 'scrollTopListener (function)',
+            link: 'react-revolution-function-scroll-top-listener'
+        },
+        {
+            name: 'urlExtract (function)',
+            link: 'react-revolution-function-url-extract'
+        },
+        {
+            name: 'uuid (function)',
+            link: 'react-revolution-function-uuid'
         },
     ];
 };

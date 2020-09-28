@@ -119,7 +119,8 @@ const cssExample = `.rr-icons{
     border-radius: 3px;
 }`;
 
-class ReactRevolutionIcons extends React.Component {
+class ReactRevolutionIcons extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);

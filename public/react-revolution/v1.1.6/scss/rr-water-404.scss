@@ -1,3 +1,5 @@
+@import './globals.scss';
+
 .rr-water-404 {
     background-color: rgba(30, 144, 255, 0.4);
     color: #1873cc;
@@ -57,7 +59,7 @@
             color: rgba(69, 69, 69, 0.8);
             text-decoration: none;
             margin: 10px 0;
-            border-radius: 5px;
+            border-radius: $border-radius;
             z-index: 1;
         }
 
@@ -85,7 +87,7 @@
         .box {
             width: 100%;
             height: 300px;
-            border-radius: 5px;
+            border-radius: $border-radius;
             position: relative;
             overflow: hidden;
         }

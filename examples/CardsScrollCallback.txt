@@ -28,7 +28,8 @@ import './react-revolution/sass/rr-loadingboxtop.scss';
   *      ]
   *  }
   */
-class App extends React.Component {
+class App extends React.Component 
+{
     constructor(props) {
         super(props);
 

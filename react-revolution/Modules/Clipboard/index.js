@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Clipboard extends React.Component {
+class Clipboard extends React.Component 
+{
     
     constructor(props) {
         super(props);

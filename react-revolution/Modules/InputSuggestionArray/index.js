@@ -6,7 +6,8 @@ import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateF
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-class InputSuggestionArray extends React.Component {
+class InputSuggestionArray extends React.Component 
+{
 
     constructor(props) {
         super(props);

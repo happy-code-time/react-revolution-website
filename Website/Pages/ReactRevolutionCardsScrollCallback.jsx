@@ -145,7 +145,7 @@ const cssExample = `.section-cards-scroll-callback{
         max-width: 1140px;
         margin: 0 auto;
         
-        .cards-group{
+        .group{
 
             .card{
 
@@ -165,7 +165,8 @@ const cssExample = `.section-cards-scroll-callback{
     }
 }`;
 
-class ReactRevolutionCardsScrollCallback extends React.Component {
+class ReactRevolutionCardsScrollCallback extends React.Component 
+{
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
