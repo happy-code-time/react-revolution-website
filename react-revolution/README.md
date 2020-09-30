@@ -107,6 +107,12 @@ PagerDynamic
 PopupBox
 - [https://react-revolution.j.pl/#/react-revolution-popup-box](https://react-revolution.j.pl/#/react-revolution-popup-box)
 
+ReadMore
+- [https://react-revolution.j.pl/#/react-revolution-scroll-to](https://react-revolution.j.pl/#/react-revolution-read-more)
+
+ReadMoreCallback
+- [https://react-revolution.j.pl/#/react-revolution-scroll-to](https://react-revolution.j.pl/#/react-revolution-read-more-callback)
+
 ScrollTo
 - [https://react-revolution.j.pl/#/react-revolution-scroll-to](https://react-revolution.j.pl/#/react-revolution-scroll-to)
 
@@ -154,3 +160,7 @@ Water404
 - v1.1.7
     - Added new module: Articles
     - Added new module: ArticlesImages
+
+- v1.1.8    
+    - Added new module: ReadMore
+    - Added new module: ReadMoreCallback

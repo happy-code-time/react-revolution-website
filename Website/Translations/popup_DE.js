@@ -1156,7 +1156,7 @@ const DE = {
     },
     "dashed_example": "Ein Beispiel mit dem übergebenen Key 'dashed={true}'.",
     "articles.animation": {
-        "description": "Eine Animation beim Umschalten des Artikels. Animationen, die verwendet werden können: 'height', 'scale', 'opacity'.",
+        "description": "Eine Animation beim Umschalten des Artikels. Animationen, die verwendet werden können: 'height', 'scale', 'opacity'. Damit die Animation auch eine Wirkung hat, muss das Element ein inline-block oder block Element sein, dies kann mit CSS gelöst werden in dem man dem toggler die CSS Eigenschaft hinzufügt: display: block, display: inline-block.",
         "type": "String",
         "default": "undefined"
     },
@@ -1242,7 +1242,64 @@ const DE = {
     },
     "articles.description.1": "Beispiel mit der Verwendung des Schlüssels 'border'.",
     "articles.description.2": "Beispiel mit der Schlüsselverwendung closeOnClickOutside={true}. Dies bedeutet, dass alle umgeschalteten Artikel geschlossen werden, wenn der Benutzer außerhalb des Moduls klickt.",
-    "articles.description.3": "Beispiel mit der Schlüsselverwendung persist={true}."
+    "articles.description.3": "Beispiel mit der Schlüsselverwendung persist={true}.",
+    "readmore.animation": {
+        "description": "Eine Animation wärend der Umschaltung des zu Lesenden Textes. Animationen, die verwendet werden können: 'height', 'scale', 'opacity'. Damit die Animation auch eine Wirkung hat, muss das Element ein inline-block oder block Element sein, dies kann mit CSS gelöst werden in dem man dem toggler die CSS Eigenschaft hinzufügt: display: block, display: inline-block.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "readmore.toggleForwards": {
+        "description": "Eigen definierter Text oder HTML um den Text einblenden. Hier ist der Event 'mehr lesen' hinzugefügt.",
+        "type": "String | JSX",
+        "default": "..."
+    },
+    "readmore.toggleBackwards": {
+        "description": "Eigen definierter Text oder HTML um den Text ausblenden. Hier ist der Event 'weniger lesen' hinzugefügt.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.data": {
+        "description": "Der Haupttext.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "readmore.dataToggle": {
+        "description": "Der Text der eingeblendet werden soll.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "readmore.callback.toggleOnReject": {
+        "description": "Ermöglichen Sie die erneute Anzeige der Schaltfläche über die Taste 'Ablehnung ablehnen', um die Abfrage zu wiederholen (Rückruf).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.toggleReject": {
+        "description": "Zeigen Sie selbst definierten Text oder HTML-Code an, um die Abfrage erneut auszuführen.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.callback.callback": {
+        "description": "Rückruffunktion zum Laden von Daten. Diese Funktion gibt 2 Argumente zurück. Argument 1: Klicken Sie auf Ereignis, Argument 2: Benutzerdefinierte Daten, die vom Schlüssel 'callbackProps' übergeben werden.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.callbackProps": {
+        "description": "Benutzerdefinierte Daten werden als zweites Argument an die Rückruffunktion übergeben für den Schlüssel 'callback'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.loading": {
+        "description": "Zeigen Sie selbst definierten Text oder HTML-Code an, während Sie Daten im Status 'Ausstehender Versprechen' abrufen.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore-description-1" : "Beispiel mit einem 'mehr lesen' Button.",
+    "readmore-description-2" : "Beispiel mit einem 'mehr lesen' und 'weniger lesen' Button.",
+    "readmore-callback-description-1": "Beispiel für die Verwendung der Schaltfläche 'Mehr lesen' mit einer Rückrufmethode, die 2000 ms dauert. Während dieser Zeit wird der HTML-Code des Schlüssels 'loading' angezeigt. In diesem Fall wird ein eigenes GIF-Bild angezeigt. Die interne Funktion des Moduls wartet ( warten), um das 'Versprechen' (Versprechen -> Auflösen) zu lösen, damit die Daten angezeigt werden. Wenn die Daten einmal geladen wurden, werden sie kein zweites Mal geladen! Wenn das Versprechen fehlgeschlagen ist (Versprechen -> Ablehnen), können Sie die Daten auch an übergeben Wenn 'Promise.reject ()' vorhanden ist und keine Daten vorhanden sind, geschieht 'nichts' und die Taste 'toggleForwards' wird erneut angezeigt. ",
+    "readmore-callback-description-2": "Beispiel für die Verwendung der Schaltfläche 'Mehr lesen' und 'Weniger lesen' mit einer Rückrufmethode, die 2000 ms dauert. Während dieser Zeit wird der HTML-Code des Schlüssels 'loading' angezeigt, in diesem Fall Ihr eigenes GIF-Bild. Die innere Funktion des Moduls wartet (wartet) auf ein Versprechen -> beschließt, dass die Daten angezeigt werden. Wenn die Daten einmal geladen wurden, werden sie kein zweites Mal geladen! Wenn das Versprechen fehlgeschlagen ist (Versprechen -> ablehnen), dann Sie können auch Daten an das Modul übergeben. Wenn 'Promise.reject ()' Platz hat und keine Daten vorhanden sind, passiert 'nichts' und der Schlüssel 'toggleForwards' erscheint wieder. ",
+    "readmore-callback-description-3": "Beispiel mit Promise.reject() und einem eigen definiertem JSX (Fehlermeldung) mit dem key 'toggleOnReject={true}' und 'toggleReject' (eigenem Button - versuchen Sie es nochmals).",
+    "readmore-callback-description-4": "Beispiel mit Promise.reject().",
+    "readmore-callback-description-5": "Beispiel mit einem eigen definiertem JSX (Fehlermeldung), nach 2 Klicks mit einem Promise.reject() und bei dem 4 Klick Promise.resolve().",
 };
 
 export default DE;

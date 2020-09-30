@@ -8,7 +8,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './module.jsx');
 
-const version = 'v1.1.7';
+const version = 'v1.1.8';
 
 module.exports = {
     devtool: false,

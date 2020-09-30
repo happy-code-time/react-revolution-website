@@ -41,30 +41,6 @@ class CardsScroll extends React.Component
         };
     }
 
-    /**
-     * Force re-rendering of this component based
-     * on keysChangeListners keys
-     * @param {object} props 
-     * @param {object} state 
-     */
-    static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'itemsPerLine', 'data', 'defaultItems', 'mediaBreak', 'minify'], props, state)) {
-            return {
-                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-cards-scroll',
-                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
-                defaultItems: props.defaultItems && typeof 8 == typeof props.defaultItems ? props.defaultItems : 3,
-                data: props.data && typeof [] == typeof props.data ? props.data : [],
-                mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-                minify: typeof 8 == typeof props.minify ? props.minify : 0,
-            };
-        }
-
-        return null;
-    }
-
-
     componentDidMount(){
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { mediaBreak } = this.state;

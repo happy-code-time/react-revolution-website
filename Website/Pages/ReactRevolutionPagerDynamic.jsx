@@ -10,6 +10,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
+import generateArticles from '../Globals/generateArticles';
+
 const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolution';
 
 <div className="rr-revolution-pager-example">
@@ -253,8 +255,7 @@ const cssExample = `.rr-pager-dynamic {
     }
 }`;
 
-class ReactRevolutionPagerDynamic extends React.Component 
-{
+class ReactRevolutionPagerDynamic extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -441,75 +442,105 @@ class ReactRevolutionPagerDynamic extends React.Component
                         lineNumber={true}
                     />
                 </div>
-                <h1
-                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
-                    className="h1-example"
-                >
-                    <i className="fas fa-atom" />
-                    {
-                        trans('reactCodeTitle')
-                    }
-                </h1>
-                <SourceCode
-                    lineNumber={true}
-                    layout='dark'
-                    code={codeExample2}
-                />
-                <Clipboard
-                    animation='jump' // scale, jump
-                    data={(
-                        <div title={trans('copyToClipboard')} className="button-action">
-                            <i className="far fa-clipboard"></i>
-                        </div>
-                    )}
-                    clipboard={codeExample2}
-                />
-                <h1
-                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                    className="h1-example"
-                >
-                    <i className="fab fa-node-js" />
-                    {
-                        trans('jsCodeTitle')
-                    }
-                </h1>
-                <SourceCode
-                    lineNumber={true}
-                    layout='dark'
-                    code={jsExample2}
-                />
-                <Clipboard
-                    animation='jump' // scale, jump
-                    data={(
-                        <div title={trans('copyToClipboard')} className="button-action">
-                            <i className="far fa-clipboard"></i>
-                        </div>
-                    )}
-                    clipboard={jsExample2}
-                />
-                <h1
-                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                    className="h1-example"
-                >
-                    <i className="fab fa-node-js" />
-                    {
-                        trans('cssCodeTitle')
-                    }
-                </h1>
-                <SourceCode
-                    lineNumber={true}
-                    layout='dark'
-                    code={cssExample}
-                />
-                <Clipboard
-                    animation='jump' // scale, jump
-                    data={(
-                        <div title={trans('copyToClipboard')} className="button-action">
-                            <i className="far fa-clipboard"></i>
-                        </div>
-                    )}
-                    clipboard={cssExample}
-                />
+                {
+                    generateArticles(
+                        (
+                            <h1
+                                title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                className="h1-example"
+                            >
+                                <i className="fas fa-atom" />
+                                {
+                                    trans('reactCodeTitle')
+                                }
+                            </h1>
+                        ),
+                        (
+                            <span>
+                                <SourceCode
+                                    lineNumber={true}
+                                    layout='dark'
+                                    code={codeExample2}
+                                />
+                                <Clipboard
+                                    animation='jump' // scale, jump
+                                    data={(
+                                        <div title={trans('copyToClipboard')} className="button-action">
+                                            <i className="far fa-clipboard"></i>
+                                        </div>
+                                    )}
+                                    clipboard={codeExample2}
+                                />
+                            </span>
+                        )
+                    )
+                }
+                {
+                    generateArticles(
+                        (
+                            <h1
+                                title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                className="h1-example"
+                            >
+                                <i className="fab fa-node-js" />
+                                {
+                                    trans('jsCodeTitle')
+                                }
+                            </h1>
+                        ),
+                        (
+                            <span>
+                                <SourceCode
+                                    lineNumber={true}
+                                    layout='dark'
+                                    code={jsExample2}
+                                />
+                                <Clipboard
+                                    animation='jump' // scale, jump
+                                    data={(
+                                        <div title={trans('copyToClipboard')} className="button-action">
+                                            <i className="far fa-clipboard"></i>
+                                        </div>
+                                    )}
+                                    clipboard={jsExample2}
+                                />
+                            </span>
+                        )
+                    )
+                }
+                {
+                    generateArticles(
+                        (
+                            <h1
+                                title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                className="h1-example"
+                            >
+                                <i className="fab fa-node-js" />
+                                {
+                                    trans('cssCodeTitle')
+                                }
+                            </h1>
+                        ),
+                        (
+                            <span>
+                                <SourceCode
+                                    lineNumber={true}
+                                    layout='dark'
+                                    code={cssExample}
+                                />
+                                <Clipboard
+                                    animation='jump' // scale, jump
+                                    data={(
+                                        <div title={trans('copyToClipboard')} className="button-action">
+                                            <i className="far fa-clipboard"></i>
+                                        </div>
+                                    )}
+                                    clipboard={cssExample}
+                                />
+                            </span>
+                        )
+                    )
+                }
                 {
                     getDescriptionForstyle('rr-pager-dynamic')
                 }

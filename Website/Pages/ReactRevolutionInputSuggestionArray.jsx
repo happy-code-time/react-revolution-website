@@ -8,6 +8,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
+import generateArticles from '../Globals/generateArticles';
+
 const codeExample = `import { InputSuggestionArray } from 'react-revolution';
 
 <InputSuggestionArray

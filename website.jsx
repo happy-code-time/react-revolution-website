@@ -87,6 +87,10 @@ import ReactRevolutionPopupBox from './Website/Pages/ReactRevolutionPopupBox';
 
 import ReactRevolutionLoadOnScroll from './Website/Pages/ReactRevolutionLoadOnScroll';
 
+import ReactRevolutionReadMore from './Website/Pages/ReactRevolutionReadMore';
+
+import ReactRevolutionReadMoreCallback from './Website/Pages/ReactRevolutionReadMoreCallback';
+
 import ReactRevolutionScrollTo from './Website/Pages/ReactRevolutionScrollTo';
 
 import ReactRevolutionSourceCode from './Website/Pages/ReactRevolutionSourceCode';
@@ -465,6 +469,19 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-popup-box`,
                         },
                         {
+                          text: 'ReadMore',
+                          data: [
+                            {
+                              text: 'ReadMore',
+                              href: `${host}#/react-revolution-read-more`,
+                            },
+                            {
+                              text: 'ReadMoreCallback',
+                              href: `${host}#/react-revolution-read-more-callback`,
+                            }
+                          ],
+                        },
+                        {
                           text: 'ScrollTo',
                           href: `${host}#/react-revolution-scroll-to`,
                         },
@@ -648,9 +665,11 @@ class App extends React.Component {
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
               <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
               <Route exact path="/react-revolution-lightbulb-404" render={(props) => (<ReactRevolutionLightbulb404 {...props} />)} />
-              <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
               <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
+              <Route exact path="/react-revolution-read-more" render={(props) => (<ReactRevolutionReadMore {...props} />)} />
+              <Route exact path="/react-revolution-read-more-callback" render={(props) => (<ReactRevolutionReadMoreCallback {...props} />)} />
+              <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-scroll-to" render={(props) => (<ReactRevolutionScrollTo {...props} />)} />
               <Route exact path="/react-revolution-source-code" render={(props) => (<ReactRevolutionSourceCode {...props} />)} />
               <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />

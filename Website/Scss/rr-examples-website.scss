@@ -60,7 +60,7 @@
             scrollbar-color: rgba(122,122,122,.88) transparent;
             scrollbar-width: thin;
 
-            .group {
+            .cards-group {
 
                 .card {
 
@@ -469,7 +469,7 @@
     }
 
     .rr-articles-example{
-        
+
         .single-entry:hover{
             cursor: pointer;
         }
@@ -535,6 +535,30 @@
 
         .data-toggled:hover{
             cursor: text;
+        }
+    }
+
+    .rr-read-more-example{
+        line-height: 30px;
+
+        .read-more-button,
+        .read-less-button{
+            box-sizing: border-box;
+            padding: 3px 5px;
+            width: 120px;
+            height: 20px;
+            background: dodgerblue;
+            color: rgb(255,255,255);
+            border-radius: 5px;
+            line-height: 20px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 0.87rem;
+        }
+    
+        .read-more-button:hover,
+        .read-less-button:hover{
+            cursor: pointer;
         }
     }
 }

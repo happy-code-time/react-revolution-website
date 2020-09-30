@@ -145,7 +145,7 @@ const cssExample = `.section-cards-scroll-callback{
         max-width: 1140px;
         margin: 0 auto;
         
-        .group{
+        .cards-group{
 
             .card{
 

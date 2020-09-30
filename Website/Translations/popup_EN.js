@@ -1154,7 +1154,7 @@ const EN = {
     },
     "dashed_example": "Example with the usage of the key 'dashed={true}'.",
     "articles.animation": {
-        "description": "An animation when toggling the article. Animations that can be used: 'height', 'scale', 'opacity'.",
+        "description": "An animation while toggling the article. Animations that can be used: 'height', 'scale', 'opacity'. In order for the animation to have an effect, the element has to be an inline-block or block element, this can be solved with CSS by adding the CSS property to the toggler: display: block, display: inline-block.",
         "type": "String",
         "default": "undefined"
     },
@@ -1241,6 +1241,63 @@ const EN = {
     "articles.description.1": "Example with the key usage 'border'.",
     "articles.description.2": "Example with the key usage closeOnClickOutside={true}. Its mean close all toggled articles if the user make a click outside the module.",
     "articles.description.3": "Example with the key usage persist={true}.",
+    "readmore.animation": {
+        "description": "An animation while switching the text to be read. Animations that can be used: 'height', 'scale', 'opacity'. In order for the animation to have an effect, the element has to be an inline-block or block element, this can be solved with CSS by adding the CSS property to the toggler: display: block, display: inline-block.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "readmore.toggleForwards": {
+        "description": "Show self-defined text or HTML around the text. The event 'read more' is added here.",
+        "type": "String | JSX",
+        "default": "..."
+    },
+    "readmore.toggleBackwards": {
+        "description": "Hide self-defined text or HTML around the text. The event 'read less' is added here.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.data": {
+        "description": "Main text.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "readmore.dataToggle": {
+        "description": "The text to be displayed.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "readmore.callback.toggleOnReject": {
+        "description": "Allow redisplay of the button from the key 'toggle Reject' to redo the query (callback).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.toggleReject": {
+        "description": "Show self-defined text or HTML code to rerun the query.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.callback.callback": {
+        "description": "Callback function to load data. This function returns 2 arguments. Argument 1: click Event, argument 2: custom defined data passed by the key 'callback Props'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.callbackProps": {
+        "description": "Custom defined data passed as second argument to the callback function.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.loading": {
+        "description": "Show self-defined text or HTML code while fetching data in pending Promise state.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore-description-1" : "Example with the custom button 'read more'.",
+    "readmore-description-2" : "Example with the custom button 'read more' and 'read less'.",
+    "readmore-callback-description-1": "Example using the 'read more' button with a callback method that lasts 2000ms, during this time the HTML of the 'loading' key is shown. In this case its own gif image. The module's internal function waits ( await) to resolve the 'promise' (Promise -> resolve) to get the data to show. When the data has been loaded once, it will not be loaded a second time! When 'Promise.reject ()' is in place and there is no data, then 'nothing' happens and the 'toggleForwards' key reappears. ",
+    "readmore-callback-description-2": "Example using the 'read more' button and 'read less' with a callback method that lasts 2000ms, during this time the HTML of the 'loading' key is shown, in this case your own gif image. The module's inner function waits (await) for a Promise -> resolve to get the data to show. When the data has been loaded once, it will not be loaded a second time! If the promise has failed (> reject) then also you can pass data to the module. When 'Promise.reject ()' has place and there is no data, then 'nothing' happens and the key 'toggleForwards' reappears. ",
+    "readmore-callback-description-3": "Example with Promise.reject() and returned custom JSX data (error message) and with the key 'toggleOnReject={true}' and 'toggleReject' (custom button - try again).",
+    "readmore-callback-description-4": "Example with Promise.reject().",
+    "readmore-callback-description-5": "Example with returned custom JSX data (error message) after 2 click an Promise.reject() and on the 4 click Promise.resolve().",
 };
 
 export default EN;

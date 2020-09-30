@@ -2,150 +2,82 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Articles } from './react-revolution/public/react-revolution';
+import { ReadMoreCallback } from './react-revolution/public/react-revolution';
 
 //import { Breadcrumbs } from 'react-revolution';
 
-import './react-revolution/sass/rr-articles.scss';
+import './react-revolution/sass/rr-read-more-callback.scss';
 
-class App extends React.Component 
-{
+class App extends React.Component {
     constructor(props) {
         super(props);
 
     }
 
+    callbackResolve(clickEvent, customData){
+        return new Promise( (resolve, reject) => {
+
+            setTimeout( () => {
+                resolve(
+                    `
+                    Lorem ipsum dolor sit amet, 
+                    consetetur sadipscing elitr, 
+                    sed diam nonumy eirmod tempor 
+                    invidunt ut labore et dolore 
+                    magna aliquyam erat, sed diam 
+                    voluptua.`
+                );
+            }, 2000);
+        });
+    }
+
+    callbackReject(clickEvent, customData){
+        return new Promise( (resolve, reject) => {
+
+            setTimeout( () => {
+                reject();
+            }, 2000);
+        });
+    }
+
     render() {
         return (
-            <Articles
+            <ReadMoreCallback
                 animation='height'
-                closeOnClickOutside={false}
-                itemsPerLine={2}
-                mediaBreak={1024}
-                data={
-                    [
-                        {
-                            // border : {
-                            //     site: 'left',
-                            //     width: 5,
-                            //     color: 'dodgerblue'
-                            // },
-                            title: 'Lorem Ipsum',
-                            titleProps: {},
-                            image: '',
-                            imageProps: {},
-                            imageData: (
-                                <p>
-                                    dokafods
-                                </p>
-                            ),
-                            text: `
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-                                magna aliquyam erat, sed diam voluptua.
-                            `,
-                            textProps: {},
-                            dataToggle: (
-                                <span>
-                                    affdsfdsfds
-                                    fds
-                                    fdsf
-                                    ds
-                                    fdsfds
-                                    fdsfdsf
-                                    dsf
-                                    dsffds
-                                    fdsfdsdsf
-                                    dsffdsf
-                                    dsfds
-                                </span>
-                            ) 
-                        },
-                        {
-                            title: 'Lorem Ipsum',
-                            titleProps: {},
-                            image: '',
-                            imageProps: {},
-                            imageData: undefined,
-                            text: `
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-                                magna aliquyam erat, sed diam voluptua.
-                            `,
-                            textProps: {},
-                            dataToggle: (
-                                <span>
-                                    affdsfdsfds
-                                    fds
-                                    fdsf
-                                    ds
-                                    fdsfds
-                                    fdsfdsf
-                                    dsf
-                                    dsffds
-                                    fdsfdsdsf
-                                    dsffdsf
-                                    dsfds
-                                </span>
-                            ) 
-                        },
-                        {
-                            title: 'Lorem Ipsum',
-                            titleProps: {},
-                            image: '',
-                            imageProps: {},
-                            imageData: undefined,
-                            text: `
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-                                magna aliquyam erat, sed diam voluptua.
-                            `,
-                            textProps: {},
-                            dataToggle: (
-                                <span>
-                                    affdsfdsfds
-                                    fds
-                                    fdsf
-                                    ds
-                                    fdsfds
-                                    fdsfdsf
-                                    dsf
-                                    dsffds
-                                    fdsfdsdsf
-                                    dsffdsf
-                                    dsfds
-                                </span>
-                            ) 
-                        },
-                        {
-                            title: 'Lorem Ipsum',
-                            titleProps: {},
-                            image: '',
-                            imageProps: {},
-                            imageData: undefined,
-                            text: `
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor invidunt ut labore et dolore 
-                                magna aliquyam erat, sed diam voluptua.
-                            `,
-                            textProps: {},
-                            dataToggle: (
-                                <span>
-                                    affdsfdsfds
-                                    fds
-                                    fdsf
-                                    ds
-                                    fdsfds
-                                    fdsfdsf
-                                    dsf
-                                    dsffds
-                                    fdsfdsdsf
-                                    dsffdsf
-                                    dsfds
-                                </span>
-                            ) 
-                        }
-                    ]
+                data={`
+                    Lorem ipsum dolor sit amet, 
+                    consetetur sadipscing elitr, 
+                    sed diam nonumy eirmod tempor 
+                    invidunt ut labore et dolore 
+                    magna aliquyam erat, sed diam 
+                    voluptua.`
+                }
+                toggleForwards={
+                    (
+                        <a 
+                            href='#' 
+                            style={
+                                {
+                                    display: 'inline'
+                                }
+                            }>
+                            ...
+                        </a>
+                    )
+                }
+                toggleBackwards={
+                    (
+                        <button>
+                            read less
+                        </button>
+                    )
+                }
+                callback={this.callbackResolve}
+                callbackProps={'my custom data'}
+                loading={
+                    (
+                        <img src='./public/images/ajax-loader.gif'/>
+                    )
                 }
             />
         )

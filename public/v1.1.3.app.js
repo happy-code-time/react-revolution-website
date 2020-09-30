@@ -544,7 +544,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appName", function() { return appName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appNameShort", function() { return appNameShort; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "host", function() { return host; });
-var version = '1.1.7';
+var version = '1.1.8';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
 var author = "David Janitzek";
@@ -21594,7 +21594,7 @@ __webpack_require__("./node_modules/core-js/modules/_iter-define.js")(String, 'S
   this._t = String(iterated); // target
 
   this._i = 0; // next index
-  // 21.1.7.2.1 %StringIteratorPrototype%.next()
+  // 21.1.8.2.1 %StringIteratorPrototype%.next()
 }, function () {
   var O = this._t;
   var index = this._i;
@@ -40467,8 +40467,8 @@ module.exports = function (e) {
       N = "https://react-revolution.j.pl/",
       x = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-pager-static", "rr-popupbox", "rr-sidebar", "rr-sourcecode", "rr-table", "rr-text-writer", "rr-clouds-404", "rr-clouds-mountains-404", "rr-water-404", "rr-lightbulb-404"],
       P = function P(e, t, a) {
-    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.7", "/css/").concat(a, ".css"),
-        l = "".concat(N, "/public/react-revolution/").concat("v1.1.7", "/css/react-revolution.css"),
+    var n = "".concat(N, "/public/react-revolution/").concat("v1.1.8", "/css/").concat(a, ".css"),
+        l = "".concat(N, "/public/react-revolution/").concat("v1.1.8", "/css/react-revolution.css"),
         i = document.createElement("link");
     i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css");
 

@@ -12,6 +12,8 @@ import { host } from '../Globals';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
+import generateArticles from '../Globals/generateArticles';
+
 const codeExample1 = `import { CustomSuggestion } from 'react-revolution';
 
 <CustomSuggestion
@@ -149,8 +151,7 @@ const jsExample2 = `searchState(inputValue, isClickEvent) {
 }`;
 
 
-class ReactRevolutionCustomSuggestion extends React.Component 
-{
+class ReactRevolutionCustomSuggestion extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -351,56 +352,72 @@ class ReactRevolutionCustomSuggestion extends React.Component
                         type='text'
                         allowOnlyAZ={true}
                     />
-                    <span>
-                        <h1
-                            title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
-                            className="h1-example"
-                        >
-                            <i className="fas fa-atom" />
-                            {
-                                trans('reactCodeTitle')
-                            }
-                        </h1>
-                        <SourceCode
-                            lineNumber={true}
-                            layout='dark'
-                            code={codeExample2}
-                        />
-                        <Clipboard
-                            animation='jump' // scale, jump
-                            data={(
-                                <div title={trans('copyToClipboard')} className="button-action">
-                                    <i className="far fa-clipboard"></i>
-                                </div>
-                            )}
-                            clipboard={codeExample2}
-                        />
-                    </span>
-                    <span>
-                        <h1
-                            title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                            className="h1-example"
-                        >
-                            <i className="fab fa-node-js" />
-                            {
-                                trans('jsCodeTitle')
-                            }
-                        </h1>
-                        <SourceCode
-                            lineNumber={true}
-                            layout='dark'
-                            code={jsExample2}
-                        />
-                        <Clipboard
-                            animation='jump' // scale, jump
-                            data={(
-                                <div title={trans('copyToClipboard')} className="button-action">
-                                    <i className="far fa-clipboard"></i>
-                                </div>
-                            )}
-                            clipboard={jsExample2}
-                        />
-                    </span>
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                    className="h1-example"
+                                >
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
                 </div>
                 {
                     getDescriptionForstyle('rr-custom-suggestion')

@@ -335,10 +335,20 @@
 
 .rr-articles-production{
   .single-entry {
+    min-height: 30px;
     margin: 10px 0;
     
+    .rr-clipboard {
+      margin: 0 10px;
+    }
+
     .rr-sourcecode {
-          width: 100%;
+        width: 100%;
+
+        ul{
+          width: calc(100% - 20px);
+          margin: 10px;
+        }
       }
       
       .h1-example{
@@ -353,6 +363,12 @@
 }
 
 #app.dark{
+  .rr-input-suggestion-array,
+  .rr-input-suggestion-object{
+    .input{
+      background-color: rgb(255,255,255);
+    }
+  }
   .head,
   .SidebarMinified.opened,
   .rr-sidebar{
@@ -388,7 +404,16 @@
     color: $white;
   }
   .SideBar .rr-menu-click-horizontal .single-entry .text.child,
-  .description{
+  .description,
+  .text,
+  .toggled,
+  .title,
+  .section p,
+  .h1,
+  .value,
+  .next-page,
+  .previous-page,
+  .line-number{
     color: rgb(172,172,172);
   }
   .SideBar .rr-menu-click-horizontal .single-entry .text.hasChildren,
@@ -405,8 +430,13 @@
     background-color: $dodgerblue-light-l;
   }
   .a-description:hover,
-  .arrow{
+  .arrow,
+  .rr-text-writer{
     color: $dodgerblue;
+  }
+
+  .ScrollTop{
+    background-color: $dodgerblue;
   }
 }
 

@@ -9,6 +9,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-articles'
         },
         {
+            name: 'ArticlesImages',
+            link: 'react-revolution-articles-images'
+        },
+        {
             name: 'Breadcrumbs',
             link: 'react-revolution-breadcrumbs'
         },
@@ -111,6 +115,14 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'PopupBox',
             link: 'react-revolution-popup-box'
+        },
+        {
+            name: 'ReadMore',
+            link: 'react-revolution-read-more'
+        },
+        {
+            name: 'ReadMoreCallback',
+            link: 'react-revolution-read-more-callback'
         },
         {
             name: 'ScrollTo',

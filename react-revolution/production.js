@@ -63,6 +63,10 @@ import TextWriter from './Modules/TextWriter';
 
 import PopupBox from './Modules/PopupBox';
 
+import ReadMore from './Modules/ReadMore';
+
+import ReadMoreCallback from './Modules/ReadMoreCallback';
+
 import ScrollTo from './Modules/ScrollTo';
 
 import SideBar from './Modules/SideBar';
@@ -130,6 +134,8 @@ export {
     Table,
     TextWriter,
     PopupBox,
+    ReadMore,
+    ReadMoreCallback,
     ScrollTo,
     SideBar,
     SourceCode,

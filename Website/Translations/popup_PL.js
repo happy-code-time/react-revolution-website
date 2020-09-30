@@ -1154,7 +1154,7 @@ const PL = {
     },
     "dashed_example": "Przykład z użyciem klucza'dashed={true}'.",
     "articles.animation": {
-        "description": "Animacja podczas przełączania artykułu. Animacje, które można wykorzystać: 'height', 'scale', 'opacity'.",
+        "description": "Animacja podczas przełączania artykułu. Animacje, których można użyć: 'height', 'scale' or 'opacity'. Aby animacja odniosła skutek, element musi być elementem inline-block lub block, można to rozwiązać za pomocą CSS, dodając właściwość CSS do togglera: display: block, display: inline-block.",
         "type": "String",
         "default": "undefined"
     },
@@ -1241,6 +1241,63 @@ const PL = {
     "articles.description.1": "Przykład z kluczem: 'border'.",
     "articles.description.2": "Przykład z użyciem klucza closeOnClickOutside={true}. Oznacza to zamknięcie wszystkich przełączanych artykułów, jeśli użytkownik wykona kliknięcie poza modułem.",
     "articles.description.3": "Przykład z użyciem klucza persist={true}.",
+    "readmore.animation": {
+        "description": "Animacja podczas przełączania tekstu do czytania. Animacje, których można użyć: 'height', 'scale', 'opacity'. Aby animacja odniosła skutek, element musi być elementem blokowym lub inline-block, można to rozwiązać za pomocą CSS, dodając właściwość CSS do przełącznika toggler: display: block, display: inline-block.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "readmore.toggleForwards": {
+        "description": "Pokaż samodzielnie zdefiniowany tekst lub kod HTML wokół tekstu. Wydarzenie „czytaj więcej” zostało dodane tutaj.",
+        "type": "String | JSX",
+        "default": "..."
+    },
+    "readmore.toggleBackwards": {
+        "description": "Ukryj samodzielnie zdefiniowany tekst lub HTML wokół tekstu. W tym miejscu dodano wydarzenie „mniej czytaj”.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.data": {
+        "description": "Tekst główny.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "readmore.dataToggle": {
+        "description": "Tekst do wyświetlenia.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "readmore.callback.toggleOnReject": {
+        "description": "Zezwól na ponowne wyświetlenie przycisku z klucza 'toggleReject' aby ponownie wykonać zapytanie (callback).",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.toggleReject": {
+        "description": "Pokaż samodzielnie zdefiniowany tekst lub kod HTML aby ponownie wykonać zapytanie.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore.callback.callback": {
+        "description": "Funkcja wywołania zwrotnego w celu załadowania danych. Ta funkcja zwraca 2 argumenty. Argument 1: kliknięcie Zdarzenie, argument 2: niestandardowe zdefiniowane dane przekazywane przez klucz 'callbackProps'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.callbackProps": {
+        "description": "Dane zdefiniowane przez użytkownika przekazywane jako drugi argument do funkcji zwrotnej klucza 'callback'.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "readmore.callback.loading": {
+        "description": "Pokaż samodzielnie zdefiniowany tekst lub kod HTML podczas pobierania danych w stanie oczekiwania na obietnicę.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "readmore-description-1" : "Przykład z użyciem przycisku 'czytaj więcej'.",
+    "readmore-description-2" : "Przykład z użyciem przycisku 'czytaj więcej' i 'czytaj mniej'.",
+    "readmore-callback-description-1" : "Przykład z użyciem przycisku 'czytaj więcej' z metodą zwrotną, która trwa 2000ms, podczas tego czasu ukazany jest HTML klucza 'loading'. W tym przypadku własny obraz gif. Funkcja wewnętrzna modułu czeka (await) na rozwiązanie 'obietnicy' (Promise -> resolve) aby otrzymac dane do ukazania. Gdy dane zostały załadowane jeden raz, nie bedą ładowane drugi raz!. Gdy obietnica sie nie udała (Promise -> reject) wtedy także można przekazac dane do modułu. Gdy miejsce ma 'Promise.reject()' i nie ma żadnych danych, wtedy 'nie dzieje' się nic i klucz 'toggleForwards' ukazuje się ponownie.",
+    "readmore-callback-description-2" : "Przykład z użyciem przycisku 'czytaj więcej' i 'czytaj mniej' z metodą zwrotną, która trwa 2000ms, podczas tego czasu ukazany jest HTML klucza 'loading'. W tym przypadku własny obraz gif. Funkcja wewnętrzna modułu czeka (await) na rozwiązanie 'obietnicy' (Promise -> resolve) aby otrzymac dane do ukazania. Gdy dane zostały załadowane jeden raz, nie bedą ładowane drugi raz!. Gdy obietnica sie nie udała (Promise -> reject) wtedy także można przekazac dane do modułu. Gdy miejsce ma 'Promise.reject()' i nie ma żadnych danych, wtedy 'nie dzieje' się nic i klucz 'toggleForwards' ukazuje się ponownie.",
+    "readmore-callback-description-3" : "Przykład z Promise.reject() i przekazaną wiadomością w formie JSX oraz kluczem 'toggleOnReject={true}' i 'toggleReject' (własnym przyciskiem - spróbuj ponownie).",
+    "readmore-callback-description-4" : "Przykład z Promise.reject().",
+    "readmore-callback-description-5" : "Przykład z przekazaną wiadomością w formie JSX oraz po 2 próbach Promise.reject() a podczas 4 próbie Promise.resolve()",
 };
 
 export default PL;

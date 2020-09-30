@@ -1,14 +1,15 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
 import uuid from '../internalFunctions/uuid';
 
-class Articles extends React.Component {
+import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
+
+class Articles extends React.Component 
+{
     constructor(props) {
         super(props);
         this.buildData = this.buildData.bind(this);
@@ -39,6 +40,33 @@ class Articles extends React.Component {
         };
 
         this.refNode = React.createRef();
+    }
+
+    /**
+     * Force re-rendering of this component based
+     * on keysChangeListners keys
+     * @param {object} props 
+     * @param {object} state 
+     */
+    static getDerivedStateFromProps(props, state) {
+        if (getDerivedStateFromPropsCheck(['moduleStyle', 'globalStyle', 'addClass', 'defaultClass', 'id', 'data', 'animation', 'itemsPerLine', 'mediaBreak', 'toggleOn', 'persist'], props, state)) {            
+            return {
+                moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+                globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-articles',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
+                closeOnClickOutside: typeof true == typeof props.closeOnClickOutside ? props.closeOnClickOutside : false,
+                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+                animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
+                itemsPerLine: typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
+                mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
+                toggleOn: (props.toggleOn && typeof '8' == typeof props.toggleOn) ? props.toggleOn : '',
+                persist: typeof true == typeof props.persist ? props.persist : false,
+            };
+        }
+
+        return null;
     }
 
     componentDidMount() {

@@ -8,6 +8,8 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 import MenuClickHorizontal from '../MenuClickHorizontal';
 
+import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
+
 class Breadcrumbs extends React.Component 
 {
     constructor(props) {
@@ -38,6 +40,33 @@ class Breadcrumbs extends React.Component
             overwriteText: typeof true == typeof props.overwriteText ? props.overwriteText : false,
             removeHashFromDomain: typeof true == typeof props.removeHashFromDomain ? props.removeHashFromDomain : false,
         };
+    }
+
+    /**
+     * Force re-rendering of this component based
+     * on keysChangeListners keys
+     * @param {object} props 
+     * @param {object} state 
+     */
+    static getDerivedStateFromProps(props, state) {
+        if (getDerivedStateFromPropsCheck(['moduleStyle', 'globalStyle', 'addClass', 'defaultClass', 'id', 'hashRouter', 'domainName', 'reactRouter', 'moduleMenu', 'delimiter', 'overwriteText', 'removeHashFromDomain'], props, state)) {            
+            return {
+                moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+                globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-breadcrumbs',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
+                hashRouter: (typeof true == typeof props.hashRouter) ? props.hashRouter : false,
+                domainName: (props.domainName && typeof '8' == typeof props.domainName) ? props.domainName : undefined,
+                reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
+                moduleMenu: (props.moduleMenu && typeof {} == typeof props.moduleMenu) ? props.moduleMenu : undefined,
+                delimiter: (props.delimiter && typeof '8' == typeof props.delimiter) ? props.delimiter : '>',
+                overwriteText: typeof true == typeof props.overwriteText ? props.overwriteText : false,
+                removeHashFromDomain: typeof true == typeof props.removeHashFromDomain ? props.removeHashFromDomain : false,
+            };
+        }
+
+        return null;
     }
 
     componentDidMount() {

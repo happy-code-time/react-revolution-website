@@ -17,8 +17,7 @@ const codeExample1 = `import { ScrollTo } from 'react-revolution';
     id='uuid-2'
     navigationTime={1000}
     navigationTarget='bottom'
-/>
-`;
+/>`;
 
 const codeExample2 = `import { ScrollTo } from 'react-revolution';
 
@@ -30,8 +29,7 @@ const codeExample2 = `import { ScrollTo } from 'react-revolution';
     }
     navigationTime={300}
     navigationTarget='#uuid-2'
-/>
-`;
+/>`;
 
 const cssExample = `.rr-scroll-to{
     .to-bottom,
