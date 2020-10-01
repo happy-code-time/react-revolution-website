@@ -55,6 +55,32 @@ const codeExample4 = `import { ArticlesImages } from 'react-revolution';
     data={generateRandomArcticles(4)}
 />`;
 
+const codeExample5 = `import { ArticlesImages } from 'react-revolution';
+
+<ArticlesImages
+    addClass='rr-articles-images-example'
+    animation='opacity'
+    toggleOn='text'
+    persist={true}
+    itemsPerLine={2}
+    mediaBreak={1600}
+    data={generateRandomArcticles()}
+    toggleForwards={
+        (
+            <button>
+                read more
+            </button>
+        )
+    }
+    toggleBackwards={
+        (
+            <button>
+                read less
+            </button>
+        )
+    }
+/>`;
+
 const cssExample = `.rr-articles-images-example{
         
     .single-entry{
@@ -98,6 +124,12 @@ const cssExample4 = `.rr-articles-images-example{
 
     .data-toggled:hover{
         cursor: text;
+    }
+}`;
+
+const cssExample5 = `.rr-articles-example-buttons{
+    button:hover{
+        cursor: pointer;
     }
 }`;
 
@@ -291,6 +323,41 @@ class ReactRevolutionArticlesImages extends React.Component
                     />
                 )
             },
+            {
+                title: 'ArticlesImages',
+                description: trans('articles.description.4'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: jsCode,
+                css: cssExample5,
+                html: '',
+                live: (
+                    <ArticlesImages
+                        addClass='rr-articles-images-example'
+                        animation='opacity'
+                        toggleOn='text'
+                        persist={false}
+                        itemsPerLine={2}
+                        mediaBreak={1600}
+                        data={generateRandomArcticles()}
+                        toggleForwards={
+                            (
+                                <button>
+                                    read more
+                                </button>
+                            )
+                        }
+                        toggleBackwards={
+                            (
+                                <button>
+                                    read less
+                                </button>
+                            )
+                        }
+                    />
+                )
+            },
         ];
     }
 
@@ -379,6 +446,14 @@ class ReactRevolutionArticlesImages extends React.Component
                                 {
                                     key: 'persist',
                                     values: 'articles.persist'
+                                },
+                                {
+                                    key: 'toggleForwards',
+                                    values: 'articles.toggleForwards'
+                                },
+                                {
+                                    key: 'toggleBackwards',
+                                    values: 'articles.toggleBackwards'
                                 },
                                 {
                                     key: 'animation',

@@ -1,6 +1,7 @@
 const possibleLayouts = [
+    'code',
     'dark', 
-    'light'
+    'light',
 ];
 
 export default possibleLayouts;

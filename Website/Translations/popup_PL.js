@@ -3,6 +3,9 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    releaseNotesKey: 'Dotyczy komponentu',
+    releaseNotesDescription: 'Opis',
+    releaseNotes: 'Informacje o wydaniu',
     back_404: 'Strona główna',
     functions: 'Funkcje',
     components: 'Komponenty',
@@ -18,6 +21,7 @@ const PL = {
     changeTintTitle: 'Wygląd strony',
     lightTheme: 'Jasny',
     darkTheme: 'Ciemny',
+    codeTheme: 'Kod',
     searchForModule: 'Szukanie modułu',
     clickToNavToTheModule: 'Nawigacja do tego modułu',
     fast: 'Szybki',
@@ -162,12 +166,22 @@ const PL = {
         "type": "Number",
         "default": "0"
     },
-    "loadMoreCallback": {
-        "description": "Jeśli element główny został przewinięty do końca w dół, dane można załadować ponownie. Jeśli wywołanie zwrotne zwraca 'break', zdarzenie przewijania jest usuwane z elementu głównego.",
+    "cards.callback": {
+        "description": "Jeśli element główny został przewinięty do końca w dół, dane można załadować ponownie. Jeśli wywołanie zwrotne zwraca 'break', zdarzenie przewijania jest usuwane z elementu głównego. Do tej funkcji przekazywane są 2 argumenty. Argument 1: zdarzenie (przewiń, kliknij: dla danych klucza 'onReject'), argument 2: dane niestandardowe dostarczone przez klucz 'callbackProps'.",
         "type": "Funkcja",
         "default": "undefined"
     },
-    "loadMoreLoadingIcon": {
+    "cards.callback.persistReject": {
+        "description": "Jeśli true, to jeśli obietnica została odrzucona, zdarzenie przewijania jest usuwane.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "cards.callback.onReject": {
+        "description": "Dane niestandardowe do wyświetlenia po odrzuceniu obietnicy, a użytkownik powinien być w stanie ponownie załadować więcej danych. Do tych danych dołączone jest zdarzenie kliknięcia.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "cards.loading": {
         "description": "Podczas wczytywania dodatkowych elementów można renderować samodzielnie zdefiniowany element JSX.",
         "type": "String | JSX",
         "default": "<pusty ciąg>"
@@ -739,6 +753,10 @@ const PL = {
     "accordion.description2": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
     "cards.scroll.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div.",
     "cards.scrollCallback.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div. Załaduj więcej kart opiera się na niestandardowej funkcji wywołania zwrotnego. Jeśli wartość to „break”, to nasłuchiwanie przewijania jest usuwane.",
+    "cards.scrollCallback.example1" : "Przykład width Promise.resolve (), LoadingBoxTop ze stałą pozycją i 'break' na zdarzeniu 4 scroll.",
+    "cards.scrollCallback.example2" : "Przykładowa width Promise.reject () (domyślnie zwraca undefined), niestandardowe ładowanie JSX przekazane przez klucz 'loading' i klucz 'persistReject = {true}' oznacza to, że nasłuchiwanie scrollEvent jest usuwane, a funkcja wywołania zwrotnego nie jest wywoływana ponownie w przypadku przewijania.",
+    "cards.scrollCallback.example3" : "Przykład width Promise.reject () width niestandardowy JSX jako komunikat o błędzie, niestandardowe ładowanie JSX przekazane przez klucz 'loading' i klucz 'persistReject = {false}' (wartość domyślna to false) oznacza to, że odbiornik scrollEvent jest NIE usunięto! Użytkownik może przewinąć wstecz i ponownie wywołać funkcję zwrotną.",
+    "cards.scrollCallback.example4" : "Przykład width Promise.reject () width niestandardowy JSX jako komunikat o błędzie, niestandardowe ładowanie JSX przekazane przez klucz 'loading' i kluczem 'persistReject = {true}' oznacza to, że nasłuchiwanie scrollEvent zostało usunięte! W tym przykładzie klucz „onReject” zawiera niestandardowy kod JSX - do tego kodu HTML jest dołączone zdarzenie kliknięcia. To zdarzenie kliknięcia wywołuje niestandardową funkcję „oddzwonienia”.",
     "icons.description": "Moduł ikon ze wszystkimi ustawionymi ikonami, BEZ tłumaczeń i defaultm ustawionym zestawem ikon: buźki. Po kliknięciu spójrz na konsolę w poszukiwaniu ikony.",
     "icons.description2": "Moduł ikon z wybranym zestawem ikon: Buźki, Aktywność, Podróż, Ludzie, Obiekty, BRAK tłumaczeń i default zestaw ikon: Aktywność. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
     "icons.description3": "Moduł ikon z wybranym zestawem ikon: buźki, aktywność, podróż, ludy, obiekty i 2 przetłumaczone tytuły ikon. Po kliknięciu zajrzyj do konsoli w poszukiwaniu ikony.",
@@ -1238,9 +1256,20 @@ const PL = {
         "type": "Boolean",
         "default": "False"
     },
+    "articles.toggleForwards": {
+        "description": "Własny zdefiniowany JSX aby ukazać dane. Gdy zostaje użyty, wtedy klucz 'toggleOn' zostaje zignorowany.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "articles.toggleBackwards": {
+        "description": "Własny zdefiniowany JSX aby ukryć dane.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
     "articles.description.1": "Przykład z kluczem: 'border'.",
     "articles.description.2": "Przykład z użyciem klucza closeOnClickOutside={true}. Oznacza to zamknięcie wszystkich przełączanych artykułów, jeśli użytkownik wykona kliknięcie poza modułem.",
     "articles.description.3": "Przykład z użyciem klucza persist={true}.",
+    "articles.description.4": "Przykład z użyciem kluczy 'toggleForwards' oraz 'toggleBackwards'.",
     "readmore.animation": {
         "description": "Animacja podczas przełączania tekstu do czytania. Animacje, których można użyć: 'height', 'scale', 'opacity'. Aby animacja odniosła skutek, element musi być elementem blokowym lub inline-block, można to rozwiązać za pomocą CSS, dodając właściwość CSS do przełącznika toggler: display: block, display: inline-block.",
         "type": "String",
@@ -1298,6 +1327,31 @@ const PL = {
     "readmore-callback-description-3" : "Przykład z Promise.reject() i przekazaną wiadomością w formie JSX oraz kluczem 'toggleOnReject={true}' i 'toggleReject' (własnym przyciskiem - spróbuj ponownie).",
     "readmore-callback-description-4" : "Przykład z Promise.reject().",
     "readmore-callback-description-5" : "Przykład z przekazaną wiadomością w formie JSX oraz po 2 próbach Promise.reject() a podczas 4 próbie Promise.resolve()",
+    "modal.callback": {
+        "description": "Obowiązkowa funkcja oddzwaniania do zmiany aktualnego stanu wyświetlania. Jedynym przekazywanym parametrem jest zdarzenie (keydown | touch | click).",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "modal.data": {
+        "description": "Samodzielnie zdefiniowany ciąg zamówienia HTML do wyświetlenia.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "modal.close": {
+        "description": "Samodzielnie zdefiniowany ciąg zamówienia HTML. Do tego kodu HTML dodano funkcję 'callback'.",
+        "type": "String | JSX",
+        "default": "<pusty ciąg>"
+    },
+    "modal.closeOnKeyDown": {
+        "description": "Dodaj zdarzenie 'keydown' i 'touch' do elementu DOM, aby wywołać funkcję 'callback'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "modal.closeOnClickDimmed": {
+        "description": "Dodaj zdarzenie 'click' do 'posiadacza' modułu, aby wywołać funkcję 'callback'.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default PL;

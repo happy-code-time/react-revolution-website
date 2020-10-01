@@ -105,6 +105,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-menu-click-horizontal'
         },
         {
+            name: 'Modal',
+            link: 'react-revolution-modal'
+        },
+        {
             name: 'PagerStatic',
             link: 'react-revolution-pager-static'
         },

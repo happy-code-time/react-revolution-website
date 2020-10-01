@@ -8,8 +8,7 @@ import uuid from '../internalFunctions/uuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class ArticlesImages extends React.Component 
-{
+class ArticlesImages extends React.Component {
     constructor(props) {
         super(props);
         this.buildData = this.buildData.bind(this);
@@ -36,6 +35,8 @@ class ArticlesImages extends React.Component
             itemsPerLine: typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
             toggleOn: (props.toggleOn && typeof '8' == typeof props.toggleOn) ? props.toggleOn : '',
+            toggleForwards: props.toggleForwards ? props.toggleForwards : '',
+            toggleBackwards: props.toggleBackwards ? props.toggleBackwards : '',
             persist: typeof true == typeof props.persist ? props.persist : false,
         };
 
@@ -49,7 +50,7 @@ class ArticlesImages extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['moduleStyle', 'globalStyle', 'addClass', 'defaultClass', 'id', 'data', 'animation', 'itemsPerLine', 'mediaBreak', 'toggleOn', 'persist'], props, state)) {            
+        if (getDerivedStateFromPropsCheck(['moduleStyle', 'globalStyle', 'addClass', 'defaultClass', 'id', 'data', 'animation', 'itemsPerLine', 'mediaBreak', 'toggleOn', 'toggleForwards', 'persist', 'toggleBackwards'], props, state)) {
             return {
                 moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
                 globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
@@ -62,6 +63,8 @@ class ArticlesImages extends React.Component
                 itemsPerLine: typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
                 mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
                 toggleOn: (props.toggleOn && typeof '8' == typeof props.toggleOn) ? props.toggleOn : '',
+                toggleForwards: props.toggleForwards ? props.toggleForwards : '',
+                toggleBackwards: props.toggleBackwards ? props.toggleBackwards : '',
                 persist: typeof true == typeof props.persist ? props.persist : false,
             };
         }
@@ -119,7 +122,7 @@ class ArticlesImages extends React.Component
     }
 
     buildData(data) {
-        const { itemsPerLine, isMinified } = this.state;
+        const { itemsPerLine, isMinified, toggleForwards, toggleBackwards } = this.state;
         let { toggleOn, persist } = this.state;
         const clsHolder = `group flex ${isMinified ? 'flex-column isMinified' : 'flex-row'}`;
         const jsx = [];
@@ -183,7 +186,7 @@ class ArticlesImages extends React.Component
                                 key={uuid()}
                                 className={`title ${'title' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...titleProps}
-                                {...(('title' == toggleOn && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                                {...(('title' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
                             >
                                 {
                                     title
@@ -197,7 +200,7 @@ class ArticlesImages extends React.Component
                                 key={uuid()}
                                 className={`title ${'title' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...titleProps}
-                                {...(('title' == toggleOn && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                                {...(('title' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
                             >
                                 {
                                     title
@@ -215,7 +218,7 @@ class ArticlesImages extends React.Component
                                 key={uuid()}
                                 className={`text ${'text' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...textProps}
-                                {...(('text' == toggleOn && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                                {...(('text' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
                             >
                                 {
                                     text
@@ -229,7 +232,7 @@ class ArticlesImages extends React.Component
                                 key={uuid()}
                                 className={`text ${'text' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...textProps}
-                                {...(('text' == toggleOn && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                                {...(('text' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
                             >
                                 {
                                     text
@@ -271,7 +274,7 @@ class ArticlesImages extends React.Component
                     <div
                         key={key}
                         className={`single-entry ${'box' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
-                        {...(('box' == toggleOn && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                        {...(('box' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
                     >
                         {
                             renderBorder &&
@@ -307,6 +310,16 @@ class ArticlesImages extends React.Component
                             rightSite && rightSite
                         }
                         {
+                            !toggled && toggleForwards &&
+                            <span
+                                {...((toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                            >
+                                {
+                                    toggleForwards
+                                }
+                            </span>
+                        }
+                        {
                             dataToggle && toggled &&
                             <span
                                 key={uuid()}
@@ -314,6 +327,16 @@ class ArticlesImages extends React.Component
                             >
                                 {
                                     dataToggle
+                                }
+                            </span>
+                        }
+                        {
+                            toggled && toggleBackwards && !persist &&
+                            <span
+                                {...((toggleBackwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
+                            >
+                                {
+                                    toggleBackwards
                                 }
                             </span>
                         }

@@ -31,7 +31,7 @@
 }
 
 #app {
-  
+
   .ScrollTop{
     position: fixed;
     bottom: 10px;
@@ -431,12 +431,104 @@
   }
   .a-description:hover,
   .arrow,
-  .rr-text-writer{
+  .rr-text-writer,
+  .rr-table-releases .title span,
+  .rr-table-website .title span{
     color: $dodgerblue;
   }
 
   .ScrollTop{
     background-color: $dodgerblue;
+  }
+  .rr-sidebar-logo-text{
+    border-bottom: none;
+  }
+}
+
+#app.code{
+  .rr-input-suggestion-array,
+  .rr-input-suggestion-object{
+    .input{
+      background-color: rgb(255,255,255);
+    }
+  }
+  .head,
+  .SidebarMinified.opened,
+  .rr-sidebar{
+    background-color: #252526; 
+  }
+  .action-icon{
+    color: rgb(122,122,122);
+  }
+  .close-side-bar{
+    border: 1px solid rgb(122,122,122);
+  }
+  .Home,
+  .Home .main-title-box,
+  .rr-cards,
+  .ContentBody,
+  .Content,
+  .Footer{
+    background-color: #1E1E1E;
+  }
+  .font-input.title{
+    background-color: #1E1E1E;
+  }
+  .font-input.title{
+    color: $white;
+  }
+  .rr-input-animation .font-input,
+  .rr-input-animation.focus .title{
+    color: $dodgerblue;
+  }
+  .Home .main-title h1,
+  .rr-cards .content,
+  .title-border{
+    color: $white;
+  }
+  .SideBar .rr-menu-click-horizontal .single-entry .text.child,
+  .description,
+  .text,
+  .toggled,
+  .title,
+  .section p,
+  .h1,
+  .value,
+  .next-page,
+  .previous-page,
+  .line-number{
+    color:  rgb(132,132,132);
+  }
+  .h1-example,
+  .h1-title{
+    color: $white;
+  }
+  .SideBar .rr-menu-click-horizontal .single-entry .text.hasChildren{
+    color: rgb(172,172,172);
+  }
+  .rr-cards .title i,
+  .h1-example i,
+  .a-description{
+    color: rgb(172,172,172);
+  }
+  .rr-clipboard .button-action{
+    background-color: $dodgerblue-light-l;
+  }
+  .a-description:hover,
+  .arrow,
+  .rr-text-writer,
+  .main-title i,
+  .rr-table-releases .title span,
+  .rr-table-website .title span{
+    color: #49B095;
+  }
+
+  .ScrollTop,
+  .suggestions li:hover{
+    background-color: #49B095 !important;
+  }
+  .rr-sidebar-logo-text{
+    border-bottom: none;
   }
 }
 

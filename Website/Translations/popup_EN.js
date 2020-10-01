@@ -3,6 +3,9 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    releaseNotesKey: 'Affected component',
+    releaseNotesDescription: 'Description',
+    releaseNotes: 'Release Notes',
     back_404: 'Homepage',
     functions: 'Functions',
     components: 'Components',
@@ -18,6 +21,7 @@ const EN = {
     changeTintTitle: 'Change layout',
     lightTheme: 'Light',
     darkTheme: 'Dark',
+    codeTheme: 'Code',
     searchForModule: 'Module search',
     clickToNavToTheModule: 'Navigate to this module',
     fast: 'Fast',
@@ -162,12 +166,22 @@ const EN = {
         "type": "Number",
         "default": "0"
     },
-    "loadMoreCallback": {
-        "description": "If the root element has been scrolled all the way down, data can be reloaded. If the callback returns 'break', the scroll event is removed from the root element.",
+    "cards.callback": {
+        "description": "If the root element has been scrolled all the way down, data can be reloaded. If the callback returns 'break', the scroll event is removed from the root element. There are 2 arguments passed to this function. Argument 1: event (scroll, click: for the 'onReject' data), argument 2: custom data provided by the key 'callbackProps'.",
         "type": "Function",
         "default": "undefined"
     },
-    "loadMoreLoadingIcon": {
+    "cards.callback.persistReject": {
+        "description": "If true then if the Promise has been rejected, then the scroll event are removed.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "cards.callback.onReject": {
+        "description": "Custom data to display after an Promise was rejected and the user should be able to load more data again. To this data the click event are attached.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "cards.loading": {
         "description": "While additional elements are being loaded, a self-defined JSX element can be rendered.",
         "type": "String | JSX",
         "default": "<empty string>"
@@ -739,6 +753,10 @@ const EN = {
     "accordion.description2" : "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
     "cards.scroll.description" : "The Cards module will load more items, if the bottom of the parent div are reached.",
     "cards.scrollCallback.description" : "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
+    "cards.scrollCallback.example1" : "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
+    "cards.scrollCallback.example2" : "Example width Promise.reject() (default returns undefined), custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed and the callback function not called again on a scroll event.",
+    "cards.scrollCallback.example3" : "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={false}' (default the value is false) it`s mean the scrollEvent listener are NOT removed! The user can scroll down back and the callback function are called again.",
+    "cards.scrollCallback.example4" : "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed! This example provides the key 'onReject' with a custom JSX - to this HTML are attached an click event. This click event call the custom 'callback' function.",
     "icons.description" : "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
     "icons.description2" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
     "icons.description3" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
@@ -1238,9 +1256,20 @@ const EN = {
         "type": "Boolean",
         "default": "False"
     },
+    "articles.toggleForwards": {
+        "description": "Custom defined JSX to toggle/show data. If defined then the key 'toggleOn' are ignored.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "articles.toggleBackwards": {
+        "description": "Custom defined JSX to toggle data back.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
     "articles.description.1": "Example with the key usage 'border'.",
     "articles.description.2": "Example with the key usage closeOnClickOutside={true}. Its mean close all toggled articles if the user make a click outside the module.",
     "articles.description.3": "Example with the key usage persist={true}.",
+    "articles.description.4": "Example with the key usages 'toggleForwards' and 'toggleBackwards'.",
     "readmore.animation": {
         "description": "An animation while switching the text to be read. Animations that can be used: 'height', 'scale', 'opacity'. In order for the animation to have an effect, the element has to be an inline-block or block element, this can be solved with CSS by adding the CSS property to the toggler: display: block, display: inline-block.",
         "type": "String",
@@ -1298,6 +1327,31 @@ const EN = {
     "readmore-callback-description-3": "Example with Promise.reject() and returned custom JSX data (error message) and with the key 'toggleOnReject={true}' and 'toggleReject' (custom button - try again).",
     "readmore-callback-description-4": "Example with Promise.reject().",
     "readmore-callback-description-5": "Example with returned custom JSX data (error message) after 2 click an Promise.reject() and on the 4 click Promise.resolve().",
+    "modal.callback": {
+        "description": "Mandatory callback function to change the current display status. The only passed parameter is the event (keydown | touch | click).",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "modal.data": {
+        "description": "Self-defined HTML order string to be displayed.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "modal.close": {
+        "description": "Self-defined HTML order string. The 'callback' function is added to this HTML.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    "modal.closeOnKeyDown": {
+        "description": "Add the 'keydown' and 'touch' event to the DOM element to invoke the 'callback' function.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "modal.closeOnClickDimmed": {
+        "description": "Add the 'click' event to the 'holder' of the module to invoke the 'callback' function.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default EN;

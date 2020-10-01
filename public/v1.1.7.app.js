@@ -623,7 +623,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appName", function() { return appName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appNameShort", function() { return appNameShort; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "host", function() { return host; });
-var version = '1.1.8';
+var version = '1.1.9';
 var appName = 'React Revolution';
 var appNameShort = 'React Revolution';
 var author = "David Janitzek";
@@ -42289,8 +42289,8 @@ module.exports = function (e) {
 
   var S = ["rr-accordion", "rr-cards", "rr-cards-scroll", "rr-cards-scroll-callback", "rr-custom-suggestion", "rr-fullscreenlist", "rr-full-screen-overlay", "rr-global-messages", "rr-icons", "rr-input-animation", "rr-input-file", "rr-input-file-drag-drop", "rr-input-suggestion-array", "rr-input-suggestion-object", "rr-loading-box-top", "rr-load-on-scroll", "rr-menu-click-horizontal", "rr-pager-static", "rr-popupbox", "rr-sidebar", "rr-sourcecode", "rr-table", "rr-text-writer", "rr-clouds-404", "rr-clouds-mountains-404", "rr-water-404", "rr-lightbulb-404"],
       E = function E(e, t, a) {
-    var n = "".concat(C, "/public/react-revolution/").concat("v1.1.8", "/css/").concat(a, ".css"),
-        l = "".concat(C, "/public/react-revolution/").concat("v1.1.8", "/css/react-revolution.css"),
+    var n = "".concat(C, "/public/react-revolution/").concat("v1.1.9", "/css/").concat(a, ".css"),
+        l = "".concat(C, "/public/react-revolution/").concat("v1.1.9", "/css/react-revolution.css"),
         i = document.createElement("link");
     i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css");
 

@@ -79,6 +79,8 @@ import ReactRevolutionLoadingBoxTop from './Website/Pages/ReactRevolutionLoading
 
 import ReactRevolutionMenuClickHorizontal from './Website/Pages/ReactRevolutionMenuClickHorizontal';
 
+import ReactRevolutionModal from './Website/Pages/ReactRevolutionModal';
+
 import ReactRevolutionPagerStatic from './Website/Pages/ReactRevolutionPagerStatic';
 
 import ReactRevolutionPagerDynamic from './Website/Pages/ReactRevolutionPagerDynamic';
@@ -115,6 +117,16 @@ import ReactRevolutionFunctionEnableHtmlScroll from './Website/Pages/ReactRevolu
 import ReactRevolutionFunctionScrollTopListener from './Website/Pages/ReactRevolutionFunctionScrollTopListener';
 
 import ReactRevolutionFunctionUrlExtract from './Website/Pages/ReactRevolutionFunctionUrlExtract';
+
+/**
+ * Releases
+ */
+
+import Release117 from './Website/Releases/Release117';
+
+import Release118 from './Website/Releases/Release118';
+
+import Release119 from './Website/Releases/Release119';
 
 class App extends React.Component {
 
@@ -193,6 +205,11 @@ class App extends React.Component {
       if (self.href !== window.location.href && count > 0) {
         self.href = window.location.href;
         self.changeSidebarMinifiedState();
+        /**
+         * Load more then 1 example on each page
+         */
+        document.documentElement.scrollTop = 500;
+        document.documentElement.scrollTop = 0;
         return clearInterval(x);
       }
 
@@ -282,6 +299,28 @@ class App extends React.Component {
 
     suggestions.sort();
     return suggestions;
+  }
+
+  generateLayouts() {
+    const items = [];
+
+    possibleLayouts.map(name => {
+      items.push(
+        <li className="ellipsis" key={uuid()} onClick={() => this.setLayout(name)}>
+          {
+            trans(`${name}Theme`)
+          }
+        </li>
+      );
+    })
+
+    return (
+      <ul>
+        {
+          items
+        }
+      </ul>
+    );
   }
 
   render() {
@@ -431,6 +470,10 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-menu-click-horizontal`,
                         },
                         {
+                          text: 'Modal',
+                          href: `${host}#/react-revolution-modal`,
+                        },
+                        {
                           text: 'NotFound',
                           data: [
                             {
@@ -529,6 +572,24 @@ class App extends React.Component {
                         },
                       ]
                     },
+                    {
+                      text: trans('releaseNotes'),
+                      toggled: true,
+                      data: [
+                        {
+                          text: 'v1.1.9',
+                          href: `${host}#/react-revolution-release-1-1-9`,
+                        },
+                        {
+                          text: 'v1.1.8',
+                          href: `${host}#/react-revolution-release-1-1-8`,
+                        },
+                        {
+                          text: 'v1.1.7',
+                          href: `${host}#/react-revolution-release-1-1-7`,
+                        },
+                      ]
+                    },
                   ]
                 }
               />
@@ -586,18 +647,9 @@ class App extends React.Component {
                       trans('changeTintTitle')
                     }
                   </h1>
-                  <ul>
-                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('light')}>
-                      {
-                        trans('lightTheme')
-                      }
-                    </li>
-                    <li className="ellipsis" key={uuid()} onClick={() => this.setLayout('dark')}>
-                      {
-                        trans('darkTheme')
-                      }
-                    </li>
-                  </ul>
+                  {
+                    this.generateLayouts()
+                  }
                 </span>
               }
             />
@@ -660,6 +712,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-input-suggestion-object" render={(props) => (<ReactRevolutionInputSuggestionObject {...props} />)} />
               <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
               <Route exact path="/react-revolution-menu-click-horizontal" render={(props) => (<ReactRevolutionMenuClickHorizontal {...props} />)} />
+              <Route exact path="/react-revolution-modal" render={(props) => (<ReactRevolutionModal {...props} />)} />
               <Route exact path="/react-revolution-pager-static" render={(props) => (<ReactRevolutionPagerStatic {...props} />)} />
               <Route exact path="/react-revolution-pager-dynamic" render={(props) => (<ReactRevolutionPagerDynamic {...props} />)} />
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
@@ -679,6 +732,10 @@ class App extends React.Component {
               <Route exact path="/react-revolution-function-enable-html-scroll" render={(props) => (<ReactRevolutionFunctionEnableHtmlScroll {...props} />)} />
               <Route exact path="/react-revolution-function-scroll-top-listener" render={(props) => (<ReactRevolutionFunctionScrollTopListener {...props} />)} />
               <Route exact path="/react-revolution-function-url-extract" render={(props) => (<ReactRevolutionFunctionUrlExtract {...props} />)} />
+              {/* Releases */}
+              <Route exact path="/react-revolution-release-1-1-7" render={(props) => (<Release117 {...props} />)} />
+              <Route exact path="/react-revolution-release-1-1-8" render={(props) => (<Release118 {...props} />)} />
+              <Route exact path="/react-revolution-release-1-1-9" render={(props) => (<Release119 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

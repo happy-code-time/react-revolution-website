@@ -16,13 +16,15 @@ class CardsScrollCallback extends React.Component
         this.loadMore = this.loadMore.bind(this);
         this.removeScrollEvent = this.removeScrollEvent.bind(this);
         this.resize = this.resize.bind(this);
+        this.attachScrollEvent = this.attachScrollEvent.bind(this);
+        this.scrollToBottom = this.scrollToBottom.bind(this);
 
         this.state = {
             /**
              * App
              */
             dataJsx: [],
-            loading: false,
+            loadingData: false,
             isMinified: false,
             /**
              * User
@@ -34,22 +36,23 @@ class CardsScrollCallback extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
-            loadMoreCallback: (props.loadMoreCallback && 'function' == typeof props.loadMoreCallback) ? props.loadMoreCallback : undefined,
-            loadMoreLoadingIcon: props.loadMoreLoadingIcon ? props.loadMoreLoadingIcon : '',
+            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callbackProps: props.callbackProps ? props.callbackProps : '',
+            loading: props.loading ? props.loading : '',
+            onReject: props.onReject ? props.onReject : '',
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
             minify: typeof 8 == typeof props.minify ? props.minify : 0,
+            persistReject: (typeof true == typeof props.persistReject) ? props.persistReject : false,
         };
+
+        this.loadingAllowed = true;
     }
 
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { data, mediaBreak } = this.state;
 
-        if (this.cardsReference) {
-            this.cardsReference.removeEventListener('scroll', this.scrollEvent);
-            this.cardsReference.addEventListener('scroll', this.scrollEvent);
-        }
-
+        this.attachScrollEvent();
         this.buildData(data);
 
         if(mediaBreak){
@@ -65,6 +68,13 @@ class CardsScrollCallback extends React.Component
 
         if(mediaBreak){
             window.removeEventListener('resize', this.resize);
+        }
+    }
+
+    attachScrollEvent(){
+        if (this.cardsReference) {
+            this.cardsReference.removeEventListener('scroll', this.scrollEvent);
+            this.cardsReference.addEventListener('scroll', this.scrollEvent);
         }
     }
 
@@ -98,32 +108,102 @@ class CardsScrollCallback extends React.Component
         }
     }
 
-    loadMore() {
-        let { loadMoreCallback } = this.state;
+    scrollToBottom(){
+        if (this.cardsReference) {
+            try{
+                this.cardsReference.scrollTop = this.cardsReference.getBoundingClientRect().height;
+            }
+            catch(e){
+
+            }
+        }
+    }
+
+    loadMore(event) {
+        const { callbackProps, persistReject } = this.state;
+        let { callback } = this.state;
         let data = [];
 
-        if (loadMoreCallback) {
+        if (callback && this.loadingAllowed) {
+            this.attachScrollEvent();
 
             this.setState({
-                loading: true
+                loadingData: true,
+                isError: false
             }, async () => {
-                data = await (loadMoreCallback)();
+
+                this.scrollToBottom();
+
+                data = await (callback)(event, callbackProps)
+                .then( result => result)
+                .catch( errorData => {
+
+                    if(!errorData){
+                        return undefined;
+                    }
+
+                    return this.setState({
+                        errorData,
+                        isError: true,
+                    }, () => {
+
+                        if(persistReject){
+                            this.removeScrollEvent();
+                            
+                            const timeouts = [ 100, 200 ];
+
+                            for(let x = 0; x <= timeouts.length-1; x++){
+                                setTimeout( () => {
+                                    this.scrollToBottom();
+                                }, timeouts[x]);
+                            }
+                        }
+                    });
+                });
+
+                if(undefined == data){
+                    this.removeScrollEvent();
+
+                    return this.setState({ 
+                        loadingData: false,
+                        isError: true,
+                    }, () => {
+                        this.loadingAllowed = true;
+
+                        if(!persistReject){
+                            setTimeout( () => {
+                                this.attachScrollEvent();
+                            }, 500);
+                        }
+                    });
+                }
 
                 /**
                  * No more items to load
                  */
                 if (!data || 0 == data.length || 'break' == data) {
                     this.removeScrollEvent();
-                    this.setState({ loading: false });
+                    this.setState({ 
+                        loadingData: false,
+                        isError: false,
+                        errorData: undefined
+                    });
                 }
                 else {
                     this.buildData(data);
+                    this.removeScrollEvent();
+                    this.loadingAllowed = true;
+                    this.attachScrollEvent();
                 }
             });
         }
         else {
             this.removeScrollEvent();
-            this.setState({ loading: false });
+            this.setState({ 
+                loadingData: false,
+                isError: false,
+                errorData: undefined
+            });
         }
     }
 
@@ -166,7 +246,7 @@ class CardsScrollCallback extends React.Component
 
         this.setState({
             dataJsx,
-            loading: false
+            loadingData: false
         });
     }
 
@@ -174,12 +254,13 @@ class CardsScrollCallback extends React.Component
         const { minify } = this.state;
         const min = parseInt(minify);
 
-        if (this.cardsReference) {
+        if (this.cardsReference && this.loadingAllowed) {
             /**
              * Bottom reached
              */
             if (this.cardsReference.offsetHeight + this.cardsReference.scrollTop >= this.cardsReference.scrollHeight - min) {
-                this.loadMore();
+                this.loadMore(e);
+                this.loadingAllowed = false;
             }
         }
     }
@@ -221,10 +302,53 @@ class CardsScrollCallback extends React.Component
         return root;
     }
 
+    renderCards(dataJsx){
+
+        if(dataJsx && typeof [] == typeof dataJsx && dataJsx.length){
+            const { dataJsx, itemsPerLine, isMinified } = this.state;
+            let cards = [];
+            let c = 0;
+
+            return dataJsx.map( (singleCard, loop) => {
+
+                cards.push(singleCard);
+                c++;
+    
+                if (c == itemsPerLine) {
+                    let data = cards;
+                    c = 0;
+                    cards = [];
+    
+                    return (
+                        <div key={`cards-group-${loop}`} className={`cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`}>
+                            {
+                                data
+                            }
+                        </div>
+                    )
+                }
+    
+                if (cards.length && loop == dataJsx.length-1) {
+                    let data = cards;
+                    c = 0;
+                    cards = [];
+    
+                    return (
+                        <div key={`cards-group-${loop}`} className={`cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`}>
+                            {
+                                data
+                            }
+                        </div>
+                    )
+                }
+            });
+        }
+
+        return null;
+    }
+
     render() {
-        const { addClass, dataJsx, defaultClass, loading, loadMoreLoadingIcon, id, itemsPerLine, isMinified } = this.state;
-        let cards = [];
-        let c = 0;
+        const { isError, errorData, addClass, dataJsx, defaultClass, loadingData, loading, id, onReject } = this.state;
         
         return (
             <div
@@ -233,45 +357,21 @@ class CardsScrollCallback extends React.Component
                 id={id}
             >
                 {
-                    loading && loadMoreLoadingIcon
+                    this.renderCards(dataJsx)
                 }
                 {
-                    dataJsx && 0 !== dataJsx.length &&
-
-                    dataJsx.map( (singleCard, loop) => {
-
-                        cards.push(singleCard);
-                        c++;
-
-                        if (c == itemsPerLine) {
-                            let data = cards;
-                            c = 0;
-                            cards = [];
-
-                            return (
-                                <div key={uuid()} className={`cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`}>
-                                    {
-                                        data
-                                    }
-                                </div>
-                            )
+                    loadingData && loading
+                }
+                {
+                    isError && errorData && errorData
+                }
+                {
+                    isError && errorData && onReject &&
+                    <span onClick={ (e) => this.loadMore(e)}>
+                        {
+                            onReject
                         }
-
-                        if (cards.length && loop == dataJsx.length-1) {
-                            let data = cards;
-                            c = 0;
-                            cards = [];
-
-                            return (
-                                <div key={uuid()} className={`cards-group flex ${isMinified ? 'flex-column' : 'flex-row'}`}>
-                                    {
-                                        data
-                                    }
-                                </div>
-                            )
-                        }
-                    })
-
+                    </span>
                 }
             </div>
         );

@@ -53,6 +53,8 @@ import LoadOnScroll from './Modules/LoadOnScroll';
 
 import MenuClickHorizontal from './Modules/MenuClickHorizontal';
 
+import Modal from './Modules/Modal';
+
 import PagerStatic from './Modules/PagerStatic';
 
 import PagerDynamic from './Modules/PagerDynamic';
@@ -129,6 +131,7 @@ export {
     LoadingBoxTop,
     LoadOnScroll,
     MenuClickHorizontal,
+    Modal,
     PagerStatic,
     PagerDynamic,
     Table,

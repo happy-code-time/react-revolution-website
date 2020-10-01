@@ -156,7 +156,7 @@ class MenuClickHorizontal extends React.Component
 
                     dataLink = (
                         <div
-                            className={`text hasChildren ${isChild ? ' child' : ''}`}
+                            className={`text hasChildren ${isChild ? ' child' : ''} ${toggled ? 'isToggled' : ''}`}
                             onClick={() => this.toggle(unique, isLink)}
                         >
                             {

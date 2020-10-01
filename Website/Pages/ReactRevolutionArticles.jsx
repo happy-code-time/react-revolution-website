@@ -52,6 +52,31 @@ const codeExample4 = `import { Articles } from 'react-revolution';
     data={generateRandomArcticles(4, true)}
 />`;
 
+const codeExample5 = `import { Articles } from 'react-revolution';
+
+<Articles
+    addClass='rr-articles-example-buttons'
+    animation='height'
+    persist={false}
+    itemsPerLine={2}
+    mediaBreak={1024}
+    data={generateRandomArcticles()}
+    toggleForwards={
+        (
+            <button>
+                read more
+            </button>
+        )
+    }
+    toggleBackwards={
+        (
+            <button>
+                read less
+            </button>
+        )
+    }
+/>`;
+
 const cssExample = `.rr-articles-example{
     .single-entry:hover{
         cursor: pointer;
@@ -66,6 +91,12 @@ const cssExample4 = `.rr-articles-example{
 
     .data-toggled:hover{
         cursor: text;
+    }
+}`;
+
+const cssExample5 = `.rr-articles-example-buttons{
+    button:hover{
+        cursor: pointer;
     }
 }`;
 
@@ -232,6 +263,40 @@ class ReactRevolutionArticles extends React.Component
                     />
                 )
             },
+            {
+                title: 'Articles',
+                description: trans('articles.description.4'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: jsCode,
+                css: cssExample5,
+                html: '',
+                live: (
+                    <Articles
+                        addClass='rr-articles-example-buttons'
+                        animation='height'
+                        persist={false}
+                        itemsPerLine={2}
+                        mediaBreak={1024}
+                        data={generateRandomArcticles()}
+                        toggleForwards={
+                            (
+                                <button>
+                                    read more
+                                </button>
+                            )
+                        }
+                        toggleBackwards={
+                            (
+                                <button>
+                                    read less
+                                </button>
+                            )
+                        }
+                    />
+                )
+            },
         ];
     }
 
@@ -312,6 +377,18 @@ class ReactRevolutionArticles extends React.Component
                                 {
                                     key: 'itemsPerLine',
                                     values: 'articles.itemsPerLine'
+                                },
+                                {
+                                    key: 'toggleForwards',
+                                    values: 'articles.toggleForwards'
+                                },
+                                {
+                                    key: 'toggleBackwards',
+                                    values: 'articles.toggleBackwards'
+                                },
+                                {
+                                    key: 'persist',
+                                    values: 'articles.persist'
                                 },
                                 {
                                     key: 'mediaBreak',

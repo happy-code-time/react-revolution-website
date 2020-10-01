@@ -78,6 +78,46 @@
                 }
             }
         }
+
+        .cards-callback-loading{
+            height: 50px;
+            display: flex;
+
+            img{
+                display: block;
+                width: 30px;
+                height: 30px;
+                margin: auto;
+            }
+        }
+
+        .callback-error{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: firebrick;
+            font-weight: 500;
+            font-size: 0.87rem;
+        }
+
+        .try-again-button{
+            box-sizing: border-box;
+            padding: 0 5px;
+            width: 120px;
+            height: 20px;
+            background: firebrick;
+            color: rgb(255,255,255);
+            border-radius: 5px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 0.87rem;
+            margin: 0 auto;
+            display: block;
+        }
+    
+        .try-again-button:hover{
+            cursor: pointer;
+        }
     }
 
     .rr-revolution-button-clipboard {
@@ -489,6 +529,12 @@
 
         .data-toggled:hover{
             cursor: text;
+        }
+    }
+
+    .rr-articles-example-buttons{
+        button:hover{
+            cursor: pointer;
         }
     }
 

@@ -3,6 +3,9 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    releaseNotesKey: 'Betroffene Komponente',
+    releaseNotesDescription: 'Beschreibung',
+    releaseNotes: 'Versionshinweise',
     back_404: 'Startseite',
     functions: 'Funktionen',
     components: 'Komponente',
@@ -18,6 +21,7 @@ const DE = {
     changeTintTitle: 'Layout ändern',
     lightTheme: 'Hell',
     darkTheme: 'Dunkel',
+    codeTheme: 'Kod',
     searchForModule: 'Module Suche',
     clickToNavToTheModule: 'Navigieren Sie zu diesem Modul',
     fast: 'Schnell',
@@ -162,12 +166,22 @@ const DE = {
         "type": "Number",
         "default": "0"
     },
-    "loadMoreCallback": {
-        "description": "Falls das Root Element bis ganz nach unten ge-scrollt wurde, können Daten nachgeladen werden. Falls der Callback 'break' als Antwort liefert, wird der Scroll Event von dem Root Element entfernt.",
+    "cards.callback": {
+        "description": "Falls das Root Element bis ganz nach unten ge-scrollt wurde, können Daten nachgeladen werden. Falls der Callback 'break' als Antwort liefert, wird der Scroll Event von dem Root Element entfernt. Es werden 2 Argumente an diese Funktion übergeben. Argument 1: Ereignis (scrollen, klicken: für die 'onReject'-Daten), Argument 2: Benutzerdefinierte Daten, die vom Schlüssel 'callbackProps' bereitgestellt werden.",
         "type": "Function",
         "default": "undefined"
     },
-    "loadMoreLoadingIcon": {
+    "cards.callback.persistReject": {
+        "description": "Wenn true, wird das Scroll-Ereignis entfernt, wenn das Versprechen abgelehnt wurde.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "cards.callback.onReject": {
+        "description": "Benutzerdefinierte Daten, die angezeigt werden sollen, nachdem ein Versprechen abgelehnt wurde, und der Benutzer sollte wieder mehr Daten laden können. An diese Daten wird das Klickereignis angehängt.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "cards.loading": {
         "description": "Wärend zusätzliche Elemente geladen werden, kann ein eigen definiertes JSX Element gerendert werden.",
         "type": "String | JSX",
         "default": "<leere Zeichenfolge>"
@@ -739,6 +753,10 @@ const DE = {
     "accordion.description2": "Beispiel mit einem Klick-Handler (außerhalb des Moduls), der durch den Schlüssel bereitgestellt wird: 'closeOnClickOutside' wurde auf true gesetzt (alle Kinder rekursiv geschlossen).",
     "cards.scroll.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist.",
     "cards.scrollCallback.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist. Das Laden weiterer Karten basiert auf der benutzerdefinierten Rückruffunktion. Wenn der Wert 'break' ist, wird der Scroll-Listener entfernt.",
+    "cards.scrollCallback.example1" : "Beispielbreite Promise.resolve (), LoadingBoxTop mit der festen Position und 'break' im 4-Scroll-Event.",
+    "cards.scrollCallback.example2" : "Beispielbreite Promise.reject () (Standard gibt undefiniert zurück), benutzerdefiniertes Laden von JSX, das vom Schlüssel 'load' übergeben wird, und mit dem Schlüssel 'persistReject = {true}' bedeutet dies, dass der scrollEvent-Listener entfernt und die Rückruffunktion nicht erneut aufgerufen wird auf einem Scroll-Ereignis.",
+    "cards.scrollCallback.example3" : "Beispiel width Promise.reject () width benutzerdefiniertes JSX als Fehlermeldung, benutzerdefiniertes Laden von JSX, das vom Schlüssel 'load' übergeben wird, und mit dem Schlüssel 'persistReject = {false}' (standardmäßig ist der Wert false) bedeutet dies, dass es sich um den scrollEvent-Listener handelt Nicht entfernt! Der Benutzer kann nach unten scrollen und die Rückruffunktion wird erneut aufgerufen.",
+    "cards.scrollCallback.example4" : "Beispiel width Promise.reject () width benutzerdefiniertes JSX als Fehlermeldung, benutzerdefiniertes Laden von JSX, übergeben vom Schlüssel 'Laden' und mit dem Schlüssel 'persistReject = {true}' bedeutet dies, dass der scrollEvent-Listener entfernt wird! In diesem Beispiel wird der Schlüssel 'onReject' mit einer benutzerdefinierten JSX-Datei versehen. An diesen HTML-Code wird ein Klickereignis angehängt. Dieses Klickereignis ruft die benutzerdefinierte Rückruffunktion auf.",
     "icons.description": "Symbolmodul mit allen Symbolen, KEINEN Übersetzungen und ausgewählten Standardsymbolen: Smileys. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
     "icons.description2": "Symbolmodul mit ausgewählten Symbolen: Smileys, Aktivität, Reisen, Völker, Objekte, noch KEINE Übersetzungen und standardmäßig ausgewählte Symbole: Aktivität. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
     "icons.description3": "Symbolmodul mit ausgewählten Symbolen: Smileys, Aktivität, Reisen, Völker, Objekte und 2 übersetzte Symboltitel. Suchen Sie nach dem Klickereignis in der Konsole nach einem Symbol.",
@@ -1240,9 +1258,20 @@ const DE = {
         "type": "Boolean",
         "default": "False"
     },
+    "articles.toggleForwards": {
+        "description": "Benutzerdefiniertes JSX um den Text/Daten einzublenden. Wenn definiert, dann wird der Schlüssel 'toggleOn' ignoriert.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "articles.toggleBackwards": {
+        "description": "Benutzerdefiniertes JSX um den Text/Daten auszublenden.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
     "articles.description.1": "Beispiel mit der Verwendung des Schlüssels 'border'.",
     "articles.description.2": "Beispiel mit der Schlüsselverwendung closeOnClickOutside={true}. Dies bedeutet, dass alle umgeschalteten Artikel geschlossen werden, wenn der Benutzer außerhalb des Moduls klickt.",
     "articles.description.3": "Beispiel mit der Schlüsselverwendung persist={true}.",
+    "articles.description.4": "Beispiel mit der Schlüsselverwendung 'toggleForwards' und 'toggleBackwards'.",
     "readmore.animation": {
         "description": "Eine Animation wärend der Umschaltung des zu Lesenden Textes. Animationen, die verwendet werden können: 'height', 'scale', 'opacity'. Damit die Animation auch eine Wirkung hat, muss das Element ein inline-block oder block Element sein, dies kann mit CSS gelöst werden in dem man dem toggler die CSS Eigenschaft hinzufügt: display: block, display: inline-block.",
         "type": "String",
@@ -1300,6 +1329,31 @@ const DE = {
     "readmore-callback-description-3": "Beispiel mit Promise.reject() und einem eigen definiertem JSX (Fehlermeldung) mit dem key 'toggleOnReject={true}' und 'toggleReject' (eigenem Button - versuchen Sie es nochmals).",
     "readmore-callback-description-4": "Beispiel mit Promise.reject().",
     "readmore-callback-description-5": "Beispiel mit einem eigen definiertem JSX (Fehlermeldung), nach 2 Klicks mit einem Promise.reject() und bei dem 4 Klick Promise.resolve().",
+    "modal.callback": {
+        "description": "Zwingend erforderliche Callback Function um den aktuellen anzeige Status ändert. Der einzige übergebene Parameter ist der Event (keydown | touch | click).",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "modal.data": {
+        "description": "Eigen definiertes HTML order String der angezeigt werden soll.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "modal.close": {
+        "description": "Eigen definiertes HTML order String. Zu diesem HTML wird die 'callback' Funktion hinzugefügt.",
+        "type": "String | JSX",
+        "default": "<leere Zeichenfolge>"
+    },
+    "modal.closeOnKeyDown": {
+        "description": "Füge den 'keydown' und 'touch' Event zu dem DOM Element hinzu um die 'callback' Funktion aufzurufen.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "modal.closeOnClickDimmed": {
+        "description": "Füge den 'click' Event zu dem 'holder' des Modules hinzu um die 'callback' Funktion aufzurufen.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default DE;

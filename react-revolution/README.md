@@ -154,13 +154,3 @@ Water404
 **uuid** - Extracts the URL on individual paths of the window.location, key and its values. The function receives 1 optional argument: isHashRouter (boolean) - by default the transferred value is undefined. This function extracts paths and key values for the window.location: "href", "hash" and "path".
 
 - [https://react-revolution.j.pl/#/react-revolution-function-uuid](https://react-revolution.j.pl/#/react-revolution-function-uuid)
-
-### ChangeLog
-
-- v1.1.7
-    - Added new module: Articles
-    - Added new module: ArticlesImages
-
-- v1.1.8    
-    - Added new module: ReadMore
-    - Added new module: ReadMoreCallback

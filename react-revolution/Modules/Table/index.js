@@ -151,7 +151,7 @@ class Table extends React.Component
 
                             if (isMinified && titleOnMinified && title && 0 !== title.length && undefined !== title[i]) {
                                 dataInsideJsx.push(
-                                    <span className="span-title">
+                                    <span key={uuid()} className="span-title">
                                         {
                                             title[i]
                                         }
