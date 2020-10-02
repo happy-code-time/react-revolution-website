@@ -63,6 +63,8 @@ import Table from './Modules/Table';
 
 import TextWriter from './Modules/TextWriter';
 
+import TimeLine from './Modules/TimeLine';
+
 import PopupBox from './Modules/PopupBox';
 
 import ReadMore from './Modules/ReadMore';
@@ -136,6 +138,7 @@ export {
     PagerDynamic,
     Table,
     TextWriter,
+    TimeLine,
     PopupBox,
     ReadMore,
     ReadMoreCallback,

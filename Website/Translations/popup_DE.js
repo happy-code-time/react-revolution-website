@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    fastActions: 'Hilfreiche Links',
     releaseNotesKey: 'Betroffene Komponente',
     releaseNotesDescription: 'Beschreibung',
     releaseNotes: 'Versionshinweise',
@@ -161,6 +162,20 @@ const DE = {
         "type": "String | JSX",
         "default": "<leere Zeichenfolge>"
     },
+    "loadonscroll.fireScrollEvent": {
+        "description": "Ein Zahl die bewirkt, dass das angesprochene Element (scrollReference) nach unten ge-scrollt wird mit der angegebenen Zahl. Dieses Verhalten wird in 'componentDidMount' (einmaling) aufgerufen.",
+        "type": "Number",
+        "default": "0"
+    },
+    "loadonscroll.fireScrollBack": {
+        "description": "Soll das Element (scrollReference.scrollTop = 0) ganz nach oben ge-scrollt werden nachdem die Funktion 'fireScrollEvent' aufgerufen wurde.",
+        "type": "Boolean",
+        "default": "True"
+    },
+    "loadonscroll-description-1": "Beispiel mit Promise.resolve() drei mal.",
+    "loadonscroll-description-2": "Beispiel mit Promise.reject() (gibt den undefinierten Standardwert als Wert zurück) die Schlüsselverwendung 'persistReject = {false}' (das Bildlaufereignis nicht entfernen) und 'onReject' (benutzerdefinierte Schaltfläche anzeigen für Rufen Sie die Rückruffunktion erneut auf.).",
+    "loadonscroll-description-3": "Beispiel mit Promise.reject() (mit benutzerdefiniertem JSX als Fehlermeldung für den Benutzer) mit der Schlüsselverwendung 'persistReject = {true}' (Entfernen des Bildlaufereignisses!) und 'onReject' ( benutzerdefinierte Schaltfläche anzeigen, um die Rückruffunktion erneut aufzurufen).",
+    "loadonscroll-description-4": "Beispiel mit: für die erste Ladezahl = Promise.reject(), für die zweite Ladezahl Promise.reject () (mit benutzerdefiniertem JSX als Fehlermeldung für den Benutzer) mit der Schlüsselverwendung ' persistReject = {true} '(Bildlaufereignis entfernen!) und' onReject '(benutzerdefinierte Schaltfläche anzeigen, um die Rückruffunktion erneut aufzurufen) für die dritte Zählung Promise.resolve ().",
     "minify": {
         "description": "Wenn der Benutzer nach unten scrollt, werden Daten nachgeladen. Das NAchladen der Daten kann beschläunigt werden, in dem man hier einen PIXEL Wert hinzufügt.",
         "type": "Number",

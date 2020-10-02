@@ -292,7 +292,7 @@ class ReactRevolutionSourceCode extends React.Component
         this.countCallbacks += 1;
 
         if (this.countCallbacks === this.examples.length) {
-            return 'break';
+            return Promise.resolve('break');
         }
 
         return new Promise(resolve => {
@@ -309,7 +309,9 @@ class ReactRevolutionSourceCode extends React.Component
                     minify={40}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
-                    data={buildModulesJsx(this.examples[0], 1)} // Default as the first example 
+                    data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
+                    fireScrollEvent={500}
+                    fireScrollBack={true} 
                 />
                 {
                     getDescriptionForstyle('rr-sourcecode')

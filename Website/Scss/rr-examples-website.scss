@@ -210,14 +210,55 @@
 
     .rr-revolution-loadonscroll-example {
         min-width: 300px;
-        width: 50vw;
-        height: 200px;
+        width: calc(100% - 200px);
+        max-width: 1024px;
+        height: 300px;
         margin: 0 auto;
         overflow-x: hidden;
         overflow-y: auto;
 
         p {
             line-height: 30px;
+        }
+
+        .loading{
+            height: 50px;
+            display: flex;
+
+            img{
+                display: block;
+                width: 30px;
+                height: 30px;
+                margin: auto;
+            }
+        }
+
+        .callback-error{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: firebrick;
+            font-weight: 500;
+            font-size: 0.87rem;
+        }
+
+        .try-again-button{
+            box-sizing: border-box;
+            padding: 0 5px;
+            width: 120px;
+            height: 20px;
+            background: firebrick;
+            color: rgb(255,255,255);
+            border-radius: 5px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 0.87rem;
+            margin: 0 auto;
+            display: block;
+        }
+    
+        .try-again-button:hover{
+            cursor: pointer;
         }
     }
 

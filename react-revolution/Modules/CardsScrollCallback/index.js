@@ -348,7 +348,7 @@ class CardsScrollCallback extends React.Component
     }
 
     render() {
-        const { isError, errorData, addClass, dataJsx, defaultClass, loadingData, loading, id, onReject } = this.state;
+        const { isError, errorData, addClass, dataJsx, defaultClass, loadingData, loading, id, onReject, persistReject } = this.state;
         
         return (
             <div
@@ -366,7 +366,7 @@ class CardsScrollCallback extends React.Component
                     isError && errorData && errorData
                 }
                 {
-                    isError && errorData && onReject &&
+                    isError && errorData && onReject && persistReject &&
                     <span onClick={ (e) => this.loadMore(e)}>
                         {
                             onReject

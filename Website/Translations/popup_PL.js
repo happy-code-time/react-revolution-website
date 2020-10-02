@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    fastActions: 'Przydatne linki',
     releaseNotesKey: 'Dotyczy komponentu',
     releaseNotesDescription: 'Opis',
     releaseNotes: 'Informacje o wydaniu',
@@ -161,6 +162,20 @@ const PL = {
         "type": "String | JSX",
         "default": "<pusty ciąg>"
     },
+    "loadonscroll.fireScrollEvent": {
+        "description": "Liczba, która powoduje, że adresowany element (scrollReference) jest przewijany w dół o określoną liczbę. To zachowanie jest wywoływane w 'componentDidMount' (raz).",
+        "type": "Number",
+        "default": "0"
+    },
+    "loadonscroll.fireScrollBack": {
+        "description": "Czy element (scroll Reference.scrollTop = 0) powinien zostać przewinięty do góry po wywołaniu funkcji 'fireScrollEvent'.",
+        "type": "Boolean",
+        "default": "True"
+    },
+    "loadonscroll-description-1": "Przykład z Promise.resolve() trzy razy.",
+    "loadonscroll-description-2": "Przykład z Promise.reject () (zwraca domyślną wartość niezdefiniowaną) użycie klucza 'persistReject = {false}' (nie usuwaj zdarzenia przewijania) i 'onReject' (wyświetl niestandardowy przycisk wywołanie funkcji zwrotnej ponownie). ",
+    "loadonscroll-description-3": "Przykład z Promise.reject () (z niestandardowym JSX jako komunikatem o błędzie dla użytkownika) z użyciem klucza„ persistReject = {true} ”(usuń zdarzenie przewijania!) i„ onReject ”( wyświetlić przycisk niestandardowy, aby ponownie wywołać funkcję oddzwaniania). ",
+    "loadonscroll-description-4": "Przykład z: dla pierwszego licznika ładowania = Promise.reject (), dla drugiego licznika ładowania Promise.reject () (z niestandardowym JSX jako komunikatem o błędzie dla użytkownika) z użyciem klucza ' persistReject = {true} '(usuń zdarzenie przewijania!) i' onReject '(wyświetl niestandardowy przycisk, aby ponownie wywołać funkcję zwrotną), dla trzeciego licznika Promise.resolve (). ",
     "minify": {
         "description": "Gdy użytkownik przewinie w dół, dane są ponownie ładowane. Ponowne ładowanie danych można spowolnić, dodając tutaj wartość PIXEL.",
         "type": "Number",

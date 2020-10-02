@@ -128,6 +128,8 @@ import Release118 from './Website/Releases/Release118';
 
 import Release119 from './Website/Releases/Release119';
 
+import Release120 from './Website/Releases/Release120';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -155,7 +157,6 @@ class App extends React.Component {
       window.location.href = `${this.state.host}#/`;
     }
 
-    scrollTopListener(0);
     this.setOnClickEvent();
     this.changeSidebarMinifiedState();
     const layout = this.getLocalStorageValue('layout', 'light');
@@ -203,13 +204,9 @@ class App extends React.Component {
        * If the current href changed
        */
       if (self.href !== window.location.href && count > 0) {
+        document.documentElement.scrollTop = 0;
         self.href = window.location.href;
         self.changeSidebarMinifiedState();
-        /**
-         * Load more then 1 example on each page
-         */
-        document.documentElement.scrollTop = 500;
-        document.documentElement.scrollTop = 0;
         return clearInterval(x);
       }
 
@@ -577,17 +574,33 @@ class App extends React.Component {
                       toggled: true,
                       data: [
                         {
-                          text: 'v1.1.9',
-                          href: `${host}#/react-revolution-release-1-1-9`,
+                          text: 'Releases 1.2',
+                          toggled: true,
+                          data: [
+                            {
+                              text: '1.2.0',
+                              href: `${host}#/react-revolution-release-1-2-0`,
+                            },
+                          ]
                         },
                         {
-                          text: 'v1.1.8',
-                          href: `${host}#/react-revolution-release-1-1-8`,
-                        },
-                        {
-                          text: 'v1.1.7',
-                          href: `${host}#/react-revolution-release-1-1-7`,
-                        },
+                          text: 'Releases 1.1',
+                          toggled: true,
+                          data: [
+                            {
+                              text: '1.2.0',
+                              href: `${host}#/react-revolution-release-1-1-9`,
+                            },
+                            {
+                              text: '1.1.8',
+                              href: `${host}#/react-revolution-release-1-1-8`,
+                            },
+                            {
+                              text: '1.1.7',
+                              href: `${host}#/react-revolution-release-1-1-7`,
+                            },
+                          ]
+                        }
                       ]
                     },
                   ]
@@ -600,9 +613,6 @@ class App extends React.Component {
         headerData={
           <span className="icon-container">
             <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
               animation='top-right' // top-left, top-right, bottom-left, bottom-right
               icon={
                 <i className='fas fa-globe-europe popup-box-icon'></i>
@@ -632,9 +642,6 @@ class App extends React.Component {
               }
             />
             <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
               animation='top-right' // top-left, top-right, bottom-left, bottom-right
               icon={
                 <i className='fas fa-tint popup-box-icon'></i>
@@ -654,9 +661,6 @@ class App extends React.Component {
               }
             />
             <PopupBox
-              defaultClass={false}
-              id={false}
-              animationTime={300}
               animation='top-right' // top-left, top-right, bottom-left, bottom-right
               icon={
                 <i className='fas fa-search popup-box-icon'></i>
@@ -670,6 +674,7 @@ class App extends React.Component {
                     }
                   </h1>
                   <CustomSuggestion
+                    addClass='rr-custom-suggestion-website'
                     inputPlaceholder={`${trans('searchForModule')}`}
                     suggestions={suggestions}
                     callback={this.searchForModule}
@@ -678,6 +683,33 @@ class App extends React.Component {
                     inputProps={{}}
                     type='text'
                   />
+                </span>
+              }
+            />
+            <PopupBox
+              addClass='rr-popupbox-fast-links'
+              animation='top-left' // top-left, top-right, bottom-left, bottom-right
+              icon={
+                <i className='fas fa-directions popup-box-icon'></i>
+              }
+              data={
+                <span>
+                  <h1 className="ellipsis">
+                    <i className='fas fa-directions' />
+                    {
+                      trans('fastActions')
+                    }
+                  </h1>
+                  <a className="link" href={`${host}#/react-revolution-accordion`}>
+                      {
+                        trans('getStarted')
+                      }
+                  </a>
+                  <a className="link" href={`${host}#/react-revolution-release-1-2-0`}>
+                      {
+                        trans('releaseNotes')
+                      }
+                  </a>
                 </span>
               }
             />
@@ -700,6 +732,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-clouds-mountains-404" render={(props) => (<ReactRevolutionCloudsMountains404 {...props} />)} />
               <Route exact path="/react-revolution-container" render={(props) => (<ReactRevolutionContainer {...props} />)} />
               <Route exact path="/react-revolution-custom-suggestion" render={(props) => (<ReactRevolutionCustomSuggestion {...props} />)} />
+              <Route exact path="/react-revolution-dark-lines-404" render={(props) => (<ReactRevolutionDarkLines404 {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-array" render={(props) => (<ReactRevolutionFullScreenListArray {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-object" render={(props) => (<ReactRevolutionFullScreenListObject {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-overlay" render={(props) => (<ReactRevolutionFullScreenOverlay {...props} />)} />
@@ -736,6 +769,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-1-1-7" render={(props) => (<Release117 {...props} />)} />
               <Route exact path="/react-revolution-release-1-1-8" render={(props) => (<Release118 {...props} />)} />
               <Route exact path="/react-revolution-release-1-1-9" render={(props) => (<Release119 {...props} />)} />
+              <Route exact path="/react-revolution-release-1-2-0" render={(props) => (<Release120 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

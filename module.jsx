@@ -2,49 +2,35 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Modal } from './react-revolution/public/react-revolution';
+import { DarkLines404, LoadOnScroll, TimeLine, uuid } from './react-revolution/public/react-revolution';
 
-import './react-revolution/sass/rr-modal.scss';
+import './react-revolution/sass/rr-dark-lines-404.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.callback = this.callback.bind(this);
-
-        this.state = {
-            display: false
-        }
-    }
-
-    callback(event){
-        this.setState({
-            display: !this.state.display
-        });
     }
 
     render() {
-        const { display } = this.state;
 
         return (
             <span>
-                <button onClick={ () => this.callback()}>
-                    toggle
-                </button>
-                <Modal
-                    display={display}
-                    callback={this.callback}
-                    data={`
-                        Lorem ipsum dolor sit amet, 
-                        consetetur sadipscing elitr, 
-                        sed diam nonumy eirmod tempor 
-                        invidunt ut labore et dolore 
-                        magna aliquyam erat, sed diam 
-                        voluptua.`
-                    }
-                    close={'❌'}
-                    closeOnKeyDown={true}
-                    closeOnClickDimmed={true}
-                />
+                <div className="rr-revolution-loadonscroll-example">
+                    <DarkLines404
+                        boomAfter={1500}
+                        restoreAfter={3}
+                        timeouts={3}
+                        goText='Remove 4 text items'
+                        finishedText='YOU ARE AWESOME !'
+                        link={
+                            {
+                                reactRouter: true,
+                                text: '404', //trans('back_404'),
+                                href: '/'
+                            }
+                        }
+                    />
+                </div>
             </span>
         )
     }

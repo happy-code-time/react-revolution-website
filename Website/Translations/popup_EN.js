@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    fastActions: 'Useful links',
     releaseNotesKey: 'Affected component',
     releaseNotesDescription: 'Description',
     releaseNotes: 'Release Notes',
@@ -161,6 +162,20 @@ const EN = {
         "type": "String | JSX",
         "default": "<empty string>"
     },
+    "loadonscroll.fireScrollEvent": {
+        "description": "A number that causes the addressed element (scroll Reference) to be scrolled down with the specified number. This behavior is called in 'componentDidMount' (once).",
+        "type": "Number",
+        "default": "0"
+    },
+    "loadonscroll.fireScrollBack": {
+        "description": "Should the element (scroll Reference.scrollTop = 0) be scrolled to the top after the 'fireScrollEvent' function has been called.",
+        "type": "Boolean",
+        "default": "True"
+    },
+    "loadonscroll-description-1": "Example with Promise.resolve() three times.",
+    "loadonscroll-description-2": "Example with Promise.reject() (returns default undefined as value) the key usage 'persistReject={false}' (do not remove the scroll event) and 'onReject' (display custom button to call the callback function again).",
+    "loadonscroll-description-3": "Example with Promise.reject() (with custom JSX as error message for the user) with the key usage 'persistReject={true}' (remove the scroll event !) and 'onReject' (display custom button to call the callback function again).",
+    "loadonscroll-description-4": "Example with: for the first loading count = Promise.reject(), for the second loading count Promise.reject() (with custom JSX as error message for the user) with the key usage 'persistReject={true}' (remove the scroll event !) and 'onReject' (display custom button to call the callback function again), for the third count Promise.resolve().",
     "minify": {
         "description": "When the user scrolls down, data is loaded. Loading the data can be speeded up by adding a PIXEL value here.",
         "type": "Number",

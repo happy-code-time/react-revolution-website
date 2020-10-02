@@ -9,7 +9,7 @@ class Release119 extends React.Component
             <div className="Generator">
                 {
                     generateRelease(
-                        '1.1.9',
+                        '1.2.0',
                         [
                             {
                                 key: 'Modal',

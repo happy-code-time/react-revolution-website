@@ -55,14 +55,32 @@
   }
 
   .icon-container {
-    .rr-popupbox {
+    .rr-popupbox,
+    .rr-popupbox-fast-links {
       float: right;
 
       .popup-box-icon {
         color: $white;
       }
 
-      .box.top-right {
+      .link{
+        display: block;
+        box-sizing: border-box;
+        padding: 10px;
+        margin: 10px 0;
+        text-decoration: none;
+        background-color: transparent;
+        color: #7c8695;
+        font-size: 0.87rem;
+        letter-spacing: 0.0111rem;
+        transition-duration: 200ms;
+      }
+      .link:hover{
+        background-color: rgba(222,222,222,.22);
+      }
+
+      .box.top-right,
+      .box.top-left {
         @media screen and (min-width: $media-break-s){
           width: 300px;          
         }
@@ -139,6 +157,11 @@
           color: $white;
         }
       }
+    }
+
+    .rr-popupbox-fast-links{
+      float: left;
+      margin: 0 15px;
     }
   }
 
@@ -363,6 +386,26 @@
 }
 
 #app.dark{
+  .rr-custom-suggestion-website{
+    input{
+      background-color: #242526;
+      color: rgb(172,172,172);
+    }
+    .suggestions-area .ul{
+      background-color: #242526;
+
+      .text-elipsis{
+        color: rgb(172,172,172);
+      }
+
+      li:hover{
+        .text-elipsis{
+          color: $white;
+        } 
+      }
+    }
+  }
+
   .rr-input-suggestion-array,
   .rr-input-suggestion-object{
     .input{
@@ -391,8 +434,9 @@
   .font-input.title{
     background-color: #18191A;
   }
-  .font-input.title{
-    color: $white;
+  .font-input.title,
+  .ellipsis{
+    color: $white !important;
   }
   .rr-input-animation .font-input,
   .rr-input-animation.focus .title{
@@ -413,7 +457,8 @@
   .value,
   .next-page,
   .previous-page,
-  .line-number{
+  .line-number,
+  .section span{
     color: rgb(172,172,172);
   }
   .SideBar .rr-menu-click-horizontal .single-entry .text.hasChildren,
@@ -443,9 +488,46 @@
   .rr-sidebar-logo-text{
     border-bottom: none;
   }
+  .rr-popupbox .box.top-right,
+  .rr-popupbox-fast-links .box.top-left {
+    background-color: #18191A;
+  }
+  .link:hover{
+    background-color: $dodgerblue !important;
+    color: $white !important;
+  }
 }
 
 #app.code{
+
+  .icon-container{
+    .rr-popupbox .box.top-right{
+      ul li:hover{
+        background-color: #49B095;
+        color: $white;
+      }
+    }
+  }
+
+  .rr-custom-suggestion-website{
+    input{
+      background-color: #1E1E1E;
+      color: rgb(172,172,172);
+    }
+    .suggestions-area .ul{
+      background-color: #1E1E1E;
+
+      .text-elipsis{
+        color: rgb(172,172,172);
+      }
+
+      li:hover{
+        .text-elipsis{
+          color: $white;
+        } 
+      }
+    }
+  }
   .rr-input-suggestion-array,
   .rr-input-suggestion-object{
     .input{
@@ -474,8 +556,9 @@
   .font-input.title{
     background-color: #1E1E1E;
   }
-  .font-input.title{
-    color: $white;
+  .font-input.title,
+  .ellipsis{
+    color: $white !important;
   }
   .rr-input-animation .font-input,
   .rr-input-animation.focus .title{
@@ -496,7 +579,8 @@
   .value,
   .next-page,
   .previous-page,
-  .line-number{
+  .line-number,
+  .section span{
     color:  rgb(132,132,132);
   }
   .h1-example,
@@ -529,6 +613,14 @@
   }
   .rr-sidebar-logo-text{
     border-bottom: none;
+  }
+  .rr-popupbox .box.top-right,
+  .rr-popupbox-fast-links .box.top-left {
+    background-color: #1E1E1E;
+  }
+  .link:hover{
+    background-color: #49B095 !important;
+    color: $white !important;
   }
 }
 
