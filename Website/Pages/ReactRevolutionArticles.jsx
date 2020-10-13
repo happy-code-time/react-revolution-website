@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Articles } from 'react-revolution';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -21,6 +22,7 @@ const codeExample1 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Articles } from 'react-revolution';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -31,6 +33,7 @@ const codeExample2 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { Articles } from 'react-revolution';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -42,6 +45,7 @@ const codeExample3 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { Articles } from 'react-revolution';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -53,6 +57,7 @@ const codeExample4 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample5 = `import { Articles } from 'react-revolution';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example-buttons'

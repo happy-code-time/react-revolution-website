@@ -13,6 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenListObject } from 'react-revolution';
+// import FullScreenListObject from 'react-revolution/FullScreenListObject';
 
 <span>
     <div 

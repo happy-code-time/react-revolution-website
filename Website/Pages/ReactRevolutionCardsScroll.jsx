@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample = `import { CardsScroll } from 'react-revolution';
+// import CardsScroll from 'react-revolution/CardsScroll';
 
 <div className="section-cards-scroll">
     <CardsScroll

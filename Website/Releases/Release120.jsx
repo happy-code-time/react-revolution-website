@@ -13,31 +13,31 @@ class Release120 extends React.Component
                         [
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Renamed key from "loadMoreLoadingIcon" to "loading"'
+                                value: 'Renamed key from "loadMoreLoadingIcon" to "loading".'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added new key "callbackProps"'
+                                value: 'Added new key "callbackProps".'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added Promise.reject() support'
+                                value: 'Added Promise.reject() support.'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added new key "persistReject"'
+                                value: 'Added new key "persistReject".'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added new key "onReject"'
+                                value: 'Added new key "onReject".'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added new key "fireScrollEvent"'
+                                value: 'Added new key "fireScrollEvent".'
                             },
                             {
                                 key: 'LoadOnScroll',
-                                value: 'Added new key "fireScrollBack"'
+                                value: 'Added new key "fireScrollBack".'
                             },
                         ]
                     )

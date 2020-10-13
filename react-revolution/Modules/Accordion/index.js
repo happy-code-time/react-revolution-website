@@ -2,8 +2,6 @@ import React from 'react';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-import uuid from '../internalFunctions/uuid';
-
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
 import loadStyle from '../internalFunctions/loadStyle';
@@ -32,6 +30,26 @@ class Accordion extends React.Component
         this.refNode = React.createRef();
     }
 
+    /**
+     * Force re-rendering of this component based
+     * on keysChangeListners keys
+     * @param {object} props 
+     * @param {object} state 
+     */
+    static getDerivedStateFromProps(props, state) {
+        if (getDerivedStateFromPropsCheck(['data', 'defaultClass', 'id', 'animation'], props, state)) {
+            return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
+                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+                animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
+            };
+        }
+
+        return null;
+    }
+
     componentDidMount(){
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnClickOutside } = this.state;
@@ -54,26 +72,6 @@ class Accordion extends React.Component
         if(this.refNode && this.refNode.current && !this.refNode.current.contains(event.target)){
             this.toggleAllBack();
         }
-    }
-
-    /**
-     * Force re-rendering of this component based
-     * on keysChangeListners keys
-     * @param {object} props 
-     * @param {object} state 
-     */
-    static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['data', 'defaultClass', 'id', 'animation'], props, state)) {
-            return {
-                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
-                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-accordion',
-                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
-                animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
-            };
-        }
-
-        return null;
     }
 
     buildDataRecursive(data = [], isChild = false) {

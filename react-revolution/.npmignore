@@ -6,8 +6,11 @@ Functions
 Globals
 Modules
 sass
+Configurations
 .babelrc
 production.js
 tsconfig.json
-webpack.config.production.js
 node_modules
+webpack.config.production.js
+.env
+.npmignore

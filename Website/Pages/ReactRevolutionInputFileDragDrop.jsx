@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { InputFileDragDrop } from 'react-revolution';
+// import InputFileDragDrop from 'react-revolution/InputFileDragDrop';
 
 <InputFileDragDrop
     inputPlaceholder='Drag Drop your CSV or XLS files here...'

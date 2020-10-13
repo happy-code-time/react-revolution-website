@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Accordion, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Accordion, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Accordion } from 'react-revolution';
+// import Accordion from 'react-revolution/Accordion';
 
 <Accordion
     animation='height'
@@ -53,6 +54,7 @@ const codeExample1 = `import { Accordion } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Accordion } from 'react-revolution';
+// import Accordion from 'react-revolution/Accordion';
 
 <Accordion
     animation='height'
@@ -91,6 +93,7 @@ const codeExample2 = `import { Accordion } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { Accordion } from 'react-revolution';
+// import Accordion from 'react-revolution/Accordion';
 
 <Accordion
     closeOnClickOutside={true}

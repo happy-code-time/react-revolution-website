@@ -431,6 +431,12 @@
   .Footer{
     background-color: #18191A;
   }
+
+  .rr-timeline .title,
+  .rr-timeline .data-holder{
+    background-color: #18191A;    
+  }
+  
   .font-input.title{
     background-color: #18191A;
   }
@@ -507,6 +513,11 @@
         color: $white;
       }
     }
+  }
+
+  .rr-timeline .title,
+  .rr-timeline .data-holder{
+    background-color: #1E1E1E;    
   }
 
   .rr-custom-suggestion-website{

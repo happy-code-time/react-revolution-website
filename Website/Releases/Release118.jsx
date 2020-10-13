@@ -13,11 +13,11 @@ class Release118 extends React.Component
                         [
                             {
                                 key: 'ReadMore',
-                                value: 'New component'
+                                value: 'New component.'
                             },
                             {
                                 key: 'ReadMoreCallback',
-                                value: 'New component'
+                                value: 'New component.'
                             }
                         ]
                     )

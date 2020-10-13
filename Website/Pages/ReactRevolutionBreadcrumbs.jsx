@@ -13,6 +13,7 @@ import { host } from '../Globals';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Breadcrumbs } from 'react-revolution';
+// import Breadcrumbs from 'react-revolution/Breadcrumbs';
 
 <div className="rr-breadcrumbs-example">
     <Breadcrumbs 
@@ -22,6 +23,7 @@ const codeExample1 = `import { Breadcrumbs } from 'react-revolution';
 </div>`;
 
 const codeExample2 = `import { Breadcrumbs } from 'react-revolution';
+// import Breadcrumbs from 'react-revolution/Breadcrumbs';
 
 <div className="rr-breadcrumbs-example">
     <Breadcrumbs
@@ -32,6 +34,7 @@ const codeExample2 = `import { Breadcrumbs } from 'react-revolution';
 </div>`;
 
 const codeExample3 = `import { Breadcrumbs } from 'react-revolution';
+// import Breadcrumbs from 'react-revolution/Breadcrumbs';
 
 <div className="rr-breadcrumbs-example">
     <Breadcrumbs

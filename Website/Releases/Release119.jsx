@@ -9,39 +9,39 @@ class Release119 extends React.Component
             <div className="Generator">
                 {
                     generateRelease(
-                        '1.2.0',
+                        '1.1.9',
                         [
                             {
                                 key: 'Modal',
-                                value: 'New component'
+                                value: 'New component.'
                             },
                             {
                                 key: 'CardsScrollCallback',
-                                value: 'Added Promise.reject() support'
+                                value: 'Added Promise.reject() support.'
                             },
                             {
                                 key: 'CardsScrollCallback',
-                                value: 'Added new key "persistReject"'
+                                value: 'Added new key "persistReject".'
                             },
                             {
                                 key: 'CardsScrollCallback',
-                                value: 'Added new key "onReject"'
+                                value: 'Added new key "onReject".'
                             },
                             {
                                 key: 'Articles',
-                                value: 'Added new keys "toggleForwards"'
+                                value: 'Added new keys "toggleForwards".'
                             },
                             {
                                 key: 'Articles',
-                                value: 'Added new keys "toggleBackwards"'
+                                value: 'Added new keys "toggleBackwards".'
                             },
                             {
                                 key: 'ArticlesImages',
-                                value: 'Added new key "toggleForwards"'
+                                value: 'Added new key "toggleForwards".'
                             },
                             {
                                 key: 'ArticlesImages',
-                                value: 'Added new key "toggleBackwards"'
+                                value: 'Added new key "toggleBackwards".'
                             },
                         ]
                     )

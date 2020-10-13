@@ -35,6 +35,7 @@ class Clipboard extends React.Component
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+            callbackProps: props.callbackProps,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             clipboard: props.clipboard,
             animation: props.animation && typeof '8' == typeof props.animation ? props.animation : undefined,
@@ -52,12 +53,13 @@ class Clipboard extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'callback', 'data', 'clipboard'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'callback', 'callbackProps', 'data', 'clipboard'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+                callbackProps: props.callbackProps,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
                 clipboard: props.clipboard
             };
@@ -81,8 +83,12 @@ class Clipboard extends React.Component
     }
 
     copyToClipboard(e){
-        const { clipboard, callback, animation } = this.state;
+        const { clipboard, callback, callbackProps, animation } = this.state;
         this.copyToClipboardAction(clipboard);
+
+        if(callback){
+            (callback)(e, callbackProps, clipboard);
+        }
 
         if(animation && this.clipboardNodeForAnimation){
             const classToToggle = `animation-${animation}`;
@@ -109,10 +115,6 @@ class Clipboard extends React.Component
                     }
                 }, 400);
             }
-        }
-
-        if(callback){
-            (callback)(e, clipboard);
         }
     }
     

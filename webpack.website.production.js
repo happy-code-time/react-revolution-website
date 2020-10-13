@@ -10,7 +10,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './website.jsx');
 
-const version = 'v1.2.0';
+const version = 'v1.3.0';
 
 module.exports = {
     devtool: false,
@@ -18,7 +18,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
     },
     cache: false,
-    mode: 'development',
+    mode: 'production',
     entry: APP_DIR,
     output: {
         path: WRITE_DIR,
@@ -34,8 +34,13 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)?$/,
-                use: 'babel-loader',
                 exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    }
+                }
             },
             {
                 test: /\.css$/,

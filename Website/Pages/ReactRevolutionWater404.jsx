@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Water404 } from 'react-revolution';
+// import Water404 from 'react-revolution/Water404';
 
 <Water404/>`;
 

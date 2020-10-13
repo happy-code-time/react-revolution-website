@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Table } from 'react-revolution';
+// import Table from 'react-revolution/Table';
 
 <Table
     mediaBreak={1024}

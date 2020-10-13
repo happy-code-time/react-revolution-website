@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Clipboard } from 'react-revolution';
+// import Clipboard from 'react-revolution/Clipboard';
 
 <Clipboard
     animation='scale' // scale, jump
@@ -31,6 +32,7 @@ const codeExample1 = `import { Clipboard } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Clipboard } from 'react-revolution';
+// import Clipboard from 'react-revolution/Clipboard';
 
 <Clipboard
     animation='jump' // scale, jump
@@ -51,8 +53,9 @@ const codeExample2 = `import { Clipboard } from 'react-revolution';
     callback={this.copiedToClipboard}
 />`;
 
-const jsExample = `copiedToClipboard(event, data){
+const jsExample = `copiedToClipboard(event, callbackProps, data){
     console.info(event);
+    console.info(callbackProps);
     console.info(data);
 }`;
 
@@ -131,6 +134,10 @@ class ReactRevolutionClipboard extends React.Component
         ];
     }
 
+    copiedToClipboard(event, callbackProps, data){
+        console.info(data);
+    }
+
     loadOnScrollCallback() {
         this.countCallbacks += 1;
 
@@ -201,7 +208,11 @@ class ReactRevolutionClipboard extends React.Component
                                 },
                                 {
                                     key: 'callback',
-                                    values: 'callback'
+                                    values: 'clipboard.callback'
+                                },
+                                {
+                                    key: 'callbackProps',
+                                    values: 'clipboard.callbackProps'
                                 },
                                 {
                                     key: 'clipboard',

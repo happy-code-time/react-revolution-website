@@ -12,6 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ReadMore } from 'react-revolution';
+// import ReadMore from 'react-revolution/ReadMore';
 
 <ReadMore
     addClass='rr-read-more-example'

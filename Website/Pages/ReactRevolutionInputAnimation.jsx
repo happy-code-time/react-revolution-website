@@ -13,6 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { InputAnimation } from 'react-revolution';
+// import InputAnimation from 'react-revolution/InputAnimation';
 
 <InputAnimation
     inputPlaceholder='Placeholder'
@@ -28,6 +29,7 @@ const codeExample1 = `import { InputAnimation } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { InputAnimation } from 'react-revolution';
+// import InputAnimation from 'react-revolution/InputAnimation';
 
 <InputAnimation
     inputPlaceholder='Placeholder'

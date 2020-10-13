@@ -15,6 +15,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { CustomSuggestion } from 'react-revolution';
+// import CustomSuggestion from 'react-revolution/CustomSuggestion';
 
 <CustomSuggestion
     inputPlaceholder='Search...'
@@ -82,6 +83,7 @@ const jsExample1 = `async search(inputValue, isClickEvent) {
 }`;
 
 const codeExample2 = `import { CustomSuggestion } from 'react-revolution';
+// import CustomSuggestion from 'react-revolution/CustomSuggestion';
 
 <CustomSuggestion
     inputPlaceholder='Search...'

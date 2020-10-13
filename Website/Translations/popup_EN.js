@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    lastReleaseNotes: 'Last release',
     fastActions: 'Useful links',
     releaseNotesKey: 'Affected component',
     releaseNotesDescription: 'Description',
@@ -244,6 +245,16 @@ const EN = {
     "clipboard.animation": {
         "description": "An animation when click event are fired on the custom 'data'. Animations that can be used: 'scale', 'jump'.",
         "type": "String",
+        "default": "undefined"
+    },
+    "clipboard.callback": {
+        "description": "Custom callback function called if the clipboard button has been clicked. This function return 2 arguments. Argument 1: click event, argument 2: custom callbackProps, argument 3: the clipboards data.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "clipboard.callbackProps": {
+        "description": "Custom callback properties passed as second argument to the callback function.",
+        "type": "String | Array | Object | Number",
         "default": "undefined"
     },
     "plainValue": {
@@ -1341,7 +1352,7 @@ const EN = {
     "readmore-callback-description-2": "Example using the 'read more' button and 'read less' with a callback method that lasts 2000ms, during this time the HTML of the 'loading' key is shown, in this case your own gif image. The module's inner function waits (await) for a Promise -> resolve to get the data to show. When the data has been loaded once, it will not be loaded a second time! If the promise has failed (> reject) then also you can pass data to the module. When 'Promise.reject ()' has place and there is no data, then 'nothing' happens and the key 'toggleForwards' reappears. ",
     "readmore-callback-description-3": "Example with Promise.reject() and returned custom JSX data (error message) and with the key 'toggleOnReject={true}' and 'toggleReject' (custom button - try again).",
     "readmore-callback-description-4": "Example with Promise.reject().",
-    "readmore-callback-description-5": "Example with returned custom JSX data (error message) after 2 click an Promise.reject() and on the 4 click Promise.resolve().",
+    "readmore-callback-description-5": "Example with returned custom JSX data (error message) after 2 click an Promise.reject() and on the 3 click Promise.resolve().",
     "modal.callback": {
         "description": "Mandatory callback function to change the current display status. The only passed parameter is the event (keydown | touch | click).",
         "type": "Function",
@@ -1366,6 +1377,66 @@ const EN = {
         "description": "Add the 'click' event to the 'holder' of the module to invoke the 'callback' function.",
         "type": "Boolean",
         "default": "true"
+    },
+    "timeline.lineMiddle": {
+        "description": "Draw an line on the middle of the timeline.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineTitle": {
+        "description": "Draw an line from the title`s div to the middle line.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineEntry": {
+        "description": "Draw an line from the content div`s to the middle line.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.colorLineMiddle": {
+        "description": "Color of the lineMiddle.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.colorLineEntry": {
+        "description": "Color of the lineTitle and lineEntry.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.colorBorderEntry": {
+        "description": "Color of the border of each single entry.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.borderStyle": {
+        "description": "Border style. Available options are: 'solid', 'dashed', 'mixed' and '!mixed'.",
+        "type": "String",
+        "default": "solid"
+    },
+    "timeline.dashedSize": {
+        "description": "Size of the borderStyle. Works only if the borderStyle are 'dashed'. Available options are: 'small' and 'large'.",
+        "type": "String",
+        "default": "small"
+    },
+    "timeline.data": {
+        "description": "Timelines data as array of object.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "timeline.data.title": {
+        "description": "Custom data for the title area.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "timeline.data.align": {
+        "description": "Align the entry to the site: 'left', 'right' or 'center'.",
+        "type": "String",
+        "default": "center"
+    },
+    "timeline.data.content": {
+        "description": "Custom data for the content area.",
+        "type": "String | JSX",
+        "default": "undefined"
     },
 };
 

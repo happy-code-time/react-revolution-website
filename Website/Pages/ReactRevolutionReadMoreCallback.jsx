@@ -12,6 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
+// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -42,6 +43,7 @@ const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { ReadMoreCallback } from 'react-revolution';
+// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -79,6 +81,7 @@ const codeExample2 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { ReadMoreCallback } from 'react-revolution';
+// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -124,6 +127,7 @@ const codeExample3 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { ReadMoreCallback } from 'react-revolution';
+// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -169,6 +173,7 @@ const codeExample4 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample5 = `import { ReadMoreCallback } from 'react-revolution';
+// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -724,10 +729,6 @@ class ReactRevolutionReadMoreCallback extends React.Component
                                 {
                                     key: 'toggleBackwards',
                                     values: 'readmore.toggleBackwards'
-                                },
-                                {
-                                    key: 'toggled',
-                                    values: 'readmore.toggled'
                                 },
                                 {
                                     key: 'data',

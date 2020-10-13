@@ -13,11 +13,11 @@ class Release117 extends React.Component
                         [
                             {
                                 key: 'Articles',
-                                value: 'New component'
+                                value: 'New component.'
                             },
                             {
                                 key: 'ArticlesImages',
-                                value: 'New component'
+                                value: 'New component.'
                             }
                         ]
                     )

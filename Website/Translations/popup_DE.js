@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    lastReleaseNotes: 'Letzte Version',
     fastActions: 'Hilfreiche Links',
     releaseNotesKey: 'Betroffene Komponente',
     releaseNotesDescription: 'Beschreibung',
@@ -11,7 +12,7 @@ const DE = {
     functions: 'Funktionen',
     components: 'Komponente',
     description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
-    description_disableHtmlScroll: 'Der HTML Tag bekommt die Attribute: class="overflow-hidden" und style="overflow: hidden;" damit ein Benutzer innerhalb der Webseite nicht scrollen darf.',
+    description_disableHtmlScroll: 'Der HTML Tag bekommt die Attribute: className="overflow-hidden" und style="overflow: hidden;" damit ein Benutzer innerhalb der Webseite nicht scrollen darf.',
     description_enableHtmlScroll: 'Dem HTML Tag wird die Klasse "overflow-hidden" entfernt und der Style: "overflow: hidden;". Der Benutzer hat wieder die Möglichkeit innerhalb der Website zu scrollen.',
     description_scrollTopListener: "Scrollen Sie bei jeder Änderung des Speicherorts (window.location) zum Anfang der aktuellen Seite. Zu Beginn muss die Funktion aufgerufen werden, um den Listener für Standortänderungen zu initialisieren. Diese Funktion benötigt 3 zusätzliche Argumente. Argument 1: Zeit (in Millisekunden), um zum Seitenanfang zu scrollen, Argument 2: Bildlaufverhalten - 'auto','smooth','inherit','initial','unset', Argument 3: Entfernen Sie den Listener (boolean). Um den Listener zu entfernen, übergeben Sie dem Wert 3 den Wert true (standardmäßig wird der Wert auf false gesetzt).",
     description_urlExtract: 'Extrahiert die URL auf einzelen Pfade des window.location, Schlüssel und dessen Werte. Die Funktion erhällt 1 optionales Argument: isHashRouter (boolean) - standardmäßig ist der übergebene Wert undefined. Diese Funktion extrahiert Pfade und Schlüsselwerte für die window.location: "href", "hash" und "path".',
@@ -244,6 +245,16 @@ const DE = {
     "clipboard.animation": {
         "description": "Eine Animation, wenn ein Klickereignis für die benutzerdefinierten 'Daten' ausgelöst wird. Animationen, die verwendet werden können: 'skalieren', 'springen'.",
         "type": "String",
+        "default": "undefined"
+    },
+    "clipboard.callback": {
+        "description": "Benutzerdefinierte Rückruffunktion, die aufgerufen wird, wenn auf die Schaltfläche in der Zwischenablage geklickt wurde. Diese Funktion gibt 2 Argumente zurück. Argument 1: Klickereignis, Argument 2: Benutzerdefinierte callbackProps, Argument 3: Daten in der Zwischenablage.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    "clipboard.callbackProps": {
+        "description": "Benutzerdefinierte Rückrufeigenschaften, die als zweites Argument an die Rückruffunktion übergeben wurden.",
+        "type": "String | Array | Object | Number",
         "default": "undefined"
     },
     "plainValue": {
@@ -1343,7 +1354,7 @@ const DE = {
     "readmore-callback-description-2": "Beispiel für die Verwendung der Schaltfläche 'Mehr lesen' und 'Weniger lesen' mit einer Rückrufmethode, die 2000 ms dauert. Während dieser Zeit wird der HTML-Code des Schlüssels 'loading' angezeigt, in diesem Fall Ihr eigenes GIF-Bild. Die innere Funktion des Moduls wartet (wartet) auf ein Versprechen -> beschließt, dass die Daten angezeigt werden. Wenn die Daten einmal geladen wurden, werden sie kein zweites Mal geladen! Wenn das Versprechen fehlgeschlagen ist (Versprechen -> ablehnen), dann Sie können auch Daten an das Modul übergeben. Wenn 'Promise.reject ()' Platz hat und keine Daten vorhanden sind, passiert 'nichts' und der Schlüssel 'toggleForwards' erscheint wieder. ",
     "readmore-callback-description-3": "Beispiel mit Promise.reject() und einem eigen definiertem JSX (Fehlermeldung) mit dem key 'toggleOnReject={true}' und 'toggleReject' (eigenem Button - versuchen Sie es nochmals).",
     "readmore-callback-description-4": "Beispiel mit Promise.reject().",
-    "readmore-callback-description-5": "Beispiel mit einem eigen definiertem JSX (Fehlermeldung), nach 2 Klicks mit einem Promise.reject() und bei dem 4 Klick Promise.resolve().",
+    "readmore-callback-description-5": "Beispiel mit einem eigen definiertem JSX (Fehlermeldung), nach 2 Klicks mit einem Promise.reject() und bei dem 3 Klick Promise.resolve().",
     "modal.callback": {
         "description": "Zwingend erforderliche Callback Function um den aktuellen anzeige Status ändert. Der einzige übergebene Parameter ist der Event (keydown | touch | click).",
         "type": "Function",
@@ -1368,6 +1379,66 @@ const DE = {
         "description": "Füge den 'click' Event zu dem 'holder' des Modules hinzu um die 'callback' Funktion aufzurufen.",
         "type": "Boolean",
         "default": "true"
+    },
+    "timeline.lineMiddle": {
+        "description": "Male eine Linie in der Mitte der Timeline.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineTitle": {
+        "description": "Male eine Linie vom dem Betreff zur Mitte der Timeline.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineEntry": {
+        "description": "Male eine Linie vom dem Kontent zur Mitte der Timeline.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.colorLineMiddle": {
+        "description": "Die Farbe der mittleren Linie.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.colorLineEntry": {
+        "description": "Farbe der Linie der Schlüssel: 'lineTitle' und 'lineEntry'.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.colorBorderEntry": {
+        "description": "Die Umrandungsfarbe jedes einzelnene Timline Eintrages.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.borderStyle": {
+        "description": "Border Style. Verfügbare Optionen: 'solid', 'dashed', 'mixed' and '!mixed'.",
+        "type": "String",
+        "default": "solid"
+    },
+    "timeline.dashedSize": {
+        "description": "Die Größe des 'borderStyle'. Funktioniert nur beim 'borderStyle' mit dem Wert 'dashed'. Verfügbare Optionen: 'small' and 'large'.",
+        "type": "String",
+        "default": "small"
+    },
+    "timeline.data": {
+        "description": "Timelines Daten in Form eines Arrays aus Objekten.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "timeline.data.title": {
+        "description": "Benutzerdefinierts HTML für den Titel.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "timeline.data.align": {
+        "description": "Seite des zu generierenden Eintrages.",
+        "type": "String",
+        "default": "center"
+    },
+    "timeline.data.content": {
+        "description": "Benutzerdefinierts HTML für den Kontent.",
+        "type": "String | JSX",
+        "default": "undefined"
     },
 };
 

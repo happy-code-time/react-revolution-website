@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Icons } from 'react-revolution';
+// import Icons from 'react-revolution/Icons';
 
 <Icons
     displayTabs={true}
@@ -20,6 +21,7 @@ const codeExample1 = `import { Icons } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Icons } from 'react-revolution';
+// import Icons from 'react-revolution/Icons';
 
 <Icons
     displayTabs={true}
@@ -37,6 +39,7 @@ const codeExample2 = `import { Icons } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { Icons } from 'react-revolution';
+// import Icons from 'react-revolution/Icons';
 
 <Icons
     displayTabs={true}
@@ -69,6 +72,7 @@ const codeExample3 = `import { Icons } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { Icons } from 'react-revolution';
+// import Icons from 'react-revolution/Icons';
 
 <Icons
     displayTabs={true}

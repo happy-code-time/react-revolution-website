@@ -13,6 +13,8 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolution';
+// import PagerDynamic from 'react-revolution/PagerDynamic';
+// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
 
 <div className="rr-revolution-pager-example">
     <PagerDynamic
@@ -54,7 +56,8 @@ const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolut
     />
 </div>`;
 
-const codeExample2 = `import { PagerStatic, uuid } from 'react-revolution';
+const codeExample2 = `import { PagerDynamic, uuid } from 'react-revolution';
+// import PagerDynamic from 'react-revolution/PagerDynamic';
 
 <div className="rr-revolution-pager-example">
     <PagerDynamic

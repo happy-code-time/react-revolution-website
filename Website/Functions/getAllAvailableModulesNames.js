@@ -33,11 +33,11 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-clipboard'
         },
         {
-            name: 'Clouds-404',
+            name: 'Clouds404',
             link: 'react-revolution-clouds-404'
         },
         {
-            name: 'CloudsMountains-404',
+            name: 'CloudsMountains404',
             link: 'react-revolution-clouds-mountains-404'
         },
         {
@@ -47,6 +47,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'CustomSuggestion',
             link: 'react-revolution-custom-suggestion'
+        },
+        {
+            name: 'DarkLines404',
+            link: 'react-revolution-dark-lines-404'
         },
         {
             name: 'FullScreenListArray',
@@ -89,7 +93,7 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-input-suggestion-object'
         },
         {
-            name: 'Lightbulb-404',
+            name: 'Lightbulb404',
             link: 'react-revolution-lightbulb-404'
         },
         {
@@ -149,7 +153,11 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-text-writer'
         },
         {
-            name: 'Water-404',
+            name: 'Timeline',
+            link: 'react-revolution-timeline'
+        },
+        {
+            name: 'Water404',
             link: 'react-revolution-water-404'
         },
         {

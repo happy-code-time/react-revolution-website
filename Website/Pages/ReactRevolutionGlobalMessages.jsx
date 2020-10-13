@@ -11,14 +11,15 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
+// import GlobalMessages from 'react-revolution/GlobalMessages';
 
-    <div
-        className="button-action rr-revolution-button-clipboard"
-        onClick={(e) => this.generateMessage()}
-    >
-        generate message
-    </div>
-    <GlobalMessages
+<div
+    className="button-action rr-revolution-button-clipboard"
+    onClick={(e) => this.generateMessage()}
+>
+    generate message
+</div>
+<GlobalMessages
     messageKey='messagesApp'
     timer={1000}
     codeMapping={{

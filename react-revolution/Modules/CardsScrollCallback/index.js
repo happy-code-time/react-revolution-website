@@ -37,7 +37,7 @@ class CardsScrollCallback extends React.Component
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
-            callbackProps: props.callbackProps ? props.callbackProps : '',
+            callbackProps: props.callbackProps ? props.callbackProps : undefined,
             loading: props.loading ? props.loading : '',
             onReject: props.onReject ? props.onReject : '',
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
@@ -87,7 +87,7 @@ class CardsScrollCallback extends React.Component
             if(!isMinified){
                 this.setState({ 
                     isMinified: true 
-                }, this.rerenderItems);
+                });
             }
         }
         /**
@@ -97,7 +97,7 @@ class CardsScrollCallback extends React.Component
             if(isMinified){
                 this.setState({ 
                     isMinified: false 
-                }, this.rerenderItems);
+                });
             }
         }
     }

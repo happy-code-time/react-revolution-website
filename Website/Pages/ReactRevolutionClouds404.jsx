@@ -11,6 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Clouds404 } from 'react-revolution';
+// import Clouds404 from 'react-revolution/Clouds404';
 
 <Clipboard/>`;
 

@@ -10,7 +10,7 @@ import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
 import ScrollTop from './Website/Modules/ScrollTop';
 
-import { CloudsMountains404, scrollTopListener, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
+import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -52,6 +52,8 @@ import ReactRevolutionCloudsMountains404 from './Website/Pages/ReactRevolutionCl
 import ReactRevolutionContainer from './Website/Pages/ReactRevolutionContainer';
 
 import ReactRevolutionCustomSuggestion from './Website/Pages/ReactRevolutionCustomSuggestion';
+
+import ReactRevolutionDarkLines404 from './Website/Pages/ReactRevolutionDarkLines404';
 
 import ReactRevolutionFullScreenListArray from './Website/Pages/ReactRevolutionFullScreenListArray';
 
@@ -103,6 +105,8 @@ import ReactRevolutionTable from './Website/Pages/ReactRevolutionTable';
 
 import ReactRevolutionTextWriter from './Website/Pages/ReactRevolutionTextWriter';
 
+import ReactRevolutionTimeline from './Website/Pages/ReactRevolutionTimeline';
+
 import ReactRevolutionWater404 from './Website/Pages/ReactRevolutionWater404';
 
 /**
@@ -129,6 +133,8 @@ import Release118 from './Website/Releases/Release118';
 import Release119 from './Website/Releases/Release119';
 
 import Release120 from './Website/Releases/Release120';
+
+import Release130 from './Website/Releases/Release130';
 
 class App extends React.Component {
 
@@ -471,7 +477,7 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-modal`,
                         },
                         {
-                          text: 'NotFound',
+                          text: '404',
                           data: [
                             {
                               text: 'Clouds404',
@@ -480,6 +486,10 @@ class App extends React.Component {
                             {
                               text: 'CloudsMountains404',
                               href: `${host}#/react-revolution-clouds-mountains-404`,
+                            },
+                            {
+                              text: 'DarkLines404',
+                              href: `${host}#/react-revolution-dark-lines-404`,
                             },
                             {
                               text: 'Water404',
@@ -541,6 +551,10 @@ class App extends React.Component {
                           text: 'TextWriter',
                           href: `${host}#/react-revolution-text-writer`,
                         },
+                        {
+                          text: 'Timeline',
+                          href: `${host}#/react-revolution-timeline`,
+                        },
                       ]
                     },
                     {
@@ -574,8 +588,16 @@ class App extends React.Component {
                       toggled: true,
                       data: [
                         {
+                          text: 'Releases 1.3',
+                          data: [
+                            {
+                              text: '1.3.0',
+                              href: `${host}#/react-revolution-release-1-3-0`,
+                            },
+                          ]
+                        },
+                        {
                           text: 'Releases 1.2',
-                          toggled: true,
                           data: [
                             {
                               text: '1.2.0',
@@ -585,10 +607,9 @@ class App extends React.Component {
                         },
                         {
                           text: 'Releases 1.1',
-                          toggled: true,
                           data: [
                             {
-                              text: '1.2.0',
+                              text: '1.1.9',
                               href: `${host}#/react-revolution-release-1-1-9`,
                             },
                             {
@@ -701,14 +722,14 @@ class App extends React.Component {
                     }
                   </h1>
                   <a className="link" href={`${host}#/react-revolution-accordion`}>
-                      {
-                        trans('getStarted')
-                      }
+                    {
+                      trans('getStarted')
+                    }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-1-2-0`}>
-                      {
-                        trans('releaseNotes')
-                      }
+                  <a className="link" href={`${host}#/react-revolution-release-1-3-0`}>
+                    {
+                      trans('lastReleaseNotes')
+                    }
                   </a>
                 </span>
               }
@@ -751,8 +772,9 @@ class App extends React.Component {
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
               <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
               <Route exact path="/react-revolution-lightbulb-404" render={(props) => (<ReactRevolutionLightbulb404 {...props} />)} />
-              <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
               <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
+              <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
+              <Route exact path="/react-revolution-timeline" render={(props) => (<ReactRevolutionTimeline {...props} />)} />
               <Route exact path="/react-revolution-read-more" render={(props) => (<ReactRevolutionReadMore {...props} />)} />
               <Route exact path="/react-revolution-read-more-callback" render={(props) => (<ReactRevolutionReadMoreCallback {...props} />)} />
               <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
@@ -770,6 +792,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-1-1-8" render={(props) => (<Release118 {...props} />)} />
               <Route exact path="/react-revolution-release-1-1-9" render={(props) => (<Release119 {...props} />)} />
               <Route exact path="/react-revolution-release-1-2-0" render={(props) => (<Release120 {...props} />)} />
+              <Route exact path="/react-revolution-release-1-3-0" render={(props) => (<Release130 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

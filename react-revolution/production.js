@@ -19,11 +19,13 @@ import CustomSuggestion from './Modules/CustomSuggestion';
 
 import Clipboard from './Modules/Clipboard';
 
-import Clouds404 from './Modules/404/Clouds404';
+import Clouds404 from './Modules/Clouds404';
 
-import CloudsMountains404 from './Modules/404/CloudsMountains404';
+import CloudsMountains404 from './Modules/CloudsMountains404';
 
 import Container from './Modules/Container';
+
+import DarkLines404 from './Modules/DarkLines404';
 
 import FullScreenListArray from './Modules/FullScreenListArray';
 
@@ -45,7 +47,7 @@ import InputSuggestionArray from './Modules/InputSuggestionArray';
 
 import InputSuggestionObject from './Modules/InputSuggestionObject';
 
-import Lightbulb404 from './Modules/404/Lightbulb404';
+import Lightbulb404 from './Modules/Lightbulb404';
 
 import LoadingBoxTop from './Modules/LoadingBoxTop';
 
@@ -63,7 +65,7 @@ import Table from './Modules/Table';
 
 import TextWriter from './Modules/TextWriter';
 
-import TimeLine from './Modules/TimeLine';
+import Timeline from './Modules/Timeline';
 
 import PopupBox from './Modules/PopupBox';
 
@@ -77,7 +79,7 @@ import SideBar from './Modules/SideBar';
 
 import SourceCode from './Modules/SourceCode';
 
-import Water404 from './Modules/404/Water404';
+import Water404 from './Modules/Water404';
 
 /**
  * Functions
@@ -119,6 +121,7 @@ export {
     Clouds404,
     CloudsMountains404,
     Container,
+    DarkLines404,
     FullScreenListArray,
     FullScreenListObject,
     FullScreenOverlay,
@@ -138,7 +141,7 @@ export {
     PagerDynamic,
     Table,
     TextWriter,
-    TimeLine,
+    Timeline,
     PopupBox,
     ReadMore,
     ReadMoreCallback,

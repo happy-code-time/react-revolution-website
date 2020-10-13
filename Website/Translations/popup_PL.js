@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    lastReleaseNotes: 'Ostatnie wydanie',
     fastActions: 'Przydatne linki',
     releaseNotesKey: 'Dotyczy komponentu',
     releaseNotesDescription: 'Opis',
@@ -244,6 +245,16 @@ const PL = {
     "clipboard.animation": {
         "description": "Animacja uruchamiająca zdarzenie kliknięcia na niestandardowych 'danych'. Animacje, których można użyć: 'skala', 'skok'.",
         "type": "String",
+        "default": "undefined"
+    },
+    "clipboard.callback": {
+        "description": "Własna funkcja zwrotna wywoływana po kliknięciu przycisku schowka. Ta funkcja zwraca 2 argumenty. Argument 1: zdarzenie kliknięcia, argument 2: niestandardowe wywołanie zwrotne, argument 3: dane schowka.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    "clipboard.callbackProps": {
+        "description": "Niestandardowe właściwości wywołania zwrotnego przekazane jako drugi argument do funkcji zwrotnej.",
+        "type": "String | Array | Object | Number",
         "default": "undefined"
     },
     "plainValue": {
@@ -1341,7 +1352,7 @@ const PL = {
     "readmore-callback-description-2" : "Przykład z użyciem przycisku 'czytaj więcej' i 'czytaj mniej' z metodą zwrotną, która trwa 2000ms, podczas tego czasu ukazany jest HTML klucza 'loading'. W tym przypadku własny obraz gif. Funkcja wewnętrzna modułu czeka (await) na rozwiązanie 'obietnicy' (Promise -> resolve) aby otrzymac dane do ukazania. Gdy dane zostały załadowane jeden raz, nie bedą ładowane drugi raz!. Gdy obietnica sie nie udała (Promise -> reject) wtedy także można przekazac dane do modułu. Gdy miejsce ma 'Promise.reject()' i nie ma żadnych danych, wtedy 'nie dzieje' się nic i klucz 'toggleForwards' ukazuje się ponownie.",
     "readmore-callback-description-3" : "Przykład z Promise.reject() i przekazaną wiadomością w formie JSX oraz kluczem 'toggleOnReject={true}' i 'toggleReject' (własnym przyciskiem - spróbuj ponownie).",
     "readmore-callback-description-4" : "Przykład z Promise.reject().",
-    "readmore-callback-description-5" : "Przykład z przekazaną wiadomością w formie JSX oraz po 2 próbach Promise.reject() a podczas 4 próbie Promise.resolve()",
+    "readmore-callback-description-5" : "Przykład z przekazaną wiadomością w formie JSX oraz po 2 próbach Promise.reject() a podczas 3 próbie Promise.resolve()",
     "modal.callback": {
         "description": "Obowiązkowa funkcja oddzwaniania do zmiany aktualnego stanu wyświetlania. Jedynym przekazywanym parametrem jest zdarzenie (keydown | touch | click).",
         "type": "Function",
@@ -1366,6 +1377,66 @@ const PL = {
         "description": "Dodaj zdarzenie 'click' do 'posiadacza' modułu, aby wywołać funkcję 'callback'.",
         "type": "Boolean",
         "default": "true"
+    },
+    "timeline.lineMiddle": {
+        "description": "Narysuj linię na środku osi czasu.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineTitle": {
+        "description": "Narysuj linię od 'tematu' do środka osi czasu.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.lineEntry": {
+        "description": "Narysuj linię od 'treści' do środka osi czasu.",
+        "type": "Boolean",
+        "default": "False"
+    },
+    "timeline.colorLineMiddle": {
+        "description": "Kolor środkowej linii.",
+        "type": "String",
+        "default": "# dadce0"
+    },
+    "timeline.colorLineEntry": {
+        "description": "Kolor linii kluczy: 'lineTitle' i 'lineEntry'.",
+        "type": "String",
+        "default": "# dadce0"
+    },
+    "timeline.colorBorderEntry": {
+        "description": "Kolor obramowania każdego wpisu na osi czasu.",
+        "type": "String",
+        "default": "#dadce0"
+    },
+    "timeline.borderStyle": {
+        "description": "Styl obramowania. Dostępne opcje: 'solid', 'dashed', 'mixed' i '!mixed'.",
+        "type": "String",
+        "default": "solid"
+    },
+    "timeline.dashedSize": {
+        "description": "Rozmiar 'borderStyle'. Działa tylko z 'borderStyle' z wartością 'dashed'. Dostępne opcje: 'small' i 'large'.",
+        "type": "String",
+        "default": "small"
+    },
+    "timeline.data": {
+        "description": "Dane osi czasu w postaci tablicy obiektów.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "timeline.data.title": {
+        "description": "Niestandardowy kod HTML tytułu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "timeline.data.align": {
+        "description": "Strona wpisu do wygenerowania.",
+        "type": "String",
+        "default": "center"
+    },
+    "timeline.data.content": {
+        "description": "Niestandardowy kod HTML treści.",
+        "type": "String | JSX",
+        "default": "undefined"
     },
 };
 
