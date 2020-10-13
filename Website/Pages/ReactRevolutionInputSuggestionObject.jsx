@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { InputSuggestionObject } from 'react-revolution';
-// import InputSuggestionObject from 'react-revolution/InputSuggestionObject';
+// import InputSuggestionObject from 'react-revolution/public/InputSuggestionObject';
 
 <InputSuggestionObject
     inputPlaceholder='Search for an email...'

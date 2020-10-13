@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { LoadingBoxTop } from 'react-revolution';
-// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
+// import LoadingBoxTop from 'react-revolution/public/LoadingBoxTop';
 
 <LoadingBoxTop 
     text='Loading...' 

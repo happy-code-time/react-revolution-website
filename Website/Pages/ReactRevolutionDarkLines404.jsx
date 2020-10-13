@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { DarkLines404 } from 'react-revolution';
-// import DarkLines404 from 'react-revolution/DarkLines404';
+// import DarkLines404 from 'react-revolution/public/DarkLines404';
 
 <DarkLines404
     boomAfter={1500}

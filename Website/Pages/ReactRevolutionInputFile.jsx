@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { InputFile } from 'react-revolution';
-// import InputFile from 'react-revolution/InputFile';
+// import InputFile from 'react-revolution/public/InputFile';
 
 <InputFile
     allowedFileSize={2}

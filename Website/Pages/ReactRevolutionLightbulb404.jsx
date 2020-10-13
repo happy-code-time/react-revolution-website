@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Lightbulb404 } from 'react-revolution';
-// import Lightbulb404 from 'react-revolution/Lightbulb404';
+// import Lightbulb404 from 'react-revolution/public/Lightbulb404';
 
 <Lightbulb404/>`;
 

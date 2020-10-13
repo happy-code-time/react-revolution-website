@@ -11,8 +11,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
-// import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
-// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
+// import CardsScrollCallback from 'react-revolution/public/CardsScrollCallback';
+// import LoadingBoxTop from 'react-revolution/public/LoadingBoxTop';
 
 <div className="section-cards-scroll-callback">
     <CardsScrollCallback
@@ -64,7 +64,7 @@ const codeExample1 = `import { CardsScrollCallback, LoadingBoxTop, uuid } from '
 </div>`;
 
 const codeExample2 = `import { CardsScrollCallback } from 'react-revolution';
-// import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
+// import CardsScrollCallback from 'react-revolution/public/CardsScrollCallback';
 
 <div className="section-cards-scroll-callback">
     <CardsScrollCallback
@@ -116,7 +116,7 @@ const codeExample2 = `import { CardsScrollCallback } from 'react-revolution';
 </div>`;
 
 const codeExample3 = `import { CardsScrollCallback } from 'react-revolution';
-// import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
+// import CardsScrollCallback from 'react-revolution/public/CardsScrollCallback';
 
 <div className="section-cards-scroll-callback">
     <CardsScrollCallback
@@ -168,7 +168,7 @@ const codeExample3 = `import { CardsScrollCallback } from 'react-revolution';
 </div>`; 
 
 const codeExample4 = `import { CardsScrollCallback } from 'react-revolution';
-// import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
+// import CardsScrollCallback from 'react-revolution/public/CardsScrollCallback';
 
 <div className="section-cards-scroll-callback">
     <CardsScrollCallback

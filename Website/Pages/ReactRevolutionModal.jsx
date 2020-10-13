@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { Modal } from 'react-revolution';
-// import Modal from 'react-revolution/Modal';
+// import Modal from 'react-revolution/public/Modal';
 
 <button 
     style={

@@ -12,7 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
-// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
+// import ReadMoreCallback from 'react-revolution/public/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -43,7 +43,7 @@ const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { ReadMoreCallback } from 'react-revolution';
-// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
+// import ReadMoreCallback from 'react-revolution/public/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -81,7 +81,7 @@ const codeExample2 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { ReadMoreCallback } from 'react-revolution';
-// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
+// import ReadMoreCallback from 'react-revolution/public/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -127,7 +127,7 @@ const codeExample3 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { ReadMoreCallback } from 'react-revolution';
-// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
+// import ReadMoreCallback from 'react-revolution/public/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'
@@ -173,7 +173,7 @@ const codeExample4 = `import { ReadMoreCallback } from 'react-revolution';
 />`;
 
 const codeExample5 = `import { ReadMoreCallback } from 'react-revolution';
-// import ReadMoreCallback from 'react-revolution/ReadMoreCallback';
+// import ReadMoreCallback from 'react-revolution/public/ReadMoreCallback';
 
 <ReadMoreCallback
     addClass='rr-read-more-example'

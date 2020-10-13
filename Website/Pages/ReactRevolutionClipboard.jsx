@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Clipboard } from 'react-revolution';
-// import Clipboard from 'react-revolution/Clipboard';
+// import Clipboard from 'react-revolution/public/Clipboard';
 
 <Clipboard
     animation='scale' // scale, jump
@@ -32,7 +32,7 @@ const codeExample1 = `import { Clipboard } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Clipboard } from 'react-revolution';
-// import Clipboard from 'react-revolution/Clipboard';
+// import Clipboard from 'react-revolution/public/Clipboard';
 
 <Clipboard
     animation='jump' // scale, jump

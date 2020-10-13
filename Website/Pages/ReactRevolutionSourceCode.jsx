@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { SourceCode } from 'react-revolution';
-// import SourceCode from 'react-revolution/SourceCode';
+// import SourceCode from 'react-revolution/public/SourceCode';
 
 <SourceCode
     promise={true}

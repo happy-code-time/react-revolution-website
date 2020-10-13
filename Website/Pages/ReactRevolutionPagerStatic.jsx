@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { PagerStatic } from 'react-revolution';
-// import PagerStatic from 'react-revolution/PagerStatic';
+// import PagerStatic from 'react-revolution/public/PagerStatic';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic
@@ -38,7 +38,7 @@ const codeExample1 = `import { PagerStatic } from 'react-revolution';
 </div>`;
 
 const codeExample2 = `import { PagerStatic } from 'react-revolution';
-// import PagerStatic from 'react-revolution/PagerStatic';
+// import PagerStatic from 'react-revolution/public/PagerStatic';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic
@@ -75,7 +75,7 @@ const codeExample2 = `import { PagerStatic } from 'react-revolution';
 </div>`;
 
 const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
-// import PagerStatic from 'react-revolution/PagerStatic';
+// import PagerStatic from 'react-revolution/public/PagerStatic';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic

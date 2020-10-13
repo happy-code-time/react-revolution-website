@@ -12,7 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ScrollTo } from 'react-revolution';
-// import ScrollTo from 'react-revolution/ScrollTo';
+// import ScrollTo from 'react-revolution/public/ScrollTo';
 
 <ScrollTo
     id='uuid-2'
@@ -21,7 +21,7 @@ const codeExample1 = `import { ScrollTo } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { ScrollTo } from 'react-revolution';
-// import ScrollTo from 'react-revolution/ScrollTo';
+// import ScrollTo from 'react-revolution/public/ScrollTo';
 
 <ScrollTo
     html={

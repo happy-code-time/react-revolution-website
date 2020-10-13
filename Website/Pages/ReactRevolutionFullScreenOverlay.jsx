@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenOverlay } from 'react-revolution';
-// import FullScreenOverlay from 'react-revolution/FullScreenOverlay';
+// import FullScreenOverlay from 'react-revolution/public/FullScreenOverlay';
 
 <div
     className="button-action rr-revolution-button-clipboard"

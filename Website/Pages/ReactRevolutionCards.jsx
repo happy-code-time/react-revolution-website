@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample = `import { Cards } from 'react-revolution';
-// import Cards from 'react-revolution/Cards';
+// import Cards from 'react-revolution/public/Cards';
 
 <Cards
     itemsPerLine={3}

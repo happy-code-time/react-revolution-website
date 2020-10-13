@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { TextWriter } from 'react-revolution';
-// import TextWriter from 'react-revolution/TextWriter';
+// import TextWriter from 'react-revolution/public/TextWriter';
 
 <TextWriter
     text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
@@ -25,7 +25,7 @@ const codeExample1 = `import { TextWriter } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { TextWriter } from 'react-revolution';
-// import TextWriter from 'react-revolution/TextWriter';
+// import TextWriter from 'react-revolution/public/TextWriter';
 
 <TextWriter
     text='React Divcreator'
