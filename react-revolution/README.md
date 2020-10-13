@@ -18,28 +18,13 @@ import { Breadcrumbs } from 'react-revolution';
 />
 ```
 
-### Modules
+### Module Examples
 
 Accordion
 - [https://react-revolution.j.pl/#/react-revolution-accordion](https://react-revolution.j.pl/#/react-revolution-accordion)
 
-Articles
-- [https://react-revolution.j.pl/#/react-revolution-articles](https://react-revolution.j.pl/#/react-revolution-articles)
-
-ArticlesImages
-- [https://react-revolution.j.pl/#/react-revolution-articles-images](https://react-revolution.j.pl/#/react-revolution-articles-images)
-
-Breadcrumbs
-- [https://react-revolution.j.pl/#/react-revolution-breadcrumbs](https://react-revolution.j.pl/#/react-revolution-breadcrumbs)
-
-Cards
-- [https://react-revolution.j.pl/#/react-revolution-cards](https://react-revolution.j.pl/#/react-revolution-cards)
-
 CardsScroll
 - [https://react-revolution.j.pl/#/react-revolution-cards-scroll](https://react-revolution.j.pl/#/react-revolution-cards-scroll)
-
-CardsScrollCallback
-- [https://react-revolution.j.pl/#/react-revolution-cards-scroll-callback](https://react-revolution.j.pl/#/react-revolution-cards-scroll-callback)
 
 Clipboard
 - [https://react-revolution.j.pl/#/react-revolution-clipboard](https://react-revolution.j.pl/#/react-revolution-clipboard)
@@ -56,15 +41,6 @@ Container
 CustomSuggestion
 - [https://react-revolution.j.pl/#/react-revolution-custom-suggestion](https://react-revolution.j.pl/#/react-revolution-custom-suggestion)
 
-FullScreenListArray
-- [https://react-revolution.j.pl/#/react-revolution-fullscreen-list-array](https://react-revolution.j.pl/#/react-revolution-fullscreen-list-array)
-
-FullScreenListObject
-- [https://react-revolution.j.pl/#/react-revolution-fullscreen-list-object](https://react-revolution.j.pl/#/react-revolution-fullscreen-list-object)
-
-FullScreenOverlay
-- [https://react-revolution.j.pl/#/react-revolution-fullscreen-overlay](https://react-revolution.j.pl/#/react-revolution-fullscreen-overlay)
-
 GlobalMessages
 - [https://react-revolution.j.pl/#/react-revolution-global-messages](https://react-revolution.j.pl/#/react-revolution-global-messages)
 
@@ -80,12 +56,6 @@ InputFile
 InputFileDragDrop
 - [https://react-revolution.j.pl/#/react-revolution-input-file-drag-drop](https://react-revolution.j.pl/#/react-revolution-input-file-drag-drop)
 
-InputSuggestionArray
-- [https://react-revolution.j.pl/#/react-revolution-input-suggestion-array](https://react-revolution.j.pl/#/react-revolution-input-suggestion-array)
-
-InputSuggestionObject
-- [https://react-revolution.j.pl/#/react-revolution-input-suggestion-object](https://react-revolution.j.pl/#/react-revolution-input-suggestion-object)
-
 Lightbulb404
 - [https://react-revolution.j.pl/#/react-revolution-lightbulb-404](https://react-revolution.j.pl/#/react-revolution-lightbulb-404)
 
@@ -97,9 +67,6 @@ LoadOnScroll
 
 MenuClickHorizontal
 - [https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal](https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal)
-
-PagerStatic
-- [https://react-revolution.j.pl/#/react-revolution-pager-static](https://react-revolution.j.pl/#/react-revolution-pager-static)
 
 PagerDynamic
 - [https://react-revolution.j.pl/#/react-revolution-pager-dynamic](https://react-revolution.j.pl/#/react-revolution-pager-dynamic)
@@ -116,9 +83,6 @@ ReadMoreCallback
 ScrollTo
 - [https://react-revolution.j.pl/#/react-revolution-scroll-to](https://react-revolution.j.pl/#/react-revolution-scroll-to)
 
-SideBar
-- [https://react-revolution.j.pl/#/react-revolution-sidebar](https://react-revolution.j.pl/#/react-revolution-sidebar)
-
 SourceCode
 - [https://react-revolution.j.pl/#/react-revolution-source-code](https://react-revolution.j.pl/#/react-revolution-source-code)
 
@@ -128,9 +92,8 @@ Table
 TextWriter
 - [https://react-revolution.j.pl/#/react-revolution-text-writer](https://react-revolution.j.pl/#/react-revolution-text-writer)
 
-Water404
-- [https://react-revolution.j.pl/#/react-revolution-water-404](https://react-revolution.j.pl/#/react-revolution-water-404)
 
+and more .... !
 
 ### Functions
 

@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v1.3.0';
+const version = 'v2.0.0';
 
 /**
  * Clean

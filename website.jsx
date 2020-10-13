@@ -134,7 +134,7 @@ import Release119 from './Website/Releases/Release119';
 
 import Release120 from './Website/Releases/Release120';
 
-import Release130 from './Website/Releases/Release130';
+import Release200 from './Website/Releases/Release200';
 
 class App extends React.Component {
 
@@ -588,11 +588,11 @@ class App extends React.Component {
                       toggled: true,
                       data: [
                         {
-                          text: 'Releases 1.3',
+                          text: 'Releases 2.0',
                           data: [
                             {
-                              text: '1.3.0',
-                              href: `${host}#/react-revolution-release-1-3-0`,
+                              text: '2.0.0',
+                              href: `${host}#/react-revolution-release-2-0-0`,
                             },
                           ]
                         },
@@ -726,7 +726,7 @@ class App extends React.Component {
                       trans('getStarted')
                     }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-1-3-0`}>
+                  <a className="link" href={`${host}#/react-revolution-release-2-0-0`}>
                     {
                       trans('lastReleaseNotes')
                     }
@@ -792,7 +792,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-1-1-8" render={(props) => (<Release118 {...props} />)} />
               <Route exact path="/react-revolution-release-1-1-9" render={(props) => (<Release119 {...props} />)} />
               <Route exact path="/react-revolution-release-1-2-0" render={(props) => (<Release120 {...props} />)} />
-              <Route exact path="/react-revolution-release-1-3-0" render={(props) => (<Release130 {...props} />)} />
+              <Route exact path="/react-revolution-release-2-0-0" render={(props) => (<Release200 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (
