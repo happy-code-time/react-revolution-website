@@ -2,9 +2,11 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { DragDropArea, uuid } from './react-revolution/public/react-revolution';
+import { DragDropArea, uuid } from './react-revolution/react-revolution';
 
-import './react-revolution/sass/rr-drag-drop-area.scss';
+// import DragDropArea from './react-revolution/react-revolution';
+
+import './react-revolution/_Sass/rr-drag-drop-area.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -12,77 +14,36 @@ class App extends React.Component {
         this.callback = this.callback.bind(this);
 
         this.state = {
-            data: {
-                'Fruits': {
-                    name: 'Fruits 🍓',
-                    // allowDrop: false,
-                    // allowDrag: true,
-                    titleProps: {
-                        style: {
-                            color: '#0c4149',
-                            background: '#d1e5e8 linear-gradient(180deg, #d6e7ea, #d1e5e8) repeat-x',
-                            borderColor: '#bedbdf',
-                        }
-                    },
-                    areaProps: {},
-                    data: [
-                        {
-                            text: 'Apple'
-                        },
-                        {
-                            text: 'Apple'
-                        },
-                        {
-                            text: 'Annanas'
-                        },
-                        {
-                            text: 'Banana'
-                        }
-                    ],
+            data: [
+                {
+                    text: 'Avocado'
                 },
-                'Vegetables': {
-                    titleProps: {
-                        style: {
-                            color: '#004300',
-                            background: '#cce6cc linear-gradient(180deg, #d2e8d2, #cce6cc) repeat-x',
-                            borderColor: '#b8dbb8',
-                        }
-                    },
-                    areaProps: {},
-                    data: [
-                        {
-                            text: 'Avocado'
-                        },
-                        {
-                            text: 'Avocado'
-                        },
-                        {
-                            text: 'Broccoli'
-                        },
-                        {
-                            text: 'Carrot'
-                        }
-                    ]
+                {
+                    text: 'Avocado'
                 },
-                'ShoppingCart': {
-                    titleProps: {
-                        style: {
-                            color: '#856404',
-                            background: '#fff3cd linear-gradient(180deg, #fdf3d3, #fff3cd) repeat-x',
-                            borderColor: '#ffeeba',
-                        }
-                    },
-                    areaProps: {},
+                {
+                    text: 'Broccoli'
+                },
+                {
+                    text: 'Carrot'
                 }
-            },
+            ],
             changes: []
         };
     }
 
-    callback(oldState, newState, details, callbackProps){        
+    callback(prevData, nextData, change, callbackProps){
         this.setState({
-            data: newState,
-            changes: [...this.state.changes, details]
+            data: nextData,
+            changes: [...this.state.changes, change]
+        });
+    }
+
+    callbackAllowDrop(prevData, nextData, change, allowDropProps){
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                resolve(true);
+            }, 1000);
         });
     }
 
@@ -91,12 +52,13 @@ class App extends React.Component {
 
         return (
             <span>
-                <DragDropArea
+                <DragDropList
                     addClass='rr-drag-drop-area-example'
                     itemsPerLine={4}
                     mediaBreak={1024}
                     data={data}
                     callback={this.callback}
+                    callbackAllowDrop={this.callbackAllowDrop}
                 />
                 <div className="">
                     {

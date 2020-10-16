@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Clipboard, SourceCode } from '../../react-revolution/public/react-revolution';
+import { Clipboard, SourceCode } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 

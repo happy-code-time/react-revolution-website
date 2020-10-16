@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Water404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Water404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Water404 } from 'react-revolution';
-// import Water404 from 'react-revolution/public/Water404';
+// import Water404 from 'react-revolution/Water404';
 
 <Water404/>`;
 

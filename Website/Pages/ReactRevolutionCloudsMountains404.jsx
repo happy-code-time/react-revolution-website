@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, CloudsMountains404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, CloudsMountains404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { CloudsMountains404 } from 'react-revolution';
-// import CloudsMountains404 from 'react-revolution/public/CloudsMountains404';
+// import CloudsMountains404 from 'react-revolution/CloudsMountains404';
 
 <CloudsMountains404/>`;
 

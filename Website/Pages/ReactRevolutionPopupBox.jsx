@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, PopupBox, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, PopupBox, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { PopupBox } from 'react-revolution';
-// import PopupBox from 'react-revolution/public/PopupBox';
+// import PopupBox from 'react-revolution/PopupBox';
 
 <div className="rr-revolution-popupbox-example">
     <PopupBox
@@ -31,7 +31,7 @@ const codeExample1 = `import { PopupBox } from 'react-revolution';
 </div>`;
 
 const codeExample2 = `import { PopupBox } from 'react-revolution';
-// import PopupBox from 'react-revolution/public/PopupBox';
+// import PopupBox from 'react-revolution/PopupBox';
 
 <div className="rr-revolution-popupbox-example">
     <PopupBox
@@ -51,7 +51,7 @@ const codeExample2 = `import { PopupBox } from 'react-revolution';
 </div>`;
 
 const codeExample3 = `import { PopupBox } from 'react-revolution';
-// import PopupBox from 'react-revolution/public/PopupBox';
+// import PopupBox from 'react-revolution/PopupBox';
 
 <div className="rr-revolution-popupbox-example">
     <PopupBox
@@ -71,7 +71,7 @@ const codeExample3 = `import { PopupBox } from 'react-revolution';
 </div>`;
 
 const codeExample4 = `import { PopupBox } from 'react-revolution';
-// import PopupBox from 'react-revolution/public/PopupBox';
+// import PopupBox from 'react-revolution/PopupBox';
 
 <div className="rr-revolution-popupbox-example">
     <PopupBox

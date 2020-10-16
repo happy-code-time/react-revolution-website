@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 

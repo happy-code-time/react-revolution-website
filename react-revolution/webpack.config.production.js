@@ -30,11 +30,10 @@ module.exports = {
     ],
   },
   cache: false,
-//   mode: 'production',
   mode: 'production',
   entry: './production.js',
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, './'),
     filename: 'react-revolution.js',
     libraryTarget: 'commonjs2'
   },

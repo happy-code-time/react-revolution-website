@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, ArticlesImages, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, ArticlesImages, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ArticlesImages } from 'react-revolution';
-// import ArticlesImages from 'react-revolution/public/ArticlesImages';
+// import ArticlesImages from 'react-revolution/ArticlesImages';
 
 <ArticlesImages
     addClass='rr-articles-images-example'
@@ -23,7 +23,7 @@ const codeExample1 = `import { ArticlesImages } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { ArticlesImages } from 'react-revolution';
-// import ArticlesImages from 'react-revolution/public/ArticlesImages';
+// import ArticlesImages from 'react-revolution/ArticlesImages';
 
 <Articles
     addClass='rr-articles-example'
@@ -34,7 +34,7 @@ const codeExample2 = `import { ArticlesImages } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { ArticlesImages } from 'react-revolution';
-// import ArticlesImages from 'react-revolution/public/ArticlesImages';
+// import ArticlesImages from 'react-revolution/ArticlesImages';
 
 <ArticlesImages
     addClass='rr-articles-images-example'
@@ -47,7 +47,7 @@ const codeExample3 = `import { ArticlesImages } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { ArticlesImages } from 'react-revolution';
-// import ArticlesImages from 'react-revolution/public/ArticlesImages';
+// import ArticlesImages from 'react-revolution/ArticlesImages';
 
 <ArticlesImages
     addClass='rr-articles-images-example'
@@ -60,7 +60,7 @@ const codeExample4 = `import { ArticlesImages } from 'react-revolution';
 />`;
 
 const codeExample5 = `import { ArticlesImages } from 'react-revolution';
-// import ArticlesImages from 'react-revolution/public/ArticlesImages';
+// import ArticlesImages from 'react-revolution/ArticlesImages';
 
 <ArticlesImages
     addClass='rr-articles-images-example'

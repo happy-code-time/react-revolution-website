@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Cards, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Cards, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample = `import { Cards } from 'react-revolution';
-// import Cards from 'react-revolution/public/Cards';
+// import Cards from 'react-revolution/Cards';
 
 <Cards
     itemsPerLine={3}

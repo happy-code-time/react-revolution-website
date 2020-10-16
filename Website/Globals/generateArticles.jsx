@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Articles } from '../../react-revolution/public/react-revolution';
+import { Articles } from '../../react-revolution/react-revolution';
 
 import articlesSettings from '../Globals/articlesSettings';
 

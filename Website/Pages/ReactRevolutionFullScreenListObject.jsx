@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, FullScreenListObject, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, FullScreenListObject, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenListObject } from 'react-revolution';
-// import FullScreenListObject from 'react-revolution/public/FullScreenListObject';
+// import FullScreenListObject from 'react-revolution/FullScreenListObject';
 
 <span>
     <div 

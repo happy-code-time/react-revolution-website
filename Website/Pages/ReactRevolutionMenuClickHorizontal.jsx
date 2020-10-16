@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,7 +13,7 @@ import { host } from '../Globals';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
-// import MenuClickHorizontal from 'react-revolution/public/MenuClickHorizontal';
+// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
 
 <MenuClickHorizontal
     addClass='rr-menu-click-horizontal-example'
@@ -160,7 +160,7 @@ const codeExample1 = `import { MenuClickHorizontal } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { MenuClickHorizontal } from 'react-revolution';
-// import MenuClickHorizontal from 'react-revolution/public/MenuClickHorizontal';
+// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
 
 <MenuClickHorizontal
     dashed={true}
@@ -308,7 +308,7 @@ const codeExample2 = `import { MenuClickHorizontal } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { MenuClickHorizontal } from 'react-revolution';
-// import MenuClickHorizontal from 'react-revolution/public/MenuClickHorizontal';
+// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
 
 <MenuClickHorizontal
     addClass='rr-menu-click-horizontal-example'

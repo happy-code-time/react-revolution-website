@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, LoadingBoxTop, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, LoadingBoxTop, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { LoadingBoxTop } from 'react-revolution';
-// import LoadingBoxTop from 'react-revolution/public/LoadingBoxTop';
+// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
 
 <LoadingBoxTop 
     text='Loading...' 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Lightbulb404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Lightbulb404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Lightbulb404 } from 'react-revolution';
-// import Lightbulb404 from 'react-revolution/public/Lightbulb404';
+// import Lightbulb404 from 'react-revolution/Lightbulb404';
 
 <Lightbulb404/>`;
 

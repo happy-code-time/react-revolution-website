@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, CardsScroll, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, CardsScroll, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample = `import { CardsScroll } from 'react-revolution';
-// import CardsScroll from 'react-revolution/public/CardsScroll';
+// import CardsScroll from 'react-revolution/CardsScroll';
 
 <div className="section-cards-scroll">
     <CardsScroll

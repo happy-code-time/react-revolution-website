@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import trans from '../Translations/trans';
 
-import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/public/react-revolution';
+import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/react-revolution';
 
 import { exampleHome, exampleInstallationNpm, exampleInstallationYarn } from '../CodeExamples/homeExample';
 

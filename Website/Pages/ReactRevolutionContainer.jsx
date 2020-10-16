@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Container, SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Container, SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,9 +11,9 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Container, SideBar, MenuClickHorizontal } from 'react-revolution';
-// import Container from 'react-revolution/public/Container';
-// import SideBar from 'react-revolution/public/SideBar';
-// import MenuClickHorizontal from 'react-revolution/public/MenuClickHorizontal';
+// import Container from 'react-revolution/Container';
+// import SideBar from 'react-revolution/SideBar';
+// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
 
 <Container
     addClass='container-example'

@@ -2,7 +2,7 @@ import React from 'react';
 
 import trans from '../Translations/trans';
 
-import { Table } from '../../react-revolution/public/react-revolution';
+import { Table } from '../../react-revolution/react-revolution';
 
 const generateRelease = (version, data) => {
     return (

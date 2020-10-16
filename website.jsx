@@ -240,8 +240,9 @@ class App extends React.Component {
   }
 
   setLanguage(language = 'English') {
-    setLanguage(language);
-    window.location.reload();
+    if(setLanguage(language)){
+      window.location.reload();
+    }
   }
 
   setLayout(layout) {

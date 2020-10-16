@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SourceCode, LoadOnScroll, LoadingBoxTop, Table } from '../../react-revolution/public/react-revolution';
+import { SourceCode, LoadOnScroll, LoadingBoxTop, Table } from '../../react-revolution/react-revolution';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { SourceCode } from 'react-revolution';
-// import SourceCode from 'react-revolution/public/SourceCode';
+// import SourceCode from 'react-revolution/SourceCode';
 
 <SourceCode
     promise={true}

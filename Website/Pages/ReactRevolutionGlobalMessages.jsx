@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, GlobalMessages, addGlobalMessage, SourceCode, Clipboard, uuid } from '../../react-revolution/public/react-revolution';
+import { Table, GlobalMessages, addGlobalMessage, SourceCode, Clipboard, uuid } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
-// import GlobalMessages from 'react-revolution/public/GlobalMessages';
+// import GlobalMessages from 'react-revolution/GlobalMessages';
 
 <div
     className="button-action rr-revolution-button-clipboard"

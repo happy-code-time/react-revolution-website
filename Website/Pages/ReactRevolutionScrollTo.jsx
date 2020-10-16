@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { Table, ScrollTo, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, ScrollTo, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -12,7 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ScrollTo } from 'react-revolution';
-// import ScrollTo from 'react-revolution/public/ScrollTo';
+// import ScrollTo from 'react-revolution/ScrollTo';
 
 <ScrollTo
     id='uuid-2'
@@ -21,7 +21,7 @@ const codeExample1 = `import { ScrollTo } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { ScrollTo } from 'react-revolution';
-// import ScrollTo from 'react-revolution/public/ScrollTo';
+// import ScrollTo from 'react-revolution/ScrollTo';
 
 <ScrollTo
     html={

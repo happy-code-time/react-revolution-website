@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
@@ -11,8 +11,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { LoadOnScroll, LoadingBoxTop } from 'react-revolution';
-// import LoadOnScroll from 'react-revolution/public/LoadOnScroll';
-// import LoadingBoxTop from 'react-revolution/public/LoadingBoxTop';
+// import LoadOnScroll from 'react-revolution/LoadOnScroll';
+// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
 
 <div className="rr-revolution-loadonscroll-example">
     <LoadOnScroll
@@ -30,7 +30,7 @@ const codeExample1 = `import { LoadOnScroll, LoadingBoxTop } from 'react-revolut
 </div>`;
 
 const codeExample2 = `import { LoadOnScroll } from 'react-revolution';
-// import LoadOnScroll from 'react-revolution/public/LoadOnScroll';
+// import LoadOnScroll from 'react-revolution/LoadOnScroll';
 
 <div className="rr-revolution-loadonscroll-example">
     <LoadOnScroll
@@ -57,7 +57,7 @@ const codeExample2 = `import { LoadOnScroll } from 'react-revolution';
 </div>`;
 
 const codeExample3 = `import { LoadOnScroll } from 'react-revolution';
-// import LoadOnScroll from 'react-revolution/public/LoadOnScroll';
+// import LoadOnScroll from 'react-revolution/LoadOnScroll';
 
 <div className="rr-revolution-loadonscroll-example">
     <LoadOnScroll
@@ -84,7 +84,7 @@ const codeExample3 = `import { LoadOnScroll } from 'react-revolution';
 </div>`;
 
 const codeExample4 = `import { LoadOnScroll } from 'react-revolution';
-// import LoadOnScroll from 'react-revolution/public/LoadOnScroll';
+// import LoadOnScroll from 'react-revolution/LoadOnScroll';
 
 <div className="rr-revolution-loadonscroll-example">
     <LoadOnScroll

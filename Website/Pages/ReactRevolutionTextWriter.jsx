@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, TextWriter, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, TextWriter, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { TextWriter } from 'react-revolution';
-// import TextWriter from 'react-revolution/public/TextWriter';
+// import TextWriter from 'react-revolution/TextWriter';
 
 <TextWriter
     text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
@@ -25,7 +25,7 @@ const codeExample1 = `import { TextWriter } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { TextWriter } from 'react-revolution';
-// import TextWriter from 'react-revolution/public/TextWriter';
+// import TextWriter from 'react-revolution/TextWriter';
 
 <TextWriter
     text='React Divcreator'

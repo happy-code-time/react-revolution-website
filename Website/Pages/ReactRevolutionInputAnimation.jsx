@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, InputAnimation, LoadOnScroll, SourceCode, Clipboard, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, InputAnimation, LoadOnScroll, SourceCode, Clipboard, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { InputAnimation } from 'react-revolution';
-// import InputAnimation from 'react-revolution/public/InputAnimation';
+// import InputAnimation from 'react-revolution/InputAnimation';
 
 <InputAnimation
     inputPlaceholder='Placeholder'
@@ -29,7 +29,7 @@ const codeExample1 = `import { InputAnimation } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { InputAnimation } from 'react-revolution';
-// import InputAnimation from 'react-revolution/public/InputAnimation';
+// import InputAnimation from 'react-revolution/InputAnimation';
 
 <InputAnimation
     inputPlaceholder='Placeholder'

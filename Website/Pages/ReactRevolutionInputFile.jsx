@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, addGlobalMessage, GlobalMessages, InputFile, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, addGlobalMessage, GlobalMessages, InputFile, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { InputFile } from 'react-revolution';
-// import InputFile from 'react-revolution/public/InputFile';
+// import InputFile from 'react-revolution/InputFile';
 
 <InputFile
     allowedFileSize={2}

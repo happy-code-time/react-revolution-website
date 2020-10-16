@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Timeline, TextWriter, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Timeline, TextWriter, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,8 +11,8 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Timeline, TextWriter } from 'react-revolution';
-// import Timeline from 'react-revolution/public/Timeline';
-// import TextWriter from 'react-revolution/public/TextWriter';
+// import Timeline from 'react-revolution/Timeline';
+// import TextWriter from 'react-revolution/TextWriter';
 
 <Timeline
     lineMiddle={true}
@@ -23,8 +23,8 @@ const codeExample1 = `import { Timeline, TextWriter } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Timeline, TextWriter } from 'react-revolution';
-// import Timeline from 'react-revolution/public/Timeline';
-// import TextWriter from 'react-revolution/public/TextWriter';
+// import Timeline from 'react-revolution/Timeline';
+// import TextWriter from 'react-revolution/TextWriter';
 
 <Timeline
     lineMiddle={true}
@@ -36,8 +36,8 @@ const codeExample2 = `import { Timeline, TextWriter } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { Timeline, TextWriter } from 'react-revolution';
-// import Timeline from 'react-revolution/public/Timeline';
-// import TextWriter from 'react-revolution/public/TextWriter';
+// import Timeline from 'react-revolution/Timeline';
+// import TextWriter from 'react-revolution/TextWriter';
 
 <Timeline
     lineMiddle={true}

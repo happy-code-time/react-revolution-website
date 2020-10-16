@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, FullScreenOverlay, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, FullScreenOverlay, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenOverlay } from 'react-revolution';
-// import FullScreenOverlay from 'react-revolution/public/FullScreenOverlay';
+// import FullScreenOverlay from 'react-revolution/FullScreenOverlay';
 
 <div
     className="button-action rr-revolution-button-clipboard"

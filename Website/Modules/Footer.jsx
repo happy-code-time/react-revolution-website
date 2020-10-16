@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Cards, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Cards, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import { author } from '../Globals';
 

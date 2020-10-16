@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, InputSuggestionArray, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, InputSuggestionArray, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { InputSuggestionArray } from 'react-revolution';
-// import InputSuggestionArray from 'react-revolution/public/InputSuggestionArray';
+// import InputSuggestionArray from 'react-revolution/InputSuggestionArray';
 
 <InputSuggestionArray
     inputPlaceholder='Search for an email...'

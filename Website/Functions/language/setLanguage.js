@@ -21,7 +21,12 @@ const setLanguage = (language = 'en') => {
         }
     }
 
-    localStorage.setItem('applanguage', language);
+    if(localStorage.getItem('applanguage') !== language){
+        localStorage.setItem('applanguage', language);
+        return true;
+    }
+
+    return false;
 }
 
 export default setLanguage;

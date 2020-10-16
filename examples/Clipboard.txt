@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import trans from '../Translations/trans';
 
-import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/public/react-revolution';
+import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/react-revolution';
 
 import homeExample from '../CodeExamples/homeExample';
 

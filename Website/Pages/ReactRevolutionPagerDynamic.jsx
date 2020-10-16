@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, PagerDynamic, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, PagerDynamic, SourceCode, Clipboard, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,8 +13,8 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolution';
-// import PagerDynamic from 'react-revolution/public/PagerDynamic';
-// import LoadingBoxTop from 'react-revolution/public/LoadingBoxTop';
+// import PagerDynamic from 'react-revolution/PagerDynamic';
+// import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
 
 <div className="rr-revolution-pager-example">
     <PagerDynamic
@@ -57,7 +57,7 @@ const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolut
 </div>`;
 
 const codeExample2 = `import { PagerDynamic, uuid } from 'react-revolution';
-// import PagerDynamic from 'react-revolution/public/PagerDynamic';
+// import PagerDynamic from 'react-revolution/PagerDynamic';
 
 <div className="rr-revolution-pager-example">
     <PagerDynamic

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Table } from 'react-revolution';
-// import Table from 'react-revolution/public/Table';
+// import Table from 'react-revolution/Table';
 
 <Table
     mediaBreak={1024}

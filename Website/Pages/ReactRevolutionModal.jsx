@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Modal, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, Modal, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { Modal } from 'react-revolution';
-// import Modal from 'react-revolution/public/Modal';
+// import Modal from 'react-revolution/Modal';
 
 <button 
     style={

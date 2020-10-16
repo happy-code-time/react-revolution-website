@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, FullScreenListArray, SourceCode, Clipboard } from '../../react-revolution/public/react-revolution';
+import { Table, FullScreenListArray, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -13,7 +13,7 @@ import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenListArray } from 'react-revolution';
-// import FullScreenListArray from 'react-revolution/public/FullScreenListArray';
+// import FullScreenListArray from 'react-revolution/FullScreenListArray';
 
 <span>
     <div 

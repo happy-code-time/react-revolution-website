@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, DarkLines404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, DarkLines404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { DarkLines404 } from 'react-revolution';
-// import DarkLines404 from 'react-revolution/public/DarkLines404';
+// import DarkLines404 from 'react-revolution/DarkLines404';
 
 <DarkLines404
     boomAfter={1500}

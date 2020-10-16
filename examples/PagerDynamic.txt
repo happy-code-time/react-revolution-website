@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { PagerDynamic, LoadingBoxTop, uuid } from './react-revolution/public/react-revolution';
+import { PagerDynamic, LoadingBoxTop, uuid } from './react-revolution/react-revolution';
 
 //import { Breadcrumbs } from 'react-revolution';
 

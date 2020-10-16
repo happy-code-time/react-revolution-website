@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { Table, ReadMore, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, ReadMore, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -12,7 +12,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ReadMore } from 'react-revolution';
-// import ReadMore from 'react-revolution/public/ReadMore';
+// import ReadMore from 'react-revolution/readMore';
 
 <ReadMore
     addClass='rr-read-more-example'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Articles, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/public/react-revolution';
+import { Table, Articles, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Articles } from 'react-revolution';
-// import Articles from 'react-revolution/public/Articles';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -22,7 +22,7 @@ const codeExample1 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample2 = `import { Articles } from 'react-revolution';
-// import Articles from 'react-revolution/public/Articles';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -33,7 +33,7 @@ const codeExample2 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample3 = `import { Articles } from 'react-revolution';
-// import Articles from 'react-revolution/public/Articles';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -45,7 +45,7 @@ const codeExample3 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample4 = `import { Articles } from 'react-revolution';
-// import Articles from 'react-revolution/public/Articles';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example'
@@ -57,7 +57,7 @@ const codeExample4 = `import { Articles } from 'react-revolution';
 />`;
 
 const codeExample5 = `import { Articles } from 'react-revolution';
-// import Articles from 'react-revolution/public/Articles';
+// import Articles from 'react-revolution/Articles';
 
 <Articles
     addClass='rr-articles-example-buttons'
