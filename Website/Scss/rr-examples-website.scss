@@ -653,7 +653,7 @@
      * Drag drop area
      */
     .rr-drag-drop-area-example{
-        .area-single-item{
+        .area-single-entry{
             width: calc(100% - 10px);
             margin: 5px;
             border-radius: 5px;
@@ -662,13 +662,13 @@
             padding: 5px 3px;
         }
     
-        .area-single-item:hover{
+        .area-single-entry:hover{
             cursor: grab;
             background-color: dodgerblue;
             color: rgb(255,255,255);
         }
 
-        .area-single-item:active{
+        .area-single-entry:active{
             cursor: grabbing;
         }
     }

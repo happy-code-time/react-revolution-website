@@ -2,11 +2,11 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { DragDropArea, uuid } from './react-revolution/react-revolution';
+import { DragDropList, uuid } from './react-revolution/react-revolution';
 
 // import DragDropArea from './react-revolution/react-revolution';
 
-import './react-revolution/_Sass/rr-drag-drop-area.scss';
+import './react-revolution/_Sass/rr-drag-drop-list.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,9 +14,11 @@ class App extends React.Component {
         this.callback = this.callback.bind(this);
 
         this.state = {
+            areaProps: {}, //ul
             data: [
                 {
-                    text: 'Avocado'
+                    text: 'Avocado',
+                    props: {} // li
                 },
                 {
                     text: 'Avocado'
@@ -53,12 +55,12 @@ class App extends React.Component {
         return (
             <span>
                 <DragDropList
-                    addClass='rr-drag-drop-area-example'
-                    itemsPerLine={4}
-                    mediaBreak={1024}
+                    addClass='rr-drag-drop-list-example'
                     data={data}
                     callback={this.callback}
                     callbackAllowDrop={this.callbackAllowDrop}
+                    dropLoading='LAODING'
+                    append={false} // append or prepend (before item or after item)
                 />
                 <div className="">
                     {
@@ -66,9 +68,9 @@ class App extends React.Component {
                             return (
                                 <div key={uuid()}>
                                     {
-                                        `${change.source} 
+                                        `${change.sourceIndex} 
                                         -> 
-                                        ${change.target}
+                                        ${change.targetIndex}
                                         : 
                                         ${change.item.text}`
                                     }

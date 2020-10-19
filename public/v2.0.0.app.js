@@ -111,8 +111,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _react_revolution_react_revolution__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./react-revolution/react-revolution.js");
 /* harmony import */ var _react_revolution_react_revolution__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_react_revolution__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _react_revolution_Sass_rr_drag_drop_area_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./react-revolution/_Sass/rr-drag-drop-area.scss");
-/* harmony import */ var _react_revolution_Sass_rr_drag_drop_area_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_Sass_rr_drag_drop_area_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _react_revolution_Sass_rr_drag_drop_list_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./react-revolution/_Sass/rr-drag-drop-list.scss");
+/* harmony import */ var _react_revolution_Sass_rr_drag_drop_list_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_react_revolution_Sass_rr_drag_drop_list_scss__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -144,8 +144,12 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.callback = _this.callback.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3___default()(_this));
     _this.state = {
+      areaProps: {},
+      //ul
       data: [{
-        text: 'Avocado'
+        text: 'Avocado',
+        props: {} // li
+
       }, {
         text: 'Avocado'
       }, {
@@ -181,19 +185,20 @@ var App = /*#__PURE__*/function (_React$Component) {
       var _this$state = this.state,
           data = _this$state.data,
           changes = _this$state.changes;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(DragDropList, {
-        addClass: "rr-drag-drop-area-example",
-        itemsPerLine: 4,
-        mediaBreak: 1024,
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_react_revolution_react_revolution__WEBPACK_IMPORTED_MODULE_9__["DragDropList"], {
+        addClass: "rr-drag-drop-list-example",
         data: data,
         callback: this.callback,
-        callbackAllowDrop: this.callbackAllowDrop
+        callbackAllowDrop: this.callbackAllowDrop,
+        dropLoading: "LAODING",
+        append: false // append or prepend (before item or after item)
+
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: ""
       }, changes.map(function (change) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
           key: Object(_react_revolution_react_revolution__WEBPACK_IMPORTED_MODULE_9__["uuid"])()
-        }, "".concat(change.source, " \n                                        -> \n                                        ").concat(change.target, "\n                                        : \n                                        ").concat(change.item.text));
+        }, "".concat(change.sourceIndex, " \n                                        -> \n                                        ").concat(change.targetIndex, "\n                                        : \n                                        ").concat(change.item.text));
       })));
     }
   }]);
@@ -441,12 +446,12 @@ module.exports = _unsupportedIterableToArray;
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./react-revolution/_Sass/rr-drag-drop-area.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./react-revolution/_Sass/rr-drag-drop-list.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "/**\n * Vars\n */\n/**\n * Colors\n */\n/**\n * Classes\n */\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.w-100 {\n  width: 100%; }\n\n.d-none {\n  display: none; }\n\n/**\n * Module: Container\n */\n.rr-drag-drop-area ul,\n.rr-drag-drop-area ul li {\n  margin: 0;\n  padding: 0;\n  list-style: none; }\n\n.rr-drag-drop-area .target {\n  border-top: 1px solid red !important; }\n\n.rr-drag-drop-area .area {\n  width: 100%; }\n\n.rr-drag-drop-area .area-box {\n  margin: 10px;\n  border-radius: 5px;\n  border: 1px solid #dadce0;\n  width: 100%;\n  position: relative;\n  z-index: 1; }\n\n.rr-drag-drop-area .area-title,\n.rr-drag-drop-area .area-data {\n  box-sizing: border-box;\n  padding: 5px; }\n\n.rr-drag-drop-area .area-single-item {\n  user-select: none; }\n\n.rr-drag-drop-area .dragging-target {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  z-index: 2;\n  box-sizing: border-box;\n  padding: 10px;\n  border-radius: 5px;\n  border: 2px dashed #dadce0; }\n\n.rr-drag-drop-area .dragging-disabled {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  z-index: 2;\n  box-sizing: border-box;\n  padding: 10px;\n  border-radius: 5px;\n  background-color: #dadce0; }\n\n.rr-drag-drop-area .dragging-loading {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  z-index: 3;\n  box-sizing: border-box; }\n", ""]);
+exports.push([module.i, "/**\n * Vars\n */\n/**\n * Colors\n */\n/**\n * Classes\n */\n.flex {\n  display: flex; }\n\n.flex-row {\n  flex-direction: row; }\n\n.flex-column {\n  flex-direction: column; }\n\n.w-100 {\n  width: 100%; }\n\n.d-none {\n  display: none; }\n\n/**\n * Module: Container\n */\n.rr-drag-drop-list ul {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n  position: relative; }\n\n.rr-drag-drop-list ul li {\n  list-style: none; }\n\n.rr-drag-drop-list .drop-loading {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  z-index: 3;\n  box-sizing: border-box; }\n\n.rr-drag-drop-list-example .single-entry {\n  box-sizing: border-box;\n  padding: 5px 10px;\n  margin: 10px 0;\n  border-radius: 5px;\n  border: 1px solid #dadce0; }\n\n.rr-drag-drop-list-example .single-entry:hover {\n  cursor: grab;\n  background-color: dodgerblue;\n  color: white; }\n\n.rr-drag-drop-list-example .single-entry:active {\n  cursor: grabbing; }\n\n.rr-drag-drop-list-example .placeholder {\n  width: 100%;\n  height: 30px;\n  border: 1px dashed dodgerblue;\n  background-color: rgba(30, 144, 255, 0.1); }\n", ""]);
 
 
 
@@ -8575,11 +8580,11 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ "./react-revolution/_Sass/rr-drag-drop-area.scss":
+/***/ "./react-revolution/_Sass/rr-drag-drop-list.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__("./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./react-revolution/_Sass/rr-drag-drop-area.scss");
+var content = __webpack_require__("./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./react-revolution/_Sass/rr-drag-drop-list.scss");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -10725,12 +10730,12 @@ module.exports = function (e) {
 
   function a(n) {
     if (t[n]) return t[n].exports;
-    var i = t[n] = {
+    var l = t[n] = {
       i: n,
       l: !1,
       exports: {}
     };
-    return e[n].call(i.exports, i, i.exports, a), i.l = !0, i.exports;
+    return e[n].call(l.exports, l, l.exports, a), l.l = !0, l.exports;
   }
 
   return a.m = e, a.c = t, a.d = function (e, t, n) {
@@ -10751,9 +10756,9 @@ module.exports = function (e) {
     if (a.r(n), Object.defineProperty(n, "default", {
       enumerable: !0,
       value: e
-    }), 2 & t && "string" != typeof e) for (var i in e) a.d(n, i, function (t) {
+    }), 2 & t && "string" != typeof e) for (var l in e) a.d(n, l, function (t) {
       return e[t];
-    }.bind(null, i));
+    }.bind(null, l));
     return n;
   }, a.n = function (e) {
     var t = e && e.__esModule ? function () {
@@ -10764,7 +10769,7 @@ module.exports = function (e) {
     return a.d(t, "a", t), t;
   }, a.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t);
-  }, a.p = "", a(a.s = 31);
+  }, a.p = "", a(a.s = 30);
 }([function (e, t) {
   function a(t) {
     return "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? e.exports = a = function (e) {
@@ -10806,7 +10811,7 @@ module.exports = function (e) {
     return t && a(e.prototype, t), n && a(e, n), e;
   };
 }, function (e, t, a) {
-  var n = a(19);
+  var n = a(18);
 
   e.exports = function (e, t) {
     if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
@@ -10820,10 +10825,10 @@ module.exports = function (e) {
   };
 }, function (e, t, a) {
   var n = a(0),
-      i = a(2);
+      l = a(2);
 
   e.exports = function (e, t) {
-    return !t || "object" !== n(t) && "function" != typeof t ? i(e) : t;
+    return !t || "object" !== n(t) && "function" != typeof t ? l(e) : t;
   };
 }, function (e, t) {
   function a() {
@@ -10840,32 +10845,32 @@ module.exports = function (e) {
 
   e.exports = a;
 }, function (e, t, a) {
-  e.exports = a(22);
+  e.exports = a(21);
 }, function (e, t) {
-  function a(e, t, a, n, i, l, r) {
+  function a(e, t, a, n, l, i, r) {
     try {
-      var s = e[l](r),
+      var s = e[i](r),
           o = s.value;
     } catch (e) {
       return void a(e);
     }
 
-    s.done ? t(o) : Promise.resolve(o).then(n, i);
+    s.done ? t(o) : Promise.resolve(o).then(n, l);
   }
 
   e.exports = function (e) {
     return function () {
       var t = this,
           n = arguments;
-      return new Promise(function (i, l) {
+      return new Promise(function (l, i) {
         var r = e.apply(t, n);
 
         function s(e) {
-          a(r, i, l, s, o, "next", e);
+          a(r, l, i, s, o, "next", e);
         }
 
         function o(e) {
-          a(r, i, l, s, o, "throw", e);
+          a(r, l, i, s, o, "throw", e);
         }
 
         s(void 0);
@@ -10873,15 +10878,15 @@ module.exports = function (e) {
     };
   };
 }, function (e, t, a) {
-  e.exports = a(20)();
+  e.exports = a(19)();
 }, function (e, t, a) {
-  var n = a(23),
+  var n = a(22),
+      l = a(23),
       i = a(24),
-      l = a(25),
-      r = a(26);
+      r = a(25);
 
   e.exports = function (e) {
-    return n(e) || i(e) || l(e) || r();
+    return n(e) || l(e) || i(e) || r();
   };
 }, function (e, t) {
   e.exports = function (e, t, a) {
@@ -10909,11 +10914,11 @@ module.exports = function (e) {
 }, function (e, t, a) {
   "use strict";
 
-  e.exports = function (e, t, a, n, i, l, r, s) {
+  e.exports = function (e, t, a, n, l, i, r, s) {
     if (!e) {
       var o;
       if (void 0 === t) o = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
-        var c = [a, n, i, l, r, s],
+        var c = [a, n, l, i, r, s],
             u = 0;
         (o = new Error(t.replace(/%s/g, function () {
           return c[u++];
@@ -10930,7 +10935,7 @@ module.exports = function (e) {
 
     return n;
   };
-},, function (e, t) {
+}, function (e, t) {
   function a(t, n) {
     return e.exports = a = Object.setPrototypeOf || function (e, t) {
       return e.__proto__ = t, e;
@@ -10941,14 +10946,14 @@ module.exports = function (e) {
 }, function (e, t, a) {
   "use strict";
 
-  var n = a(21);
-
-  function i() {}
+  var n = a(20);
 
   function l() {}
 
-  l.resetWarningCache = i, e.exports = function () {
-    function e(e, t, a, i, l, r) {
+  function i() {}
+
+  i.resetWarningCache = l, e.exports = function () {
+    function e(e, t, a, l, i, r) {
       if (r !== n) {
         var s = new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
         throw s.name = "Invariant Violation", s;
@@ -10979,8 +10984,8 @@ module.exports = function (e) {
       oneOfType: t,
       shape: t,
       exact: t,
-      checkPropTypes: l,
-      resetWarningCache: i
+      checkPropTypes: i,
+      resetWarningCache: l
     };
     return a.PropTypes = a, a;
   };
@@ -10995,8 +11000,8 @@ module.exports = function (e) {
     var t = Object.prototype,
         a = t.hasOwnProperty,
         n = "function" == typeof Symbol ? Symbol : {},
-        i = n.iterator || "@@iterator",
-        l = n.asyncIterator || "@@asyncIterator",
+        l = n.iterator || "@@iterator",
+        i = n.asyncIterator || "@@asyncIterator",
         r = n.toStringTag || "@@toStringTag";
 
     function s(e, t, a) {
@@ -11017,20 +11022,20 @@ module.exports = function (e) {
     }
 
     function o(e, t, a, n) {
-      var i = t && t.prototype instanceof d ? t : d,
-          l = Object.create(i.prototype),
+      var l = t && t.prototype instanceof d ? t : d,
+          i = Object.create(l.prototype),
           r = new E(n || []);
-      return l._invoke = function (e, t, a) {
+      return i._invoke = function (e, t, a) {
         var n = "suspendedStart";
-        return function (i, l) {
+        return function (l, i) {
           if ("executing" === n) throw new Error("Generator is already running");
 
           if ("completed" === n) {
-            if ("throw" === i) throw l;
+            if ("throw" === l) throw i;
             return N();
           }
 
-          for (a.method = i, a.arg = l;;) {
+          for (a.method = l, a.arg = i;;) {
             var r = a.delegate;
 
             if (r) {
@@ -11060,7 +11065,7 @@ module.exports = function (e) {
             "throw" === o.type && (n = "completed", a.method = "throw", a.arg = o.arg);
           }
         };
-      }(e, a, r), l;
+      }(e, a, r), i;
     }
 
     function c(e, t, a) {
@@ -11088,13 +11093,13 @@ module.exports = function (e) {
 
     var h = {};
 
-    h[i] = function () {
+    h[l] = function () {
       return this;
     };
 
     var p = Object.getPrototypeOf,
         g = p && p(p(x([])));
-    g && g !== t && a.call(g, i) && (h = g);
+    g && g !== t && a.call(g, l) && (h = g);
     var v = m.prototype = d.prototype = Object.create(h);
 
     function y(e) {
@@ -11108,11 +11113,11 @@ module.exports = function (e) {
     function b(e, t) {
       var n;
 
-      this._invoke = function (i, l) {
+      this._invoke = function (l, i) {
         function r() {
           return new t(function (n, r) {
-            !function n(i, l, r, s) {
-              var o = c(e[i], e, l);
+            !function n(l, i, r, s) {
+              var o = c(e[l], e, i);
 
               if ("throw" !== o.type) {
                 var u = o.arg,
@@ -11129,7 +11134,7 @@ module.exports = function (e) {
               }
 
               s(o.arg);
-            }(i, l, n, r);
+            }(l, i, n, r);
           });
         }
 
@@ -11151,8 +11156,8 @@ module.exports = function (e) {
 
       var n = c(a, e.iterator, t.arg);
       if ("throw" === n.type) return t.method = "throw", t.arg = n.arg, t.delegate = null, u;
-      var i = n.arg;
-      return i ? i.done ? (t[e.resultName] = i.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, u) : i : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, u);
+      var l = n.arg;
+      return l ? l.done ? (t[e.resultName] = l.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, u) : l : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, u);
     }
 
     function C(e) {
@@ -11175,19 +11180,19 @@ module.exports = function (e) {
 
     function x(e) {
       if (e) {
-        var t = e[i];
+        var t = e[l];
         if (t) return t.call(e);
         if ("function" == typeof e.next) return e;
 
         if (!isNaN(e.length)) {
           var n = -1,
-              l = function t() {
+              i = function t() {
             for (; ++n < e.length;) if (a.call(e, n)) return t.value = e[n], t.done = !1, t;
 
             return t.value = void 0, t.done = !0, t;
           };
 
-          return l.next = l;
+          return i.next = i;
         }
       }
 
@@ -11212,15 +11217,15 @@ module.exports = function (e) {
       return {
         __await: e
       };
-    }, y(b.prototype), b.prototype[l] = function () {
+    }, y(b.prototype), b.prototype[i] = function () {
       return this;
-    }, e.AsyncIterator = b, e.async = function (t, a, n, i, l) {
-      void 0 === l && (l = Promise);
-      var r = new b(o(t, a, n, i), l);
+    }, e.AsyncIterator = b, e.async = function (t, a, n, l, i) {
+      void 0 === i && (i = Promise);
+      var r = new b(o(t, a, n, l), i);
       return e.isGeneratorFunction(a) ? r : r.next().then(function (e) {
         return e.done ? e.value : r.next();
       });
-    }, y(v), s(v, r, "Generator"), v[i] = function () {
+    }, y(v), s(v, r, "Generator"), v[l] = function () {
       return this;
     }, v.toString = function () {
       return "[object Generator]";
@@ -11256,40 +11261,40 @@ module.exports = function (e) {
           return r.type = "throw", r.arg = e, t.next = a, n && (t.method = "next", t.arg = void 0), !!n;
         }
 
-        for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-          var l = this.tryEntries[i],
-              r = l.completion;
-          if ("root" === l.tryLoc) return n("end");
+        for (var l = this.tryEntries.length - 1; l >= 0; --l) {
+          var i = this.tryEntries[l],
+              r = i.completion;
+          if ("root" === i.tryLoc) return n("end");
 
-          if (l.tryLoc <= this.prev) {
-            var s = a.call(l, "catchLoc"),
-                o = a.call(l, "finallyLoc");
+          if (i.tryLoc <= this.prev) {
+            var s = a.call(i, "catchLoc"),
+                o = a.call(i, "finallyLoc");
 
             if (s && o) {
-              if (this.prev < l.catchLoc) return n(l.catchLoc, !0);
-              if (this.prev < l.finallyLoc) return n(l.finallyLoc);
+              if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
+              if (this.prev < i.finallyLoc) return n(i.finallyLoc);
             } else if (s) {
-              if (this.prev < l.catchLoc) return n(l.catchLoc, !0);
+              if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
             } else {
               if (!o) throw new Error("try statement without catch or finally");
-              if (this.prev < l.finallyLoc) return n(l.finallyLoc);
+              if (this.prev < i.finallyLoc) return n(i.finallyLoc);
             }
           }
         }
       },
       abrupt: function (e, t) {
         for (var n = this.tryEntries.length - 1; n >= 0; --n) {
-          var i = this.tryEntries[n];
+          var l = this.tryEntries[n];
 
-          if (i.tryLoc <= this.prev && a.call(i, "finallyLoc") && this.prev < i.finallyLoc) {
-            var l = i;
+          if (l.tryLoc <= this.prev && a.call(l, "finallyLoc") && this.prev < l.finallyLoc) {
+            var i = l;
             break;
           }
         }
 
-        l && ("break" === e || "continue" === e) && l.tryLoc <= t && t <= l.finallyLoc && (l = null);
-        var r = l ? l.completion : {};
-        return r.type = e, r.arg = t, l ? (this.method = "next", this.next = l.finallyLoc, u) : this.complete(r);
+        i && ("break" === e || "continue" === e) && i.tryLoc <= t && t <= i.finallyLoc && (i = null);
+        var r = i ? i.completion : {};
+        return r.type = e, r.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, u) : this.complete(r);
       },
       complete: function (e, t) {
         if ("throw" === e.type) throw e.arg;
@@ -11309,11 +11314,11 @@ module.exports = function (e) {
             var n = a.completion;
 
             if ("throw" === n.type) {
-              var i = n.arg;
+              var l = n.arg;
               S(a);
             }
 
-            return i;
+            return l;
           }
         }
 
@@ -11377,7 +11382,7 @@ module.exports = function (e) {
       }
     }
 
-    function i(e, t, a) {
+    function l(e, t, a) {
       return t in e ? Object.defineProperty(e, t, {
         value: a,
         enumerable: !0,
@@ -11386,14 +11391,14 @@ module.exports = function (e) {
       }) : e[t] = a, e;
     }
 
-    function l(e) {
+    function i(e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = null != arguments[t] ? arguments[t] : {},
             n = Object.keys(a);
         "function" == typeof Object.getOwnPropertySymbols && (n = n.concat(Object.getOwnPropertySymbols(a).filter(function (e) {
           return Object.getOwnPropertyDescriptor(a, e).enumerable;
         }))), n.forEach(function (t) {
-          i(e, t, a[t]);
+          l(e, t, a[t]);
         });
       }
 
@@ -11406,18 +11411,18 @@ module.exports = function (e) {
       }(e) || function (e, t) {
         var a = [],
             n = !0,
-            i = !1,
-            l = void 0;
+            l = !1,
+            i = void 0;
 
         try {
           for (var r, s = e[Symbol.iterator](); !(n = (r = s.next()).done) && (a.push(r.value), !t || a.length !== t); n = !0);
         } catch (e) {
-          i = !0, l = e;
+          l = !0, i = e;
         } finally {
           try {
             n || null == s.return || s.return();
           } finally {
-            if (i) throw l;
+            if (l) throw i;
           }
         }
 
@@ -11468,18 +11473,18 @@ module.exports = function (e) {
         var t = r(e, 2),
             a = t[0],
             n = t[1],
-            i = function (e) {
+            l = function (e) {
           return "" === e || "false" !== e && ("true" === e || e);
         }(function (e) {
           var t = h.querySelector("script[" + e + "]");
           if (t) return t.getAttribute(e);
         }(a));
 
-        null != i && (k[n] = i);
+        null != l && (k[n] = l);
       });
     }
 
-    var C = l({}, {
+    var C = i({}, {
       familyPrefix: "fa",
       replacementClass: "svg-inline--fa",
       autoReplaceSvg: !0,
@@ -11493,7 +11498,7 @@ module.exports = function (e) {
       showMissingIcons: !0
     }, k);
     C.autoReplaceSvg || (C.observeMutations = !1);
-    var S = l({}, C);
+    var S = i({}, C);
     m.FontAwesomeConfig = S;
     var E = m || {};
     E.___FONT_AWESOME___ || (E.___FONT_AWESOME___ = {}), E.___FONT_AWESOME___.styles || (E.___FONT_AWESOME___.styles = {}), E.___FONT_AWESOME___.hooks || (E.___FONT_AWESOME___.hooks = {}), E.___FONT_AWESOME___.shims || (E.___FONT_AWESOME___.shims = []);
@@ -11505,40 +11510,40 @@ module.exports = function (e) {
       });
     }));
 
-    var w,
-        D = function () {},
+    var D,
+        w = function () {},
         P = void 0 !== e && void 0 !== e.process && "function" == typeof e.process.emit,
         T = void 0 === t ? setTimeout : t,
-        O = [];
+        L = [];
 
-    function L() {
-      for (var e = 0; e < O.length; e++) O[e][0](O[e][1]);
+    function O() {
+      for (var e = 0; e < L.length; e++) L[e][0](L[e][1]);
 
-      O = [], w = !1;
+      L = [], D = !1;
     }
 
     function R(e, t) {
-      O.push([e, t]), w || (w = !0, T(L, 0));
+      L.push([e, t]), D || (D = !0, T(O, 0));
     }
 
     function M(e) {
       var t = e.owner,
           a = t._state,
           n = t._data,
-          i = e[a],
-          l = e.then;
+          l = e[a],
+          i = e.then;
 
-      if ("function" == typeof i) {
+      if ("function" == typeof l) {
         a = "fulfilled";
 
         try {
-          n = i(n);
+          n = l(n);
         } catch (e) {
-          F(l, e);
+          F(i, e);
         }
       }
 
-      B(l, n) || ("fulfilled" === a && A(l, n), "rejected" === a && F(l, n));
+      B(i, n) || ("fulfilled" === a && A(i, n), "rejected" === a && F(i, n));
     }
 
     function B(e, t) {
@@ -11548,8 +11553,8 @@ module.exports = function (e) {
         if (e === t) throw new TypeError("A promises callback cannot return that same promise.");
 
         if (t && ("function" == typeof t || "object" === a(t))) {
-          var i = t.then;
-          if ("function" == typeof i) return i.call(t, function (a) {
+          var l = t.then;
+          if ("function" == typeof l) return l.call(t, function (a) {
             n || (n = !0, t === a ? I(e, a) : A(e, a));
           }, function (t) {
             n || (n = !0, F(e, t));
@@ -11567,22 +11572,22 @@ module.exports = function (e) {
     }
 
     function I(e, t) {
-      "pending" === e._state && (e._state = "settled", e._data = t, R(z, e));
+      "pending" === e._state && (e._state = "settled", e._data = t, R(j, e));
     }
 
     function F(e, t) {
-      "pending" === e._state && (e._state = "settled", e._data = t, R(j, e));
+      "pending" === e._state && (e._state = "settled", e._data = t, R(z, e));
     }
 
     function V(e) {
       e._then = e._then.forEach(M);
     }
 
-    function z(e) {
+    function j(e) {
       e._state = "fulfilled", V(e);
     }
 
-    function j(t) {
+    function z(t) {
       t._state = "rejected", V(t), !t._handled && P && e.process.emit("unhandledRejection", t._data, t);
     }
 
@@ -11617,7 +11622,7 @@ module.exports = function (e) {
       then: function (e, t) {
         var a = {
           owner: this,
-          then: new this.constructor(D),
+          then: new this.constructor(w),
           fulfilled: e,
           rejected: t
         };
@@ -11630,22 +11635,22 @@ module.exports = function (e) {
       if (!Array.isArray(e)) throw new TypeError("You must pass an array to Promise.all().");
       return new U(function (t, a) {
         var n = [],
-            i = 0;
+            l = 0;
 
-        function l(e) {
-          return i++, function (a) {
-            n[e] = a, --i || t(n);
+        function i(e) {
+          return l++, function (a) {
+            n[e] = a, --l || t(n);
           };
         }
 
-        for (var r, s = 0; s < e.length; s++) (r = e[s]) && "function" == typeof r.then ? r.then(l(s), a) : n[s] = r;
+        for (var r, s = 0; s < e.length; s++) (r = e[s]) && "function" == typeof r.then ? r.then(i(s), a) : n[s] = r;
 
-        i || t(n);
+        l || t(n);
       });
     }, U.race = function (e) {
       if (!Array.isArray(e)) throw new TypeError("You must pass an array to Promise.race().");
       return new U(function (t, a) {
-        for (var n, i = 0; i < e.length; i++) (n = e[i]) && "function" == typeof n.then ? n.then(t, a) : t(n);
+        for (var n, l = 0; l < e.length; l++) (n = e[l]) && "function" == typeof n.then ? n.then(t, a) : t(n);
       });
     }, U.resolve = function (e) {
       return e && "object" === a(e) && e.constructor === U ? e : new U(function (t) {
@@ -11670,10 +11675,10 @@ module.exports = function (e) {
         var t = h.createElement("style");
         t.setAttribute("type", "text/css"), t.innerHTML = e;
 
-        for (var a = h.head.childNodes, n = null, i = a.length - 1; i > -1; i--) {
-          var l = a[i],
-              r = (l.tagName || "").toUpperCase();
-          ["STYLE", "LINK"].indexOf(r) > -1 && (n = l);
+        for (var a = h.head.childNodes, n = null, l = a.length - 1; l > -1; l--) {
+          var i = a[l],
+              r = (i.tagName || "").toUpperCase();
+          ["STYLE", "LINK"].indexOf(r) > -1 && (n = i);
         }
 
         return h.head.insertBefore(t, n), e;
@@ -11686,11 +11691,11 @@ module.exports = function (e) {
       return t;
     }
 
-    function W(e) {
+    function q(e) {
       return "".concat(e).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
-    function q(e) {
+    function W(e) {
       return Object.keys(e || {}).reduce(function (t, a) {
         return t + "".concat(a, ": ").concat(e[a], ";");
       }, "");
@@ -11704,16 +11709,16 @@ module.exports = function (e) {
       var t = e.transform,
           a = e.containerWidth,
           n = e.iconWidth,
-          i = {
+          l = {
         transform: "translate(".concat(a / 2, " 256)")
       },
-          l = "translate(".concat(32 * t.x, ", ").concat(32 * t.y, ") "),
+          i = "translate(".concat(32 * t.x, ", ").concat(32 * t.y, ") "),
           r = "scale(".concat(t.size / 16 * (t.flipX ? -1 : 1), ", ").concat(t.size / 16 * (t.flipY ? -1 : 1), ") "),
           s = "rotate(".concat(t.rotate, " 0 0)");
       return {
-        outer: i,
+        outer: l,
         inner: {
-          transform: "".concat(l, " ").concat(r, " ").concat(s)
+          transform: "".concat(i, " ").concat(r, " ").concat(s)
         },
         path: {
           transform: "translate(".concat(n / 2 * -1, " -256)")
@@ -11737,7 +11742,7 @@ module.exports = function (e) {
       var t = e.icons,
           a = t.main,
           n = t.mask,
-          i = e.prefix,
+          l = e.prefix,
           r = e.iconName,
           s = e.transform,
           o = e.symbol,
@@ -11750,7 +11755,7 @@ module.exports = function (e) {
           p = n.found ? n : a,
           g = p.width,
           v = p.height,
-          y = "fak" === i,
+          y = "fak" === l,
           b = y ? "" : "fa-w-".concat(Math.ceil(g / v * 16)),
           k = [S.replacementClass, r ? "".concat(S.familyPrefix, "-").concat(r) : "", b].filter(function (e) {
         return -1 === f.classes.indexOf(e);
@@ -11759,8 +11764,8 @@ module.exports = function (e) {
       }).concat(f.classes).join(" "),
           C = {
         children: [],
-        attributes: l({}, f.attributes, {
-          "data-prefix": i,
+        attributes: i({}, f.attributes, {
+          "data-prefix": l,
           "data-icon": r,
           class: k,
           role: f.attributes.role || "img",
@@ -11778,26 +11783,26 @@ module.exports = function (e) {
         },
         children: [c]
       });
-      var x = l({}, C, {
-        prefix: i,
+      var x = i({}, C, {
+        prefix: l,
         iconName: r,
         main: a,
         mask: n,
         maskId: u,
         transform: s,
         symbol: o,
-        styles: l({}, E, f.styles)
+        styles: i({}, E, f.styles)
       }),
           N = n.found && a.found ? function (e) {
         var t,
             a = e.children,
             n = e.attributes,
-            i = e.main,
+            l = e.main,
             r = e.mask,
             s = e.maskId,
             o = e.transform,
-            c = i.width,
-            u = i.icon,
+            c = l.width,
+            u = l.icon,
             d = r.width,
             f = r.icon,
             m = G({
@@ -11807,7 +11812,7 @@ module.exports = function (e) {
         }),
             h = {
           tag: "rect",
-          attributes: l({}, Z, {
+          attributes: i({}, Z, {
             fill: "white"
           })
         },
@@ -11816,22 +11821,22 @@ module.exports = function (e) {
         } : {},
             g = {
           tag: "g",
-          attributes: l({}, m.inner),
-          children: [X(l({
+          attributes: i({}, m.inner),
+          children: [X(i({
             tag: u.tag,
-            attributes: l({}, u.attributes, m.path)
+            attributes: i({}, u.attributes, m.path)
           }, p))]
         },
             v = {
           tag: "g",
-          attributes: l({}, m.outer),
+          attributes: i({}, m.outer),
           children: [g]
         },
             y = "mask-".concat(s || J()),
             b = "clip-".concat(s || J()),
             k = {
           tag: "mask",
-          attributes: l({}, Z, {
+          attributes: i({}, Z, {
             id: y,
             maskUnits: "userSpaceOnUse",
             maskContentUnits: "userSpaceOnUse"
@@ -11850,7 +11855,7 @@ module.exports = function (e) {
         };
         return a.push(C, {
           tag: "rect",
-          attributes: l({
+          attributes: i({
             fill: "currentColor",
             "clip-path": "url(#".concat(b, ")"),
             mask: "url(#".concat(y, ")")
@@ -11863,25 +11868,25 @@ module.exports = function (e) {
         var t = e.children,
             a = e.attributes,
             n = e.main,
-            i = e.transform,
-            r = q(e.styles);
+            l = e.transform,
+            r = W(e.styles);
 
-        if (r.length > 0 && (a.style = r), Y(i)) {
+        if (r.length > 0 && (a.style = r), Y(l)) {
           var s = G({
-            transform: i,
+            transform: l,
             containerWidth: n.width,
             iconWidth: n.width
           });
           t.push({
             tag: "g",
-            attributes: l({}, s.outer),
+            attributes: i({}, s.outer),
             children: [{
               tag: "g",
-              attributes: l({}, s.inner),
+              attributes: i({}, s.inner),
               children: [{
                 tag: n.icon.tag,
                 children: n.icon.children,
-                attributes: l({}, n.icon.attributes, s.path)
+                attributes: i({}, n.icon.attributes, s.path)
               }]
             }]
           });
@@ -11892,13 +11897,13 @@ module.exports = function (e) {
           attributes: a
         };
       }(x),
-          w = N.children,
-          D = N.attributes;
-      return x.children = w, x.attributes = D, o ? function (e) {
+          D = N.children,
+          w = N.attributes;
+      return x.children = D, x.attributes = w, o ? function (e) {
         var t = e.prefix,
             a = e.iconName,
             n = e.children,
-            i = e.attributes,
+            l = e.attributes,
             r = e.symbol;
         return [{
           tag: "svg",
@@ -11907,7 +11912,7 @@ module.exports = function (e) {
           },
           children: [{
             tag: "symbol",
-            attributes: l({}, i, {
+            attributes: i({}, l, {
               id: !0 === r ? "".concat(t, "-").concat(S.familyPrefix, "-").concat(a) : r
             }),
             children: n
@@ -11917,7 +11922,7 @@ module.exports = function (e) {
         var t = e.children,
             a = e.main,
             n = e.mask,
-            i = e.attributes,
+            l = e.attributes,
             r = e.styles,
             s = e.transform;
 
@@ -11926,14 +11931,14 @@ module.exports = function (e) {
             x: a.width / a.height / 2,
             y: .5
           };
-          i.style = q(l({}, r, {
+          l.style = W(i({}, r, {
             "transform-origin": "".concat(o.x + s.x / 16, "em ").concat(o.y + s.y / 16, "em")
           }));
         }
 
         return [{
           tag: "svg",
-          attributes: i,
+          attributes: l,
           children: t
         }];
       }(x);
@@ -11941,18 +11946,18 @@ module.exports = function (e) {
 
     var Q = function () {},
         ee = (S.measurePerformance && p && p.mark && p.measure, function (e, t, a, n) {
-      var i,
-          l,
+      var l,
+          i,
           r,
           s = Object.keys(e),
           o = s.length,
           c = void 0 !== n ? function (e, t) {
-        return function (a, n, i, l) {
-          return e.call(t, a, n, i, l);
+        return function (a, n, l, i) {
+          return e.call(t, a, n, l, i);
         };
       }(t, n) : t;
 
-      for (void 0 === a ? (i = 1, r = e[s[0]]) : (i = 0, r = a); i < o; i++) r = c(r, e[l = s[i]], l, e);
+      for (void 0 === a ? (l = 1, r = e[s[0]]) : (l = 0, r = a); l < o; l++) r = c(r, e[i = s[l]], i, e);
 
       return r;
     });
@@ -11960,17 +11965,17 @@ module.exports = function (e) {
     function te(e, t) {
       var a = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
           n = a.skipHooks,
-          i = void 0 !== n && n,
+          l = void 0 !== n && n,
           r = Object.keys(t).reduce(function (e, a) {
         var n = t[a];
         return !!n.icon ? e[n.iconName] = n.icon : e[a] = n, e;
       }, {});
-      "function" != typeof x.hooks.addPack || i ? x.styles[e] = l({}, x.styles[e] || {}, r) : x.hooks.addPack(e, r), "fas" === e && te("fa", t);
+      "function" != typeof x.hooks.addPack || l ? x.styles[e] = i({}, x.styles[e] || {}, r) : x.hooks.addPack(e, r), "fas" === e && te("fa", t);
     }
 
     var ae = x.styles,
         ne = x.shims,
-        ie = function () {
+        le = function () {
       var e = function (e) {
         return ee(ae, function (t, a, n) {
           return t[n] = ee(a, e, {}), t;
@@ -11988,19 +11993,19 @@ module.exports = function (e) {
       var t = ("far" in ae);
       ee(ne, function (e, a) {
         var n = a[0],
-            i = a[1],
-            l = a[2];
-        return "far" !== i || t || (i = "fas"), e[n] = {
-          prefix: i,
-          iconName: l
+            l = a[1],
+            i = a[2];
+        return "far" !== l || t || (l = "fas"), e[n] = {
+          prefix: l,
+          iconName: i
         }, e;
       }, {});
     };
 
-    ie();
+    le();
     x.styles;
 
-    function le(e, t, a) {
+    function ie(e, t, a) {
       if (e && e[t] && e[t][a]) return {
         prefix: t,
         iconName: a,
@@ -12012,13 +12017,13 @@ module.exports = function (e) {
       var t = e.tag,
           a = e.attributes,
           n = void 0 === a ? {} : a,
-          i = e.children,
-          l = void 0 === i ? [] : i;
-      return "string" == typeof e ? W(e) : "<".concat(t, " ").concat(function (e) {
+          l = e.children,
+          i = void 0 === l ? [] : l;
+      return "string" == typeof e ? q(e) : "<".concat(t, " ").concat(function (e) {
         return Object.keys(e || {}).reduce(function (t, a) {
-          return t + "".concat(a, '="').concat(W(e[a]), '" ');
+          return t + "".concat(a, '="').concat(q(e[a]), '" ');
         }, "").trim();
-      }(n), ">").concat(l.map(re).join(""), "</").concat(t, ">");
+      }(n), ">").concat(i.map(re).join(""), "</").concat(t, ">");
     }
 
     function se(e) {
@@ -12036,31 +12041,31 @@ module.exports = function (e) {
     },
         ue = {
       tag: "path",
-      attributes: l({}, oe, {
+      attributes: i({}, oe, {
         d: "M156.5,447.7l-12.6,29.5c-18.7-9.5-35.9-21.2-51.5-34.9l22.7-22.7C127.6,430.5,141.5,440,156.5,447.7z M40.6,272H8.5 c1.4,21.2,5.4,41.7,11.7,61.1L50,321.2C45.1,305.5,41.8,289,40.6,272z M40.6,240c1.4-18.8,5.2-37,11.1-54.1l-29.5-12.6 C14.7,194.3,10,216.7,8.5,240H40.6z M64.3,156.5c7.8-14.9,17.2-28.8,28.1-41.5L69.7,92.3c-13.7,15.6-25.5,32.8-34.9,51.5 L64.3,156.5z M397,419.6c-13.9,12-29.4,22.3-46.1,30.4l11.9,29.8c20.7-9.9,39.8-22.6,56.9-37.6L397,419.6z M115,92.4 c13.9-12,29.4-22.3,46.1-30.4l-11.9-29.8c-20.7,9.9-39.8,22.6-56.8,37.6L115,92.4z M447.7,355.5c-7.8,14.9-17.2,28.8-28.1,41.5 l22.7,22.7c13.7-15.6,25.5-32.9,34.9-51.5L447.7,355.5z M471.4,272c-1.4,18.8-5.2,37-11.1,54.1l29.5,12.6 c7.5-21.1,12.2-43.5,13.6-66.8H471.4z M321.2,462c-15.7,5-32.2,8.2-49.2,9.4v32.1c21.2-1.4,41.7-5.4,61.1-11.7L321.2,462z M240,471.4c-18.8-1.4-37-5.2-54.1-11.1l-12.6,29.5c21.1,7.5,43.5,12.2,66.8,13.6V471.4z M462,190.8c5,15.7,8.2,32.2,9.4,49.2h32.1 c-1.4-21.2-5.4-41.7-11.7-61.1L462,190.8z M92.4,397c-12-13.9-22.3-29.4-30.4-46.1l-29.8,11.9c9.9,20.7,22.6,39.8,37.6,56.9 L92.4,397z M272,40.6c18.8,1.4,36.9,5.2,54.1,11.1l12.6-29.5C317.7,14.7,295.3,10,272,8.5V40.6z M190.8,50 c15.7-5,32.2-8.2,49.2-9.4V8.5c-21.2,1.4-41.7,5.4-61.1,11.7L190.8,50z M442.3,92.3L419.6,115c12,13.9,22.3,29.4,30.5,46.1 l29.8-11.9C470,128.5,457.3,109.4,442.3,92.3z M397,92.4l22.7-22.7c-15.6-13.7-32.8-25.5-51.5-34.9l-12.6,29.5 C370.4,72.1,384.4,81.5,397,92.4z"
       })
     },
-        de = l({}, ce, {
+        de = i({}, ce, {
       attributeName: "opacity"
     });
-    l({}, oe, {
+    i({}, oe, {
       cx: "256",
       cy: "364",
       r: "28"
-    }), l({}, ce, {
+    }), i({}, ce, {
       attributeName: "r",
       values: "28;14;28;28;14;28;"
-    }), l({}, de, {
+    }), i({}, de, {
       values: "1;0;1;1;0;1;"
-    }), l({}, oe, {
+    }), i({}, oe, {
       opacity: "1",
       d: "M263.7,312h-16c-6.6,0-12-5.4-12-12c0-71,77.4-63.9,77.4-107.8c0-20-17.8-40.2-57.4-40.2c-29.1,0-44.3,9.6-59.2,28.7 c-3.9,5-11.1,6-16.2,2.4l-13.1-9.2c-5.6-3.9-6.9-11.8-2.6-17.2c21.2-27.2,46.4-44.7,91.2-44.7c52.3,0,97.4,29.8,97.4,80.2 c0,67.6-77.4,63.5-77.4,107.8C275.7,306.6,270.3,312,263.7,312z"
-    }), l({}, de, {
+    }), i({}, de, {
       values: "1;0;0;0;0;1;"
-    }), l({}, oe, {
+    }), i({}, oe, {
       opacity: "0",
       d: "M232.5,134.5l7,168c0.3,6.4,5.6,11.5,12,11.5h9c6.4,0,11.7-5.1,12-11.5l7-168c0.3-6.8-5.2-12.5-12-12.5h-23 C237.7,122,232.2,127.7,232.5,134.5z"
-    }), l({}, de, {
+    }), i({}, de, {
       values: "0;0;1;1;0;0;"
     }), x.styles;
 
@@ -12111,10 +12116,10 @@ module.exports = function (e) {
           n = 'svg:not(:root).svg-inline--fa {\n  overflow: visible;\n}\n\n.svg-inline--fa {\n  display: inline-block;\n  font-size: inherit;\n  height: 1em;\n  overflow: visible;\n  vertical-align: -0.125em;\n}\n.svg-inline--fa.fa-lg {\n  vertical-align: -0.225em;\n}\n.svg-inline--fa.fa-w-1 {\n  width: 0.0625em;\n}\n.svg-inline--fa.fa-w-2 {\n  width: 0.125em;\n}\n.svg-inline--fa.fa-w-3 {\n  width: 0.1875em;\n}\n.svg-inline--fa.fa-w-4 {\n  width: 0.25em;\n}\n.svg-inline--fa.fa-w-5 {\n  width: 0.3125em;\n}\n.svg-inline--fa.fa-w-6 {\n  width: 0.375em;\n}\n.svg-inline--fa.fa-w-7 {\n  width: 0.4375em;\n}\n.svg-inline--fa.fa-w-8 {\n  width: 0.5em;\n}\n.svg-inline--fa.fa-w-9 {\n  width: 0.5625em;\n}\n.svg-inline--fa.fa-w-10 {\n  width: 0.625em;\n}\n.svg-inline--fa.fa-w-11 {\n  width: 0.6875em;\n}\n.svg-inline--fa.fa-w-12 {\n  width: 0.75em;\n}\n.svg-inline--fa.fa-w-13 {\n  width: 0.8125em;\n}\n.svg-inline--fa.fa-w-14 {\n  width: 0.875em;\n}\n.svg-inline--fa.fa-w-15 {\n  width: 0.9375em;\n}\n.svg-inline--fa.fa-w-16 {\n  width: 1em;\n}\n.svg-inline--fa.fa-w-17 {\n  width: 1.0625em;\n}\n.svg-inline--fa.fa-w-18 {\n  width: 1.125em;\n}\n.svg-inline--fa.fa-w-19 {\n  width: 1.1875em;\n}\n.svg-inline--fa.fa-w-20 {\n  width: 1.25em;\n}\n.svg-inline--fa.fa-pull-left {\n  margin-right: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-pull-right {\n  margin-left: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-border {\n  height: 1.5em;\n}\n.svg-inline--fa.fa-li {\n  width: 2em;\n}\n.svg-inline--fa.fa-fw {\n  width: 1.25em;\n}\n\n.fa-layers svg.svg-inline--fa {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.fa-layers {\n  display: inline-block;\n  height: 1em;\n  position: relative;\n  text-align: center;\n  vertical-align: -0.125em;\n  width: 1em;\n}\n.fa-layers svg.svg-inline--fa {\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter, .fa-layers-text {\n  display: inline-block;\n  position: absolute;\n  text-align: center;\n}\n\n.fa-layers-text {\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter {\n  background-color: #ff253a;\n  border-radius: 1em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  color: #fff;\n  height: 1.5em;\n  line-height: 1;\n  max-width: 5em;\n  min-width: 1.5em;\n  overflow: hidden;\n  padding: 0.25em;\n  right: 0;\n  text-overflow: ellipsis;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-bottom-right {\n  bottom: 0;\n  right: 0;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom right;\n          transform-origin: bottom right;\n}\n\n.fa-layers-bottom-left {\n  bottom: 0;\n  left: 0;\n  right: auto;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom left;\n          transform-origin: bottom left;\n}\n\n.fa-layers-top-right {\n  right: 0;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-top-left {\n  left: 0;\n  right: auto;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top left;\n          transform-origin: top left;\n}\n\n.fa-lg {\n  font-size: 1.3333333333em;\n  line-height: 0.75em;\n  vertical-align: -0.0667em;\n}\n\n.fa-xs {\n  font-size: 0.75em;\n}\n\n.fa-sm {\n  font-size: 0.875em;\n}\n\n.fa-1x {\n  font-size: 1em;\n}\n\n.fa-2x {\n  font-size: 2em;\n}\n\n.fa-3x {\n  font-size: 3em;\n}\n\n.fa-4x {\n  font-size: 4em;\n}\n\n.fa-5x {\n  font-size: 5em;\n}\n\n.fa-6x {\n  font-size: 6em;\n}\n\n.fa-7x {\n  font-size: 7em;\n}\n\n.fa-8x {\n  font-size: 8em;\n}\n\n.fa-9x {\n  font-size: 9em;\n}\n\n.fa-10x {\n  font-size: 10em;\n}\n\n.fa-fw {\n  text-align: center;\n  width: 1.25em;\n}\n\n.fa-ul {\n  list-style-type: none;\n  margin-left: 2.5em;\n  padding-left: 0;\n}\n.fa-ul > li {\n  position: relative;\n}\n\n.fa-li {\n  left: -2em;\n  position: absolute;\n  text-align: center;\n  width: 2em;\n  line-height: inherit;\n}\n\n.fa-border {\n  border: solid 0.08em #eee;\n  border-radius: 0.1em;\n  padding: 0.2em 0.25em 0.15em;\n}\n\n.fa-pull-left {\n  float: left;\n}\n\n.fa-pull-right {\n  float: right;\n}\n\n.fa.fa-pull-left,\n.fas.fa-pull-left,\n.far.fa-pull-left,\n.fal.fa-pull-left,\n.fab.fa-pull-left {\n  margin-right: 0.3em;\n}\n.fa.fa-pull-right,\n.fas.fa-pull-right,\n.far.fa-pull-right,\n.fal.fa-pull-right,\n.fab.fa-pull-right {\n  margin-left: 0.3em;\n}\n\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n          animation: fa-spin 2s infinite linear;\n}\n\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n          animation: fa-spin 1s infinite steps(8);\n}\n\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n\n.fa-rotate-180 {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n\n.fa-rotate-270 {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";\n  -webkit-transform: rotate(270deg);\n          transform: rotate(270deg);\n}\n\n.fa-flip-horizontal {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";\n  -webkit-transform: scale(-1, 1);\n          transform: scale(-1, 1);\n}\n\n.fa-flip-vertical {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";\n  -webkit-transform: scale(1, -1);\n          transform: scale(1, -1);\n}\n\n.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {\n  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";\n  -webkit-transform: scale(-1, -1);\n          transform: scale(-1, -1);\n}\n\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical,\n:root .fa-flip-both {\n  -webkit-filter: none;\n          filter: none;\n}\n\n.fa-stack {\n  display: inline-block;\n  height: 2em;\n  position: relative;\n  width: 2.5em;\n}\n\n.fa-stack-1x,\n.fa-stack-2x {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.svg-inline--fa.fa-stack-1x {\n  height: 1em;\n  width: 1.25em;\n}\n.svg-inline--fa.fa-stack-2x {\n  height: 2em;\n  width: 2.5em;\n}\n\n.fa-inverse {\n  color: #fff;\n}\n\n.sr-only {\n  border: 0;\n  clip: rect(0, 0, 0, 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n  clip: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n}\n\n.svg-inline--fa .fa-primary {\n  fill: var(--fa-primary-color, currentColor);\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa .fa-secondary {\n  fill: var(--fa-secondary-color, currentColor);\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-primary {\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-secondary {\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa mask .fa-primary,\n.svg-inline--fa mask .fa-secondary {\n  fill: black;\n}\n\n.fad.fa-inverse {\n  color: #fff;\n}';
 
       if ("fa" !== t || a !== e) {
-        var i = new RegExp("\\.".concat("fa", "\\-"), "g"),
-            l = new RegExp("\\--".concat("fa", "\\-"), "g"),
+        var l = new RegExp("\\.".concat("fa", "\\-"), "g"),
+            i = new RegExp("\\--".concat("fa", "\\-"), "g"),
             r = new RegExp("\\.".concat(e), "g");
-        n = n.replace(i, ".".concat(t, "-")).replace(l, "--".concat(t, "-")).replace(r, ".".concat(a));
+        n = n.replace(l, ".".concat(t, "-")).replace(i, "--".concat(t, "-")).replace(r, ".".concat(a));
       }
 
       return n;
@@ -12147,7 +12152,7 @@ module.exports = function (e) {
       var t = e.prefix,
           a = void 0 === t ? "fa" : t,
           n = e.iconName;
-      if (n) return le(ye.definitions, a, n) || le(x.styles, a, n);
+      if (n) return ie(ye.definitions, a, n) || ie(x.styles, a, n);
     }
 
     var ve,
@@ -12158,15 +12163,15 @@ module.exports = function (e) {
         }(this, e), this.definitions = {};
       }
 
-      var t, a, i;
+      var t, a, l;
       return t = e, (a = [{
         key: "add",
         value: function () {
           for (var e = this, t = arguments.length, a = new Array(t), n = 0; n < t; n++) a[n] = arguments[n];
 
-          var i = a.reduce(this._pullDefinitions, {});
-          Object.keys(i).forEach(function (t) {
-            e.definitions[t] = l({}, e.definitions[t] || {}, i[t]), te(t, i[t]), ie();
+          var l = a.reduce(this._pullDefinitions, {});
+          Object.keys(l).forEach(function (t) {
+            e.definitions[t] = i({}, e.definitions[t] || {}, l[t]), te(t, l[t]), le();
           });
         }
       }, {
@@ -12182,13 +12187,13 @@ module.exports = function (e) {
           } : t;
           return Object.keys(a).map(function (t) {
             var n = a[t],
-                i = n.prefix,
-                l = n.iconName,
+                l = n.prefix,
+                i = n.iconName,
                 r = n.icon;
-            e[i] || (e[i] = {}), e[i][l] = r;
+            e[l] || (e[l] = {}), e[l][i] = r;
           }), e;
         }
-      }]) && n(t.prototype, a), i && n(t, i), e;
+      }]) && n(t.prototype, a), l && n(t, l), e;
     }())(),
         be = !1;
 
@@ -12196,8 +12201,8 @@ module.exports = function (e) {
       var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
           a = t.transform,
           n = void 0 === a ? H : a,
-          i = t.symbol,
-          r = void 0 !== i && i,
+          l = t.symbol,
+          r = void 0 !== l && l,
           s = t.mask,
           o = void 0 === s ? null : s,
           c = t.maskId,
@@ -12217,7 +12222,7 @@ module.exports = function (e) {
         var C = e.prefix,
             E = e.iconName,
             x = e.icon;
-        return pe(l({
+        return pe(i({
           type: "icon"
         }, e), function () {
           return he(), S.autoA11y && (f ? y["aria-labelledby"] = "".concat(S.replacementClass, "-title-").concat(h || J()) : (y["aria-hidden"] = "true", y.focusable = "false")), $({
@@ -12232,7 +12237,7 @@ module.exports = function (e) {
             },
             prefix: C,
             iconName: E,
-            transform: l({}, H, n),
+            transform: i({}, H, n),
             symbol: r,
             title: f,
             maskId: u,
@@ -12246,23 +12251,23 @@ module.exports = function (e) {
         });
       }
     };
-  }).call(this, a(15), a(28).setImmediate);
+  }).call(this, a(15), a(27).setImmediate);
 }, function (e, t, a) {
   (function (e) {
     var n = void 0 !== e && e || "undefined" != typeof self && self || window,
-        i = Function.prototype.apply;
+        l = Function.prototype.apply;
 
-    function l(e, t) {
+    function i(e, t) {
       this._id = e, this._clearFn = t;
     }
 
     t.setTimeout = function () {
-      return new l(i.call(setTimeout, n, arguments), clearTimeout);
+      return new i(l.call(setTimeout, n, arguments), clearTimeout);
     }, t.setInterval = function () {
-      return new l(i.call(setInterval, n, arguments), clearInterval);
+      return new i(l.call(setInterval, n, arguments), clearInterval);
     }, t.clearTimeout = t.clearInterval = function (e) {
       e && e.close();
-    }, l.prototype.unref = l.prototype.ref = function () {}, l.prototype.close = function () {
+    }, i.prototype.unref = i.prototype.ref = function () {}, i.prototype.close = function () {
       this._clearFn.call(n, this._id);
     }, t.enroll = function (e, t) {
       clearTimeout(e._idleTimeoutId), e._idleTimeout = t;
@@ -12274,7 +12279,7 @@ module.exports = function (e) {
       t >= 0 && (e._idleTimeoutId = setTimeout(function () {
         e._onTimeout && e._onTimeout();
       }, t));
-    }, a(29), t.setImmediate = "undefined" != typeof self && self.setImmediate || void 0 !== e && e.setImmediate || this && this.setImmediate, t.clearImmediate = "undefined" != typeof self && self.clearImmediate || void 0 !== e && e.clearImmediate || this && this.clearImmediate;
+    }, a(28), t.setImmediate = "undefined" != typeof self && self.setImmediate || void 0 !== e && e.setImmediate || this && this.setImmediate, t.clearImmediate = "undefined" != typeof self && self.clearImmediate || void 0 !== e && e.clearImmediate || this && this.clearImmediate;
   }).call(this, a(15));
 }, function (e, t, a) {
   (function (e, t) {
@@ -12283,8 +12288,8 @@ module.exports = function (e) {
 
       if (!e.setImmediate) {
         var n,
-            i,
             l,
+            i,
             r,
             s,
             o = 1,
@@ -12304,15 +12309,15 @@ module.exports = function (e) {
               t = !1;
             }, e.postMessage("", "*"), e.onmessage = a, t;
           }
-        }() ? e.MessageChannel ? ((l = new MessageChannel()).port1.onmessage = function (e) {
+        }() ? e.MessageChannel ? ((i = new MessageChannel()).port1.onmessage = function (e) {
           h(e.data);
         }, n = function (e) {
-          l.port2.postMessage(e);
-        }) : d && "onreadystatechange" in d.createElement("script") ? (i = d.documentElement, n = function (e) {
+          i.port2.postMessage(e);
+        }) : d && "onreadystatechange" in d.createElement("script") ? (l = d.documentElement, n = function (e) {
           var t = d.createElement("script");
           t.onreadystatechange = function () {
-            h(e), t.onreadystatechange = null, i.removeChild(t), t = null;
-          }, i.appendChild(t);
+            h(e), t.onreadystatechange = null, l.removeChild(t), t = null;
+          }, l.appendChild(t);
         }) : n = function (e) {
           setTimeout(h, 0, e);
         } : (r = "setImmediate$" + Math.random() + "$", s = function (t) {
@@ -12324,11 +12329,11 @@ module.exports = function (e) {
 
           for (var t = new Array(arguments.length - 1), a = 0; a < t.length; a++) t[a] = arguments[a + 1];
 
-          var i = {
+          var l = {
             callback: e,
             args: t
           };
-          return c[o] = i, n(o), o++;
+          return c[o] = l, n(o), o++;
         }, f.clearImmediate = m;
       }
 
@@ -12376,13 +12381,13 @@ module.exports = function (e) {
         }
       }
     }("undefined" == typeof self ? void 0 === e ? this : e : self);
-  }).call(this, a(15), a(30));
+  }).call(this, a(15), a(29));
 }, function (e, t) {
   var a,
       n,
-      i = e.exports = {};
+      l = e.exports = {};
 
-  function l() {
+  function i() {
     throw new Error("setTimeout has not been defined");
   }
 
@@ -12392,7 +12397,7 @@ module.exports = function (e) {
 
   function s(e) {
     if (a === setTimeout) return setTimeout(e, 0);
-    if ((a === l || !a) && setTimeout) return a = setTimeout, setTimeout(e, 0);
+    if ((a === i || !a) && setTimeout) return a = setTimeout, setTimeout(e, 0);
 
     try {
       return a(e, 0);
@@ -12407,9 +12412,9 @@ module.exports = function (e) {
 
   !function () {
     try {
-      a = "function" == typeof setTimeout ? setTimeout : l;
+      a = "function" == typeof setTimeout ? setTimeout : i;
     } catch (e) {
-      a = l;
+      a = i;
     }
 
     try {
@@ -12461,36 +12466,36 @@ module.exports = function (e) {
 
   function p() {}
 
-  i.nextTick = function (e) {
+  l.nextTick = function (e) {
     var t = new Array(arguments.length - 1);
     if (arguments.length > 1) for (var a = 1; a < arguments.length; a++) t[a - 1] = arguments[a];
     c.push(new h(e, t)), 1 !== c.length || u || s(m);
   }, h.prototype.run = function () {
     this.fun.apply(null, this.array);
-  }, i.title = "browser", i.browser = !0, i.env = {}, i.argv = [], i.version = "", i.versions = {}, i.on = p, i.addListener = p, i.once = p, i.off = p, i.removeListener = p, i.removeAllListeners = p, i.emit = p, i.prependListener = p, i.prependOnceListener = p, i.listeners = function (e) {
+  }, l.title = "browser", l.browser = !0, l.env = {}, l.argv = [], l.version = "", l.versions = {}, l.on = p, l.addListener = p, l.once = p, l.off = p, l.removeListener = p, l.removeAllListeners = p, l.emit = p, l.prependListener = p, l.prependOnceListener = p, l.listeners = function (e) {
     return [];
-  }, i.binding = function (e) {
+  }, l.binding = function (e) {
     throw new Error("process.binding is not supported");
-  }, i.cwd = function () {
+  }, l.cwd = function () {
     return "/";
-  }, i.chdir = function (e) {
+  }, l.chdir = function (e) {
     throw new Error("process.chdir is not supported");
-  }, i.umask = function () {
+  }, l.umask = function () {
     return 0;
   };
 }, function (e, t, a) {
   "use strict";
 
   a.r(t), a.d(t, "addGlobalMessage", function () {
-    return Kt;
+    return Wt;
   }), a.d(t, "uuid", function () {
     return ue;
   }), a.d(t, "disableHtmlScroll", function () {
-    return Oe;
+    return Me;
   }), a.d(t, "enableHtmlScroll", function () {
-    return Le;
+    return Be;
   }), a.d(t, "scrollTopListener", function () {
-    return qt;
+    return Zt;
   }), a.d(t, "urlExtract", function () {
     return B;
   }), a.d(t, "Accordion", function () {
@@ -12498,7 +12503,7 @@ module.exports = function (e) {
   }), a.d(t, "Articles", function () {
     return P;
   }), a.d(t, "ArticlesImages", function () {
-    return O;
+    return L;
   }), a.d(t, "Breadcrumbs", function () {
     return Q;
   }), a.d(t, "Cards", function () {
@@ -12521,65 +12526,67 @@ module.exports = function (e) {
     return Se;
   }), a.d(t, "DragDropArea", function () {
     return Ne;
+  }), a.d(t, "DragDropList", function () {
+    return Pe;
   }), a.d(t, "FullScreenListArray", function () {
-    return De;
+    return Le;
   }), a.d(t, "FullScreenListObject", function () {
-    return Te;
+    return Re;
   }), a.d(t, "FullScreenOverlay", function () {
-    return Me;
+    return Ie;
   }), a.d(t, "GlobalMessages", function () {
-    return Fe;
+    return ze;
   }), a.d(t, "Icons", function () {
-    return _e;
+    return Ke;
   }), a.d(t, "InputAnimation", function () {
-    return He;
-  }), a.d(t, "InputFile", function () {
     return qe;
+  }), a.d(t, "InputFile", function () {
+    return Ze;
   }), a.d(t, "InputFileDragDrop", function () {
-    return Ge;
+    return $e;
   }), a.d(t, "InputSuggestionArray", function () {
-    return Xe;
+    return et;
   }), a.d(t, "InputSuggestionObject", function () {
-    return Qe;
+    return at;
   }), a.d(t, "Lightbulb404", function () {
-    return tt;
-  }), a.d(t, "LoadingBoxTop", function () {
-    return nt;
-  }), a.d(t, "LoadOnScroll", function () {
     return lt;
+  }), a.d(t, "LoadingBoxTop", function () {
+    return rt;
+  }), a.d(t, "LoadOnScroll", function () {
+    return ot;
   }), a.d(t, "MenuClickHorizontal", function () {
     return X;
   }), a.d(t, "Modal", function () {
-    return st;
-  }), a.d(t, "PagerStatic", function () {
     return ut;
-  }), a.d(t, "PagerDynamic", function () {
+  }), a.d(t, "PagerStatic", function () {
     return mt;
+  }), a.d(t, "PagerDynamic", function () {
+    return gt;
   }), a.d(t, "Table", function () {
-    return pt;
+    return yt;
   }), a.d(t, "TextWriter", function () {
-    return vt;
+    return kt;
   }), a.d(t, "Timeline", function () {
-    return bt;
+    return St;
   }), a.d(t, "PopupBox", function () {
-    return Ct;
+    return xt;
   }), a.d(t, "ReadMore", function () {
-    return Et;
-  }), a.d(t, "ReadMoreCallback", function () {
-    return Nt;
-  }), a.d(t, "ScrollTo", function () {
     return Dt;
+  }), a.d(t, "ReadMoreCallback", function () {
+    return Pt;
+  }), a.d(t, "ScrollTo", function () {
+    return Lt;
   }), a.d(t, "SideBar", function () {
-    return Tt;
+    return Rt;
   }), a.d(t, "SourceCode", function () {
-    return _t;
+    return Kt;
   }), a.d(t, "Water404", function () {
-    return Ht;
+    return qt;
   });
   var n = a(8),
-      i = a.n(n),
-      l = a(0),
-      r = a.n(l),
+      l = a.n(n),
+      i = a(0),
+      r = a.n(i),
       s = a(4),
       o = a.n(s),
       c = a(5),
@@ -12599,22 +12606,22 @@ module.exports = function (e) {
 
   var S = function (e, t, a) {
     var n = "".concat(C, "/public/react-revolution/").concat("v2.0.0", "/css/").concat(a, ".css"),
-        i = "".concat(C, "/public/react-revolution/").concat("v2.0.0", "/css/react-revolution.css"),
-        l = document.createElement("link");
-    l.setAttribute("rel", "stylesheet"), l.setAttribute("type", "text/css");
+        l = "".concat(C, "/public/react-revolution/").concat("v2.0.0", "/css/react-revolution.css"),
+        i = document.createElement("link");
+    i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css");
 
     var r = function () {
-      document.getElementsByTagName("head")[0].prepend(l);
+      document.getElementsByTagName("head")[0].prepend(i);
     };
 
     if (e) {
       var s = "react-revolution-".concat(a);
-      null == document.getElementById(s) && (l.setAttribute("id", s), l.setAttribute("href", n), r());
+      null == document.getElementById(s) && (i.setAttribute("id", s), i.setAttribute("href", n), r());
     }
 
     if (t) {
       var o = "react-revolution-react-revolution";
-      null == document.getElementById(o) && (l.setAttribute("id", o), l.setAttribute("href", i), r());
+      null == document.getElementById(o) && (i.setAttribute("id", o), i.setAttribute("href", l), r());
     }
   },
       E = void 0,
@@ -12628,7 +12635,7 @@ module.exports = function (e) {
     if (t && t.length) for (var n = 0; n <= t.length - 1; n++) null == t[n].toggled && (t[n].toggled = !1), null == t[n].uuid && (t[n].unique = "".concat(x()).concat(x()).concat(x())), null == t[n].key && (t[n].key = "single-entry-".concat(n).concat(t[n].text ? t[n].text : "")), null == t[n].uuid && (t[n].iconId = "".concat(x())), null == t[n].classList && (t[n].classList = ""), null == t[n].loopCount && (t[n].loopCount = 1), a && t[n].data && r()([]) == r()(t[n].data) && t[n].data.length && (t[n].childrensNestedCount = a.childrensNestedCount + 1), a || (t[n].childrensNestedCount = 1), t[n].data && r()([]) == r()(t[n].data) && t[n].data.length && e(t[n].data, t[n]);
     return t;
   },
-      w = function () {
+      D = function () {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
         a = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
@@ -12638,7 +12645,7 @@ module.exports = function (e) {
     }), n;
   };
 
-  function D(e) {
+  function w(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -12656,8 +12663,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -12666,7 +12673,7 @@ module.exports = function (e) {
 
   var P = function (e) {
     h()(a, e);
-    var t = D(a);
+    var t = w(a);
 
     function a(e) {
       var n;
@@ -12722,13 +12729,13 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.itemsPerLine,
-            l = a.isMinified,
+            i = a.isMinified,
             s = a.toggleForwards,
             o = a.toggleBackwards,
             c = this.state,
             u = c.toggleOn,
             d = c.persist,
-            f = "group flex ".concat(l ? "flex-column isMinified" : "flex-row"),
+            f = "group flex ".concat(i ? "flex-column isMinified" : "flex-row"),
             m = [],
             h = [];
 
@@ -12736,7 +12743,7 @@ module.exports = function (e) {
           u && ["title", "text"].includes(u) || (u = "box");
 
           for (var p = function (a) {
-            var l = !0,
+            var i = !0,
                 c = e[a],
                 p = c.title,
                 g = c.titleProps,
@@ -12747,9 +12754,9 @@ module.exports = function (e) {
                 S = c.classList,
                 E = c.href,
                 N = (c.icon, c.childrensNestedCount, c.key),
-                w = c.dataToggle,
-                D = c.border;
-            w && b && d && (l = !1), E && r()("8") == r()(E) && (E = E.toLowerCase()), S || (S = ""), g && r()(g) === r()({}) || (g = {});
+                D = c.dataToggle,
+                w = c.border;
+            D && b && d && (i = !1), E && r()("8") == r()(E) && (E = E.toLowerCase()), S || (S = ""), g && r()(g) === r()({}) || (g = {});
 
             try {
               Object.keys(g);
@@ -12759,67 +12766,67 @@ module.exports = function (e) {
 
             var P = [],
                 T = [];
-            p && (r()("8") == r()(p) ? T.push(k.a.createElement("h1", i()({
+            p && (r()("8") == r()(p) ? T.push(k.a.createElement("h1", l()({
               key: x(),
-              className: "title ".concat("title" == u && w && b && d ? "data-toggled" : "")
-            }, g, "title" == u && !s && l && {
+              className: "title ".concat("title" == u && D && b && d ? "data-toggled" : "")
+            }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }), p)) : T.push(k.a.createElement("div", i()({
+            }), p)) : T.push(k.a.createElement("div", l()({
               key: x(),
-              className: "title ".concat("title" == u && w && b && d ? "data-toggled" : "")
-            }, g, "title" == u && !s && l && {
+              className: "title ".concat("title" == u && D && b && d ? "data-toggled" : "")
+            }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }), p))), v && (r()("8") == r()(p) ? T.push(k.a.createElement("p", i()({
+            }), p))), v && (r()("8") == r()(p) ? T.push(k.a.createElement("p", l()({
               key: x(),
-              className: "text ".concat("text" == u && w && b && d ? "data-toggled" : "")
-            }, y, "text" == u && !s && l && {
+              className: "text ".concat("text" == u && D && b && d ? "data-toggled" : "")
+            }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }), v)) : T.push(k.a.createElement("div", i()({
+            }), v)) : T.push(k.a.createElement("div", l()({
               key: x(),
-              className: "text ".concat("text" == u && w && b && d ? "data-toggled" : "")
-            }, y, "text" == u && !s && l && {
+              className: "text ".concat("text" == u && D && b && d ? "data-toggled" : "")
+            }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
             }), v)));
-            var O = !1,
-                L = {};
+            var L = !1,
+                O = {};
 
-            if (D && r()({}) == r()(D)) {
-              var R = D.site,
-                  M = D.width,
-                  B = D.color;
-              if (R && M && B) if (r()("8") == r()(R) && ["top", "right", "bottom", "left"].includes(R) && r()(8) == r()(M) && r()("8") == r()(B)) L["border".concat(R.charAt(0).toUpperCase()).concat(R.substring(1, R.length))] = "".concat(M, "px solid ").concat(B), O = !0;
+            if (w && r()({}) == r()(w)) {
+              var R = w.site,
+                  M = w.width,
+                  B = w.color;
+              if (R && M && B) if (r()("8") == r()(R) && ["top", "right", "bottom", "left"].includes(R) && r()(8) == r()(M) && r()("8") == r()(B)) O["border".concat(R.charAt(0).toUpperCase()).concat(R.substring(1, R.length))] = "".concat(M, "px solid ").concat(B), L = !0;
             }
 
-            h.push(k.a.createElement("div", i()({
+            h.push(k.a.createElement("div", l()({
               key: N,
-              className: "single-entry ".concat("box" == u && w && b && d ? "data-toggled" : "")
-            }, "box" == u && !s && l && {
+              className: "single-entry ".concat("box" == u && D && b && d ? "data-toggled" : "")
+            }, "box" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }), O && k.a.createElement("div", {
+            }), L && k.a.createElement("div", {
               className: "border",
-              style: L
+              style: O
             }), k.a.createElement("div", {
               className: "content ".concat(P && P.length ? "flex flex-row" : "")
             }, P && P, T && k.a.createElement("div", {
               className: "right"
-            }, T, !b && s && k.a.createElement("span", s && l && {
+            }, T, !b && s && k.a.createElement("span", s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }, s), w && b && k.a.createElement("div", {
+            }, s), D && b && k.a.createElement("div", {
               key: x(),
               className: S
-            }, w), b && o && !d && k.a.createElement("span", o && l && {
+            }, D), b && o && !d && k.a.createElement("span", o && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
@@ -12838,29 +12845,29 @@ module.exports = function (e) {
         var t,
             a = this,
             n = this.state,
-            i = n.data,
-            l = n.persist,
+            l = n.data,
+            i = n.persist,
             s = this.state.animation,
             o = 0;
-        if (["height", "scale", "opacity"].includes(s) || (s = void 0), i && i.length) for (var c = function (n) {
-          if (i[n].unique == e) return s && (o = 300), l && 0 == !i[n].toggled ? {
+        if (["height", "scale", "opacity"].includes(s) || (s = void 0), l && l.length) for (var c = function (n) {
+          if (l[n].unique == e) return s && (o = 300), i && 0 == !l[n].toggled ? {
             v: null
-          } : (0 == (t = !i[n].toggled) ? i[n].classList = "".concat(i[n].classList, " ").concat(s ? "animation-".concat(s, "-back") : "") : (i[n].classList = "toggling ".concat(s ? "animation-".concat(s) : ""), i[n].toggled = !0, setTimeout(function () {
-            i[n].classList = "toggled ".concat(s ? "animation-".concat(s) : ""), a.setState({
-              data: i
+          } : (0 == (t = !l[n].toggled) ? l[n].classList = "".concat(l[n].classList, " ").concat(s ? "animation-".concat(s, "-back") : "") : (l[n].classList = "toggling ".concat(s ? "animation-".concat(s) : ""), l[n].toggled = !0, setTimeout(function () {
+            l[n].classList = "toggled ".concat(s ? "animation-".concat(s) : ""), a.setState({
+              data: l
             });
           }, o)), t ? a.setState({
-            data: i
+            data: l
           }) : a.setState({
-            data: i
+            data: l
           }, function () {
             setTimeout(function () {
-              i[n].classList = "", i[n].toggled = !1, a.setState({
-                data: i
+              l[n].classList = "", l[n].toggled = !1, a.setState({
+                data: l
               });
             }, o);
           }), "break");
-        }, u = 0; u <= i.length - 1; u++) {
+        }, u = 0; u <= l.length - 1; u++) {
           var d = c(u);
           if ("break" === d) break;
           if ("object" === r()(d)) return d.v;
@@ -12873,10 +12880,10 @@ module.exports = function (e) {
             t = this.state,
             a = t.data,
             n = t.persist,
-            i = this.state.animation,
-            l = 0;
-        if (["height", "scale", "opacity"].includes(i) || (i = void 0), a && a.length) for (var r = function (t) {
-          i && (l = 300), a[t].classList = "".concat(a[t].classList, " ").concat(i ? "animation-".concat(i, "-back") : "");
+            l = this.state.animation,
+            i = 0;
+        if (["height", "scale", "opacity"].includes(l) || (l = void 0), a && a.length) for (var r = function (t) {
+          l && (i = 300), a[t].classList = "".concat(a[t].classList, " ").concat(l ? "animation-".concat(l, "-back") : "");
           e.setState({
             data: a
           }, function () {
@@ -12884,7 +12891,7 @@ module.exports = function (e) {
               a[t].toggled = !!n, a[t].classList = "", e.setState({
                 data: a
               });
-            }, l);
+            }, i);
           });
         }, s = 0; s <= a.length - 1; s++) r(s);
       }
@@ -12895,12 +12902,12 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            l = t.id,
+            i = t.id,
             r = t.data,
             s = t.closeOnClickOutside;
-        return k.a.createElement("div", i()({
+        return k.a.createElement("div", l()({
           className: "".concat(n, " ").concat(a),
-          id: l
+          id: i
         }, 1 == s && {
           onBlur: function (t) {
             return e.handleBlur(t);
@@ -12912,7 +12919,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "persist", "toggleForwards", "toggleBackwards"], e, t) ? {
+        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "persist", "toggleForwards", "toggleBackwards"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -12950,15 +12957,15 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var O = function (e) {
+  var L = function (e) {
     h()(a, e);
     var t = T(a);
 
@@ -13016,13 +13023,13 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.itemsPerLine,
-            l = a.isMinified,
+            i = a.isMinified,
             s = a.toggleForwards,
             o = a.toggleBackwards,
             c = this.state,
             u = c.toggleOn,
             d = c.persist,
-            f = "group flex ".concat(l ? "flex-column isMinified" : "flex-row"),
+            f = "group flex ".concat(i ? "flex-column isMinified" : "flex-row"),
             m = [],
             h = [];
 
@@ -13030,7 +13037,7 @@ module.exports = function (e) {
           u && ["title", "text"].includes(u) || (u = "box");
 
           for (var p = function (a) {
-            var l = !0,
+            var i = !0,
                 c = e[a],
                 p = c.title,
                 g = c.titleProps,
@@ -13041,12 +13048,12 @@ module.exports = function (e) {
                 S = c.imageData,
                 E = c.toggled,
                 N = c.unique,
-                w = c.classList,
-                D = c.href,
+                D = c.classList,
+                w = c.href,
                 P = (c.icon, c.childrensNestedCount, c.key),
                 T = c.dataToggle,
-                O = c.border;
-            T && E && d && (l = !1), D && r()("8") == r()(D) && (D = D.toLowerCase()), w || (w = ""), g && r()(g) === r()({}) || (g = {}), C && r()(C) === r()({}) || (C = {});
+                L = c.border;
+            T && E && d && (i = !1), w && r()("8") == r()(w) && (w = w.toLowerCase()), D || (D = ""), g && r()(g) === r()({}) || (g = {}), C && r()(C) === r()({}) || (C = {});
 
             try {
               Object.keys(g), Object.keys(C);
@@ -13054,53 +13061,53 @@ module.exports = function (e) {
               g = {}, C = {};
             }
 
-            var L = [];
-            p && (r()("8") == r()(p) ? L.push(k.a.createElement("h1", i()({
+            var O = [];
+            p && (r()("8") == r()(p) ? O.push(k.a.createElement("h1", l()({
               key: x(),
               className: "title ".concat("title" == u && T && E && d ? "data-toggled" : "")
-            }, g, "title" == u && !s && l && {
+            }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
-            }), p)) : L.push(k.a.createElement("div", i()({
+            }), p)) : O.push(k.a.createElement("div", l()({
               key: x(),
               className: "title ".concat("title" == u && T && E && d ? "data-toggled" : "")
-            }, g, "title" == u && !s && l && {
+            }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
-            }), p))), v && (r()("8") == r()(p) ? L.push(k.a.createElement("span", i()({
+            }), p))), v && (r()("8") == r()(p) ? O.push(k.a.createElement("span", l()({
               key: x(),
               className: "text ".concat("text" == u && T && E && d ? "data-toggled" : "")
-            }, y, "text" == u && !s && l && {
+            }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
-            }), v)) : L.push(k.a.createElement("span", i()({
+            }), v)) : O.push(k.a.createElement("span", l()({
               key: x(),
               className: "text ".concat("text" == u && T && E && d ? "data-toggled" : "")
-            }, y, "text" == u && !s && l && {
+            }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
             }), v, T && E && k.a.createElement("span", {
               key: x(),
-              className: w
+              className: D
             }, T))));
             var R = !1,
                 M = {};
 
-            if (O && r()({}) == r()(O)) {
-              var B = O.site,
-                  A = O.width,
-                  I = O.color;
+            if (L && r()({}) == r()(L)) {
+              var B = L.site,
+                  A = L.width,
+                  I = L.color;
               if (B && A && I) if (r()("8") == r()(B) && ["top", "right", "bottom", "left"].includes(B) && r()(8) == r()(A) && r()("8") == r()(I)) M["border".concat(B.charAt(0).toUpperCase()).concat(B.substring(1, B.length))] = "".concat(A, "px solid ").concat(I), R = !0;
             }
 
-            h.push(k.a.createElement("div", i()({
+            h.push(k.a.createElement("div", l()({
               key: P,
               className: "single-entry ".concat("box" == u && T && E && d ? "data-toggled" : "")
-            }, "box" == u && !s && l && {
+            }, "box" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
@@ -13109,7 +13116,7 @@ module.exports = function (e) {
               style: M
             }), b && r()("8") == r()(b) && k.a.createElement("div", {
               className: "image-holder"
-            }, k.a.createElement("div", i()({
+            }, k.a.createElement("div", l()({
               className: "image"
             }, C, {
               style: {
@@ -13117,14 +13124,14 @@ module.exports = function (e) {
               }
             }), S && k.a.createElement("div", {
               className: "image-data"
-            }, S))), L && L, !E && s && k.a.createElement("span", s && l && {
+            }, S))), O && O, !E && s && k.a.createElement("span", s && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
             }, s), T && E && k.a.createElement("span", {
               key: x(),
-              className: w
-            }, T), E && o && !d && k.a.createElement("span", o && l && {
+              className: D
+            }, T), E && o && !d && k.a.createElement("span", o && i && {
               onClick: function (e) {
                 return t.toggle(N);
               }
@@ -13143,29 +13150,29 @@ module.exports = function (e) {
         var t,
             a = this,
             n = this.state,
-            i = n.data,
-            l = n.persist,
+            l = n.data,
+            i = n.persist,
             s = this.state.animation,
             o = 0;
-        if (["height", "scale", "opacity"].includes(s) || (s = void 0), i && i.length) for (var c = function (n) {
-          if (i[n].unique == e) return s && (o = 300), l && 0 == !i[n].toggled ? {
+        if (["height", "scale", "opacity"].includes(s) || (s = void 0), l && l.length) for (var c = function (n) {
+          if (l[n].unique == e) return s && (o = 300), i && 0 == !l[n].toggled ? {
             v: null
-          } : (0 == (t = !i[n].toggled) ? i[n].classList = "".concat(i[n].classList, " ").concat(s ? "animation-".concat(s, "-back") : "") : (i[n].classList = "toggling ".concat(s ? "animation-".concat(s) : ""), i[n].toggled = !0, setTimeout(function () {
-            i[n].classList = "toggled ".concat(s ? "animation-".concat(s) : ""), a.setState({
-              data: i
+          } : (0 == (t = !l[n].toggled) ? l[n].classList = "".concat(l[n].classList, " ").concat(s ? "animation-".concat(s, "-back") : "") : (l[n].classList = "toggling ".concat(s ? "animation-".concat(s) : ""), l[n].toggled = !0, setTimeout(function () {
+            l[n].classList = "toggled ".concat(s ? "animation-".concat(s) : ""), a.setState({
+              data: l
             });
           }, o)), t ? a.setState({
-            data: i
+            data: l
           }) : a.setState({
-            data: i
+            data: l
           }, function () {
             setTimeout(function () {
-              i[n].classList = "", i[n].toggled = !1, a.setState({
-                data: i
+              l[n].classList = "", l[n].toggled = !1, a.setState({
+                data: l
               });
             }, o);
           }), "break");
-        }, u = 0; u <= i.length - 1; u++) {
+        }, u = 0; u <= l.length - 1; u++) {
           var d = c(u);
           if ("break" === d) break;
           if ("object" === r()(d)) return d.v;
@@ -13178,10 +13185,10 @@ module.exports = function (e) {
             t = this.state,
             a = t.data,
             n = t.persist,
-            i = this.state.animation,
-            l = 0;
-        if (["height", "scale", "opacity"].includes(i) || (i = void 0), a && a.length) for (var r = function (t) {
-          i && (l = 300), a[t].classList = "".concat(a[t].classList, " ").concat(i ? "animation-".concat(i, "-back") : "");
+            l = this.state.animation,
+            i = 0;
+        if (["height", "scale", "opacity"].includes(l) || (l = void 0), a && a.length) for (var r = function (t) {
+          l && (i = 300), a[t].classList = "".concat(a[t].classList, " ").concat(l ? "animation-".concat(l, "-back") : "");
           e.setState({
             data: a
           }, function () {
@@ -13189,7 +13196,7 @@ module.exports = function (e) {
               a[t].toggled = !!n, a[t].classList = "", e.setState({
                 data: a
               });
-            }, l);
+            }, i);
           });
         }, s = 0; s <= a.length - 1; s++) r(s);
       }
@@ -13200,12 +13207,12 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            l = t.id,
+            i = t.id,
             r = t.data,
             s = t.closeOnClickOutside;
-        return k.a.createElement("div", i()({
+        return k.a.createElement("div", l()({
           className: "".concat(n, " ").concat(a),
-          id: l
+          id: i
         }, 1 == s && {
           onBlur: function (t) {
             return e.handleBlur(t);
@@ -13217,7 +13224,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "toggleForwards", "persist", "toggleBackwards"], e, t) ? {
+        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "toggleForwards", "persist", "toggleBackwards"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -13237,7 +13244,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function L(e) {
+  function O(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -13255,8 +13262,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -13265,7 +13272,7 @@ module.exports = function (e) {
 
   var R = function (e) {
     h()(a, e);
-    var t = L(a);
+    var t = O(a);
 
     function a(e) {
       var n;
@@ -13303,8 +13310,8 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = [];
-        if (t && t.length) for (var l = function (l) {
-          var s = t[l],
+        if (t && t.length) for (var i = function (i) {
+          var s = t[i],
               o = s.text,
               c = s.dataToggle,
               u = s.toggled,
@@ -13313,7 +13320,7 @@ module.exports = function (e) {
               m = s.props,
               h = s.childrensNestedCount,
               p = s.key,
-              g = t[l].data;
+              g = t[i].data;
           f || (f = ""), m && r()(m) === r()({}) || (m = {});
 
           try {
@@ -13322,7 +13329,7 @@ module.exports = function (e) {
             m = {};
           }
 
-          n.push(k.a.createElement("div", i()({
+          n.push(k.a.createElement("div", l()({
             key: p,
             className: "single-entry ".concat(f, " ").concat(g && 0 !== g.length ? "hasChildren" : "")
           }, m), k.a.createElement("div", {
@@ -13335,7 +13342,7 @@ module.exports = function (e) {
           }, e.buildDataRecursive(g, !0)), u && null == g && c && k.a.createElement("div", {
             className: "data"
           }, c)));
-        }, s = 0; s <= t.length - 1; s++) l(s);
+        }, s = 0; s <= t.length - 1; s++) i(s);
         return n;
       }
     }, {
@@ -13344,15 +13351,15 @@ module.exports = function (e) {
         var t = this,
             a = this.state.data,
             n = this.state.animation,
-            i = 0;
+            l = 0;
         ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function l(s) {
+        return function i(s) {
           if (s && s.length) for (var o = function (o) {
             var c = s[o].unique,
                 u = s[o].data;
 
             if (c == e) {
-              0 == !s[o].toggled && n && (i = 300);
+              0 == !s[o].toggled && n && (l = 300);
 
               var d = function () {
                 s[o].toggled = !s[o].toggled, s[o].classList = s[o].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
@@ -13367,7 +13374,7 @@ module.exports = function (e) {
               }) : (d(), "break");
             }
 
-            u && r()([]) == r()(u) && 0 !== u.length && l(u);
+            u && r()([]) == r()(u) && 0 !== u.length && i(u);
           }, c = 0; c <= s.length - 1; c++) {
             var u = o(c);
             if ("break" === u) break;
@@ -13383,7 +13390,7 @@ module.exports = function (e) {
               });
             }, 300);
           });
-        }, i);
+        }, l);
       }
     }, {
       key: "toggleAllBack",
@@ -13393,20 +13400,20 @@ module.exports = function (e) {
             a = this.state.animation,
             n = 0;
         ["height", "scale", "opacity"].includes(a) || (a = void 0);
-        !function i(l) {
-          if (l && l.length) for (var s = function (s) {
-            var o = l[s].data;
-            a && (n = 300), l[s].classList = "".concat(l[s].classList, " ").concat(a ? "animation-".concat(a, "-back") : "");
+        !function l(i) {
+          if (i && i.length) for (var s = function (s) {
+            var o = i[s].data;
+            a && (n = 300), i[s].classList = "".concat(i[s].classList, " ").concat(a ? "animation-".concat(a, "-back") : "");
             e.setState({
               data: t
             }, function () {
               setTimeout(function () {
-                l[s].toggled = !1, l[s].classList = "", e.setState({
+                i[s].toggled = !1, i[s].classList = "", e.setState({
                   data: t
                 });
               }, n);
-            }), o && r()([]) == r()(o) && 0 !== o.length && i(o);
-          }, o = 0; o <= l.length - 1; o++) s(o);
+            }), o && r()([]) == r()(o) && 0 !== o.length && l(o);
+          }, o = 0; o <= i.length - 1; o++) s(o);
         }(t);
       }
     }, {
@@ -13416,18 +13423,18 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.data,
             n = e.defaultClass,
-            i = e.id;
+            l = e.id;
         return k.a.createElement("div", {
           ref: this.refNode,
           className: "".concat(n, " ").concat(t),
-          id: i,
+          id: l,
           tabIndex: "0"
         }, this.buildDataRecursive(a));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["data", "defaultClass", "id", "animation"], e, t) ? {
+        return D(["data", "defaultClass", "id", "animation"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-accordion",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -13445,24 +13452,24 @@ module.exports = function (e) {
     return u()(e, [{
       key: "loopTroughtChilds",
       value: function (e, t, a, n) {
-        var i = [],
-            l = e.split(t);
-        if (l.length > 1) for (var r = 0; r <= l.length - 1; r++) {
-          var s = l[r];
+        var l = [],
+            i = e.split(t);
+        if (i.length > 1) for (var r = 0; r <= i.length - 1; r++) {
+          var s = i[r];
           if (s) for (var o = s.split("&"), c = 0; c <= o.length - 1; c++) {
             var u = o[c],
                 d = u.split("="),
                 f = d[0] ? d[0] : null;
             f && "hash" == a.name && (f = f.replace("#", ""));
             var m = d[1] ? d[1] : null;
-            null == m && n || i.push({
+            null == m && n || l.push({
               key: f,
               value: m,
               pair: u
             });
           }
         }
-        return i;
+        return l;
       }
     }, {
       key: "extract",
@@ -13475,16 +13482,16 @@ module.exports = function (e) {
           name: "search",
           origin: t.search,
           paths: []
-        }, i = {
+        }, l = {
           name: "hash",
           origin: t.hash,
           paths: []
-        }, l = [a, n, i], r = {
+        }, i = [a, n, l], r = {
           href: a,
           search: n,
-          hash: i
-        }, s = 0; s <= l.length - 1; s++) {
-          var o = l[s];
+          hash: l
+        }, s = 0; s <= i.length - 1; s++) {
+          var o = i[s];
 
           if (o.origin && o.origin.length) {
             var c = o.origin.split("/");
@@ -13520,8 +13527,8 @@ module.exports = function (e) {
       F = a(16),
       V = a.n(F);
 
-  function z() {
-    return (z = Object.assign || function (e) {
+  function j() {
+    return (j = Object.assign || function (e) {
       for (var t = 1; t < arguments.length; t++) {
         var a = arguments[t];
 
@@ -13532,12 +13539,12 @@ module.exports = function (e) {
     }).apply(this, arguments);
   }
 
-  function j(e) {
+  function z(e) {
     return "/" === e.charAt(0);
   }
 
   function _(e, t) {
-    for (var a = t, n = a + 1, i = e.length; n < i; a += 1, n += 1) e[a] = e[n];
+    for (var a = t, n = a + 1, l = e.length; n < l; a += 1, n += 1) e[a] = e[n];
 
     e.pop();
   }
@@ -13546,51 +13553,51 @@ module.exports = function (e) {
     void 0 === t && (t = "");
     var a,
         n = e && e.split("/") || [],
-        i = t && t.split("/") || [],
-        l = e && j(e),
-        r = t && j(t),
-        s = l || r;
-    if (e && j(e) ? i = n : n.length && (i.pop(), i = i.concat(n)), !i.length) return "/";
+        l = t && t.split("/") || [],
+        i = e && z(e),
+        r = t && z(t),
+        s = i || r;
+    if (e && z(e) ? l = n : n.length && (l.pop(), l = l.concat(n)), !l.length) return "/";
 
-    if (i.length) {
-      var o = i[i.length - 1];
+    if (l.length) {
+      var o = l[l.length - 1];
       a = "." === o || ".." === o || "" === o;
     } else a = !1;
 
-    for (var c = 0, u = i.length; u >= 0; u--) {
-      var d = i[u];
-      "." === d ? _(i, u) : ".." === d ? (_(i, u), c++) : c && (_(i, u), c--);
+    for (var c = 0, u = l.length; u >= 0; u--) {
+      var d = l[u];
+      "." === d ? _(l, u) : ".." === d ? (_(l, u), c++) : c && (_(l, u), c--);
     }
 
-    if (!s) for (; c--; c) i.unshift("..");
-    !s || "" === i[0] || i[0] && j(i[0]) || i.unshift("");
-    var f = i.join("/");
+    if (!s) for (; c--; c) l.unshift("..");
+    !s || "" === l[0] || l[0] && z(l[0]) || l.unshift("");
+    var f = l.join("/");
     return a && "/" !== f.substr(-1) && (f += "/"), f;
   };
 
   function H(e, t, a, n) {
-    var i;
-    "string" == typeof e ? (i = function (e) {
+    var l;
+    "string" == typeof e ? (l = function (e) {
       var t = e || "/",
           a = "",
           n = "",
-          i = t.indexOf("#");
-      -1 !== i && (n = t.substr(i), t = t.substr(0, i));
-      var l = t.indexOf("?");
-      return -1 !== l && (a = t.substr(l), t = t.substr(0, l)), {
+          l = t.indexOf("#");
+      -1 !== l && (n = t.substr(l), t = t.substr(0, l));
+      var i = t.indexOf("?");
+      return -1 !== i && (a = t.substr(i), t = t.substr(0, i)), {
         pathname: t,
         search: "?" === a ? "" : a,
         hash: "#" === n ? "" : n
       };
-    }(e)).state = t : (void 0 === (i = z({}, e)).pathname && (i.pathname = ""), i.search ? "?" !== i.search.charAt(0) && (i.search = "?" + i.search) : i.search = "", i.hash ? "#" !== i.hash.charAt(0) && (i.hash = "#" + i.hash) : i.hash = "", void 0 !== t && void 0 === i.state && (i.state = t));
+    }(e)).state = t : (void 0 === (l = j({}, e)).pathname && (l.pathname = ""), l.search ? "?" !== l.search.charAt(0) && (l.search = "?" + l.search) : l.search = "", l.hash ? "#" !== l.hash.charAt(0) && (l.hash = "#" + l.hash) : l.hash = "", void 0 !== t && void 0 === l.state && (l.state = t));
 
     try {
-      i.pathname = decodeURI(i.pathname);
+      l.pathname = decodeURI(l.pathname);
     } catch (e) {
-      throw e instanceof URIError ? new URIError('Pathname "' + i.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
+      throw e instanceof URIError ? new URIError('Pathname "' + l.pathname + '" could not be decoded. This is likely caused by an invalid percent-encoding.') : e;
     }
 
-    return a && (i.key = a), n ? i.pathname ? "/" !== i.pathname.charAt(0) && (i.pathname = U(i.pathname, n.pathname)) : i.pathname = n.pathname : i.pathname || (i.pathname = "/"), i;
+    return a && (l.key = a), n ? l.pathname ? "/" !== l.pathname.charAt(0) && (l.pathname = U(l.pathname, n.pathname)) : l.pathname = n.pathname : l.pathname || (l.pathname = "/"), l;
   }
 
   "undefined" == typeof window || !window.document || window.document.createElement;
@@ -13609,12 +13616,12 @@ module.exports = function (e) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   }
 
-  function W(e, t) {
+  function q(e, t) {
     if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     return !t || "object" != typeof t && "function" != typeof t ? e : t;
   }
 
-  var q = function (e) {
+  var W = function (e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
   },
       Y = function (e) {
@@ -13622,18 +13629,18 @@ module.exports = function (e) {
       var a, n;
       J(this, t);
 
-      for (var i = arguments.length, l = Array(i), r = 0; r < i; r++) l[r] = arguments[r];
+      for (var l = arguments.length, i = Array(l), r = 0; r < l; r++) i[r] = arguments[r];
 
-      return a = n = W(this, e.call.apply(e, [this].concat(l))), n.handleClick = function (e) {
-        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !q(e)) {
+      return a = n = q(this, e.call.apply(e, [this].concat(i))), n.handleClick = function (e) {
+        if (n.props.onClick && n.props.onClick(e), !e.defaultPrevented && 0 === e.button && !n.props.target && !W(e)) {
           e.preventDefault();
           var t = n.context.router.history,
               a = n.props,
-              i = a.replace,
-              l = a.to;
-          i ? t.replace(l) : t.push(l);
+              l = a.replace,
+              i = a.to;
+          l ? t.replace(i) : t.push(i);
         }
-      }, W(n, a);
+      }, q(n, a);
     }
 
     return function (e, t) {
@@ -13659,9 +13666,9 @@ module.exports = function (e) {
       }(e, ["replace", "to", "innerRef"]);
 
       V()(this.context.router, "You should not use <Link> outside a <Router>"), V()(void 0 !== t, 'You must specify the "to" property');
-      var i = this.context.router.history,
-          l = "string" == typeof t ? H(t, null, null, i.location) : t,
-          r = i.createHref(l);
+      var l = this.context.router.history,
+          i = "string" == typeof t ? H(t, null, null, l.location) : t,
+          r = l.createHref(i);
       return k.a.createElement("a", K({}, n, {
         onClick: this.handleClick,
         href: r,
@@ -13707,8 +13714,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -13757,7 +13764,7 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
             a = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             n = this.state,
-            l = n.reactRouter,
+            i = n.reactRouter,
             s = n.dashed,
             o = [];
         if (t && t.length) for (var c = function (n) {
@@ -13783,13 +13790,13 @@ module.exports = function (e) {
           }
 
           var S = "";
-          l && b && 0 == b.length && (S = k.a.createElement(G, {
+          i && b && 0 == b.length && (S = k.a.createElement(G, {
             to: p,
             className: "text ".concat(a ? "child" : ""),
             onClick: function () {
               return e.toggle(f, C);
             }
-          }, g && g, u)), !l && b && 0 == b.length && (S = k.a.createElement("a", {
+          }, g && g, u)), !i && b && 0 == b.length && (S = k.a.createElement("a", {
             href: p,
             className: "text ".concat(a ? "child" : ""),
             onClick: function () {
@@ -13800,7 +13807,7 @@ module.exports = function (e) {
             onClick: function () {
               return e.toggle(f, C);
             }
-          }, g && g, u)), o.push(k.a.createElement("div", i()({
+          }, g && g, u)), o.push(k.a.createElement("div", l()({
             key: y,
             className: "single-entry ".concat(h, " ").concat(b && 0 !== b.length ? "parent" : "")
           }, m), S, d && b && 0 !== b.length && k.a.createElement("div", {
@@ -13815,15 +13822,15 @@ module.exports = function (e) {
         var t = this,
             a = this.state.data,
             n = this.state.animation,
-            i = 0;
+            l = 0;
         this.isToggling = !0, ["height", "scale", "opacity"].includes(n) || (n = void 0);
-        return function l(s) {
+        return function i(s) {
           if (s && s.length) for (var o = function (o) {
             var c = s[o].unique,
                 u = s[o].data;
 
             if (c == e) {
-              0 == !s[o].toggled && n && (i = 300);
+              0 == !s[o].toggled && n && (l = 300);
 
               var d = function () {
                 s[o].toggled = !s[o].toggled, s[o].classList = s[o].toggled ? "toggling ".concat(n ? "animation-".concat(n) : "") : "toggled", setTimeout(function () {
@@ -13838,7 +13845,7 @@ module.exports = function (e) {
               }) : (d(), "break");
             }
 
-            u && r()([]) == r()(u) && 0 !== u.length && l(u);
+            u && r()([]) == r()(u) && 0 !== u.length && i(u);
           }, c = 0; c <= s.length - 1; c++) {
             var u = o(c);
             if ("break" === u) break;
@@ -13854,7 +13861,7 @@ module.exports = function (e) {
               }), t.isToggling = !1;
             }, 300);
           });
-        }, i);
+        }, l);
       }
     }, {
       key: "toggleAllBack",
@@ -13864,20 +13871,20 @@ module.exports = function (e) {
             a = this.state.animation,
             n = 0;
         if (["height", "scale", "opacity"].includes(a) || (a = void 0), this.isToggling) return null;
-        !function i(l) {
-          if (l && l.length) for (var s = function (s) {
-            var o = l[s].data;
-            a && (n = 300), l[s].classList = "".concat(l[s].classList, " ").concat(a ? "animation-".concat(a, "-back") : "");
+        !function l(i) {
+          if (i && i.length) for (var s = function (s) {
+            var o = i[s].data;
+            a && (n = 300), i[s].classList = "".concat(i[s].classList, " ").concat(a ? "animation-".concat(a, "-back") : "");
             e.setState({
               data: t
             }, function () {
               setTimeout(function () {
-                l[s].toggled = !1, l[s].classList = "", e.setState({
+                i[s].toggled = !1, i[s].classList = "", e.setState({
                   data: t
                 });
               }, n);
-            }), o && r()([]) == r()(o) && 0 !== o.length && i(o);
-          }, o = 0; o <= l.length - 1; o++) s(o);
+            }), o && r()([]) == r()(o) && 0 !== o.length && l(o);
+          }, o = 0; o <= i.length - 1; o++) s(o);
         }(t);
       }
     }, {
@@ -13887,17 +13894,17 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            i = e.data;
+            l = e.data;
         return k.a.createElement("div", {
           ref: this.refNode,
           className: "".concat(a, " ").concat(t),
           id: n
-        }, this.buildDataRecursive(i));
+        }, this.buildDataRecursive(l));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "data", "reactRouter", "animation", "closeOnClickOutside", "dashed"], e, t) ? {
+        return D(["defaultClass", "id", "data", "reactRouter", "animation", "closeOnClickOutside", "dashed"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -13929,8 +13936,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -13984,22 +13991,22 @@ module.exports = function (e) {
         if (e) {
           var a = this.state.overwriteText,
               n = e.animation,
-              i = e.data,
-              l = e.moduleStyle,
+              l = e.data,
+              i = e.moduleStyle,
               r = e.globalStyle,
               s = e.reactRouter,
               o = e.id,
               c = e.addClass,
               u = e.defaultClass,
               d = e.closeOnClickOutside;
-          return i && 0 !== i.length && !a && (i[0].text = t), b.createElement(X, {
+          return l && 0 !== l.length && !a && (l[0].text = t), b.createElement(X, {
             id: o,
             defaultClass: u,
             addClass: c,
             reactRouter: s,
             animation: n,
-            data: i,
-            moduleStyle: l,
+            data: l,
+            moduleStyle: i,
             globalStyle: r,
             closeOnClickOutside: d
           });
@@ -14014,14 +14021,14 @@ module.exports = function (e) {
             t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
             a = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
             n = this.state,
-            i = n.reactRouter,
-            l = n.moduleMenu,
-            r = this.buildModuleMenu(l, t);
-        return i ? a && l ? b.createElement("span", {
+            l = n.reactRouter,
+            i = n.moduleMenu,
+            r = this.buildModuleMenu(i, t);
+        return l ? a && i ? b.createElement("span", {
           className: "menu-span"
         }, r) : b.createElement(Link, {
           to: e
-        }, t) : a && l ? b.createElement("span", {
+        }, t) : a && i ? b.createElement("span", {
           className: "menu-span"
         }, r) : b.createElement("a", {
           href: e
@@ -14031,10 +14038,10 @@ module.exports = function (e) {
       key: "getSingleBreadcrumb",
       value: function (e, t, a) {
         var n = this.state,
-            i = n.delimiter,
-            l = n.paths;
+            l = n.delimiter,
+            i = n.paths;
 
-        if (!a && l.length) {
+        if (!a && i.length) {
           var r = [];
           return r.push(b.createElement("li", {
             key: x(),
@@ -14042,7 +14049,7 @@ module.exports = function (e) {
           }, this.getTag(e, t, a))), r.push(b.createElement("li", {
             key: x(),
             className: "single-entry-delimiter"
-          }, i)), r;
+          }, l)), r;
         }
 
         return b.createElement("li", {
@@ -14057,8 +14064,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.id,
-            l = t.protocol,
+            l = t.id,
+            i = t.protocol,
             s = t.paths,
             o = t.domainName,
             c = t.hashRouter,
@@ -14066,21 +14073,21 @@ module.exports = function (e) {
             d = this.state.domain,
             f = d;
         u && f && r()("8") == r()(f) && f.indexOf("/#/") && (f = f.replace("/#/", ""));
-        var m = "".concat(l).concat(d);
+        var m = "".concat(i).concat(d);
         return b.createElement("ul", {
           className: "".concat(n, " ").concat(a),
-          id: i
-        }, l && d && this.getSingleBreadcrumb("".concat(l).concat(d), "".concat(o || "".concat(l).concat(f)), !1), s && 0 !== s.length && s.map(function (t, a) {
+          id: l
+        }, i && d && this.getSingleBreadcrumb("".concat(i).concat(d), "".concat(o || "".concat(i).concat(f)), !1), s && 0 !== s.length && s.map(function (t, a) {
           var n = t.path;
           m += 0 == a && c ? n : "/".concat(n);
-          var i = a == s.length - 1;
-          return e.getSingleBreadcrumb(m, n, i);
+          var l = a == s.length - 1;
+          return e.getSingleBreadcrumb(m, n, l);
         }));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "hashRouter", "domainName", "reactRouter", "moduleMenu", "delimiter", "overwriteText", "removeHashFromDomain"], e, t) ? {
+        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "hashRouter", "domainName", "reactRouter", "moduleMenu", "delimiter", "overwriteText", "removeHashFromDomain"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -14116,8 +14123,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -14175,13 +14182,13 @@ module.exports = function (e) {
             t = this.state,
             a = t.data,
             n = t.itemsPerLine,
-            l = t.isMinified,
+            i = t.isMinified,
             s = [],
             o = 0,
-            c = "group flex ".concat(l ? "flex-column isMinified" : "flex-row");
+            c = "group flex ".concat(i ? "flex-column isMinified" : "flex-row");
         a.map(function (t) {
           var a = t.title,
-              l = t.content,
+              i = t.content,
               u = t.footer,
               d = t.props;
           o++;
@@ -14192,14 +14199,14 @@ module.exports = function (e) {
             m && r()("8") == r()(m) && (f = "".concat(f, " ").concat(m), delete d.className);
           }
 
-          s.push(k.a.createElement("div", i()({
+          s.push(k.a.createElement("div", l()({
             key: x(),
             className: f
           }, d), a && k.a.createElement("div", {
             className: "title"
-          }, a), l && k.a.createElement("div", {
+          }, a), i && k.a.createElement("div", {
             className: "content"
-          }, l), u && k.a.createElement("div", {
+          }, i), u && k.a.createElement("div", {
             className: "footer"
           }, u))), o == n && (e.push(k.a.createElement("div", {
             key: x(),
@@ -14219,16 +14226,16 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.dataJsx,
             n = e.defaultClass,
-            i = e.id;
+            l = e.id;
         return k.a.createElement("div", {
           className: "".concat(n, " ").concat(t),
-          id: i
+          id: l
         }, a);
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "itemsPerLine", "data", "mediaBreak"], e, t) ? {
+        return D(["defaultClass", "id", "itemsPerLine", "data", "mediaBreak"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -14258,8 +14265,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -14326,8 +14333,8 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = this.state,
             n = a.data,
-            i = a.dataJsx,
-            l = a.itemsPerLine,
+            l = a.dataJsx,
+            i = a.itemsPerLine,
             r = a.isMinified,
             s = a.start,
             o = a.end,
@@ -14350,19 +14357,19 @@ module.exports = function (e) {
             className: "content"
           }, p), g && k.a.createElement("div", {
             className: "footer"
-          }, g))), d == l && (i.push(k.a.createElement("div", {
+          }, g))), d == i && (l.push(k.a.createElement("div", {
             key: x(),
             className: "cards-group ".concat(c)
           }, u)), u = [], d = 0);
         }
 
-        u.length && i.push(k.a.createElement("div", {
+        u.length && l.push(k.a.createElement("div", {
           key: x(),
           className: "cards-group ".concat(c)
         }, u)), this.setState({
-          dataJsx: i,
+          dataJsx: l,
           start: o,
-          end: o + l
+          end: o + i
         }, function () {
           0 == s && e.resize();
         });
@@ -14370,7 +14377,7 @@ module.exports = function (e) {
     }, {
       key: "rerenderItems",
       value: function () {
-        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, i = e.isMinified, l = "cards-group flex ".concat(i ? "flex-column isMinified" : "flex-row"), r = [], s = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
+        for (var e = this.state, t = e.data, a = e.start, n = e.itemsPerLine, l = e.isMinified, i = "cards-group flex ".concat(l ? "flex-column isMinified" : "flex-row"), r = [], s = [], o = 0, c = 0; c <= t.length - 1 && !(c >= a); c++) {
           var u = t[c],
               d = u.title,
               f = u.content,
@@ -14386,13 +14393,13 @@ module.exports = function (e) {
             className: "footer"
           }, m))), o == n && (r.push(k.a.createElement("div", {
             key: x(),
-            className: "cards-group ".concat(l)
+            className: "cards-group ".concat(i)
           }, s)), s = [], o = 0);
         }
 
         s.length && r.push(k.a.createElement("div", {
           key: x(),
-          className: "cards-group ".concat(l)
+          className: "cards-group ".concat(i)
         }, s)), this.setState({
           dataJsx: r
         });
@@ -14411,20 +14418,20 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.dataJsx,
-            i = t.defaultClass,
-            l = t.id;
+            l = t.defaultClass,
+            i = t.id;
         return k.a.createElement("div", {
           ref: function (t) {
             return e.cardsReference = t;
           },
-          className: "".concat(i, " ").concat(a),
-          id: l
+          className: "".concat(l, " ").concat(a),
+          id: i
         }, n);
       }
     }]), a;
   }(k.a.Component),
-      ie = a(9),
-      le = a.n(ie),
+      le = a(9),
+      ie = a.n(le),
       re = a(10),
       se = a.n(re);
 
@@ -14446,8 +14453,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -14530,24 +14537,24 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.callbackProps,
-            i = a.persistReject,
-            l = this.state.callback,
+            l = a.persistReject,
+            i = this.state.callback,
             r = [];
-        l && this.loadingAllowed ? (this.attachScrollEvent(), this.setState({
+        i && this.loadingAllowed ? (this.attachScrollEvent(), this.setState({
           loadingData: !0,
           isError: !1
-        }, se()(le.a.mark(function a() {
-          return le.a.wrap(function (a) {
+        }, se()(ie.a.mark(function a() {
+          return ie.a.wrap(function (a) {
             for (;;) switch (a.prev = a.next) {
               case 0:
-                return t.scrollToBottom(), a.next = 3, l(e, n).then(function (e) {
+                return t.scrollToBottom(), a.next = 3, i(e, n).then(function (e) {
                   return e;
                 }).catch(function (e) {
                   if (e) return t.setState({
                     errorData: e,
                     isError: !0
                   }, function () {
-                    if (i) {
+                    if (l) {
                       t.removeScrollEvent();
 
                       for (var e = [100, 200], a = 0; a <= e.length - 1; a++) setTimeout(function () {
@@ -14567,7 +14574,7 @@ module.exports = function (e) {
                   loadingData: !1,
                   isError: !0
                 }, function () {
-                  t.loadingAllowed = !0, i || setTimeout(function () {
+                  t.loadingAllowed = !0, l || setTimeout(function () {
                     t.attachScrollEvent();
                   }, 500);
                 }));
@@ -14595,17 +14602,17 @@ module.exports = function (e) {
       value: function () {
         for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [], t = this.state.dataJsx, a = 0; a <= e.length - 1; a++) {
           var n = e[a],
-              i = n.title,
-              l = n.content,
+              l = n.title,
+              i = n.content,
               r = n.footer;
           t.push(k.a.createElement("div", {
             key: x(),
             className: "card flex flex-column"
-          }, i && k.a.createElement("div", {
+          }, l && k.a.createElement("div", {
             className: "title"
-          }, i), l && k.a.createElement("div", {
+          }, l), i && k.a.createElement("div", {
             className: "content"
-          }, l), r && k.a.createElement("div", {
+          }, i), r && k.a.createElement("div", {
             className: "footer"
           }, r)));
         }
@@ -14625,10 +14632,10 @@ module.exports = function (e) {
     }, {
       key: "returnDataJsx",
       value: function (e) {
-        for (var t = this.state.itemsPerLine, a = [], n = [], i = 0, l = 0; l <= e.length - 1; l++) n.push(e[l]), ++i == t && (a.push(k.a.createElement("div", {
+        for (var t = this.state.itemsPerLine, a = [], n = [], l = 0, i = 0; i <= e.length - 1; i++) n.push(e[i]), ++l == t && (a.push(k.a.createElement("div", {
           key: x(),
           className: "cards-group flex"
-        }, n)), n = [], i = 0);
+        }, n)), n = [], l = 0);
 
         return n.length && a.push(k.a.createElement("div", {
           key: x(),
@@ -14642,23 +14649,23 @@ module.exports = function (e) {
           var t = this.state,
               a = t.dataJsx,
               n = t.itemsPerLine,
-              i = t.isMinified,
-              l = [],
+              l = t.isMinified,
+              i = [],
               s = 0;
           return a.map(function (e, t) {
-            if (l.push(e), ++s == n) {
-              var r = l;
-              return s = 0, l = [], k.a.createElement("div", {
+            if (i.push(e), ++s == n) {
+              var r = i;
+              return s = 0, i = [], k.a.createElement("div", {
                 key: "cards-group-".concat(t),
-                className: "cards-group flex ".concat(i ? "flex-column" : "flex-row")
+                className: "cards-group flex ".concat(l ? "flex-column" : "flex-row")
               }, r);
             }
 
-            if (l.length && t == a.length - 1) {
-              var o = l;
-              return s = 0, l = [], k.a.createElement("div", {
+            if (i.length && t == a.length - 1) {
+              var o = i;
+              return s = 0, i = [], k.a.createElement("div", {
                 key: "cards-group-".concat(t),
-                className: "cards-group flex ".concat(i ? "flex-column" : "flex-row")
+                className: "cards-group flex ".concat(l ? "flex-column" : "flex-row")
               }, o);
             }
           });
@@ -14673,8 +14680,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.isError,
             n = t.errorData,
-            i = t.addClass,
-            l = t.dataJsx,
+            l = t.addClass,
+            i = t.dataJsx,
             r = t.defaultClass,
             s = t.loadingData,
             o = t.loading,
@@ -14685,9 +14692,9 @@ module.exports = function (e) {
           ref: function (t) {
             return e.cardsReference = t;
           },
-          className: "".concat(r, " ").concat(i),
+          className: "".concat(r, " ").concat(l),
           id: c
-        }, this.renderCards(l), s && o, a && n && n, a && n && u && d && k.a.createElement("span", {
+        }, this.renderCards(i), s && o, a && n && n, a && n && u && d && k.a.createElement("span", {
           onClick: function (t) {
             return e.loadMore(t);
           }
@@ -14718,8 +14725,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -14786,15 +14793,15 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = se()(le.a.mark(function e(t) {
+      value: (t = se()(ie.a.mark(function e(t) {
         var a,
             n,
-            i,
-            l = arguments;
-        return le.a.wrap(function (e) {
+            l,
+            i = arguments;
+        return ie.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              if (a = l.length > 1 && void 0 !== l[1] && l[1], !(n = this.state.callback)) {
+              if (a = i.length > 1 && void 0 !== i[1] && i[1], !(n = this.state.callback)) {
                 e.next = 7;
                 break;
               }
@@ -14802,8 +14809,8 @@ module.exports = function (e) {
               return e.next = 5, n(t, a);
 
             case 5:
-              i = e.sent, this.setState({
-                suggestions: a ? [] : i
+              l = e.sent, this.setState({
+                suggestions: a ? [] : l
               });
 
             case 7:
@@ -14858,7 +14865,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            l = t.id,
+            i = t.id,
             r = t.props,
             s = t.suggestions,
             o = t.plainValue,
@@ -14868,7 +14875,7 @@ module.exports = function (e) {
           className: "".concat(n, " ").concat(a)
         }, b.createElement("div", {
           className: "input"
-        }, b.createElement("input", i()({
+        }, b.createElement("input", l()({
           type: u,
           value: o,
           onChange: function (t) {
@@ -14878,7 +14885,7 @@ module.exports = function (e) {
           onKeyDown: function (t) {
             return e.handleKeyDown(t);
           },
-          id: l
+          id: i
         }, r)), "" !== o && s && 0 !== s.length && b.createElement("div", {
           className: "suggestions-area"
         }, b.createElement("ul", {
@@ -14894,22 +14901,22 @@ module.exports = function (e) {
         }, s.map(function (t) {
           var a = t.href,
               n = t.props,
-              l = t.jsx,
+              i = t.jsx,
               r = t.onClickValue;
           return b.createElement("li", {
             key: ue(),
             onClick: function () {
               return e.setInputValue(r, !0);
             }
-          }, b.createElement("a", i()({
+          }, b.createElement("a", l()({
             href: a
-          }, n), l));
+          }, n), i));
         }))))));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["value", "suggestions"], e, t) ? t.callbackRerender ? {
+        return D(["value", "suggestions"], e, t) ? t.callbackRerender ? {
           suggestions: t.suggestions
         } : {
           suggestions: e.suggestions,
@@ -14937,8 +14944,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -14989,11 +14996,11 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.clipboard,
-            i = a.callback,
-            l = a.callbackProps,
+            l = a.callback,
+            i = a.callbackProps,
             r = a.animation;
 
-        if (this.copyToClipboardAction(n), i && i(e, l, n), r && this.clipboardNodeForAnimation) {
+        if (this.copyToClipboardAction(n), l && l(e, i, n), r && this.clipboardNodeForAnimation) {
           var s = "animation-".concat(r);
           if (this.clipboardNodeForAnimation.classList.add(s), "scale" == r) return setTimeout(function () {
             r && t.clipboardNodeForAnimation && t.clipboardNodeForAnimation.classList.remove(s);
@@ -15012,16 +15019,16 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.data,
-            i = t.defaultClass,
-            l = t.id,
+            l = t.defaultClass,
+            i = t.id,
             r = t.formStyle,
             s = t.uuid;
         return k.a.createElement("div", {
           ref: function (t) {
             return e.clipboardNodeForAnimation = t;
           },
-          className: "".concat(i, " ").concat(a),
-          id: l,
+          className: "".concat(l, " ").concat(a),
+          id: i,
           onClick: function (t) {
             return e.copyToClipboard(t);
           }
@@ -15039,7 +15046,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "callback", "callbackProps", "data", "clipboard"], e, t) ? {
+        return D(["defaultClass", "id", "callback", "callbackProps", "data", "clipboard"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -15070,8 +15077,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -15121,7 +15128,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.reactRouter,
             n = t.text404,
-            l = t.text1,
+            i = t.text1,
             s = t.text2,
             o = t.bad,
             c = t.addClass,
@@ -15190,16 +15197,16 @@ module.exports = function (e) {
           className: "text-404"
         }, n), k.a.createElement("hr", null), k.a.createElement("div", {
           className: "text-1"
-        }, l), k.a.createElement("div", {
+        }, i), k.a.createElement("div", {
           className: "text-2"
-        }, s), m && r()("8") == r()(m) && 1 == a && k.a.createElement(G, i()({
+        }, s), m && r()("8") == r()(m) && 1 == a && k.a.createElement(G, l()({
           className: "button-navigation",
           to: m
         }, p, {
           onClick: function (t) {
             return e.callback(t);
           }
-        }), h), m && r()("8") == r()(m) && !1 === a && k.a.createElement("a", i()({
+        }), h), m && r()("8") == r()(m) && !1 === a && k.a.createElement("a", l()({
           className: "button-navigation",
           href: m
         }, p, {
@@ -15229,8 +15236,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -15280,7 +15287,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.reactRouter,
             n = t.link,
-            l = t.text404,
+            i = t.text404,
             s = t.text1,
             o = t.text2,
             c = t.bad,
@@ -15411,18 +15418,18 @@ module.exports = function (e) {
           className: "content-404"
         }, k.a.createElement("div", {
           className: "text-404"
-        }, l), k.a.createElement("hr", null), k.a.createElement("div", {
+        }, i), k.a.createElement("hr", null), k.a.createElement("div", {
           className: "text-1"
         }, s), k.a.createElement("div", {
           className: "text-2"
-        }, o), m && r()("8") == r()(m) && 1 == a && k.a.createElement(G, i()({
+        }, o), m && r()("8") == r()(m) && 1 == a && k.a.createElement(G, l()({
           className: "button-navigation",
           to: m
         }, p, {
           onClick: function (t) {
             return e.callback(t);
           }
-        }), h), m && r()("8") == r()(m) && !1 === a && k.a.createElement("a", i()({
+        }), h), m && r()("8") == r()(m) && !1 === a && k.a.createElement("a", l()({
           className: "button-navigation",
           href: m
         }, p, {
@@ -15452,8 +15459,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -15511,14 +15518,14 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.minifiedSecondSideBar,
-            i = a.href,
-            l = a.sidebarMaxifiedAt;
+            l = a.href,
+            i = a.sidebarMaxifiedAt;
         this.nodeSideBar && !this.nodeSideBar.contains(e.target) && this.nodeSideBar.classList && this.nodeSideBar.classList.contains("SidebarMinified") && (this.nodeSideBar.classList.remove("opened"), n || setTimeout(function () {
           t.setState({
             minifiedSecondSideBar: !0
           });
         }, 100)), setTimeout(function () {
-          l && l >= document.documentElement.getBoundingClientRect().width && t.resizeView(), t.nodeSideBar && t.nodeSideBar.classList && t.nodeSideBar.classList.contains("SidebarMinified") && i !== window.location.href && (t.setState({
+          i && i >= document.documentElement.getBoundingClientRect().width && t.resizeView(), t.nodeSideBar && t.nodeSideBar.classList && t.nodeSideBar.classList.contains("SidebarMinified") && l !== window.location.href && (t.setState({
             href: window.location.href
           }), n || setTimeout(function () {
             t.setState({
@@ -15534,8 +15541,8 @@ module.exports = function (e) {
             t = e.autopilot,
             a = e.persistUserSelection,
             n = e.sidebarMinifiedAt,
-            i = e.sidebarMaxifiedAt,
-            l = e.minify;
+            l = e.sidebarMaxifiedAt,
+            i = e.minify;
         if (a && null !== localStorage.getItem("persistUserSelection")) try {
           var r = JSON.parse(localStorage.getItem("persistUserSelection")),
               s = r.sidebarMin,
@@ -15549,7 +15556,7 @@ module.exports = function (e) {
             minifiedSecondSideBar: u
           });
         } catch (e) {}
-        if (l) return this.setState({
+        if (i) return this.setState({
           sidebarMin: !0,
           contentMin: !0,
           isMinified: !0
@@ -15558,27 +15565,27 @@ module.exports = function (e) {
 
         if (t) {
           if (d <= n) {
-            if (d > i) return this.setState({
+            if (d > l) return this.setState({
               sidebarMin: !0,
               contentMin: !0,
               isMinified: !1,
               minifiedSecondSideBar: !0
             });
-            if (d < i) return this.setState({
+            if (d < l) return this.setState({
               sidebarMin: !0,
               contentMin: !0,
               isMinified: !0
             });
           }
 
-          if (d >= i) return this.setState({
+          if (d >= l) return this.setState({
             sidebarMin: !1,
             contentMin: !1,
             isMinified: !1,
             minifiedSecondSideBar: !0
           });
         } else {
-          if (d >= i) return this.setState({
+          if (d >= l) return this.setState({
             sidebarMin: !1,
             contentMin: !1,
             isMinified: !1,
@@ -15589,7 +15596,7 @@ module.exports = function (e) {
             contentMin: !0,
             isMinified: !0
           });
-          if (d < i) return this.setState({
+          if (d < l) return this.setState({
             sidebarMin: !0,
             contentMin: !0,
             isMinified: !1,
@@ -15624,13 +15631,13 @@ module.exports = function (e) {
           var t = e.state,
               a = t.sidebarMin,
               n = t.contentMin,
-              i = t.isMinified,
-              l = t.minifiedSecondSideBar;
+              l = t.isMinified,
+              i = t.minifiedSecondSideBar;
           t.persistUserSelection && localStorage.setItem("persistUserSelection", JSON.stringify({
             sidebarMin: a,
             contentMin: n,
-            isMinified: i,
-            minifiedSecondSideBar: l
+            isMinified: l,
+            minifiedSecondSideBar: i
           }));
         }) : this.setState({
           sidebarMin: !this.state.sidebarMin,
@@ -15639,13 +15646,13 @@ module.exports = function (e) {
           var t = e.state,
               a = t.sidebarMin,
               n = t.contentMin,
-              i = t.isMinified,
-              l = t.minifiedSecondSideBar;
+              l = t.isMinified,
+              i = t.minifiedSecondSideBar;
           t.persistUserSelection && localStorage.setItem("persistUserSelection", JSON.stringify({
             sidebarMin: a,
             contentMin: n,
-            isMinified: i,
-            minifiedSecondSideBar: l
+            isMinified: l,
+            minifiedSecondSideBar: i
           }));
         });
       }
@@ -15656,7 +15663,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            l = t.id,
+            i = t.id,
             r = t.moduleSidebar,
             s = t.toggleMenuHtml,
             o = t.closeMenuHtml,
@@ -15670,7 +15677,7 @@ module.exports = function (e) {
             g = this.getClassNamesContent(),
             v = "".concat(this.state.isMinified ? this.state.minifiedSecondSideBar ? "SideBar SidebarMinified" : "SideBar SidebarMinified opened" : p);
         return k.a.createElement("div", {
-          id: l,
+          id: i,
           className: "".concat(n, " ").concat(a)
         }, k.a.createElement("div", {
           ref: function (t) {
@@ -15682,9 +15689,9 @@ module.exports = function (e) {
           onClick: function (t) {
             return e.sideBar();
           }
-        }, o), r && r), k.a.createElement("div", i()({
+        }, o), r && r), k.a.createElement("div", l()({
           className: g
-        }, f), k.a.createElement("div", i()({
+        }, f), k.a.createElement("div", l()({
           className: "header"
         }, u), m && k.a.createElement("span", {
           className: "minify-menu",
@@ -15700,7 +15707,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (w(["moduleSidebar", "headerData", "contentData", "persistUserSelection", "sidebarMinifiedAt", "sidebarMaxifiedAt", "displayMinifyMaxifyIcon", "minify", "footerData"], e, t)) {
+        if (D(["moduleSidebar", "headerData", "contentData", "persistUserSelection", "sidebarMinifiedAt", "sidebarMaxifiedAt", "displayMinifyMaxifyIcon", "minify", "footerData"], e, t)) {
           if (t.persistUserSelection && null !== localStorage.getItem("persistUserSelection")) try {
             var a = localStorage.getItem("persistUserSelection");
             return {
@@ -15758,8 +15765,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -15808,7 +15815,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.reactRouter,
             n = t.link,
-            l = t.text404,
+            i = t.text404,
             s = t.text1,
             o = t.text2,
             c = t.addClass,
@@ -15833,7 +15840,7 @@ module.exports = function (e) {
           className: "content-404"
         }, k.a.createElement("div", {
           className: "text-404"
-        }, l), k.a.createElement("div", {
+        }, i), k.a.createElement("div", {
           className: "hr"
         }, k.a.createElement("div", {
           className: "hr-line hr-line-1"
@@ -15841,14 +15848,14 @@ module.exports = function (e) {
           className: "text-1"
         }, s), k.a.createElement("div", {
           className: "text-2"
-        }, o), f && r()("8") == r()(f) && 1 == a && k.a.createElement(G, i()({
+        }, o), f && r()("8") == r()(f) && 1 == a && k.a.createElement(G, l()({
           className: "button-navigation",
           to: f
         }, h, {
           onClick: function (t) {
             return e.callback(t);
           }
-        }), m), f && r()("8") == r()(f) && !1 === a && k.a.createElement("a", i()({
+        }), m), f && r()("8") == r()(f) && !1 === a && k.a.createElement("a", l()({
           className: "button-navigation",
           href: f
         }, h, {
@@ -15861,18 +15868,18 @@ module.exports = function (e) {
   }(b.Component),
       Ee = function (e, t) {
     for (var a = Object.keys(e), n = 0; n <= a.length - 1; n++) {
-      var i = a[n];
+      var l = a[n];
 
-      if (t[i] = {}, e[i] && r()({}) == r()(e[i])) {
-        var l = {};
+      if (t[l] = {}, e[l] && r()({}) == r()(e[l])) {
+        var i = {};
 
         try {
-          l = Object.keys(e[i]);
+          i = Object.keys(e[l]);
         } catch (e) {
-          l = {};
+          i = {};
         }
 
-        for (var s = 0; s <= l.length - 1; s++) "data" == l[s] && (t[i][l[s]] = []), t[i][l[s]] = e[i][l[s]];
+        for (var s = 0; s <= i.length - 1; s++) "data" == i[s] && (t[l][i[s]] = []), t[l][i[s]] = e[l][i[s]];
       }
     }
 
@@ -15897,8 +15904,8 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
@@ -15912,7 +15919,7 @@ module.exports = function (e) {
 
     function n(e) {
       var t;
-      return o()(this, n), (t = a.call(this, e)).buildDragDropItems = t.buildDragDropItems.bind(f()(t)), t.resize = t.resize.bind(f()(t)), t.rebuildData = t.rebuildData.bind(f()(t)), t.onDragEnter = t.onDragEnter.bind(f()(t)), t.onDragLeave = t.onDragLeave.bind(f()(t)), t.onDragOver = t.onDragOver.bind(f()(t)), t.handleDrop = t.handleDrop.bind(f()(t)), t.onDragStart = t.onDragStart.bind(f()(t)), t.cancleDragStatus = t.cancleDragStatus.bind(f()(t)), t.state = {
+      return o()(this, n), (t = a.call(this, e)).buildDragDropItems = t.buildDragDropItems.bind(f()(t)), t.resize = t.resize.bind(f()(t)), t.rebuildData = t.rebuildData.bind(f()(t)), t.onDragEnter = t.onDragEnter.bind(f()(t)), t.onDragLeave = t.onDragLeave.bind(f()(t)), t.onDragOver = t.onDragOver.bind(f()(t)), t.handleDrop = t.handleDrop.bind(f()(t)), t.onDragStart = t.onDragStart.bind(f()(t)), t.cancleDragStatus = t.cancleDragStatus.bind(f()(t)), t.uniqueAreaId = "".concat(x()), t.state = {
         isMinified: !1,
         dragging: !1,
         currentDraggingHover: "",
@@ -16001,85 +16008,85 @@ module.exports = function (e) {
       }
     }, {
       key: "handleDrop",
-      value: (t = se()(le.a.mark(function e(t, a, n, i) {
-        var l, r, s, o, c, u, d, f, m, h;
-        return le.a.wrap(function (e) {
+      value: (t = se()(ie.a.mark(function e(t, a, n, l) {
+        var i, r, s, o, c, u, d, f, m, h;
+        return ie.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              if (console.log("handle drop"), t.preventDefault(), t.stopPropagation(), t.persist(), n) {
-                e.next = 6;
+              if (t.preventDefault(), t.stopPropagation(), t.persist(), n) {
+                e.next = 5;
                 break;
               }
 
               return e.abrupt("return", this.cancleDragStatus());
 
-            case 6:
+            case 5:
               if (!t.dataTransfer.getData("text")) {
-                e.next = 29;
+                e.next = 28;
                 break;
               }
 
               if (!this.state.callbackAllowDrop) {
-                e.next = 25;
+                e.next = 24;
                 break;
               }
 
-              if (!(r = (l = this).checkBeforeBuild(a, t.dataTransfer.getData("text")))) {
-                e.next = 22;
+              if (!(r = (i = this).checkBeforeBuild(a, t.dataTransfer.getData("text")))) {
+                e.next = 21;
                 break;
               }
 
-              return s = this.state, o = s.callbackAllowDrop, c = s.callbackAllowDropProps, u = r.oldData, d = r.mainData, f = r.details, m = r.key, h = r.trasnferredData, i && this.setState({
+              return s = this.state, o = s.callbackAllowDrop, c = s.callbackAllowDropProps, u = r.oldData, d = r.mainData, f = r.details, m = r.key, h = r.trasnferredData, l && this.setState({
                 isDropCheck: !0
-              }), e.next = 18, o(u, d, f, c);
+              }), e.next = 17, o(u, d, f, c);
 
-            case 18:
-              e.sent ? (l.rebuildData(m, h), l.dragCounter = 0, i && this.setState({
+            case 17:
+              e.sent ? (i.rebuildData(m, h), i.dragCounter = 0, l && this.setState({
                 isDropCheck: !1
               })) : this.setState({
                 dragging: !1,
                 isDropCheck: !1
-              }), e.next = 23;
+              }), e.next = 22;
               break;
+
+            case 21:
+              this.setState({
+                dragging: !1,
+                isDropCheck: !1
+              });
 
             case 22:
-              this.setState({
-                dragging: !1,
-                isDropCheck: !1
-              });
-
-            case 23:
-              e.next = 27;
+              e.next = 26;
               break;
 
-            case 25:
+            case 24:
               this.rebuildData(a, t.dataTransfer.getData("text")), this.dragCounter = 0;
 
-            case 27:
-              e.next = 30;
+            case 26:
+              e.next = 29;
               break;
 
-            case 29:
+            case 28:
               this.setState({
                 dragging: !1,
                 isDropCheck: !1
               });
 
-            case 30:
+            case 29:
             case "end":
               return e.stop();
           }
         }, e, this);
-      })), function (e, a, n, i) {
+      })), function (e, a, n, l) {
         return t.apply(this, arguments);
       })
     }, {
       key: "onDragStart",
-      value: function (e, t, a, n, i, l) {
+      value: function (e, t, a, n, l) {
         if (!n) return this.cancleDragStatus();
         e.dataTransfer.setData("text/plain", t), this.setState({
           currentDraggingParentElement: a,
-          singleDraggingEntry: i
+          singleDraggingEntry: l
         });
       }
     }, {
@@ -16089,7 +16096,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.data,
             n = t.itemsPerLine,
-            l = t.isMinified,
+            i = t.isMinified,
             s = t.dragging,
             o = t.currentDraggingHover,
             c = t.isDropCheck,
@@ -16108,31 +16115,31 @@ module.exports = function (e) {
               h = a[u[t]],
               p = u[t],
               g = a[u[t]].name ? a[u[t]].name : void 0,
-              v = "drag-drop-parent-".concat(t),
+              v = "".concat(e.uniqueAreaId, "-drag-drop-parent-").concat(t),
               y = a[u[t]] && a[u[t]].data && r()([]) == r()(a[u[t]].data) ? a[u[t]].data : [],
               b = a[u[t]] && a[u[t]].areaProps && r()({}) == r()(a[u[t]].areaProps) ? e.checkObjectProps(a[u[t]].areaProps) : {},
               C = a[u[t]] && a[u[t]].titleProps && r()({}) == r()(a[u[t]].titleProps) ? e.checkObjectProps(a[u[t]].titleProps) : {},
               S = r()(!0) != r()(a[u[t]].allowDrop) || a[u[t]].allowDrop,
               E = r()(!0) != r()(a[u[t]].allowDrag) || a[u[t]].allowDrag,
-              x = a[u[t]].allowDropLoading ? a[u[t]].allowDropLoading : void 0;
+              x = a[u[t]].dropLoading ? a[u[t]].dropLoading : void 0;
 
           if (h) {
             if (y && y.length) try {
               y.map(function (a, n) {
                 if (a && a.text) {
-                  var i = "drag-drop-entry-".concat(t, "-").concat(n);
+                  var l = "".concat(e.uniqueAreaId, "-drag-drop-entry-").concat(t, "-").concat(n);
                   m.push(k.a.createElement("li", {
-                    key: i,
-                    className: "area-single-item",
+                    key: l,
+                    className: "area-single-entry",
                     onDragStart: function (t) {
-                      return e.onDragStart(t, i, v, E, a, n);
+                      return e.onDragStart(t, l, v, E, a);
                     },
                     draggable: E ? "true" : "false"
                   }, a.text));
                 }
               });
             } catch (e) {}
-            f.push(k.a.createElement("ul", i()({
+            f.push(k.a.createElement("ul", l()({
               key: v,
               className: "area-box"
             }, b, {
@@ -16151,10 +16158,10 @@ module.exports = function (e) {
             }), s && o == v && S && k.a.createElement("div", {
               className: "dragging-target"
             }), c && o == v && x && k.a.createElement("div", {
-              className: "dragging-loading"
+              className: "drop-loading"
             }, x), s && o == v && !S && k.a.createElement("div", {
               className: "dragging-disabled"
-            }), k.a.createElement("div", i()({
+            }), k.a.createElement("div", l()({
               className: "area-title"
             }, C), g && g, !g && p), k.a.createElement("div", {
               className: "area-data"
@@ -16163,7 +16170,7 @@ module.exports = function (e) {
 
           (0 !== t && 0 == t % n && f.length || f && t == u.length - 1) && (d.push(k.a.createElement("div", {
             key: "area-".concat(t, "-").concat(p),
-            className: "area flex ".concat(l ? "flex-column" : "")
+            className: "area flex ".concat(i ? "flex-column" : "")
           }, f)), f = []);
         }, h = 0; h < u.length; h++) m(h);
         return d;
@@ -16173,8 +16180,8 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this.state,
             n = a.data,
-            i = a.singleDraggingEntry,
-            l = a.currentDraggingParentElement,
+            l = a.singleDraggingEntry,
+            i = a.currentDraggingParentElement,
             r = {};
         r = Ee(JSON.parse(JSON.stringify(n)), r);
         var s = {};
@@ -16193,18 +16200,18 @@ module.exports = function (e) {
         }
 
         if (c && c.length) {
-          if (e == l) return null;
+          if (e == i) return null;
 
-          for (var u = 0; u < c.length; u++) if ("drag-drop-parent-".concat(u) == l) {
+          for (var u = 0; u < c.length; u++) if ("".concat(this.uniqueAreaId, "-drag-drop-parent-").concat(u) == i) {
             for (var d = [], f = 0; f <= s[c[u]].data.length - 1; f++) {
-              "drag-drop-entry-".concat(u, "-").concat(f) !== t && d.push(s[c[u]].data[f]);
+              "".concat(this.uniqueAreaId, "-drag-drop-entry-").concat(u, "-").concat(f) !== t && d.push(s[c[u]].data[f]);
             }
 
             s[c[u]].data = d, o.source = c[u];
           }
 
-          if (e !== l && i) for (var m = 0; m < c.length; m++) if ("drag-drop-parent-".concat(m) == e) {
-            null == s[c[m]].data ? s[c[m]].data = [i] : s[c[m]].data.push(i), o.target = c[m], o.item = i;
+          if (e !== i && l) for (var m = 0; m < c.length; m++) if ("".concat(this.uniqueAreaId, "-drag-drop-parent-").concat(m) == e) {
+            null == s[c[m]].data ? s[c[m]].data = [l] : s[c[m]].data.push(l), o.target = c[m], o.item = l;
             break;
           }
           return {
@@ -16223,14 +16230,14 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this,
             n = this.state,
-            i = n.data,
-            l = n.singleDraggingEntry,
+            l = n.data,
+            i = n.singleDraggingEntry,
             r = n.currentDraggingParentElement,
             s = n.callback,
             o = n.callbackProps,
             c = [],
             u = {};
-        u = Ee(i, u);
+        u = Ee(l, u);
         var d = {
           source: void 0,
           target: void 0,
@@ -16238,7 +16245,7 @@ module.exports = function (e) {
         };
 
         try {
-          c = Object.keys(i);
+          c = Object.keys(l);
         } catch (e) {
           c = [];
         }
@@ -16246,20 +16253,20 @@ module.exports = function (e) {
         if (c && c.length) {
           if (e == r) return null;
 
-          for (var f = 0; f < c.length; f++) if ("drag-drop-parent-".concat(f) == r) {
-            for (var m = [], h = 0; h <= i[c[f]].data.length - 1; h++) {
-              "drag-drop-entry-".concat(f, "-").concat(h) !== t && m.push(i[c[f]].data[h]);
+          for (var f = 0; f < c.length; f++) if ("".concat(this.uniqueAreaId, "-drag-drop-parent-").concat(f) == r) {
+            for (var m = [], h = 0; h <= l[c[f]].data.length - 1; h++) {
+              "".concat(this.uniqueAreaId, "-drag-drop-entry-").concat(f, "-").concat(h) !== t && m.push(l[c[f]].data[h]);
             }
 
-            i[c[f]].data = m, d.source = c[f];
+            l[c[f]].data = m, d.source = c[f];
           }
 
-          if (e !== r && l) for (var p = 0; p < c.length; p++) if ("drag-drop-parent-".concat(p) == e) {
-            null == i[c[p]].data ? i[c[p]].data = [l] : i[c[p]].data.push(l), d.target = c[p], d.item = l;
+          if (e !== r && i) for (var p = 0; p < c.length; p++) if ("".concat(this.uniqueAreaId, "-drag-drop-parent-").concat(p) == e) {
+            null == l[c[p]].data ? l[c[p]].data = [i] : l[c[p]].data.push(i), d.target = c[p], d.item = i;
             break;
           }
           this.setState({
-            data: i,
+            data: l,
             currentDraggingParentElement: "",
             singleDraggingEntry: "",
             dragging: !1
@@ -16283,7 +16290,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["addClass", "defaultClass", "id", "data", "itemsPerLine", "callbackAllowDrop", "callbackAllowDropProps"], e, t) ? {
+        return D(["addClass", "defaultClass", "id", "data", "itemsPerLine", "callbackAllowDrop", "callbackAllowDropProps"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-drag-drop-area",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -16296,7 +16303,15 @@ module.exports = function (e) {
         } : null;
       }
     }]), n;
-  }(b.Component);
+  }(b.Component),
+      De = function (e, t) {
+    for (var a = 0; a <= e.length - 1; a++) {
+      var n = e[a];
+      t.push(n);
+    }
+
+    return t;
+  };
 
   function we(e) {
     var t = function () {
@@ -16316,17 +16331,382 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var De = function (e) {
+  var Pe = function (e) {
     h()(a, e);
     var t = we(a);
+
+    function a(e) {
+      var n;
+      return o()(this, a), (n = t.call(this, e)).refNode = k.a.createRef(), n.buildDragDropItems = n.buildDragDropItems.bind(f()(n)), n.rebuildData = n.rebuildData.bind(f()(n)), n.onDragEnter = n.onDragEnter.bind(f()(n)), n.onDragLeave = n.onDragLeave.bind(f()(n)), n.onDragOver = n.onDragOver.bind(f()(n)), n.handleDrop = n.handleDrop.bind(f()(n)), n.onDragStart = n.onDragStart.bind(f()(n)), n.cancleDragStatus = n.cancleDragStatus.bind(f()(n)), n.attachHandleClick = n.attachHandleClick.bind(f()(n)), n.removeHandleClick = n.removeHandleClick.bind(f()(n)), n.handleClick = n.handleClick.bind(f()(n)), n.uniqueAreaId = "".concat(x()), n.state = {
+        dragging: !1,
+        singleDraggingEntry: void 0,
+        overLiIndex: void 0,
+        sourceIndex: void 0,
+        isDropping: !1,
+        moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
+        globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
+        addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+        defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-drag-drop-list",
+        id: e.id && r()("8") == r()(e.id) ? e.id : "",
+        data: e.data && r()([]) == r()(e.data) ? e.data : [],
+        mediaBreak: e.mediaBreak && r()(8) == r()(e.mediaBreak) ? e.mediaBreak : void 0,
+        callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+        callbackProps: e.callbackProps ? e.callbackProps : void 0,
+        callbackAllowDrop: e.callbackAllowDrop && "function" == typeof e.callbackAllowDrop ? e.callbackAllowDrop : void 0,
+        callbackAllowDropProps: e.callbackAllowDropProps ? e.callbackAllowDropProps : void 0,
+        placeholder: e.placeholder ? e.placeholder : void 0,
+        areaProps: e.areaProps && r()({}) == r()(e.areaProps) ? e.areaProps : {},
+        dropLoading: e.dropLoading ? e.dropLoading : void 0,
+        append: r()(!0) == r()(e.append) && e.append
+      }, n;
+    }
+
+    return u()(a, [{
+      key: "componentDidMount",
+      value: function () {
+        S(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass), this.attachHandleClick();
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function () {
+        this.removeHandleClick();
+      }
+    }, {
+      key: "attachHandleClick",
+      value: function () {
+        this.removeHandleClick(), document.addEventListener("click", this.handleClick);
+      }
+    }, {
+      key: "removeHandleClick",
+      value: function () {
+        document.removeEventListener("click", this.handleClick);
+      }
+    }, {
+      key: "handleClick",
+      value: function (e) {
+        this.refNode && this.refNode.current && !this.refNode.current.contains(e.target) && this.cancleDragStatus();
+      }
+    }, {
+      key: "checkObjectProps",
+      value: function (e) {
+        var t = {};
+
+        try {
+          Object.keys(e), t = e;
+        } catch (e) {
+          t = {};
+        }
+
+        return t;
+      }
+    }, {
+      key: "cancleDragStatus",
+      value: function () {
+        this.setState({
+          dragging: !1,
+          singleDraggingEntry: void 0,
+          overLiIndex: void 0,
+          sourceIndex: void 0,
+          isDropping: !1
+        });
+      }
+    }, {
+      key: "onDragOver",
+      value: function (e, t) {
+        e.preventDefault(), e.stopPropagation(), this.state.overLiIndex !== t && this.setState({
+          overLiIndex: t
+        });
+      }
+    }, {
+      key: "onDragEnter",
+      value: function (e, t) {
+        e.preventDefault(), e.stopPropagation(), this.state.overLiIndex !== t && this.setState({
+          dragging: !0,
+          overLiIndex: t
+        });
+      }
+    }, {
+      key: "onDragLeave",
+      value: function (e) {
+        e.preventDefault(), e.stopPropagation();
+      }
+    }, {
+      key: "onDragStart",
+      value: function (e, t, a, n) {
+        e.dataTransfer.setData("text/plain", a), this.setState({
+          singleDraggingEntry: n,
+          sourceIndex: t
+        });
+      }
+    }, {
+      key: "handleDrop",
+      value: function (e) {
+        var t = this;
+        (e.preventDefault(), e.stopPropagation(), e.persist(), e.dataTransfer.getData("text")) ? this.state.callbackAllowDrop ? this.setState({
+          isDropping: !0
+        }, se()(ie.a.mark(function a() {
+          var n;
+          return ie.a.wrap(function (a) {
+            for (;;) switch (a.prev = a.next) {
+              case 0:
+                return n = e.dataTransfer.getData("text"), a.next = 3, t.callbackAllowDrop(n);
+
+              case 3:
+                a.sent ? t.rebuildData(n) : t.cancleDragStatus();
+
+              case 5:
+              case "end":
+                return a.stop();
+            }
+          }, a);
+        }))) : this.rebuildData(e.dataTransfer.getData("text")) : this.cancleDragStatus();
+      }
+    }, {
+      key: "buildDragDropItems",
+      value: function () {
+        var e = this,
+            t = this.state,
+            a = t.data,
+            n = t.dragging,
+            i = t.overLiIndex,
+            s = t.placeholder,
+            o = t.sourceIndex,
+            c = t.isDropping,
+            u = t.dropLoading,
+            d = t.append,
+            f = this.state.areaProps;
+        f = f && r()({}) == r()(f) ? f : {};
+        var m = [];
+        if (a && a.length) for (var h = function (t) {
+          var c = "".concat(e.uniqueAreaId, "-drag-drop-entry-").concat(t),
+              u = a[t],
+              f = u.props && r()({}) == r()(u.props) ? u.props : {};
+          !d && void 0 !== i && i == t && n && o !== t && m.push(k.a.createElement("li", {
+            key: x(),
+            className: "single-entry placeholder",
+            onDragStart: function (a) {
+              return e.onDragStart(a, t, c, u);
+            },
+            onDragOver: function (a) {
+              return e.onDragOver(a, t);
+            },
+            onDragEnter: function (a) {
+              return e.onDragEnter(a, t);
+            },
+            onDragLeave: function (t) {
+              return e.onDragLeave(t);
+            },
+            draggable: "false"
+          }, s)), m.push(k.a.createElement("li", l()({
+            key: c,
+            className: "single-entry",
+            onDragStart: function (a) {
+              return e.onDragStart(a, t, c, u);
+            },
+            onDragOver: function (a) {
+              return e.onDragOver(a, t);
+            },
+            onDragEnter: function (a) {
+              return e.onDragEnter(a, t);
+            },
+            onDragLeave: function (t) {
+              return e.onDragLeave(t);
+            },
+            draggable: "true"
+          }, f), u.text && u.text)), d && void 0 !== i && i == t && n && o !== t && m.push(k.a.createElement("li", {
+            key: x(),
+            className: "single-entry placeholder",
+            onDragStart: function (a) {
+              return e.onDragStart(a, t, c, u);
+            },
+            onDragOver: function (a) {
+              return e.onDragOver(a, t);
+            },
+            onDragEnter: function (a) {
+              return e.onDragEnter(a, t);
+            },
+            onDragLeave: function (t) {
+              return e.onDragLeave(t);
+            },
+            draggable: "false"
+          }, s));
+        }, p = 0; p < a.length; p++) h(p);
+        return k.a.createElement("ul", l()({
+          className: "box"
+        }, f, {
+          onDrop: function (t) {
+            return e.handleDrop(t);
+          }
+        }), m, c && u && k.a.createElement("div", {
+          className: "drop-loading"
+        }, u));
+      }
+    }, {
+      key: "rebuildData",
+      value: function (e) {
+        var t = this,
+            a = this.state,
+            n = a.data,
+            l = a.overLiIndex,
+            i = a.sourceIndex,
+            r = a.callback,
+            s = a.callbackProps,
+            o = a.singleDraggingEntry,
+            c = a.append;
+
+        if (n && n.length) {
+          var u = [],
+              d = [];
+          d = De(JSON.parse(JSON.stringify(n)), d);
+
+          for (var f = {
+            sourceIndex: i,
+            targetIndex: l,
+            item: o
+          }, m = 0; m <= n.length - 1; m++) {
+            var h = "".concat(this.uniqueAreaId, "-drag-drop-entry-").concat(m);
+            m != l || c || (u.push(o), f.sourceIndex = m), h !== e && u.push(n[m]), m == l && c && (u.push(o), f.sourceIndex = m);
+          }
+
+          this.setState({
+            data: u,
+            singleDraggingEntry: "",
+            dragging: !1,
+            sourceIndex: void 0,
+            overLiIndex: void 0,
+            isDropping: !1
+          }, function () {
+            r && r(d, t.state.data, f, s);
+          });
+        } else this.cancleDragStatus();
+      }
+    }, {
+      key: "callbackAllowDrop",
+      value: function (e) {
+        var t = this;
+        return new Promise(function () {
+          var a = se()(ie.a.mark(function a(n) {
+            var l, i, s, o, c, u, d, f, m, h, p, g, v;
+            return ie.a.wrap(function (a) {
+              for (;;) switch (a.prev = a.next) {
+                case 0:
+                  if (a.prev = 0, l = t.state, i = l.data, s = l.overLiIndex, o = l.sourceIndex, c = l.singleDraggingEntry, u = l.callbackAllowDrop, d = l.callbackAllowDropProps, !i || !i.length) {
+                    a.next = 14;
+                    break;
+                  }
+
+                  for (f = [], m = [], m = De(JSON.parse(JSON.stringify(i)), m), h = {
+                    sourceIndex: o,
+                    targetIndex: s,
+                    item: c
+                  }, p = 0; p <= i.length - 1; p++) g = "".concat(t.uniqueAreaId, "-drag-drop-entry-").concat(p), p == s && (f.push(c), h.sourceIndex = p), g !== e && f.push(i[p]);
+
+                  return a.next = 10, u(m, f, h, d).then(function (e) {
+                    return e;
+                  }).catch(function (e) {
+                    return !1;
+                  });
+
+                case 10:
+                  v = a.sent, r()(!0) == r()(v) ? n(v) : n(!1), a.next = 15;
+                  break;
+
+                case 14:
+                  n(!1);
+
+                case 15:
+                  a.next = 20;
+                  break;
+
+                case 17:
+                  a.prev = 17, a.t0 = a.catch(0), n(!1);
+
+                case 20:
+                case "end":
+                  return a.stop();
+              }
+            }, a, null, [[0, 17]]);
+          }));
+          return function (e) {
+            return a.apply(this, arguments);
+          };
+        }());
+      }
+    }, {
+      key: "render",
+      value: function () {
+        var e = this.state,
+            t = e.addClass,
+            a = e.defaultClass,
+            n = e.id;
+        return k.a.createElement("div", {
+          className: "".concat(a, " ").concat(t),
+          id: n,
+          ref: this.refNode
+        }, this.buildDragDropItems());
+      }
+    }], [{
+      key: "getDerivedStateFromProps",
+      value: function (e, t) {
+        return D(["addClass", "defaultClass", "id", "data", "placeholder", "areaProps", "callbackAllowDrop", "callbackAllowDropProps", "dropLoading", "append"], e, t) ? e.callback && "function" == e.callback && e.data !== t.data ? {
+          data: e.data
+        } : e.callback && "function" !== e.callback && e.data !== t.data ? {
+          data: t.data
+        } : {
+          addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
+          defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-drag-drop-list",
+          id: e.id && r()("8") == r()(e.id) ? e.id : "",
+          data: e.data && r()([]) == r()(e.data) ? e.data : [],
+          callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
+          callbackProps: e.callbackProps ? e.callbackProps : void 0,
+          placeholder: e.placeholder ? e.placeholder : void 0,
+          areaProps: e.areaProps && r()({}) == r()(e.areaProps) ? e.areaProps : {},
+          callbackAllowDrop: e.callbackAllowDrop && "function" == typeof e.callbackAllowDrop ? e.callbackAllowDrop : void 0,
+          callbackAllowDropProps: e.callbackAllowDropProps ? e.callbackAllowDropProps : void 0,
+          dropLoading: e.dropLoading ? e.dropLoading : void 0,
+          append: r()(!0) == r()(e.append) && e.append
+        } : null;
+      }
+    }]), a;
+  }(b.Component);
+
+  function Te(e) {
+    var t = function () {
+      if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+      if (Reflect.construct.sham) return !1;
+      if ("function" == typeof Proxy) return !0;
+
+      try {
+        return Date.prototype.toString.call(Reflect.construct(Date, [], function () {})), !0;
+      } catch (e) {
+        return !1;
+      }
+    }();
+
+    return function () {
+      var a,
+          n = y()(e);
+
+      if (t) {
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
+      } else a = n.apply(this, arguments);
+
+      return g()(this, a);
+    };
+  }
+
+  var Le = function (e) {
+    h()(a, e);
+    var t = Te(a);
 
     function a(e) {
       var n;
@@ -16407,20 +16787,20 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = this.state,
             n = a.defaultClass,
-            i = a.callbackClose,
-            l = a.closeOnDimmedClick,
+            l = a.callbackClose,
+            i = a.closeOnDimmedClick,
             r = a.closeOnCallback,
             s = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
             d = 0;
-        if (t && !l) return null;
+        if (t && !i) return null;
         this.getAvailableAnimationTypes().includes(u) || (u = "none"), u && "none" !== u && (d = 300), this.setState({
           defaultClass: "".concat(n, " ").concat(u ? "".concat(u, "-back") : "")
         }, function () {
           setTimeout(function () {
-            i && i(), e.setState({
+            l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
               display: !r,
               inputValue: s ? "" : o,
@@ -16434,8 +16814,8 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this.state,
             n = a.closeOnCallback,
-            i = a.inputEmptyOnCallback,
-            l = a.inputValue,
+            l = a.inputEmptyOnCallback,
+            i = a.inputValue,
             r = a.filteredData,
             s = this.props.callback;
 
@@ -16443,8 +16823,8 @@ module.exports = function (e) {
           if (s(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
-            inputValue: i ? "" : l,
-            filteredData: i ? [] : r
+            inputValue: l ? "" : i,
+            filteredData: l ? [] : r
           });
         }
       }
@@ -16491,8 +16871,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.iconClose,
-            l = t.data,
+            l = t.iconClose,
+            i = t.data,
             r = t.display,
             s = t.filteredData,
             o = t.inputActive,
@@ -16506,12 +16886,12 @@ module.exports = function (e) {
           },
           className: "".concat(n, " ").concat(a),
           id: f
-        }, i && k.a.createElement("span", {
+        }, l && k.a.createElement("span", {
           className: "span-close",
           onClick: function (t) {
             return e.callbackClose();
           }
-        }, i), k.a.createElement("div", {
+        }, l), k.a.createElement("div", {
           className: "dimmed",
           onClick: function (t) {
             return e.callbackClose(!0);
@@ -16528,12 +16908,12 @@ module.exports = function (e) {
           className: "ul"
         }, 0 !== s.length && this.buildListJsx(s), 0 === s.length && 0 !== c.length && k.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(l)))) : null;
+        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(i)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+        return D(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           data: e.data && r()([]) === r()(e.data) ? e.data : [],
@@ -16555,7 +16935,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Pe(e) {
+  function Oe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -16573,17 +16953,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Te = function (e) {
+  var Re = function (e) {
     h()(a, e);
-    var t = Pe(a);
+    var t = Oe(a);
 
     function a(e) {
       var n;
@@ -16664,20 +17044,20 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = this.state,
             n = a.defaultClass,
-            i = a.callbackClose,
-            l = a.closeOnDimmedClick,
+            l = a.callbackClose,
+            i = a.closeOnDimmedClick,
             r = a.closeOnCallback,
             s = a.inputEmptyOnCallback,
             o = a.inputValue,
             c = a.filteredData,
             u = this.state.animation,
             d = 0;
-        if (t && !l) return null;
+        if (t && !i) return null;
         this.getAvailableAnimationTypes().includes(u) || (u = "none"), u && "none" !== u && (d = 300), this.setState({
           defaultClass: "".concat(n, " ").concat(u ? "".concat(u, "-back") : "")
         }, function () {
           setTimeout(function () {
-            i && i(), e.setState({
+            l && l(), e.setState({
               defaultClass: e.getDefaultClass(e.props),
               display: !r,
               inputValue: s ? "" : o,
@@ -16691,8 +17071,8 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this.state,
             n = a.closeOnCallback,
-            i = a.inputEmptyOnCallback,
-            l = a.inputValue,
+            l = a.inputEmptyOnCallback,
+            i = a.inputValue,
             r = a.filteredData,
             s = this.props.callback;
 
@@ -16700,8 +17080,8 @@ module.exports = function (e) {
           if (s(e, t), n) return this.callbackClose();
           this.setState({
             display: !n,
-            inputValue: i ? "" : l,
-            filteredData: i ? [] : r
+            inputValue: l ? "" : i,
+            filteredData: l ? [] : r
           });
         }
       }
@@ -16748,8 +17128,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.iconClose,
-            l = t.data,
+            l = t.iconClose,
+            i = t.data,
             r = t.display,
             s = t.filteredData,
             o = t.inputActive,
@@ -16763,12 +17143,12 @@ module.exports = function (e) {
           },
           className: "".concat(n, " ").concat(a),
           id: f
-        }, i && k.a.createElement("span", {
+        }, l && k.a.createElement("span", {
           className: "span-close",
           onClick: function (t) {
             return e.callbackClose();
           }
-        }, i), k.a.createElement("div", {
+        }, l), k.a.createElement("div", {
           className: "dimmed",
           onClick: function (t) {
             return e.callbackClose(!0);
@@ -16785,12 +17165,12 @@ module.exports = function (e) {
           className: "ul"
         }, 0 !== s.length && this.buildListJsx(s), 0 === s.length && 0 !== c.length && k.a.createElement("div", {
           className: "no-data"
-        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(l)))) : null;
+        }, u), 0 == s.length && 0 == c.length && this.buildListJsx(i)))) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+        return D(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           data: e.data && r()([]) === r()(e.data) ? e.data : [],
@@ -16811,14 +17191,14 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      Oe = function () {
+      Me = function () {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
-      Le = function () {
+      Be = function () {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].removeAttribute("class"), document.getElementsByTagName("html")[0].removeAttribute("style"));
   };
 
-  function Re(e) {
+  function Ae(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -16836,17 +17216,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Me = function (e) {
+  var Ie = function (e) {
     h()(a, e);
-    var t = Re(a);
+    var t = Ae(a);
 
     function a(e) {
       var n;
@@ -16876,12 +17256,12 @@ module.exports = function (e) {
             t = e.closeOnEsc,
             a = e.disableScroll,
             n = e.display;
-        t && window.addEventListener("keydown", this.EscListener, !1), n && a && Oe();
+        t && window.addEventListener("keydown", this.EscListener, !1), n && a && Me();
       }
     }, {
       key: "componentWillUnmount",
       value: function () {
-        Le(), window.removeEventListener("keydown", this.EscListener, !1);
+        Be(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "componentDidUpdate",
@@ -16889,15 +17269,15 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && Oe(), void (a && Le());
-        Le(), window.removeEventListener("keydown", this.EscListener, !1);
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && Me(), void (a && Be());
+        Be(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
       key: "EscListener",
       value: function (e) {
         if (27 === e.keyCode) {
           var t = this.state.callbackClose;
-          t && "function" == typeof t && (Le(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+          t && "function" == typeof t && (Be(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
         }
       }
     }, {
@@ -16906,8 +17286,8 @@ module.exports = function (e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
             a = this.state,
             n = a.closeOnClick,
-            i = a.callbackClose;
-        (t || n && i && "function" == typeof i && this.contentReference && !e.target.contains(this.contentReference)) && (Le(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
+            l = a.callbackClose;
+        (t || n && l && "function" == typeof l && this.contentReference && !e.target.contains(this.contentReference)) && (Be(), window.removeEventListener("keydown", this.EscListener, !1), this.fadeOut());
       }
     }, {
       key: "fadeOut",
@@ -16938,20 +17318,20 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.display,
-            i = t.iconClose,
-            l = t.data,
+            l = t.iconClose,
+            i = t.data,
             r = t.dimmed,
             s = t.id,
             o = this.getDefaultClass();
         return n ? b.createElement("div", {
           className: "".concat(o, " ").concat(a),
           id: s
-        }, i && b.createElement("div", {
+        }, l && b.createElement("div", {
           className: "icon-close",
           onClick: function (t) {
             return e.closeClick(t, !0);
           }
-        }, i), r && b.createElement("div", {
+        }, l), r && b.createElement("div", {
           className: "dimmed",
           onClick: function (t) {
             return e.closeClick(t);
@@ -16961,12 +17341,12 @@ module.exports = function (e) {
             return e.contentReference = t;
           },
           className: "content"
-        }, l)) : null;
+        }, i)) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
+        return D(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -16983,10 +17363,10 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Be = a(12),
-      Ae = a.n(Be);
+      Fe = a(12),
+      Ve = a.n(Fe);
 
-  function Ie(e) {
+  function je(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -17004,17 +17384,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Fe = function (e) {
+  var ze = function (e) {
     h()(a, e);
-    var t = Ie(a);
+    var t = je(a);
 
     function a(e) {
       var n;
@@ -17095,10 +17475,10 @@ module.exports = function (e) {
                   })
                 });
               }, a[t].disappear);
-            }, i = 0; i <= a.length - 1; i++) n(i);
+            }, l = 0; l <= a.length - 1; l++) n(l);
 
             e.setState({
-              messagesApp: [].concat(Ae()(t), Ae()(a))
+              messagesApp: [].concat(Ve()(t), Ve()(a))
             });
           }
         }, t);
@@ -17119,16 +17499,16 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.codeMapping,
-            l = t.messagesApp,
+            i = t.messagesApp,
             s = t.defaultClass,
             o = t.id,
             c = Object.getOwnPropertyNames(n);
         return k.a.createElement("div", {
           className: "".concat(s, " ").concat(a),
           id: o
-        }, l.map(function (t) {
+        }, i.map(function (t) {
           var a = t.errorCode,
-              l = t.errorMessage,
+              i = t.errorMessage,
               s = t.unique;
 
           if (a = JSON.stringify(a), c.includes(a) && void 0 !== n[a]) {
@@ -17144,18 +17524,18 @@ module.exports = function (e) {
             return f && r()({}) === r()(f) && f.props && r()({}) === r()(f.props) && (p = f.props), h && r()({}) === r()(h) && h.props && r()({}) === r()(h.props) && (g = h.props), m && r()({}) === r()(m) && m.props && r()({}) === r()(m.props) && (v = m.props), k.a.createElement("div", {
               className: "single-error",
               key: x()
-            }, u && r()("000") === r()(u) && k.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && r()({}) === r()(u) && k.a.createElement("h1", null, u, " ".concat(d ? a : "")), k.a.createElement("div", i()({
+            }, u && r()("000") === r()(u) && k.a.createElement("h1", null, "".concat(u, " ").concat(d ? a : "")), u && r()({}) === r()(u) && k.a.createElement("h1", null, u, " ".concat(d ? a : "")), k.a.createElement("div", l()({
               className: "text"
-            }, p), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(l ? "".concat(l, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), k.a.createElement("div", {
+            }, p), "".concat(f.prefix ? "".concat(f.prefix, " ") : "", " ").concat(i ? "".concat(i, " ") : "", " ").concat(f.suffix ? "".concat(f.suffix) : "")), k.a.createElement("div", {
               className: "options"
-            }, k.a.createElement("div", i()({
+            }, k.a.createElement("div", l()({
               onClick: function (t) {
                 return e.removeMessage(s);
               },
               className: "single-option"
             }, v), "".concat(m.text ? "".concat(m.text, " ") : "")), h && r()({}) === r()(h) && h.text && r()("000") === r()(h.text) && k.a.createElement("div", {
               className: "single-option"
-            }, k.a.createElement("a", i()({
+            }, k.a.createElement("a", l()({
               rel: "noopener noreferrer",
               href: "".concat(h.href ? h.href : "")
             }, g), h.text))));
@@ -17167,7 +17547,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ve(e) {
+  function _e(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -17185,15 +17565,15 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var ze = {
+  var Ue = {
     Smileys: {
       title: "Smileys",
       data: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐", "😑", "😶", "🙄", "😏", "😣", "😥", "😮", "🤐", "😯", "😪", "😫", "😴", "😌", "😛", "😜", "😝", "🤤", "😒", "😓", "😔", "😕", "🙃", "🤑", "😲", "☹", "🙁", "😖", "😞", "😟", "😤", "😢", "😭", "😦", "😧", "😨", "😩", "🤯", "😬", "😰", "😱", "😳", "🤪", "😵", "😡", "😠", "🤬", "😷", "🤒", "🤕", "🤢", "🤮", "🤧", "😇", "🤠", "🤡", "🤥", "🤫", "🤭", "🧐", "🤓", "😈", "👿", "👹", "👺", "💀", "👻", "👽", "🤖", "💩"]
@@ -17247,15 +17627,16 @@ module.exports = function (e) {
       data: ["¢", "£", "¤", "¥", "¦", "§", "¨", "ª", "«", "¬", "­", "®", "¯", "°", "±", "²", "³", "´", "Μ", "¶", "·", "¸", "¹", "º", "»", "¼", "½", "¾", "¿", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "×", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "SS", "À", "Á", "Â", "Ã", "Ä", "Å", "Æ", "Ç", "È", "É", "Ê", "Ë", "Ì", "Í", "Î", "Ï", "Ð", "Ñ", "Ò", "Ó", "Ô", "Õ", "Ö", "÷", "Ø", "Ù", "Ú", "Û", "Ü", "Ý", "Þ", "Ÿ", "Ƒ", "Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "•", "…", "′", "″", "‾", "⁄", "℘", "ℑ", "ℜ", "™", "ℵ", "←", "↑", "→", "↓", "↔", "↵", "⇐", "⇑", "⇒", "⇓", "⇔", "∀", "∂", "∃", "∅", "∇", "∈", "∉", "∋", "∏", "∑", "−", "∗", "√", "∝", "∞", "∠", "∧", "∨", "∩", "∪", "∫", "∴", "∼", "≅", "≈", "≠", "≡", "≤", "≥", "⊂", "⊃", "⊄", "⊆", "⊇", "⊕", "⊗", "⊥", "⋅", "⌈", "⌉", "⌊", "⌋", "〈", "〉", "◊", "♠", "♣", "♥", "♦"]
     }
   },
-      je = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
-      _e = function (e) {
+      He = ["Smileys", "Peoples", "Animals", "Plants", "Nature", "Food", "Activity", "Travel", "Objects", "Symbols", "Currency", "Arrows", "Html"],
+      Ke = function (e) {
     h()(a, e);
-    var t = Ve(a);
+
+    var t = _e(a);
 
     function a(e) {
       var n;
       return o()(this, a), (n = t.call(this, e)).callback = n.callback.bind(f()(n)), n.changeTab = n.changeTab.bind(f()(n)), n.state = {
-        icons: ze,
+        icons: Ue,
         moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
         globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -17264,7 +17645,7 @@ module.exports = function (e) {
         iconsType: e.iconsType && r()("8") == r()(e.iconsType) ? e.iconsType : "Smileys",
         callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
         displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-        renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : je,
+        renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : He,
         translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
         custom: e.custom && r()([]) == r()(e.custom) ? e.custom : void 0
       }, n;
@@ -17280,8 +17661,8 @@ module.exports = function (e) {
             n = 0;
         t && r()([]) == r()(t) && t.length && (t.map(function (e) {
           var t = e.title,
-              i = e.data;
-          t && r()("8") == r()(t) && i && r()([]) == r()(i) && i.length && null == a[t] && (a[t] = e, n += 1);
+              l = e.data;
+          t && r()("8") == r()(t) && l && r()([]) == r()(l) && l.length && null == a[t] && (a[t] = e, n += 1);
         }), n && this.setState({
           icons: a
         }));
@@ -17306,22 +17687,22 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.id,
-            i = t.defaultClass,
-            l = t.icons,
+            l = t.defaultClass,
+            i = t.icons,
             r = t.displayTabs,
             s = t.iconsType,
             o = t.renderItems,
             c = t.translations;
         return k.a.createElement("div", {
-          className: "".concat(i, " ").concat(a),
+          className: "".concat(l, " ").concat(a),
           id: n
         }, r && k.a.createElement("div", {
           className: "tabs"
         }, o.map(function (t, a) {
-          if (void 0 !== l[t]) {
-            var n = l[t].title,
-                i = l[t].title;
-            c && void 0 !== c[t] && (i = c[t]);
+          if (void 0 !== i[t]) {
+            var n = i[t].title,
+                l = i[t].title;
+            c && void 0 !== c[t] && (l = c[t]);
             var r = s == n ? "single-tab active" : "single-tab";
             return a == o.length - 1 && (r += " single-tab-last"), k.a.createElement("div", {
               className: r,
@@ -17329,12 +17710,12 @@ module.exports = function (e) {
               onClick: function () {
                 return e.changeTab(n);
               }
-            }, i);
+            }, l);
           }
-        })), s && void 0 !== l[s] && void 0 !== l[s].data && k.a.createElement("div", {
+        })), s && void 0 !== i[s] && void 0 !== i[s].data && k.a.createElement("div", {
           key: ue(),
           className: "content"
-        }, l[s].data.map(function (t) {
+        }, i[s].data.map(function (t) {
           return k.a.createElement("span", {
             className: "single-icon",
             key: ue(),
@@ -17347,13 +17728,13 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
+        return D(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           callback: e.callback && "function" == typeof e.callback ? e.callback : void 0,
           displayTabs: r()(!0) != r()(e.displayTabs) || e.displayTabs,
-          renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : je,
+          renderItems: e.renderItems && r()([]) == r()(e.renderItems) ? e.renderItems : He,
           translations: e.translations && r()({}) == r()(e.translations) ? e.translations : void 0,
           custom: e.custom && r()({}) == r()(e.custom) ? e.custom : void 0
         } : null;
@@ -17361,7 +17742,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ue(e) {
+  function Je(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -17379,18 +17760,18 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var He = function (e) {
+  var qe = function (e) {
     h()(n, e);
     var t,
-        a = Ue(n);
+        a = Je(n);
 
     function n(e) {
       var t;
@@ -17444,16 +17825,16 @@ module.exports = function (e) {
       }
     }, {
       key: "callback",
-      value: (t = se()(le.a.mark(function e() {
+      value: (t = se()(ie.a.mark(function e() {
         var t,
             a,
             n,
-            i,
-            l = arguments;
-        return le.a.wrap(function (e) {
+            l,
+            i = arguments;
+        return ie.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              if (t = l.length > 0 && void 0 !== l[0] ? l[0] : null, a = this.state.getValueFromCallback, !this.props.callback || "function" != typeof this.props.callback) {
+              if (t = i.length > 0 && void 0 !== i[0] ? i[0] : null, a = this.state.getValueFromCallback, !this.props.callback || "function" != typeof this.props.callback) {
                 e.next = 12;
                 break;
               }
@@ -17472,7 +17853,7 @@ module.exports = function (e) {
               break;
 
             case 10:
-              i = this.state.plainValue, this.props.callback(i);
+              l = this.state.plainValue, this.props.callback(l);
 
             case 12:
             case "end":
@@ -17519,8 +17900,8 @@ module.exports = function (e) {
             t = e.defaultClass,
             a = e.animatePlaceholder,
             n = e.defaultClassOrigin,
-            i = e.plainValue;
-        a && "" !== i && -1 == t.indexOf("focus") && this.setState({
+            l = e.plainValue;
+        a && "" !== l && -1 == t.indexOf("focus") && this.setState({
           defaultClass: "".concat(n, " focus")
         });
       }
@@ -17543,7 +17924,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.animatePlaceholder,
-            l = t.inputPlaceholder,
+            i = t.inputPlaceholder,
             r = t.id,
             s = t.defaultClass,
             o = t.inputType,
@@ -17553,7 +17934,7 @@ module.exports = function (e) {
           className: "".concat(s, " ").concat(a)
         }, n && b.createElement("div", {
           className: "font-input title"
-        }, l), "textarea" == o && b.createElement("textarea", i()({
+        }, i), "textarea" == o && b.createElement("textarea", l()({
           className: "font-input",
           onFocus: this.onFocus,
           onBlur: this.onBlur,
@@ -17562,9 +17943,9 @@ module.exports = function (e) {
           onChange: function (t) {
             return e.setValue(t);
           },
-          placeholder: n ? "" : l,
+          placeholder: n ? "" : i,
           id: r
-        }, c)), "textarea" !== o && b.createElement("input", i()({
+        }, c)), "textarea" !== o && b.createElement("input", l()({
           className: "font-input",
           onFocus: this.onFocus,
           onBlur: this.onBlur,
@@ -17579,16 +17960,16 @@ module.exports = function (e) {
           ref: function (t) {
             return e.inputNode = t;
           },
-          placeholder: n ? "" : l,
+          placeholder: n ? "" : i,
           id: r
         }, c)));
       }
     }]), n;
   }(b.Component),
-      Ke = a(13),
-      Je = a.n(Ke);
+      We = a(13),
+      Ye = a.n(We);
 
-  function We(e) {
+  function Ge(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -17606,17 +17987,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var qe = function (e) {
+  var Ze = function (e) {
     h()(a, e);
-    var t = We(a);
+    var t = Ge(a);
 
     function a(e) {
       var n;
@@ -17668,12 +18049,12 @@ module.exports = function (e) {
         var t = this.state,
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
-        if (e) for (var i = 0; i <= e.length - 1; i++) {
-          var l = e[i];
+        if (e) for (var l = 0; l <= e.length - 1; l++) {
+          var i = e[l];
 
           try {
-            var r = l.type;
-            this.validateObjectValues(l) && a && a(l, r);
+            var r = i.type;
+            this.validateObjectValues(i) && a && a(i, r);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -17685,13 +18066,13 @@ module.exports = function (e) {
         var t = e.name,
             a = e.size,
             n = e.type,
-            i = this.calculatedFileSize(a),
-            l = this.state,
-            r = l.allowedFileSize,
-            s = l.allowedFiles,
-            o = l.errorCallbackCustomData,
+            l = this.calculatedFileSize(a),
+            i = this.state,
+            r = i.allowedFileSize,
+            s = i.allowedFiles,
+            o = i.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), i <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -17748,7 +18129,7 @@ module.exports = function (e) {
             t = this,
             a = this.state,
             n = a.addClass,
-            l = a.label,
+            i = a.label,
             r = a.inputPlaceholder,
             s = a.defaultClass,
             o = a.id,
@@ -17759,7 +18140,7 @@ module.exports = function (e) {
         };
         return k.a.createElement("div", {
           className: "".concat(s, " ").concat(n)
-        }, k.a.createElement("input", i()((e = {
+        }, k.a.createElement("input", l()((e = {
           ref: function (e) {
             return t.inputNode = e;
           },
@@ -17769,18 +18150,18 @@ module.exports = function (e) {
           },
           placeholder: r,
           id: o
-        }, Je()(e, "type", "file"), Je()(e, "name", "files[]"), e), u)), k.a.createElement("label", {
+        }, Ye()(e, "type", "file"), Ye()(e, "name", "files[]"), e), u)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files",
           onClick: function () {
             return t.handleClick();
           }
-        }, l));
+        }, i));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["label", "errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "multiple"], e, t) ? {
+        return D(["label", "errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "multiple"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -17795,7 +18176,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ye(e) {
+  function Xe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -17813,17 +18194,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Ge = function (e) {
+  var $e = function (e) {
     h()(a, e);
-    var t = Ye(a);
+    var t = Xe(a);
 
     function a(e) {
       var n;
@@ -17902,12 +18283,12 @@ module.exports = function (e) {
         var t = this.state,
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
-        if (e) for (var i = 0; i <= e.length - 1; i++) {
-          var l = e[i];
+        if (e) for (var l = 0; l <= e.length - 1; l++) {
+          var i = e[l];
 
           try {
-            var r = l.type;
-            this.validateObjectValues(l) && a && a(l, r);
+            var r = i.type;
+            this.validateObjectValues(i) && a && a(i, r);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -17919,13 +18300,13 @@ module.exports = function (e) {
         var t = e.name,
             a = e.size,
             n = e.type,
-            i = this.calculatedFileSize(a),
-            l = this.state,
-            r = l.allowedFileSize,
-            s = l.allowedFiles,
-            o = l.errorCallbackCustomData,
+            l = this.calculatedFileSize(a),
+            i = this.state,
+            r = i.allowedFileSize,
+            s = i.allowedFiles,
+            o = i.errorCallbackCustomData,
             c = !0;
-        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), i <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
+        return t || (this.errorCallback("empty_filename", o), c = !1), a || (this.errorCallback("empty_filecontent", o), c = !1), n || (this.errorCallback("unrecognized_filetype", o), c = !1), l <= r && (this.errorCallback("maximum_filesize_reached", o), c = !1), s.includes(n) || (this.errorCallback("unsupported_filetype", o), c = !1), c;
       }
     }, {
       key: "calculatedFileSize",
@@ -17988,12 +18369,12 @@ module.exports = function (e) {
         var t = this.state,
             a = t.readFileCallback,
             n = t.errorCallbackCustomData;
-        if (e) for (var i = 0; i <= e.length - 1; i++) {
-          var l = e[i];
+        if (e) for (var l = 0; l <= e.length - 1; l++) {
+          var i = e[l];
 
           try {
-            var r = l.type;
-            this.validateObjectValues(l) && a && a(l, r);
+            var r = i.type;
+            this.validateObjectValues(i) && a && a(i, r);
           } catch (e) {
             this.errorCallback(e, n);
           }
@@ -18006,7 +18387,7 @@ module.exports = function (e) {
             t = this,
             a = this.state,
             n = a.addClass,
-            l = a.inputPlaceholder,
+            i = a.inputPlaceholder,
             r = a.defaultClass,
             s = a.id,
             o = a.isDragging,
@@ -18021,7 +18402,7 @@ module.exports = function (e) {
         return k.a.createElement("div", {
           className: "".concat(r, " ").concat(n),
           id: s
-        }, f && k.a.createElement("input", i()((e = {
+        }, f && k.a.createElement("input", l()((e = {
           ref: function (e) {
             return t.inputNode = e;
           },
@@ -18029,9 +18410,9 @@ module.exports = function (e) {
           onChange: function (e) {
             return t.handleFileUploadInputFiled(e);
           },
-          placeholder: l,
+          placeholder: i,
           id: s
-        }, Je()(e, "type", "file"), Je()(e, "name", "files[]"), e), m)), k.a.createElement("label", {
+        }, Ye()(e, "type", "file"), Ye()(e, "name", "files[]"), e), m)), k.a.createElement("label", {
           className: "label",
           htmlFor: "files"
         }, k.a.createElement("div", {
@@ -18043,12 +18424,12 @@ module.exports = function (e) {
           onDragLeave: this.onDragLeave,
           onDragOver: this.onDragOver,
           onDrop: this.handleDrop
-        }, l, o && c && c)));
+        }, i, o && c && c)));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
+        return D(["errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -18064,7 +18445,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Ze(e) {
+  function Qe(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -18082,17 +18463,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Xe = function (e) {
+  var et = function (e) {
     h()(a, e);
-    var t = Ze(a);
+    var t = Qe(a);
 
     function a(e) {
       var n;
@@ -18176,8 +18557,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.getValueFromCallback,
             n = t.callback,
-            i = t.plainValue;
-        n && n(a ? e : i);
+            l = t.plainValue;
+        n && n(a ? e : l);
       }
     }, {
       key: "callbackEsc",
@@ -18206,10 +18587,10 @@ module.exports = function (e) {
             t = this.state,
             a = t.suggestionsToFilter,
             n = t.plainValue,
-            i = t.sortSuggestions;
+            l = t.sortSuggestions;
 
-        if (i && this.availableSorts.includes(i) && ("asc" == i && a.sort(), "desc" == i && (a = (a = a.sort()).reverse())), n.length) {
-          for (var l = 0; l <= a.length - 1; l++) a[l] && -1 !== a[l].indexOf(n) && e.push(a[l]);
+        if (l && this.availableSorts.includes(l) && ("asc" == l && a.sort(), "desc" == l && (a = (a = a.sort()).reverse())), n.length) {
+          for (var i = 0; i <= a.length - 1; i++) a[i] && -1 !== a[i].indexOf(n) && e.push(a[i]);
 
           if (e.length) {
             for (var r = [], s = [], o = 0; o <= e.length - 1; o++) r.includes(e[o]) || (r.push(e[o]), s.push(o));
@@ -18232,17 +18613,17 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.selected,
-            i = a.callbackSelection,
-            l = a.emptySuggestionAfterSelection,
+            l = a.callbackSelection,
+            i = a.emptySuggestionAfterSelection,
             r = a.sortSelected,
             s = a.plainValue;
         n.includes(e) ? n = n.filter(function (t) {
           return t !== e;
-        }) : n.push(e), r && this.availableSorts.includes(r) && ("asc" == r && n.sort(), "desc" == r && (n = (n = n.sort()).reverse())), i && i(n), this.setState({
+        }) : n.push(e), r && this.availableSorts.includes(r) && ("asc" == r && n.sort(), "desc" == r && (n = (n = n.sort()).reverse())), l && l(n), this.setState({
           selected: n,
-          plainValue: l ? "" : s
+          plainValue: i ? "" : s
         }, function () {
-          l && t.setState({
+          i && t.setState({
             filter: "",
             suggestions: [],
             setArrow: null
@@ -18255,9 +18636,9 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.selectedArrow,
-            i = a.suggestions,
-            l = a.plainValue;
-        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== i[n] ? this.toggleSelection(i[n]) : ("ArrowDown" === e.key && i.length && (n += 1) >= i.length - 1 && (n = i.length - 1), "ArrowUp" === e.key && i.length && (n -= 1) <= 0 && (n = 0), "" != l && i.length || (n = null), void this.setState({
+            l = a.suggestions,
+            i = a.plainValue;
+        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != i && l.length || (n = null), void this.setState({
           selectedArrow: n
         }, function () {
           if (t.suggestionsHolder) {
@@ -18285,7 +18666,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.selected,
-            l = t.defaultClass,
+            i = t.defaultClass,
             r = t.id,
             s = t.props,
             o = t.suggestions,
@@ -18294,7 +18675,7 @@ module.exports = function (e) {
             d = t.inputType,
             f = t.selectedArrow;
         return k.a.createElement("div", {
-          className: "".concat(l, " ").concat(a)
+          className: "".concat(i, " ").concat(a)
         }, k.a.createElement("div", {
           className: "input"
         }, 0 !== n.length && k.a.createElement("div", {
@@ -18309,7 +18690,7 @@ module.exports = function (e) {
             },
             className: "remove"
           }, "x"), t);
-        })), k.a.createElement("input", i()({
+        })), k.a.createElement("input", l()({
           ref: this.inputRef,
           type: d,
           value: c,
@@ -18332,9 +18713,9 @@ module.exports = function (e) {
             return e.suggestionsHolder = t;
           }
         }, o.map(function (t, a) {
-          var i = n.includes(t) ? "active" : "";
-          return null !== f && void 0 !== o[f] && f == a && (i = "".concat(i, " selected")), k.a.createElement("li", {
-            className: i,
+          var l = n.includes(t) ? "active" : "";
+          return null !== f && void 0 !== o[f] && f == a && (l = "".concat(l, " selected")), k.a.createElement("li", {
+            className: l,
             key: ue(),
             onClick: function (a) {
               return e.toggleSelection(t);
@@ -18348,7 +18729,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return D(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -18357,7 +18738,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function $e(e) {
+  function tt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -18375,17 +18756,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Qe = function (e) {
+  var at = function (e) {
     h()(a, e);
-    var t = $e(a);
+    var t = tt(a);
 
     function a(e) {
       var n;
@@ -18469,8 +18850,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.getValueFromCallback,
             n = t.callback,
-            i = t.plainValue;
-        n && n(a ? e : i);
+            l = t.plainValue;
+        n && n(a ? e : l);
       }
     }, {
       key: "callbackEsc",
@@ -18499,16 +18880,16 @@ module.exports = function (e) {
             t = this.state,
             a = t.suggestionsToFilter,
             n = t.plainValue,
-            i = t.sortSuggestions;
+            l = t.sortSuggestions;
 
-        if (i && this.availableSorts.includes(i) && ("asc" == i && a.sort(function (e, t) {
+        if (l && this.availableSorts.includes(l) && ("asc" == l && a.sort(function (e, t) {
           return e.text > t.text ? 1 : -1;
-        }), "desc" == i && a.sort(function (e, t) {
+        }), "desc" == l && a.sort(function (e, t) {
           return e.text > t.text ? -1 : 1;
         })), n.length) {
-          for (var l = 0; l <= a.length - 1; l++) {
-            var r = a[l].text;
-            r && -1 !== r.indexOf(n) && e.push(a[l]);
+          for (var i = 0; i <= a.length - 1; i++) {
+            var r = a[i].text;
+            r && -1 !== r.indexOf(n) && e.push(a[i]);
           }
 
           if (e.length) {
@@ -18535,8 +18916,8 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.selected,
-            i = a.callbackSelection,
-            l = a.emptySuggestionAfterSelection,
+            l = a.callbackSelection,
+            i = a.emptySuggestionAfterSelection,
             r = a.sortSelected,
             s = a.plainValue,
             o = e.text;
@@ -18555,11 +18936,11 @@ module.exports = function (e) {
           return e.text > t.text ? 1 : -1;
         }), "desc" == r && n.sort(function (e, t) {
           return e.text > t.text ? -1 : 1;
-        })), i && i(n), this.setState({
+        })), l && l(n), this.setState({
           selected: n,
-          plainValue: l ? "" : s
+          plainValue: i ? "" : s
         }, function () {
-          l && t.setState({
+          i && t.setState({
             filter: "",
             suggestions: [],
             setArrow: null
@@ -18572,9 +18953,9 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.selectedArrow,
-            i = a.suggestions,
-            l = a.plainValue;
-        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== i[n] ? this.toggleSelection(i[n]) : ("ArrowDown" === e.key && i.length && (n += 1) >= i.length - 1 && (n = i.length - 1), "ArrowUp" === e.key && i.length && (n -= 1) <= 0 && (n = 0), "" != l && i.length || (n = null), void this.setState({
+            l = a.suggestions,
+            i = a.plainValue;
+        return e.persist(), null == n && "ArrowDown" === e.key && (n = -1), "Escape" === e.key ? this.callbackEsc() : "Enter" === e.key && -1 !== n && null !== n && void 0 !== l[n] ? this.toggleSelection(l[n]) : ("ArrowDown" === e.key && l.length && (n += 1) >= l.length - 1 && (n = l.length - 1), "ArrowUp" === e.key && l.length && (n -= 1) <= 0 && (n = 0), "" != i && l.length || (n = null), void this.setState({
           selectedArrow: n
         }, function () {
           if (t.suggestionsHolder) {
@@ -18602,7 +18983,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.selected,
-            l = t.defaultClass,
+            i = t.defaultClass,
             r = t.id,
             s = t.props,
             o = t.suggestions,
@@ -18611,7 +18992,7 @@ module.exports = function (e) {
             d = t.inputType,
             f = t.selectedArrow;
         return k.a.createElement("div", {
-          className: "".concat(l, " ").concat(a)
+          className: "".concat(i, " ").concat(a)
         }, k.a.createElement("div", {
           className: "input"
         }, 0 !== n.length && k.a.createElement("div", {
@@ -18627,7 +19008,7 @@ module.exports = function (e) {
             },
             className: "remove"
           }, "x"), a);
-        })), k.a.createElement("input", i()({
+        })), k.a.createElement("input", l()({
           ref: this.inputRef,
           type: d,
           value: c,
@@ -18650,11 +19031,11 @@ module.exports = function (e) {
             return e.suggestionsHolder = t;
           }
         }, o.map(function (t, a) {
-          var i = n.includes(t) ? "active" : "";
-          null !== f && void 0 !== o[f] && f == a && (i = "".concat(i, " selected"));
-          var l = t.text;
-          if (l) return k.a.createElement("li", {
-            className: i,
+          var l = n.includes(t) ? "active" : "";
+          null !== f && void 0 !== o[f] && f == a && (l = "".concat(l, " selected"));
+          var i = t.text;
+          if (i) return k.a.createElement("li", {
+            className: l,
             key: ue(),
             onClick: function (a) {
               return e.toggleSelection(t);
@@ -18662,13 +19043,13 @@ module.exports = function (e) {
             onMouseOver: function () {
               return e.setArrow(a);
             }
-          }, l);
+          }, i);
         }))))));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return D(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -18677,7 +19058,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function et(e) {
+  function nt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -18695,17 +19076,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var tt = function (e) {
+  var lt = function (e) {
     h()(a, e);
-    var t = et(a);
+    var t = nt(a);
 
     function a(e) {
       var n;
@@ -18756,16 +19137,16 @@ module.exports = function (e) {
             t = this.state,
             a = t.active,
             n = t.reactRouter,
-            l = t.link,
+            i = t.link,
             s = t.text404,
             o = t.text1,
             c = t.text2,
             u = (t.bad, t.addClass),
             d = t.defaultClass,
             f = t.id,
-            m = l.href,
-            h = l.text,
-            p = l.props;
+            m = i.href,
+            h = i.text,
+            p = i.props;
         return k.a.createElement("div", {
           className: "".concat(d, " ").concat(u),
           id: f
@@ -18803,14 +19184,14 @@ module.exports = function (e) {
           className: "text-2"
         }, c, !a && k.a.createElement("div", {
           className: ""
-        })), m && r()("8") == r()(m) && 1 == n && k.a.createElement(G, i()({
+        })), m && r()("8") == r()(m) && 1 == n && k.a.createElement(G, l()({
           className: "button-navigation",
           to: m
         }, p, {
           onClick: function (t) {
             return e.callback(t);
           }
-        }), h), m && r()("8") == r()(m) && !1 === n && k.a.createElement("a", i()({
+        }), h), m && r()("8") == r()(m) && !1 === n && k.a.createElement("a", l()({
           className: "button-navigation",
           href: m
         }, p, {
@@ -18822,7 +19203,7 @@ module.exports = function (e) {
     }]), a;
   }(b.Component);
 
-  function at(e) {
+  function it(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -18840,17 +19221,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var nt = function (e) {
+  var rt = function (e) {
     h()(a, e);
-    var t = at(a);
+    var t = it(a);
 
     function a(e) {
       var n;
@@ -18877,16 +19258,16 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.text,
             n = e.defaultClass,
-            i = e.id;
+            l = e.id;
         return e.display ? k.a.createElement("div", {
           className: "".concat(n, " ").concat(t),
-          id: i
+          id: l
         }, a) : null;
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "text", "display"], e, t) ? {
+        return D(["defaultClass", "id", "text", "display"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -18897,7 +19278,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function it(e) {
+  function st(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -18915,17 +19296,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var lt = function (e) {
+  var ot = function (e) {
     h()(a, e);
-    var t = it(a);
+    var t = st(a);
 
     function a(e) {
       var n;
@@ -18959,8 +19340,8 @@ module.exports = function (e) {
             t = e.data,
             a = e.fireScrollEvent,
             n = e.fireScrollBack,
-            i = e.scrollReference;
-        this.attachScrollEvent(), this.buildData(t), a && (this.scrollReference && i && (this.scrollReference.scrollTop = a), i || (document.documentElement.scrollTop = a)), n && (this.scrollReference && i && (this.scrollReference.scrollTop = 0), i || n && (this.scrollReference.scrollTop = 0));
+            l = e.scrollReference;
+        this.attachScrollEvent(), this.buildData(t), a && (this.scrollReference && l && (this.scrollReference.scrollTop = a), l || (document.documentElement.scrollTop = a)), n && (this.scrollReference && l && (this.scrollReference.scrollTop = 0), l || n && (this.scrollReference.scrollTop = 0));
       }
     }, {
       key: "attachScrollEvent",
@@ -18994,26 +19375,26 @@ module.exports = function (e) {
         var t = this,
             a = this,
             n = this.state,
-            i = n.callback,
-            l = n.persistReject,
+            l = n.callback,
+            i = n.persistReject,
             r = n.callbackProps;
-        this.removeScrollEvent(), i ? this.setState({
+        this.removeScrollEvent(), l ? this.setState({
           loadingData: !0,
           isError: !1
-        }, se()(le.a.mark(function n() {
-          return le.a.wrap(function (n) {
+        }, se()(ie.a.mark(function n() {
+          return ie.a.wrap(function (n) {
             for (;;) switch (n.prev = n.next) {
               case 0:
-                return t.scrollToBottom(), n.next = 3, i(e, r).then(function (e) {
+                return t.scrollToBottom(), n.next = 3, l(e, r).then(function (e) {
                   return "break" == e ? a.setState({
                     loadingData: !1
-                  }) : (a.buildData(e), l ? null : a.attachScrollEvent());
+                  }) : (a.buildData(e), i ? null : a.attachScrollEvent());
                 }).catch(function (e) {
                   return null == e ? a.setState({
                     loadingData: !1,
                     isError: !0
                   }, function () {
-                    l || setTimeout(function () {
+                    i || setTimeout(function () {
                       a.attachScrollEvent(), a.callbackRendered = !0;
                     }, 500);
                   }) : a.setState({
@@ -19021,10 +19402,10 @@ module.exports = function (e) {
                     isError: !0,
                     loadingData: !1
                   }, function () {
-                    if (l) for (var e = [100, 200], t = 0; t <= e.length - 1; t++) setTimeout(function () {
+                    if (i) for (var e = [100, 200], t = 0; t <= e.length - 1; t++) setTimeout(function () {
                       a.scrollToBottom();
                     }, e[t]);
-                    l || setTimeout(function () {
+                    i || setTimeout(function () {
                       a.attachScrollEvent(), a.callbackRendered = !0;
                     }, 500);
                   });
@@ -19062,8 +19443,8 @@ module.exports = function (e) {
         var t = this.state,
             a = t.minify,
             n = t.scrollReference,
-            i = parseInt(a);
-        this.scrollReference && this.callbackRendered && n && this.scrollReference.offsetHeight + this.scrollReference.scrollTop >= this.scrollReference.scrollHeight - i && (this.callbackRendered = !1, this.loadMore(e)), !n && document.body && window.innerHeight + window.pageYOffset >= document.body.offsetHeight - i && (this.callbackRendered = !1, this.loadMore(e));
+            l = parseInt(a);
+        this.scrollReference && this.callbackRendered && n && this.scrollReference.offsetHeight + this.scrollReference.scrollTop >= this.scrollReference.scrollHeight - l && (this.callbackRendered = !1, this.loadMore(e)), !n && document.body && window.innerHeight + window.pageYOffset >= document.body.offsetHeight - l && (this.callbackRendered = !1, this.loadMore(e));
       }
     }, {
       key: "render",
@@ -19072,8 +19453,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.dataJsx,
-            i = t.defaultClass,
-            l = t.loadingData,
+            l = t.defaultClass,
+            i = t.loadingData,
             r = t.errorData,
             s = t.loading,
             o = t.id,
@@ -19085,11 +19466,11 @@ module.exports = function (e) {
           ref: function (t) {
             return e.scrollReference = t;
           },
-          className: "".concat(i, " ").concat(a, " ").concat(c ? "" : "ignore"),
+          className: "".concat(l, " ").concat(a, " ").concat(c ? "" : "ignore"),
           id: o
         }, n && n.map(function (e) {
           return e;
-        }), l && s, u && r && r, u && d && k.a.createElement("span", {
+        }), i && s, u && r && r, u && d && k.a.createElement("span", {
           onClick: function (t) {
             return e.loadMore(t);
           }
@@ -19098,7 +19479,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "data", "loading", "minify", "scrollReference", "callbackProps", "onReject", "persistReject"], e, t) ? {
+        return D(["defaultClass", "id", "data", "loading", "minify", "scrollReference", "callbackProps", "onReject", "persistReject"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -19115,7 +19496,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function rt(e) {
+  function ct(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -19133,17 +19514,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var st = function (e) {
+  var ut = function (e) {
     h()(a, e);
-    var t = rt(a);
+    var t = ct(a);
 
     function a(e) {
       var n;
@@ -19202,7 +19583,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.display,
             n = t.addClass,
-            l = t.defaultClass,
+            i = t.defaultClass,
             r = t.id,
             s = t.data,
             o = t.callback,
@@ -19210,9 +19591,9 @@ module.exports = function (e) {
             u = t.closeOnClickDimmed;
         return a && o ? k.a.createElement("div", {
           ref: this.ref,
-          className: "".concat(l, " ").concat(n),
+          className: "".concat(i, " ").concat(n),
           id: r
-        }, k.a.createElement("div", i()({
+        }, k.a.createElement("div", l()({
           className: "holder"
         }, u && {
           onClick: function (t) {
@@ -19230,7 +19611,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "data", "display", "callback"], e, t) ? {
+        return D(["defaultClass", "id", "data", "display", "callback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-modal",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -19242,7 +19623,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function ot(e) {
+  function dt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -19260,26 +19641,26 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var ct = 0,
-      ut = function (e) {
+  var ft = 0,
+      mt = function (e) {
     h()(a, e);
-    var t = ot(a);
+    var t = dt(a);
 
     function a(e) {
       var n;
       o()(this, a), (n = t.call(this, e)).getPagerJsx = n.getPagerJsx.bind(f()(n)), n.getList = n.getList.bind(f()(n)), n.prev = n.prev.bind(f()(n)), n.next = n.next.bind(f()(n)), n.filterData = n.filterData.bind(f()(n)), n.pages = n.pages.bind(f()(n));
-      var i = e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2,
-          l = e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2,
+      var l = e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2,
+          i = e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2,
           s = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10,
-          c = i + l + 1;
+          c = l + i + 1;
       return n.state = {
         filteredData: [],
         moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
@@ -19358,8 +19739,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.minPages,
             n = t.itemsPerSite,
-            i = t.currentPage,
-            l = t.filteredData,
+            l = t.currentPage,
+            i = t.filteredData,
             r = t.displayTotal,
             s = t.totalPrefix,
             o = t.totalSufix,
@@ -19369,15 +19750,15 @@ module.exports = function (e) {
             f = t.alignPagesItems,
             m = (t.fallbackNoData, t.previousButton),
             h = t.nextButton,
-            p = (t.searchValue, t.fallbackNoDataSearch, t.dataLoaded, t.fallbackMounting, l.length),
-            g = i;
+            p = (t.searchValue, t.fallbackNoDataSearch, t.dataLoaded, t.fallbackMounting, i.length),
+            g = l;
         g++;
         var v = this.getMaxPages(),
             y = [],
             b = [],
             C = 1;
         if (!p) return null;
-        if (p && p <= i * n) return this.setState({
+        if (p && p <= l * n) return this.setState({
           currentPage: this.state.currentPage - 1
         });
 
@@ -19396,13 +19777,13 @@ module.exports = function (e) {
         var N = k.a.createElement("div", {
           className: "total"
         }, s && s, p, o && o),
-            w = k.a.createElement("span", {
+            D = k.a.createElement("span", {
           className: "buttons flex"
         }, k.a.createElement("span", {
           onClick: function (t) {
             return e.prev();
           },
-          className: 0 !== i ? "previous-button ".concat("" == m ? "icon-previous" : "") : "previous-button deactivated ".concat("" == m ? "icon-previous" : "")
+          className: 0 !== l ? "previous-button ".concat("" == m ? "icon-previous" : "") : "previous-button deactivated ".concat("" == m ? "icon-previous" : "")
         }, m && m, "" == m && "↩"), c && k.a.createElement("span", {
           className: "pagination-paging"
         }, y.map(function (t) {
@@ -19435,32 +19816,32 @@ module.exports = function (e) {
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, w);
+            }, r && N, D);
 
           case 2:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, w, r && N);
+            }, D, r && N);
 
           case 3:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, w);
+            }, r && N, D);
 
           case 4:
           case 5:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, w, r && N);
+            }, D, r && N);
 
           default:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, w);
+            }, r && N, D);
         }
       }
     }, {
@@ -19470,16 +19851,16 @@ module.exports = function (e) {
             t = e.paginationTextPrefix,
             a = e.filteredData,
             n = e.currentPage,
-            i = e.paginationTextMiddle,
-            l = a.length,
+            l = e.paginationTextMiddle,
+            i = a.length,
             r = n;
         r++;
         var s = this.getMaxPages();
-        return 0 == l ? null : (0 == s && (s = 1), k.a.createElement("div", {
+        return 0 == i ? null : (0 == s && (s = 1), k.a.createElement("div", {
           className: "pagination-pages"
         }, k.a.createElement("div", {
           className: "text"
-        }, "".concat(t, " ").concat(r, " ").concat(i, " ").concat(s))));
+        }, "".concat(t, " ").concat(r, " ").concat(l, " ").concat(s))));
       }
     }, {
       key: "prev",
@@ -19513,8 +19894,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.keysToRender,
             n = t.lineNumber,
-            i = t.currentPage,
-            l = t.itemsPerSite,
+            l = t.currentPage,
+            i = t.itemsPerSite,
             r = t.filteredData,
             s = t.resetLineNumber,
             o = t.dataLoaded,
@@ -19522,27 +19903,27 @@ module.exports = function (e) {
             u = t.fallbackNoData,
             d = t.fallbackNoDataSearch,
             f = t.searchValue;
-        i = parseInt(i), l = parseInt(l);
-        var m = i * l,
-            h = m + l;
+        l = parseInt(l), i = parseInt(i);
+        var m = l * i,
+            h = m + i;
         if (isNaN(m) || isNaN(h)) return "dev" == this.state.env && console.error("Invalid value passed as key: currentPage. The current page returned NaN - not a number"), null;
         var p = r.slice(m, h),
             g = [];
         return p.map(function (t, r) {
           var o = [],
               c = r + 1;
-          i && !s && (c += i * l), n && o.push(k.a.createElement("span", {
+          l && !s && (c += l * i), n && o.push(k.a.createElement("span", {
             className: "line-number entry entry-1",
             key: ue()
           }, c));
           var u = 0,
               d = Object.keys(t);
           a.map(function (e, a) {
-            var i = t[e];
-            d.includes(e) && void 0 !== i && (u++, o.push(k.a.createElement("span", {
+            var l = t[e];
+            d.includes(e) && void 0 !== l && (u++, o.push(k.a.createElement("span", {
               className: "value entry entry-".concat(a + (n ? 2 : 1), " value-").concat(u),
               key: ue()
-            }, i)));
+            }, l)));
           }), g.push(k.a.createElement("li", {
             onClick: function (a) {
               return e.clickCallback(a, t);
@@ -19564,18 +19945,18 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = this.state,
             n = a.fallbackLoadingTime,
-            i = a.searchOnKeyDown;
+            l = a.searchOnKeyDown;
         this.setState({
-          loading: !!i
+          loading: !!l
         }, function () {
           setTimeout(function () {
             var a = e.state,
-                l = a.data,
+                i = a.data,
                 s = a.searchSensitive,
                 o = a.searchOnKeys,
                 c = (a.env, e.state.searchValue),
                 u = [];
-            i || t ? (l.map(function (e) {
+            l || t ? (i.map(function (e) {
               o && o.length ? o.map(function (t) {
                 void 0 !== e[t] && r()("8") === r()(e[t]) && (r()("8") !== r()(c) && (c = JSON.stringify(c)), s && "" !== c && -1 !== e[t].indexOf(c) && u.push(e), s || "" === c || -1 === e[t].toLowerCase().indexOf(c.toLowerCase()) || u.push(e), "" == c && u.push(e));
               }) : u.push(e);
@@ -19602,13 +19983,13 @@ module.exports = function (e) {
         e.persist();
         var a = this.state,
             n = a.data,
-            i = a.inputCallback,
-            l = a.searchOnKeyDown,
+            l = a.inputCallback,
+            i = a.searchOnKeyDown,
             r = e.target.value;
         this.setState({
-          loading: !!l
+          loading: !!i
         }, function () {
-          return i && i(e), 27 == e.keyCode || 27 == e.which ? t.setState({
+          return l && l(e), 27 == e.keyCode || 27 == e.which ? t.setState({
             searchValue: "",
             currentPage: 0,
             filteredData: n,
@@ -19633,8 +20014,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.id,
-            l = t.loading,
+            l = t.id,
+            i = t.loading,
             r = t.fallbackLoading,
             s = t.alignPagination,
             o = t.searchActive,
@@ -19646,7 +20027,7 @@ module.exports = function (e) {
             h = this.getList();
         return k.a.createElement("div", {
           className: "".concat(n, " ").concat(a),
-          id: i
+          id: l
         }, o && k.a.createElement("h1", {
           className: "h1"
         }, d), o && k.a.createElement("div", {
@@ -19671,23 +20052,23 @@ module.exports = function (e) {
           }
         })), 1 == s && f && k.a.createElement("h1", {
           className: "h1"
-        }, f), 1 == s && 0 == m.length && h, 1 == s && 0 != m.length && k.a.createElement("ul", null, 0 !== h.length && h, "" !== r && l && r), this.getPagerJsx(), this.pages(), 1 !== s && f && k.a.createElement("h1", {
+        }, f), 1 == s && 0 == m.length && h, 1 == s && 0 != m.length && k.a.createElement("ul", null, 0 !== h.length && h, "" !== r && i && r), this.getPagerJsx(), this.pages(), 1 !== s && f && k.a.createElement("h1", {
           className: "h1"
-        }, f), 1 !== s && 0 == m.length && h, 1 !== s && k.a.createElement("ul", null, 0 !== h.length && h, "" !== r && l && r));
+        }, f), 1 !== s && 0 == m.length && h, 1 !== s && k.a.createElement("ul", null, 0 !== h.length && h, "" !== r && i && r));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (w(["searchValue"], e, t)) {
-          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == ct) return ct += 1, {
+        if (D(["searchValue"], e, t)) {
+          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == ft) return ft += 1, {
             searchValue: e.searchValue
           };
-          if (e.searchValue && "" !== e.searchValue && 0 !== ct && e.searchValue !== t.searchValue) return ct += 1, {
+          if (e.searchValue && "" !== e.searchValue && 0 !== ft && e.searchValue !== t.searchValue) return ft += 1, {
             searchValue: t.searchValue
           };
         }
 
-        if (w(["filteredData"], e, t)) {
+        if (D(["filteredData"], e, t)) {
           if (e.searchValue && "" !== e.searchValue) return {
             filteredData: t.filteredData,
             searchValue: t.searchValue
@@ -19704,7 +20085,7 @@ module.exports = function (e) {
           };
         }
 
-        if (w(["defaultClass", "id", "data", "searchOnKeys", "itemsPerSite", "keysToRender", "totalSufix", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "minPages"], e, t)) {
+        if (D(["defaultClass", "id", "data", "searchOnKeys", "itemsPerSite", "keysToRender", "totalSufix", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "minPages"], e, t)) {
           var a = (e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2) + (e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2) + 1,
               n = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10;
           return {
@@ -19752,7 +20133,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function dt(e) {
+  function ht(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -19770,24 +20151,24 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var ft = 0,
-      mt = function (e) {
+  var pt = 0,
+      gt = function (e) {
     h()(a, e);
-    var t = dt(a);
+    var t = ht(a);
 
     function a(e) {
       var n;
       o()(this, a), (n = t.call(this, e)).getPagerJsx = n.getPagerJsx.bind(f()(n)), n.getList = n.getList.bind(f()(n)), n.prev = n.prev.bind(f()(n)), n.next = n.next.bind(f()(n)), n.filterData = n.filterData.bind(f()(n)), n.pages = n.pages.bind(f()(n));
-      var i = (e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2) + (e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2) + 1,
-          l = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10;
+      var l = (e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2) + (e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2) + 1,
+          i = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10;
       return n.state = {
         filteredData: [],
         itemsToRender: [],
@@ -19801,9 +20182,9 @@ module.exports = function (e) {
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
         defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-pager-dynamic",
         id: e.id && r()("8") == r()(e.id) ? e.id : "",
-        data: e.data && r()([]) === r()(e.data) ? e.data.slice(0, l) : [],
+        data: e.data && r()([]) === r()(e.data) ? e.data.slice(0, i) : [],
         searchOnKeys: e.searchOnKeys && r()([]) === r()(e.searchOnKeys) ? e.searchOnKeys : [],
-        itemsPerSite: l,
+        itemsPerSite: i,
         keysToRender: e.display && r()([]) === r()(e.display) ? e.display : [],
         lineNumber: r()(!0) === r()(e.lineNumber) && e.lineNumber,
         liCallback: e.liCallback && "function" == typeof e.liCallback ? e.liCallback : void 0,
@@ -19838,7 +20219,7 @@ module.exports = function (e) {
         getDataCallback: e.getDataCallback && "function" == typeof e.getDataCallback ? e.getDataCallback : void 0,
         globalCount: e.globalCount && r()(8) === r()(e.globalCount) ? e.globalCount : 0,
         totalPages: e.totalPages && r()(8) === r()(e.totalPages) ? e.totalPages : 0,
-        minPages: i,
+        minPages: l,
         env: r()("react") === r()(e.env) ? e.env : 0
       }, n;
     }
@@ -19856,28 +20237,28 @@ module.exports = function (e) {
             n = this.state.itemsPerSite;
         a && (e -= 1), this.setState({
           loadingList: !0
-        }, se()(le.a.mark(function a() {
-          var i, l;
-          return le.a.wrap(function (a) {
+        }, se()(ie.a.mark(function a() {
+          var l, i;
+          return ie.a.wrap(function (a) {
             for (;;) switch (a.prev = a.next) {
               case 0:
-                if (!(i = t.state.getDataCallback)) {
+                if (!(l = t.state.getDataCallback)) {
                   a.next = 8;
                   break;
                 }
 
-                return a.next = 4, i(e + 1);
+                return a.next = 4, l(e + 1);
 
               case 4:
-                if (!(l = a.sent) || r()([]) != r()(l) || !l.length) {
+                if (!(i = a.sent) || r()([]) != r()(i) || !i.length) {
                   a.next = 7;
                   break;
                 }
 
                 return a.abrupt("return", t.setState({
                   currentPage: e,
-                  filteredData: l.slice(0, n),
-                  data: l.slice(0, n),
+                  filteredData: i.slice(0, n),
+                  data: i.slice(0, n),
                   loadingList: !1
                 }));
 
@@ -19901,8 +20282,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.globalCount,
             n = t.itemsPerSite,
-            i = t.totalPages,
-            l = t.currentPage,
+            l = t.totalPages,
+            i = t.currentPage,
             r = t.minPages,
             s = t.displayTotal,
             o = t.totalPrefix,
@@ -19919,36 +20300,36 @@ module.exports = function (e) {
             b = t.dataLoaded,
             C = t.fallbackMounting,
             S = t.filteredData,
-            E = l;
+            E = i;
         E++;
         var x = [],
             N = [];
-        if (a && a <= l * n) return this.setState({
+        if (a && a <= i * n) return this.setState({
           currentPage: this.state.currentPage - 1
         });
 
         if (r) {
-          var w = 1,
-              D = 1 == E ? r : E + f;
-          D < r && (D = r);
+          var D = 1,
+              w = 1 == E ? r : E + f;
+          w < r && (w = r);
 
-          for (var P = E + 1; P <= D; P++) P <= i && (N.push(P), w += 1);
+          for (var P = E + 1; P <= w; P++) P <= l && (N.push(P), D += 1);
 
-          for (var T = E; T > 0; T--) T >= 1 && (w <= d || w < r) && E !== T && (w += 1, x.push(T));
+          for (var T = E; T > 0; T--) T >= 1 && (D <= d || D < r) && E !== T && (D += 1, x.push(T));
 
           x.reverse();
         }
 
-        var O = k.a.createElement("div", {
+        var L = k.a.createElement("div", {
           className: "total"
         }, o && o, a, c && c),
-            L = k.a.createElement("span", {
+            O = k.a.createElement("span", {
           className: "buttons flex"
         }, k.a.createElement("span", {
           onClick: function (t) {
             return e.prev();
           },
-          className: 0 !== l ? "previous-button ".concat("" == p ? "icon-previous" : "") : "previous-button deactivated ".concat("" == p ? "icon-previous" : "")
+          className: 0 !== i ? "previous-button ".concat("" == p ? "icon-previous" : "") : "previous-button deactivated ".concat("" == p ? "icon-previous" : "")
         }, p && p, "" == p && "↩"), u && k.a.createElement("span", {
           className: "pagination-paging"
         }, x.map(function (t) {
@@ -19990,32 +20371,32 @@ module.exports = function (e) {
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, s && O, L);
+            }, s && L, O);
 
           case 2:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, L, s && O);
+            }, O, s && L);
 
           case 3:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, s && O, L);
+            }, s && L, O);
 
           case 4:
           case 5:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, L, s && O);
+            }, O, s && L);
 
           default:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, s && O, L);
+            }, s && L, O);
         }
       }
     }, {
@@ -20025,17 +20406,17 @@ module.exports = function (e) {
             t = e.paginationTextPrefix,
             a = e.globalCount,
             n = e.currentPage,
-            i = e.paginationTextMiddle,
-            l = e.totalPages,
+            l = e.paginationTextMiddle,
+            i = e.totalPages,
             r = e.filteredData,
             s = n;
         s++;
-        var o = l;
+        var o = i;
         return 0 == o && (o = 1), 0 != a && r.length ? k.a.createElement("div", {
           className: "pagination-pages"
         }, k.a.createElement("div", {
           className: "text"
-        }, "".concat(t, " ").concat(s, " ").concat(i, " ").concat(o))) : null;
+        }, "".concat(t, " ").concat(s, " ").concat(l, " ").concat(o))) : null;
       }
     }, {
       key: "prev",
@@ -20065,26 +20446,26 @@ module.exports = function (e) {
             t = this.state,
             a = t.keysToRender,
             n = t.lineNumber,
-            i = t.currentPage,
-            l = t.itemsPerSite,
+            l = t.currentPage,
+            i = t.itemsPerSite,
             r = t.filteredData,
             s = t.resetLineNumber,
             o = (t.loadingList, []);
         return r.map(function (t, r) {
           var c = [],
               u = r + 1;
-          i && !s && (u += i * l), n && c.push(k.a.createElement("span", {
+          l && !s && (u += l * i), n && c.push(k.a.createElement("span", {
             className: "line-number entry entry-1",
             key: ue()
           }, u));
           var d = 0,
               f = Object.keys(t);
           a.map(function (e, a) {
-            var i = t[e];
-            f.includes(e) && i && (d++, c.push(k.a.createElement("span", {
+            var l = t[e];
+            f.includes(e) && l && (d++, c.push(k.a.createElement("span", {
               className: "value entry entry-".concat(a + (n ? 2 : 1), " value-").concat(d),
               key: ue()
-            }, i)));
+            }, l)));
           }), o.push(k.a.createElement("li", {
             onClick: function (a) {
               return e.clickCallback(a, t);
@@ -20100,19 +20481,19 @@ module.exports = function (e) {
             t = arguments.length > 0 && void 0 !== arguments[0] && arguments[0],
             a = this.state,
             n = a.fallbackLoadingTime,
-            i = a.searchOnKeyDown;
+            l = a.searchOnKeyDown;
         this.setState({
-          loading: !!i,
+          loading: !!l,
           loadingList: !0
         }, function () {
           setTimeout(function () {
             var a = e.state,
-                l = a.data,
+                i = a.data,
                 s = a.searchSensitive,
                 o = a.searchOnKeys,
                 c = (a.env, e.state.searchValue),
                 u = [];
-            i || t ? (l.map(function (e) {
+            l || t ? (i.map(function (e) {
               o && o.length ? o.map(function (t) {
                 void 0 !== e[t] && r()("8") === r()(e[t]) && (r()("8") !== r()(c) && (c = JSON.stringify(c)), s && "" !== c && -1 !== e[t].indexOf(c) && u.push(e), s || "" === c || -1 === e[t].toLowerCase().indexOf(c.toLowerCase()) || u.push(e), "" == c && u.push(e));
               }) : u.push(e);
@@ -20141,13 +20522,13 @@ module.exports = function (e) {
         e.persist();
         var a = this.state,
             n = a.data,
-            i = a.inputCallback,
-            l = a.searchOnKeyDown,
+            l = a.inputCallback,
+            i = a.searchOnKeyDown,
             r = e.target.value;
         this.setState({
-          loading: !!l
+          loading: !!i
         }, function () {
-          return i && i(e), 27 == e.keyCode || 27 == e.which ? t.setState({
+          return l && l(e), 27 == e.keyCode || 27 == e.which ? t.setState({
             searchValue: "",
             currentPage: 0,
             filteredData: n,
@@ -20169,8 +20550,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.fallbackLoadingPage,
             n = t.addClass,
-            i = t.defaultClass,
-            l = t.id,
+            l = t.defaultClass,
+            i = t.id,
             r = t.loading,
             s = t.fallbackLoading,
             o = t.alignPagination,
@@ -20183,8 +20564,8 @@ module.exports = function (e) {
             p = t.loadingList,
             g = this.getList();
         return k.a.createElement("div", {
-          className: "".concat(i, " ").concat(n),
-          id: l
+          className: "".concat(l, " ").concat(n),
+          id: i
         }, c && k.a.createElement("h1", {
           className: "h1"
         }, f), c && k.a.createElement("div", {
@@ -20216,26 +20597,26 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (w(["searchValue"], e, t)) {
-          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == ft) return ft += 1, {
+        if (D(["searchValue"], e, t)) {
+          if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == pt) return pt += 1, {
             searchValue: e.searchValue
           };
-          if (e.searchValue && "" !== e.searchValue && 0 !== ft && e.searchValue !== t.searchValue) return ft += 1, {
+          if (e.searchValue && "" !== e.searchValue && 0 !== pt && e.searchValue !== t.searchValue) return pt += 1, {
             searchValue: t.searchValue
           };
         }
 
-        if (w(["defaultClass", "minPages", "totalPages", "id", "fallbackLoadingPage", "searchOnKeys", "globalCount", "itemsPerSite", "keysToRender", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "totalSufix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "getDataCallback"], e, t)) {
+        if (D(["defaultClass", "minPages", "totalPages", "id", "fallbackLoadingPage", "searchOnKeys", "globalCount", "itemsPerSite", "keysToRender", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "totalSufix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "getDataCallback"], e, t)) {
           var a = e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2,
               n = e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2,
-              i = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10,
-              l = a + n + 1;
+              l = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10,
+              i = a + n + 1;
           return {
             addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
             defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-pager-dynamic",
             id: e.id && r()("8") == r()(e.id) ? e.id : "",
             searchOnKeys: e.searchOnKeys && r()([]) === r()(e.searchOnKeys) ? e.searchOnKeys : [],
-            itemsPerSite: i,
+            itemsPerSite: l,
             keysToRender: e.display && r()([]) === r()(e.display) ? e.display : [],
             lineNumber: r()(!0) === r()(e.lineNumber) && e.lineNumber,
             liCallback: e.liCallback && "function" == typeof e.liCallback ? e.liCallback : void 0,
@@ -20269,7 +20650,7 @@ module.exports = function (e) {
             getDataCallback: e.getDataCallback && "function" == typeof e.getDataCallback ? e.getDataCallback : void 0,
             globalCount: e.globalCount && r()(8) === r()(e.globalCount) ? e.globalCount : 0,
             totalPages: e.totalPages && r()(8) === r()(e.totalPages) ? e.totalPages : 0,
-            minPages: l
+            minPages: i
           };
         }
 
@@ -20278,7 +20659,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function ht(e) {
+  function vt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -20296,17 +20677,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var pt = function (e) {
+  var yt = function (e) {
     h()(a, e);
-    var t = ht(a);
+    var t = vt(a);
 
     function a(e) {
       var n;
@@ -20357,8 +20738,8 @@ module.exports = function (e) {
             t = e.data,
             a = e.isMinified,
             n = e.title,
-            i = e.keysToRead,
-            l = e.titleOnMinified,
+            l = e.keysToRead,
+            i = e.titleOnMinified,
             s = [],
             o = "".concat(a ? "flex-column isMinified" : "flex-row");
 
@@ -20373,12 +20754,12 @@ module.exports = function (e) {
             key: x(),
             className: "".concat(o, " title")
           }, c))), t.map(function (e) {
-            if (i && i.length) {
+            if (l && l.length) {
               var t = [];
-              i.map(function (i, r) {
-                if (void 0 !== e[i]) {
-                  var s = e[i] ? e[i] : "";
-                  a && l && n && 0 !== n.length && void 0 !== n[r] && t.push(k.a.createElement("span", {
+              l.map(function (l, r) {
+                if (void 0 !== e[l]) {
+                  var s = e[l] ? e[l] : "";
+                  a && i && n && 0 !== n.length && void 0 !== n[r] && t.push(k.a.createElement("span", {
                     key: x(),
                     className: "span-title"
                   }, n[r])), t.push(k.a.createElement("span", {
@@ -20403,18 +20784,18 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            i = e.dataJsx;
+            l = e.dataJsx;
         return k.a.createElement("ul", {
           className: "".concat(a, " ").concat(t),
           id: n
-        }, i && i.length && i.map(function (e) {
+        }, l && l.length && l.map(function (e) {
           return e;
         }));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead", "titleOnMinified"], e, t) ? {
+        return D(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead", "titleOnMinified"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-table",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -20429,7 +20810,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function gt(e) {
+  function bt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -20447,17 +20828,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var vt = function (e) {
+  var kt = function (e) {
     h()(a, e);
-    var t = gt(a);
+    var t = bt(a);
 
     function a(e) {
       var n;
@@ -20488,10 +20869,10 @@ module.exports = function (e) {
         var t = this.state,
             a = t.written,
             n = t.text,
-            i = t.timeout;
+            l = t.timeout;
         setTimeout(function () {
           e.setText(a, n);
-        }, i);
+        }, l);
       }
     }, {
       key: "writerPromise",
@@ -20516,21 +20897,21 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this,
             n = this.state,
-            i = n.speed,
-            l = n.pipePersist,
+            l = n.speed,
+            i = n.pipePersist,
             r = n.replaces,
             s = t.split(""),
             o = -1;
         !function (t) {
-          a.writerInterval = setInterval(se()(le.a.mark(function n() {
-            return le.a.wrap(function (n) {
+          a.writerInterval = setInterval(se()(ie.a.mark(function n() {
+            return ie.a.wrap(function (n) {
               for (;;) switch (n.prev = n.next) {
                 case 0:
                   return ++o > t.length - 1 && (clearInterval(a.writerInterval), r && r.length ? a.runReplacer() : setTimeout(function () {
                     a.setState({
-                      pipeDisplay: l
+                      pipeDisplay: i
                     });
-                  }, i)), n.next = 4, a.writerPromise(t[o]).then(function (t) {
+                  }, l)), n.next = 4, a.writerPromise(t[o]).then(function (t) {
                     e.push(t), a.setState({
                       written: e
                     });
@@ -20541,7 +20922,7 @@ module.exports = function (e) {
                   return n.stop();
               }
             }, n);
-          })), i);
+          })), l);
         }(s);
       }
     }, {
@@ -20551,8 +20932,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.replaces,
             n = t.pipePersist,
-            i = t.speed,
-            l = t.uuid,
+            l = t.speed,
+            i = t.uuid,
             r = 0,
             s = function t() {
           var s = e.state.written,
@@ -20560,49 +20941,49 @@ module.exports = function (e) {
               c = o.from,
               u = o.to,
               d = o.replace;
-          e.removeIntervaller = setInterval(se()(le.a.mark(function o() {
+          e.removeIntervaller = setInterval(se()(ie.a.mark(function o() {
             var f, m;
-            return le.a.wrap(function (o) {
+            return ie.a.wrap(function (o) {
               for (;;) switch (o.prev = o.next) {
                 case 0:
                   if (c > u) {
-                    for (clearInterval(e.removeIntervaller), f = [], m = 0; m <= s.length - 1; m++) l !== s[m] && f.push(s[m]);
+                    for (clearInterval(e.removeIntervaller), f = [], m = 0; m <= s.length - 1; m++) i !== s[m] && f.push(s[m]);
 
                     e.setState({
                       written: f
                     }, function () {
                       if (d && d.length) {
-                        var l = e.state.written,
-                            s = l.slice(0, c),
-                            o = l.slice(c, u),
-                            f = l.slice(u, l.length - 1);
+                        var i = e.state.written,
+                            s = i.slice(0, c),
+                            o = i.slice(c, u),
+                            f = i.slice(u, i.length - 1);
                         f[0] && " " == f[0] && (f[0] = "");
                         var m = -1,
                             h = d.split(""),
                             p = [];
-                        e.writerInterval = setInterval(se()(le.a.mark(function l() {
-                          return le.a.wrap(function (l) {
-                            for (;;) switch (l.prev = l.next) {
+                        e.writerInterval = setInterval(se()(ie.a.mark(function i() {
+                          return ie.a.wrap(function (i) {
+                            for (;;) switch (i.prev = i.next) {
                               case 0:
                                 return ++m > h.length - 1 && (clearInterval(e.writerInterval), void 0 !== a[r += 1] ? t() : setTimeout(function () {
                                   e.setState({
                                     pipeDisplay: n
                                   });
-                                }, i)), l.next = 4, e.writerPromise(h[m]).then(function (t) {
+                                }, l)), i.next = 4, e.writerPromise(h[m]).then(function (t) {
                                   p.push(t), e.setState({
-                                    written: [].concat(Ae()(s), p, Ae()(o), Ae()(f))
+                                    written: [].concat(Ve()(s), p, Ve()(o), Ve()(f))
                                   });
                                 });
 
                               case 4:
                               case "end":
-                                return l.stop();
+                                return i.stop();
                             }
-                          }, l);
-                        })), i);
+                          }, i);
+                        })), l);
                       }
                     });
-                  } else s[u] = l, e.setState({
+                  } else s[u] = i, e.setState({
                     written: s
                   });
 
@@ -20613,7 +20994,7 @@ module.exports = function (e) {
                   return o.stop();
               }
             }, o);
-          })), i);
+          })), l);
         };
 
         s();
@@ -20625,8 +21006,8 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            i = e.uuid,
-            l = e.written,
+            l = e.uuid,
+            i = e.written,
             r = e.pipeDisplay,
             s = e.pipeChar,
             o = e.pipeSite;
@@ -20635,8 +21016,8 @@ module.exports = function (e) {
           id: n
         }, "left" == o && r && k.a.createElement("span", {
           className: "pipe"
-        }, s), l.map(function (e) {
-          if (i !== e) return e;
+        }, s), i.map(function (e) {
+          if (l !== e) return e;
         }), "right" == o && r && k.a.createElement("span", {
           className: "pipe"
         }, s));
@@ -20644,9 +21025,9 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  a(27);
+  a(26);
 
-  function yt(e) {
+  function Ct(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -20664,17 +21045,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var bt = function (e) {
+  var St = function (e) {
     h()(a, e);
-    var t = yt(a);
+    var t = Ct(a);
 
     function a(e) {
       var n;
@@ -20741,8 +21122,8 @@ module.exports = function (e) {
             t = ["left", "right"],
             a = this.state,
             n = a.data,
-            i = a.isMinified,
-            l = a.lineEntry,
+            l = a.isMinified,
+            i = a.lineEntry,
             r = a.colorBorderEntry,
             s = a.lineTitle,
             o = [];
@@ -20751,29 +21132,29 @@ module.exports = function (e) {
             var n = a.title,
                 c = a.content,
                 u = a.align;
-            u && t.includes(u) && !i || (u = "center"), o.push(k.a.createElement("div", {
+            u && t.includes(u) && !l || (u = "center"), o.push(k.a.createElement("div", {
               className: "single-entry single-entry-".concat(u, " ").concat("center" !== u ? "flex" : ""),
               key: x()
-            }, "right" == u && !i && k.a.createElement("div", {
+            }, "right" == u && !l && k.a.createElement("div", {
               className: "empty"
             }), k.a.createElement("div", {
               className: "content ".concat("center" == u ? "w-100" : "")
             }, n && k.a.createElement("div", {
               className: "title"
-            }, s && !l && !i && e.getLineEntry(), n), c && k.a.createElement("div", {
+            }, s && !i && !l && e.getLineEntry(), n), c && k.a.createElement("div", {
               className: "data-holder",
               style: {
                 borderColor: r,
                 borderWidth: "1px",
                 borderStyle: "solid"
               }
-            }, l && !s && "center" !== u && !i && "right" == u && k.a.createElement("div", {
+            }, i && !s && "center" !== u && !l && "right" == u && k.a.createElement("div", {
               className: "line-entry line-entry-".concat(u, " flex")
             }, k.a.createElement("div", {
               className: "empty-2"
             }, e.getLineEntry()), k.a.createElement("div", {
               className: "empty-1"
-            })), l && !s && "center" !== u && !i && "left" == u && k.a.createElement("div", {
+            })), i && !s && "center" !== u && !l && "left" == u && k.a.createElement("div", {
               className: "line-entry line-entry-".concat(u, " flex")
             }, k.a.createElement("div", {
               className: "empty-1"
@@ -20781,7 +21162,7 @@ module.exports = function (e) {
               className: "empty-2"
             }, e.getLineEntry())), c && k.a.createElement("div", {
               className: "data"
-            }, c))), "left" == u && !i && k.a.createElement("div", {
+            }, c))), "left" == u && !l && k.a.createElement("div", {
               className: "empty"
             })));
           });
@@ -20810,33 +21191,33 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            i = e.lineMiddle,
-            l = e.borderStyle,
+            l = e.lineMiddle,
+            i = e.borderStyle,
             r = e.dashedSize,
             s = e.colorLineMiddle;
         return k.a.createElement("div", {
           className: "".concat(a, " ").concat(t),
           id: n
-        }, this.buildData(), i && "solid" == l && k.a.createElement("div", {
+        }, this.buildData(), l && "solid" == i && k.a.createElement("div", {
           className: "line-middle",
           style: {
             backgroundColor: s
           }
-        }), i && "!mixed" == l && k.a.createElement("div", {
+        }), l && "!mixed" == i && k.a.createElement("div", {
           className: "line-middle",
           style: {
             backgroundColor: s
           }
-        }), i && "dashed" == l && k.a.createElement("div", {
+        }), l && "dashed" == i && k.a.createElement("div", {
           className: "line-middle line-middle-".concat(r, " flex flex-column")
-        }, this.getCircles(s)), i && "mixed" == l && k.a.createElement("div", {
+        }, this.getCircles(s)), l && "mixed" == i && k.a.createElement("div", {
           className: "line-middle line-middle-".concat(r, " flex flex-column")
         }, this.getCircles(s)));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["addClass", "defaultClass", "id", "data", "mediaBreak", "lineMiddle", "lineTitle", "lineEntry", "colorLineMiddle", "colorLineEntry", "colorBorderEntry", "borderStyle", "dashedSize"], e, t) ? {
+        return D(["addClass", "defaultClass", "id", "data", "mediaBreak", "lineMiddle", "lineTitle", "lineEntry", "colorLineMiddle", "colorLineEntry", "colorBorderEntry", "borderStyle", "dashedSize"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-timeline",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -20855,7 +21236,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function kt(e) {
+  function Et(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -20873,17 +21254,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Ct = function (e) {
+  var xt = function (e) {
     h()(a, e);
-    var t = kt(a);
+    var t = Et(a);
 
     function a(e) {
       var n;
@@ -20966,8 +21347,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.id,
-            l = t.displayBoxClassNames,
+            l = t.id,
+            i = t.displayBoxClassNames,
             r = t.animation,
             s = t.icon,
             o = t.displayBox,
@@ -20976,7 +21357,7 @@ module.exports = function (e) {
           ref: function (t) {
             return e.nodeData = t;
           },
-          id: i,
+          id: l,
           className: "".concat(n, " ").concat(a)
         }, k.a.createElement("span", {
           className: "icon",
@@ -20984,13 +21365,13 @@ module.exports = function (e) {
             return e.togglePopupBox();
           }
         }, s), o && k.a.createElement("div", {
-          className: "".concat(l, " ").concat(r)
+          className: "".concat(i, " ").concat(r)
         }, c));
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
+        return D(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -21004,7 +21385,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function St(e) {
+  function Nt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21022,17 +21403,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Et = function (e) {
+  var Dt = function (e) {
     h()(a, e);
-    var t = St(a);
+    var t = Nt(a);
 
     function a(e) {
       var n;
@@ -21064,7 +21445,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.animation,
             n = t.toggled,
-            i = this.state.classList;
+            l = this.state.classList;
         return a && !n ? (this.setState({
           classList: "toggling animation-".concat(a),
           toggled: !0
@@ -21073,7 +21454,7 @@ module.exports = function (e) {
             classList: "toggled animation-".concat(a)
           });
         }, 300)) : a && n ? (this.setState({
-          classList: "".concat(i, " animation-").concat(a, "-back")
+          classList: "".concat(l, " animation-").concat(a, "-back")
         }), setTimeout(function () {
           e.setState({
             toggled: !1
@@ -21090,8 +21471,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.id,
-            l = t.data,
+            l = t.id,
+            i = t.data,
             r = t.dataToggle,
             s = t.toggled,
             o = t.toggleForwards,
@@ -21099,10 +21480,10 @@ module.exports = function (e) {
             u = t.classList;
         return k.a.createElement("span", {
           className: "".concat(n, " ").concat(a),
-          id: i
-        }, l && k.a.createElement("span", {
+          id: l
+        }, i && k.a.createElement("span", {
           className: "text"
-        }, l), !s && o && k.a.createElement("span", {
+        }, i), !s && o && k.a.createElement("span", {
           className: "toggle-forwards",
           onClick: function (t) {
             return e.toggle(t);
@@ -21120,7 +21501,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "data", "dataToggle"], e, t) ? {
+        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "data", "dataToggle"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -21136,7 +21517,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function xt(e) {
+  function wt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21154,17 +21535,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Nt = function (e) {
+  var Pt = function (e) {
     h()(a, e);
-    var t = xt(a);
+    var t = wt(a);
 
     function a(e) {
       var n;
@@ -21202,8 +21583,8 @@ module.exports = function (e) {
         var t = this,
             a = this.state,
             n = a.loading,
-            i = a.animation,
-            l = a.toggled,
+            l = a.animation,
+            i = a.toggled,
             r = a.callback,
             s = a.callbackProps,
             o = a.toggleOnReject,
@@ -21212,19 +21593,19 @@ module.exports = function (e) {
             d = c.classList,
             f = c.isError,
             m = function (e, a) {
-          return i && !l ? t.setState({
-            classList: "toggling animation-".concat(i),
+          return l && !i ? t.setState({
+            classList: "toggling animation-".concat(l),
             toggled: !!e,
             dataToggle: e,
             isError: a
           }, function () {
             setTimeout(function () {
               t.setState({
-                classList: "toggled animation-".concat(i)
+                classList: "toggled animation-".concat(l)
               });
             }, 300);
-          }) : i && l ? t.setState({
-            classList: "".concat(d, " animation-").concat(i, "-back"),
+          }) : l && i ? t.setState({
+            classList: "".concat(d, " animation-").concat(l, "-back"),
             isError: a,
             dataToggle: e
           }, function () {
@@ -21240,8 +21621,8 @@ module.exports = function (e) {
           });
         },
             h = function () {
-          var a = se()(le.a.mark(function a() {
-            return le.a.wrap(function (a) {
+          var a = se()(ie.a.mark(function a() {
+            return ie.a.wrap(function (a) {
               for (;;) switch (a.prev = a.next) {
                 case 0:
                   if (!n) {
@@ -21251,8 +21632,8 @@ module.exports = function (e) {
 
                   return a.abrupt("return", t.setState({
                     loadingData: !0
-                  }, se()(le.a.mark(function a() {
-                    return le.a.wrap(function (a) {
+                  }, se()(ie.a.mark(function a() {
+                    return ie.a.wrap(function (a) {
                       for (;;) switch (a.prev = a.next) {
                         case 0:
                           return a.next = 2, r(e, s).then(function (e) {
@@ -21296,7 +21677,7 @@ module.exports = function (e) {
           };
         }();
 
-        return r && o && f ? h() : !r || l || u ? void m(u, f) : h();
+        return r && o && f ? h() : !r || i || u ? void m(u, f) : h();
       }
     }, {
       key: "render",
@@ -21305,8 +21686,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.toggleOnReject,
-            i = t.isError,
-            l = t.toggleReject,
+            l = t.isError,
+            i = t.toggleReject,
             r = t.loadingData,
             s = t.loading,
             o = t.defaultClass,
@@ -21324,23 +21705,23 @@ module.exports = function (e) {
           className: "text"
         }, u), r && s && k.a.createElement("span", {
           className: "loading"
-        }, s), !f && m && !r && !i && k.a.createElement("span", {
+        }, s), !f && m && !r && !l && k.a.createElement("span", {
           className: "toggle-forwards",
           onClick: function (t) {
             return e.toggle(t);
           }
-        }, m), d && f && !i && k.a.createElement("span", {
+        }, m), d && f && !l && k.a.createElement("span", {
           key: x(),
           className: p
-        }, d), i && d && l && !r && k.a.createElement("span", {
+        }, d), l && d && i && !r && k.a.createElement("span", {
           key: x(),
           className: p
-        }, d), i && n && l && !r && k.a.createElement("span", {
+        }, d), l && n && i && !r && k.a.createElement("span", {
           className: "toggle-forwards",
           onClick: function (t) {
             return e.toggle(t);
           }
-        }, l), f && h && d && !i && k.a.createElement("span", {
+        }, i), f && h && d && !l && k.a.createElement("span", {
           className: "toggle-back",
           onClick: function (t) {
             return e.toggle(t);
@@ -21350,7 +21731,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "toggleOnReject", "toggleReject", "callback", "callbackProps", "loading", "data"], e, t) ? {
+        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "toggleOnReject", "toggleReject", "callback", "callbackProps", "loading", "data"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -21370,7 +21751,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function wt(e) {
+  function Tt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21388,17 +21769,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Dt = function (e) {
+  var Lt = function (e) {
     h()(a, e);
-    var t = wt(a);
+    var t = Tt(a);
 
     function a(e) {
       var n;
@@ -21425,34 +21806,34 @@ module.exports = function (e) {
       value: function (e, t) {
         var a = this.state,
             n = a.navigationTarget,
-            i = a.navigationTime,
-            l = a.callback;
+            l = a.navigationTime,
+            i = a.callback;
 
-        if (l && l(e), "#" == n.charAt(0)) {
+        if (i && i(e), "#" == n.charAt(0)) {
           var r = n.replace("#", "");
 
           if (document.getElementById(r)) {
             var s = document.getElementById(r);
-            return this.scrollToElement(e, i, s, t);
+            return this.scrollToElement(e, l, s, t);
           }
         }
 
         if ("." == n.charAt(0) && document.querySelector(n)) {
           var o = document.querySelector(n);
-          return this.scrollToElement(e, i, o, t);
+          return this.scrollToElement(e, l, o, t);
         }
 
         if ("#" != n.charAt(0) && "." != n.charAt(0)) switch (n) {
           case "top":
-            this.navigationTargetTopOfWebpage(i);
+            this.navigationTargetTopOfWebpage(l);
             break;
 
           case "bottom":
-            this.navigationTargetBottomOfWebpage(i);
+            this.navigationTargetBottomOfWebpage(l);
             break;
 
           default:
-            this.navigationTargetTopOfWebpage(i);
+            this.navigationTargetTopOfWebpage(l);
         }
       }
     }, {
@@ -21472,33 +21853,33 @@ module.exports = function (e) {
         var t = document.documentElement.scrollTop,
             a = document.documentElement.scrollHeight,
             n = (a = parseInt(a) - 50) - t,
-            i = parseInt(e, 10),
-            l = n / i * 4;
+            l = parseInt(e, 10),
+            i = n / l * 4;
         t = Math.abs(t);
         var r = t = parseInt(t),
             s = setInterval(function () {
-          r += l, document.documentElement.scrollTop = r, r >= n && clearInterval(s);
+          r += i, document.documentElement.scrollTop = r, r >= n && clearInterval(s);
         }, 1);
       }
     }, {
       key: "scrollToElement",
       value: function (e, t, a, n) {
-        var i = document.getElementById(n);
+        var l = document.getElementById(n);
 
         if (null !== a) {
-          var l = e.target.getBoundingClientRect().top,
+          var i = e.target.getBoundingClientRect().top,
               r = a.getBoundingClientRect().top,
-              s = l;
+              s = i;
 
-          if (0 < r - l) {
-            var o = ((r += document.documentElement.scrollTop) - l) / t * 4,
+          if (0 < r - i) {
+            var o = ((r += document.documentElement.scrollTop) - i) / t * 4,
                 c = setInterval(function () {
               s += o, document.documentElement.scrollTop = s, s >= r - 50 && clearInterval(c);
             }, t / 100);
             return;
           }
 
-          if (0 > r - l && null !== i) {
+          if (0 > r - i && null !== l) {
             var u = document.documentElement.scrollTop,
                 d = u - Math.abs(r),
                 f = 0,
@@ -21517,14 +21898,14 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.html,
-            i = t.defaultClass,
-            l = t.id,
+            l = t.defaultClass,
+            i = t.id,
             r = t.navigationTarget;
         return k.a.createElement("div", {
-          className: "".concat(i, " ").concat(a),
-          id: l,
+          className: "".concat(l, " ").concat(a),
+          id: i,
           onClick: function (t) {
-            return e.navigateWindowToElement(t, l);
+            return e.navigateWindowToElement(t, i);
           }
         }, !n && "top" === r && k.a.createElement("div", {
           className: "to-top"
@@ -21539,7 +21920,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function Pt(e) {
+  function Ot(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21557,17 +21938,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Tt = function (e) {
+  var Rt = function (e) {
     h()(a, e);
-    var t = Pt(a);
+    var t = Ot(a);
 
     function a(e) {
       var n;
@@ -21598,7 +21979,7 @@ module.exports = function (e) {
             t = e.addClass,
             a = e.defaultClass,
             n = e.id,
-            l = e.moduleMenu,
+            i = e.moduleMenu,
             r = e.image,
             s = e.textLong,
             o = e.textShort,
@@ -21609,7 +21990,7 @@ module.exports = function (e) {
           id: n
         }, k.a.createElement("div", {
           className: "logo-text"
-        }, c && k.a.createElement("a", i()({
+        }, c && k.a.createElement("a", l()({
           href: c,
           className: "logo-text"
         }, u), r && k.a.createElement("div", {
@@ -21630,12 +22011,12 @@ module.exports = function (e) {
           className: "long"
         }, s), o && k.a.createElement("span", {
           className: "short"
-        }, o)))), l && l);
+        }, o)))), i && i);
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
+        return D(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -21649,8 +22030,8 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      Ot = void 0,
-      Lt = function (e, t, a) {
+      Mt = void 0,
+      Bt = function (e, t, a) {
     if (0 === e.indexOf("</") && ">" == a && (t.push({
       data: "<",
       className: "tag-start"
@@ -21695,7 +22076,7 @@ module.exports = function (e) {
       className: "tag-end"
     }), e = ""), -1 !== e.indexOf("<") && ">" == e.charAt(e.length - 1)) {
       var n = e.substring(0, e.indexOf("<"));
-      (t = Ot.extractNotFiltered(t, n)).push({
+      (t = Mt.extractNotFiltered(t, n)).push({
         data: "<",
         className: "tag-start"
       }), t.push({
@@ -21727,10 +22108,10 @@ module.exports = function (e) {
       lines: t
     };
   },
-      Rt = function (e, t, a, n) {
-    var i = e.substring(0, e.indexOf("="));
-    return 1 !== e.indexOf('="') && '"' == a && "start" !== n && "" !== i && (n = "start", t.push({
-      data: i,
+      At = function (e, t, a, n) {
+    var l = e.substring(0, e.indexOf("="));
+    return 1 !== e.indexOf('="') && '"' == a && "start" !== n && "" !== l && (n = "start", t.push({
+      data: l,
       className: "attribute-name"
     }), t.push({
       data: "=",
@@ -21756,7 +22137,7 @@ module.exports = function (e) {
       attribute: n
     };
   },
-      Mt = function (e, t) {
+      It = function (e, t) {
     return e && "=" == e.charAt(e.length - 1) && (t.push({
       className: "var",
       data: e.substring(0, e.length - 1)
@@ -21768,7 +22149,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      Bt = function (e, t) {
+      Ft = function (e, t) {
     return e && ":" == e.charAt(e.length - 1) && (t.push({
       className: "object-property",
       data: e.substring(0, e.length - 1)
@@ -21780,24 +22161,24 @@ module.exports = function (e) {
       lines: t
     };
   },
-      At = function (e, t, a) {
+      Vt = function (e, t, a) {
     if (-1 !== e.indexOf("(") && -1 !== e.indexOf(")") && !a) {
       var n = e.substring(0, e.indexOf("("));
       a = !0, t.push({
         data: n,
         className: "function-name"
       });
-      var i = e.substring(n.length + 1, e.indexOf(")"));
+      var l = e.substring(n.length + 1, e.indexOf(")"));
       t.push({
         data: "(",
         className: "bracket-left bracket"
-      }), i && t.push({
-        data: i,
+      }), l && t.push({
+        data: l,
         className: "function-arguments"
       }), t.push({
         data: ")",
         className: "bracket-right bracket"
-      }), e = e.substring(n.length + 1 + i.length + 1, e.length);
+      }), e = e.substring(n.length + 1 + l.length + 1, e.length);
     }
 
     return {
@@ -21805,12 +22186,12 @@ module.exports = function (e) {
       lines: t
     };
   },
-      It = function (e, t, a) {
+      jt = function (e, t, a) {
     if (a) for (var n = 0; n <= a.length - 1; n++) if (a[n]) {
-      var i = a[n],
-          l = i.words,
-          s = i.className;
-      if (l && r()([]) == r()(l)) for (var o = 0; o <= l.length - 1; o++) if (l[o] === e) {
+      var l = a[n],
+          i = l.words,
+          s = l.className;
+      if (i && r()([]) == r()(i)) for (var o = 0; o <= i.length - 1; o++) if (i[o] === e) {
         t.push({
           data: e,
           className: s
@@ -21823,7 +22204,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      Ft = function (e, t) {
+      zt = function (e, t) {
     if (e && -1 !== e.indexOf("'")) {
       var a = e.substring(0, e.indexOf("'"));
       a && t.push({
@@ -21840,7 +22221,7 @@ module.exports = function (e) {
       lines: t
     };
   },
-      Vt = function (e, t) {
+      _t = function (e, t) {
     if (e && -1 !== e.indexOf("{")) {
       var a = e.substring(0, e.indexOf("{"));
       a && t.push({
@@ -21864,10 +22245,10 @@ module.exports = function (e) {
     }
 
     if (e && -1 !== e.indexOf("[")) {
-      var i = e.substring(0, e.indexOf("["));
-      i && t.push({
+      var l = e.substring(0, e.indexOf("["));
+      l && t.push({
         className: "",
-        data: i
+        data: l
       }), t.push({
         className: "bracket bracket-left bracket-type-2",
         data: "["
@@ -21875,10 +22256,10 @@ module.exports = function (e) {
     }
 
     if (e && -1 !== e.indexOf("]")) {
-      var l = e.substring(0, e.indexOf("]"));
-      l && t.push({
+      var i = e.substring(0, e.indexOf("]"));
+      i && t.push({
         className: "",
-        data: l
+        data: i
       }), t.push({
         className: "bracket bracket-right bracket-type-2",
         data: "]"
@@ -21913,7 +22294,7 @@ module.exports = function (e) {
     };
   };
 
-  function zt(e) {
+  function Ut(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21931,19 +22312,19 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var jt = ["tags", "properties", "variables", "objectProperty", "functions", "words", "quotes", "brackets"],
-      _t = function (e) {
+  var Ht = ["tags", "properties", "variables", "objectProperty", "functions", "words", "quotes", "brackets"],
+      Kt = function (e) {
     h()(n, e);
     var t,
-        a = zt(n);
+        a = Ut(n);
 
     function n(e) {
       var t;
@@ -21964,7 +22345,7 @@ module.exports = function (e) {
         searchSensitive: r()(!0) !== r()(e.searchSensitive) || e.searchSensitive,
         lineNumberNewLine: r()(!0) !== r()(e.lineNumberNewLine) || e.lineNumberNewLine,
         noDataText: e.noDataText && r()("8") == r()(e.noDataText) ? e.noDataText : "",
-        sourceCode: e.sourceCode && r()([]) == r()(e.sourceCode) ? e.sourceCode : jt,
+        sourceCode: e.sourceCode && r()([]) == r()(e.sourceCode) ? e.sourceCode : Ht,
         fallbackNoData: e.fallbackNoData ? e.fallbackNoData : "",
         fallbackNoDataSearch: e.fallbackNoDataSearch ? e.fallbackNoDataSearch : ""
       }, t.inputNode = k.a.createRef(), t;
@@ -22013,36 +22394,36 @@ module.exports = function (e) {
             n = e.code;
 
         if ("" == a) {
-          var i = n.split("\n");
-          return this.generateCode(i);
+          var l = n.split("\n");
+          return this.generateCode(l);
         }
 
         if (n.length) {
-          var l = n.split("\n"),
+          var i = n.split("\n"),
               r = [];
-          if (t) for (var s = 0; s <= l.length - 1; s++) l[s] && -1 !== l[s].toLowerCase().indexOf(a.toLowerCase()) && r.push(l[s]);
-          if (!t) for (var o = 0; o <= l.length - 1; o++) l[o] && -1 !== l[o].indexOf(a) && r.push(l[o]);
+          if (t) for (var s = 0; s <= i.length - 1; s++) i[s] && -1 !== i[s].toLowerCase().indexOf(a.toLowerCase()) && r.push(i[s]);
+          if (!t) for (var o = 0; o <= i.length - 1; o++) i[o] && -1 !== i[o].indexOf(a) && r.push(i[o]);
           this.generateCode(r);
         }
       }
     }, {
       key: "generateCode",
-      value: (t = se()(le.a.mark(function e() {
+      value: (t = se()(ie.a.mark(function e() {
         var t,
             a,
             n,
-            i,
             l,
+            i,
             r,
             s,
             o,
             c,
             u,
             d = arguments;
-        return le.a.wrap(function (e) {
+        return ie.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              if (t = d.length > 0 && void 0 !== d[0] ? d[0] : [], a = this.state, n = a.promise, i = a.promiseLine, l = a.promiseTime, r = [], !t) {
+              if (t = d.length > 0 && void 0 !== d[0] ? d[0] : [], a = this.state, n = a.promise, l = a.promiseLine, i = a.promiseTime, r = [], !t) {
                 e.next = 24;
                 break;
               }
@@ -22055,7 +22436,7 @@ module.exports = function (e) {
                 break;
               }
 
-              if (o = 0, 0 !== s && s % i == 0 && n && (o = l), "" == (c = t[s]) && (c = "\n"), u = [], !n) {
+              if (o = 0, 0 !== s && s % l == 0 && n && (o = i), "" == (c = t[s]) && (c = "\n"), u = [], !n) {
                 e.next = 17;
                 break;
               }
@@ -22072,10 +22453,10 @@ module.exports = function (e) {
             case 18:
               r.push({
                 codes: u
-              }), l == o && (this.setState({
-                lines: [].concat(Ae()(this.state.lines), Ae()(r))
+              }), i == o && (this.setState({
+                lines: [].concat(Ve()(this.state.lines), Ve()(r))
               }), r = []), s == t.length - 1 && (this.setState({
-                lines: [].concat(Ae()(this.state.lines), Ae()(r))
+                lines: [].concat(Ve()(this.state.lines), Ve()(r))
               }), r = []);
 
             case 21:
@@ -22097,10 +22478,10 @@ module.exports = function (e) {
             t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
             a = this.state,
             n = a.matcher,
-            i = a.sourceCode;
+            l = a.sourceCode;
         return new Promise(function (a) {
-          for (var l = e.split(" "), s = [], o = null, c = 0; c <= l.length - 1; c++) {
-            for (var u = l[c].split(""), d = "", f = 0; f < u.length; f++) {
+          for (var i = e.split(" "), s = [], o = null, c = 0; c <= i.length - 1; c++) {
+            for (var u = i[c].split(""), d = "", f = 0; f < u.length; f++) {
               var m = void 0 !== u[f + 1] ? u[f + 1] : void 0;
               if ("\t" == u[f]) s.push({
                 className: "tab",
@@ -22108,44 +22489,45 @@ module.exports = function (e) {
               });else {
                 d += u[f];
 
-                for (var h = 0; h <= i.length - 1; h++) if (r()("8") == r()(i[h]) && jt.includes(i[h])) {
-                  if ("tags" == i[h] && d.length) {
-                    var p = Lt(d, s, m);
+                for (var h = 0; h <= l.length - 1; h++) if (r()("8") == r()(l[h]) && Ht.includes(l[h])) {
+                  if ("tags" == l[h] && d.length) {
+                    var p = Bt(d, s, m);
                     d = p.characters, s = p.lines;
                   }
 
-                  if ("properties" == i[h] && d.length) {
-                    var g = Rt(d, s, m, o);
+                  if ("properties" == l[h] && d.length) {
+                    var g = At(d, s, m, o);
                     d = g.characters, s = g.lines, o = g.attribute;
                   }
 
-                  if ("variables" == i[h] && d.length) {
-                    var v = Mt(d, s);
+                  if ("variables" == l[h] && d.length) {
+                    var v = It(d, s);
                     d = v.characters, s = v.lines;
                   }
 
-                  if ("objectProperty" == i[h] && d.length) {
-                    var y = Bt(d, s);
+                  if ("objectProperty" == l[h] && d.length) {
+                    var y = Ft(d, s);
                     d = y.characters, s = y.lines;
                   }
 
-                  if ("functions" == i[h] && d.length) {
-                    var b = At(d, s);
+                  if ("functions" == l[h] && d.length) {
+                    var b = Vt(d, s);
                     d = b.characters, s = b.lines;
                   }
 
-                  if ("words" == i[h] && d.length) {
-                    var k = It(d, s, n);
+                  if ("words" == l[h] && d.length) {
+                    var k = jt(d, s, n);
                     d = k.characters, s = k.lines;
                   }
 
-                  if ("quotes" == i[h] && d.length) {
-                    var C = Ft(d, s);
+                  if ("quotes" == l[h] && d.length) {
+                    var C = zt(d, s);
                     d = C.characters, s = C.lines;
                   }
 
-                  if ("brackets" == i[h] && d.length) {
-                    var S = Vt(d, s);
+                  if ("brackets" == l[h] && d.length) {
+                    var S = _t(d, s);
+
                     d = S.characters, s = S.lines;
                   }
                 }
@@ -22169,69 +22551,70 @@ module.exports = function (e) {
     }, {
       key: "generateLine",
       value: function () {
-        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", t = this.state, a = t.matcher, n = t.sourceCode, i = e.split(" "), l = [], s = null, o = 0; o <= i.length - 1; o++) {
-          for (var c = !1, u = i[o].split(""), d = "", f = 0; f < u.length; f++) {
+        for (var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", t = this.state, a = t.matcher, n = t.sourceCode, l = e.split(" "), i = [], s = null, o = 0; o <= l.length - 1; o++) {
+          for (var c = !1, u = l[o].split(""), d = "", f = 0; f < u.length; f++) {
             var m = void 0 !== u[f + 1] ? u[f + 1] : void 0;
-            if ("\t" == u[f]) l.push({
+            if ("\t" == u[f]) i.push({
               className: "tab",
               data: "\t"
             });else {
               d += u[f];
 
-              for (var h = 0; h <= n.length - 1; h++) if (r()("8") == r()(n[h]) && jt.includes(n[h])) {
+              for (var h = 0; h <= n.length - 1; h++) if (r()("8") == r()(n[h]) && Ht.includes(n[h])) {
                 if ("tags" == n[h] && d.length) {
-                  var p = Lt(d, l, m);
-                  d = p.characters, l = p.lines;
+                  var p = Bt(d, i, m);
+                  d = p.characters, i = p.lines;
                 }
 
                 if ("properties" == n[h] && d.length) {
-                  var g = Rt(d, l, m, s);
-                  d = g.characters, l = g.lines, s = g.attribute;
+                  var g = At(d, i, m, s);
+                  d = g.characters, i = g.lines, s = g.attribute;
                 }
 
                 if ("variables" == n[h] && d.length) {
-                  var v = Mt(d, l);
-                  d = v.characters, l = v.lines;
+                  var v = It(d, i);
+                  d = v.characters, i = v.lines;
                 }
 
                 if ("objectProperty" == n[h] && d.length) {
-                  var y = Bt(d, l);
-                  d = y.characters, l = y.lines;
+                  var y = Ft(d, i);
+                  d = y.characters, i = y.lines;
                 }
 
                 if ("functions" == n[h] && d.length) {
-                  var b = At(d, l, c);
-                  d = b.characters, l = b.lines;
+                  var b = Vt(d, i, c);
+                  d = b.characters, i = b.lines;
                 }
 
                 if ("words" == n[h] && d.length) {
-                  var k = It(d, l, a);
-                  d = k.characters, l = k.lines;
+                  var k = jt(d, i, a);
+                  d = k.characters, i = k.lines;
                 }
 
                 if ("quotes" == n[h] && d.length) {
-                  var C = Ft(d, l);
-                  d = C.characters, l = C.lines;
+                  var C = zt(d, i);
+                  d = C.characters, i = C.lines;
                 }
 
                 if ("brackets" == n[h] && d.length) {
-                  var S = Vt(d, l);
-                  d = S.characters, l = S.lines;
+                  var S = _t(d, i);
+
+                  d = S.characters, i = S.lines;
                 }
               }
             }
           }
 
-          d.length && l.push({
+          d.length && i.push({
             className: "",
             data: d
-          }), l.push({
+          }), i.push({
             className: "space",
             data: " "
           });
         }
 
-        return l;
+        return i;
       }
     }, {
       key: "render",
@@ -22240,8 +22623,8 @@ module.exports = function (e) {
             t = this.state,
             a = t.addClass,
             n = t.defaultClass,
-            i = t.lines,
-            l = t.inputActive,
+            l = t.lines,
+            i = t.inputActive,
             r = t.inputPlaceholder,
             s = t.searchValue,
             o = t.id,
@@ -22253,7 +22636,7 @@ module.exports = function (e) {
         return k.a.createElement("div", {
           className: "".concat(n, " ").concat(a),
           id: o
-        }, l && k.a.createElement("div", {
+        }, i && k.a.createElement("div", {
           className: "search"
         }, k.a.createElement("input", {
           className: "input",
@@ -22270,15 +22653,15 @@ module.exports = function (e) {
             return e.focusOut();
           },
           ref: this.inputNode
-        })), i && 0 !== i.length && k.a.createElement("ul", {
+        })), l && 0 !== l.length && k.a.createElement("ul", {
           className: "code"
-        }, i.map(function (e, t) {
+        }, l.map(function (e, t) {
           var a = e.codes,
               n = [],
-              i = !0;
+              l = !0;
           return !d && (a.map(function (e) {
-            "" !== e.data.trim() && (i = !1);
-          }), i) ? (m++, k.a.createElement("li", {
+            "" !== e.data.trim() && (l = !1);
+          }), l) ? (m++, k.a.createElement("li", {
             key: x(),
             className: "line"
           }, k.a.createElement("span", {
@@ -22298,12 +22681,12 @@ module.exports = function (e) {
           }, t - m + 1), k.a.createElement("span", {
             className: "line-code"
           }, n)));
-        })), 0 == i.length && "" == s && u, 0 == i.length && "" != s && f);
+        })), 0 == l.length && "" == s && u, 0 == l.length && "" != s && f);
       }
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return w(["defaultClass", "id", "code", "lineNumber", "promise", "promiseLine", "matcher", "inputActive", "inputCallback", "inputPlaceholder", "searchSensitive", "promiseTime", "lineNumberNewLine", "noDataText", "sourceCode", "fallbackNoData", "fallbackNoDataSearch"], e, t) ? {
+        return D(["defaultClass", "id", "code", "lineNumber", "promise", "promiseLine", "matcher", "inputActive", "inputCallback", "inputPlaceholder", "searchSensitive", "promiseTime", "lineNumberNewLine", "noDataText", "sourceCode", "fallbackNoData", "fallbackNoDataSearch"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -22319,7 +22702,7 @@ module.exports = function (e) {
           searchSensitive: r()(!0) !== r()(e.searchSensitive) || e.searchSensitive,
           lineNumberNewLine: r()(!0) !== r()(e.lineNumberNewLine) || e.lineNumberNewLine,
           noDataText: e.noDataText && r()("8") == r()(e.noDataText) ? e.noDataText : "",
-          sourceCode: e.sourceCode && r()([]) == r()(e.sourceCode) ? e.sourceCode : jt,
+          sourceCode: e.sourceCode && r()([]) == r()(e.sourceCode) ? e.sourceCode : Ht,
           fallbackNoData: e.fallbackNoData ? e.fallbackNoData : "",
           fallbackNoDataSearch: e.fallbackNoDataSearch ? e.fallbackNoDataSearch : ""
         } : null;
@@ -22327,7 +22710,7 @@ module.exports = function (e) {
     }]), n;
   }(b.Component);
 
-  function Ut(e) {
+  function Jt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -22345,17 +22728,17 @@ module.exports = function (e) {
           n = y()(e);
 
       if (t) {
-        var i = y()(this).constructor;
-        a = Reflect.construct(n, arguments, i);
+        var l = y()(this).constructor;
+        a = Reflect.construct(n, arguments, l);
       } else a = n.apply(this, arguments);
 
       return g()(this, a);
     };
   }
 
-  var Ht = function (e) {
+  var qt = function (e) {
     h()(a, e);
-    var t = Ut(a);
+    var t = Jt(a);
 
     function a(e) {
       var n;
@@ -22397,7 +22780,7 @@ module.exports = function (e) {
             t = this.state,
             a = t.reactRouter,
             n = t.link,
-            l = t.text404,
+            i = t.text404,
             s = t.text1,
             o = t.text2,
             c = t.shipName,
@@ -22589,18 +22972,18 @@ module.exports = function (e) {
           className: "content-404"
         }, k.a.createElement("div", {
           className: "text-404"
-        }, l), k.a.createElement("hr", null), k.a.createElement("div", {
+        }, i), k.a.createElement("hr", null), k.a.createElement("div", {
           className: "text-1"
         }, s), k.a.createElement("div", {
           className: "text-2"
-        }, o), h && r()("8") == r()(h) && 1 == a && k.a.createElement(G, i()({
+        }, o), h && r()("8") == r()(h) && 1 == a && k.a.createElement(G, l()({
           className: "button-navigation",
           to: h
         }, g, {
           onClick: function (t) {
             return e.callback(t);
           }
-        }), p), h && r()("8") == r()(h) && !1 === a && k.a.createElement("a", i()({
+        }), p), h && r()("8") == r()(h) && !1 === a && k.a.createElement("a", l()({
           className: "button-navigation",
           href: h
         }, g, {
@@ -22611,31 +22994,31 @@ module.exports = function (e) {
       }
     }]), a;
   }(b.Component),
-      Kt = function () {
+      Wt = function () {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 ? arguments[2] : void 0,
         n = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : void 0,
-        i = {
+        l = {
       errorMessage: t,
       errorCode: a,
       disappear: n
     };
 
     if (e) {
-      var l = sessionStorage.getItem(e);
+      var i = sessionStorage.getItem(e);
 
       try {
-        null !== l ? ((l = JSON.parse(l)).push(i), sessionStorage.setItem(e, JSON.stringify(l))) : sessionStorage.setItem(e, JSON.stringify([i]));
+        null !== i ? ((i = JSON.parse(i)).push(l), sessionStorage.setItem(e, JSON.stringify(i))) : sessionStorage.setItem(e, JSON.stringify([l]));
       } catch (t) {
-        sessionStorage.setItem(e, JSON.stringify([i]));
+        sessionStorage.setItem(e, JSON.stringify([l]));
       }
     }
   },
-      Jt = !1,
-      Wt = function () {
+      Yt = !1,
+      Gt = function () {
     function e() {
-      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = Je()({
+      o()(this, e), this.setScrollTime = this.setScrollTime.bind(this), this.getScrollTime = this.getScrollTime.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.getScrollBehavior = this.getScrollBehavior.bind(this), this.setCurrentHref = this.setCurrentHref.bind(this), this.getCurrentHref = this.getCurrentHref.bind(this), this.isWindowAvailable = this.isWindowAvailable.bind(this), this.scrollTop = this.scrollTop.bind(this), this.cutStringFromAttributeValue = this.cutStringFromAttributeValue.bind(this), this.setScrollBehavior = this.setScrollBehavior.bind(this), this.scrollToTopTime = this.scrollToTopTime.bind(this), this.clearScrollTopInterval = this.clearScrollTopInterval.bind(this), this.setScrollTopInterval = this.setScrollTopInterval.bind(this), this.state = Ye()({
         scrollBehavior: void 0,
         time: 0,
         currentHref: void 0,
@@ -22656,7 +23039,7 @@ module.exports = function (e) {
     }, {
       key: "setScrollBehavior",
       value: function (e) {
-        this.state.availableScrollBehaviors.includes(e) && !Jt && (this.state.scrollBehavior = e);
+        this.state.availableScrollBehaviors.includes(e) && !Yt && (this.state.scrollBehavior = e);
       }
     }, {
       key: "getScrollBehavior",
@@ -22688,13 +23071,13 @@ module.exports = function (e) {
         if (e && t && a) {
           t = t.toLowerCase();
 
-          for (var n = e.attributes, i = 0; i <= n.length - 1; i++) if (t == n[i].name && -1 !== n[i].value.indexOf(a)) {
-            var l = n[i].value,
-                r = l.indexOf(a),
+          for (var n = e.attributes, l = 0; l <= n.length - 1; l++) if (t == n[l].name && -1 !== n[l].value.indexOf(a)) {
+            var i = n[l].value,
+                r = i.indexOf(a),
                 s = r + a.length,
-                o = l.substring(0, r),
-                c = l.substring(s, l.length);
-            n[i].value = "".concat(o).concat(c), "" === n[i].value && e.removeAttribute(t);
+                o = i.substring(0, r),
+                c = i.substring(s, i.length);
+            n[l].value = "".concat(o).concat(c), "" === n[l].value && e.removeAttribute(t);
             break;
           }
         }
@@ -22723,7 +23106,7 @@ module.exports = function (e) {
       key: "setScrollTopInterval",
       value: function (e, t) {
         var a = this;
-        return Jt || this.clearScrollTopInterval(), 0 == t ? document.documentElement.scrollTop = 0 : this.getScrollBehavior() ? (document.documentElement.scrollTop = 0, setTimeout(function () {
+        return Yt || this.clearScrollTopInterval(), 0 == t ? document.documentElement.scrollTop = 0 : this.getScrollBehavior() ? (document.documentElement.scrollTop = 0, setTimeout(function () {
           a.cutStringFromAttributeValue(document.documentElement, "style", "scroll-behavior: ".concat(a.getScrollBehavior(), ";"));
         }, 500)) : void (this.scrollTopInterval = setInterval(function () {
           -50 >= (e -= 5) && (a.cutStringFromAttributeValue(document.documentElement, "style", "scroll-behavior: ".concat(a.getScrollBehavior(), ";")), a.clearScrollTopInterval()), document.documentElement.scrollTop = e;
@@ -22744,23 +23127,23 @@ module.exports = function (e) {
       }
     }]), e;
   }(),
-      qt = function () {
+      Zt = function () {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0,
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
         a = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
-    Jt = a;
-    var n = new Wt();
-    e && r()(8) == r()(e) && !Jt && n.setScrollTime(e), t && r()("8") == r()(t) && !Jt && n.setScrollBehavior(t);
+    Yt = a;
+    var n = new Gt();
+    e && r()(8) == r()(e) && !Yt && n.setScrollTime(e), t && r()("8") == r()(t) && !Yt && n.setScrollBehavior(t);
 
-    var i = function () {
+    var l = function () {
       n.scrollTop();
     },
-        l = setInterval(function () {
-      Jt && (document.documentElement.removeEventListener("click", i, !1), clearInterval(l));
+        i = setInterval(function () {
+      Yt && (document.documentElement.removeEventListener("click", l, !1), clearInterval(i));
     }, 5e3);
 
-    if (document.documentElement && Jt) return document.documentElement.removeEventListener("click", i, !1);
-    document.documentElement && (n.setCurrentHref(window.location.href), document.documentElement.removeEventListener("click", i, !1), document.documentElement.addEventListener("click", i, !1));
+    if (document.documentElement && Yt) return document.documentElement.removeEventListener("click", l, !1);
+    document.documentElement && (n.setCurrentHref(window.location.href), document.documentElement.removeEventListener("click", l, !1), document.documentElement.addEventListener("click", l, !1));
   };
 }]);
 

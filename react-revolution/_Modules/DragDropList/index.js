@@ -4,7 +4,7 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-import copyFunctions from '../internalFunctions/copyFunctions';
+import copyArray from '../internalFunctions/copyArray';
 
 import uuid from '../internalFunctions/uuid';
 
@@ -12,10 +12,9 @@ class DragDropList extends Component {
 
     constructor(props) {
         super(props);
+        this.refNode = React.createRef();
         this.buildDragDropItems = this.buildDragDropItems.bind(this);
-        this.resize = this.resize.bind(this);
         this.rebuildData = this.rebuildData.bind(this);
-
         /**
          * Drag Drop
          */
@@ -25,18 +24,20 @@ class DragDropList extends Component {
         this.handleDrop = this.handleDrop.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.cancleDragStatus = this.cancleDragStatus.bind(this);
+        this.attachHandleClick = this.attachHandleClick.bind(this);
+        this.removeHandleClick = this.removeHandleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.uniqueAreaId = `${uuid()}`;
 
         this.state = {
             /**
              * App
              */
-            isMinified: false,
             dragging: false,
-            currentDraggingHover: '',
-            currentDraggingParentElement: '',
             singleDraggingEntry: undefined,
-            isDropCheck: false,
             overLiIndex: undefined,
+            sourceIndex: undefined,
+            isDropping: false,
             /**
              * User
              */
@@ -45,14 +46,16 @@ class DragDropList extends Component {
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-drag-drop-list',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            data: (props.data && typeof {} == typeof props.data) ? props.data : {},
-            itemsPerLine: (props.itemsPerLine && typeof 8 == typeof props.itemsPerLine) ? props.itemsPerLine : 2,
+            data: (props.data && typeof [] == typeof props.data) ? props.data : [],
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
             callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
             callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
             callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
             placeholder: props.placeholder ? props.placeholder : undefined,
+            areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
+            dropLoading: props.dropLoading ? props.dropLoading : undefined,
+            append: (typeof true == typeof props.append) ? props.append : false,
         };
     }
 
@@ -63,18 +66,33 @@ class DragDropList extends Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'itemsPerLine', 'callbackAllowDrop', 'callbackAllowDropProps', 'placeholder'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'placeholder', 'areaProps', 'callbackAllowDrop', 'callbackAllowDropProps', 'dropLoading', 'append'], props, state)) {
+
+            if (props.callback && 'function' == props.callback && props.data !== state.data) {
+                return {
+                    data: props.data
+                };
+            }
+
+            if (props.callback && 'function' !== props.callback && props.data !== state.data) {
+                return {
+                    data: state.data
+                };
+            }
+
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-drag-drop-list',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: props.data && typeof {} == typeof props.data ? props.data : {},
-                itemsPerLine: (props.itemsPerLine && typeof 8 == typeof props.itemsPerLine) ? props.itemsPerLine : 2,
+                data: (props.data && typeof [] == typeof props.data) ? props.data : [],
                 callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
                 callbackProps: props.callbackProps ? props.callbackProps : undefined,
+                placeholder: props.placeholder ? props.placeholder : undefined,
+                areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
                 callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
-                placeholder: props.placeholder ? props.placeholder : undefined,
+                dropLoading: props.dropLoading ? props.dropLoading : undefined,
+                append: (typeof true == typeof props.append) ? props.append : false,
             };
         }
 
@@ -83,37 +101,25 @@ class DragDropList extends Component {
 
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-        this.dragCounter = 0;
-        const { mediaBreak } = this.state;
-
-        if (mediaBreak) {
-            window.addEventListener('resize', this.resize);
-            this.resize();
-        }
+        this.attachHandleClick();
     }
 
-    resize() {
-        const { mediaBreak, isMinified } = this.state;
+    componentWillUnmount(){
+        this.removeHandleClick();
+    }
 
-        /**
-         * Media break
-         */
-        if (document.documentElement.getBoundingClientRect().width <= mediaBreak) {
-            if (!isMinified) {
-                this.setState({
-                    isMinified: true
-                }, this.buildData);
-            }
-        }
-        /**
-         * Default
-         */
-        else {
-            if (isMinified) {
-                this.setState({
-                    isMinified: false
-                }, this.buildData);
-            }
+    attachHandleClick(){
+        this.removeHandleClick();
+        document.addEventListener('click', this.handleClick);
+    }
+
+    removeHandleClick(){
+        document.removeEventListener('click', this.handleClick);
+    }
+
+    handleClick(event){
+        if(this.refNode && this.refNode.current && !this.refNode.current.contains(event.target)){
+            this.cancleDragStatus();
         }
     }
 
@@ -132,518 +138,283 @@ class DragDropList extends Component {
     }
 
     cancleDragStatus() {
-        this.dragCounter = 0;
-
         this.setState({
             dragging: false,
-            currentDraggingHover: '',
-            currentDraggingParentElement: '',
             singleDraggingEntry: undefined,
             overLiIndex: undefined,
+            sourceIndex: undefined,
+            isDropping: false
         });
     }
 
-    onDragOver(e, targetsKey) {
-        const { currentDraggingHover } = this.state;
+    onDragOver(e, index) {
         e.preventDefault();
         e.stopPropagation();
 
-        if (currentDraggingHover !== targetsKey) {
-            this.setState({
-                currentDraggingHover: targetsKey
-            });
-        }
-    }
-
-    onDragEnterLi(e, targetsKey, index){
-        e.preventDefault();
-        e.stopPropagation();
-        
         const { overLiIndex } = this.state;
 
-        if(index !== overLiIndex){
+        if (overLiIndex !== index) {
             this.setState({
                 overLiIndex: index,
-                currentDraggingHover: targetsKey
             });
         }
     }
 
-    onDragOverLi(e, targetsKey, index){
+    onDragEnter(e, index) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const { overLiIndex } = this.state;
 
-        this.setState({
-            overLiIndex: index,
-            currentDraggingHover: targetsKey
-        });
-    }
-
-    onDragLeaveLi(e){
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
-    onDragEnter(e, targetsKey) {
-        const { currentDraggingHover } = this.state;
-        e.preventDefault();
-        e.stopPropagation();
-
-        this.dragCounter++;
-
-        this.setState({
-            dragging: true,
-            currentDraggingHover: (currentDraggingHover !== targetsKey) ? targetsKey : currentDraggingHover
-        });
+        if (overLiIndex !== index) {
+            this.setState({
+                dragging: true,
+                overLiIndex: index,
+            });
+        }
     }
 
     onDragLeave(e) {
         e.preventDefault();
         e.stopPropagation();
-
-        this.dragCounter--;
-
-        if (0 >= this.dragCounter) {
-            this.setState({
-                dragging: false,
-                currentDraggingHover: undefined,
-                overLiIndex: undefined
-            });
-        }
     }
 
-    async handleDrop(e, targetsKey, allowDrop, allowDropLoading) {
-        console.log("handle drop");
+    onDragStart(e, index, unique, singleDraggingEntry) {
+        e.dataTransfer.setData('text/plain', unique);
 
+        this.setState({
+            singleDraggingEntry,
+            sourceIndex: index
+        });
+    }
+
+    handleDrop(e) {
         e.preventDefault();
         e.stopPropagation();
         e.persist();
 
-        if (!allowDrop) {
-            return this.cancleDragStatus();
-        }
-
         if (e.dataTransfer.getData('text')) {
             const { callbackAllowDrop } = this.state;
 
-            if(callbackAllowDrop){
-                const self = this;
-                const dataForUser = self.checkBeforeBuild(targetsKey, e.dataTransfer.getData('text'));
+            if (callbackAllowDrop) {
 
-                if(dataForUser){
-                    const { callbackAllowDrop, callbackAllowDropProps } = this.state;
-                    const { oldData, mainData, details, key, trasnferredData } = dataForUser;
+                this.setState({
+                    isDropping: true
+                }, async () => {
+                    const uniqueKey = e.dataTransfer.getData('text');
+                    const allow = await this.callbackAllowDrop(uniqueKey);
 
-                    if(allowDropLoading){
-                        this.setState({
-                            isDropCheck: true,
-                            overLiIndex: undefined
-                        });
-                    };
-
-                    const allowed = await (callbackAllowDrop)(oldData, mainData, details, callbackAllowDropProps);
-    
-                    if(allowed){
-                        self.rebuildData(key, trasnferredData);
-                        self.dragCounter = 0;
-
-                        if(allowDropLoading){
-                            this.setState({
-                                isDropCheck: false,
-                                overLiIndex: undefined
-                            });
-                        };
+                    if (allow) {
+                        this.rebuildData(uniqueKey);
                     }
-                    else{
-                        this.setState({
-                            dragging: false,
-                            isDropCheck: false,
-                            overLiIndex: undefined
-                        });
+                    else {
+                        this.cancleDragStatus();
                     }
-                }
-                else{
-                    this.setState({
-                        dragging: false,
-                        isDropCheck: false,
-                        overLiIndex: undefined
-                    });
-                }
+                })
             }
-            else{
-                this.rebuildData(targetsKey, e.dataTransfer.getData('text'));
-                this.dragCounter = 0;
+            else {
+                this.rebuildData(e.dataTransfer.getData('text'));
             }
         }
-        else{
-            this.setState({
-                dragging: false,
-                isDropCheck: false,
-                overLiIndex: undefined
-            });
+        else {
+            this.cancleDragStatus();
         }
-    }
-
-    onDragStart(e, unique, parentSourceKey, allowDrag, singleDraggingEntry, index) {
-        if (!allowDrag) {
-            return this.cancleDragStatus();
-        }
-
-        e.dataTransfer.setData('text/plain', unique);
-
-        this.setState({
-            currentDraggingParentElement: parentSourceKey,
-            singleDraggingEntry,
-            overLiIndex: index
-        });
     }
 
     buildDragDropItems() {
-        const { data, itemsPerLine, isMinified, dragging, currentDraggingHover, isDropCheck, overLiIndex, placeholder } = this.state;
-        let objectKeys = [];
-        const areas = [];
-        let singleLineAreas = [];
+        const { data, dragging, overLiIndex, placeholder, sourceIndex, isDropping, dropLoading, append } = this.state;
+        let { areaProps } = this.state;
+        areaProps = (areaProps && typeof {} == typeof areaProps) ? areaProps : {};
 
-        try {
-            objectKeys = Object.keys(data);
-        }
-        catch (e) {
-            objectKeys = [];
-        }
+        const childs = [];
 
-        if (objectKeys && objectKeys.length) {
+        if (data && data.length) {
 
-            for (let x = 0; x < objectKeys.length; x++) {
-                const areasHTML = [];
+            for (let x = 0; x < data.length; x++) {
+                const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}`;
+                const singleEntry = data[x];
+                const props = (singleEntry.props && typeof {} == typeof singleEntry.props) ? singleEntry.props : {};
 
-                const area = data[objectKeys[x]];
-                const areaName = objectKeys[x];
-                const name = data[objectKeys[x]].name ? data[objectKeys[x]].name : undefined;
-                const targetsKey =  `drag-drop-parent-${x}`;
-                const areaData = (data[objectKeys[x]] && data[objectKeys[x]].data && typeof [] == typeof data[objectKeys[x]].data) ? data[objectKeys[x]].data : [];
-                const areaProps = (data[objectKeys[x]] && data[objectKeys[x]].areaProps && typeof {} == typeof data[objectKeys[x]].areaProps) ? this.checkObjectProps(data[objectKeys[x]].areaProps) : {};
-                const titleProps = (data[objectKeys[x]] && data[objectKeys[x]].titleProps && typeof {} == typeof data[objectKeys[x]].titleProps) ? this.checkObjectProps(data[objectKeys[x]].titleProps) : {};
-                const allowDrop = (typeof true == typeof data[objectKeys[x]].allowDrop) ? data[objectKeys[x]].allowDrop : true;
-                const allowDrag = (typeof true == typeof data[objectKeys[x]].allowDrag) ? data[objectKeys[x]].allowDrag : true;
-                const allowDropLoading = data[objectKeys[x]].allowDropLoading ? data[objectKeys[x]].allowDropLoading : undefined;
-
-                if (area) {
-
-                    if (areaData && areaData.length) {
-
-                        try {
-                            areaData.map( (singleEntry, index) => {
-
-                                if (singleEntry && singleEntry.text) {
-                                    const unique = `drag-drop-entry-${x}-${index}`;
-
-                                    if(undefined !== overLiIndex && overLiIndex == index && currentDraggingHover == targetsKey){
-                                        areasHTML.push(
-                                            <div 
-                                                key={uuid()} 
-                                                className='area-single-item placeholder'
-                                                onDragEnter={(e) => this.onDragEnter(e, targetsKey)}
-                                                onDragLeave={(e) => this.onDragLeave(e)}
-                                                onDragOver={(e) => this.onDragOver(e, targetsKey)}
-                                                onDrop={(e) => this.handleDrop(e, targetsKey, allowDrop, allowDropLoading)}
-                                            >
-                                                {
-                                                    placeholder
-                                                }
-                                            </div>
-                                        );
-                                    }
-
-                                    areasHTML.push(
-                                        <li
-                                            key={unique}
-                                            className={`area-single-item`}
-                                            onDragStart={(e) => this.onDragStart(e, unique, targetsKey, allowDrag, singleEntry, index)}
-                                            onDragOver={(e) => this.onDragOverLi(e, targetsKey, index)}
-                                            onDragEnter={(e) => this.onDragEnterLi(e, targetsKey, index)}
-                                            draggable={allowDrag ? 'true' : 'false'}
-                                        >
-                                            {
-                                                singleEntry.text
-                                            }
-                                        </li>
-                                    );
-
-                                }
-
-                            });
-                        }
-                        catch (e) {
-
-                        }
-                    }
-
-                    singleLineAreas.push(
-                        <ul
-                            key={targetsKey}
-                            className='area-box'
-                            {...areaProps}
-                            onDragEnter={(e) => this.onDragEnter(e, targetsKey)}
+                if (!append && undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) {
+                    childs.push(
+                        <li
+                            key={uuid()}
+                            className='single-entry placeholder'
+                            onDragStart={(e) => this.onDragStart(e, x, unique, singleEntry)}
+                            onDragOver={(e) => this.onDragOver(e, x)}
+                            onDragEnter={(e) => this.onDragEnter(e, x)}
                             onDragLeave={(e) => this.onDragLeave(e)}
-                            onDragOver={(e) => this.onDragOver(e, targetsKey)}
-                            onDrop={(e) => this.handleDrop(e, targetsKey, allowDrop, allowDropLoading)}
+                            draggable='false'
                         >
                             {
-                                dragging && currentDraggingHover == targetsKey && allowDrop &&
-                                <div className="dragging-target"></div>
+                                placeholder
                             }
-                            {
-                                isDropCheck && currentDraggingHover == targetsKey && allowDropLoading &&
-                                <div className="dragging-loading">
-                                    {
-                                        allowDropLoading
-                                    }
-                                </div>
-                            }
-                            {
-                                dragging && currentDraggingHover == targetsKey && !allowDrop &&
-                                <div className="dragging-disabled"></div>
-                            }
-                            <div
-                                className='area-title'
-                                {...titleProps}
-                            >
-                                {
-                                    name && name
-                                }
-                                {
-                                    !name && areaName
-                                }
-                            </div>
-                            <div className='area-data'>
-                                {
-                                    areasHTML && 0 !== areasHTML.length && areasHTML
-                                }
-                            </div>
-                        </ul>
+                        </li>
                     );
                 }
 
-                if ((0 !== x && 0 == (x % itemsPerLine) && singleLineAreas.length) || (singleLineAreas && x == objectKeys.length - 1)) {
-                    areas.push(
-                        <div
-                            key={`area-${x}-${areaName}`}
-                            className={`area flex ${isMinified ? 'flex-column' : ''}`}
+                childs.push(
+                    <li
+                        key={unique}
+                        className={`single-entry`}
+                        onDragStart={(e) => this.onDragStart(e, x, unique, singleEntry)}
+                        onDragOver={(e) => this.onDragOver(e, x)}
+                        onDragEnter={(e) => this.onDragEnter(e, x)}
+                        onDragLeave={(e) => this.onDragLeave(e)}
+                        draggable='true'
+                        {...props}
+                    >
+                        {
+                            singleEntry.text && singleEntry.text
+                        }
+                    </li>
+                );
+
+                if (append && undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) {
+                    childs.push(
+                        <li
+                            key={uuid()}
+                            className='single-entry placeholder'
+                            onDragStart={(e) => this.onDragStart(e, x, unique, singleEntry)}
+                            onDragOver={(e) => this.onDragOver(e, x)}
+                            onDragEnter={(e) => this.onDragEnter(e, x)}
+                            onDragLeave={(e) => this.onDragLeave(e)}
+                            draggable='false'
                         >
                             {
-                                singleLineAreas
+                                placeholder
                             }
-                        </div>
+                        </li>
                     );
-
-                    singleLineAreas = [];
                 }
+
             }
-
         }
 
-        return areas;
+        return (
+            <ul
+                className='box'
+                {...areaProps}
+                onDrop={(e) => this.handleDrop(e)}
+            >
+                {
+                    childs
+                }
+                {
+                    isDropping && dropLoading &&
+                    <div className="drop-loading">
+                        {
+                            dropLoading
+                        }
+                    </div>
+                }
+            </ul>
+        );
     }
 
-    checkBeforeBuild(droppedParentKey, itemKey){
-        const { data, singleDraggingEntry, currentDraggingParentElement } = this.state;
-        let oldData = {};
-        oldData = copyFunctions(JSON.parse(JSON.stringify(data)), oldData);
-        let mainData = {};
-        mainData = copyFunctions(JSON.parse(JSON.stringify(oldData)), mainData);
+    rebuildData(uniqueKey) {
+        const { data, overLiIndex, sourceIndex, callback, callbackProps, singleDraggingEntry, append } = this.state;
 
-        const details = {
-            source: undefined,
-            target: undefined,
-            item: undefined
-        };
+        if (data && data.length) {
+            const newData = [];
+            let oldData = [];
+            oldData = copyArray(JSON.parse(JSON.stringify(data)), oldData);
 
-        let objectKeys = [];
-
-        try {
-            objectKeys = Object.keys(mainData);
-        }
-        catch (e) {
-            objectKeys = [];
-        }
-
-        let targetParentKey = '';
-
-        if (objectKeys && objectKeys.length) {
-
-            /**
-             * New sort
-             */
-            if (droppedParentKey == currentDraggingParentElement) {
-                return null;
-            }
-
-            /**
-             * Remove from source object
-             */
-            for (let x = 0; x < objectKeys.length; x++) {
-                targetParentKey = `drag-drop-parent-${x}`;
-
-                if (targetParentKey == currentDraggingParentElement) {
-                    const newOrderedData = [];
-
-                    for (let i = 0; i <= mainData[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `drag-drop-entry-${x}-${i}`
-
-                        if (uuid !== itemKey) {
-                            newOrderedData.push(mainData[objectKeys[x]].data[i]);
-                        }
-                    }
-
-                    mainData[objectKeys[x]].data = newOrderedData;
-
-                    /**
-                     * User callback details data
-                     */
-                    details.source = objectKeys[x];
-                }
-            }
-
-            /**
-             * Append data
-             */
-            if (droppedParentKey !== currentDraggingParentElement && singleDraggingEntry) {
-
-                for (let x = 0; x < objectKeys.length; x++) {
-                    targetParentKey = `drag-drop-parent-${x}`;
-
-                    if (targetParentKey == droppedParentKey) {
-
-                        if (undefined == mainData[objectKeys[x]].data) {
-                            mainData[objectKeys[x]].data = [singleDraggingEntry];
-                        }
-                        else {
-                            mainData[objectKeys[x]].data.push(singleDraggingEntry);
-                        }
-
-                        /**
-                         * User callback details data
-                         */
-                        details.target = objectKeys[x];
-                        details.item = singleDraggingEntry;
-
-                        break;
-                    }
-                }
-            }
-            return { 
-                oldData, 
-                mainData, 
-                details,
-                overLiIndex: undefined,
-                trasnferredData: itemKey,
-                key: droppedParentKey
+            const details = {
+                sourceIndex,
+                targetIndex: overLiIndex,
+                item: singleDraggingEntry
             };
-        }
-
-        return null;
-    }
-
-    rebuildData(droppedParentKey, itemKey) {
-        const { data, singleDraggingEntry, currentDraggingParentElement, callback, callbackProps } = this.state;
-        let objectKeys = [];
-        let oldData = {};
-        oldData = copyFunctions(data, oldData);
-
-        const details = {
-            source: undefined,
-            target: undefined,
-            item: undefined
-        };
-
-        try {
-            objectKeys = Object.keys(data);
-        }
-        catch (e) {
-            objectKeys = [];
-        }
-
-        let targetParentKey = '';
-
-        if (objectKeys && objectKeys.length) {
 
             /**
              * New sort
              */
-            if (droppedParentKey == currentDraggingParentElement) {
-                return null;
-            }
+            for (let x = 0; x <= data.length - 1; x++) {
+                const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}`;
 
-            /**
-             * Remove from source object
-             */
-            for (let x = 0; x < objectKeys.length; x++) {
-                targetParentKey = `drag-drop-parent-${x}`;
-
-                if (targetParentKey == currentDraggingParentElement) {
-                    const newOrderedData = [];
-
-                    for (let i = 0; i <= data[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `drag-drop-entry-${x}-${i}`
-
-                        if (uuid !== itemKey) {
-                            newOrderedData.push(data[objectKeys[x]].data[i]);
-                        }
-                    }
-
-                    data[objectKeys[x]].data = newOrderedData;
-
-                    /**
-                     * User callback details data
-                     */
-                    details.source = objectKeys[x];
+                if (x == overLiIndex && !append) {
+                    newData.push(singleDraggingEntry);
+                    details.sourceIndex = x;
                 }
-            }
 
-            /**
-             * Append data
-             */
-            if (droppedParentKey !== currentDraggingParentElement && singleDraggingEntry) {
+                if (unique !== uniqueKey) {
+                    newData.push(data[x]);
+                }
 
-                for (let x = 0; x < objectKeys.length; x++) {
-                    targetParentKey = `drag-drop-parent-${x}`;
-
-                    if (targetParentKey == droppedParentKey) {
-
-                        if (undefined == data[objectKeys[x]].data) {
-                            data[objectKeys[x]].data = [singleDraggingEntry];
-                        }
-                        else {
-                            data[objectKeys[x]].data.push(singleDraggingEntry);
-                        }
-
-                        /**
-                         * User callback details data
-                         */
-                        details.target = objectKeys[x];
-                        details.item = singleDraggingEntry;
-
-                        break;
-                    }
+                if (x == overLiIndex && append) {
+                    newData.push(singleDraggingEntry);
+                    details.sourceIndex = x;
                 }
             }
 
             this.setState({
-                data,
-                currentDraggingParentElement: '',
+                data: newData,
                 singleDraggingEntry: '',
-                dragging: false
+                dragging: false,
+                sourceIndex: undefined,
+                overLiIndex: undefined,
+                isDropping: false
             }, () => {
                 if (callback) {
                     (callback)(oldData, this.state.data, details, callbackProps);
                 }
             });
         }
-        else{
+        else {
             this.cancleDragStatus();
         }
+    }
+
+    callbackAllowDrop(uniqueKey) {
+        return new Promise(async (resolve) => {
+
+            try {
+                const { data, overLiIndex, sourceIndex, singleDraggingEntry, callbackAllowDrop, callbackAllowDropProps } = this.state;
+
+                if (data && data.length) {
+                    const newData = [];
+                    let oldData = [];
+                    oldData = copyArray(JSON.parse(JSON.stringify(data)), oldData);
+
+                    const details = {
+                        sourceIndex,
+                        targetIndex: overLiIndex,
+                        item: singleDraggingEntry
+                    };
+
+                    /**
+                     * New sort
+                     */
+                    for (let x = 0; x <= data.length - 1; x++) {
+                        const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}`;
+
+                        if (x == overLiIndex) {
+                            newData.push(singleDraggingEntry);
+                            details.sourceIndex = x;
+                        }
+
+                        if (unique !== uniqueKey) {
+                            newData.push(data[x]);
+                        }
+                    }
+
+                    const response = await (callbackAllowDrop)(oldData, newData, details, callbackAllowDropProps).then(a => a).catch(e => false);
+
+                    if (typeof true == typeof response) {
+                        resolve(response);
+                    }
+                    else {
+                        resolve(false);
+                    }
+                }
+                else {
+                    resolve(false);
+                }
+            }
+            catch (e) {
+                resolve(false);
+            }
+        });
     }
 
     render() {
@@ -653,6 +424,7 @@ class DragDropList extends Component {
             <div
                 className={`${defaultClass} ${addClass}`}
                 id={id}
+                ref={this.refNode}
             >
                 {
                     this.buildDragDropItems()

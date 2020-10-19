@@ -9,10 +9,6 @@
         list-style: none;
     }
 
-    .target{
-        border-top: 1px solid red !important;
-    }
-
     .area{
         width: 100%;
     }
@@ -32,11 +28,13 @@
         padding: 5px;
     }
 
-    .area-single-item{
+    .area-single-entry{
         user-select: none;
     }
 
     .dragging-target{
+        top:0;
+        left:0;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -48,6 +46,8 @@
     }
 
     .dragging-disabled{
+        top:0;
+        left:0;
         width: 100%;
         height: 100%;
         position: absolute;
@@ -58,7 +58,9 @@
         background-color: $border-color;
     }
 
-    .dragging-loading{
+    .drop-loading{
+        top:0;
+        left:0;
         width: 100%;
         height: 100%;
         position: absolute;

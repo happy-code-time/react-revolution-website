@@ -5,6 +5,7 @@ import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 import copyFunctions from '../internalFunctions/copyFunctions';
+
 import uuid from '../internalFunctions/uuid';
 
 class DragDropArea extends Component {
@@ -24,6 +25,7 @@ class DragDropArea extends Component {
         this.handleDrop = this.handleDrop.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.cancleDragStatus = this.cancleDragStatus.bind(this);
+        this.uniqueAreaId = `${uuid()}`;
 
         this.state = {
             /**
@@ -177,9 +179,7 @@ class DragDropArea extends Component {
         }
     }
 
-    async handleDrop(e, targetsKey, allowDrop, allowDropLoading) {
-        console.log("handle drop");
-
+    async handleDrop(e, targetsKey, allowDrop, dropLoading) {
         e.preventDefault();
         e.stopPropagation();
         e.persist();
@@ -199,7 +199,7 @@ class DragDropArea extends Component {
                     const { callbackAllowDrop, callbackAllowDropProps } = this.state;
                     const { oldData, mainData, details, key, trasnferredData } = dataForUser;
 
-                    if(allowDropLoading){
+                    if(dropLoading){
                         this.setState({
                             isDropCheck: true,
                         });
@@ -211,7 +211,7 @@ class DragDropArea extends Component {
                         self.rebuildData(key, trasnferredData);
                         self.dragCounter = 0;
 
-                        if(allowDropLoading){
+                        if(dropLoading){
                             this.setState({
                                 isDropCheck: false,
                             });
@@ -244,7 +244,7 @@ class DragDropArea extends Component {
         }
     }
 
-    onDragStart(e, unique, parentSourceKey, allowDrag, singleDraggingEntry, index) {
+    onDragStart(e, unique, parentSourceKey, allowDrag, singleDraggingEntry) {
         if (!allowDrag) {
             return this.cancleDragStatus();
         }
@@ -278,13 +278,13 @@ class DragDropArea extends Component {
                 const area = data[objectKeys[x]];
                 const areaName = objectKeys[x];
                 const name = data[objectKeys[x]].name ? data[objectKeys[x]].name : undefined;
-                const targetsKey =  `drag-drop-parent-${x}`;
+                const targetsKey =  `${this.uniqueAreaId}-drag-drop-parent-${x}`;
                 const areaData = (data[objectKeys[x]] && data[objectKeys[x]].data && typeof [] == typeof data[objectKeys[x]].data) ? data[objectKeys[x]].data : [];
                 const areaProps = (data[objectKeys[x]] && data[objectKeys[x]].areaProps && typeof {} == typeof data[objectKeys[x]].areaProps) ? this.checkObjectProps(data[objectKeys[x]].areaProps) : {};
                 const titleProps = (data[objectKeys[x]] && data[objectKeys[x]].titleProps && typeof {} == typeof data[objectKeys[x]].titleProps) ? this.checkObjectProps(data[objectKeys[x]].titleProps) : {};
                 const allowDrop = (typeof true == typeof data[objectKeys[x]].allowDrop) ? data[objectKeys[x]].allowDrop : true;
                 const allowDrag = (typeof true == typeof data[objectKeys[x]].allowDrag) ? data[objectKeys[x]].allowDrag : true;
-                const allowDropLoading = data[objectKeys[x]].allowDropLoading ? data[objectKeys[x]].allowDropLoading : undefined;
+                const dropLoading = data[objectKeys[x]].dropLoading ? data[objectKeys[x]].dropLoading : undefined;
 
                 if (area) {
 
@@ -294,13 +294,13 @@ class DragDropArea extends Component {
                             areaData.map( (singleEntry, index) => {
 
                                 if (singleEntry && singleEntry.text) {
-                                    const unique = `drag-drop-entry-${x}-${index}`;
+                                    const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}-${index}`;
 
                                     areasHTML.push(
                                         <li
                                             key={unique}
-                                            className={`area-single-item`}
-                                            onDragStart={(e) => this.onDragStart(e, unique, targetsKey, allowDrag, singleEntry, index)}
+                                            className={`area-single-entry`}
+                                            onDragStart={(e) => this.onDragStart(e, unique, targetsKey, allowDrag, singleEntry)}
                                             draggable={allowDrag ? 'true' : 'false'}
                                         >
                                             {
@@ -326,17 +326,17 @@ class DragDropArea extends Component {
                             onDragEnter={(e) => this.onDragEnter(e, targetsKey)}
                             onDragLeave={(e) => this.onDragLeave(e)}
                             onDragOver={(e) => this.onDragOver(e, targetsKey)}
-                            onDrop={(e) => this.handleDrop(e, targetsKey, allowDrop, allowDropLoading)}
+                            onDrop={(e) => this.handleDrop(e, targetsKey, allowDrop, dropLoading)}
                         >
                             {
                                 dragging && currentDraggingHover == targetsKey && allowDrop &&
                                 <div className="dragging-target"></div>
                             }
                             {
-                                isDropCheck && currentDraggingHover == targetsKey && allowDropLoading &&
-                                <div className="dragging-loading">
+                                isDropCheck && currentDraggingHover == targetsKey && dropLoading &&
+                                <div className="drop-loading">
                                     {
-                                        allowDropLoading
+                                        dropLoading
                                     }
                                 </div>
                             }
@@ -422,13 +422,13 @@ class DragDropArea extends Component {
              * Remove from source object
              */
             for (let x = 0; x < objectKeys.length; x++) {
-                targetParentKey = `drag-drop-parent-${x}`;
+                targetParentKey = `${this.uniqueAreaId}-drag-drop-parent-${x}`;
 
                 if (targetParentKey == currentDraggingParentElement) {
                     const newOrderedData = [];
 
                     for (let i = 0; i <= mainData[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `drag-drop-entry-${x}-${i}`
+                        const uuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
 
                         if (uuid !== itemKey) {
                             newOrderedData.push(mainData[objectKeys[x]].data[i]);
@@ -450,7 +450,7 @@ class DragDropArea extends Component {
             if (droppedParentKey !== currentDraggingParentElement && singleDraggingEntry) {
 
                 for (let x = 0; x < objectKeys.length; x++) {
-                    targetParentKey = `drag-drop-parent-${x}`;
+                    targetParentKey = `${this.uniqueAreaId}-drag-drop-parent-${x}`;
 
                     if (targetParentKey == droppedParentKey) {
 
@@ -517,13 +517,13 @@ class DragDropArea extends Component {
              * Remove from source object
              */
             for (let x = 0; x < objectKeys.length; x++) {
-                targetParentKey = `drag-drop-parent-${x}`;
+                targetParentKey = `${this.uniqueAreaId}-drag-drop-parent-${x}`;
 
                 if (targetParentKey == currentDraggingParentElement) {
                     const newOrderedData = [];
 
                     for (let i = 0; i <= data[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `drag-drop-entry-${x}-${i}`
+                        const uuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
 
                         if (uuid !== itemKey) {
                             newOrderedData.push(data[objectKeys[x]].data[i]);
@@ -545,7 +545,7 @@ class DragDropArea extends Component {
             if (droppedParentKey !== currentDraggingParentElement && singleDraggingEntry) {
 
                 for (let x = 0; x < objectKeys.length; x++) {
-                    targetParentKey = `drag-drop-parent-${x}`;
+                    targetParentKey = `${this.uniqueAreaId}-drag-drop-parent-${x}`;
 
                     if (targetParentKey == droppedParentKey) {
 
