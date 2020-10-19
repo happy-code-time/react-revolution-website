@@ -27,7 +27,12 @@ class DragDropList extends Component {
         this.attachHandleClick = this.attachHandleClick.bind(this);
         this.removeHandleClick = this.removeHandleClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.attachHandleMouseMove = this.attachHandleMouseMove.bind(this);
+        this.removeHandleClick = this.removeHandleClick.bind(this);
+        this.setMouseMove = this.setMouseMove.bind(this);
         this.uniqueAreaId = `${uuid()}`;
+        this.mouseMove = undefined;
+        this.oldY = 0;
 
         this.state = {
             /**
@@ -38,6 +43,7 @@ class DragDropList extends Component {
             overLiIndex: undefined,
             sourceIndex: undefined,
             isDropping: false,
+            allowedPositions: ['top', 'bottom', 'auto'],
             /**
              * User
              */
@@ -55,7 +61,7 @@ class DragDropList extends Component {
             placeholder: props.placeholder ? props.placeholder : undefined,
             areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
             dropLoading: props.dropLoading ? props.dropLoading : undefined,
-            append: (typeof true == typeof props.append) ? props.append : false,
+            placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
         };
     }
 
@@ -66,7 +72,7 @@ class DragDropList extends Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'placeholder', 'areaProps', 'callbackAllowDrop', 'callbackAllowDropProps', 'dropLoading', 'append'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'placeholder', 'areaProps', 'callbackAllowDrop', 'callbackAllowDropProps', 'dropLoading', 'placeholderPosition'], props, state)) {
 
             if (props.callback && 'function' == props.callback && props.data !== state.data) {
                 return {
@@ -92,7 +98,7 @@ class DragDropList extends Component {
                 callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
                 dropLoading: props.dropLoading ? props.dropLoading : undefined,
-                append: (typeof true == typeof props.append) ? props.append : false,
+                placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
             };
         }
 
@@ -102,25 +108,53 @@ class DragDropList extends Component {
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.attachHandleClick();
+
+        const { placeholderPosition } = this.state;
+
+        if ('auto' == placeholderPosition) {
+            this.attachHandleMouseMove();
+        }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.removeHandleClick();
+        this.removeHandleMouseMove();
     }
 
-    attachHandleClick(){
+    attachHandleClick() {
         this.removeHandleClick();
         document.addEventListener('click', this.handleClick);
     }
 
-    removeHandleClick(){
+    removeHandleClick() {
         document.removeEventListener('click', this.handleClick);
     }
 
-    handleClick(event){
-        if(this.refNode && this.refNode.current && !this.refNode.current.contains(event.target)){
+    handleClick(event) {
+        if (this.refNode && this.refNode.current && !this.refNode.current.contains(event.target)) {
             this.cancleDragStatus();
         }
+    }
+
+    attachHandleMouseMove() {
+        this.removeHandleMouseMove();
+        document.addEventListener('mousemove', this.setMouseMove);
+    }
+
+    removeHandleMouseMove() {
+        document.removeEventListener('mousemove', this.setMouseMove);
+    }
+
+    setMouseMove(event) {
+
+        if (event.pageY < this.oldY) {
+            this.mouseMove = 'top';
+        }
+        else if (event.pageY > this.oldY) {
+            this.mouseMove = 'bottom';
+        }
+
+        this.oldY = event.pageY;
     }
 
     checkObjectProps(object) {
@@ -222,21 +256,38 @@ class DragDropList extends Component {
     }
 
     buildDragDropItems() {
-        const { data, dragging, overLiIndex, placeholder, sourceIndex, isDropping, dropLoading, append } = this.state;
-        let { areaProps } = this.state;
+        const { data, dragging, overLiIndex, placeholder, sourceIndex, isDropping, dropLoading } = this.state;
+        let { areaProps, placeholderPosition } = this.state;
         areaProps = (areaProps && typeof {} == typeof areaProps) ? areaProps : {};
+
+        if (!this.state.allowedPositions.includes(placeholderPosition)) {
+            placeholderPosition = 'auto';
+        }
 
         const childs = [];
 
         if (data && data.length) {
 
-            for (let x = 0; x < data.length; x++) {
+            for (let x = 0; x <= data.length - 1; x++) {
                 const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}`;
                 const singleEntry = data[x];
                 const props = (singleEntry.props && typeof {} == typeof singleEntry.props) ? singleEntry.props : {};
+                let placeholderJsx = undefined;
+                let attachMixedTop = false;
+                let attachMixedBottom = false;
 
-                if (!append && undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) {
-                    childs.push(
+                if ('top' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x) {
+                    attachMixedTop = true;
+                    placeholderPosition = 'top';
+                }
+
+                if ('bottom' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x) {
+                    attachMixedTop = true;
+                    placeholderPosition = 'bottom';
+                }
+
+                if ((undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) || (attachMixedTop || attachMixedBottom)) {
+                    placeholderJsx = (
                         <li
                             key={uuid()}
                             className='single-entry placeholder'
@@ -251,6 +302,10 @@ class DragDropList extends Component {
                             }
                         </li>
                     );
+                }
+
+                if ('top' == placeholderPosition && placeholderJsx) {
+                    childs.push(placeholderJsx);
                 }
 
                 childs.push(
@@ -270,24 +325,9 @@ class DragDropList extends Component {
                     </li>
                 );
 
-                if (append && undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) {
-                    childs.push(
-                        <li
-                            key={uuid()}
-                            className='single-entry placeholder'
-                            onDragStart={(e) => this.onDragStart(e, x, unique, singleEntry)}
-                            onDragOver={(e) => this.onDragOver(e, x)}
-                            onDragEnter={(e) => this.onDragEnter(e, x)}
-                            onDragLeave={(e) => this.onDragLeave(e)}
-                            draggable='false'
-                        >
-                            {
-                                placeholder
-                            }
-                        </li>
-                    );
+                if ('bottom' == placeholderPosition && placeholderJsx) {
+                    childs.push(placeholderJsx);
                 }
-
             }
         }
 
@@ -313,7 +353,13 @@ class DragDropList extends Component {
     }
 
     rebuildData(uniqueKey) {
-        const { data, overLiIndex, sourceIndex, callback, callbackProps, singleDraggingEntry, append } = this.state;
+        const lastMove = this.mouseMove;
+        const { data, overLiIndex, sourceIndex, callback, callbackProps, singleDraggingEntry } = this.state;
+        let { placeholderPosition } = this.state;
+
+        if (!this.state.allowedPositions.includes(placeholderPosition)) {
+            placeholderPosition = 'auto';
+        }
 
         if (data && data.length) {
             const newData = [];
@@ -332,7 +378,7 @@ class DragDropList extends Component {
             for (let x = 0; x <= data.length - 1; x++) {
                 const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}`;
 
-                if (x == overLiIndex && !append) {
+                if ((x == overLiIndex && 'top' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'top' == lastMove)) {
                     newData.push(singleDraggingEntry);
                     details.sourceIndex = x;
                 }
@@ -341,7 +387,7 @@ class DragDropList extends Component {
                     newData.push(data[x]);
                 }
 
-                if (x == overLiIndex && append) {
+                if ((x == overLiIndex && 'bottom' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'bottom' == lastMove)) {
                     newData.push(singleDraggingEntry);
                     details.sourceIndex = x;
                 }

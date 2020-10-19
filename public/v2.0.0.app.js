@@ -151,7 +151,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         props: {} // li
 
       }, {
-        text: 'Avocado'
+        text: 'Banana'
       }, {
         text: 'Broccoli'
       }, {
@@ -191,7 +191,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         callback: this.callback,
         callbackAllowDrop: this.callbackAllowDrop,
         dropLoading: "LAODING",
-        append: false // append or prepend (before item or after item)
+        placeholder: "PLACEHOLDER",
+        placeholderPosition: "auto" // top, bottom, auto
 
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
         className: ""
@@ -11510,8 +11511,8 @@ module.exports = function (e) {
       });
     }));
 
-    var D,
-        w = function () {},
+    var w,
+        D = function () {},
         P = void 0 !== e && void 0 !== e.process && "function" == typeof e.process.emit,
         T = void 0 === t ? setTimeout : t,
         L = [];
@@ -11519,14 +11520,14 @@ module.exports = function (e) {
     function O() {
       for (var e = 0; e < L.length; e++) L[e][0](L[e][1]);
 
-      L = [], D = !1;
+      L = [], w = !1;
     }
 
-    function R(e, t) {
-      L.push([e, t]), D || (D = !0, T(O, 0));
+    function M(e, t) {
+      L.push([e, t]), w || (w = !0, T(O, 0));
     }
 
-    function M(e) {
+    function R(e) {
       var t = e.owner,
           a = t._state,
           n = t._data,
@@ -11572,15 +11573,15 @@ module.exports = function (e) {
     }
 
     function I(e, t) {
-      "pending" === e._state && (e._state = "settled", e._data = t, R(j, e));
+      "pending" === e._state && (e._state = "settled", e._data = t, M(j, e));
     }
 
     function F(e, t) {
-      "pending" === e._state && (e._state = "settled", e._data = t, R(z, e));
+      "pending" === e._state && (e._state = "settled", e._data = t, M(z, e));
     }
 
     function V(e) {
-      e._then = e._then.forEach(M);
+      e._then = e._then.forEach(R);
     }
 
     function j(e) {
@@ -11622,11 +11623,11 @@ module.exports = function (e) {
       then: function (e, t) {
         var a = {
           owner: this,
-          then: new this.constructor(w),
+          then: new this.constructor(D),
           fulfilled: e,
           rejected: t
         };
-        return !t && !e || this._handled || (this._handled = !0, "rejected" === this._state && P && R(_, this)), "fulfilled" === this._state || "rejected" === this._state ? R(M, a) : this._then.push(a), a.then;
+        return !t && !e || this._handled || (this._handled = !0, "rejected" === this._state && P && M(_, this)), "fulfilled" === this._state || "rejected" === this._state ? M(R, a) : this._then.push(a), a.then;
       },
       catch: function (e) {
         return this.then(null, e);
@@ -11897,9 +11898,9 @@ module.exports = function (e) {
           attributes: a
         };
       }(x),
-          D = N.children,
-          w = N.attributes;
-      return x.children = D, x.attributes = w, o ? function (e) {
+          w = N.children,
+          D = N.attributes;
+      return x.children = w, x.attributes = D, o ? function (e) {
         var t = e.prefix,
             a = e.iconName,
             n = e.children,
@@ -12491,7 +12492,7 @@ module.exports = function (e) {
   }), a.d(t, "uuid", function () {
     return ue;
   }), a.d(t, "disableHtmlScroll", function () {
-    return Me;
+    return Re;
   }), a.d(t, "enableHtmlScroll", function () {
     return Be;
   }), a.d(t, "scrollTopListener", function () {
@@ -12499,7 +12500,7 @@ module.exports = function (e) {
   }), a.d(t, "urlExtract", function () {
     return B;
   }), a.d(t, "Accordion", function () {
-    return R;
+    return M;
   }), a.d(t, "Articles", function () {
     return P;
   }), a.d(t, "ArticlesImages", function () {
@@ -12531,7 +12532,7 @@ module.exports = function (e) {
   }), a.d(t, "FullScreenListArray", function () {
     return Le;
   }), a.d(t, "FullScreenListObject", function () {
-    return Re;
+    return Me;
   }), a.d(t, "FullScreenOverlay", function () {
     return Ie;
   }), a.d(t, "GlobalMessages", function () {
@@ -12571,13 +12572,13 @@ module.exports = function (e) {
   }), a.d(t, "PopupBox", function () {
     return xt;
   }), a.d(t, "ReadMore", function () {
-    return Dt;
+    return wt;
   }), a.d(t, "ReadMoreCallback", function () {
     return Pt;
   }), a.d(t, "ScrollTo", function () {
     return Lt;
   }), a.d(t, "SideBar", function () {
-    return Rt;
+    return Mt;
   }), a.d(t, "SourceCode", function () {
     return Kt;
   }), a.d(t, "Water404", function () {
@@ -12635,7 +12636,7 @@ module.exports = function (e) {
     if (t && t.length) for (var n = 0; n <= t.length - 1; n++) null == t[n].toggled && (t[n].toggled = !1), null == t[n].uuid && (t[n].unique = "".concat(x()).concat(x()).concat(x())), null == t[n].key && (t[n].key = "single-entry-".concat(n).concat(t[n].text ? t[n].text : "")), null == t[n].uuid && (t[n].iconId = "".concat(x())), null == t[n].classList && (t[n].classList = ""), null == t[n].loopCount && (t[n].loopCount = 1), a && t[n].data && r()([]) == r()(t[n].data) && t[n].data.length && (t[n].childrensNestedCount = a.childrensNestedCount + 1), a || (t[n].childrensNestedCount = 1), t[n].data && r()([]) == r()(t[n].data) && t[n].data.length && e(t[n].data, t[n]);
     return t;
   },
-      D = function () {
+      w = function () {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
         t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
         a = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
@@ -12645,7 +12646,7 @@ module.exports = function (e) {
     }), n;
   };
 
-  function w(e) {
+  function D(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -12673,7 +12674,7 @@ module.exports = function (e) {
 
   var P = function (e) {
     h()(a, e);
-    var t = w(a);
+    var t = D(a);
 
     function a(e) {
       var n;
@@ -12754,9 +12755,9 @@ module.exports = function (e) {
                 S = c.classList,
                 E = c.href,
                 N = (c.icon, c.childrensNestedCount, c.key),
-                D = c.dataToggle,
-                w = c.border;
-            D && b && d && (i = !1), E && r()("8") == r()(E) && (E = E.toLowerCase()), S || (S = ""), g && r()(g) === r()({}) || (g = {});
+                w = c.dataToggle,
+                D = c.border;
+            w && b && d && (i = !1), E && r()("8") == r()(E) && (E = E.toLowerCase()), S || (S = ""), g && r()(g) === r()({}) || (g = {});
 
             try {
               Object.keys(g);
@@ -12768,28 +12769,28 @@ module.exports = function (e) {
                 T = [];
             p && (r()("8") == r()(p) ? T.push(k.a.createElement("h1", l()({
               key: x(),
-              className: "title ".concat("title" == u && D && b && d ? "data-toggled" : "")
+              className: "title ".concat("title" == u && w && b && d ? "data-toggled" : "")
             }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
             }), p)) : T.push(k.a.createElement("div", l()({
               key: x(),
-              className: "title ".concat("title" == u && D && b && d ? "data-toggled" : "")
+              className: "title ".concat("title" == u && w && b && d ? "data-toggled" : "")
             }, g, "title" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
             }), p))), v && (r()("8") == r()(p) ? T.push(k.a.createElement("p", l()({
               key: x(),
-              className: "text ".concat("text" == u && D && b && d ? "data-toggled" : "")
+              className: "text ".concat("text" == u && w && b && d ? "data-toggled" : "")
             }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
             }), v)) : T.push(k.a.createElement("div", l()({
               key: x(),
-              className: "text ".concat("text" == u && D && b && d ? "data-toggled" : "")
+              className: "text ".concat("text" == u && w && b && d ? "data-toggled" : "")
             }, y, "text" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
@@ -12798,16 +12799,16 @@ module.exports = function (e) {
             var L = !1,
                 O = {};
 
-            if (w && r()({}) == r()(w)) {
-              var R = w.site,
-                  M = w.width,
-                  B = w.color;
-              if (R && M && B) if (r()("8") == r()(R) && ["top", "right", "bottom", "left"].includes(R) && r()(8) == r()(M) && r()("8") == r()(B)) O["border".concat(R.charAt(0).toUpperCase()).concat(R.substring(1, R.length))] = "".concat(M, "px solid ").concat(B), L = !0;
+            if (D && r()({}) == r()(D)) {
+              var M = D.site,
+                  R = D.width,
+                  B = D.color;
+              if (M && R && B) if (r()("8") == r()(M) && ["top", "right", "bottom", "left"].includes(M) && r()(8) == r()(R) && r()("8") == r()(B)) O["border".concat(M.charAt(0).toUpperCase()).concat(M.substring(1, M.length))] = "".concat(R, "px solid ").concat(B), L = !0;
             }
 
             h.push(k.a.createElement("div", l()({
               key: N,
-              className: "single-entry ".concat("box" == u && D && b && d ? "data-toggled" : "")
+              className: "single-entry ".concat("box" == u && w && b && d ? "data-toggled" : "")
             }, "box" == u && !s && i && {
               onClick: function (e) {
                 return t.toggle(C);
@@ -12823,10 +12824,10 @@ module.exports = function (e) {
               onClick: function (e) {
                 return t.toggle(C);
               }
-            }, s), D && b && k.a.createElement("div", {
+            }, s), w && b && k.a.createElement("div", {
               key: x(),
               className: S
-            }, D), b && o && !d && k.a.createElement("span", o && i && {
+            }, w), b && o && !d && k.a.createElement("span", o && i && {
               onClick: function (e) {
                 return t.toggle(C);
               }
@@ -12919,7 +12920,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "persist", "toggleForwards", "toggleBackwards"], e, t) ? {
+        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "persist", "toggleForwards", "toggleBackwards"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -13048,12 +13049,12 @@ module.exports = function (e) {
                 S = c.imageData,
                 E = c.toggled,
                 N = c.unique,
-                D = c.classList,
-                w = c.href,
+                w = c.classList,
+                D = c.href,
                 P = (c.icon, c.childrensNestedCount, c.key),
                 T = c.dataToggle,
                 L = c.border;
-            T && E && d && (i = !1), w && r()("8") == r()(w) && (w = w.toLowerCase()), D || (D = ""), g && r()(g) === r()({}) || (g = {}), C && r()(C) === r()({}) || (C = {});
+            T && E && d && (i = !1), D && r()("8") == r()(D) && (D = D.toLowerCase()), w || (w = ""), g && r()(g) === r()({}) || (g = {}), C && r()(C) === r()({}) || (C = {});
 
             try {
               Object.keys(g), Object.keys(C);
@@ -13092,16 +13093,16 @@ module.exports = function (e) {
               }
             }), v, T && E && k.a.createElement("span", {
               key: x(),
-              className: D
+              className: w
             }, T))));
-            var R = !1,
-                M = {};
+            var M = !1,
+                R = {};
 
             if (L && r()({}) == r()(L)) {
               var B = L.site,
                   A = L.width,
                   I = L.color;
-              if (B && A && I) if (r()("8") == r()(B) && ["top", "right", "bottom", "left"].includes(B) && r()(8) == r()(A) && r()("8") == r()(I)) M["border".concat(B.charAt(0).toUpperCase()).concat(B.substring(1, B.length))] = "".concat(A, "px solid ").concat(I), R = !0;
+              if (B && A && I) if (r()("8") == r()(B) && ["top", "right", "bottom", "left"].includes(B) && r()(8) == r()(A) && r()("8") == r()(I)) R["border".concat(B.charAt(0).toUpperCase()).concat(B.substring(1, B.length))] = "".concat(A, "px solid ").concat(I), M = !0;
             }
 
             h.push(k.a.createElement("div", l()({
@@ -13111,9 +13112,9 @@ module.exports = function (e) {
               onClick: function (e) {
                 return t.toggle(N);
               }
-            }), R && k.a.createElement("div", {
+            }), M && k.a.createElement("div", {
               className: "border",
-              style: M
+              style: R
             }), b && r()("8") == r()(b) && k.a.createElement("div", {
               className: "image-holder"
             }, k.a.createElement("div", l()({
@@ -13130,7 +13131,7 @@ module.exports = function (e) {
               }
             }, s), T && E && k.a.createElement("span", {
               key: x(),
-              className: D
+              className: w
             }, T), E && o && !d && k.a.createElement("span", o && i && {
               onClick: function (e) {
                 return t.toggle(N);
@@ -13224,7 +13225,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "toggleForwards", "persist", "toggleBackwards"], e, t) ? {
+        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "data", "animation", "itemsPerLine", "mediaBreak", "toggleOn", "toggleForwards", "persist", "toggleBackwards"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -13270,7 +13271,7 @@ module.exports = function (e) {
     };
   }
 
-  var R = function (e) {
+  var M = function (e) {
     h()(a, e);
     var t = O(a);
 
@@ -13434,7 +13435,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["data", "defaultClass", "id", "animation"], e, t) ? {
+        return w(["data", "defaultClass", "id", "animation"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-accordion",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -13444,7 +13445,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      M = function () {
+      R = function () {
     function e() {
       o()(this, e);
     }
@@ -13520,7 +13521,7 @@ module.exports = function (e) {
     }]), e;
   }(),
       B = function (e) {
-    return new M().extract(e);
+    return new R().extract(e);
   },
       A = a(11),
       I = a.n(A),
@@ -13904,7 +13905,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "data", "reactRouter", "animation", "closeOnClickOutside", "dashed"], e, t) ? {
+        return w(["defaultClass", "id", "data", "reactRouter", "animation", "closeOnClickOutside", "dashed"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-menu-click-horizontal",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -14087,7 +14088,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "hashRouter", "domainName", "reactRouter", "moduleMenu", "delimiter", "overwriteText", "removeHashFromDomain"], e, t) ? {
+        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "hashRouter", "domainName", "reactRouter", "moduleMenu", "delimiter", "overwriteText", "removeHashFromDomain"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -14235,7 +14236,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "itemsPerLine", "data", "mediaBreak"], e, t) ? {
+        return w(["defaultClass", "id", "itemsPerLine", "data", "mediaBreak"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-cards",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -14916,7 +14917,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["value", "suggestions"], e, t) ? t.callbackRerender ? {
+        return w(["value", "suggestions"], e, t) ? t.callbackRerender ? {
           suggestions: t.suggestions
         } : {
           suggestions: e.suggestions,
@@ -15046,7 +15047,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "callback", "callbackProps", "data", "clipboard"], e, t) ? {
+        return w(["defaultClass", "id", "callback", "callbackProps", "data", "clipboard"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-clipboard",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -15707,7 +15708,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (D(["moduleSidebar", "headerData", "contentData", "persistUserSelection", "sidebarMinifiedAt", "sidebarMaxifiedAt", "displayMinifyMaxifyIcon", "minify", "footerData"], e, t)) {
+        if (w(["moduleSidebar", "headerData", "contentData", "persistUserSelection", "sidebarMinifiedAt", "sidebarMaxifiedAt", "displayMinifyMaxifyIcon", "minify", "footerData"], e, t)) {
           if (t.persistUserSelection && null !== localStorage.getItem("persistUserSelection")) try {
             var a = localStorage.getItem("persistUserSelection");
             return {
@@ -16290,7 +16291,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["addClass", "defaultClass", "id", "data", "itemsPerLine", "callbackAllowDrop", "callbackAllowDropProps"], e, t) ? {
+        return w(["addClass", "defaultClass", "id", "data", "itemsPerLine", "callbackAllowDrop", "callbackAllowDropProps"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-drag-drop-area",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -16304,7 +16305,7 @@ module.exports = function (e) {
       }
     }]), n;
   }(b.Component),
-      De = function (e, t) {
+      we = function (e, t) {
     for (var a = 0; a <= e.length - 1; a++) {
       var n = e[a];
       t.push(n);
@@ -16313,7 +16314,7 @@ module.exports = function (e) {
     return t;
   };
 
-  function we(e) {
+  function De(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -16341,16 +16342,17 @@ module.exports = function (e) {
 
   var Pe = function (e) {
     h()(a, e);
-    var t = we(a);
+    var t = De(a);
 
     function a(e) {
       var n;
-      return o()(this, a), (n = t.call(this, e)).refNode = k.a.createRef(), n.buildDragDropItems = n.buildDragDropItems.bind(f()(n)), n.rebuildData = n.rebuildData.bind(f()(n)), n.onDragEnter = n.onDragEnter.bind(f()(n)), n.onDragLeave = n.onDragLeave.bind(f()(n)), n.onDragOver = n.onDragOver.bind(f()(n)), n.handleDrop = n.handleDrop.bind(f()(n)), n.onDragStart = n.onDragStart.bind(f()(n)), n.cancleDragStatus = n.cancleDragStatus.bind(f()(n)), n.attachHandleClick = n.attachHandleClick.bind(f()(n)), n.removeHandleClick = n.removeHandleClick.bind(f()(n)), n.handleClick = n.handleClick.bind(f()(n)), n.uniqueAreaId = "".concat(x()), n.state = {
+      return o()(this, a), (n = t.call(this, e)).refNode = k.a.createRef(), n.buildDragDropItems = n.buildDragDropItems.bind(f()(n)), n.rebuildData = n.rebuildData.bind(f()(n)), n.onDragEnter = n.onDragEnter.bind(f()(n)), n.onDragLeave = n.onDragLeave.bind(f()(n)), n.onDragOver = n.onDragOver.bind(f()(n)), n.handleDrop = n.handleDrop.bind(f()(n)), n.onDragStart = n.onDragStart.bind(f()(n)), n.cancleDragStatus = n.cancleDragStatus.bind(f()(n)), n.attachHandleClick = n.attachHandleClick.bind(f()(n)), n.removeHandleClick = n.removeHandleClick.bind(f()(n)), n.handleClick = n.handleClick.bind(f()(n)), n.attachHandleMouseMove = n.attachHandleMouseMove.bind(f()(n)), n.removeHandleClick = n.removeHandleClick.bind(f()(n)), n.setMouseMove = n.setMouseMove.bind(f()(n)), n.uniqueAreaId = "".concat(x()), n.mouseMove = void 0, n.oldY = 0, n.state = {
         dragging: !1,
         singleDraggingEntry: void 0,
         overLiIndex: void 0,
         sourceIndex: void 0,
         isDropping: !1,
+        allowedPositions: ["top", "bottom", "auto"],
         moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
         globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
         addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -16365,19 +16367,19 @@ module.exports = function (e) {
         placeholder: e.placeholder ? e.placeholder : void 0,
         areaProps: e.areaProps && r()({}) == r()(e.areaProps) ? e.areaProps : {},
         dropLoading: e.dropLoading ? e.dropLoading : void 0,
-        append: r()(!0) == r()(e.append) && e.append
+        placeholderPosition: r()("8") == r()(e.placeholderPosition) ? e.placeholderPosition : "auto"
       }, n;
     }
 
     return u()(a, [{
       key: "componentDidMount",
       value: function () {
-        S(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass), this.attachHandleClick();
+        S(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass), this.attachHandleClick(), "auto" == this.state.placeholderPosition && this.attachHandleMouseMove();
       }
     }, {
       key: "componentWillUnmount",
       value: function () {
-        this.removeHandleClick();
+        this.removeHandleClick(), this.removeHandleMouseMove();
       }
     }, {
       key: "attachHandleClick",
@@ -16393,6 +16395,21 @@ module.exports = function (e) {
       key: "handleClick",
       value: function (e) {
         this.refNode && this.refNode.current && !this.refNode.current.contains(e.target) && this.cancleDragStatus();
+      }
+    }, {
+      key: "attachHandleMouseMove",
+      value: function () {
+        this.removeHandleMouseMove(), document.addEventListener("mousemove", this.setMouseMove);
+      }
+    }, {
+      key: "removeHandleMouseMove",
+      value: function () {
+        document.removeEventListener("mousemove", this.setMouseMove);
+      }
+    }, {
+      key: "setMouseMove",
+      value: function (e) {
+        e.pageY < this.oldY ? this.mouseMove = "top" : e.pageY > this.oldY && (this.mouseMove = "bottom"), this.oldY = e.pageY;
       }
     }, {
       key: "checkObjectProps",
@@ -16481,15 +16498,18 @@ module.exports = function (e) {
             o = t.sourceIndex,
             c = t.isDropping,
             u = t.dropLoading,
-            d = t.append,
-            f = this.state.areaProps;
-        f = f && r()({}) == r()(f) ? f : {};
-        var m = [];
-        if (a && a.length) for (var h = function (t) {
+            d = this.state,
+            f = d.areaProps,
+            m = d.placeholderPosition;
+        f = f && r()({}) == r()(f) ? f : {}, this.state.allowedPositions.includes(m) || (m = "auto");
+        var h = [];
+        if (a && a.length) for (var p = function (t) {
           var c = "".concat(e.uniqueAreaId, "-drag-drop-entry-").concat(t),
               u = a[t],
-              f = u.props && r()({}) == r()(u.props) ? u.props : {};
-          !d && void 0 !== i && i == t && n && o !== t && m.push(k.a.createElement("li", {
+              d = u.props && r()({}) == r()(u.props) ? u.props : {},
+              f = void 0,
+              p = !1;
+          "top" == e.mouseMove && "auto" == m && i == t && (p = !0, m = "top"), "bottom" == e.mouseMove && "auto" == m && i == t && (p = !0, m = "bottom"), (void 0 !== i && i == t && n && o !== t || p) && (f = k.a.createElement("li", {
             key: x(),
             className: "single-entry placeholder",
             onDragStart: function (a) {
@@ -16505,7 +16525,7 @@ module.exports = function (e) {
               return e.onDragLeave(t);
             },
             draggable: "false"
-          }, s)), m.push(k.a.createElement("li", l()({
+          }, s)), "top" == m && f && h.push(f), h.push(k.a.createElement("li", l()({
             key: c,
             className: "single-entry",
             onDragStart: function (a) {
@@ -16521,31 +16541,15 @@ module.exports = function (e) {
               return e.onDragLeave(t);
             },
             draggable: "true"
-          }, f), u.text && u.text)), d && void 0 !== i && i == t && n && o !== t && m.push(k.a.createElement("li", {
-            key: x(),
-            className: "single-entry placeholder",
-            onDragStart: function (a) {
-              return e.onDragStart(a, t, c, u);
-            },
-            onDragOver: function (a) {
-              return e.onDragOver(a, t);
-            },
-            onDragEnter: function (a) {
-              return e.onDragEnter(a, t);
-            },
-            onDragLeave: function (t) {
-              return e.onDragLeave(t);
-            },
-            draggable: "false"
-          }, s));
-        }, p = 0; p < a.length; p++) h(p);
+          }, d), u.text && u.text)), "bottom" == m && f && h.push(f);
+        }, g = 0; g <= a.length - 1; g++) p(g);
         return k.a.createElement("ul", l()({
           className: "box"
         }, f, {
           onDrop: function (t) {
             return e.handleDrop(t);
           }
-        }), m, c && u && k.a.createElement("div", {
+        }), h, c && u && k.a.createElement("div", {
           className: "drop-loading"
         }, u));
       }
@@ -16553,38 +16557,39 @@ module.exports = function (e) {
       key: "rebuildData",
       value: function (e) {
         var t = this,
-            a = this.state,
-            n = a.data,
-            l = a.overLiIndex,
-            i = a.sourceIndex,
-            r = a.callback,
-            s = a.callbackProps,
-            o = a.singleDraggingEntry,
-            c = a.append;
+            a = this.mouseMove,
+            n = this.state,
+            l = n.data,
+            i = n.overLiIndex,
+            r = n.sourceIndex,
+            s = n.callback,
+            o = n.callbackProps,
+            c = n.singleDraggingEntry,
+            u = this.state.placeholderPosition;
 
-        if (n && n.length) {
-          var u = [],
-              d = [];
-          d = De(JSON.parse(JSON.stringify(n)), d);
+        if (this.state.allowedPositions.includes(u) || (u = "auto"), l && l.length) {
+          var d = [],
+              f = [];
+          f = we(JSON.parse(JSON.stringify(l)), f);
 
-          for (var f = {
-            sourceIndex: i,
-            targetIndex: l,
-            item: o
-          }, m = 0; m <= n.length - 1; m++) {
-            var h = "".concat(this.uniqueAreaId, "-drag-drop-entry-").concat(m);
-            m != l || c || (u.push(o), f.sourceIndex = m), h !== e && u.push(n[m]), m == l && c && (u.push(o), f.sourceIndex = m);
+          for (var m = {
+            sourceIndex: r,
+            targetIndex: i,
+            item: c
+          }, h = 0; h <= l.length - 1; h++) {
+            var p = "".concat(this.uniqueAreaId, "-drag-drop-entry-").concat(h);
+            (h == i && "top" == u || "auto" == u && h == i && "top" == a) && (d.push(c), m.sourceIndex = h), p !== e && d.push(l[h]), (h == i && "bottom" == u || "auto" == u && h == i && "bottom" == a) && (d.push(c), m.sourceIndex = h);
           }
 
           this.setState({
-            data: u,
+            data: d,
             singleDraggingEntry: "",
             dragging: !1,
             sourceIndex: void 0,
             overLiIndex: void 0,
             isDropping: !1
           }, function () {
-            r && r(d, t.state.data, f, s);
+            s && s(f, t.state.data, m, o);
           });
         } else this.cancleDragStatus();
       }
@@ -16603,7 +16608,7 @@ module.exports = function (e) {
                     break;
                   }
 
-                  for (f = [], m = [], m = De(JSON.parse(JSON.stringify(i)), m), h = {
+                  for (f = [], m = [], m = we(JSON.parse(JSON.stringify(i)), m), h = {
                     sourceIndex: o,
                     targetIndex: s,
                     item: c
@@ -16656,7 +16661,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["addClass", "defaultClass", "id", "data", "placeholder", "areaProps", "callbackAllowDrop", "callbackAllowDropProps", "dropLoading", "append"], e, t) ? e.callback && "function" == e.callback && e.data !== t.data ? {
+        return w(["addClass", "defaultClass", "id", "data", "placeholder", "areaProps", "callbackAllowDrop", "callbackAllowDropProps", "dropLoading", "placeholderPosition"], e, t) ? e.callback && "function" == e.callback && e.data !== t.data ? {
           data: e.data
         } : e.callback && "function" !== e.callback && e.data !== t.data ? {
           data: t.data
@@ -16672,7 +16677,7 @@ module.exports = function (e) {
           callbackAllowDrop: e.callbackAllowDrop && "function" == typeof e.callbackAllowDrop ? e.callbackAllowDrop : void 0,
           callbackAllowDropProps: e.callbackAllowDropProps ? e.callbackAllowDropProps : void 0,
           dropLoading: e.dropLoading ? e.dropLoading : void 0,
-          append: r()(!0) == r()(e.append) && e.append
+          placeholderPosition: r()("8") == r()(e.placeholderPosition) ? e.placeholderPosition : "auto"
         } : null;
       }
     }]), a;
@@ -16913,7 +16918,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+        return w(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           data: e.data && r()([]) === r()(e.data) ? e.data : [],
@@ -16961,7 +16966,7 @@ module.exports = function (e) {
     };
   }
 
-  var Re = function (e) {
+  var Me = function (e) {
     h()(a, e);
     var t = Oe(a);
 
@@ -17170,7 +17175,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
+        return w(["id", "data", "display", "lineNumber", "iconClose", "inputActive", "closeOnDimmed", "noDataText", "inputPlaceholder", "animation", "callback", "callbackClose", "closeOnEsc", "inputEmptyOnCallback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
           data: e.data && r()([]) === r()(e.data) ? e.data : [],
@@ -17191,7 +17196,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      Me = function () {
+      Re = function () {
     null !== document.getElementsByTagName("html") && void 0 !== document.getElementsByTagName("html")[0] && (document.getElementsByTagName("html")[0].classList.add("overflow-hidden"), document.getElementsByTagName("html")[0].style.overflow = "hidden");
   },
       Be = function () {
@@ -17256,7 +17261,7 @@ module.exports = function (e) {
             t = e.closeOnEsc,
             a = e.disableScroll,
             n = e.display;
-        t && window.addEventListener("keydown", this.EscListener, !1), n && a && Me();
+        t && window.addEventListener("keydown", this.EscListener, !1), n && a && Re();
       }
     }, {
       key: "componentWillUnmount",
@@ -17269,7 +17274,7 @@ module.exports = function (e) {
         var e = this.state,
             t = e.closeOnEsc,
             a = e.disableScroll;
-        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && Me(), void (a && Be());
+        if (e.display) return t && window.addEventListener("keydown", this.EscListener, !1), a && Re(), void (a && Be());
         Be(), window.removeEventListener("keydown", this.EscListener, !1);
       }
     }, {
@@ -17346,7 +17351,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
+        return w(["defaultClass", "id", "disableScroll", "callbackClose", "animation", "closeOnClick", "closeOnEsc", "data", "iconClose", "display"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-full-screen-overlay",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -17728,7 +17733,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
+        return w(["defaultClass", "id", "callback", "displayTabs", "renderItems", "translations", "custom"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-icons",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -18161,7 +18166,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["label", "errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "multiple"], e, t) ? {
+        return w(["label", "errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "multiple"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -18429,7 +18434,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
+        return w(["errorCallback", "readFileCallback", "inputPlaceholder", "errorCallbackCustomData", "isDraggingData", "multiple", "uploadOnClick"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-input-file-drag-drop",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -18729,7 +18734,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return w(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -19049,7 +19054,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
+        return w(["value"], e, t) ? r()(!0) == r()(e.getValueFromCallback) && e.getValueFromCallback ? {
           plainValue: e.value
         } : {
           plainValue: t.plainValue
@@ -19267,7 +19272,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "text", "display"], e, t) ? {
+        return w(["defaultClass", "id", "text", "display"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-loading-box-top",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -19479,7 +19484,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "data", "loading", "minify", "scrollReference", "callbackProps", "onReject", "persistReject"], e, t) ? {
+        return w(["defaultClass", "id", "data", "loading", "minify", "scrollReference", "callbackProps", "onReject", "persistReject"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-load-on-scroll",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -19611,7 +19616,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "data", "display", "callback"], e, t) ? {
+        return w(["defaultClass", "id", "data", "display", "callback"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-modal",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -19777,7 +19782,7 @@ module.exports = function (e) {
         var N = k.a.createElement("div", {
           className: "total"
         }, s && s, p, o && o),
-            D = k.a.createElement("span", {
+            w = k.a.createElement("span", {
           className: "buttons flex"
         }, k.a.createElement("span", {
           onClick: function (t) {
@@ -19816,32 +19821,32 @@ module.exports = function (e) {
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, D);
+            }, r && N, w);
 
           case 2:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, D, r && N);
+            }, w, r && N);
 
           case 3:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, D);
+            }, r && N, w);
 
           case 4:
           case 5:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, D, r && N);
+            }, w, r && N);
 
           default:
             return k.a.createElement("div", {
               key: ue(),
               className: "paging"
-            }, r && N, D);
+            }, r && N, w);
         }
       }
     }, {
@@ -20059,7 +20064,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (D(["searchValue"], e, t)) {
+        if (w(["searchValue"], e, t)) {
           if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == ft) return ft += 1, {
             searchValue: e.searchValue
           };
@@ -20068,7 +20073,7 @@ module.exports = function (e) {
           };
         }
 
-        if (D(["filteredData"], e, t)) {
+        if (w(["filteredData"], e, t)) {
           if (e.searchValue && "" !== e.searchValue) return {
             filteredData: t.filteredData,
             searchValue: t.searchValue
@@ -20085,7 +20090,7 @@ module.exports = function (e) {
           };
         }
 
-        if (D(["defaultClass", "id", "data", "searchOnKeys", "itemsPerSite", "keysToRender", "totalSufix", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "minPages"], e, t)) {
+        if (w(["defaultClass", "id", "data", "searchOnKeys", "itemsPerSite", "keysToRender", "totalSufix", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "minPages"], e, t)) {
           var a = (e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2) + (e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2) + 1,
               n = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10;
           return {
@@ -20309,13 +20314,13 @@ module.exports = function (e) {
         });
 
         if (r) {
-          var D = 1,
-              w = 1 == E ? r : E + f;
-          w < r && (w = r);
+          var w = 1,
+              D = 1 == E ? r : E + f;
+          D < r && (D = r);
 
-          for (var P = E + 1; P <= w; P++) P <= l && (N.push(P), D += 1);
+          for (var P = E + 1; P <= D; P++) P <= l && (N.push(P), w += 1);
 
-          for (var T = E; T > 0; T--) T >= 1 && (D <= d || D < r) && E !== T && (D += 1, x.push(T));
+          for (var T = E; T > 0; T--) T >= 1 && (w <= d || w < r) && E !== T && (w += 1, x.push(T));
 
           x.reverse();
         }
@@ -20597,7 +20602,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        if (D(["searchValue"], e, t)) {
+        if (w(["searchValue"], e, t)) {
           if (e.searchValue && "" !== e.searchValue && e.searchValue !== t.searchValue && 0 == pt) return pt += 1, {
             searchValue: e.searchValue
           };
@@ -20606,7 +20611,7 @@ module.exports = function (e) {
           };
         }
 
-        if (D(["defaultClass", "minPages", "totalPages", "id", "fallbackLoadingPage", "searchOnKeys", "globalCount", "itemsPerSite", "keysToRender", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "totalSufix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "getDataCallback"], e, t)) {
+        if (w(["defaultClass", "minPages", "totalPages", "id", "fallbackLoadingPage", "searchOnKeys", "globalCount", "itemsPerSite", "keysToRender", "lineNumber", "liCallback", "inputCallback", "displayTotal", "paginationPages", "totalPrefix", "totalSufix", "paginationTextPrefix", "paginationTextMiddle", "prevPages", "nextPages", "alignPagesItems", "alignPagination", "resetLineNumber", "nextButton", "previousButton", "searchActive", "searchPlaceholder", "searchIcon", "searchSensitive", "searchValue", "searchOnKeyDown", "searchTitle", "paginationTitle", "fallbackLoading", "fallbackLoadingTime", "fallbackNoData", "fallbackNoDataSearch", "fallbackMounting", "getDataCallback"], e, t)) {
           var a = e.prevPages && r()(8) === r()(e.prevPages) ? e.prevPages : 2,
               n = e.nextPages && r()(8) === r()(e.nextPages) ? e.nextPages : 2,
               l = e.itemsPerSite && r()(8) === r()(e.itemsPerSite) ? e.itemsPerSite : 10,
@@ -20795,7 +20800,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead", "titleOnMinified"], e, t) ? {
+        return w(["addClass", "defaultClass", "id", "data", "mediaBreak", "title", "keysToRead", "titleOnMinified"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-table",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -21217,7 +21222,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["addClass", "defaultClass", "id", "data", "mediaBreak", "lineMiddle", "lineTitle", "lineEntry", "colorLineMiddle", "colorLineEntry", "colorBorderEntry", "borderStyle", "dashedSize"], e, t) ? {
+        return w(["addClass", "defaultClass", "id", "data", "mediaBreak", "lineMiddle", "lineTitle", "lineEntry", "colorLineMiddle", "colorLineEntry", "colorBorderEntry", "borderStyle", "dashedSize"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-timeline",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -21371,7 +21376,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
+        return w(["defaultClass", "id", "data", "icon", "iconCallback", "animationTime", "animation"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-popupbox",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -21411,7 +21416,7 @@ module.exports = function (e) {
     };
   }
 
-  var Dt = function (e) {
+  var wt = function (e) {
     h()(a, e);
     var t = Nt(a);
 
@@ -21501,7 +21506,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "data", "dataToggle"], e, t) ? {
+        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "data", "dataToggle"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -21517,7 +21522,7 @@ module.exports = function (e) {
     }]), a;
   }(k.a.Component);
 
-  function wt(e) {
+  function Dt(e) {
     var t = function () {
       if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
@@ -21545,7 +21550,7 @@ module.exports = function (e) {
 
   var Pt = function (e) {
     h()(a, e);
-    var t = wt(a);
+    var t = Dt(a);
 
     function a(e) {
       var n;
@@ -21731,7 +21736,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "toggleOnReject", "toggleReject", "callback", "callbackProps", "loading", "data"], e, t) ? {
+        return w(["moduleStyle", "globalStyle", "addClass", "defaultClass", "id", "animation", "toggleForwards", "toggleBackwards", "toggleOnReject", "toggleReject", "callback", "callbackProps", "loading", "data"], e, t) ? {
           moduleStyle: r()(!0) == r()(e.moduleStyle) && e.moduleStyle,
           globalStyle: r()(!0) == r()(e.globalStyle) && e.globalStyle,
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
@@ -21946,7 +21951,7 @@ module.exports = function (e) {
     };
   }
 
-  var Rt = function (e) {
+  var Mt = function (e) {
     h()(a, e);
     var t = Ot(a);
 
@@ -22016,7 +22021,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
+        return w(["defaultClass", "id", "image", "moduleMenu", "textLong", "textShort", "href", "hrefProps"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sidebar",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",
@@ -22030,7 +22035,7 @@ module.exports = function (e) {
       }
     }]), a;
   }(k.a.Component),
-      Mt = void 0,
+      Rt = void 0,
       Bt = function (e, t, a) {
     if (0 === e.indexOf("</") && ">" == a && (t.push({
       data: "<",
@@ -22076,7 +22081,7 @@ module.exports = function (e) {
       className: "tag-end"
     }), e = ""), -1 !== e.indexOf("<") && ">" == e.charAt(e.length - 1)) {
       var n = e.substring(0, e.indexOf("<"));
-      (t = Mt.extractNotFiltered(t, n)).push({
+      (t = Rt.extractNotFiltered(t, n)).push({
         data: "<",
         className: "tag-start"
       }), t.push({
@@ -22686,7 +22691,7 @@ module.exports = function (e) {
     }], [{
       key: "getDerivedStateFromProps",
       value: function (e, t) {
-        return D(["defaultClass", "id", "code", "lineNumber", "promise", "promiseLine", "matcher", "inputActive", "inputCallback", "inputPlaceholder", "searchSensitive", "promiseTime", "lineNumberNewLine", "noDataText", "sourceCode", "fallbackNoData", "fallbackNoDataSearch"], e, t) ? {
+        return w(["defaultClass", "id", "code", "lineNumber", "promise", "promiseLine", "matcher", "inputActive", "inputCallback", "inputPlaceholder", "searchSensitive", "promiseTime", "lineNumberNewLine", "noDataText", "sourceCode", "fallbackNoData", "fallbackNoDataSearch"], e, t) ? {
           addClass: e.addClass && r()("8") == r()(e.addClass) ? e.addClass : "",
           defaultClass: e.defaultClass && r()("8") == r()(e.defaultClass) ? e.defaultClass : "rr-sourcecode",
           id: e.id && r()("8") == r()(e.id) ? e.id : "",

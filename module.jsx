@@ -21,7 +21,7 @@ class App extends React.Component {
                     props: {} // li
                 },
                 {
-                    text: 'Avocado'
+                    text: 'Banana'
                 },
                 {
                     text: 'Broccoli'
@@ -60,7 +60,8 @@ class App extends React.Component {
                     callback={this.callback}
                     callbackAllowDrop={this.callbackAllowDrop}
                     dropLoading='LAODING'
-                    append={false} // append or prepend (before item or after item)
+                    placeholder='PLACEHOLDER'
+                    placeholderPosition='auto' // top, bottom, auto
                 />
                 <div className="">
                     {
