@@ -9,7 +9,7 @@ class Release300 extends React.Component
             <div className="Generator">
                 {
                     generateRelease(
-                        '3.0.1',
+                        '3.0.0',
                         [
                             {
                                 key: 'DragDropArea',

@@ -622,7 +622,7 @@ class App extends React.Component {
                               href: `${host}#/react-revolution-release-3-0-1`,
                             },
                             {
-                              text: '3.0.1',
+                              text: '3.0.0',
                               href: `${host}#/react-revolution-release-3-0-0`,
                             },
                           ]
@@ -631,7 +631,7 @@ class App extends React.Component {
                           text: 'Releases 2.0',
                           data: [
                             {
-                              text: '3.0.1',
+                              text: '2.0.0',
                               href: `${host}#/react-revolution-release-2-0-0`,
                             },
                           ]
