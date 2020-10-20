@@ -6,7 +6,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './website.jsx');
 
-const version = 'v3.0.2';
+const version = 'v3.0.3';
 
 module.exports = {
     devtool: false,
