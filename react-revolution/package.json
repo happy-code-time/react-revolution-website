@@ -1,6 +1,6 @@
 {
   "name": "react-revolution",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "React Revolution - build interactive modules for react projects",
   "main": "public/react-revolution.js",
   "scripts": {
@@ -72,7 +72,7 @@
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-polyfill": "^6.26.0",
-    "dotenv-webpack": "^3.0.0",
+    "dotenv-webpack": "^3.0.1",
     "terser-webpack-plugin": "^1.4.1",
     "webpack-cli": "^3.3.10"
   }

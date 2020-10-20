@@ -11,11 +11,14 @@ const buildModulesJsx = (object = {}, count = 1) => {
 
     return (
         <div className="code-example">
-            <h1 className="h1-title border-none text-center">
-                {
-                    title
-                }
-            </h1>
+            {
+                title &&
+                <h1 className="h1-title border-none">
+                    {
+                        title
+                    }
+                </h1>
+            }
             {
                 description &&
                 <p className="description">
@@ -24,21 +27,11 @@ const buildModulesJsx = (object = {}, count = 1) => {
                     }
                 </p>
             }
-            {
-                live &&
-                <h1
-                    title={`${trans('exampleTitle')} ${count}`}
-                    className="h1-example"
-                >
-                    <i className="fas fa-user" />
-                    {
-                        trans('exampleTitle')
-                    }
-                </h1>
-            }
-            {
-                live && live
-            }
+            <div className="code-example-live">
+                {
+                    live && live
+                }
+            </div>
             {
                 reactTextBefore &&
                 <p className="description">
@@ -50,10 +43,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 react && generateArticles(
                     (
-                        <h1
-                            title={isFunction ? `${trans('reactFunctionTitle')} - ${trans('exampleTitle')} ${count}` : `${trans('reactCodeTitle')} - ${trans('exampleTitle')} ${count}`}
-                            className="h1-example"
-                        >
+                        <h1 className="h1-example">
                             <i className="fas fa-atom" />
                             {
                                 isFunction ? trans('reactFunctionTitle') : trans('reactCodeTitle')
@@ -91,10 +81,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 js && generateArticles(
                     (
-                        <h1
-                            title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} ${count}`}
-                            className="h1-example"
-                        >
+                        <h1 className="h1-example">
                             <i className="fab fa-node-js" />
                             {
                                 trans('jsCodeTitle')
@@ -131,10 +118,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 css && generateArticles(
                     (
-                        <h1
-                            title={`${trans('cssCodeTitle')} - ${trans('exampleTitle')} ${count}`}
-                            className="h1-example"
-                        >
+                        <h1 className="h1-example">
                             <i className="fab fa-css3" />
                             {
                                 trans('cssCodeTitle')

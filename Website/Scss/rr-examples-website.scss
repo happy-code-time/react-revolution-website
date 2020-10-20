@@ -653,6 +653,18 @@
      * Drag drop area
      */
     .rr-drag-drop-area-example{
+
+        .area-box{
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        
+        .area-title{
+            box-sizing: border-box;
+            padding: 10px;
+            text-align: center;
+        }
+
         .area-single-entry{
             width: calc(100% - 10px);
             margin: 5px;

@@ -145,36 +145,29 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     InputSuggestionObject
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <InputSuggestionObject
-                        inputPlaceholder='Search for an email...'
-                        suggestions={this.state.suggestions}
-                        selected={this.state.selected}
-                        callback={this.setInputValue}
-                        value={this.state.inputValue}
-                        getValueFromCallback={false}
-                        callbackSelection={this.callbackSelection}
-                        inputProps={{}}
-                        type='text'
-                        emptySuggestionAfterSelection={false}
-                        sortSuggestions='asc' // asc, desc
-                        sortSelected='asc' // asc, desc
-                    />
+                    <div className="code-example-live">
+                        <InputSuggestionObject
+                            inputPlaceholder='Search for an email...'
+                            suggestions={this.state.suggestions}
+                            selected={this.state.selected}
+                            callback={this.setInputValue}
+                            value={this.state.inputValue}
+                            getValueFromCallback={false}
+                            callbackSelection={this.callbackSelection}
+                            inputProps={{}}
+                            type='text'
+                            emptySuggestionAfterSelection={false}
+                            sortSuggestions='asc' // asc, desc
+                            sortSelected='asc' // asc, desc
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -245,7 +238,7 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                 {
                     getDescriptionForstyle('rr-input-suggestion-object')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }
@@ -331,12 +324,24 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                                     values: 'sortSuggestions'
                                 },
                                 {
+                                    key: 'searchSensitive',
+                                    values: 'customsuggestion.searchSensitive'
+                                },
+                                {
+                                    key: 'callbackSelection',
+                                    values: 'customsuggestion.callbackSelection'
+                                },
+                                {
                                     key: 'suggestions',
                                     values: 'customsuggestion.suggestions'
                                 },
                                 {
                                     key: 'suggestions.href',
                                     values: 'customsuggestion.suggestions.href'
+                                },
+                                {
+                                    key: 'suggestions.text',
+                                    values: 'customsuggestion.suggestions.text'
                                 },
                                 {
                                     key: 'suggestions.jsx',

@@ -46,6 +46,7 @@ class InputSuggestionArray extends React.Component
             emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
             sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
             sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+            searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -92,17 +93,39 @@ class InputSuggestionArray extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
                 return {
-                    plainValue: props.value
+                    suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
+                    plainValue: props.value,
+                    callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                    callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
+                    inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                    props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                    inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                    getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
+                    emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
+                    sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
+                    sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+                    searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
                 }
             }
 
             return {
-                plainValue: state.plainValue
+                suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
+                plainValue: state.plainValue,
+                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
+                emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
+                sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
+                sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+                searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
             };
         }
 
@@ -114,7 +137,7 @@ class InputSuggestionArray extends React.Component
 
         setTimeout(() => {
             const { getValueFromCallback } = this.state;
-
+            
             if (this.inputNode) {
                 const val = this.inputNode.value || this.inputNode.defaultValue;
 

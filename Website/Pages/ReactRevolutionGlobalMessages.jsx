@@ -101,55 +101,48 @@ class ReactRevolutionGlobalMessages extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     GlobalMessages
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <div
-                        className="button-action rr-revolution-button-clipboard"
-                        onClick={(e) => this.generateMessage()}
-                    >
-                        generate message
+                    <div className="code-example-live">
+                        <div
+                            className="button-action rr-revolution-button-clipboard"
+                            onClick={(e) => this.generateMessage()}
+                        >
+                            generate message
                     </div>
-                    <GlobalMessages
-                        messageKey='messagesApp'
-                        timer={1000}
-                        codeMapping={{
-                            1: {
-                                title: 'GLOBAL ERROR',
-                                displayErrorCode: true,
-                                text: {
-                                    prefix: 'prefix',
-                                    suffix: 'suffix',
-                                    props: {},
-                                },
-                                close: {
-                                    text: 'close',
-                                    props: {},
-                                },
-                                link: {
-                                    text: 'error',
-                                    useTagLink: false,
-                                    href: '/#/react-revolution-global-messages',
-                                    props: {
-                                        target: '_blank',
+                        <GlobalMessages
+                            messageKey='messagesApp'
+                            timer={1000}
+                            codeMapping={{
+                                1: {
+                                    title: 'GLOBAL ERROR',
+                                    displayErrorCode: true,
+                                    text: {
+                                        prefix: 'prefix',
+                                        suffix: 'suffix',
+                                        props: {},
+                                    },
+                                    close: {
+                                        text: 'close',
+                                        props: {},
+                                    },
+                                    link: {
+                                        text: 'error',
+                                        useTagLink: false,
+                                        href: '/#/react-revolution-global-messages',
+                                        props: {
+                                            target: '_blank',
+                                        },
                                     },
                                 },
-                            },
-                        }}
-                    />
+                            }}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -218,51 +211,44 @@ class ReactRevolutionGlobalMessages extends React.Component {
                     }
                 </div>
                 <div className="code-example mt-4">
-                    <h1 className="h1-title border-none text-center">
+                    <h1 className="h1-title border-none my-3">
                         GlobalMessages
                     </h1>
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <div
-                        className="button-action rr-revolution-button-clipboard"
-                        onClick={(e) => this.generateMessage(2000)}
-                    >
-                        generate message
+                    <div className="code-example-live">
+                        <div
+                            className="button-action rr-revolution-button-clipboard"
+                            onClick={(e) => this.generateMessage(2000)}
+                        >
+                            generate message
                     </div>
-                    <GlobalMessages
-                        messageKey='messagesApp'
-                        timer={1000}
-                        codeMapping={{
-                            1: {
-                                title: 'GLOBAL ERROR',
-                                displayErrorCode: true,
-                                text: {
-                                    prefix: 'prefix',
-                                    suffix: 'suffix',
-                                    props: {},
-                                },
-                                close: {
-                                    text: 'close',
-                                    props: {},
-                                },
-                                link: {
-                                    text: 'error',
-                                    useTagLink: false,
-                                    href: '/#/react-revolution-global-messages',
-                                    props: {
-                                        target: '_blank',
+                        <GlobalMessages
+                            messageKey='messagesApp'
+                            timer={1000}
+                            codeMapping={{
+                                1: {
+                                    title: 'GLOBAL ERROR',
+                                    displayErrorCode: true,
+                                    text: {
+                                        prefix: 'prefix',
+                                        suffix: 'suffix',
+                                        props: {},
+                                    },
+                                    close: {
+                                        text: 'close',
+                                        props: {},
+                                    },
+                                    link: {
+                                        text: 'error',
+                                        useTagLink: false,
+                                        href: '/#/react-revolution-global-messages',
+                                        props: {
+                                            target: '_blank',
+                                        },
                                     },
                                 },
-                            },
-                        }}
-                    />
+                            }}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -333,7 +319,7 @@ class ReactRevolutionGlobalMessages extends React.Component {
                 {
                     getDescriptionForstyle('rr-global-messages')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

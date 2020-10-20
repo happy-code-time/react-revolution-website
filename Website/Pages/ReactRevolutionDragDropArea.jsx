@@ -291,6 +291,18 @@ callbackAllowDropLoadingIcon(prevData, nextData, change, allowDropProps) {
 }`;
 
 const cssExample12 = `.rr-drag-drop-area-example{
+
+    .area-box{
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    
+    .area-title{
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+    }
+    
     .area-single-entry{
         width: calc(100% - 10px);
         margin: 5px;
@@ -312,6 +324,18 @@ const cssExample12 = `.rr-drag-drop-area-example{
 }`;
 
 const cssExample34 = `.rr-drag-drop-area-example{
+
+    .area-box{
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    
+    .area-title{
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: center;
+    }
+
     .area-single-entry{
         width: calc(100% - 10px);
         margin: 5px;
@@ -657,7 +681,7 @@ class ReactRevolutionDragDropArea extends React.Component
                 {
                     getDescriptionForstyle('rr-drag-drop-area')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

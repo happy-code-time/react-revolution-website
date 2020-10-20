@@ -152,35 +152,28 @@ class ReactRevolutionInputAnimation extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
                     fireScrollEvent={500}
-                    fireScrollBack={true} 
+                    fireScrollBack={true}
                 />
 
                 <div className="code-example mt-4">
-                    <h1 className="h1-title border-none text-center">
+                    <h1 className="h1-title border-none my-3">
                         InputAnimation
                     </h1>
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <InputAnimation
-                        inputPlaceholder='Placeholder'
-                        type="text"
-                        props={{
-                            autoComplete: "username"
-                        }}
-                        onEnter={this.enter}
-                        value={this.state.inputValue}
-                        allowOnlyAZ={false}
-                        animatePlaceholder={true}
-                        callback={this.callbackOnInput}
-                        getValueFromCallback={true}
-                    />
+                    <div className="code-example-live">
+                        <InputAnimation
+                            inputPlaceholder='Placeholder'
+                            type="text"
+                            props={{
+                                autoComplete: "username"
+                            }}
+                            onEnter={this.enter}
+                            value={this.state.inputValue}
+                            allowOnlyAZ={false}
+                            animatePlaceholder={true}
+                            callback={this.callbackOnInput}
+                            getValueFromCallback={true}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -251,7 +244,7 @@ class ReactRevolutionInputAnimation extends React.Component {
                 {
                     getDescriptionForstyle('rr-input-animation')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

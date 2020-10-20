@@ -332,7 +332,7 @@ class ReactRevolutionArticles extends React.Component
                 {
                     getDescriptionForstyle('rr-articles')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

@@ -45,8 +45,7 @@ const codeExample2 = `import { TextWriter } from 'react-revolution';
     }
 />`;
 
-class ReactRevolutionTextWriter extends React.Component 
-{
+class ReactRevolutionTextWriter extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -110,53 +109,46 @@ class ReactRevolutionTextWriter extends React.Component
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
                     fireScrollEvent={500}
-                    fireScrollBack={true} 
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     TextWriter
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
+                    <div className="code-example-live">
                         {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    {
-                        !this.state.text2 &&
-                        <div
-                            className="button-action rr-revolution-button-clipboard"
-                            onClick={(e) => this.runText('text2')}
-                        >
-                            run text writer
+                            !this.state.text2 &&
+                            <div
+                                className="button-action rr-revolution-button-clipboard"
+                                onClick={(e) => this.runText('text2')}
+                            >
+                                run text writer
                         </div>
-                    }
-                    {
-                        this.state.text2 &&
-                        <TextWriter
-                            text='React Divcreator'
-                            speed={100}
-                            pipeDisplay={true}
-                            pipeChar={''}
-                            pipeSite='right' // right, left
-                            pipePersist={false}
-                            replaces={
-                                [
-                                    {
-                                        from: 6,
-                                        to: 'React Divcreator'.length - 1,
-                                        replace: 'Revolution !'
-                                    }
-                                ]
-                            }
-                        />
-                    }
+                        }
+                        {
+                            this.state.text2 &&
+                            <TextWriter
+                                text='React Divcreator'
+                                speed={100}
+                                pipeDisplay={true}
+                                pipeChar={''}
+                                pipeSite='right' // right, left
+                                pipePersist={false}
+                                replaces={
+                                    [
+                                        {
+                                            from: 6,
+                                            to: 'React Divcreator'.length - 1,
+                                            replace: 'Revolution !'
+                                        }
+                                    ]
+                                }
+                            />
+                        }
+                    </div>
                     {
                         generateArticles(
                             (
@@ -194,7 +186,7 @@ class ReactRevolutionTextWriter extends React.Component
                 {
                     getDescriptionForstyle('rr-text-writer')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

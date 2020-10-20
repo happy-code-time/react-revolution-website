@@ -46,6 +46,7 @@ class InputSuggestionObject extends React.Component
             emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
             sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
             sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+            searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -92,17 +93,39 @@ class InputSuggestionObject extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'inputPlaceholder', 'props', 'inputType', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'callback', 'callbackSelection', 'selected'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
                 return {
-                    plainValue: props.value
+                    suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
+                    plainValue: props.value,
+                    inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                    props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                    inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                    getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
+                    emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
+                    sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
+                    sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+                    searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                    callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                    callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
                 }
             }
 
             return {
-                plainValue: state.plainValue
+                suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
+                plainValue: state.plainValue,
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
+                emptySuggestionAfterSelection: (typeof true == typeof props.emptySuggestionAfterSelection) ? props.emptySuggestionAfterSelection : true,
+                sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
+                sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
+                searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
             };
         }
 
@@ -207,7 +230,7 @@ class InputSuggestionObject extends React.Component
      */
     showSuggestions() {
         const filteredSuggestions = [];
-        let { suggestionsToFilter, plainValue, sortSuggestions } = this.state;
+        let { suggestionsToFilter, plainValue, sortSuggestions, searchSensitive } = this.state;
 
         /**
          * Sort if user wish
@@ -226,7 +249,11 @@ class InputSuggestionObject extends React.Component
             for (let x = 0; x <= suggestionsToFilter.length - 1; x++) {
                 const { text } = suggestionsToFilter[x];
 
-                if (text && -1 !== text.indexOf(plainValue)) {
+                if (text && typeof '7' == typeof text && !searchSensitive && -1 !== text.toLowerCase().indexOf(plainValue.toLowerCase())) {
+                    filteredSuggestions.push(suggestionsToFilter[x]);
+                }
+
+                if (text && typeof '7' == typeof text && searchSensitive && -1 !== text.indexOf(plainValue)) {
                     filteredSuggestions.push(suggestionsToFilter[x]);
                 }
             }
@@ -466,7 +493,22 @@ class InputSuggestionObject extends React.Component
                                                 liClassname = `${liClassname} selected`;
                                             }
 
-                                            const { text } = suggestion;
+                                            const { jsx, text } = suggestion;
+
+                                            if (jsx) {
+                                                return (
+                                                    <li
+                                                        className={liClassname}
+                                                        key={uuid()}
+                                                        onClick={(e) => this.toggleSelection(suggestion)}
+                                                        onMouseOver={() => this.setArrow(i)}
+                                                    >
+                                                        {
+                                                            jsx
+                                                        }
+                                                    </li>
+                                                )
+                                            }
 
                                             if (text) {
                                                 return (

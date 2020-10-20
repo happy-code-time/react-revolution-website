@@ -2,7 +2,7 @@ import React from 'react';
 
 import generateRelease from '../Functions/generateRelease';
 
-class Release300 extends React.Component 
+class Release301 extends React.Component 
 {
     render() {
         return (
@@ -13,15 +13,15 @@ class Release300 extends React.Component
                         [
                             {
                                 key: 'DragDropArea',
-                                value: 'New component.'
+                                value: 'Changed areas HTML structure.'
                             },
                             {
-                                key: 'DragDropList',
-                                value: 'New component.'
+                                key: 'InputSuggestionArray',
+                                value: 'Bugfix - applying new suggestions dynamically passed in state after custom callback function has been called.'
                             },
                             {
-                                key: 'Modules import',
-                                value: 'Added functionality to import each single module from the library as: import <ModuleName> from "/react-revolution/<ModuleName>".'
+                                key: 'InputSuggestionObject',
+                                value: 'Bugfix - applying new suggestions dynamically passed in state after custom callback function has been called.'
                             },
                         ]
                     )
@@ -31,4 +31,4 @@ class Release300 extends React.Component
     }
 }
 
-export default Release300;
+export default Release301;

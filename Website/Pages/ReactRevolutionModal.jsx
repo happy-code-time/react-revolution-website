@@ -64,8 +64,7 @@ callback(event) {
     });
 }`;
 
-class ReactRevolutionModal extends React.Component 
-{
+class ReactRevolutionModal extends React.Component {
     constructor(props) {
         super(props);
 
@@ -86,54 +85,47 @@ class ReactRevolutionModal extends React.Component
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     Modal
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <button 
-                        style={
-                            {
-                                width: '100px',
-                                boxSizing: 'border-box',
-                                padding: '5px 10px',
-                                borderRadius: '5px',
-                                backgroundColor: 'dodgerblue',
-                                color: 'rgb(255,255,255)',
-                                textAlign: 'center',
-                                cursor: 'pointer',
-                                margin: '0 calc(50% - 50px)',
-                                border: '1px solid dodgerblue'
+                    <div className="code-example-live">
+                        <button
+                            style={
+                                {
+                                    width: '100px',
+                                    boxSizing: 'border-box',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    backgroundColor: 'dodgerblue',
+                                    color: 'rgb(255,255,255)',
+                                    textAlign: 'center',
+                                    cursor: 'pointer',
+                                    margin: '0 calc(50% - 50px)',
+                                    border: '1px solid dodgerblue'
+                                }
                             }
-                        }
-                        onClick={ () => this.callback()}
-                    >
-                        toggle
+                            onClick={() => this.callback()}
+                        >
+                            toggle
                     </button>
-                    <Modal
-                        display={this.state.display}
-                        callback={this.callback}
-                        data={`
+                        <Modal
+                            display={this.state.display}
+                            callback={this.callback}
+                            data={`
                             Lorem ipsum dolor sit amet, 
                             consetetur sadipscing elitr, 
                             sed diam nonumy eirmod tempor 
                             invidunt ut labore et dolore 
                             magna aliquyam erat, sed diam 
                             voluptua.`
-                        }
-                        close={'❌'}
-                    />
+                            }
+                            close={'❌'}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -204,7 +196,7 @@ class ReactRevolutionModal extends React.Component
                 {
                     getDescriptionForstyle('rr-modal')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

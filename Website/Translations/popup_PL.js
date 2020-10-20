@@ -112,7 +112,7 @@ const PL = {
     "accordion.data.toggled": {
         "description": "Czy element jest przełączany czy nie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "props": {
         "description": "Właściwości HTML elementu HTML.",
@@ -172,7 +172,7 @@ const PL = {
     "loadonscroll.fireScrollBack": {
         "description": "Czy element (scroll Reference.scrollTop = 0) powinien zostać przewinięty do góry po wywołaniu funkcji 'fireScrollEvent'.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "loadonscroll-description-1": "Przykład z Promise.resolve() trzy razy.",
     "loadonscroll-description-2": "Przykład z Promise.reject () (zwraca domyślną wartość niezdefiniowaną) użycie klucza 'persistReject = {false}' (nie usuwaj zdarzenia przewijania) i 'onReject' (wyświetl niestandardowy przycisk wywołanie funkcji zwrotnej ponownie). ",
@@ -191,7 +191,7 @@ const PL = {
     "cards.callback.persistReject": {
         "description": "Jeśli true, to jeśli obietnica została odrzucona, zdarzenie przewijania jest usuwane.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "cards.callback.onReject": {
         "description": "Dane niestandardowe do wyświetlenia po odrzuceniu obietnicy, a użytkownik powinien być w stanie ponownie załadować więcej danych. Do tych danych dołączone jest zdarzenie kliknięcia.",
@@ -207,6 +207,16 @@ const PL = {
         "description": "Po zmianie w polu wejściowym wywoływana jest funkcja z 1 parametrem: Wartość pola wejściowego. Callback musi zwrócić listę i obiekty. Struktura jest descriptionana w kluczu 'sugestie'.",
         "type": "Funkcja",
         "default": "undefined"
+    },
+    "customuggestion.suggestions.text": {
+        "description": "Tekst zdefiniowany przez użytkownika, na podstawie którego odbywa się filtrowanie.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "customuggestion.searchSensitive": {
+        "description": "Wyszukaj klucz wrażliwy czy nie.",
+        "type": "Boolean",
+        "default": "true"
     },
     "customsuggestion.suggestions": {
         "description": "lista obiektów",
@@ -286,22 +296,22 @@ const PL = {
     "callbackRerender": {
         "description": "Jeśli true, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli fałsz, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "allowOnlyAZ": {
         "description": "Jeśli true, następujące wyrażenie regularne jest stosowane do wartości pola wejściowego: (/ [^ a-zA-Z] / gmi).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "display": {
         "description": "Czy element ma być wyświetlany czy nie?",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "lineNumber": {
         "description": "Zezwól na renderowanie po lewej stronie każdego numeru wiersza.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "iconClose": {
         "description": "Zdefiniowany przez użytkownika HTML z akcją 'zamknij' moduł.",
@@ -311,7 +321,7 @@ const PL = {
     "inputActive": {
         "description": "Czy pole wejściowe powinno być wyświetlane czy nie?",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "noDataText": {
         "description": "Jeśli nie znaleziono żadnych elementów, ten tekst zostanie wyświetlony.",
@@ -346,27 +356,27 @@ const PL = {
     "closeOnCallback": {
         "description": "W przypadku wybrania elementu z listy należy również zamknąć moduł lub zachować wyświetlanie modułu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "closeOnDimmedClick": {
         "description": "Jeśli klikniesz na 'ciemny' HTML, który znajduje się poza obszarem zawartości, moduł nie będzie już wyświetlany.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "closeOnEsc": {
         "description": "Po naciśnięciu klawisza 'Escape' moduł powinien nadal być wyświetlany lub wyświetlanie powinno zostać przerwane.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "inputEmptyOnCallback": {
         "description": "Po wybraniu elementu z listy pole wejściowe powinno zostać nauczone lub wartość pola wejściowego powinna pozostać niezmieniona.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "closeOnClick": {
         "description": "Jeśli klikniesz przyciemniony obszar HTML, moduł nie będzie już wyświetlany.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "fullscreenOverlay.animation": {
         "description": "Animacja podczas renderowania modułu. Animacje, które można wykorzystać: 'skala', 'lewa', 'góra', 'prawa', 'dół'.",
@@ -386,7 +396,7 @@ const PL = {
     "fullscreenoverlay.dimmed": {
         "description": "Czy jasno przyciemniony obszar ma być wyświetlany czy nie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "fullscreenoverlay.data": {
         "description": "Niestandardowe dane JSX do wyświetlenia w nakładce.",
@@ -396,7 +406,7 @@ const PL = {
     "disableScroll": {
         "description": "Podczas wyświetlania modułu element HTML (tag) powinien być przewijalny lub nie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "messageKey": {
         "description": "Unikalny ciąg.",
@@ -466,7 +476,7 @@ const PL = {
     "codeMapping.link.useTagLink": {
         "description": "Czy powinien być używany tag <Link>, jeśli moduł porusza się po trasie, czy tag <a> domyślnie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "codeMapping.link.href": {
         "description": "Atrybut 'to' w tagu <Link> lub 'href' w tagu <a>.",
@@ -486,7 +496,7 @@ const PL = {
     "displayTabs": {
         "description": "Czy nagłówki wszystkich zestawów ikon do wyświetlenia powinny być pokazywane lub ukrywane.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "renderItems": {
         "description": "Które elementy powinny być wyświetlane domyślnie.",
@@ -531,7 +541,7 @@ const PL = {
     "getValueFromCallback": {
         "description": "Jeśli fałsz, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli true, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "allowedFileSize": {
         "description": "Maksymalny rozmiar pliku.",
@@ -571,7 +581,7 @@ const PL = {
     "multiple": {
         "description": "Zezwalaj na wiele plików naraz.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "isDraggingData": {
         "description": "Jeśli użytkownik jest obecnie w stanie„ przeciągania ”, może zostać wyświetlony zdefiniowany przez użytkownika JSX.",
@@ -581,7 +591,7 @@ const PL = {
     "uploadOnClick": {
         "description": "Zezwól na przetwarzanie plików, gdy użytkownik kliknie obszar 'przeciągnij i upuść'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "selected": {
         "description": "Tablica wybranych pozycji z listy.",
@@ -596,7 +606,7 @@ const PL = {
     "emptySuggestionAfterSelection": {
         "description": "Naucz sugestii po tym, jak użytkownik kliknie element.",
         "type": "Boolen",
-        "default": "True"
+        "default": "true"
     },
     "sortSelected": {
         "description": "Czy wybrane elementy powinny być sortowane alfabetycznie. Dozwolone opcje sortowania: 'rosnąco', 'desc'.",
@@ -616,12 +626,12 @@ const PL = {
     "scrollReference": {
         "description": "Jeśli true, główny element modułu jest używany jako odniesienie, w przeciwnym razie dokument HTML Elment.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "reactRouter": {
         "description": "Jeśli true - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli fałsz jest renderowany tag <a>.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "icon": {
         "description": "Niestandardowy JSX do zamknięcia modułu.",
@@ -686,7 +696,7 @@ const PL = {
     "pipeDisplay": {
         "description": "Wyświetl potok podczas pisania.",
         "type": "Boolen",
-        "default": "True"
+        "default": "true"
     },
     "pipeChar": {
         "description": "Charachter of the pipe",
@@ -701,7 +711,7 @@ const PL = {
     "pipePersist": {
         "description": "Utrwalaj kreskę po napisaniu tekstu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "replaces": {
         "description": "Obiekt - Zastąp tekst po, tekst został zapisany.",
@@ -741,12 +751,12 @@ const PL = {
     "table.titleOnMinified": {
         "description": "Renderuj nagłówki tabeli, gdy moduł jest zminimalizowany (wyzwalany przez zdarzenie resize).",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "bread.hashRouter": {
         "description": "Czy obecna aplikacja React znajduje się w ReactRouter, czy nie. Jeśli true, nazwa hosta (pierwsza ścieżka nawigacyjna) staje się sufiksem '/ # /'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "bread.domainName": {
         "description": "Zastąp nazwę hosta (pierwszy plik nawigacyjny) dostosowanym tekstem",
@@ -771,7 +781,7 @@ const PL = {
     "closeOnClickOutside": {
         "description": "Jeśli true, a użytkownik nie wykona kliknięcia w Elemencie, wszystkie rozwinięte elementy zostaną zamknięte.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     /**
      * Descriptions
@@ -793,12 +803,12 @@ const PL = {
     globalStyle: {
         "description": "Załaduj globalny plik stylu (react-revolution.css). Jeśli zostały już załadowane, nie zostaną załadowane dwukrotnie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     moduleStyle: {
         "description": "Zezwól na ładowanie pliku stylu tego modułu. Jeśli został już załadowany, nie zostanie załadowany dwukrotnie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     styleLoading: "Style używane w tym module",
     "runtime.generator.description": 'Jeśli wystąpił błąd (runtime generator are not defined) podczas korzystania z funkcji wywołania zwrotnego w tym module (callback), zainstaluj: npm install --save @ babel / runtime && npm install --save-dev @ babel / plugin -transform-runtime; Następnie w pliku .babelrc dodaj tę linię: {"presets": ["@ babel / preset-env", "@ babel / preset-aware"], "plugins": [["@ babel / transform-runtime"] ]}. ',
@@ -836,32 +846,32 @@ const PL = {
     "pagination.lineNumber": {
         "description": "Wyświetl aktualny numer linii (indeks pętli +1).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.resetLineNumber": {
         "description": "Zresetuj numer każdej linii dla każdej strony. Każda pozycja rozpocznie się liczbą: 1.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.displayTotal": {
         "description": "Wyświetl całkowitą liczbę dostarczonych danych.length.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.totalPrefix": {
         "description": "Wyświetl prefiks przed wyświetleniem liczby całkowitej długości danych.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.totalSufix": {
         "description": "Wyświetl sufiks za liczbą całkowitej ilości danych.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.paginationPages": {
         "description": "Wyświetl paginację.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.paginationTextPrefix": {
         "description": "Tekst 'strona'",
@@ -916,7 +926,7 @@ const PL = {
     "pagination.searchActive": {
         "description": "Renderuj pole wyszukiwania.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchPlaceholder": {
         "description": "Symbol zastępczy danych wejściowych.",
@@ -936,7 +946,7 @@ const PL = {
     "pagination.searchSensitive": {
         "description": "Wykonaj wyszukiwanie jako 'wyszukiwanie wrażliwe na klawisze'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchValue": {
         "description": "Ponów po raz pierwszy niestandardową wartość wyszukiwania, aby przeprowadzić wyszukiwanie bez interakcji z użytkownikiem.",
@@ -946,7 +956,7 @@ const PL = {
     "pagination.searchOnKeyDown": {
         "description": "Wykonaj wyszukiwanie na dostarczonych danych, jeśli użytkownik zmienia wartość wejściową.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchTitle": {
         "description": "Tag <h1> jako tytuł pola wyszukiwania.",
@@ -966,7 +976,7 @@ const PL = {
     "pagination.fallbackLoading": {
         "description": "Użyj ikony ładowania, gdy użytkownik filtruje dane.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.fallbackLoadingTime": {
         "description": "Użyj niestandardowego limitu czasu, aby wyświetlić ikonę ładowania przez dłuższe ms (milisekundy).",
@@ -991,19 +1001,19 @@ const PL = {
     "removeHashFromDomain": {
         "description": "Usuń znaki '/#/' z nazwy domeny.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "globalMessage.empty": {
         "description": "Jeśli true, wszystkie wiadomości zostaną usunięte po zmianie lokalizacji (window.location.href).",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "breadcrumbs.example3": "Przykład z menu dołączonym do ostatniej pozycji.",
     "pager.dynamic.description": 'To jest przykład z dynamicznym pagerem, więc za każdym razem, gdy strona jest zmieniana, wykonywane jest zapytanie do bazy danych. Ta funkcja z zapytaniem DB zwraca obietnicę (Promise). Musi to być obietnica, ponieważ moduł wewnętrznie zawiera "await" (oczekiwanie), więc zmiana strony nastąpi tylko wtedy, gdy obietnica zostanie rozwiązana (resolve), a dane zostaną dostarczone.',
     "promise": {
         "description": "Generuj każdą linię kodu jako obietnicę dla lepszej wydajności podczas generowania bardzo długich ciągów do struktury kodu źródłowego. Jeśli fałsz, wówczas moduł generuje kod źródłowy (kod jsx) bez obietnicy.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "promiseLine": {
         "description": "Działa tylko wtedy, gdy klucz 'promise' jest ustawiony na true. Zrób 'break' (przekroczenie limitu czasu na rozwiązanie bieżącej obietnicy) w linii numer x - aby zatrzymać krytyczne użycie procesora, jeśli przekazany ciąg / kod jest dłuższy następnie 10.000 linii kodu. ",
@@ -1088,7 +1098,7 @@ const PL = {
     "404.bad": {
         "description": "Czy moduł jest w złym trybie.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "404.shipname": {
         "description": "Nazwa statku.",
@@ -1145,7 +1155,7 @@ const PL = {
     "autopilot": {
         "description": "Jeśli prawda, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 3 krokach. Jeśli wartość false, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 2 krokach.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "toggleMenuHtml": {
         "description": "Niestandardowy JSX używany jako ikona przełączająca na pasku bocznym. Ten kod HTML znajduje się w treści nagłówków.",
@@ -1195,7 +1205,7 @@ const PL = {
     "dashed" : {
         "description": "Narysuj po lewej stronie przerywaną ramkę dla każdego otwartego wpisu menu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "dashed_example": "Przykład z użyciem klucza'dashed={true}'.",
     "articles.animation": {
@@ -1281,7 +1291,7 @@ const PL = {
     "articles.persist": {
         "description": "Przełączony element (dane pojedynczego elementu) pozostaje czyli brak możliwości schowania elementu/ danych z powrotem.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "articles.toggleForwards": {
         "description": "Własny zdefiniowany JSX aby ukazać dane. Gdy zostaje użyty, wtedy klucz 'toggleOn' zostaje zignorowany.",
@@ -1325,7 +1335,7 @@ const PL = {
     "readmore.callback.toggleOnReject": {
         "description": "Zezwól na ponowne wyświetlenie przycisku z klucza 'toggleReject' aby ponownie wykonać zapytanie (callback).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.toggleReject": {
         "description": "Pokaż samodzielnie zdefiniowany tekst lub kod HTML aby ponownie wykonać zapytanie.",
@@ -1335,12 +1345,12 @@ const PL = {
     "readmore.callback.callback": {
         "description": "Funkcja wywołania zwrotnego w celu załadowania danych. Ta funkcja zwraca 2 argumenty. Argument 1: kliknięcie Zdarzenie, argument 2: niestandardowe zdefiniowane dane przekazywane przez klucz 'callbackProps'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.callbackProps": {
         "description": "Dane zdefiniowane przez użytkownika przekazywane jako drugi argument do funkcji zwrotnej klucza 'callback'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.loading": {
         "description": "Pokaż samodzielnie zdefiniowany tekst lub kod HTML podczas pobierania danych w stanie oczekiwania na obietnicę.",
@@ -1382,17 +1392,17 @@ const PL = {
     "timeline.lineMiddle": {
         "description": "Narysuj linię na środku osi czasu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.lineTitle": {
         "description": "Narysuj linię od 'tematu' do środka osi czasu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.lineEntry": {
         "description": "Narysuj linię od 'treści' do środka osi czasu.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.colorLineMiddle": {
         "description": "Kolor środkowej linii.",

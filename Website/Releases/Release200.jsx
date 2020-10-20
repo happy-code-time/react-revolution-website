@@ -9,7 +9,7 @@ class Release200 extends React.Component
             <div className="Generator">
                 {
                     generateRelease(
-                        '3.0.0',
+                        '3.0.1',
                         [
                             {
                                 key: 'Timeline',

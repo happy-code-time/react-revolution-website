@@ -112,7 +112,7 @@ const EN = {
     'accordion.data.toggled': {
         "description": "If the element is toggled or not.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "props": {
         "description": "The HTML properties of the HTML element.",
@@ -172,7 +172,7 @@ const EN = {
     "loadonscroll.fireScrollBack": {
         "description": "Should the element (scroll Reference.scrollTop = 0) be scrolled to the top after the 'fireScrollEvent' function has been called.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "loadonscroll-description-1": "Example with Promise.resolve() three times.",
     "loadonscroll-description-2": "Example with Promise.reject() (returns default undefined as value) the key usage 'persistReject={false}' (do not remove the scroll event) and 'onReject' (display custom button to call the callback function again).",
@@ -191,7 +191,7 @@ const EN = {
     "cards.callback.persistReject": {
         "description": "If true then if the Promise has been rejected, then the scroll event are removed.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "cards.callback.onReject": {
         "description": "Custom data to display after an Promise was rejected and the user should be able to load more data again. To this data the click event are attached.",
@@ -207,6 +207,16 @@ const EN = {
         "description": "After a change in the input field, this function is called with 1 parameter: Value of the input field. The callback must return a list and objects. The structure is described in the 'suggestions' key.",
         "type": "Function",
         "default": "undefined"
+    },
+    "customsuggestion.suggestions.text": {
+        "description": "User-defined text that is used to filter.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "customsuggestion.searchSensitive": {
+        "description": "Search key sensitive.",
+        "type": "Boolean",
+        "default": "true"
     },
     "customsuggestion.suggestions": {
         "description": "list of objects",
@@ -286,22 +296,22 @@ const EN = {
     "callbackRerender": {
         "description": "If true, the module only listens to the transferred state and state changes. If false, the module expects data from the callback to be processed further.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "allowOnlyAZ": {
         "description": "If true, the following regex is applied to the value of the input field: (/ [^ a-zA-Z] / gmi).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "display": {
         "description": "Should the element be displayed or not?",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "lineNumber": {
         "description": "Allow rendering, on the left side, each line number.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "iconClose": {
         "description": "User defined HTML with the action to 'close' the module.",
@@ -311,7 +321,7 @@ const EN = {
     "inputActive": {
         "description": "Render an input field.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "noDataText": {
         "description": "If no elements were found, this text will be displayed.",
@@ -326,7 +336,7 @@ const EN = {
     "closeOnCallback": {
         "description": "If an element is selected from the list, the module should also be closed or the display of the module should be kept.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "listarray.callback": {
         "description": "User defined callback function are fired if the user click on an list element. The function returns 2 arguments. Argument 1: click event, Argument 2: clicked entry.",
@@ -351,22 +361,22 @@ const EN = {
     "closeOnDimmedClick": {
         "description": "If you click on the 'dark' HTML which is outside the content area, the module will no longer be displayed.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "closeOnEsc": {
         "description": "When you press the 'Escape' key, the module should continue to be displayed or the display should be interrupted.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "inputEmptyOnCallback": {
         "description": "After an element has been selected from the list, the input field should be taught or the value of the input field should remain unchanged.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "closeOnClick": {
         "description": "If the darkened HTML area is clicked, the module will no longer be displayed.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "fullscreenOverlay.animation": {
         "description": "An animation during the rendering of the module. Animations that can be used: 'scale', 'left', 'top', 'right', 'bottom'.",
@@ -386,7 +396,7 @@ const EN = {
     "fullscreenoverlay.dimmed": {
         "description": "Should the lightly darkened area be displayed or not.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },   
     "fullscreenoverlay.data": {
         "description": "Custom JSX data to display inside the overlay.",
@@ -396,7 +406,7 @@ const EN = {
     "disableScroll": {
         "description": "While displaying the module, the HTML element (tag) should be scrollable or not.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "messageKey": {
         "description": "A unique string.",
@@ -466,7 +476,7 @@ const EN = {
     "codeMapping.link.useTagLink": {
         "description": "Should the <Link> tag be used if the module moves within a route or a <a> tag by default.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "codeMapping.link.href": {
         "description": "The attribute 'to' in the <Link> tag or 'href' in the <a> tag.",
@@ -486,7 +496,7 @@ const EN = {
     "displayTabs": {
         "description": "Should the headings of all icon sets to be displayed be shown or hidden.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "renderItems": {
         "description": "Which items should be shown by default.",
@@ -531,7 +541,7 @@ const EN = {
     "getValueFromCallback": {
         "description": "If false, the module only listens to the transferred state and state changes. If true, the module expects data from the callback to be processed further.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "allowedFileSize": {
         "description": "Maximum size of a file.",
@@ -571,7 +581,7 @@ const EN = {
     "multiple": {
         "description": "Allow multiple files at once.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "isDraggingData": {
         "description": "If a user is currently in the 'dragging' status, a user-defined JSX can be displayed.",
@@ -581,7 +591,7 @@ const EN = {
     "uploadOnClick": {
         "description": "Allow files to be processed when the user clicks on the 'drag and drop' area.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "selected": {
         "description": "An array of selected items from the list.",
@@ -596,7 +606,7 @@ const EN = {
     "emptySuggestionAfterSelection": {
         "description": "Teach the suggestions after the user clicks on an item.",
         "type": "Boolen",
-        "default": "True"
+        "default": "true"
     },
     "sortSelected": {
         "description": "Should the selected elements be sorted alphabetically. Allowed sorting options: 'asc', 'desc'.",
@@ -616,12 +626,12 @@ const EN = {
     "scrollReference": {
         "description": "If true, the root element of the module is used as a reference, otherwise the HTML document Elment.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "reactRouter": {
         "description": "If true - (then the module moves within a Rect Router) a <Link> tag is rendered, if false a <a> tag is rendered.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "icon": {
         "description": "Custom JSX to close the module.",
@@ -686,7 +696,7 @@ const EN = {
     "pipeDisplay": {
         "description": "Display the pipe while writing.",
         "type": "Boolen",
-        "default": "True"
+        "default": "true"
     },
     "pipeChar": {
         "description": "Charachter of the pipe",
@@ -701,7 +711,7 @@ const EN = {
     "pipePersist": {
         "description": "Persist the pipe after the text was written.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "replaces": {
         "description": "Object - Replace Text after, the text was written.",
@@ -741,12 +751,12 @@ const EN = {
     "table.titleOnMinified": {
         "description": "Render the table title of the table are minified.",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "bread.hashRouter" : {
         "description": "Is the current React App inside an ReactRouter or not. If true the hostname (first breadcrumbs) becomes the suffix '/#/'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "bread.domainName" : {
         "description": "Replace the hostname (first breadcrumb) with a customized text",
@@ -761,7 +771,7 @@ const EN = {
     "bread.overwriteText" : {
         "description": "Has to be used with the key: 'moduleMenu'. If true then the first menu childs key: 'text' are displayed instead of the breadcrumbs path. If false then the menus first childs key: 'text' are ignored.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "bread.moduleMenu" : {
         "description": "Attached the module: 'MenuClickHorizontal' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
@@ -771,7 +781,7 @@ const EN = {
     "closeOnClickOutside": {
         "description": "If true and the user does not click inside the module content, then all expanded elements will be toggled back - closed.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     /**
      * Descriptions
@@ -793,12 +803,12 @@ const EN = {
     globalStyle: {
         "description": "Load the global style file (react-revolution.css). If they have already been loaded, they will not be loaded twice.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     moduleStyle: {
         "description": "Load single modules style file - if the file currently not available.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     styleLoading: "Styles used for this module",
     "runtime.generator.description": 'If an error occured (runtime generator are not defined) while using the callback functionality in this module (callback), please install: npm install --save @babel/runtime && npm install --save-dev @babel/plugin-transform-runtime; Then in the .babelrc file add this line: {"presets": ["@babel/preset-env", "@babel/preset-react"],"plugins": [["@babel/transform-runtime"]]}.',
@@ -836,32 +846,32 @@ const EN = {
     "pagination.lineNumber": {
         "description": "Display the current line number (loop index +1).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.resetLineNumber": {
         "description": "Reset the number of each line for each page. Each item will be begin with the count: 1.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.displayTotal": {
         "description": "Display the total count of provided data.length.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.totalPrefix": {
         "description": "Display a prefix before the number of total data.length are displayed.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.totalSufix": {
         "description": "Display a suffix after the number of total data.length are displayed.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.paginationPages": {
         "description": "Display the pagination.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.paginationTextPrefix": {
         "description": "Text of 'Page'.",
@@ -916,7 +926,7 @@ const EN = {
     "pagination.searchActive": {
         "description": "Render the search input field.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchPlaceholder": {
         "description": "Inputs inputPlaceholder.",
@@ -936,7 +946,7 @@ const EN = {
     "pagination.searchSensitive": {
         "description": "Execute a search as 'key sensitive search'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchValue": {
         "description": "Redner for the 1 time an custom search value to execute a search without any user interaction.",
@@ -946,7 +956,7 @@ const EN = {
     "pagination.searchOnKeyDown": {
         "description": "Execute a search on the provided data if the user are changing the input value.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.searchTitle": {
         "description": "Tag <h1> as title for the search field.",
@@ -966,7 +976,7 @@ const EN = {
     "pagination.fallbackLoading": {
         "description": "Use an loading icon while the user are filtering data.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "pagination.fallbackLoadingTime": {
         "description": "Use an custom timeout to display the loading icon for longer ms (milliseconds).",
@@ -991,19 +1001,19 @@ const EN = {
     "removeHashFromDomain": {
         "description": "Remove the characters '/#/' from the domain name.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "globalMessage.empty": {
         "description": "If true, all messages are removed when the location is changed (window.location.href).",
         "type": "Boolean",
-        "default": "True"
+        "default": "true"
     },
     "breadcrumbs.example3": "Example with menu attached on the last breadcrumb entry.",
     "pager.dynamic.description": 'This is an example with a dynamic pager, so every time a page is changed, a database query is carried out. This function with the DB query returns a promise. It has to be a promise, because the module internally contains an "await", so the page change will only take place if the promise is resolved and data is delivered. ',
     "promise": {
         "description": "Generate each line of code as Promise for better performance while generation very long strings to the source code structure. If false, then the module generates the source code (jsx code) without a Promise.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "promiseLine": {
         "description": "Works only if the key 'promise' are set to true. Make a 'break' (timeout to resolve the current Promise) on the line number x - to stop the critical CPU usage if the passed string/ code longer then 10.000 lines of code.",
@@ -1088,7 +1098,7 @@ const EN = {
     "404.bad": {
         "description": "Is the module in bad mode.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "404.shipname": {
         "description": "Ships name.",
@@ -1145,7 +1155,7 @@ const EN = {
     "autopilot": {
         "description": "If true then the resize event listener are resizing the sidebar in 3 steps. If false then the resize event listener are resizing the sidebar in 2 steps.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "toggleMenuHtml": {
         "description": "Custom JSX used as toggling icon for the sidebar. This HTML are located inside the headers content.",
@@ -1195,7 +1205,7 @@ const EN = {
     "dashed" : {
         "description": "Draw, on the left side, for each toggle menu entry a dashed border.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "dashed_example": "Example with the usage of the key 'dashed={true}'.",
     "articles.animation": {
@@ -1281,7 +1291,7 @@ const EN = {
     "articles.persist": {
         "description": "After toggling an element, this element should be persisted (the toggle back functionality are not available).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "articles.toggleForwards": {
         "description": "Custom defined JSX to toggle/show data. If defined then the key 'toggleOn' are ignored.",
@@ -1325,7 +1335,7 @@ const EN = {
     "readmore.callback.toggleOnReject": {
         "description": "Allow redisplay of the button from the key 'toggle Reject' to redo the query (callback).",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.toggleReject": {
         "description": "Show self-defined text or HTML code to rerun the query.",
@@ -1335,12 +1345,12 @@ const EN = {
     "readmore.callback.callback": {
         "description": "Callback function to load data. This function returns 2 arguments. Argument 1: click Event, argument 2: custom defined data passed by the key 'callback Props'.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.callbackProps": {
         "description": "Custom defined data passed as second argument to the callback function.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "readmore.callback.loading": {
         "description": "Show self-defined text or HTML code while fetching data in pending Promise state.",
@@ -1382,17 +1392,17 @@ const EN = {
     "timeline.lineMiddle": {
         "description": "Draw an line on the middle of the timeline.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.lineTitle": {
         "description": "Draw an line from the title`s div to the middle line.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.lineEntry": {
         "description": "Draw an line from the content div`s to the middle line.",
         "type": "Boolean",
-        "default": "False"
+        "default": "false"
     },
     "timeline.colorLineMiddle": {
         "description": "Color of the lineMiddle.",

@@ -105,53 +105,46 @@ class ReactRevolutionFullScreenListArray extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     FullScreenListArray
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <span>
-                        <div
-                            className="button-action rr-revolution-button-clipboard"
-                            onClick={() => this.toggleList()}
-                        >
-                            Click to toggle list ({this.state.choosedValue})
+                    <div className="code-example-live">
+                        <span>
+                            <div
+                                className="button-action rr-revolution-button-clipboard"
+                                onClick={() => this.toggleList()}
+                            >
+                                Click to toggle list ({this.state.choosedValue})
                         </div>
-                        <FullScreenListArray
-                            display={this.state.display}
-                            callback={this.callback}
-                            iconClose="✖"
-                            callbackClose={this.toggleList}
-                            closeOnCallback={true}
-                            closeOnDimmedClick={true}
-                            closeOnEsc={true}
-                            inputActive={true}
-                            inputPlaceholder={'Deutschland, Polska ....'}
-                            inputEmptyOnCallback={true}
-                            noDataText={'No data found'}
-                            animation='top' // scale, top, right, bottom, left
-                            data={
-                                [
-                                    'Deutschland',
-                                    'Polska',
-                                    'USA',
-                                    'England',
-                                    'Russia'
-                                ]
-                            }
-                        />
-                    </span>
+                            <FullScreenListArray
+                                display={this.state.display}
+                                callback={this.callback}
+                                iconClose="✖"
+                                callbackClose={this.toggleList}
+                                closeOnCallback={true}
+                                closeOnDimmedClick={true}
+                                closeOnEsc={true}
+                                inputActive={true}
+                                inputPlaceholder={'Deutschland, Polska ....'}
+                                inputEmptyOnCallback={true}
+                                noDataText={'No data found'}
+                                animation='top' // scale, top, right, bottom, left
+                                data={
+                                    [
+                                        'Deutschland',
+                                        'Polska',
+                                        'USA',
+                                        'England',
+                                        'Russia'
+                                    ]
+                                }
+                            />
+                        </span>
+                    </div>
                     {
                         generateArticles(
                             (
@@ -222,7 +215,7 @@ class ReactRevolutionFullScreenListArray extends React.Component {
                 {
                     getDescriptionForstyle('rr-full-screen-list-array')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

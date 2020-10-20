@@ -10,7 +10,7 @@ import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
 import ScrollTop from './Website/Modules/ScrollTop';
 
-import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution/react-revolution';
+import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, InputSuggestionObject } from './react-revolution/react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -142,6 +142,8 @@ import Release200 from './Website/Releases/Release200';
 
 import Release300 from './Website/Releases/Release300';
 
+import Release301 from './Website/Releases/Release301';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -149,7 +151,7 @@ class App extends React.Component {
     this.setOnClickEvent = this.setOnClickEvent.bind(this);
     this.checkLocation = this.checkLocation.bind(this);
     this.changeSidebarMinifiedState = this.changeSidebarMinifiedState.bind(this);
-    this.searchForModule = this.searchForModule.bind(this);
+    this.getSuggestions = this.getSuggestions.bind(this);
 
     this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
@@ -277,34 +279,28 @@ class App extends React.Component {
     }
   }
 
-  searchForModule(inputValue) {
-
-    if (!inputValue) {
-      inputValue = '';
-    }
-
+  getSuggestions() {
     const { host } = this.state;
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
 
     allModules.map(object => {
-      if (-1 !== object.name.toLowerCase().indexOf(inputValue.toLowerCase())) {
-        suggestions.push(
-          {
-            href: `${host}#/${object.link}`,
-            jsx: (
-              <p className="text-elipsis">
-                {
-                  object.name
-                }
-              </p>
-            ),
-            props: {
-              title: trans('clickToNavToTheModule')
-            }
+      suggestions.push(
+        {
+          href: `${host}#/${object.link}`,
+          text: object.name,
+          jsx: (
+            <p className="text-elipsis">
+              {
+                object.name
+              }
+            </p>
+          ),
+          props: {
+            title: trans('clickToNavToTheModule')
           }
-        );
-      }
+        }
+      );
     });
 
     suggestions.sort();
@@ -331,6 +327,12 @@ class App extends React.Component {
         }
       </ul>
     );
+  }
+
+  callbackSelection(selection){
+    if(selection && selection[0] && selection[0].href){
+      window.location.href = selection[0].href;
+    }
   }
 
   render() {
@@ -414,10 +416,6 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-container`,
                         },
                         {
-                          text: 'CustomSuggestion',
-                          href: `${host}#/react-revolution-custom-suggestion`,
-                        },
-                        {
                           text: 'DragDrop',
                           data: [
                             {
@@ -470,14 +468,6 @@ class App extends React.Component {
                               text: 'InputFileDragDrop',
                               href: `${host}#/react-revolution-input-file-drag-drop`,
                             },
-                            {
-                              text: 'InputSuggestionArray',
-                              href: `${host}#/react-revolution-input-suggestion-array`,
-                            },
-                            {
-                              text: 'InputSuggestionObject',
-                              href: `${host}#/react-revolution-input-suggestion-object`,
-                            }
                           ]
                         },
                         {
@@ -564,6 +554,23 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-source-code`,
                         },
                         {
+                          text: 'Suggestions',
+                          data: [
+                            {
+                              text: 'CustomSuggestion',
+                              href: `${host}#/react-revolution-custom-suggestion`,
+                            },
+                            {
+                              text: 'InputSuggestionArray',
+                              href: `${host}#/react-revolution-input-suggestion-array`,
+                            },
+                            {
+                              text: 'InputSuggestionObject',
+                              href: `${host}#/react-revolution-input-suggestion-object`,
+                            },
+                          ]
+                        },
+                        {
                           text: 'Table',
                           href: `${host}#/react-revolution-table`,
                         },
@@ -611,7 +618,11 @@ class App extends React.Component {
                           text: 'Releases 3.0',
                           data: [
                             {
-                              text: '3.0.0',
+                              text: '3.0.1',
+                              href: `${host}#/react-revolution-release-3-0-1`,
+                            },
+                            {
+                              text: '3.0.1',
                               href: `${host}#/react-revolution-release-3-0-0`,
                             },
                           ]
@@ -620,7 +631,7 @@ class App extends React.Component {
                           text: 'Releases 2.0',
                           data: [
                             {
-                              text: '3.0.0',
+                              text: '3.0.1',
                               href: `${host}#/react-revolution-release-2-0-0`,
                             },
                           ]
@@ -723,14 +734,14 @@ class App extends React.Component {
                       trans('searchForModule')
                     }
                   </h1>
-                  <CustomSuggestion
+                  <InputSuggestionObject
                     addClass='rr-custom-suggestion-website'
                     inputPlaceholder={`${trans('searchForModule')}`}
-                    suggestions={suggestions}
-                    callback={this.searchForModule}
+                    suggestions={this.getSuggestions()}
+                    callbackSelection={this.callbackSelection}
                     callbackRerender={true}
                     value={inputValue}
-                    inputProps={{}}
+                    searchSensitive={false}
                     type='text'
                   />
                 </span>
@@ -755,7 +766,7 @@ class App extends React.Component {
                       trans('getStarted')
                     }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-3-0-0`}>
+                  <a className="link" href={`${host}#/react-revolution-release-3-0-1`}>
                     {
                       trans('lastReleaseNotes')
                     }
@@ -830,6 +841,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-1-2-0" render={(props) => (<Release120 {...props} />)} />
               <Route exact path="/react-revolution-release-2-0-0" render={(props) => (<Release200 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-0" render={(props) => (<Release300 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-1" render={(props) => (<Release301 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

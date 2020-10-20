@@ -55,32 +55,25 @@ class ReactRevolutionLoadingBoxTop extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     LoadingBoxTop
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <div
-                        className="button-action rr-revolution-button-clipboard"
-                        onClick={() => this.toggle()}
-                    >
-                        Click to toggle loading box
+                    <div className="code-example-live">
+                        <div
+                            className="button-action rr-revolution-button-clipboard"
+                            onClick={() => this.toggle()}
+                        >
+                            Click to toggle loading box
                     </div>
-                    <LoadingBoxTop
-                        text='Loading...'
-                        display={this.state.display}
-                    />
+                        <LoadingBoxTop
+                            text='Loading...'
+                            display={this.state.display}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -151,7 +144,7 @@ class ReactRevolutionLoadingBoxTop extends React.Component {
                 {
                     getDescriptionForstyle('rr-loading-box-top')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

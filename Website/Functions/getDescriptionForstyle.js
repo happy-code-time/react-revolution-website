@@ -12,7 +12,7 @@ const getDescriptionForstyle = (name) => {
 
     return (
         <div className="mb-2">
-            <h1 className="h1-title border-none text-center mb-2">
+            <h1 className="h1-title border-none my-3">
                 {
                     trans('styleLoading')
                 }

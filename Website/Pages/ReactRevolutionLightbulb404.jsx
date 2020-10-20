@@ -66,7 +66,7 @@ class ReactRevolutionLightbulb404 extends React.Component
                 {
                     getDescriptionForstyle('rr-lightbulb-404')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

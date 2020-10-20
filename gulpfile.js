@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v3.0.0';
+const version = 'v3.0.1';
 
 const modules = [
     "Accordion",
@@ -222,6 +222,8 @@ const runWebsiteBuild = (cb) => {
 }
 
 gulp.task('create:webpack:files', async function(cb){
+
+    modules.push('PRODUCTION');
 
     for(let x = 0; x <= modules.length-1; x++){
         const moduleName = modules[x];

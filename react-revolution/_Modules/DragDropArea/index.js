@@ -195,52 +195,52 @@ class DragDropArea extends Component {
         if (e.dataTransfer.getData('text')) {
             const { callbackAllowDrop } = this.state;
 
-            if(callbackAllowDrop){
+            if (callbackAllowDrop) {
                 const self = this;
                 const dataForUser = self.checkBeforeBuild(targetsKey, e.dataTransfer.getData('text'));
 
-                if(dataForUser){
+                if (dataForUser) {
                     const { callbackAllowDrop, callbackAllowDropProps } = this.state;
                     const { oldData, mainData, details, key, trasnferredData } = dataForUser;
 
-                    if(dropLoading){
+                    if (dropLoading) {
                         this.setState({
                             isDropCheck: true,
                         });
                     };
 
                     const allowed = await (callbackAllowDrop)(oldData, mainData, details, callbackAllowDropProps);
-    
-                    if(allowed){
+
+                    if (allowed) {
                         self.rebuildData(key, trasnferredData);
                         self.dragCounter = 0;
 
-                        if(dropLoading){
+                        if (dropLoading) {
                             this.setState({
                                 isDropCheck: false,
                             });
                         };
                     }
-                    else{
+                    else {
                         this.setState({
                             dragging: false,
                             isDropCheck: false,
                         });
                     }
                 }
-                else{
+                else {
                     this.setState({
                         dragging: false,
                         isDropCheck: false,
                     });
                 }
             }
-            else{
+            else {
                 this.rebuildData(targetsKey, e.dataTransfer.getData('text'));
                 this.dragCounter = 0;
             }
         }
-        else{
+        else {
             this.setState({
                 dragging: false,
                 isDropCheck: false,
@@ -282,7 +282,7 @@ class DragDropArea extends Component {
                 const area = data[objectKeys[x]];
                 const areaName = objectKeys[x];
                 const name = data[objectKeys[x]].name ? data[objectKeys[x]].name : undefined;
-                const targetsKey =  `${this.uniqueAreaId}-drag-drop-parent-${x}`;
+                const targetsKey = `${this.uniqueAreaId}-drag-drop-parent-${x}`;
                 const areaData = (data[objectKeys[x]] && data[objectKeys[x]].data && typeof [] == typeof data[objectKeys[x]].data) ? data[objectKeys[x]].data : [];
                 const areaProps = (data[objectKeys[x]] && data[objectKeys[x]].areaProps && typeof {} == typeof data[objectKeys[x]].areaProps) ? this.checkObjectProps(data[objectKeys[x]].areaProps) : {};
                 const titleProps = (data[objectKeys[x]] && data[objectKeys[x]].titleProps && typeof {} == typeof data[objectKeys[x]].titleProps) ? this.checkObjectProps(data[objectKeys[x]].titleProps) : {};
@@ -295,10 +295,10 @@ class DragDropArea extends Component {
                     if (areaData && areaData.length) {
 
                         try {
-                            areaData.map( (singleEntry, index) => {
+                            areaData.map((singleEntry, index) => {
 
                                 if (singleEntry && singleEntry.text) {
-                                    let liProps = (singleEntry.props && typeof {} == typeof singleEntry.props) ? singleEntry.props: {};
+                                    let liProps = (singleEntry.props && typeof {} == typeof singleEntry.props) ? singleEntry.props : {};
                                     const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}-${index}`;
 
                                     areasHTML.push(
@@ -313,7 +313,7 @@ class DragDropArea extends Component {
                                                 lineNumber &&
                                                 <span className='line-number'>
                                                     {
-                                                        (index+1)
+                                                        (index + 1)
                                                     }
                                                     {
                                                         lineNumberChar && `${lineNumberChar} `
@@ -321,7 +321,7 @@ class DragDropArea extends Component {
                                                 </span>
                                             }
                                             {
-                                                singleEntry.text && 
+                                                singleEntry.text &&
                                                 <span className='line-data'>
                                                     {
                                                         singleEntry.text
@@ -341,31 +341,14 @@ class DragDropArea extends Component {
                     }
 
                     singleLineAreas.push(
-                        <ul
+                        <div
                             key={targetsKey}
                             className='area-box'
-                            {...areaProps}
                             onDragEnter={(e) => this.onDragEnter(e, targetsKey)}
                             onDragLeave={(e) => this.onDragLeave(e)}
                             onDragOver={(e) => this.onDragOver(e, targetsKey)}
                             onDrop={(e) => this.handleDrop(e, targetsKey, allowDrop, dropLoading)}
                         >
-                            {
-                                dragging && currentDraggingHover == targetsKey && allowDrop &&
-                                <div className="dragging-target"></div>
-                            }
-                            {
-                                isDropCheck && currentDraggingHover == targetsKey && dropLoading &&
-                                <div className="drop-loading">
-                                    {
-                                        dropLoading
-                                    }
-                                </div>
-                            }
-                            {
-                                dragging && currentDraggingHover == targetsKey && !allowDrop &&
-                                <div className="dragging-disabled"></div>
-                            }
                             <div
                                 className='area-title'
                                 {...titleProps}
@@ -377,12 +360,32 @@ class DragDropArea extends Component {
                                     !name && areaName
                                 }
                             </div>
-                            <div className='area-data'>
+                            <ul
+                                className='area-ul'
+                                {...areaProps}
+
+                            >
+                                {
+                                    dragging && currentDraggingHover == targetsKey && allowDrop &&
+                                    <div className="dragging-target"></div>
+                                }
+                                {
+                                    isDropCheck && currentDraggingHover == targetsKey && dropLoading &&
+                                    <div className="drop-loading">
+                                        {
+                                            dropLoading
+                                        }
+                                    </div>
+                                }
+                                {
+                                    dragging && currentDraggingHover == targetsKey && !allowDrop &&
+                                    <div className="dragging-disabled"></div>
+                                }
                                 {
                                     areasHTML && 0 !== areasHTML.length && areasHTML
                                 }
-                            </div>
-                        </ul>
+                            </ul>
+                        </div>
                     );
                 }
 
@@ -407,7 +410,7 @@ class DragDropArea extends Component {
         return areas;
     }
 
-    checkBeforeBuild(droppedParentKey, itemKey){
+    checkBeforeBuild(droppedParentKey, itemKey) {
         const { data, singleDraggingEntry, currentDraggingParentElement } = this.state;
         let oldData = {};
         oldData = copyFunctions(JSON.parse(JSON.stringify(data)), oldData);
@@ -493,9 +496,9 @@ class DragDropArea extends Component {
                     }
                 }
             }
-            return { 
-                oldData, 
-                mainData, 
+            return {
+                oldData,
+                mainData,
                 details,
                 trasnferredData: itemKey,
                 key: droppedParentKey
@@ -600,7 +603,7 @@ class DragDropArea extends Component {
                 }
             });
         }
-        else{
+        else {
             this.cancleDragStatus();
         }
     }

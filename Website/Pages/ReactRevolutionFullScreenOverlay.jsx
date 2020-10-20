@@ -100,45 +100,38 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     FullScreenOverlay
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 1`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <div
-                        className="button-action rr-revolution-button-clipboard"
-                        onClick={(e) => this.toggleOverlay()}
-                    >
-                        toggle
+                    <div className="code-example-live">
+                        <div
+                            className="button-action rr-revolution-button-clipboard"
+                            onClick={(e) => this.toggleOverlay()}
+                        >
+                            toggle
                     </div>
-                    <FullScreenOverlay
-                        closeOnClick={true}
-                        closeOnEsc={true}
-                        animation='scale' // scale, left, top, right, bottom, 
-                        dimmed={true}
-                        callbackClose={this.toggleOverlay}
-                        display={this.state.display}
-                        disableScroll={true}
-                        iconClose={true}
-                        data={
-                            <div className="fullscreen-overlay-example">
-                                <p>
-                                    Custom data
+                        <FullScreenOverlay
+                            closeOnClick={true}
+                            closeOnEsc={true}
+                            animation='scale' // scale, left, top, right, bottom, 
+                            dimmed={true}
+                            callbackClose={this.toggleOverlay}
+                            display={this.state.display}
+                            disableScroll={true}
+                            iconClose={true}
+                            data={
+                                <div className="fullscreen-overlay-example">
+                                    <p>
+                                        Custom data
                                 </p>
-                            </div>
-                        }
-                    />
+                                </div>
+                            }
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -242,7 +235,7 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
                 {
                     getDescriptionForstyle('rr-full-screen-overlay')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }

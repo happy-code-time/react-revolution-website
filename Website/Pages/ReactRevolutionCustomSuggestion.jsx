@@ -318,7 +318,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     CustomSuggestion
                 </h1>
                 <LoadOnScroll
@@ -328,34 +328,27 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
                     fireScrollEvent={500}
-                    fireScrollBack={true} 
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none text-center">
+                <h1 className="h1-title border-none my-3">
                     CustomSuggestion
                 </h1>
                 {/* 
                     Example with code based on state change
                 */}
                 <div className="code-example mt-4">
-                    <h1
-                        title={`${trans('exampleTitle')} 2`}
-                        className="h1-example"
-                    >
-                        <i className="fas fa-user" />
-                        {
-                            trans('exampleTitle')
-                        }
-                    </h1>
-                    <CustomSuggestion
-                        inputPlaceholder='Search...'
-                        suggestions={this.state.suggestions}
-                        callback={this.searchState}
-                        value={this.state.inputValue}
-                        inputProps={{}}
-                        callbackRerender={false} // !!!!!!
-                        type='text'
-                        allowOnlyAZ={true}
-                    />
+                    <div className="code-example-live">
+                        <CustomSuggestion
+                            inputPlaceholder='Search...'
+                            suggestions={this.state.suggestions}
+                            callback={this.searchState}
+                            value={this.state.inputValue}
+                            inputProps={{}}
+                            callbackRerender={false} // !!!!!!
+                            type='text'
+                            allowOnlyAZ={true}
+                        />
+                    </div>
                     {
                         generateArticles(
                             (
@@ -426,7 +419,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                 {
                     getDescriptionForstyle('rr-custom-suggestion')
                 }
-                <h1 className="h1-title border-none text-center mb-4">
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }
