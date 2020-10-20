@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    authorLink: 'Author',
     lastReleaseNotes: 'Letzte Version',
     fastActions: 'Hilfreiche Links',
     releaseNotesKey: 'Betroffene Komponente',
@@ -66,7 +67,7 @@ const DE = {
     "class": {
         "description": 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
         "type": 'String',
-        "default": ''
+        "default": '<leere Zeichenfolge>'
     },
     "addClass": {
         "description": 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
@@ -1439,6 +1440,132 @@ const DE = {
         "description": "Benutzerdefinierts HTML für den Kontent.",
         "type": "String | JSX",
         "default": "undefined"
+    },
+    "description.dragDrop.1": "Beispiel mit einer Standard-Drag & Drop-Funktion basierend auf einem Rückruf zum Anwenden der Statusänderungen.",
+    "description.dragDrop.2": "Beispiel mit einer benutzerdefinierten Funktion callbackAllowDrop (Versprechen - Sie müssen mit dem Wert true oder false auflösen oder ablehnen), um true / false zurückzugeben, um Statusänderungen anzuwenden oder zu verwerfen.",
+    "description.dragDrop.3": "Beispiel mit einer benutzerdefinierten Funktion callbackAllowDrop (Versprechen - Sie müssen mit dem Wert true oder false auflösen oder ablehnen), um true / false zurückzugeben, um Statusänderungen und das benutzerdefinierte Ladesymbol anzuwenden oder zu verwerfen, während Sie auf das warten Antwort der Funktion 'callbackAllowDrop'. ",
+    "description.dragDrop.4": "Beispiel mit dem Bereich 'Obst' - nur Ablegen erlaubt und 'Gemüse' - nur Ziehen erlaubt.",
+    "drag.drop.data": {
+        "description": "Object.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "drag.drop.data.data": {
+        "description": "Array von Objekten mit einzelnen Elementen.",
+        "type": "Array",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.text": {
+        "description": "Haupttext für einzelne Elemente, der angezeigt werden soll.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.props": {
+        "description": "Eigenschaften einzelner Elemente (li).",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.name": {
+        "description": "Bereichsname (Titel).",
+        "type": "String",
+        "default": "Objektschlüssel"
+    },
+    "drag.drop.data.areaProps": {
+        "description": "Areas (ul) properties.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "drag.drop.data.titleProps": {
+        "description": "Titles properties.",
+        "type": "String",
+        "default": "Objektschlüssel"
+    },
+    "drag.drop.data.allowDrop": {
+        "description": "Erlaube das Löschen von Elementen in diesem Bereich.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.allowDrag": {
+        "description": "Erlaube das Ziehen von Elementen aus diesem Bereich.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.dropLoading": {
+        "description": "Kann nur in Kombination mit dem Schlüssel 'callbackAllowDrop' verwendet werden. Benutzerdefinierte Ladedaten.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.itemsPerLine": {
+        "description": "Wie viele Felder in einer Zeile.",
+        "type": "Number",
+        "default": "2"
+    },
+    "drag.drop.mediaBreak": {
+        "description": "Standardmäßig wird der Hauptboxhalter (für jede Zeile 'itemsPerLine') zum Klassenflex, die Flex-Zeile bei Medienunterbrechung zum Klassenflex und zur Flex-Spalte.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "drag.drop.callback": {
+        "description": "Benutzerdefinierter Benutzerrückruf mit den neu anzuwendenden Änderungen. Diese Funktion gibt 4 Argumente zurück. Argument 1: Vorheriger Status der aktuellen Daten, Argument 2: Nex-Status der aktuellen Daten, Argument 3: Änderungen, die vorgenommen werden, Argument 4: Benutzerdefinierte Daten stammen aus dem Schlüssel 'callbackProps'. ",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    "drag.drop.callbackProps": {
+        "description": "Benutzerdefinierte Benutzerdaten.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDrop": {
+        "description": "Benutzerdefinierte Benutzer-Rückruffunktion mit den Änderungen vor dem Anwenden (Nachdem der Benutzer einen Löschvorgang ausgeführt hat, die Änderungen jedoch nicht in den neuen Status zurückgesetzt werden). Diese Funktion gibt 4 Argumente zurück. Argument 1: Vorheriger Status des aktuellen Status Daten, Argument 2: Nex-Status der aktuellen Daten, Argument 3: Änderungen, Argument 4: Benutzerdefinierte Daten stammen aus dem Schlüssel 'callbackAllowDropProps'. ",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDropProps": {
+        "description": "Benutzerdefinierte Benutzerdaten.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.lineNumber": {
+        "description": "Zeigt die Zeilennummer auf der linken Seite des Textes an.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "drag.drop.lineNumberChar": {
+        "description": "kann nur verwendet werden, wenn der Schlüssel 'lineNumber' wahr ist. Zeigen Sie ein benutzerdefiniertes Zeichen nach der Zeilennummer an.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "description.dragDropList.1": "Beispiel mit einer Standard-Drag & Drop-Funktion basierend auf einem Rückruf zum Anwenden der Statusänderungen.",
+    "description.dragDropList.2": "Beispiel mit einer benutzerdefinierten Funktion callbackAllowDrop (Versprechen - Sie müssen mit dem Wert true oder false auflösen oder ablehnen), um true / false zurückzugeben, um Statusänderungen anzuwenden oder zu verwerfen.",
+    "drag.drop.list.placeholder": {
+        "description": "Benutzerdefinierte JSX-Daten, die im Platzhalter gerendert werden sollen.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.placeholderPosition": {
+        "description": "Wenn der Benutzer mit dem Ziehen eines Elements beginnt und sich über der Ablageposition befindet, generieren Sie den PLACEHOLDER an der Stelle des schwebenden Elements. Verfügbare Optionen: 'top' (Platzhalter befinden sich immer oben auf einem schwebenden Element), ' bottom '(Platzhalter befinden sich immer am unteren Rand eines schwebenden Elements) und' auto '(Platzhalter werden automatisch erkannt). ",
+        "type": "String",
+        "default": "auto"
+    },
+    "drag.drop.list.areaProps": {
+        "description": "Benutzerdefinierte ul Eigenschaften.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "drag.drop.list.data": {
+        "description": "Array von Objekten.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "drag.drop.list.text": {
+        "description": "Haupttext, der angezeigt werden soll.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.props": {
+        "description": "Benutzerdefinierte li Eigenschaften.",
+        "type": "Objekt",
+        "default": "{}"
     },
 };
 

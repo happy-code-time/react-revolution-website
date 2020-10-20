@@ -52,6 +52,8 @@ class DragDropArea extends Component {
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
             callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
             callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
+            lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
+            lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',
         };
     }
 
@@ -62,7 +64,7 @@ class DragDropArea extends Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'itemsPerLine', 'callbackAllowDrop', 'callbackAllowDropProps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'itemsPerLine', 'callbackAllowDrop', 'callbackAllowDropProps', 'lineNumber', 'lineNumberChar'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-drag-drop-area',
@@ -73,6 +75,8 @@ class DragDropArea extends Component {
                 callbackProps: props.callbackProps ? props.callbackProps : undefined,
                 callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
+                lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
+                lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',
             };
         }
 
@@ -258,7 +262,7 @@ class DragDropArea extends Component {
     }
 
     buildDragDropItems() {
-        const { data, itemsPerLine, isMinified, dragging, currentDraggingHover, isDropCheck } = this.state;
+        const { data, itemsPerLine, isMinified, dragging, currentDraggingHover, isDropCheck, lineNumber, lineNumberChar } = this.state;
         let objectKeys = [];
         const areas = [];
         let singleLineAreas = [];
@@ -294,6 +298,7 @@ class DragDropArea extends Component {
                             areaData.map( (singleEntry, index) => {
 
                                 if (singleEntry && singleEntry.text) {
+                                    let liProps = (singleEntry.props && typeof {} == typeof singleEntry.props) ? singleEntry.props: {};
                                     const unique = `${this.uniqueAreaId}-drag-drop-entry-${x}-${index}`;
 
                                     areasHTML.push(
@@ -302,9 +307,26 @@ class DragDropArea extends Component {
                                             className={`area-single-entry`}
                                             onDragStart={(e) => this.onDragStart(e, unique, targetsKey, allowDrag, singleEntry)}
                                             draggable={allowDrag ? 'true' : 'false'}
+                                            {...liProps}
                                         >
                                             {
-                                                singleEntry.text
+                                                lineNumber &&
+                                                <span className='line-number'>
+                                                    {
+                                                        (index+1)
+                                                    }
+                                                    {
+                                                        lineNumberChar && `${lineNumberChar} `
+                                                    }
+                                                </span>
+                                            }
+                                            {
+                                                singleEntry.text && 
+                                                <span className='line-data'>
+                                                    {
+                                                        singleEntry.text
+                                                    }
+                                                </span>
                                             }
                                         </li>
                                     );

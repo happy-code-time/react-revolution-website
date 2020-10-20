@@ -10,7 +10,7 @@ import WebsiteContainer from './Website/Modules/WebsiteContainer';
 
 import ScrollTop from './Website/Modules/ScrollTop';
 
-import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution';
+import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, CustomSuggestion } from './react-revolution/react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -54,6 +54,10 @@ import ReactRevolutionContainer from './Website/Pages/ReactRevolutionContainer';
 import ReactRevolutionCustomSuggestion from './Website/Pages/ReactRevolutionCustomSuggestion';
 
 import ReactRevolutionDarkLines404 from './Website/Pages/ReactRevolutionDarkLines404';
+
+import ReactRevolutionDragDropArea from './Website/Pages/ReactRevolutionDragDropArea';
+
+import ReactRevolutionDragDropList from './Website/Pages/ReactRevolutionDragDropList';
 
 import ReactRevolutionFullScreenListArray from './Website/Pages/ReactRevolutionFullScreenListArray';
 
@@ -135,6 +139,8 @@ import Release119 from './Website/Releases/Release119';
 import Release120 from './Website/Releases/Release120';
 
 import Release200 from './Website/Releases/Release200';
+
+import Release300 from './Website/Releases/Release300';
 
 class App extends React.Component {
 
@@ -412,6 +418,19 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-custom-suggestion`,
                         },
                         {
+                          text: 'DragDrop',
+                          data: [
+                            {
+                              text: 'DragDropArea',
+                              href: `${host}#/react-revolution-drag-drop-area`,
+                            },
+                            {
+                              text: 'DragDropList',
+                              href: `${host}#/react-revolution-drag-drop-list`,
+                            }
+                          ]
+                        },
+                        {
                           text: 'FullScreen',
                           data: [
                             {
@@ -589,10 +608,19 @@ class App extends React.Component {
                       toggled: true,
                       data: [
                         {
+                          text: 'Releases 3.0',
+                          data: [
+                            {
+                              text: '3.0.0',
+                              href: `${host}#/react-revolution-release-3-0-0`,
+                            },
+                          ]
+                        },
+                        {
                           text: 'Releases 2.0',
                           data: [
                             {
-                              text: '2.0.0',
+                              text: '3.0.0',
                               href: `${host}#/react-revolution-release-2-0-0`,
                             },
                           ]
@@ -727,9 +755,14 @@ class App extends React.Component {
                       trans('getStarted')
                     }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-2-0-0`}>
+                  <a className="link" href={`${host}#/react-revolution-release-3-0-0`}>
                     {
                       trans('lastReleaseNotes')
+                    }
+                  </a>
+                  <a className="link" target='_blank' href='http://dj.j.pl/'>
+                    {
+                      trans('authorLink')
                     }
                   </a>
                 </span>
@@ -755,6 +788,8 @@ class App extends React.Component {
               <Route exact path="/react-revolution-container" render={(props) => (<ReactRevolutionContainer {...props} />)} />
               <Route exact path="/react-revolution-custom-suggestion" render={(props) => (<ReactRevolutionCustomSuggestion {...props} />)} />
               <Route exact path="/react-revolution-dark-lines-404" render={(props) => (<ReactRevolutionDarkLines404 {...props} />)} />
+              <Route exact path="/react-revolution-drag-drop-area" render={(props) => (<ReactRevolutionDragDropArea {...props} />)} />
+              <Route exact path="/react-revolution-drag-drop-list" render={(props) => (<ReactRevolutionDragDropList {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-array" render={(props) => (<ReactRevolutionFullScreenListArray {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-list-object" render={(props) => (<ReactRevolutionFullScreenListObject {...props} />)} />
               <Route exact path="/react-revolution-fullscreen-overlay" render={(props) => (<ReactRevolutionFullScreenOverlay {...props} />)} />
@@ -794,6 +829,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-1-1-9" render={(props) => (<Release119 {...props} />)} />
               <Route exact path="/react-revolution-release-1-2-0" render={(props) => (<Release120 {...props} />)} />
               <Route exact path="/react-revolution-release-2-0-0" render={(props) => (<Release200 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-0" render={(props) => (<Release300 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

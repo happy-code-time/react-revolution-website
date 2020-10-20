@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    authorLink: 'Autor',
     lastReleaseNotes: 'Ostatnie wydanie',
     fastActions: 'Przydatne linki',
     releaseNotesKey: 'Dotyczy komponentu',
@@ -60,17 +61,17 @@ const PL = {
      */
     "id": {
         "description": 'Ustaw id dla głównego elementu tego modułu.',
-        "type": 'Ciąg',
+        "type": 'String',
         "default": '<pusty ciąg>'
     },
     "class": {
         "description": 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które przynosi moduł, nie mają już zastosowania. ',
-        "type": 'Ciąg',
-        "default": ''
+        "type": 'String',
+        "default": '<pusty ciąg>'
     },
     "addClass": {
         "description": 'Ustaw dodatkową klasę dla głównego elementu tego modułu.',
-        "type": 'Ciąg',
+        "type": 'String',
         "default": '<pusty ciąg>'
     },
     "inputanimation.callback": {
@@ -1437,6 +1438,132 @@ const PL = {
         "description": "Niestandardowy kod HTML treści.",
         "type": "String | JSX",
         "default": "undefined"
+    },
+    "description.dragDrop.1": "Przykład z domyślną funkcją przeciągnij i upuść na podstawie wywołania zwrotnego w celu zastosowania zmian stanu.",
+    "description.dragDrop.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu.",
+    "description.dragDrop.3": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu i niestandardową ikonę ładowania podczas oczekiwania na odpowiedź funkcji callbackAllowDrop. ",
+    "description.dragDrop.4": "Przykład z obszarem 'Owoce' - dozwolone tylko upuszczanie i 'Warzywa' - dozwolone tylko przeciąganie.",
+    "drag.drop.data": {
+        "description": "Obiekt.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.data.data": {
+        "description": "Tablica obiektów z pojedynczymi pozycjami.",
+        "type": "Array",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.text": {
+        "description": "Główny tekst do wyświetlenia pojedynczych pozycji.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.props": {
+        "description": "Właściwości pojedynczych elementów (li).",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.name": {
+        "description": "Nazwa obszaru (tytuł).",
+        "type": "String",
+        "default": "Klucz obiektów"
+    },
+    "drag.drop.data.areaProps": {
+        "description": "Nieruchomości (ul).",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.data.titleProps": {
+        "description": "Właściwości tytułów.",
+        "type": "String",
+        "default": "Klucz obiektów"
+    },
+    "drag.drop.data.allowDrop": {
+        "description": "Pozwól upuszczać elementy do tego obszaru.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.allowDrag": {
+        "description": "Zezwól na przeciąganie elementów z tego obszaru.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.dropLoading": {
+        "description": "Może być używany tylko w kombinacjach z kluczem 'callbackAllowDrop'. Niestandardowe ładowanie danych.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.itemsPerLine": {
+        "description": "Ile pól w jednej linii.",
+        "type": "Number",
+        "default": "2"
+    },
+    "drag.drop.mediaBreak": {
+        "description": "Domyślnie główny uchwyt skrzynki (dla każdej linii 'itemsPerLine') staje się klasą flex, flex-row na media break staje się klasą flex i flex-column.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "drag.drop.callback": {
+        "description": "Niestandardowe wywołanie zwrotne użytkownika z nowymi zmianami do zastosowania. Ta funkcja zwraca 4 argumenty. Argument 1: poprzedni stan bieżących danych, Argument 2: następny stan bieżących danych, Argument 3: zmiany, które zostaną wprowadzone, Argument 4: dane niestandardowe pochodzą z klucza 'callbackProps'. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "drag.drop.callbackProps": {
+        "description": "Niestandardowe dane użytkownika.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDrop": {
+        "description": "Niestandardowa funkcja zwrotna użytkownika ze zmianami przed jej zastosowaniem (po usunięciu przez użytkownika, ale zmiany nie są ponownie renderowane do nowego stanu). Ta funkcja zwraca 4 argumenty. Argument 1: poprzedni stan bieżącego dane, Argument 2: stan nex bieżących danych, Argument 3: zmiany, które zostaną wprowadzone, Argument 4: dane niestandardowe pochodzą z klucza 'callbackAllowDropProps'. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDropProps": {
+        "description": "Niestandardowe dane użytkownika.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.lineNumber": {
+        "description": "Wyświetl numer linii po lewej stronie tekstu.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "drag.drop.lineNumberChar": {
+        "description": "można użyć tylko wtedy, gdy klucz 'lineNumber' ma wartość true. Wyświetl niestandardowy znak po numerze linii.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "description.dragDropList.1": "Przykład z domyślną funkcją przeciągnij i upuść na podstawie wywołania zwrotnego w celu zastosowania zmian stanu.",
+    "description.dragDropList.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu.",
+    "drag.drop.list.placeholder": {
+        "description": "Niestandardowe dane JSX do renderowania wewnątrz symbolu zastępczego.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.placeholderPosition": {
+        "description": "Jeśli użytkownik zacznie przeciągać element i znajduje się nad pozycją upuszczenia, wygeneruj PLACEHOLDER na stronie elementu najechanego kursorem. Dostępne opcje: 'top' (symbole zastępcze są zawsze na górze elementu najechanego kursorem), ' bottom '(symbole zastępcze są zawsze na dole elementu najechanego kursorem) i' auto '(symbole zastępcze są wykrywane automatycznie). ",
+        "type": "String",
+        "default": "auto"
+    },
+    "drag.drop.list.areaProps": {
+        "description": "Niestandardowe właściwości ul.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.list.data": {
+        "description": "Tablica obiektów.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "drag.drop.list.text": {
+        "description": "Główny tekst do wyświetlenia.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.props": {
+        "description": "Niestandardowe właściwości li.",
+        "type": "Object",
+        "default": "{}"
     },
 };
 

@@ -62,6 +62,8 @@ class DragDropList extends Component {
             areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
             dropLoading: props.dropLoading ? props.dropLoading : undefined,
             placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
+            lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
+            lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',
         };
     }
 
@@ -72,7 +74,7 @@ class DragDropList extends Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'placeholder', 'areaProps', 'callbackAllowDrop', 'callbackAllowDropProps', 'dropLoading', 'placeholderPosition'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'placeholder', 'areaProps', 'callbackAllowDrop', 'callbackAllowDropProps', 'dropLoading', 'placeholderPosition', 'lineNumber', 'lineNumberChar'], props, state)) {
 
             if (props.callback && 'function' == props.callback && props.data !== state.data) {
                 return {
@@ -99,6 +101,8 @@ class DragDropList extends Component {
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
                 dropLoading: props.dropLoading ? props.dropLoading : undefined,
                 placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
+                lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
+                lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',
             };
         }
 
@@ -256,7 +260,7 @@ class DragDropList extends Component {
     }
 
     buildDragDropItems() {
-        const { data, dragging, overLiIndex, placeholder, sourceIndex, isDropping, dropLoading } = this.state;
+        const { data, dragging, overLiIndex, placeholder, sourceIndex, isDropping, dropLoading, lineNumber, lineNumberChar } = this.state;
         let { areaProps, placeholderPosition } = this.state;
         areaProps = (areaProps && typeof {} == typeof areaProps) ? areaProps : {};
 
@@ -276,12 +280,12 @@ class DragDropList extends Component {
                 let attachMixedTop = false;
                 let attachMixedBottom = false;
 
-                if ('top' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x) {
+                if ('top' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x && sourceIndex !== x) {
                     attachMixedTop = true;
                     placeholderPosition = 'top';
                 }
 
-                if ('bottom' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x) {
+                if ('bottom' == this.mouseMove && 'auto' == placeholderPosition && overLiIndex == x && sourceIndex !== x) {
                     attachMixedTop = true;
                     placeholderPosition = 'bottom';
                 }
@@ -320,7 +324,23 @@ class DragDropList extends Component {
                         {...props}
                     >
                         {
-                            singleEntry.text && singleEntry.text
+                            lineNumber &&
+                            <span className='line-number'>
+                                {
+                                    (x+1)
+                                }
+                                {
+                                    lineNumberChar && `${lineNumberChar} `
+                                }
+                            </span>
+                        }
+                        {
+                            singleEntry.text && 
+                            <span className='line-data'>
+                                {
+                                    singleEntry.text
+                                }
+                            </span>
                         }
                     </li>
                 );
@@ -380,7 +400,6 @@ class DragDropList extends Component {
 
                 if ((x == overLiIndex && 'top' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'top' == lastMove)) {
                     newData.push(singleDraggingEntry);
-                    details.sourceIndex = x;
                 }
 
                 if (unique !== uniqueKey) {
@@ -389,7 +408,6 @@ class DragDropList extends Component {
 
                 if ((x == overLiIndex && 'bottom' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'bottom' == lastMove)) {
                     newData.push(singleDraggingEntry);
-                    details.sourceIndex = x;
                 }
             }
 

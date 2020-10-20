@@ -53,6 +53,14 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-dark-lines-404'
         },
         {
+            name: 'DragDropArea',
+            link: 'react-revolution-drag-drop-area'
+        },
+        {
+            name: 'DragDropList',
+            link: 'react-revolution-drag-drop-list'
+        },
+        {
             name: 'FullScreenListArray',
             link: 'react-revolution-fullscreen-list-array'
         },

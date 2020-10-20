@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    authorLink: 'Author',
     lastReleaseNotes: 'Last release',
     fastActions: 'Useful links',
     releaseNotesKey: 'Affected component',
@@ -66,7 +67,7 @@ const EN = {
     "class": {
         "description": 'Replace the main class with your own. If this is used, the standard styles that the module brings with it no longer apply.',
         "type": 'String',
-        "default": ''
+        "default": '<empty string>'
     },
     "addClass": {
         "description": 'Set an additional class for the root element of this module.',
@@ -1437,6 +1438,132 @@ const EN = {
         "description": "Custom data for the content area.",
         "type": "String | JSX",
         "default": "undefined"
+    },
+    "description.dragDrop.1" : "Example with a default drag & drop functionality based on a callback to apply the state changes.",
+    "description.dragDrop.2" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
+    "description.dragDrop.3" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes and custom Loading icon while waiting for the response of the 'callbackAllowDrop' function.",
+    "description.dragDrop.4" : "Example with the area 'Fruits' - only drop allowed and 'Vegetables' - only drag allowed.",
+    "drag.drop.data": {
+        "description": "Object.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.data.data": {
+        "description": "Array of objects with single items.",
+        "type": "Array",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.text": {
+        "description": "Main single items text to display.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.data.props": {
+        "description": "Single items (li) properties.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "drag.drop.data.name": {
+        "description": "Areas name (title).",
+        "type": "String",
+        "default": "Objects key"
+    },
+    "drag.drop.data.areaProps": {
+        "description": "Areas (ul) properties.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.data.titleProps": {
+        "description": "Titles properties.",
+        "type": "String",
+        "default": "Objects key"
+    },
+    "drag.drop.data.allowDrop": {
+        "description": "Allow to drop items to the this are.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.allowDrag": {
+        "description": "Allow to drag items from this area.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.data.dropLoading": {
+        "description": "Can only be used in combinations with the key 'callbackAllowDrop'. Custom loading data.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    "drag.drop.itemsPerLine": {
+        "description": "How many boxes in an single line.",
+        "type": "Number",
+        "default": "2"
+    },
+    "drag.drop.mediaBreak": {
+        "description": "Default the main box holder (for each line 'itemsPerLine') becomes the class flex, flex-row on media break its becomes the class flex and flex-column.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    "drag.drop.callback": {
+        "description": "Custom user callback with the new changes to apply. This function returns 4 arguments. Argument 1: previous state of the current data, Argument 2: nex state of the current data, Argument 3: changes that will be made, Argument 4: custom data comes form the key 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "drag.drop.callbackProps": {
+        "description": "Custom user data.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDrop": {
+        "description": "Custom user callback function with the changes before applying it (After the user made a drop but the changes are not re-rendered to the new state). This function returns 4 arguments. Argument 1: previous state of the current data, Argument 2: nex state of the current data, Argument 3: changes that will be made, Argument 4: custom data comes form the key 'callbackAllowDropProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "drag.drop.callbackAllowDropProps": {
+        "description": "Custom user data.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "drag.drop.lineNumber": {
+        "description": "Display the line number on the left site of the text.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "drag.drop.lineNumberChar": {
+        "description": "can only be used if the key 'lineNumber' are true. Display a custom character after the line number.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "description.dragDropList.1" : "Example with a default drag & drop functionality based on a callback to apply the state changes.",
+    "description.dragDropList.2" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
+    "drag.drop.list.placeholder": {
+        "description": "Custom JSX data to render inside the placeholder.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.placeholderPosition": {
+        "description": "If the user starts dragging an element and is over the drop position then generate the PLACEHOLDER on the site of the hovered element. Available options: 'top' (placeholder are always on the top of an hovered item), 'bottom' (placeholder are always on the bottom of an hovered item) and 'auto' (placeholder are detected automatically).",
+        "type": "String",
+        "default": "auto"
+    },
+    "drag.drop.list.areaProps": {
+        "description": "Custom ul properties.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "drag.drop.list.data": {
+        "description": "Array of objects.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "drag.drop.list.text": {
+        "description": "Main text to display.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "drag.drop.list.props": {
+        "description": "Custom li properties.",
+        "type": "Object",
+        "default": "{}"
     },
 };
 

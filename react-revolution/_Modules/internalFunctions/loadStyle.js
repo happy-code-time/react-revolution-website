@@ -1,8 +1,8 @@
 import { version, host } from "../../_Globals";
 
 const loadStyle = (moduleStyle, globalStyle, defaultClass) => {
-    const moduleHref = `${host}/public/react-revolution/${version}/css/${defaultClass}.css`;
-    const globalHref = `${host}/public/react-revolution/${version}/css/react-revolution.css`;
+    const moduleHref = `${host}public/react-revolution/${version}/css/${defaultClass}.css`;
+    const globalHref = `${host}public/react-revolution/${version}/css/react-revolution.css`;
     const tagLink = document.createElement('link');
     tagLink.setAttribute("rel", "stylesheet");
     tagLink.setAttribute("type", "text/css");

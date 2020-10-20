@@ -62,6 +62,8 @@ class App extends React.Component {
                     dropLoading='LAODING'
                     placeholder='PLACEHOLDER'
                     placeholderPosition='auto' // top, bottom, auto
+                    lineNumber={true}
+                    lineNumberChar=')'
                 />
                 <div className="">
                     {

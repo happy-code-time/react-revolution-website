@@ -2,14 +2,14 @@ import React from 'react';
 
 import generateRelease from '../Functions/generateRelease';
 
-class Release121 extends React.Component 
+class Release200 extends React.Component 
 {
     render() {
         return (
             <div className="Generator">
                 {
                     generateRelease(
-                        '2.0.0',
+                        '3.0.0',
                         [
                             {
                                 key: 'Timeline',
@@ -27,6 +27,14 @@ class Release121 extends React.Component
                                 key: 'Clipboard',
                                 value: 'Added new key "callbackProps".'
                             },
+                            {
+                                key: 'Modules import',
+                                value: 'Added functionality to import each single module from the library as: import <ModuleName> from "/react-revolution/public/<ModuleName>".'
+                            },
+                            {
+                                key: 'Modules style',
+                                value: 'Fixed bug to load style for each single module.'
+                            },
                         ]
                     )
                 }
@@ -35,4 +43,4 @@ class Release121 extends React.Component
     }
 }
 
-export default Release121;
+export default Release200;
