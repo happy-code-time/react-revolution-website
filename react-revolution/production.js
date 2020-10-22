@@ -81,6 +81,8 @@ import ScrollTo from './_Modules/ScrollTo';
 
 import SideBar from './_Modules/SideBar';
 
+import Stars from './_Modules/Stars';
+
 import SourceCode from './_Modules/SourceCode';
 
 import Water404 from './_Modules/Water404';
@@ -153,6 +155,7 @@ export {
     ReadMoreCallback,
     ScrollTo,
     SideBar,
+    Stars,
     SourceCode,
     Water404
 };

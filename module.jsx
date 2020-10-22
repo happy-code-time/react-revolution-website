@@ -2,11 +2,9 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { DragDropList, uuid } from './react-revolution/react-revolution';
+import { Stars, uuid } from './react-revolution/react-revolution';
 
-// import DragDropArea from './react-revolution/react-revolution';
-
-import './react-revolution/_Sass/rr-drag-drop-list.scss';
+import './react-revolution/_Sass/rr-stars.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,74 +12,63 @@ class App extends React.Component {
         this.callback = this.callback.bind(this);
 
         this.state = {
-            areaProps: {}, //ul
-            data: [
-                {
-                    text: 'Avocado',
-                    props: {} // li
-                },
-                {
-                    text: 'Banana'
-                },
-                {
-                    text: 'Broccoli'
-                },
-                {
-                    text: 'Carrot'
-                }
-            ],
-            changes: []
+            filled: 2,
         };
     }
 
-    callback(prevData, nextData, change, callbackProps){
+    callback(clickEvent, starClicked, callbackProps){
         this.setState({
-            data: nextData,
-            changes: [...this.state.changes, change]
-        });
-    }
-
-    callbackAllowDrop(prevData, nextData, change, allowDropProps){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => {
-                resolve(true);
-            }, 1000);
+            filled: starClicked
         });
     }
 
     render() {
-        const { data, changes } = this.state;
+        const { filled } = this.state;
 
         return (
             <span>
-                <DragDropList
-                    addClass='rr-drag-drop-list-example'
-                    data={data}
+                <Stars
+                    count={5}
+                    filled={filled}
+                    fillHover={true}
                     callback={this.callback}
-                    callbackAllowDrop={this.callbackAllowDrop}
-                    dropLoading='LAODING'
-                    placeholder='PLACEHOLDER'
-                    placeholderPosition='auto' // top, bottom, auto
-                    lineNumber={true}
-                    lineNumberChar=')'
-                />
-                <div className="">
-                    {
-                        changes.map( change => {
-                            return (
-                                <div key={uuid()}>
-                                    {
-                                        `${change.sourceIndex} 
-                                        -> 
-                                        ${change.targetIndex}
-                                        : 
-                                        ${change.item.text}`
-                                    }
-                                </div>
-                            )
-                        })
+                    props={{}}
+                    color='orange-yellow'
+                    starsData={
+                        [
+                            {
+                                props: {
+                                    title: 'star 1'
+                                },
+                                data: ''
+                            },
+                            {
+                                props: {
+                                    title: 'star 2'
+                                },
+                                data: ''
+                            },
+                            {
+                                props: {
+                                    title: 'star 3'
+                                },
+                                data: ''
+                            },
+                            {
+                                props: {
+                                    title: 'star 4'
+                                },
+                                data: ''
+                            },
+                            {
+                                props: {
+                                    title: 'star 5'
+                                },
+                                data: ''
+                            }
+                        ]
                     }
-                </div>
+                />
             </span>
         );
     }

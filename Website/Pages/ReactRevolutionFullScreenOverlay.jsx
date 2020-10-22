@@ -135,10 +135,7 @@ class ReactRevolutionFullScreenOverlay extends React.Component {
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')

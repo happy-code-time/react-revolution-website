@@ -96,6 +96,21 @@ const codeExample2 = `import { CustomSuggestion } from 'react-revolution';
     allowOnlyAZ={true}
 />`;
 
+const codeExample3 = `import { CustomSuggestion } from 'react-revolution';
+// import CustomSuggestion from 'react-revolution/CustomSuggestion';
+
+<CustomSuggestion
+    inputPlaceholder='Search...'
+    callback={this.searchStateLoading}
+    value={this.state.inputValueLoaidng}
+    callbackRerender={true}
+    type='text'
+    loading={
+        <img src='./public/images/ajax-loader.gif' />
+    }
+    searchSensitive={false}
+/>`;
+
 const jsExample2 = `searchState(inputValue, isClickEvent) {
 
     if (isClickEvent) {
@@ -152,24 +167,52 @@ const jsExample2 = `searchState(inputValue, isClickEvent) {
     });
 }`;
 
+const jsExample3 = `getStaticData(){
+    const suggestions = [];
+
+    for(let x = 0; x <= 4; x++){
+        suggestions.push(
+            {
+                href: \`\${host}#/react-revolution-custom-suggestion\`,
+                jsx: (
+                    <p>
+                        {\`Suggestion \${x+1}\`} 
+                    </p>
+                ),
+                onClickValue: \`Suggestion \${x+1}\`
+            }
+        );
+    }
+
+    return suggestions; 
+}
+
+searchStateLoading(inputValue){
+    return new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(this.getStaticData());
+        }, 2000);
+    });
+}`;
 
 class ReactRevolutionCustomSuggestion extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
         this.countCallbacks = 0;
-
         this.search = this.search.bind(this);
         this.searchState = this.searchState.bind(this);
+        this.searchStateLoading = this.searchStateLoading.bind(this);
 
         this.state = {
             inputValue: '',
-            suggestions: []
+            suggestions: [],
+            inputValueLoaidng: []
         };
 
         this.examples = [
             {
-                description: trans("runtime.generator.description"),
+                description: `${trans("CustomSuggestion.description.1")} ${trans("runtime.generator.description")}`,
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -246,6 +289,18 @@ class ReactRevolutionCustomSuggestion extends React.Component {
         });
     }
 
+    loadOnScrollCallback() {
+        this.countCallbacks += 1;
+
+        if (this.countCallbacks === this.examples.length) {
+            return Promise.resolve('break');
+        }
+
+        return new Promise(resolve => {
+            resolve(buildModulesJsx(this.examples[this.countCallbacks]), this.countCallbacks + 1);
+        });
+    }
+
     searchState(inputValue, isClickEvent) {
 
         if (isClickEvent) {
@@ -302,15 +357,31 @@ class ReactRevolutionCustomSuggestion extends React.Component {
         });
     }
 
-    loadOnScrollCallback() {
-        this.countCallbacks += 1;
+    getStaticData(){
+        const suggestions = [];
 
-        if (this.countCallbacks === this.examples.length) {
-            return Promise.resolve('break');
+        for(let x = 0; x <= 4; x++){
+            suggestions.push(
+                {
+                    href: `${host}#/react-revolution-custom-suggestion`,
+                    jsx: (
+                        <p>
+                            {`Suggestion ${x+1}`} 
+                        </p>
+                    ),
+                    onClickValue: `Suggestion ${x+1}`
+                }
+            );
         }
 
-        return new Promise(resolve => {
-            resolve(buildModulesJsx(this.examples[this.countCallbacks]), this.countCallbacks + 1);
+        return suggestions; 
+    }
+
+    searchStateLoading(inputValue){
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                resolve(this.getStaticData());
+            }, 2000);
         });
     }
 
@@ -333,10 +404,12 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                 <h1 className="h1-title border-none my-3">
                     CustomSuggestion
                 </h1>
-                {/* 
-                    Example with code based on state change
-                */}
-                <div className="code-example mt-4">
+                <p className='description'>
+                    {
+                        trans("CustomSuggestion.description.2")
+                    }
+                </p>
+                <div className="code-example">
                     <div className="code-example-live">
                         <CustomSuggestion
                             inputPlaceholder='Search...'
@@ -344,7 +417,7 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                             callback={this.searchState}
                             value={this.state.inputValue}
                             inputProps={{}}
-                            callbackRerender={false} // !!!!!!
+                            callbackRerender={false}
                             type='text'
                             allowOnlyAZ={true}
                         />
@@ -410,6 +483,97 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                                             </div>
                                         )}
                                         clipboard={jsExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                </div>
+                <h1 className="h1-title border-none my-3">
+                    CustomSuggestion
+                </h1>
+                <p className='description'>
+                    {
+                        trans("CustomSuggestion.description.2")
+                    }
+                </p>
+                <div className="code-example">
+                    <div className="code-example-live">
+                        <CustomSuggestion
+                            inputPlaceholder='Search...'
+                            suggestions={[]}
+                            callback={this.searchStateLoading}
+                            value={this.state.inputValueLoaidng}
+                            inputProps={{}}
+                            callbackRerender={true}
+                            type='text'
+                            loading={
+                                <img src='./public/images/ajax-loader.gif' />
+                            }
+                            searchSensitive={false}
+                        />
+                    </div>
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                    className="h1-example"
+                                >
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample3}
+                                    />
+                                    <Clipboard
+                                        animation='jump'
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample3}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample3}
+                                    />
+                                    <Clipboard
+                                        animation='jump'
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample3}
                                     />
                                 </span>
                             )
@@ -493,6 +657,10 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                                     values: 'customsuggestion.callback'
                                 },
                                 {
+                                    key: 'loading',
+                                    values: 'inputsuggestionobject.loading'
+                                },
+                                {
                                     key: 'suggestions',
                                     values: 'customsuggestion.suggestions'
                                 },
@@ -500,7 +668,6 @@ class ReactRevolutionCustomSuggestion extends React.Component {
                                     key: 'suggestions.href',
                                     values: 'customsuggestion.suggestions.href'
                                 },
-
                                 {
                                     key: 'suggestions.jsx',
                                     values: 'customsuggestion.suggestions.jsx'

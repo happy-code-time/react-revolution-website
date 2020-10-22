@@ -20,6 +20,10 @@ class CustomSuggestion extends React.Component
 
         this.state = {
             /**
+             * App
+             */
+            isLoading: false,
+            /**
              * User
              */
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
@@ -35,6 +39,8 @@ class CustomSuggestion extends React.Component
             inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
             callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
             allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
+            searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+            loading: props.loading ? props.loading : undefined
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -47,18 +53,34 @@ class CustomSuggestion extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value', 'suggestions'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'callback', 'inputPlaceholder', 'props', 'inputType', 'callbackRerender', 'allowOnlyAZ', 'searchSensitive', 'loading'], props, state)) {
             const { callbackRerender } = state;
 
             if(callbackRerender){
                 return {
                     suggestions: state.suggestions,
+                    callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                    inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                    props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                    inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                    callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
+                    allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
+                    searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                    loading: props.loading ? props.loading : undefined
                 };
             }
 
             return {
                 suggestions: props.suggestions,
-                plainValue: state.plainValue
+                plainValue: state.plainValue,
+                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
+                props: (props.props && typeof {} == typeof props.props) ? props.props : {},
+                inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
+                callbackRerender: (typeof true == typeof props.callbackRerender) ? props.callbackRerender : false,
+                allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
+                searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                loading: props.loading ? props.loading : undefined
             };
         }
 
@@ -119,6 +141,30 @@ class CustomSuggestion extends React.Component
                 suggestions: emptySuggestions ? [] : suggestions
             }); 
         }
+        else{
+            this.setState({
+                suggestions: []
+            }); 
+        }
+    }
+
+    callbackPromise(plainValue){
+        const { callback } = this.state;
+
+        return new Promise( async (resolve, reject) => {
+            if (callback) {
+                await (callback)(plainValue)
+                .then( r => {
+                    resolve(r);
+                })
+                .catch( r => {
+                    resolve([]);
+                });
+            }
+            else{
+                resolve([]);
+            }
+        });
     }
 
     /**
@@ -151,7 +197,7 @@ class CustomSuggestion extends React.Component
     }
 
     setValueToInputField(value, emptySuggestions = false){
-        const { allowOnlyAZ } = this.state;
+        const { allowOnlyAZ, loading, isLoading } = this.state;
 
         if (allowOnlyAZ) {
             value = value.replace(/[^a-zA-Z ]/gmi, '');
@@ -159,16 +205,50 @@ class CustomSuggestion extends React.Component
         }
 
         this.setState({
-            plainValue: value
+            plainValue: value,
+            suggestions: []
         }, () => {
             const { plainValue } = this.state;
 
-            this.callback(plainValue, emptySuggestions);
+            if(loading && !isLoading && !emptySuggestions){
+                clearTimeout(this.timeout);
+
+                if('' == plainValue){
+                    return this.setState({
+                        isLoading: false,
+                        suggestions: []
+                    });
+                }
+
+                return this.timeout = setTimeout( () => {
+                    this.setState({
+                        isLoading: true,
+                        suggestions: []
+                    }, async () => {
+                        await this.callbackPromise(plainValue)
+                        .then( (data) => {                            
+                            this.setState({
+                                isLoading: false,
+                                suggestions: emptySuggestions ? [] : ((data && typeof [] == typeof data && data.length) ? data : [])
+                            });
+                        })
+                        .catch( () => {
+                            this.setState({
+                                isLoading: false,
+                                suggestions: []
+                            });
+                        })
+                    })
+                }, 200);
+            }
+            else{
+                this.callback(plainValue, emptySuggestions);
+            }
         });
     }
 
     render() {
-        const { addClass, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType } = this.state;
+        const { addClass, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, loading, isLoading } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -182,6 +262,14 @@ class CustomSuggestion extends React.Component
                         id={id}
                         {...props}
                     />
+                    {
+                        loading && isLoading &&
+                        <div className="loading-area">
+                            {
+                                loading
+                            }
+                        </div>
+                    }
                     {
                         '' !== plainValue && suggestions && 0 !== suggestions.length &&
                         <div className="suggestions-area">

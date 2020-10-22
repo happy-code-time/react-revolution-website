@@ -208,12 +208,12 @@ const PL = {
         "type": "Funkcja",
         "default": "undefined"
     },
-    "customuggestion.suggestions.text": {
+    "customsuggestion.suggestions.text": {
         "description": "Tekst zdefiniowany przez użytkownika, na podstawie którego odbywa się filtrowanie.",
         "type": "String",
         "default": "undefined"
     },
-    "customuggestion.searchSensitive": {
+    "customsuggestion.searchSensitive": {
         "description": "Wyszukaj klucz wrażliwy czy nie.",
         "type": "Boolean",
         "default": "true"
@@ -229,7 +229,12 @@ const PL = {
         "default": "undefined"
     },
     "customsuggestion.suggestions.jsx": {
-        "description": "Niestandardowy HTML, który widzi użytkownik końcowy.",
+        "description": "Niestandardowy HTML, który widzi użytkownik końcowy. Jeśli nie jest dostępny, wyświetlana jest wartość klucza 'tekst'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "customsuggestion.suggestions.text": {
+        "description": "Tekst zdefiniowany przez użytkownika, na podstawie którego odbywa się filtrowanie.",
         "type": "String",
         "default": "undefined"
     },
@@ -273,14 +278,19 @@ const PL = {
         "type": "String",
         "default": "<pusty ciąg>"
     },
-    "inputuggestionarray.callbackSelection": {
+    "inputsuggestionarray.callbackSelection": {
         "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
         "type": "Funkcja",
         "default": "undefined"
     },
-    "inputuggestionobject.callbackSelection": {
+    "inputsuggestionobject.callbackSelection": {
         "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
         "type": "Funkcja",
+        "default": "undefined"
+    },
+    "inputsuggestionobject.loading": {
+        "description": "Zdefiniowane przez użytkownika niestandardowe dane JSX, aby pokazać ikonę ładowania podczas wykonywania funkcji 'wywołania zwrotnego'. Przekazana funkcja zwrotna musi być obietnicą. Aby pokazać sugestie, obietnica musi zostać rozwiązana lub odrzucona.",
+        "type": "String | JSX",
         "default": "undefined"
     },
     "inputPlaceholder": {
@@ -786,8 +796,9 @@ const PL = {
     /**
      * Descriptions
      */
-    "accordion.description": "Moduł Accordion nie ma ograniczeń w zagnieżdżaniu dzieci.",
-    "accordion.description2": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
+    "accordion.description.1": "Przykład z pojedynczymi zagnieżdżonymi elementami potomnymi.",
+    "accordion.description.2": "Przykład z 4 zagnieżdżonymi dziećmi.",
+    "accordion.description.3": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
     "cards.scroll.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div.",
     "cards.scrollCallback.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div. Załaduj więcej kart opiera się na niestandardowej funkcji wywołania zwrotnego. Jeśli wartość to „break”, to nasłuchiwanie przewijania jest usuwane.",
     "cards.scrollCallback.example1" : "Przykład width Promise.resolve (), LoadingBoxTop ze stałą pozycją i 'break' na zdarzeniu 4 scroll.",
@@ -1575,6 +1586,64 @@ const PL = {
         "type": "Object",
         "default": "{}"
     },
+    "stars.description.1": "Przykład z gwiazdkami w trybie tylko do odczytu i bez wypełnionych gwiazdek oraz w domyślnym czarnym kolorze.",
+    "stars.description.2": "Przykład z gwiazdami w trybie tylko do odczytu i 2 wypełnionymi gwiazdkami po 5 i wypełnionym kolorem 'orange-yellow'.",
+    "stars.description.3": "Przykład z gwiazdkami w trybie wywołania zwrotnego i 0 wypełnionymi gwiazdkami o wartości 5 oraz z niestandardową funkcją wywołania zwrotnego do ponownego renderowania wypełnionych elementów po kliknięciu gwiazdki.",
+    "stars.description.4": "Przykład z własnymi właściwościami przekazanymi do każdej gwiazdy.",
+    "stars.count": {
+        "description": "Ile gwiazdek powinno zostać wygenerowanych.",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.filled": {
+        "description": "Ile gwiazdek powinno być wyświetlanych jako wypełnione.",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.fillHover": {
+        "description": "Wypełnij niewypełnioną gwiazdkę.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "stars.callback": {
+        "description": "Niestandardowa funkcja wywołania zwrotnego po kliknięciu gwiazdki. Ta funkcja zwraca 3 argumenty: Argument 1: zdarzenie kliknięcia, Argument 2: aktualnie kliknięta gwiazda, Argument 3: callbackProps.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    "stars.callbackProps": {
+        "description": "Dane zdefiniowane przez użytkownika przekazane jako ostatni argument do funkcji 'callback'.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    "stars.color": {
+        "description": "Kolor wypełnionych i niewypełnionych gwiazdek. Domyślnie dostępne są 3 kolory: 'orange', 'orange-yellow' i 'yellow'.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    "stars.starsData": {
+        "description": "Tablica obiektów.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "stars.starsData.props": {
+        "description": "Obiekt z niestandardowymi właściwościami.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "stars.starsData.data": {
+        "description": "Niestandardowe dane JSX dołączone w gwiazdkach HTML.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "InputSuggestionObject.description.1": "Przykład z wstępnie załadowaną listą do filtrowania oraz filtorwaniem key-sensitive. Funkcja filtrująca (wrażliwa na klawisz / NIE wrażliwa na klawisz) jest wykonywana wewnętrznie i jest oparta na tekście klucza potomnego (obiektu). Możesz renderuj / wyświetl wartość klucza 'text' lub inną wartość (JSX), przekazując elementowi potomnemu (obiekt) klucz 'jsx'. ",
+    "InputSuggestionObject.description.2": "Przykład z filtorwaniem key-not-sensitive oraz kluczem 'ładowanie' opartym na funkcji callback i przekazanym callback'em musi być Promise (w połączeniu z klawiszem 'loading'!). W tym czasie (czekaj) ładowanie ikona jest wyświetlana. Jeśli rozwiążesz lub odrzucisz obietnicę, ikona ładowania / dane znikną. ",
+    "InputSuggestionArray.description.1": "Przykład z wstępnie załadowaną listą do filtrowania przy użyciu wyszukiwania z uwzględnieniem klawiszy. Funkcja filtru (z uwzględnieniem klawiszy / NIEZALEŻNA od klawiszy) jest wykonywana wewnętrznie i jest oparta na tekście podrzędnym (tablice) wejście.",
+    "InputSuggestionArray.description.2": "Przykład z wyszukiwaniem bez klucza i z kluczem 'ładowanie' opartym na funkcji zwrotnej i przekazanym wywołaniu zwrotnym musi być obietnicą (w połączeniu z klawiszem 'ładowanie'!) . Na ten (czekaj) czas ikona ładowania jest wyświetlana. Jeśli rozwiążesz lub odrzucisz obietnicę, ikona / dane ładowania znikną. ",
+    "CustomSuggestion.description.1": "Przykład z sugestiami z href przekierowania użytkownika po zdarzeniu kliknięcia i kluczem 'callbackRerender = {true}' (wymagany do zaakceptowania nowego stanu wewnętrznego) oraz z listą sugestii wcześniejszych znajomych." ,
+    "CustomSuggestion.description.2": "Przykład z sugestiami z href przekierowania użytkownika po zdarzeniu kliknięcia i kluczem 'callbackRerender = {false}' - oznacza akceptację sugestii z zewnątrz.",
+    "CustomSuggestion.description.3": "Przykład z sugestiami z href przekierowania użytkownika po zdarzeniu kliknięcia i kluczem 'callbackRerender = {true}' (wymagany do zaakceptowania nowego stanu = sugestie przychodzące z Obietnicy) i wyszukiwanie z kluczem niewrażliwym i kluczem „ładowanie” opartym na funkcji wywołania zwrotnego i przekazanym wywołaniu zwrotnym musi być obietnicą (w połączeniu z klawiszem „ładowanie”!). W tym czasie (oczekiwanie) wyświetlana jest ikona ładowania . Jeśli rozwiążesz lub odrzucisz obietnicę, ikona ładowania / dane znikną. ",
+    "GlobalMessages.description.1": "Przykład z pojedynczą wiadomością. Ta wiadomość zniknie tylko wtedy, gdy użytkownik zmieni aktualną lokalizację.",
+    "GlobalMessages.description.2": "Przykład z pojedynczą wiadomością. Ta wiadomość zniknie po dwóch sekundach."
 };
 
 export default PL;

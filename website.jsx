@@ -105,6 +105,8 @@ import ReactRevolutionSourceCode from './Website/Pages/ReactRevolutionSourceCode
 
 import ReactRevolutionSidebar from './Website/Pages/ReactRevolutionSidebar';
 
+import ReactRevolutionStars from './Website/Pages/ReactRevolutionStars';
+
 import ReactRevolutionTable from './Website/Pages/ReactRevolutionTable';
 
 import ReactRevolutionTextWriter from './Website/Pages/ReactRevolutionTextWriter';
@@ -143,6 +145,12 @@ import Release200 from './Website/Releases/Release200';
 import Release300 from './Website/Releases/Release300';
 
 import Release301 from './Website/Releases/Release301';
+
+import Release302 from './Website/Releases/Release302';
+
+import Release303 from './Website/Releases/Release303';
+
+import Release304 from './Website/Releases/Release304';
 
 class App extends React.Component {
 
@@ -331,7 +339,13 @@ class App extends React.Component {
 
   callbackSelection(selection){
     if(selection && selection[0] && selection[0].href){
+
+      if(window.location.href == selection[0].href){
+        return window.location.reload();
+      }
+
       window.location.href = selection[0].href;
+      document.documentElement.click();
     }
   }
 
@@ -416,6 +430,10 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-container`,
                         },
                         {
+                          text: 'CustomSuggestion',
+                          href: `${host}#/react-revolution-custom-suggestion`,
+                        },
+                        {
                           text: 'DragDrop',
                           data: [
                             {
@@ -467,6 +485,14 @@ class App extends React.Component {
                             {
                               text: 'InputFileDragDrop',
                               href: `${host}#/react-revolution-input-file-drag-drop`,
+                            },
+                            {
+                              text: 'InputSuggestionArray',
+                              href: `${host}#/react-revolution-input-suggestion-array`,
+                            },
+                            {
+                              text: 'InputSuggestionObject',
+                              href: `${host}#/react-revolution-input-suggestion-object`,
                             },
                           ]
                         },
@@ -571,6 +597,10 @@ class App extends React.Component {
                           ]
                         },
                         {
+                          text: 'Stars',
+                          href: `${host}#/react-revolution-stars`,
+                        },
+                        {
                           text: 'Table',
                           href: `${host}#/react-revolution-table`,
                         },
@@ -617,6 +647,18 @@ class App extends React.Component {
                         {
                           text: 'Releases 3.0',
                           data: [
+                            {
+                              text: '3.0.4',
+                              href: `${host}#/react-revolution-release-3-0-4`,
+                            },
+                            {
+                              text: '3.0.3',
+                              href: `${host}#/react-revolution-release-3-0-3`,
+                            },
+                            {
+                              text: '3.0.2',
+                              href: `${host}#/react-revolution-release-3-0-2`,
+                            },
                             {
                               text: '3.0.1',
                               href: `${host}#/react-revolution-release-3-0-1`,
@@ -766,7 +808,7 @@ class App extends React.Component {
                       trans('getStarted')
                     }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-3-0-1`}>
+                  <a className="link" href={`${host}#/react-revolution-release-3-0-4`}>
                     {
                       trans('lastReleaseNotes')
                     }
@@ -827,6 +869,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-sidebar" render={(props) => (<ReactRevolutionSidebar {...props} />)} />
               <Route exact path="/react-revolution-scroll-to" render={(props) => (<ReactRevolutionScrollTo {...props} />)} />
               <Route exact path="/react-revolution-source-code" render={(props) => (<ReactRevolutionSourceCode {...props} />)} />
+              <Route exact path="/react-revolution-stars" render={(props) => (<ReactRevolutionStars {...props} />)} />
               <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />
               {/* Functions */}
               <Route exact path="/react-revolution-function-uuid" render={(props) => (<ReactRevolutionFunctionUuid {...props} />)} />
@@ -842,6 +885,9 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-2-0-0" render={(props) => (<Release200 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-0" render={(props) => (<Release300 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-1" render={(props) => (<Release301 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-2" render={(props) => (<Release302 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-3" render={(props) => (<Release303 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-4" render={(props) => (<Release304 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

@@ -404,7 +404,7 @@
 
 .rr-custom-suggestion-website{
   input{
-    min-width: 280px;
+    min-width: 100%;
   }
 }
 
@@ -435,6 +435,26 @@
       background-color: rgb(255,255,255);
     }
   }
+
+  .rr-custom-suggestion-website{
+    .input{
+      background-color: #242526;
+
+      .choosed{
+        .item{
+          color: $dodgerblue;
+        }
+
+        .remove{
+          color: #FF4456 !important;
+        }
+      }
+    }
+    input{
+      color: $dodgerblue
+    }
+  }
+
   .head,
   .SidebarMinified.opened,
   .rr-sidebar{
@@ -571,6 +591,26 @@
       background-color: rgb(255,255,255);
     }
   }
+
+  .rr-custom-suggestion-website{
+    .input{
+      background-color: #1E1E1E;
+
+      .choosed{
+        .item{
+          color: #49B095;
+        }
+
+        .remove{
+          color: #FF4456 !important;
+        }
+      }
+    }
+    input{
+      color: #49B095
+    }
+  }
+
   .head,
   .SidebarMinified.opened,
   .rr-sidebar{

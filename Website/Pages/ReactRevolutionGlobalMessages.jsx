@@ -104,10 +104,12 @@ class ReactRevolutionGlobalMessages extends React.Component {
                 <h1 className="h1-title border-none my-3">
                     GlobalMessages
                 </h1>
-                {/* 
-                    Example with code based on state change
-                */}
-                <div className="code-example mt-4">
+                <p className='description'>
+                    {
+                        trans('GlobalMessages.description.1')
+                    }
+                </p>
+                <div className="code-example">
                     <div className="code-example-live">
                         <div
                             className="button-action rr-revolution-button-clipboard"
@@ -146,10 +148,7 @@ class ReactRevolutionGlobalMessages extends React.Component {
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')
@@ -210,10 +209,15 @@ class ReactRevolutionGlobalMessages extends React.Component {
                         )
                     }
                 </div>
-                <div className="code-example mt-4">
+                <div className="code-example">
                     <h1 className="h1-title border-none my-3">
                         GlobalMessages
                     </h1>
+                    <p className='description'>
+                        {
+                            trans('GlobalMessages.description.2')
+                        }
+                    </p>
                     <div className="code-example-live">
                         <div
                             className="button-action rr-revolution-button-clipboard"
@@ -252,10 +256,7 @@ class ReactRevolutionGlobalMessages extends React.Component {
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')

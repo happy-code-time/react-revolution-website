@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v3.0.3';
+const version = 'v3.0.4';
 
 const modules = [
     "Accordion",
@@ -56,6 +56,7 @@ const modules = [
     "ScrollTo",
     "SideBar",
     "SourceCode",
+    "Stars",
     "Table",
     "TextWriter",
     "Timeline",

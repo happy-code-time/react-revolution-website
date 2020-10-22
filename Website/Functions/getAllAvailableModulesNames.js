@@ -153,6 +153,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-source-code'
         },
         {
+            name: 'Stars',
+            link: 'react-revolution-stars'
+        },
+        {
             name: 'Table',
             link: 'react-revolution-table'
         },

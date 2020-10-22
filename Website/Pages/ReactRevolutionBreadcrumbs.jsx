@@ -111,7 +111,8 @@ const cssExample = `.rr-breadcrumbs-example{
             background-color: rgb(255,255,255);
             border-radius: 3px;
             box-shadow: 0px 0px 3px rgb(122,122,122);
-
+            z-index: 2;
+            
             .child{
                 box-sizing: border-box;
                 margin: 5px 0;

@@ -119,9 +119,6 @@ class ReactRevolutionFullScreenListObject extends React.Component {
                 <h1 className="h1-title border-none my-3">
                     FullScreenListObject
                 </h1>
-                {/* 
-                    Example with code based on state change
-                */}
                 <div className="code-example mt-4">
                     <div className="code-example-live">
                         <span>
@@ -170,10 +167,7 @@ class ReactRevolutionFullScreenListObject extends React.Component {
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')

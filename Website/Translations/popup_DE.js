@@ -219,7 +219,7 @@ const DE = {
         "default": "undefined"
     },
     "customsuggestion.suggestions.jsx": {
-        "description": "Benutzerdefiniertes HTML das der Endanwender sieht.",
+        "description": "Benutzerdefiniertes HTML das der Endanwender sieht. Falls nicht vorhanden wird der Wert von dem key 'text' angezeigt.",
         "type": "String",
         "default": "undefined"
     },
@@ -281,6 +281,11 @@ const DE = {
     "inputsuggestionobject.callbackSelection": {
         "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
         "type": "Function",
+        "default": "undefined"
+    },
+    "inputsuggestionobject.loading": {
+        "description": "Benutzerdefinierte benutzerdefinierte JSX-Daten zum Anzeigen eines Ladesymbols während der Ausführung der Rückruffunktion. Die übergebene Rückruffunktion muss ein Versprechen sein. Um Vorschläge anzuzeigen, muss das Versprechen aufgelöst oder abgelehnt werden.",
+        "type": "String | JSX",
         "default": "undefined"
     },
     "inputPlaceholder": {
@@ -786,8 +791,9 @@ const DE = {
     /**
      * Descriptions
      */
-    "accordion.description": "Das Akkordeon-Modul kennt keine Einschränkungen bei der Verschachtelung von Kindern.",
-    "accordion.description2": "Beispiel mit einem Klick-Handler (außerhalb des Moduls), der durch den Schlüssel bereitgestellt wird: 'closeOnClickOutside' wurde auf true gesetzt (alle Kinder rekursiv geschlossen).",
+    "accordion.description.1": "Beispiel mit einzelnen verschachtelten Kindern.",
+    "accordion.description.2": "Beispiel mit 4 verschachtelten Kindern.",
+    "accordion.description.3": "Beispiel mit einem Klick-Handler (außerhalb des Moduls), der durch den Schlüssel bereitgestellt wird: 'closeOnClickOutside' wurde auf true gesetzt (alle Kinder rekursiv geschlossen).",
     "cards.scroll.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist.",
     "cards.scrollCallback.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist. Das Laden weiterer Karten basiert auf der benutzerdefinierten Rückruffunktion. Wenn der Wert 'break' ist, wird der Scroll-Listener entfernt.",
     "cards.scrollCallback.example1" : "Beispielbreite Promise.resolve (), LoadingBoxTop mit der festen Position und 'break' im 4-Scroll-Event.",
@@ -1577,6 +1583,64 @@ const DE = {
         "type": "Objekt",
         "default": "{}"
     },
+    "stars.description.1": "Beispiel mit Sternen im schreibgeschützten Modus und ohne gefüllte Sterne und in der Standardfarbe Schwarz.",
+    "stars.description.2": "Beispiel mit schreibgeschützten Sternen und 2 gefüllten 5er-Sternen und mit der gefüllten Farbe 'orange-yellow'.",
+    "stars.description.3": "Beispiel mit Sternen im Rückrufmodus und 0 gefüllten 5er-Sternen und mit der benutzerdefinierten Rückruffunktion zum erneuten Rendern gefüllter Elemente nach dem Klicken auf den Stern.",
+    "stars.description.4": "Beispiel mit benutzerdefinierten Eigenschaften, die an jeden Stern übergeben werden.",
+    "stars.count": {
+        "description": "Wie viele Sterne sollen erzeugt werden?",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.filled": {
+        "description": "Wie viele Sterne sollen als gefüllt angezeigt werden.",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.fillHover": {
+        "description": "Fülle einen ungefüllten Stern.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "stars.callback": {
+        "description": "Benutzerdefinierte Rückruffunktion, wenn auf einen Stern geklickt wird. Diese Funktion gibt 3 Argumente zurück: Argument 1: das Klickereignis, Argument 2: der aktuell angeklickte Stern, Argument 3: callbackProps.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    "stars.callbackProps": {
+        "description": "Benutzerdefinierte definierte Daten, die als letztes Argument an die Rückruffunktion übergeben wurden.",
+        "type": "Beliebig",
+        "default": "undefined"
+    },
+    "stars.color": {
+        "description": "Farbe der gefüllten und ungefüllten Sterne. Standardmäßig sind 3 Farben verfügbar: 'orange', 'orange-yellow' und 'yellow'.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
+    "stars.starsData": {
+        "description": "Array von Objekten.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "stars.starsData.props": {
+        "description": "Objekt mit benutzerdefinierten Eigenschaften.",
+        "type": "Objekt",
+        "default": "{}"
+    },
+    "stars.starsData.data": {
+        "description": "Benutzerdefinierte JSX-Daten, die im HTML-Code der Sterne angehängt sind.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "InputSuggestionObject.description.1": "Beispiel mit einer vorinstallierten Liste zum Filtern und eine key-sensitive Suche. Die Filterfunktion (key-sensitive / key-NOT-sensitive) wird intern ausgeführt und basiert auf dem untergeordneten (Objekt-) Schlüssel 'text'. Sie können Rendern / Anzeigen des Werts des Schlüssels 'Text' oder eines anderen Werts (JSX) durch Übergeben des Schlüssels 'jsx' an die Kinder (Objekt). ",
+    "InputSuggestionObject.description.2": "Beispiel mit einer eine key-not-sensitive Suche und dem Schlüssel 'Laden' basierend auf der Rückruffunktion und dem übergebenen Rückruf muss ein Versprechen sein (in Kombination mit dem Schlüssel 'Laden'!). Für diese (Warte-) Zeit das Laden Es werden Symbole angezeigt. Wenn Sie das Versprechen auflösen oder ablehnen, werden die Ladesymbole / -daten ausgeblendet. ",
+    "InputSuggestionArray.description.1": "Beispiel mit einer vorinstallierten Liste zum Filtern mit einer schlüsselsensitiven Suche. Die Filterfunktion (schlüsselsensitiv / schlüsselsensitiv) wird intern ausgeführt und basiert auf dem untergeordneten Text (Arrays) Eintrag.",
+    "InputSuggestionArray.description.2": "Beispiel mit einer schlüsselunabhängigen Suche und mit dem Schlüssel 'Laden' basierend auf der Rückruffunktion und dem übergebenen Rückruf muss ein Versprechen sein (in Kombination mit dem Schlüssel 'Laden'!) Für diese (Warte-) Zeit wird das Ladesymbol angezeigt. Wenn Sie das Versprechen auflösen oder ablehnen, verschwinden das Ladesymbol / die Ladedaten. ",
+    "CustomSuggestion.description.1": "Beispiel mit Vorschlägen mit einer href, um den Benutzer nach dem Klickereignis umzuleiten, und dem Schlüssel 'callbackRerender = {true}' (erforderlich, um den neuen internen Status zu akzeptieren) und mit einer Liste mit Vorab-Vorschlägen." ,
+    "CustomSuggestion.description.2": "Beispiel mit Vorschlägen mit einem href, um den Benutzer nach dem Klickereignis umzuleiten, und dem Schlüssel 'callbackRerender = {false}' - seine mittlere Annahme, dass der Vorschlag von außerhalb stammt.",
+    "CustomSuggestion.description.3": "Beispiel mit Vorschlägen mit einer href, um den Benutzer nach dem Klickereignis umzuleiten, und dem Schlüssel 'callbackRerender = {true}' (erforderlich, um den neuen Status = die eingehenden Vorschläge aus dem Versprechen zu akzeptieren) und a Die Suche ohne Schlüssel und mit dem Schlüssel 'Laden' basierend auf der Rückruffunktion und dem übergebenen Rückruf muss ein Versprechen sein (in Kombination mit dem Schlüssel 'Laden'!). Für diese (Warte-) Zeit wird das Ladesymbol angezeigt Wenn Sie das Versprechen auflösen oder ablehnen, verschwinden die Ladesymbole / Daten. ",
+    "GlobalMessages.description.1": "Beispiel mit einer einzelnen Nachricht. Diese Nachricht verschwindet nur, wenn der Benutzer den aktuellen Speicherort ändert.",
+    "GlobalMessages.description.2": "Beispiel mit einer einzelnen Nachricht. Diese Nachricht verschwindet nach zwei Sekunden.",
 };
 
 export default DE;

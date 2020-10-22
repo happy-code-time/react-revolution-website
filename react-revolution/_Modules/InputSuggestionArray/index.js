@@ -19,6 +19,7 @@ class InputSuggestionArray extends React.Component
         this.setFocusUpdater = this.setFocusUpdater.bind(this);
         this.setArrow = this.setArrow.bind(this);
         this.setMouseMoved = this.setMouseMoved.bind(this);
+        this.callbackPromise = this.callbackPromise.bind(this);
 
         this.state = {
             /**
@@ -26,6 +27,7 @@ class InputSuggestionArray extends React.Component
              */
             suggestions: [],
             selectedArrow: null,
+            isLoading: false,
             /**
              * User
              */
@@ -47,6 +49,7 @@ class InputSuggestionArray extends React.Component
             sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
             sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
             searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+            loading: props.loading ? props.loading : undefined
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -93,7 +96,7 @@ class InputSuggestionArray extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'loading'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
@@ -110,6 +113,7 @@ class InputSuggestionArray extends React.Component
                     sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
                     sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
                     searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                    loading: props.loading ? props.loading : undefined
                 }
             }
 
@@ -126,6 +130,7 @@ class InputSuggestionArray extends React.Component
                 sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
                 sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
                 searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
+                loading: props.loading ? props.loading : undefined
             };
         }
 
@@ -189,6 +194,37 @@ class InputSuggestionArray extends React.Component
         }
     }
 
+    callbackPromise(val = null){
+        const { getValueFromCallback, callback, plainValue } = this.state;
+
+        return new Promise( async (resolve, reject) => {
+            if (callback) {
+
+                if (getValueFromCallback) {
+                    await (callback)(val)
+                    .then( r => {
+                        resolve(true);
+                    })
+                    .catch( r => {
+                        resolve(true);
+                    });
+                }
+                else {
+                    await (callback)(plainValue)
+                    .then( r => {
+                        resolve(true);
+                    })
+                    .catch( r => {
+                        resolve(true);
+                    });
+                }
+            }
+            else{
+                resolve(true);
+            }
+        });
+    }
+
     /**
      * Esc callback
      */
@@ -203,7 +239,7 @@ class InputSuggestionArray extends React.Component
      * Set value on change input field
      */
     setValue(e) {
-        const { getValueFromCallback } = this.state;
+        const { getValueFromCallback, loading, isLoading } = this.state;
         let val = e.target.value;
 
         if (this.state.allowOnlyAZ) {
@@ -212,15 +248,80 @@ class InputSuggestionArray extends React.Component
         }
 
         if (getValueFromCallback) {
-            this.callback(val);
-            this.showSuggestions();
+
+            if('' == val){
+                return this.setState({
+                    isLoading: false,
+                    suggestions: []
+                });
+            }
+
+            if(loading && !isLoading){
+                clearTimeout(this.timeout);
+
+                return this.timeout = setTimeout( () => {
+                    this.setState({
+                        isLoading: true,
+                        suggestions: []
+                    }, async () => {
+                        await this.callbackPromise(val)
+                        .then( () => {
+                            this.setState({
+                                isLoading: false,
+                                suggestions: []
+                            }, this.showSuggestions)
+                        })
+                        .catch( () => {
+                            this.setState({
+                                isLoading: false,
+                                suggestions: []
+                            }, this.showSuggestions)
+                        })
+                    })
+                }, 200);
+            }
+            else{
+                this.callback(val);
+                this.showSuggestions();
+            }
         }
         else {
             this.setState({
-                plainValue: val
+                plainValue: val,
+                isLoading: true,
+                suggestions: []
             }, () => {
-                this.callback();
-                this.showSuggestions();
+
+                if('' == this.state.plainValue){ 
+                    return this.setState({
+                        isLoading: false,
+                        suggestions: []
+                    });
+                }
+
+                if(loading && !isLoading){
+                    clearTimeout(this.timeout);
+
+                    return this.timeout = setTimeout( () => {
+                        this.callbackPromise()
+                        .then( () => {
+                            this.setState({
+                                isLoading: false,
+                                suggestions: []
+                            }, this.showSuggestions)
+                        })
+                        .catch( () => {
+                            this.setState({
+                                isLoading: false,
+                                suggestions: []
+                            }, this.showSuggestions)
+                        });
+                    }, 200);
+                }
+                else{
+                    this.callback();
+                    this.showSuggestions();
+                }
             });
         }
     }
@@ -230,12 +331,13 @@ class InputSuggestionArray extends React.Component
      */
     showSuggestions() {
         const filteredSuggestions = [];
-        let { suggestionsToFilter, plainValue, sortSuggestions } = this.state;
+        let { suggestionsToFilter, plainValue, sortSuggestions, searchSensitive, loading, isLoading } = this.state;
 
         /**
          * Sort if user wish
          */
         if(sortSuggestions && this.availableSorts.includes(sortSuggestions)){
+
             if('asc' == sortSuggestions){
                 suggestionsToFilter.sort();
             }
@@ -248,7 +350,12 @@ class InputSuggestionArray extends React.Component
         if (plainValue.length) {
 
             for (let x = 0; x <= suggestionsToFilter.length - 1; x++) {
-                if (suggestionsToFilter[x] && -1 !== suggestionsToFilter[x].indexOf(plainValue)) {
+               
+                if (suggestionsToFilter[x] && typeof '8' == typeof suggestionsToFilter[x] && searchSensitive && -1 !== suggestionsToFilter[x].indexOf(plainValue)) {
+                    filteredSuggestions.push(suggestionsToFilter[x]);
+                }
+
+                if (suggestionsToFilter[x] && typeof '8' == typeof suggestionsToFilter[x] && !searchSensitive && -1 !== suggestionsToFilter[x].toLowerCase().indexOf(plainValue.toLowerCase())) {
                     filteredSuggestions.push(suggestionsToFilter[x]);
                 }
             }
@@ -277,7 +384,7 @@ class InputSuggestionArray extends React.Component
                 }
 
                 this.setState({
-                    suggestions: removedDupplicates,
+                    suggestions: loading ? (isLoading ? [] : removedDupplicates) : removedDupplicates,
                 });
             }
             else {
@@ -413,7 +520,7 @@ class InputSuggestionArray extends React.Component
     }
 
     render() {
-        const { addClass, selected, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, selectedArrow } = this.state;
+        const { addClass, selected, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, selectedArrow, loading, isLoading } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass}`}>
@@ -452,6 +559,14 @@ class InputSuggestionArray extends React.Component
                         id={id}
                         {...props}
                     />
+                    {
+                        loading && isLoading &&
+                        <div className="loading-area">
+                            {
+                                loading
+                            }
+                        </div>
+                    }
                     {
                         '' !== plainValue && suggestions && 0 !== suggestions.length &&
                         <div className="suggestions-area">

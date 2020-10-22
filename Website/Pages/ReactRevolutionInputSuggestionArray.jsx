@@ -21,16 +21,34 @@ const codeExample = `import { InputSuggestionArray } from 'react-revolution';
     value={this.state.inputValue}
     getValueFromCallback={false}
     callbackSelection={this.callbackSelection}
-    inputProps={{}}
     type='text'
     emptySuggestionAfterSelection={false}
-    sortSuggestions='asc' // asc, desc
-    sortSelected='asc' // asc, desc
+    sortSuggestions='asc'
+    sortSelected='asc'
+/>`;
+
+const codeExample2 = `import { InputSuggestionArray } from 'react-revolution';
+// import InputSuggestionArray from 'react-revolution/InputSuggestionArray';
+
+<InputSuggestionArray
+    inputPlaceholder='Search for an email...'
+    suggestions={this.state.suggestionsLoading}
+    selected={this.state.selectedLoading}
+    callback={this.setInputValueLoading}
+    value={this.state.inputValueLoading}
+    getValueFromCallback={false}
+    callbackSelection={this.callbackSelectionLoading}
+    type='text'
+    sortSuggestions='asc'
+    sortSelected='asc'
+    loading={
+        <img src='./public/images/ajax-loader.gif' />
+    }
+    searchSensitive={false}
 />`;
 
 const jsExample = `constructor(props) {
     super(props);
-
     this.setInputValue = this.setInputValue.bind(this);
 
     this.state = {
@@ -78,16 +96,56 @@ callbackSelection(data) {
     console.info(data);
 }`;
 
-class ReactRevolutionInputSuggestionArray extends React.Component {
+const jsExample2 = `constructor(props) {
+    super(props);
+    this.setInputValueLoading = this.setInputValueLoading.bind(this);
+
+    this.state = {
+        inputValueLoading: '',
+        selectedLoading: [],
+        suggestionsLoading: []
+    }
+}
+
+staticEmails() {
+    return [
+        'viktor.klar@pl', 
+        'david.janitzek@com', 
+        'max.schreiner@de', 
+        'alice.janitzek@com',
+    ];
+}
+
+setInputValueLoading(inputValue) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(true);
+            this.setState({
+                inputValueLoading: inputValue,
+                suggestionsLoading: this.staticEmails()
+            });
+        }, 2000);
+    });
+}
+
+callbackSelectionLoading(data) {
+    console.info("Could redirect user now");
+}`;
+
+class ReactRevolutionInputSuggestionArray extends React.Component 
+{
     constructor(props) {
         super(props);
-
         this.setInputValue = this.setInputValue.bind(this);
+        this.setInputValueLoading = this.setInputValueLoading.bind(this);
 
         this.state = {
             selected: '',
             inputValue: '',
-            suggestions: this.randomEmailGenerator(20)
+            suggestions: this.randomEmailGenerator(20),
+            inputValueLoading: '',
+            selectedLoading: [],
+            suggestionsLoading: []
         }
     }
 
@@ -129,6 +187,31 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
         console.info(data);
     }
 
+    staticEmails() {
+        return [
+            'viktor.klar@pl', 
+            'david.janitzek@com', 
+            'max.schreiner@de', 
+            'alice.janitzek@com',
+        ];
+    }
+
+    setInputValueLoading(inputValue) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(true);
+                this.setState({
+                    inputValueLoading: inputValue,
+                    suggestionsLoading: this.staticEmails()
+                });
+            }, 2000);
+        });
+    }
+
+    callbackSelectionLoading(data) {
+        console.info("Could redirect user now");
+    }
+
     render() {
 
         return (
@@ -136,10 +219,12 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                 <h1 className="h1-title border-none my-3">
                     InputSuggestionArray
                 </h1>
-                {/* 
-                    Example with code based on state change
-                */}
-                <div className="code-example mt-4">
+                <p className='description'>
+                    {
+                        trans('InputSuggestionArray.description.1')
+                    }
+                </p>
+                <div className="code-example">
                     <div className="code-example-live">
                         <InputSuggestionArray
                             inputPlaceholder='Search for an email...'
@@ -149,20 +234,16 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                             value={this.state.inputValue}
                             getValueFromCallback={false}
                             callbackSelection={this.callbackSelection}
-                            inputProps={{}}
                             type='text'
                             emptySuggestionAfterSelection={false}
-                            sortSuggestions='asc' // asc, desc
-                            sortSelected='asc' // asc, desc
+                            sortSuggestions='asc'
+                            sortSelected='asc'
                         />
                     </div>
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')
@@ -223,6 +304,97 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                         )
                     }
                 </div>
+                <h1 className="h1-title border-none my-3">
+                    InputSuggestionArray
+                </h1>
+                <p className='description'>
+                    {
+                        trans('InputSuggestionArray.description.2')
+                    }
+                </p>
+                <div className="code-example">
+                    <div className="code-example-live">
+                        <InputSuggestionArray
+                            inputPlaceholder='Search for an email...'
+                            suggestions={this.state.suggestionsLoading}
+                            selected={this.state.selectedLoading}
+                            callback={this.setInputValueLoading}
+                            value={this.state.inputValueLoading}
+                            getValueFromCallback={false}
+                            callbackSelection={this.callbackSelectionLoading}
+                            type='text'
+                            sortSuggestions='asc'
+                            sortSelected='asc'
+                            loading={
+                                <img src='./public/images/ajax-loader.gif' />
+                            }
+                            searchSensitive={false}
+                        />
+                    </div>
+                    {
+                        generateArticles(
+                            (
+                                <h1 className="h1-example">
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump'
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump'
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                </div>
                 {
                     getDescriptionForstyle('rr-input-suggestion-array')
                 }
@@ -274,6 +446,14 @@ class ReactRevolutionInputSuggestionArray extends React.Component {
                                 {
                                     key: 'callback',
                                     values: 'customsuggestion.callback'
+                                },
+                                {
+                                    key: 'callbackSelection',
+                                    values: 'inputsuggestionarray.callbackSelection'
+                                },
+                                {
+                                    key: 'loading',
+                                    values: 'inputsuggestionobject.loading'
                                 },
                                 {
                                     key: 'selected',

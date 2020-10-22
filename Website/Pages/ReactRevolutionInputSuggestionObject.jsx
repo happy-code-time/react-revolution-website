@@ -24,17 +24,37 @@ const codeExample = `import { InputSuggestionObject } from 'react-revolution';
     inputProps={{}}
     type='text'
     emptySuggestionAfterSelection={false}
-    sortSuggestions='asc' // asc, desc
-    sortSelected='asc' // asc, desc
+    sortSuggestions='asc'
+    sortSelected='asc'
+    searchSensitive={true}
+/>`;
+
+const codeExample2 = `import { InputSuggestionObject } from 'react-revolution';
+// import InputSuggestionObject from 'react-revolution/InputSuggestionObject';
+
+<InputSuggestionObject
+    inputPlaceholder='Search for an email...'
+    suggestions={this.state.suggestionsLoading}
+    selected={this.state.selectedLoading}
+    callback={this.setInputValueLoading}
+    value={this.state.inputValueLoading}
+    callbackSelection={this.callbackSelectionLoading}
+    type='text'
+    emptySuggestionAfterSelection={true}
+    sortSuggestions='asc'
+    sortSelected='asc'
+    loading={
+        <img src='./public/images/ajax-loader.gif' />
+    }
+    searchSensitive={false}
 />`;
 
 const jsExample = `constructor(props) {
     super(props);
-
     this.setInputValue = this.setInputValue.bind(this);
 
     this.state = {
-        selected: '',
+        selected: [],
         inputValue: '',
         suggestions: this.randomEmailGenerator(20)
     }
@@ -84,16 +104,80 @@ callbackSelection(data) {
     console.info(data);
 }`;
 
+const jsExample2 = `constructor(props) {
+    super(props);
+    this.setInputValueLoading = this.setInputValueLoading.bind(this);
+
+    this.state = {
+        selectedLoading: [],
+        inputValueLoading: '',
+        suggestionsLoading: []
+    }
+}
+
+staticEmails() {
+        
+    const data = (name) => (
+        <div className='flex'>
+            <img src="./public/images/icon-32.png" />
+            <p>
+            {
+                name
+            }
+            </p>
+        </div>
+    );
+
+    return [
+        {
+            text: 'viktor.klar@pl',
+            jsx: data('viktor.klar@pl')
+        },
+        {
+            text: 'david.janitzek@com',
+            jsx: data('david.janitzek@com')
+        },
+        {
+            text: 'max.schreiner@de',
+            jsx: data('max.schreiner@de')
+        },
+        {
+            text: 'alice.janitzek@com',
+            jsx: data('alice.janitzek@com')
+        },
+    ];
+}
+
+setInputValueLoading(inputValue) {
+    return new Promise( (resolve, reject) => {
+
+        setTimeout( () => {
+            resolve(true);
+            this.setState({
+                inputValueLoading: inputValue,
+                suggestionsLoading: this.staticEmails()
+            });
+        }, 2000);
+    });
+}
+
+callbackSelectionLoading(data){
+    console.info("Could redirect user now");
+}`;
+
 class ReactRevolutionInputSuggestionObject extends React.Component {
     constructor(props) {
         super(props);
-
         this.setInputValue = this.setInputValue.bind(this);
+        this.setInputValueLoading = this.setInputValueLoading.bind(this);
 
         this.state = {
-            selected: '',
-            inputValue: '',
-            suggestions: this.randomEmailGenerator(20)
+            selected: [],
+            inputValue: '',            
+            suggestions: this.randomEmailGenerator(20),
+            inputValueLoading: '',
+            selectedLoading: [],
+            suggestionsLoading: []
         }
     }
 
@@ -131,6 +215,39 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
         return generated;
     }
 
+    staticEmails() {
+        
+        const data = (name) => (
+            <div className='flex my-2'>
+                <img src="./public/images/icon-32.png" />
+                <p>
+                {
+                    name
+                }
+                </p>
+            </div>
+        );
+
+        return [
+            {
+                text: 'viktor.klar@pl',
+                jsx: data('viktor.klar@pl')
+            },
+            {
+                text: 'david.janitzek@com',
+                jsx: data('david.janitzek@com')
+            },
+            {
+                text: 'max.schreiner@de',
+                jsx: data('max.schreiner@de')
+            },
+            {
+                text: 'alice.janitzek@com',
+                jsx: data('alice.janitzek@com')
+            },
+        ];
+    }
+
     setInputValue(inputValue) {
         this.setState({
             inputValue: inputValue
@@ -141,6 +258,23 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
         console.info(data);
     }
 
+    setInputValueLoading(inputValue) {
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                resolve(true);
+                this.setState({
+                    inputValueLoading: inputValue,
+                    suggestionsLoading: this.staticEmails()
+                });
+            }, 2000);
+        });
+    }
+
+    callbackSelectionLoading(data) {
+        console.info("Could redirect user now");
+    }
+
     render() {
 
         return (
@@ -148,10 +282,12 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                 <h1 className="h1-title border-none my-3">
                     InputSuggestionObject
                 </h1>
-                {/* 
-                    Example with code based on state change
-                */}
-                <div className="code-example mt-4">
+                <p className='description'>
+                    {
+                        trans('InputSuggestionObject.description.1')
+                    }
+                </p>
+                <div className="code-example">
                     <div className="code-example-live">
                         <InputSuggestionObject
                             inputPlaceholder='Search for an email...'
@@ -164,17 +300,15 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                             inputProps={{}}
                             type='text'
                             emptySuggestionAfterSelection={false}
-                            sortSuggestions='asc' // asc, desc
-                            sortSelected='asc' // asc, desc
+                            sortSuggestions='asc'
+                            sortSelected='asc'
+                            searchSensitive={true}
                         />
                     </div>
                     {
                         generateArticles(
                             (
-                                <h1
-                                    title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 1`}
-                                    className="h1-example"
-                                >
+                                <h1 className="h1-example">
                                     <i className="fas fa-atom" />
                                     {
                                         trans('reactCodeTitle')
@@ -235,6 +369,98 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                         )
                     }
                 </div>
+                <h1 className="h1-title border-none my-3">
+                    InputSuggestionObject
+                </h1>
+                <p className='description'>
+                    {
+                        trans('InputSuggestionObject.description.2')
+                    }
+                </p>
+                <div className="code-example">
+                    <div className="code-example-live">
+                        <InputSuggestionObject
+                            inputPlaceholder='Search for an email...'
+                            suggestions={this.state.suggestionsLoading}
+                            selected={this.state.selectedLoading}
+                            callback={this.setInputValueLoading}
+                            value={this.state.inputValueLoading}
+                            callbackSelection={this.callbackSelectionLoading}
+                            type='text'
+                            emptySuggestionAfterSelection={true}
+                            sortSuggestions='asc'
+                            sortSelected='asc'
+                            loading={
+                                <img src='./public/images/ajax-loader.gif' />
+                            }
+                            searchSensitive={false}
+                        />
+                    </div>
+                    {
+                        generateArticles(
+                            (
+                                <h1 className="h1-example">
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={codeExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump'
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample2}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample2}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                </div>
+
                 {
                     getDescriptionForstyle('rr-input-suggestion-object')
                 }
@@ -329,7 +555,11 @@ class ReactRevolutionInputSuggestionObject extends React.Component {
                                 },
                                 {
                                     key: 'callbackSelection',
-                                    values: 'customsuggestion.callbackSelection'
+                                    values: 'inputsuggestionobject.callbackSelection'
+                                },
+                                {
+                                    key: 'loading',
+                                    values: 'inputsuggestionobject.loading'
                                 },
                                 {
                                     key: 'suggestions',

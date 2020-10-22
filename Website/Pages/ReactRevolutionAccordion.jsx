@@ -146,8 +146,7 @@ class ReactRevolutionAccordion extends React.Component
         this.examples = [
             {
                 title: 'Accordion',
-                // description: trans('accordion.description'),
-                description: '',
+                description: trans('accordion.description.1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -156,7 +155,7 @@ class ReactRevolutionAccordion extends React.Component
                 html: '',
                 live: (
                     <Accordion
-                        animation='height' // height, scale, opacity
+                        animation='height' 
                         data={
                             [
                                 {
@@ -198,7 +197,7 @@ class ReactRevolutionAccordion extends React.Component
             },
             {
                 title: 'Accordion',
-                description: '',
+                description: trans('accordion.description.2'),
                 reactTextBefore: '',
                 react: codeExample2,
                 reactTextAfter: '',
@@ -207,7 +206,7 @@ class ReactRevolutionAccordion extends React.Component
                 html: '',
                 live: (
                     <Accordion
-                        animation='height' // height, scale, opacity
+                        animation='height' 
                         data={
                             [
                                 {
@@ -245,7 +244,7 @@ class ReactRevolutionAccordion extends React.Component
             }, 
             {
                 title: 'Accordion',
-                description: trans('accordion.description2'),
+                description: trans('accordion.description.3'),
                 reactTextBefore: '',
                 react: codeExample3,
                 reactTextAfter: '',
@@ -255,7 +254,7 @@ class ReactRevolutionAccordion extends React.Component
                 live: (
                     <Accordion
                         closeOnClickOutside={true}
-                        animation='scale' // height, scale, opacity
+                        animation='scale' 
                         data={
                             [
                                 {
@@ -318,7 +317,7 @@ class ReactRevolutionAccordion extends React.Component
                     minify={40}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
-                    data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
+                    data={buildModulesJsx(this.examples[0], 1)} 
                     fireScrollEvent={500}
                     fireScrollBack={true} 
                 />

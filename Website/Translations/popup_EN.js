@@ -219,7 +219,7 @@ const EN = {
         "default": "true"
     },
     "customsuggestion.suggestions": {
-        "description": "list of objects",
+        "description": "List of objects",
         "type": "array",
         "default": "undefined"
     },
@@ -229,7 +229,12 @@ const EN = {
         "default": "undefined"
     },
     "customsuggestion.suggestions.jsx": {
-        "description": "Custom HTML the end user sees.",
+        "description": "Custom HTML the end user sees. If not available, the value of the key 'text' is displayed.",
+        "type": "String",
+        "default": "undefined"
+    },
+    "customsuggestion.suggestions.text": {
+        "description": "User-defined text that is used to filter.",
         "type": "String",
         "default": "undefined"
     },
@@ -276,6 +281,11 @@ const EN = {
     "inputsuggestionarray.callbackSelection": {
         "description": "User-defined function for which an element was selected. This function provides 1 argument. Argument 1: List of the selected elements (clicked element).",
         "type": "Function",
+        "default": "undefined"
+    },
+    "inputsuggestionobject.loading" : {
+        "description": "User-defined custom JSX data to show an loading icon while executing the 'callback' function. The passed callback function has to be an Promise. To show suggestions the Promise has to be resolved or rejected.",
+        "type": "String | JSX",
         "default": "undefined"
     },
     "inputsuggestionobject.callbackSelection": {
@@ -786,8 +796,9 @@ const EN = {
     /**
      * Descriptions
      */
-    "accordion.description" : "The Accordion module has no limits in child nesting.",
-    "accordion.description2" : "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
+    "accordion.description.1" : "Example with a single nested childs.",
+    "accordion.description.2" : "Example with 4 nested childs.",
+    "accordion.description.3" : "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
     "cards.scroll.description" : "The Cards module will load more items, if the bottom of the parent div are reached.",
     "cards.scrollCallback.description" : "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
     "cards.scrollCallback.example1" : "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
@@ -1575,6 +1586,63 @@ const EN = {
         "type": "Object",
         "default": "{}"
     },
+    "stars.description.1" : "Example with stars in readonly mode and without filled stars and in default black color.",
+    "stars.description.2" : "Example with stars in readonly mode and 2 filled stars of 5 and with the filled color 'orange-yellow'.",
+    "stars.description.3" : "Example with stars in callback mode and 0 filled stars of 5 and with the custom callback function to re-render filled items after  star has been clicked.",
+    "stars.description.4" : "Example with custom properties (title) passed to each star.",
+    "stars.count": {
+        "description": "How many stars should be generated.",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.filled": {
+        "description": "How many stars should be displayed as filled.",
+        "type": "Number",
+        "default": "0"
+    },
+    "stars.fillHover": {
+        "description": "Fill an unfilled star.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "stars.callback": {
+        "description": "Custom callback function if a star are clicked. This function return 3 arguments: Argument 1: the click event, Argument 2: the current clicked star, Argument 3: callbackProps.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "stars.callbackProps": {
+        "description": "Custom defined data passed as last arguemnt to the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "stars.color": {
+        "description": "Color of the filled and unfilled stars. Default 3 colors are available: 'orange', 'orange-yellow' and 'yellow'.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    "stars.starsData": {
+        "description": "Array of objects.",
+        "type": "Array",
+        "default": "[]"
+    },
+    "stars.starsData.props": {
+        "description": "Object with custom properties.",
+        "type": "Object",
+        "default": "{}"
+    },
+    "stars.starsData.data": {
+        "description": "Custom JSX data attached inside the stars HTML.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "InputSuggestionObject.description.1" : "Example with a preloaded list to filter and a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (object) key 'text'. You can render/ display the value of the key 'text' or a different value (JSX) by passing to the childs (object) the key 'jsx'.",
+    "InputSuggestionObject.description.2" : "Example with a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
+    "InputSuggestionArray.description.1" : "Example with a preloaded list to filter with a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (arrays) text entry.",
+    "CustomSuggestion.description.1" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new internal state) and with a predefiend suggestions list.",
+    "CustomSuggestion.description.2" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={false}' - its mean accept the suggestion comes from outsite.",
+    "CustomSuggestion.description.3" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new state = the incoming suggestions from the Promise) and a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
+    "GlobalMessages.description.1" : "Example with a single message. This message will only disappear if the user change the current location.",
+    "GlobalMessages.description.2" : "Example with a single message. This message will disappear after two seconds."
 };
 
 export default EN;
