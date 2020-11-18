@@ -1,3 +1,5 @@
+@import "./globals";
+
 .Content {
   position: absolute;
   left: $dashboard_menu-width;
@@ -5,7 +7,7 @@
   top:0;
   z-index:2;
 
-  .head {
+  .data-header {
     width: 100%;
     height: $dashboard_header-height;
     border-bottom: 1px solid $border-color;
@@ -50,12 +52,15 @@
      * Minify or toggle menu icon
      */
     .minify-menu {
-      color: $white;
       float: left;
       box-sizing: border-box;
       padding: 12px 13px;
       border-radius: 50%;
       transition-duration: $default_transition;
+
+      i{
+        color:$white;
+      }
     }
 
     .minify-menu:hover {
@@ -103,8 +108,8 @@
 }
 
 /*
-         * Minified second Content
-         */
+  * Minified second Content
+  */
 .Content.minified {
   left: 0;
   width: 100vw;

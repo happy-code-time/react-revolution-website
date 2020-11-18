@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { urlExtract, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -88,7 +88,7 @@ class ReactRevolutionFunctionUrlExtract extends React.Component
                 js: jsExample1,
                 css: '',
                 html: '',
-                live: '',
+                live: `${JSON.stringify(urlExtract())}`,
                 isFunction: true
             }
         ];

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import uuid from '../internalFunctions/uuid';
+import internalUuid from '../internalFunctions/internalUuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
@@ -123,7 +123,7 @@ class Cards extends React.Component
             }
             
             singleLines.push(
-                <div key={uuid()} className={cls} {...props}>
+                <div key={internalUuid()} className={cls} {...props}>
                     {
                         title && 
                         <div className="title">
@@ -154,7 +154,7 @@ class Cards extends React.Component
             if(c == itemsPerLine){
 
                 dataJsx.push(
-                    <div key={uuid()} className={`${clsCardsHolder}`}>
+                    <div key={internalUuid()} className={`${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -168,7 +168,7 @@ class Cards extends React.Component
 
         if(singleLines.length){
             dataJsx.push(
-                <div key={uuid()} className={`${clsCardsHolder}`}>
+                <div key={internalUuid()} className={`${clsCardsHolder}`}>
                     {
                         singleLines
                     }

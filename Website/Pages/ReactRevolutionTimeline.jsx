@@ -99,6 +99,7 @@ class ReactRevolutionTimeline extends React.Component
                 html: '',
                 live: (
                     <Timeline
+                        addClass='rr-timeline-example'
                         lineMiddle={true}
                         lineEntry={true}
                         lineTitle={false}
@@ -118,6 +119,7 @@ class ReactRevolutionTimeline extends React.Component
                 html: '',
                 live: (
                     <Timeline
+                        addClass='rr-timeline-example'
                         lineMiddle={true}
                         lineTitle={true}
                         colorLineMiddle='dodgerblue'
@@ -138,6 +140,7 @@ class ReactRevolutionTimeline extends React.Component
                 html: '',
                 live: (
                     <Timeline
+                        addClass='rr-timeline-example'
                         lineMiddle={true}
                         borderStyle='dashed'
                         dashedSize='large' // only for dashed borderStyle

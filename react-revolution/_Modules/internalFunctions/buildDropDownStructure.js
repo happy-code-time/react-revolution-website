@@ -1,7 +1,24 @@
-import uuid from './uuid';
+import internalUuid from './internalUuid';
 
 const buildDropDownStructure = (data = [], parent = undefined) => {
+    /**
+     * Get unique id for the single menu element
+     */
+    const choosedIds = [];
 
+    const getUuid = () => {
+        const uuidItem = `${internalUuid()}`;
+       
+        if(choosedIds.includes(uuidItem)){
+            getUuid();
+        }
+
+        return uuidItem;
+    };
+
+    /**
+     * Main attaching functionality
+     */
     if(data && data.length){
 
         for(let x = 0; x <= data.length-1; x++){
@@ -11,15 +28,11 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
             }
 
             if(undefined == data[x].uuid){
-                data[x].unique = `${uuid()}${uuid()}${uuid()}`;
+                data[x].unique = `${getUuid()}`;
             }
 
             if(undefined == data[x].key){
-                data[x].key = `single-entry-${x}${data[x].text ? data[x].text : ''}`;
-            }
-
-            if(undefined == data[x].uuid){
-                data[x].iconId = `${uuid()}`;
+                data[x].key = data[x].text ? `single-entry-${x}-${data[x].text}` : `${getUuid()}`;
             }
 
             if(undefined == data[x].classList){
@@ -30,6 +43,10 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
                 data[x].loopCount = 1;
             }
 
+            if(undefined == data[x].isActive){
+                data[x].isActive = false;
+            }
+
             if(parent && data[x].data && typeof [] == typeof data[x].data && data[x].data.length){
                 data[x].childrensNestedCount = parent.childrensNestedCount+1;
             }
@@ -38,8 +55,14 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
                 data[x].childrensNestedCount = 1;
             }
 
+            data[x].parentElement = parent;
+
             if(data[x].data && typeof [] == typeof data[x].data && data[x].data.length){
                 buildDropDownStructure(data[x].data, data[x]);
+                data[x].isParent = true;
+            }
+            else{
+                data[x].isParent = false;
             }
         }
     }

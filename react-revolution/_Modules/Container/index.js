@@ -1,10 +1,7 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
-class Container extends React.Component 
+class Container extends React.Component
 {
     constructor(props) {
         super(props);
@@ -42,9 +39,15 @@ class Container extends React.Component
             footerData: props.footerData ? props.footerData : undefined,
             footerProps: (props.footerProps && typeof {} == typeof props.footerProps) ? props.footerProps : {},
             autopilot: (typeof true == typeof props.autopilot) ? props.autopilot : false,
-            closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : '',
-            toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : '',
+            closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : undefined,
+            toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : undefined,
+            isMinified: (typeof true == typeof props.isMinified) ? props.isMinified : false, 
+            sidebarMin: (typeof true == typeof props.sidebarMin) ? props.sidebarMin : false, 
+            contentMin: (typeof true == typeof props.contentMin) ? props.contentMin : false, 
+            align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
         };
+
+        this.nodeSideBar = React.createRef();
     }
 
     /**
@@ -54,11 +57,11 @@ class Container extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify', 'footerData'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify', 'footerData', 'isMinified', 'sidebarMin', 'contentMin', 'align'], props, state)) {
 
             if(state.persistUserSelection && null !== localStorage.getItem('persistUserSelection')){
                 try{
-                    const saved = localStorage.getItem('persistUserSelection');
+                    const saved = JSON.parse(localStorage.getItem('persistUserSelection'));
                     const { sidebarMin, contentMin, isMinified, minifiedSecondSideBar } = saved;
                     return { sidebarMin, contentMin, isMinified, minifiedSecondSideBar };
                 }
@@ -96,7 +99,8 @@ class Container extends React.Component
                 sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt : 1024,
                 displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
                 minify: props.minify,
-                footerData: props.footerData
+                footerData: props.footerData,
+                align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
             };
         }
 
@@ -124,8 +128,8 @@ class Container extends React.Component
     handleClick(e) {
         const { minifiedSecondSideBar, href, sidebarMaxifiedAt } = this.state;
 
-        if (this.nodeSideBar && !this.nodeSideBar.contains(e.target) && this.nodeSideBar.classList && this.nodeSideBar.classList.contains('SidebarMinified')) {
-            this.nodeSideBar.classList.remove('opened');
+        if (this.nodeSideBar && this.nodeSideBar.current && !this.nodeSideBar.current.contains(e.target) && this.nodeSideBar.current.classList && this.nodeSideBar.current.classList.contains('SidebarMinified')) {
+            this.nodeSideBar.current.classList.remove('opened');
 
             if (!minifiedSecondSideBar) {
                 setTimeout(() => {
@@ -146,18 +150,16 @@ class Container extends React.Component
                 this.resizeView();
             }
 
-            if (this.nodeSideBar && this.nodeSideBar.classList && this.nodeSideBar.classList.contains('SidebarMinified') && href !== window.location.href) {
+            if (this.nodeSideBar && this.nodeSideBar.current && this.nodeSideBar.current.classList && this.nodeSideBar.current.classList.contains('SidebarMinified') && href !== window.location.href) {
 
                 this.setState({
                     href: window.location.href
                 });
 
                 if (!minifiedSecondSideBar) {
-                    setTimeout(() => {
-                        this.setState({
-                            minifiedSecondSideBar: true
-                        });
-                    }, 0);
+                    this.setState({
+                        minifiedSecondSideBar: true
+                    });
                 }
             }
         }, 300);
@@ -341,19 +343,20 @@ class Container extends React.Component
     }
 
     render() {
-        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps } = this.state;
+        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, isMinified, align } = this.state;
         const sidebarClassNames = this.getClassNamesSidebar();
         const contentClassNames = this.getClassNamesContent();
-        const cls = `${this.state.isMinified ? (this.state.minifiedSecondSideBar ? 'SideBar SidebarMinified' : 'SideBar SidebarMinified opened') : sidebarClassNames}`;
+        const cls = `${isMinified ? (this.state.minifiedSecondSideBar ? 'SideBar SidebarMinified' : 'SideBar SidebarMinified opened') : sidebarClassNames}`;
+        const direction = ['left', 'right'].includes(align) ? align : 'left';
 
         return (
-            <div id={id} className={`${defaultClass} ${addClass}`}>
+            <div id={id} className={`${defaultClass} ${direction} ${addClass}`}>
                 <div
-                    ref={node => (this.nodeSideBar = node)}
+                    ref={this.nodeSideBar}
                     className={cls}
                 >
                     {
-                        this.state.isMinified &&
+                        isMinified &&
                         <span 
                             className='close-side-bar action-icon'
                             onClick={e => this.sideBar()}
@@ -368,7 +371,7 @@ class Container extends React.Component
                     }
                 </div>
                 <div className={contentClassNames} {...contentProps}>
-                    <div className={`header`} {...headerProps}>
+                    <div className={`data-header`} {...headerProps}>
                         {
                             displayMinifyMaxifyIcon &&
                             <span 
@@ -386,7 +389,7 @@ class Container extends React.Component
                     </div>
                     {
                         contentData &&
-                        <div className='content'>
+                        <div className='data-content'>
                             {
                                 contentData
                             }
@@ -394,7 +397,10 @@ class Container extends React.Component
                     }
                     {
                         footerData && 
-                        <div className='footer'>
+                        <div 
+                            className='data-footer'
+                            {...footerProps}
+                        >
                             {
                                 footerData
                             }

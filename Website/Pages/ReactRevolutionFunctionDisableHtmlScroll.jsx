@@ -1,9 +1,6 @@
 import React from 'react';
-
-import { disableHtmlScroll, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
+import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 const codeExample1 = `import { disableHtmlScroll } from 'react-revolution';`;

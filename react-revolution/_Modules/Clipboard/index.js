@@ -1,9 +1,6 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class Clipboard extends React.Component 
@@ -25,7 +22,7 @@ class Clipboard extends React.Component
                 height: 0,
                 overflow: 'hidden'
             },
-            uuid: `${uuid()}`,
+            internalUuid: `${internalUuid()}`,
             /**
              * User
              */
@@ -119,7 +116,7 @@ class Clipboard extends React.Component
     }
     
     render() {
-        const { addClass, data, defaultClass, id, formStyle, uuid } = this.state;
+        const { addClass, data, defaultClass, id, formStyle, internalUuid } = this.state;
 
         return (
             <div 
@@ -134,7 +131,7 @@ class Clipboard extends React.Component
                 <form style={formStyle}>
                     <textarea
                         ref={ node => this.clipboardNode = node}
-                        id={uuid}
+                        id={internalUuid}
                         value=''
                         readOnly={true}
                     />

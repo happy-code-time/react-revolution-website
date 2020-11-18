@@ -8,7 +8,7 @@ import { LoadOnScroll, LoadingBoxTop, uuid } from './react-revolution';
  * Render it to the html while testing
  */
 
-import './react-revolution/sass/rr-menu-click-horizontal.scss';
+import './react-revolution/sass/rr-menu.scss';
 
 class App extends React.Component 
 {

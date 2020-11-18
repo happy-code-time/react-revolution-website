@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v3.0.4';
+const version = 'v3.0.5';
 
 const modules = [
     "Accordion",
@@ -46,7 +46,7 @@ const modules = [
     "Lightbulb404",
     "LoadingBoxTop",
     "LoadOnScroll",
-    "MenuClickHorizontal",
+    "Menu",
     "Modal",
     "PagerDynamic",
     "PagerStatic",
@@ -61,11 +61,21 @@ const modules = [
     "TextWriter",
     "Timeline",
     "Water404",
+    // Functions
+    // "Functions/addGlobalMessage",
+    // "Functions/disableHtmlScroll",
+    // "Functions/enableHtmlScroll",
+    // "Functions/isObject",
+    // "Functions/scrollTopListener",
+    // "Functions/urlExtract",
+    // "Functions/uuid",
 ];
 
 const removeDirs = [
     './public/**/*',
     './react-revolution/_Configurations/**/*',
+    // './react-revolution/Functions/**/*',
+    // './react-revolution/Functions',
 ];
 
 modules.map( dirAndModuleName => {
@@ -79,6 +89,23 @@ modules.map( dirAndModuleName => {
  */
 gulp.task('clean', function (done) {
     del.sync(removeDirs,
+        {
+            dot: true
+        });
+    done();
+});
+
+/**
+ * Clean css files
+ */
+gulp.task('clean:css', function (done) {
+    del.sync(
+        [
+            './public/css/**/*',
+            './public/css',
+            './public/react-revolution/'+version+'/css/**/*',
+            './public/react-revolution/'+version+'/scss/**/*',
+        ],
         {
             dot: true
         });
@@ -137,26 +164,15 @@ gulp.task('copy:css:modules', function (done) {
     done();
 });
 
+
+gulp.task('build:css:website', function (done) {
+    gulp.src("Website/Scss/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css"));
+    done();
+});
+
 const buildModuleProduction = (filename, cb) => {
     return new Promise( (resolve, reject) => {
         exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config ./_Configurations/' + filename + ' --module-bind js=babel-loader', function (err, stdout, stderr) {
-            console.log(stdout);
-            console.log(stderr);
-            cb(err);
-
-            if(err){
-                reject(err)
-            }
-            else{
-                resolve(true);
-            }
-        });
-    })
-};
-
-const buildModuleProductionObfucated = (filenameObfuscated, cb) => {
-    return new Promise( (resolve, reject) => {
-        exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config ./_Configurations/' + filenameObfuscated + ' --module-bind js=babel-loader', function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);
             cb(err);
@@ -188,40 +204,6 @@ const runReactRevolutionBuild = (cb) => {
     });
 };
 
-const runReactRevolutionObfscatedBuild = (cb) => {
-    return new Promise( (resolve, reject) => {
-        exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config webpack.config.obfuscated.production.js --module-bind js=babel-loader', function (err, stdout, stderr) {
-            console.log(stdout);
-            console.log(stderr);
-            cb(err);
-    
-            if(err){
-                reject(err)
-            }
-            else{
-                resolve(true);
-            }
-        });
-    });
-};
-
-const runWebsiteBuild = (cb) => {
-    return new Promise( (resolve, reject) => {
-        exec('node node_modules/webpack/bin/webpack.js --config webpack.website.production.js --module-bind js=babel-loader --progress --profile --colors', function (err, stdout, stderr) {
-            console.log(stdout);
-            console.log(stderr);
-            cb(err);
-    
-            if(err){
-                reject(err)
-            }
-            else{
-                resolve(true);
-            }
-        }); 
-    });
-}
-
 gulp.task('create:webpack:files', async function(cb){
 
     modules.push('PRODUCTION');
@@ -230,8 +212,17 @@ gulp.task('create:webpack:files', async function(cb){
         const moduleName = modules[x];
 
         if('PRODUCTION' !== moduleName){
-            const filename = "webpack.config." + moduleName + ".production.js";
-            const filenameObfuscated = "webpack.config.obfuscator." + moduleName + ".production.js";
+            let filename = "webpack.config." + moduleName + ".production.js";
+            let entry  = `'./_Modules/${moduleName}/index.js'`;
+            let outputPath = `path.resolve(__dirname, '../${moduleName}')`;
+
+            // if(-1 !== moduleName.indexOf('Functions/')){
+            //     const fnName = moduleName.replace('Functions/', '');
+            //     filename = "webpack.config.function." + fnName + ".production.js";
+            //     entry  = `'./_Functions/${fnName}.js'`;
+            //     outputPath = `path.resolve(__dirname, '../Functions/${fnName}')`;
+            // }
+
             let data = `
             const TerserPlugin = require('terser-webpack-plugin');
     
@@ -266,9 +257,9 @@ gulp.task('create:webpack:files', async function(cb){
             },
             cache: false,
             mode: 'production',
-            entry: './_Modules/`+moduleName+`/index.js',
+            entry: `+entry+`,
             output: {
-                path: path.resolve(__dirname, '../`+moduleName+`'),
+                path: `+outputPath+`,
                 filename: 'index.js',
                 libraryTarget: 'commonjs2'
             },
@@ -304,89 +295,6 @@ gulp.task('create:webpack:files', async function(cb){
             };`;
     
             fs.writeFile("./react-revolution/_Configurations/" + filename, data, cb);
-    
-            // data = `
-            // const TerserPlugin = require('terser-webpack-plugin');
-    
-            // const Dotenv = require('dotenv-webpack');
-    
-            // const path = require('path');
-    
-            // const JavaScriptObfuscator = require('webpack-obfuscator');
-
-            // module.exports = {
-            // optimization: {
-            //     minimizer: [
-            //     new TerserPlugin({
-            //         cache: true,
-            //         parallel: true,
-            //         sourceMap: true, // Must be set to true if using source-maps in production
-            //         terserOptions: {
-            //         ecma: undefined,
-            //         warnings: false,
-            //         parse: {},
-            //         compress: {},
-            //         mangle: true,
-            //         module: false,
-            //         output: null,
-            //         toplevel: false,
-            //         nameCache: null,
-            //         ie8: false,
-            //         keep_classnames: undefined,
-            //         keep_fnames: false,
-            //         safari10: false,
-            //         }
-            //     }),
-            //     ],
-            // },
-            // cache: false,
-            // mode: 'production',
-            // entry: './_Modules/`+moduleName+`/index.js',
-            // output: {
-            //     path: path.resolve(__dirname, '../Obfuscated/`+moduleName+`'),
-            //     filename: 'index.js',
-            //     libraryTarget: 'commonjs2'
-            // },
-            // module: {
-            //     rules: [
-            //         {
-            //             test: /\.js$/,
-            //             include: path.resolve(__dirname, '**/*'),
-            //             exclude: /(node_modules|bower_components|public|production.js|_Sass)/,
-            //             use: {
-            //             loader: 'babel-loader',
-            //             options: {
-            //                 presets: ['env']
-            //             }
-            //             }
-            //         },
-            //         {
-            //             test: /\.scss$/,
-            //             use: [
-            //             "style-loader",
-            //             "css-loader",
-            //             "sass-loader"
-            //             ]
-            //         }
-            //         ]
-            //     },
-            //     externals: {
-            //         'react': 'commonjs react'
-            //     },
-            //     plugins: [
-            //         new Dotenv(),
-            //         new JavaScriptObfuscator({
-            //             rotateUnicodeArray: true
-            //         },
-            //             /**
-            //              * Exclude files
-            //              */
-            //             ['']
-            //         )
-            //     ],
-            // };`;
-    
-            // fs.writeFile("./react-revolution/_Configurations/" + filenameObfuscated, data, cb);
 
             await buildModuleProduction(filename, cb)
             .then( () => {
@@ -397,24 +305,12 @@ gulp.task('create:webpack:files', async function(cb){
             .catch( e => {
                 console.log(`Module build failed: ${filename}. ${e}`)
             });
-
-            // await buildModuleProductionObfucated(filenameObfuscated, cb)
-            // .then( () => {
-            //         console.log(`Module build done: ${filenameObfuscated}`)
-            //         run('npm run chmod:2775').exec();
-            //     }
-            // )
-            // .catch( e => {
-            //     console.log(`Module build failed: ${filename}. ${e}`)
-            // });
         }
         else{
             /**
              * Run main module build
              */
             await runReactRevolutionBuild(cb);
-            await runReactRevolutionObfscatedBuild(cb);
-            await runWebsiteBuild(cb);
         }
     }
 });
@@ -432,6 +328,21 @@ gulp.task('compile', function (callback) {
             'build:css:all',
             'copy:css:modules',
             'create:webpack:files',
+        ],
+        callback);
+});
+
+/**
+ * Multiple task runner
+ */
+gulp.task('css', function (callback) {
+    runSequence(
+        [
+            'clean:css',
+            'build:css:modules',
+            'build:css:all',
+            'copy:css:modules',
+            'build:css:website'
         ],
         callback);
 });

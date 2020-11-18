@@ -4,7 +4,7 @@ const WRITE_DIR = path.resolve(__dirname, './public/');
 
 const APP_DIR = path.resolve(__dirname, './module.jsx');
 
-const version = 'v3.0.4';
+const version = 'v3.0.5';
 
 module.exports = {
     devtool: false,
@@ -27,10 +27,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader"
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react', '@babel/preset-env'],
+                    }
                 }
             },
             {
@@ -55,7 +58,7 @@ module.exports = {
             {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file-loader"
-            },
+            }
         ]
     }
 };

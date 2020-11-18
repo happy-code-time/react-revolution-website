@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Container, SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, Container, SideBar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -10,10 +10,10 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
-const codeExample1 = `import { Container, SideBar, MenuClickHorizontal } from 'react-revolution';
+const codeExample1 = `import { Container, SideBar, Menu } from 'react-revolution';
 // import Container from 'react-revolution/Container';
 // import SideBar from 'react-revolution/SideBar';
-// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
+// import Menu from 'react-revolution/Menu';
 
 <Container
     addClass='container-example'
@@ -38,7 +38,7 @@ const codeExample1 = `import { Container, SideBar, MenuClickHorizontal } from 'r
             href={undefined}
             globalStyle={true}
             moduleMenu={
-                <MenuClickHorizontal
+                <Menu
                     reactRouter={false}
                     animation='height'
                     dropDown={
@@ -118,7 +118,7 @@ const codeExample1 = `import { Container, SideBar, MenuClickHorizontal } from 'r
     footerData={<div className='FOOTER'/>}
 />`;
 
-const cssExample = `.rr-container.container-example {
+const cssExample = `.container-example {
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -132,7 +132,7 @@ const cssExample = `.rr-container.container-example {
             margin-left: 5px;
         }
 
-        .rr-menu-click-horizontal {
+        .rr-menu {
             height: calc(100% - 60px);
             overflow-x: hidden;
             overflow-y: hidden;
@@ -169,7 +169,7 @@ const cssExample = `.rr-container.container-example {
             }
         }
 
-        .rr-menu-click-horizontal:hover {
+        .rr-menu:hover {
             overflow-y: auto;
         }
     }
@@ -256,7 +256,7 @@ class ReactRevolutionClouds404 extends React.Component
                                 href={undefined}
                                 globalStyle={true}
                                 moduleMenu={
-                                    <MenuClickHorizontal
+                                    <Menu
                                         reactRouter={false}
                                         animation='height'
                                         dropDown={
@@ -471,7 +471,11 @@ class ReactRevolutionClouds404 extends React.Component
                                 {
                                     key: 'footerData',
                                     values: 'footerData'
-                                },  
+                                },
+                                {
+                                    key: 'align',
+                                    values: 'menu.align'
+                                },
                             ],
                             'rr-container'
                         )

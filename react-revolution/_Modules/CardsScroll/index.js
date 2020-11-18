@@ -1,8 +1,6 @@
 import React from 'react';
 
-import uuid from '../internalFunctions/uuid';
-
-import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
+import internalUuid from '../internalFunctions/internalUuid';
 
 import loadStyle from '../internalFunctions/loadStyle';
 
@@ -121,7 +119,7 @@ class CardsScroll extends React.Component
             c++;
 
             singleLines.push(
-                <div key={uuid()} className="card flex flex-column">
+                <div key={internalUuid()} className="card flex flex-column">
                     {
                         title && 
                         <div className="title">
@@ -152,7 +150,7 @@ class CardsScroll extends React.Component
             if(c == itemsPerLine){
 
                 dataJsx.push(
-                    <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                    <div key={internalUuid()} className={`cards-group ${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -166,7 +164,7 @@ class CardsScroll extends React.Component
 
         if(singleLines.length){
             dataJsx.push(
-                <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                <div key={internalUuid()} className={`cards-group ${clsCardsHolder}`}>
                     {
                         singleLines
                     }
@@ -203,7 +201,7 @@ class CardsScroll extends React.Component
             c++;
 
             singleLines.push(
-                <div key={uuid()} className="card flex flex-column">
+                <div key={internalUuid()} className="card flex flex-column">
                     {
                         title && 
                         <div className="title">
@@ -234,7 +232,7 @@ class CardsScroll extends React.Component
             if(c == itemsPerLine){
 
                 newDataJsx.push(
-                    <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                    <div key={internalUuid()} className={`cards-group ${clsCardsHolder}`}>
                         {
                             singleLines
                         }
@@ -248,7 +246,7 @@ class CardsScroll extends React.Component
 
         if(singleLines.length){
             newDataJsx.push(
-                <div key={uuid()} className={`cards-group ${clsCardsHolder}`}>
+                <div key={internalUuid()} className={`cards-group ${clsCardsHolder}`}>
                     {
                         singleLines
                     }

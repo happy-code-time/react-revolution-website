@@ -1,7 +1,5 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import loadStyle from '../internalFunctions/loadStyle';
 
 class TextWriter extends React.Component 
@@ -16,7 +14,7 @@ class TextWriter extends React.Component
              * App
              */
             written: [],
-            uuid: `${uuid()}`,
+            internalUuid: `${internalUuid()}`,
             /**
              * User
              */
@@ -100,7 +98,7 @@ class TextWriter extends React.Component
     }
 
     runReplacer() {
-        let { replaces, pipePersist, speed, uuid } = this.state;
+        let { replaces, pipePersist, speed, internalUuid } = this.state;
         let replacesDone = 0;
 
         const runReplacer = () => {
@@ -117,7 +115,7 @@ class TextWriter extends React.Component
                     const newString = [];
 
                     for (let x = 0; x <= written.length - 1; x++) {
-                        if (uuid !== written[x]) {
+                        if (internalUuid !== written[x]) {
                             newString.push(written[x]);
                         }
                     }
@@ -174,7 +172,7 @@ class TextWriter extends React.Component
                     });
                 }
                 else {
-                    written[to] = uuid;
+                    written[to] = internalUuid;
                     this.setState({ written });
                 }
 
@@ -187,7 +185,7 @@ class TextWriter extends React.Component
     }
 
     render() {
-        const { addClass, defaultClass, id, uuid, written, pipeDisplay, pipeChar, pipeSite } = this.state;
+        const { addClass, defaultClass, id, internalUuid, written, pipeDisplay, pipeChar, pipeSite } = this.state;
 
         return (
             <span className={`${defaultClass} ${addClass}`} id={id}>
@@ -201,7 +199,7 @@ class TextWriter extends React.Component
                 }
                 {
                     written.map(i => {
-                        if (uuid !== i) {
+                        if (internalUuid !== i) {
                             return i
                         }
                     })

@@ -1,6 +1,14 @@
+let previouslyUsedUuidInsideReactRevolutionsPackage = undefined;
+
 const uuid = () => {
-  const timestamp = Math.floor(Date.now() / 1000);
-  return `${timestamp}${Math.floor(Math.random() * 1000000)}${Math.floor(Math.random() * 1000000)}`;
+  let current = `${Math.floor(Math.random() * 1000000)}${Math.floor(Math.random() * 1000000)}${Math.floor(Math.random() * 1000000)}`;
+
+  if (previouslyUsedUuidInsideReactRevolutionsPackage !== current) {
+    previouslyUsedUuidInsideReactRevolutionsPackage = current;
+    return current;
+  }
+  
+  return uuid();
 };
 
 export default uuid;

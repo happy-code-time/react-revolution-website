@@ -65,8 +65,8 @@ LoadingBoxTop
 LoadOnScroll
 - [https://react-revolution.j.pl/#/react-revolution-load-on-scroll](https://react-revolution.j.pl/#/react-revolution-load-on-scroll)
 
-MenuClickHorizontal
-- [https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal](https://react-revolution.j.pl/#/react-revolution-menu-click-horizontal)
+Menu
+- [https://react-revolution.j.pl/#/react-revolution-menu](https://react-revolution.j.pl/#/react-revolution-menu)
 
 PagerDynamic
 - [https://react-revolution.j.pl/#/react-revolution-pager-dynamic](https://react-revolution.j.pl/#/react-revolution-pager-dynamic)

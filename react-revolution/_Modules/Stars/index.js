@@ -1,12 +1,8 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
 import isObject from '../../_Functions/isObject';
-
-import uuid from '../internalFunctions/uuid';
+import internalUuid from '../internalFunctions/internalUuid';
 
 class Stars extends React.Component {
 
@@ -112,7 +108,7 @@ class Stars extends React.Component {
 
             stars.push(
                 <span 
-                    key={uuid()}
+                    key={internalUuid()}
                     className={`star ${filled >= x ? 'star-filled' : 'star-unfilled'} ${fillHover ? 'star-hover-fill' : ''} ${color ? `star-color-${color}` : ''}`}
                     {...properties}
                     {...(callback && { onClick: (e) => this.callback(e, x) })}

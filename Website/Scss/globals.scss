@@ -1,3 +1,5 @@
+@import "./colors";
+
 $default_transition: 200ms !default;
 
 $default_transition_popup_boxes: 250ms;
@@ -16,7 +18,7 @@ $media-break-s: 720px;
 
 $dashboard_menu-width: 250px;
 
-$dashboard_menu-width-min: 180px;
+$dashboard_menu-width-min: 50px;
 
 $popup_height: 500px;
 

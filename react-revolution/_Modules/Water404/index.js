@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
-class Water404 extends Component {
+class Water404 extends React.Component {
 
     constructor(props) {
         super(props);

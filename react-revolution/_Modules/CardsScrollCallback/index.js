@@ -1,9 +1,5 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
-import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import loadStyle from '../internalFunctions/loadStyle';
 
 class CardsScrollCallback extends React.Component 
@@ -215,7 +211,7 @@ class CardsScrollCallback extends React.Component
             const { title, content, footer } = data[x];
 
             dataJsx.push(
-                <div key={uuid()} className="card flex flex-column">
+                <div key={internalUuid()} className="card flex flex-column">
                     {
                         title &&
                         <div className="title">
@@ -278,7 +274,7 @@ class CardsScrollCallback extends React.Component
 
             if (c == itemsPerLine) {
                 root.push(
-                    <div key={uuid()} className='cards-group flex'>
+                    <div key={internalUuid()} className='cards-group flex'>
                         {
                             cards
                         }
@@ -291,7 +287,7 @@ class CardsScrollCallback extends React.Component
         }
         if (cards.length) {
             root.push(
-                <div key={uuid()} className='cards-group flex'>
+                <div key={internalUuid()} className='cards-group flex'>
                     {
                         cards
                     }

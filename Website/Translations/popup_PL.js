@@ -664,7 +664,7 @@ const PL = {
         "default": "undefined"
     },
     "moduleMenu": {
-        "description": "Wbudowany moduł 'MenuClickHorizontal'.",
+        "description": "Wbudowany moduł 'Menu'.",
         "type": "JSX",
         "default": "undefined"
     },
@@ -784,8 +784,8 @@ const PL = {
         "default": "false"
     },
     "bread.moduleMenu": {
-        "description": "Dołączono moduł: 'MenuClickHorizontal' dostępny tylko dla ostatniego menu nawigacyjnego. Tylko jedno dziecko dozwolone jako element nadrzędny - zagnieżdżanie potomne dozwolone bez ograniczeń.",
-        "type": "<MenuClickHorizontal>",
+        "description": "Dołączono moduł: 'Menu' dostępny tylko dla ostatniego menu nawigacyjnego. Tylko jedno dziecko dozwolone jako element nadrzędny - zagnieżdżanie potomne dozwolone bez ograniczeń.",
+        "type": "<Menu>",
         "default": "undefined"
     },
     "closeOnClickOutside": {
@@ -1179,7 +1179,7 @@ const PL = {
         "default": "<pusty ciąg>"
     },
     "moduleSidebar": {
-        "description": "Moduł 'MenuClickHorizontal'.",
+        "description": "Moduł 'Menu'.",
         "type": "Moduł",
         "default": "undefined"
     },
@@ -1643,7 +1643,47 @@ const PL = {
     "CustomSuggestion.description.2": "Przykład z sugestiami z href przekierowania użytkownika po zdarzeniu kliknięcia i kluczem 'callbackRerender = {false}' - oznacza akceptację sugestii z zewnątrz.",
     "CustomSuggestion.description.3": "Przykład z sugestiami z href przekierowania użytkownika po zdarzeniu kliknięcia i kluczem 'callbackRerender = {true}' (wymagany do zaakceptowania nowego stanu = sugestie przychodzące z Obietnicy) i wyszukiwanie z kluczem niewrażliwym i kluczem „ładowanie” opartym na funkcji wywołania zwrotnego i przekazanym wywołaniu zwrotnym musi być obietnicą (w połączeniu z klawiszem „ładowanie”!). W tym czasie (oczekiwanie) wyświetlana jest ikona ładowania . Jeśli rozwiążesz lub odrzucisz obietnicę, ikona ładowania / dane znikną. ",
     "GlobalMessages.description.1": "Przykład z pojedynczą wiadomością. Ta wiadomość zniknie tylko wtedy, gdy użytkownik zmieni aktualną lokalizację.",
-    "GlobalMessages.description.2": "Przykład z pojedynczą wiadomością. Ta wiadomość zniknie po dwóch sekundach."
+    "GlobalMessages.description.2": "Przykład z pojedynczą wiadomością. Ta wiadomość zniknie po dwóch sekundach.",
+    "menu.headData": {
+        "description": "Zdefiniowane przez użytkownika dane JSX na górze menu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "menu.activeClassName": {
+        "description": "Kiedy element jest kliknięty, otrzymuje nazwę tej klasy.",
+        "type": "String",
+        "default": "is-active"
+    },
+    "menu.toggledClassName": {
+        "description": "Kiedy element został przełączony, otrzymuje nazwę tej klasy.",
+        "type": "String",
+        "default": "is-toggled"
+    },
+    "menu.isActiveTree": {
+        "description": "Ile elementów - zaczynając od węzła głównego - powinno być oznaczonych jako AKTYWNE ('activeClassName'). Wartość -1 oznacza bez ograniczeń.",
+        "type": "Number",
+        "default": "-1"
+    },
+    "menu.forceClose": {
+        "description": "Wymuszanie zamknięcia wszystkich innych elementów ROOT, które nie zostały przełączone.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.forceCloseAll": {
+        "description": "Wymuś zamknięcie WSZYSTKICH innych elementów, które nie zostały przełączone.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.align": {
+        "description": "W jakim kierunku mają być tworzone elementy menu. Zaczynając od lewej lub prawej strony.",
+        "type": "String",
+        "default": "left"
+    },
+    "menu.alignIcon": {
+        "description": "Jeśli dostarczono klucz 'ikona', ikona powinna znajdować się po prawej lub lewej stronie.",
+        "type": "String",
+        "default": "left"
+    },
 };
 
 export default PL;

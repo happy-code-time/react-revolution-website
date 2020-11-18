@@ -1,9 +1,6 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class FullScreenListObject extends React.Component
@@ -270,7 +267,7 @@ class FullScreenListObject extends React.Component
 
         return array.map( (entry, index) => {
             return (
-                <li key={uuid()} className="li" onClick={ (e) => this.callback(e, entry)}>
+                <li key={internalUuid()} className="li" onClick={ (e) => this.callback(e, entry)}>
                     {
                         lineNumber &&
                         <span className="index">

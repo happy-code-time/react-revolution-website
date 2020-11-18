@@ -1,12 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 
 import urlExtract from '../../_Functions/urlExtract';
 
-import uuid from '../internalFunctions/uuid';
+import uuid from '../internalFunctions/internalUuid';
 
 import loadStyle from '../internalFunctions/loadStyle';
 
-import MenuClickHorizontal from '../MenuClickHorizontal';
+import Menu from '../Menu';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
@@ -97,7 +97,7 @@ class Breadcrumbs extends React.Component
             }
 
             return (
-                <MenuClickHorizontal
+                <Menu
                     id={id}
                     defaultClass={defaultClass}
                     addClass={addClass}

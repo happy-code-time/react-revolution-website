@@ -1,23 +1,13 @@
-import React, { Component } from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import React from 'react';
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import tagMatcher from './functions/tagMatcher';
-
 import propsMatcher from './functions/propsMatcher';
-
 import varMatcher from './functions/varMatcher';
-
 import objectPropertyMatcher from './functions/objectPropertyMatcher';
-
 import functionMatcher from './functions/functionMatcher';
-
 import keyWordsMatcher from './functions/keyWordsMatcher';
-
 import quotesMatcher from './functions/quotesMatcher';
-
 import bracketMatcher from './functions/bracketMatcher';
 
 const defaultSourceCodeSteps = [
@@ -31,7 +21,7 @@ const defaultSourceCodeSteps = [
     'brackets',
 ];
 
-class ModuleSourceCode extends Component {
+class ModuleSourceCode extends React.Component {
 
     constructor(props) {
         super(props);
@@ -558,7 +548,7 @@ class ModuleSourceCode extends Component {
 
                                         return (
                                             <li
-                                                key={uuid()}
+                                                key={internalUuid()}
                                                 className='line'
                                             >
                                                 <span className='line-code'>
@@ -576,7 +566,7 @@ class ModuleSourceCode extends Component {
 
                                     code.push(
                                         <span
-                                            key={uuid()}
+                                            key={internalUuid()}
                                             className={`${className ? className : ''}`}
                                         >
                                             {
@@ -588,7 +578,7 @@ class ModuleSourceCode extends Component {
 
                                 return (
                                     <li
-                                        key={uuid()}
+                                        key={internalUuid()}
                                         className='line'
                                     >
                                         {

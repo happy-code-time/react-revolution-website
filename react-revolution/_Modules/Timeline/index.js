@@ -1,11 +1,7 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
-import { parse } from '@fortawesome/fontawesome-svg-core';
 
 class Timeline extends React.Component {
 
@@ -154,7 +150,7 @@ class Timeline extends React.Component {
                     dataJsx.push(
                         <div
                             className={`single-entry single-entry-${align} ${'center' !== align ? 'flex' : ''}`}
-                            key={uuid()}
+                            key={internalUuid()}
                         >
                             {/* Empty div on the right site */}
                             {
@@ -246,7 +242,7 @@ class Timeline extends React.Component {
             items.push(
                 <span
                     className='circle'
-                    key={uuid()}
+                    key={internalUuid()}
                     style={
                         {
                             backgroundColor: colorLineMiddle

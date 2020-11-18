@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { SideBar, MenuClickHorizontal } from './react-revolution';
+import { SideBar, Menu } from './react-revolution';
 
 import './react-revolution/sass/rr-sidebar.scss';
 
-import './react-revolution/sass/rr-menu-click-horizontal.scss';
+import './react-revolution/sass/rr-menu.scss';
 
 /**
  * Render it to the html while testing
@@ -35,7 +35,7 @@ class App extends React.Component
               textLong='ddddd'
               textShort='v111'
               moduleMenu={
-                <MenuClickHorizontal
+                <Menu
                   reactRouter={false}
                   data={
                     [

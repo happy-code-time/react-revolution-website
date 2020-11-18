@@ -664,7 +664,7 @@ const EN = {
         "default": "undefined"
     },
     "moduleMenu": {
-        "description": "The embedded 'MenuClickHorizontal' module.",
+        "description": "The embedded 'Menu' module.",
         "type": "JSX",
         "default": "undefined"
     },
@@ -784,8 +784,8 @@ const EN = {
         "default": "false"
     },
     "bread.moduleMenu" : {
-        "description": "Attached the module: 'MenuClickHorizontal' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
-        "type": "<MenuClickHorizontal>",
+        "description": "Attached the module: 'Menu' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
+        "type": "<Menu>",
         "default": "undefined"
     },
     "closeOnClickOutside": {
@@ -1179,7 +1179,7 @@ const EN = {
         "default": "<empty string>"
     },
     "moduleSidebar": {
-        "description": "The module 'MenuClickHorizontal'.",
+        "description": "The module 'Menu'.",
         "type": "Module",
         "default": "undefined"
     },
@@ -1642,7 +1642,47 @@ const EN = {
     "CustomSuggestion.description.2" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={false}' - its mean accept the suggestion comes from outsite.",
     "CustomSuggestion.description.3" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new state = the incoming suggestions from the Promise) and a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
     "GlobalMessages.description.1" : "Example with a single message. This message will only disappear if the user change the current location.",
-    "GlobalMessages.description.2" : "Example with a single message. This message will disappear after two seconds."
+    "GlobalMessages.description.2" : "Example with a single message. This message will disappear after two seconds.",
+    "menu.headData": {
+        "description": "User-defined JSX data at the top of the menu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "menu.activeClassName": {
+        "description": "When an element is clicked, it gets this class name.",
+        "type": "String",
+        "default": "is-active"
+    },
+    "menu.toggledClassName": {
+        "description": "When an element has been toggled, it is given this class name.",
+        "type": "String",
+        "default": "is-toggled"
+    },
+    "menu.isActiveTree": {
+        "description": "How many elements - starting from the root node - should be marked as ACTIVE ('activeClassName'). The value -1 means without restrictions.",
+        "type": "Number",
+        "default": "-1"
+    },
+    "menu.forceClose": {
+        "description": "Forcing the closure of all other ROOT elements that have not been toggled.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.forceCloseAll": {
+        "description": "Force closure of ALL other elements that have not been toggled.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.align": {
+        "description": "In which direction the menu elements should be created. Starting from the left or right.",
+        "type": "String",
+        "default": "left"
+    },
+    "menu.alignIcon": {
+        "description": "If the key 'icon' was supplied, the icon should be on the right or left side.",
+        "type": "String",
+        "default": "left"
+    },
 };
 
 export default EN;

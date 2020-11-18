@@ -1,9 +1,6 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class Accordion extends React.Component 

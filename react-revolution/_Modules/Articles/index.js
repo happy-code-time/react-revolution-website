@@ -1,11 +1,7 @@
 import React from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class Articles extends React.Component 
@@ -178,7 +174,7 @@ class Articles extends React.Component
                     if (typeof '8' == typeof title) {
                         rightSite.push(
                             <h1
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={`title ${'title' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...titleProps}
                                 {...(('title' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
@@ -192,7 +188,7 @@ class Articles extends React.Component
                     else {
                         rightSite.push(
                             <div
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={`title ${'title' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...titleProps}
                                 {...(('title' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
@@ -210,7 +206,7 @@ class Articles extends React.Component
                     if (typeof '8' == typeof title) {
                         rightSite.push(
                             <p
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={`text ${'text' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...textProps}
                                 {...(('text' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
@@ -224,7 +220,7 @@ class Articles extends React.Component
                     else {
                         rightSite.push(
                             <div
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={`text ${'text' == toggleOn && dataToggle && toggled && persist ? 'data-toggled' : ''}`}
                                 {...textProps}
                                 {...(('text' == toggleOn && !toggleForwards && canBeToggled) && { onClick: (e) => this.toggle(unique) })}
@@ -290,7 +286,7 @@ class Articles extends React.Component
                                     {
                                         dataToggle && toggled &&
                                         <div
-                                            key={uuid()}
+                                            key={internalUuid()}
                                             className={classList}
                                         >
                                             {
@@ -317,7 +313,7 @@ class Articles extends React.Component
                 if (temporary.length == itemsPerLine || temporary.length && x == data.length - 1) {
                     jsx.push(
                         <div
-                            key={uuid()}
+                            key={internalUuid()}
                             className={clsHolder}
                         >
                             {

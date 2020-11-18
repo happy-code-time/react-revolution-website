@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import copyFunctions from '../internalFunctions/copyFunctions';
-
-import uuid from '../internalFunctions/uuid';
+import internalUuid from '../internalFunctions/internalUuid';
 
 class DragDropArea extends Component {
 
@@ -25,7 +21,7 @@ class DragDropArea extends Component {
         this.handleDrop = this.handleDrop.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.cancleDragStatus = this.cancleDragStatus.bind(this);
-        this.uniqueAreaId = `${uuid()}`;
+        this.uniqueAreaId = `${internalUuid()}`;
 
         this.state = {
             /**
@@ -453,9 +449,9 @@ class DragDropArea extends Component {
                     const newOrderedData = [];
 
                     for (let i = 0; i <= mainData[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
+                        const internalUuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
 
-                        if (uuid !== itemKey) {
+                        if (internalUuid !== itemKey) {
                             newOrderedData.push(mainData[objectKeys[x]].data[i]);
                         }
                     }
@@ -548,9 +544,9 @@ class DragDropArea extends Component {
                     const newOrderedData = [];
 
                     for (let i = 0; i <= data[objectKeys[x]].data.length - 1; i++) {
-                        const uuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
+                        const internalUuid = `${this.uniqueAreaId}-drag-drop-entry-${x}-${i}`
 
-                        if (uuid !== itemKey) {
+                        if (internalUuid !== itemKey) {
                             newOrderedData.push(data[objectKeys[x]].data[i]);
                         }
                     }

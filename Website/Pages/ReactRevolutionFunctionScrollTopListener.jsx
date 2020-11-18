@@ -1,9 +1,6 @@
 import React from 'react';
-
 import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 const codeExample1 = `import { scrollTopListener } from 'react-revolution';`;

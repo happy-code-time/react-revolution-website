@@ -58,4 +58,6 @@
 - To run the module and website in production mode
         
         npm run compile
+        npm run build:website
+        npm run build:website:sass:prod
 

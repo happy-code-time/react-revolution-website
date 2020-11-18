@@ -6,11 +6,9 @@ import ReactDOM from 'react-dom';
 
 import Home from './Website/Pages/Home';
 
-import WebsiteContainer from './Website/Modules/WebsiteContainer';
-
 import ScrollTop from './Website/Modules/ScrollTop';
 
-import { CloudsMountains404, MenuClickHorizontal, SideBar, PopupBox, uuid, InputSuggestionObject } from './react-revolution/react-revolution';
+import { uuid, Container, CloudsMountains404, Menu, SideBar, PopupBox, InputSuggestionObject } from './react-revolution/react-revolution';
 
 import { appNameShort, version } from './Website/Globals';
 
@@ -24,7 +22,9 @@ import possibleLayouts from './Website/Functions/possibleLayouts';
 
 import getAllAvailableModulesNames from './Website/Functions/getAllAvailableModulesNames';
 
-import './Website/Scss/index.scss';
+import getDataLocalStorage from './Website/Functions/getDataLocalStorage';
+
+import setDataLocalStorage from './Website/Functions/setDataLocalStorage';
 
 /**
  * React Revolution Modules
@@ -83,7 +83,7 @@ import ReactRevolutionLightbulb404 from './Website/Pages/ReactRevolutionLightbul
 
 import ReactRevolutionLoadingBoxTop from './Website/Pages/ReactRevolutionLoadingBoxTop';
 
-import ReactRevolutionMenuClickHorizontal from './Website/Pages/ReactRevolutionMenuClickHorizontal';
+import ReactRevolutionMenu from './Website/Pages/ReactRevolutionMenu';
 
 import ReactRevolutionModal from './Website/Pages/ReactRevolutionModal';
 
@@ -152,6 +152,8 @@ import Release303 from './Website/Releases/Release303';
 
 import Release304 from './Website/Releases/Release304';
 
+import Release305 from './Website/Releases/Release305';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -160,12 +162,14 @@ class App extends React.Component {
     this.checkLocation = this.checkLocation.bind(this);
     this.changeSidebarMinifiedState = this.changeSidebarMinifiedState.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
+    this.toggleDashboardDirection = this.toggleDashboardDirection.bind(this);
 
     this.state = {
       minifySidebard: '#/' == window.location.hash ? true : false,
       host: ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD,
       suggestions: [],
       inputValue: '',
+      align: getDataLocalStorage('ALIGN') && ['left', 'right'].includes(getDataLocalStorage('ALIGN')) ? getDataLocalStorage('ALIGN') : 'left',
     };
 
     this.href = window.location.href;
@@ -256,7 +260,7 @@ class App extends React.Component {
   }
 
   setLanguage(language = 'English') {
-    if(setLanguage(language)){
+    if (setLanguage(language)) {
       window.location.reload();
     }
   }
@@ -337,10 +341,10 @@ class App extends React.Component {
     );
   }
 
-  callbackSelection(selection){
-    if(selection && selection[0] && selection[0].href){
+  callbackSelection(selection) {
+    if (selection && selection[0] && selection[0].href) {
 
-      if(window.location.href == selection[0].href){
+      if (window.location.href == selection[0].href) {
         return window.location.reload();
       }
 
@@ -349,11 +353,27 @@ class App extends React.Component {
     }
   }
 
+  /**
+   * Change sidebar direction
+   */
+  toggleDashboardDirection() {
+    const { align } = this.state;
+
+    if ('left' == align) {
+      setDataLocalStorage('ALIGN', 'right');
+      return this.setState({ align: 'right' });
+    }
+
+    setDataLocalStorage('ALIGN', 'left');
+    return this.setState({ align: 'left' });
+  }
+
   render() {
-    const { minifySidebard, host, suggestions, inputValue } = this.state;
+    const { minifySidebard, host, inputValue, align } = this.state;
 
     return (
-      <WebsiteContainer
+      <Container
+        globalStyle={true}
         persistUserSelection={false} // set local sotrage on click
         clearPersistUserSelection={true} // do not remove the local storage on component did mount
         sidebarMinifiedAt={1024}
@@ -361,25 +381,32 @@ class App extends React.Component {
         sidebarMaxifiedAt={1024}
         displayMinifyMaxifyIcon={true}
         minify={minifySidebard}
+        toggleMenuHtml={<i className="fas fa-bars"></i>}
+        closeMenuHtml={<i className="fas fa-angle-left"></i>}
+        align={align}
         moduleSidebar={
           <SideBar
-            image={<img alt="image" src='./public/images/icon-48.png' />}
+            // image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong={appNameShort}
             textShort={`v${version}`}
             href={`${host}#/`}
             globalStyle={true} // load css for react-revolution globally
             moduleMenu={
-              <MenuClickHorizontal
+              <Menu
                 reactRouter={false}
+                align={align}
+                alignIcon='left'
+                isActiveTree={-1}
+                activeClassName='is-active'
+                toggledClassName='is-toggled'
+                forceClose={false} // close other toggled items recursively
+                forceCloseAll={false}
+                closeOnClickOutside={false}
                 animation='height'
-                dropDown={
-                  (
-                    <i className="fas fa-angle-down dropDownIcon"></i>
-                  )
-                }
                 data={
                   [
                     {
+                      icon: <i className="far fa-circle circle"></i>,
                       text: trans('components'),
                       toggled: true,
                       data: [
@@ -388,7 +415,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-accordion`,
                         },
                         {
-                          text: 'Articles',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Articles
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'Articles',
@@ -405,7 +441,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-breadcrumbs`,
                         },
                         {
-                          text: 'Cards',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Cards
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'Cards',
@@ -434,7 +479,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-custom-suggestion`,
                         },
                         {
-                          text: 'DragDrop',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                DragDrop
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'DragDropArea',
@@ -447,7 +501,16 @@ class App extends React.Component {
                           ]
                         },
                         {
-                          text: 'FullScreen',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                FullScreen
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'FullScreenListArray',
@@ -472,7 +535,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-icons`,
                         },
                         {
-                          text: 'Input',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Input
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'InputAnimation',
@@ -505,15 +577,24 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-load-on-scroll`,
                         },
                         {
-                          text: 'MenuClickHorizontal',
-                          href: `${host}#/react-revolution-menu-click-horizontal`,
+                          text: 'Menu',
+                          href: `${host}#/react-revolution-menu`,
                         },
                         {
                           text: 'Modal',
                           href: `${host}#/react-revolution-modal`,
                         },
                         {
-                          text: '404',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                404
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'Clouds404',
@@ -538,7 +619,16 @@ class App extends React.Component {
                           ]
                         },
                         {
-                          text: 'Pagination',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Pagination
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'PagerStatic',
@@ -555,7 +645,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-popup-box`,
                         },
                         {
-                          text: 'ReadMore',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                ReadMore
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'ReadMore',
@@ -580,7 +679,16 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-source-code`,
                         },
                         {
-                          text: 'Suggestions',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Suggestions
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: 'CustomSuggestion',
@@ -615,6 +723,7 @@ class App extends React.Component {
                       ]
                     },
                     {
+                      icon: <i className="far fa-circle circle"></i>,
                       text: trans('functions'),
                       toggled: true,
                       data: [
@@ -641,12 +750,26 @@ class App extends React.Component {
                       ]
                     },
                     {
+                      icon: <i className="far fa-circle circle"></i>,
                       text: trans('releaseNotes'),
                       toggled: true,
                       data: [
                         {
-                          text: 'Releases 3.0',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Releases 3.0
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
+                            {
+                              text: '3.0.5',
+                              href: `${host}#/react-revolution-release-3-0-5`,
+                            },
                             {
                               text: '3.0.4',
                               href: `${host}#/react-revolution-release-3-0-4`,
@@ -670,7 +793,16 @@ class App extends React.Component {
                           ]
                         },
                         {
-                          text: 'Releases 2.0',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Releases 2.0
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: '2.0.0',
@@ -679,17 +811,21 @@ class App extends React.Component {
                           ]
                         },
                         {
-                          text: 'Releases 1.2',
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Releases 1.0
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
                           data: [
                             {
                               text: '1.2.0',
                               href: `${host}#/react-revolution-release-1-2-0`,
                             },
-                          ]
-                        },
-                        {
-                          text: 'Releases 1.1',
-                          data: [
                             {
                               text: '1.1.9',
                               href: `${host}#/react-revolution-release-1-1-9`,
@@ -703,7 +839,7 @@ class App extends React.Component {
                               href: `${host}#/react-revolution-release-1-1-7`,
                             },
                           ]
-                        }
+                        },
                       ]
                     },
                   ]
@@ -715,6 +851,10 @@ class App extends React.Component {
         headerClassName={''}
         headerData={
           <span className="icon-container">
+            <i
+              className='fas fa-stream icon-dashbord toggle-dashboard'
+              onClick={() => this.toggleDashboardDirection()}
+            ></i>
             <PopupBox
               animation='top-right' // top-left, top-right, bottom-left, bottom-right
               icon={
@@ -808,15 +948,11 @@ class App extends React.Component {
                       trans('getStarted')
                     }
                   </a>
-                  <a className="link" href={`${host}#/react-revolution-release-3-0-4`}>
-                    {
-                      trans('lastReleaseNotes')
-                    }
+                  <a className="link" target='_blank' href='https://github.com/janitzed/react-revolution'>
+                    Github
                   </a>
                   <a className="link" target='_blank' href='http://dj.j.pl/'>
-                    {
-                      trans('authorLink')
-                    }
+                    David Janitzek
                   </a>
                 </span>
               }
@@ -854,7 +990,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-input-suggestion-array" render={(props) => (<ReactRevolutionInputSuggestionArray {...props} />)} />
               <Route exact path="/react-revolution-input-suggestion-object" render={(props) => (<ReactRevolutionInputSuggestionObject {...props} />)} />
               <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
-              <Route exact path="/react-revolution-menu-click-horizontal" render={(props) => (<ReactRevolutionMenuClickHorizontal {...props} />)} />
+              <Route exact path="/react-revolution-menu" render={(props) => (<ReactRevolutionMenu {...props} />)} />
               <Route exact path="/react-revolution-modal" render={(props) => (<ReactRevolutionModal {...props} />)} />
               <Route exact path="/react-revolution-pager-static" render={(props) => (<ReactRevolutionPagerStatic {...props} />)} />
               <Route exact path="/react-revolution-pager-dynamic" render={(props) => (<ReactRevolutionPagerDynamic {...props} />)} />
@@ -888,6 +1024,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-3-0-2" render={(props) => (<Release302 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-3" render={(props) => (<Release303 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-4" render={(props) => (<Release304 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-5" render={(props) => (<Release305 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

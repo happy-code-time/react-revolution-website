@@ -659,7 +659,7 @@ const DE = {
         "default": "undefined"
     },
     "moduleMenu": {
-        "description": "Das eingebetete 'MenuClickHorizontal' Modul.",
+        "description": "Das eingebetete 'Menu' Modul.",
         "type": "JSX",
         "default": "undefined"
     },
@@ -779,8 +779,8 @@ const DE = {
         "default": "false"
     },
     "bread.moduleMenu": {
-        "description": "Das Modul wurde angehängt: 'MenuClickHorizontal' nur für den letzten Breadcrumb verfügbar. Nur ein einziges Kind als übergeordnetes Element zulässig - untergeordnete Verschachtelung ohne Einschränkungen zulässig.",
-        "type": "<MenuClickHorizontal>",
+        "description": "Das Modul wurde angehängt: 'Menu' nur für den letzten Breadcrumb verfügbar. Nur ein einziges Kind als übergeordnetes Element zulässig - untergeordnete Verschachtelung ohne Einschränkungen zulässig.",
+        "type": "<Menu>",
         "default": "undefined"
     },
     "closeOnClickOutside" : {
@@ -1176,7 +1176,7 @@ const DE = {
         "default": "<leere Zeichenfolge>"
     },
     "moduleSidebar": {
-        "description": "Das Modul 'MenuClickHorizontal'.",
+        "description": "Das Modul 'Menu'.",
         "type": "Modul",
         "default": "undefined"
     },
@@ -1641,6 +1641,46 @@ const DE = {
     "CustomSuggestion.description.3": "Beispiel mit Vorschlägen mit einer href, um den Benutzer nach dem Klickereignis umzuleiten, und dem Schlüssel 'callbackRerender = {true}' (erforderlich, um den neuen Status = die eingehenden Vorschläge aus dem Versprechen zu akzeptieren) und a Die Suche ohne Schlüssel und mit dem Schlüssel 'Laden' basierend auf der Rückruffunktion und dem übergebenen Rückruf muss ein Versprechen sein (in Kombination mit dem Schlüssel 'Laden'!). Für diese (Warte-) Zeit wird das Ladesymbol angezeigt Wenn Sie das Versprechen auflösen oder ablehnen, verschwinden die Ladesymbole / Daten. ",
     "GlobalMessages.description.1": "Beispiel mit einer einzelnen Nachricht. Diese Nachricht verschwindet nur, wenn der Benutzer den aktuellen Speicherort ändert.",
     "GlobalMessages.description.2": "Beispiel mit einer einzelnen Nachricht. Diese Nachricht verschwindet nach zwei Sekunden.",
+    "menu.headData": {
+        "description": "Benutzerdefinierte JSX-Daten ganz oben im Menu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    "menu.activeClassName": {
+        "description": "Wenn ein Element angeklickt wurde, bekommt es diesen Klassen Name.",
+        "type": "String",
+        "default": "is-active"
+    },
+    "menu.toggledClassName": {
+        "description": "Wenn ein Element ge-toggled wurde, bekommt es diesen Klassen Name.",
+        "type": "String",
+        "default": "is-toggled"
+    },
+    "menu.isActiveTree": {
+        "description": "Wie viele Element - ausgehen von dem Root Knoten - sollen als ACTIVE ('activeClassName') markiert werden. Der Wert -1 bedautet ohne Einschrenkungen.",
+        "type": "Number",
+        "default": "-1"
+    },
+    "menu.forceClose": {
+        "description": "Erzwingung der Schließung aller anderen ROOT Elemente die nicht ge-toggled wurden.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.forceCloseAll": {
+        "description": "Erzwingung der Schließung ALLER anderen Elemente die nicht ge-toggled wurden.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "menu.align": {
+        "description": "In welcher Richtung sollten die Menu Element erstellt werden. Ausgehent von links oder rechts.",
+        "type": "String",
+        "default": "left"
+    },
+    "menu.alignIcon": {
+        "description": "Falls der key 'icon' mitgeliefert wurde, soll das Icon sich auf der rechten oder linke Seite befinden.",
+        "type": "String",
+        "default": "left"
+    },
 };
 
 export default DE;

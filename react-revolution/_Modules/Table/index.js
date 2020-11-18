@@ -1,9 +1,6 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class Table extends React.Component 
@@ -114,7 +111,7 @@ class Table extends React.Component
                     if (value && typeof '8' == typeof value) {
                         titleJsx.push(
                             <span
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={`span span-${i + 1}`}
                             >
                                 {
@@ -128,7 +125,7 @@ class Table extends React.Component
                 if (titleJsx.length) {
                     dataJsx.push(
                         <li
-                            key={uuid()}
+                            key={internalUuid()}
                             className={`${clsCardsHolder} title`}
                         >
                             {
@@ -151,7 +148,7 @@ class Table extends React.Component
 
                             if (isMinified && titleOnMinified && title && 0 !== title.length && undefined !== title[i]) {
                                 dataInsideJsx.push(
-                                    <span key={uuid()} className="span-title">
+                                    <span key={internalUuid()} className="span-title">
                                         {
                                             title[i]
                                         }
@@ -160,7 +157,7 @@ class Table extends React.Component
                             }
                             dataInsideJsx.push(
                                 <span
-                                    key={uuid()}
+                                    key={internalUuid()}
                                     className={`span span-${i + 1}`}>
                                     {
                                         value
@@ -174,7 +171,7 @@ class Table extends React.Component
 
                         dataJsx.push(
                             <li
-                                key={uuid()}
+                                key={internalUuid()}
                                 className={clsCardsHolder}
                             >
                                 {

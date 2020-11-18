@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, SideBar, MenuClickHorizontal, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, SideBar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -12,9 +12,9 @@ import { host } from '../Globals';
 
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
-const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolution';
+const codeExample1 = `import { SideBar, Menu } from 'react-revolution';
 // import SideBar from 'react-revolution/SideBar';
-// import MenuClickHorizontal from 'react-revolution/MenuClickHorizontal';
+// import Menu from 'react-revolution/Menu';
 
 <div className="rr-revolution-sidebar-example">
     <SideBar
@@ -22,7 +22,7 @@ const codeExample1 = `import { SideBar, MenuClickHorizontal } from 'react-revolu
         textLong='text long'
         textShort='text short'
         moduleMenu={
-            <MenuClickHorizontal
+            <Menu
                 reactRouter={false}
                 animation='height' // height, scale, opacity
                 data={
@@ -108,7 +108,7 @@ class ReactRevolutionSidebar extends React.Component
                             //     }
                             // }
                             moduleMenu={
-                                <MenuClickHorizontal
+                                <Menu
                                     reactRouter={false}
                                     animation='height' // height, scale, opacity
                                     data={

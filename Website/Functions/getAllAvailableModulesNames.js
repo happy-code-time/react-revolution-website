@@ -113,8 +113,8 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-load-on-scroll'
         },
         {
-            name: 'MenuClickHorizontal',
-            link: 'react-revolution-menu-click-horizontal'
+            name: 'Menu',
+            link: 'react-revolution-menu'
         },
         {
             name: 'Modal',

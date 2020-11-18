@@ -4,7 +4,7 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 
-import uuid from '../internalFunctions/uuid';
+import uuid from '../internalFunctions/internalUuid';
 
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 

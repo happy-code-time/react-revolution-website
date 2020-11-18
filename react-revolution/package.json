@@ -1,6 +1,6 @@
 {
   "name": "react-revolution",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "React Revolution - build interactive modules for react projects",
   "main": "react-revolution.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "Lightbulb404",
     "LoadingBoxTop",
     "LoadOnScroll",
-    "MenuClickHorizontal",
+    "Menu",
     "Modal",
     "PagerDynamic",
     "PagerStatic",
@@ -62,7 +62,8 @@
     "react-router-dom": "^4.3.1",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
-    "webpack": "^4.41.2"
+    "webpack": "5.2.0",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -72,7 +73,6 @@
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-polyfill": "^6.26.0",
-    "terser-webpack-plugin": "^1.4.1",
-    "webpack-cli": "^3.3.10"
+    "terser-webpack-plugin": "^1.4.1"
   }
 }

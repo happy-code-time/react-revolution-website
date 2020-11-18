@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { MenuClickHorizontal } from './react-revolution';
+import { Menu } from './react-revolution';
 
 /**
  * Render it to the html while testing
  */
 
-import './react-revolution/sass/rr-menu-click-horizontal.scss';
+import './react-revolution/sass/rr-menu.scss';
 
 class App extends React.Component 
 {
@@ -68,7 +68,7 @@ class App extends React.Component
 
         return (
             <span>
-              <MenuClickHorizontal
+              <Menu
                 reactRouter={false}
                 animation='height'
                 dropDown={
@@ -166,8 +166,8 @@ class App extends React.Component
                       href: `${host}#/LoadingBoxTop`,
                     },
                     {
-                      text: 'MenuClickHorizontal',
-                      href: `${host}#/MenuClickHorizontal`,
+                      text: 'Menu',
+                      href: `${host}#/Menu`,
                     },
                     {
                       text: 'PopupBox',

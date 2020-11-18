@@ -1,9 +1,6 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class LoadOnScroll extends React.Component 
@@ -239,7 +236,7 @@ class LoadOnScroll extends React.Component
         let { dataJsx } = this.state;
         dataJsx.push(
             <span 
-                key={uuid()} 
+                key={internalUuid()} 
                 className="section"
             >
                 {

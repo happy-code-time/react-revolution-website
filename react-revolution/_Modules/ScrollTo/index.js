@@ -1,7 +1,6 @@
 import React from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-import uuid from '../internalFunctions/uuid';
+import internalUuid from '../internalFunctions/internalUuid';
 
 class ScrollTo extends React.Component 
 {
@@ -13,7 +12,7 @@ class ScrollTo extends React.Component
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-scroll-to',
-            id: (props.id && typeof '8' == typeof props.id) ? props.id : uuid(),
+            id: (props.id && typeof '8' == typeof props.id) ? props.id : internalUuid(),
             navigationTime: (props.navigationTime && typeof 8 == typeof props.navigationTime) ? props.navigationTime : 300,
             navigationTarget: (props.navigationTarget && typeof '8' == typeof props.navigationTarget) ? props.navigationTarget : '',
             html: props.html ? props.html : undefined,

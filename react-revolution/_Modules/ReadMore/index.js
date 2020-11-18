@@ -1,9 +1,6 @@
 import React from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class ReadMore extends React.Component 
@@ -131,7 +128,7 @@ class ReadMore extends React.Component
                 {
                     dataToggle && toggled &&
                     <span
-                        key={uuid()}
+                        key={internalUuid()}
                         className={classList}
                     >
                         {

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import copyArray from '../internalFunctions/copyArray';
-
-import uuid from '../internalFunctions/uuid';
+import internalUuid from '../internalFunctions/internalUuid';
 
 class DragDropList extends Component {
 
@@ -30,7 +26,7 @@ class DragDropList extends Component {
         this.attachHandleMouseMove = this.attachHandleMouseMove.bind(this);
         this.removeHandleClick = this.removeHandleClick.bind(this);
         this.setMouseMove = this.setMouseMove.bind(this);
-        this.uniqueAreaId = `${uuid()}`;
+        this.uniqueAreaId = `${internalUuid()}`;
         this.mouseMove = undefined;
         this.oldY = 0;
 
@@ -293,7 +289,7 @@ class DragDropList extends Component {
                 if ((undefined !== overLiIndex && overLiIndex == x && dragging && sourceIndex !== x) || (attachMixedTop || attachMixedBottom)) {
                     placeholderJsx = (
                         <li
-                            key={uuid()}
+                            key={internalUuid()}
                             className='single-entry placeholder'
                             onDragStart={(e) => this.onDragStart(e, x, unique, singleEntry)}
                             onDragOver={(e) => this.onDragOver(e, x)}

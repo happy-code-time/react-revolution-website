@@ -57,7 +57,7 @@ import LoadingBoxTop from './_Modules/LoadingBoxTop';
 
 import LoadOnScroll from './_Modules/LoadOnScroll';
 
-import MenuClickHorizontal from './_Modules/MenuClickHorizontal';
+import Menu from './_Modules/Menu';
 
 import Modal from './_Modules/Modal';
 
@@ -143,7 +143,7 @@ export {
     Lightbulb404,
     LoadingBoxTop,
     LoadOnScroll,
-    MenuClickHorizontal,
+    Menu,
     Modal,
     PagerStatic,
     PagerDynamic,

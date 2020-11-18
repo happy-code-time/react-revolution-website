@@ -1,7 +1,5 @@
 import React from 'react';
-
-import uuid from '../internalFunctions/uuid';
-
+import internalUuid from '../internalFunctions/internalUuid';
 import loadStyle from '../internalFunctions/loadStyle';
 
 class GlobalMessages extends React.Component 
@@ -139,7 +137,7 @@ class GlobalMessages extends React.Component
                 this.clearStore(false);
 
                 for(let x = 0; x <= newMessagesApp.length-1; x++){
-                    newMessagesApp[x].unique = `${uuid()}`;
+                    newMessagesApp[x].unique = `${internalUuid()}`;
 
                     if(newMessagesApp[x].disappear && typeof 8 == typeof newMessagesApp[x].disappear){
                         setTimeout( () => {
@@ -198,7 +196,7 @@ class GlobalMessages extends React.Component
                             }
 
                             return (
-                                <div className="single-error" key={uuid()}>
+                                <div className="single-error" key={internalUuid()}>
                                     {
                                         title &&
                                         typeof '000' === typeof title &&
