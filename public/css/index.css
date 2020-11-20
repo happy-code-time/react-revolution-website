@@ -894,11 +894,7 @@ h1,
     margin: 0 10px; }
 
 .Content {
-  position: absolute;
-  left: 250px;
-  width: calc(100% - 250px);
-  top: 0;
-  z-index: 2; }
+  z-index: 5 !important; }
   .Content .data-header {
     width: 100%;
     height: 60px;
@@ -3458,6 +3454,9 @@ h1,
 .rr-timeline-example .content .title {
   background-color: rgba(245, 245, 245, 0.4); }
 
+.rr-global-messages-example .single-error {
+  background-color: #FF4469; }
+
 * {
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
 
@@ -3465,13 +3464,32 @@ h1,
   background-color: #1873CC;
   color: white; }
 
+:root, html, body {
+  scroll-behavior: smooth; }
+
+#app .FullScreenLoading {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex; }
+  #app .FullScreenLoading .loading {
+    margin: 50vh auto;
+    display: flex; }
+    #app .FullScreenLoading .loading img {
+      display: inline-block;
+      margin: auto; }
+
 #app .rr-container {
-  overflow-x: hidden; }
+  overflow: unset; }
   #app .rr-container .data-header {
     z-index: 3; }
 
 #app .rr-container.right .SideBar {
-  right: 12px;
+  right: 0;
   overflow: hidden; }
 
 #app .rr-container.right .SideBar.opened {
@@ -3485,7 +3503,6 @@ h1,
 #app .ScrollTop {
   position: fixed;
   bottom: 10px;
-  right: 20px;
   z-index: 10;
   width: 40px;
   height: 40px;
@@ -3498,6 +3515,14 @@ h1,
     color: white; }
   #app .ScrollTop i:hover {
     cursor: pointer; }
+
+#app .rr-container.left .ScrollTop {
+  right: 20px;
+  left: auto; }
+
+#app .rr-container.right .ScrollTop {
+  left: 20px;
+  right: auto; }
 
 #app .data-header .toggle-dashboard {
   float: right;
@@ -3654,9 +3679,10 @@ h1,
 
 #app .SideBar {
   transition-duration: 200ms;
-  background-color: white; }
+  background-color: white;
+  z-index: 5; }
   #app .SideBar .rr-menu {
-    height: calc(100% - 60px);
+    height: calc(100% - 70px);
     overflow-x: hidden;
     overflow-y: hidden;
     scrollbar-color: rgba(122, 122, 122, 0.88) transparent;
@@ -3724,6 +3750,12 @@ h1,
       transform: rotateZ(0deg); }
   #app .SideBar .rr-menu:hover {
     overflow-y: auto; }
+
+#app .SideBar.opened {
+  z-index: 6; }
+
+#app .SideBar.SideBar-min:hover {
+  z-index: 7; }
 
 #app .SideBar.SideBar-min .logo-text-href {
   padding-left: 5px; }

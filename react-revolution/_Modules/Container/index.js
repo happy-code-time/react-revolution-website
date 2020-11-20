@@ -294,7 +294,7 @@ class Container extends React.Component
             if (minifiedSecondSideBar) {
                 return 'Content minified';
             }
-            return 'Content minified opened';
+            return 'Content minified';
         }
         /**
          * Default content functionality if

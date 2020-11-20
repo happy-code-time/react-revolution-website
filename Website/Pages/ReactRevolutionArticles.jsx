@@ -326,7 +326,7 @@ class ReactRevolutionArticles extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={500}
+                    fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
                 {

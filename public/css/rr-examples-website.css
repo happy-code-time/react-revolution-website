@@ -780,3 +780,6 @@ h1,
 
 .rr-timeline-example .content .title {
   background-color: rgba(245, 245, 245, 0.4); }
+
+.rr-global-messages-example .single-error {
+  background-color: #FF4469; }

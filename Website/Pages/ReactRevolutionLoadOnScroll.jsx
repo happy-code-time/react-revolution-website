@@ -17,7 +17,7 @@ const codeExample1 = `import { LoadOnScroll, LoadingBoxTop } from 'react-revolut
 <div className="rr-revolution-loadonscroll-example">
     <LoadOnScroll
         scrollReference={true}
-        minify={40}
+        minify={undefined}
         callback={this.callback}
         loading={
             <LoadingBoxTop
@@ -501,7 +501,7 @@ class ReactRevolutionLoadOnScroll extends React.Component
                     <div className="rr-revolution-loadonscroll-example">
                         <LoadOnScroll
                             scrollReference={true}
-                            minify={40}
+                            minify={undefined}
                             callback={this.callback}
                             loading={
                                 <LoadingBoxTop
@@ -737,11 +737,11 @@ class ReactRevolutionLoadOnScroll extends React.Component
             <div className="Generator">
                 <LoadOnScroll
                     scrollReference={false}
-                    minify={40}
+                    minify={undefined}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={500}
+                    fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
                 {

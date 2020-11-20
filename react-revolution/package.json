@@ -1,6 +1,6 @@
 {
   "name": "react-revolution",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "React Revolution - build interactive modules for react projects",
   "main": "react-revolution.js",
   "scripts": {

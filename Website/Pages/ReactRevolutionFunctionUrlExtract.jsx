@@ -111,11 +111,11 @@ class ReactRevolutionFunctionUrlExtract extends React.Component
             <div className="Generator">
                 <LoadOnScroll
                     scrollReference={false}
-                    minify={40}
+                    minify={undefined}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={500}
+                    fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
             </div>

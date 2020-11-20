@@ -19,17 +19,42 @@
   color: $white;
 }
 
+:root, html, body {
+  scroll-behavior: smooth;
+}
+
 #app {
 
+  .FullScreenLoading{
+    position: fixed;
+    z-index: 100;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255, .95);
+    display: flex;
+
+    .loading{
+      margin: 50vh auto;
+      display: flex;
+
+      img{
+        display: inline-block;
+        margin: auto;
+      }
+    }
+  }
+
   .rr-container{
-    overflow-x: hidden;
+    overflow: unset;
 
     .data-header{
       z-index: 3;
     }
   }
   .rr-container.right .SideBar{
-    right: 12px;
+    right: 0;
     overflow: hidden;
   }
 
@@ -46,7 +71,6 @@
   .ScrollTop {
     position: fixed;
     bottom: 10px;
-    right: 20px;
     z-index: 10;
     width: 40px;
     height: 40px;
@@ -63,6 +87,16 @@
     i:hover {
       cursor: pointer;
     }
+  }
+
+  .rr-container.left .ScrollTop {
+    right: 20px;
+    left: auto;
+  }
+
+  .rr-container.right .ScrollTop {
+    left: 20px;
+    right: auto;
   }
 
   .data-header {
@@ -236,9 +270,10 @@
   .SideBar {
     transition-duration: $default_transition;
     background-color: $white;
+    z-index: 5;
 
     .rr-menu {
-      height: calc(100% - 60px);
+      height: calc(100% - 70px);
       overflow-x: hidden;
       overflow-y: hidden;
       scrollbar-color: rgba(122, 122, 122, 0.88) transparent;
@@ -353,6 +388,13 @@
     }
   }
 
+  .SideBar.opened{
+    z-index: 6;
+  }
+
+  .SideBar.SideBar-min:hover {
+    z-index: 7;
+  }
   .SideBar.SideBar-min {
     .logo-text-href{
       padding-left: 5px;

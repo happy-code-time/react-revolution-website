@@ -1,158 +1,90 @@
 import React from 'react';
-
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-
 import ReactDOM from 'react-dom';
-
 import Home from './Website/Pages/Home';
-
 import ScrollTop from './Website/Modules/ScrollTop';
-
 import { uuid, Container, CloudsMountains404, Menu, SideBar, PopupBox, InputSuggestionObject } from './react-revolution/react-revolution';
-
 import { appNameShort, version } from './Website/Globals';
-
 import trans from './Website/Translations/trans';
-
 import possibleLanguagesLong from './Website/Functions/language/possibleLanguagesLong';
-
 import setLanguage from './Website/Functions/language/setLanguage';
-
 import possibleLayouts from './Website/Functions/possibleLayouts';
-
 import getAllAvailableModulesNames from './Website/Functions/getAllAvailableModulesNames';
-
 import getDataLocalStorage from './Website/Functions/getDataLocalStorage';
-
 import setDataLocalStorage from './Website/Functions/setDataLocalStorage';
 
 /**
  * React Revolution Modules
  */
 import ReactRevolutionAccordion from './Website/Pages/ReactRevolutionAccordion';
-
 import ReactRevolutionArticles from './Website/Pages/ReactRevolutionArticles';
-
 import ReactRevolutionArticlesImages from './Website/Pages/ReactRevolutionArticlesImages';
-
 import ReactRevolutionBreadcrumbs from './Website/Pages/ReactRevolutionBreadcrumbs';
-
 import ReactRevolutionCards from './Website/Pages/ReactRevolutionCards';
-
 import ReactRevolutionCardsScroll from './Website/Pages/ReactRevolutionCardsScroll';
-
 import ReactRevolutionCardsScrollCallback from './Website/Pages/ReactRevolutionCardsScrollCallback';
-
 import ReactRevolutionClipboard from './Website/Pages/ReactRevolutionClipboard';
-
 import ReactRevolutionClouds404 from './Website/Pages/ReactRevolutionClouds404';
-
 import ReactRevolutionCloudsMountains404 from './Website/Pages/ReactRevolutionCloudsMountains404';
-
 import ReactRevolutionContainer from './Website/Pages/ReactRevolutionContainer';
-
 import ReactRevolutionCustomSuggestion from './Website/Pages/ReactRevolutionCustomSuggestion';
-
 import ReactRevolutionDarkLines404 from './Website/Pages/ReactRevolutionDarkLines404';
-
 import ReactRevolutionDragDropArea from './Website/Pages/ReactRevolutionDragDropArea';
-
 import ReactRevolutionDragDropList from './Website/Pages/ReactRevolutionDragDropList';
-
 import ReactRevolutionFullScreenListArray from './Website/Pages/ReactRevolutionFullScreenListArray';
-
 import ReactRevolutionFullScreenListObject from './Website/Pages/ReactRevolutionFullScreenListObject';
-
 import ReactRevolutionFullScreenOverlay from './Website/Pages/ReactRevolutionFullScreenOverlay';
-
 import ReactRevolutionGlobalMessages from './Website/Pages/ReactRevolutionGlobalMessages';
-
 import ReactRevolutionIcons from './Website/Pages/ReactRevolutionIcons';
-
 import ReactRevolutionInputAnimation from './Website/Pages/ReactRevolutionInputAnimation';
-
 import ReactRevolutionInputFile from './Website/Pages/ReactRevolutionInputFile';
-
 import ReactRevolutionInputFileDragDrop from './Website/Pages/ReactRevolutionInputFileDragDrop';
-
 import ReactRevolutionInputSuggestionArray from './Website/Pages/ReactRevolutionInputSuggestionArray';
-
 import ReactRevolutionInputSuggestionObject from './Website/Pages/ReactRevolutionInputSuggestionObject';
-
 import ReactRevolutionLightbulb404 from './Website/Pages/ReactRevolutionLightbulb404';
-
 import ReactRevolutionLoadingBoxTop from './Website/Pages/ReactRevolutionLoadingBoxTop';
-
 import ReactRevolutionMenu from './Website/Pages/ReactRevolutionMenu';
-
 import ReactRevolutionModal from './Website/Pages/ReactRevolutionModal';
-
 import ReactRevolutionPagerStatic from './Website/Pages/ReactRevolutionPagerStatic';
-
 import ReactRevolutionPagerDynamic from './Website/Pages/ReactRevolutionPagerDynamic';
-
 import ReactRevolutionPopupBox from './Website/Pages/ReactRevolutionPopupBox';
-
 import ReactRevolutionLoadOnScroll from './Website/Pages/ReactRevolutionLoadOnScroll';
-
 import ReactRevolutionReadMore from './Website/Pages/ReactRevolutionReadMore';
-
 import ReactRevolutionReadMoreCallback from './Website/Pages/ReactRevolutionReadMoreCallback';
-
 import ReactRevolutionScrollTo from './Website/Pages/ReactRevolutionScrollTo';
-
 import ReactRevolutionSourceCode from './Website/Pages/ReactRevolutionSourceCode';
-
 import ReactRevolutionSidebar from './Website/Pages/ReactRevolutionSidebar';
-
 import ReactRevolutionStars from './Website/Pages/ReactRevolutionStars';
-
 import ReactRevolutionTable from './Website/Pages/ReactRevolutionTable';
-
 import ReactRevolutionTextWriter from './Website/Pages/ReactRevolutionTextWriter';
-
 import ReactRevolutionTimeline from './Website/Pages/ReactRevolutionTimeline';
-
 import ReactRevolutionWater404 from './Website/Pages/ReactRevolutionWater404';
 
 /**
  * React Revolution Functions
  */
+import ReactRevolutionFunctionAddGlobalMessage from './Website/Pages/ReactRevolutionFunctionAddGlobalMessage';
 import ReactRevolutionFunctionUuid from './Website/Pages/ReactRevolutionFunctionUuid';
-
 import ReactRevolutionFunctionDisableHtmlScroll from './Website/Pages/ReactRevolutionFunctionDisableHtmlScroll';
-
 import ReactRevolutionFunctionEnableHtmlScroll from './Website/Pages/ReactRevolutionFunctionEnableHtmlScroll';
-
 import ReactRevolutionFunctionScrollTopListener from './Website/Pages/ReactRevolutionFunctionScrollTopListener';
-
 import ReactRevolutionFunctionUrlExtract from './Website/Pages/ReactRevolutionFunctionUrlExtract';
 
 /**
  * Releases
  */
-
 import Release117 from './Website/Releases/Release117';
-
 import Release118 from './Website/Releases/Release118';
-
 import Release119 from './Website/Releases/Release119';
-
 import Release120 from './Website/Releases/Release120';
-
 import Release200 from './Website/Releases/Release200';
-
 import Release300 from './Website/Releases/Release300';
-
 import Release301 from './Website/Releases/Release301';
-
 import Release302 from './Website/Releases/Release302';
-
 import Release303 from './Website/Releases/Release303';
-
 import Release304 from './Website/Releases/Release304';
-
 import Release305 from './Website/Releases/Release305';
+import Release306 from './Website/Releases/Release306';
 
 class App extends React.Component {
 
@@ -373,6 +305,7 @@ class App extends React.Component {
 
     return (
       <Container
+        id="rr-container"
         globalStyle={true}
         persistUserSelection={false} // set local sotrage on click
         clearPersistUserSelection={true} // do not remove the local storage on component did mount
@@ -728,6 +661,10 @@ class App extends React.Component {
                       toggled: true,
                       data: [
                         {
+                          text: 'addGlobalMessage',
+                          href: `${host}#/react-revolution-function-add-global-message`,
+                        },
+                        {
                           text: 'disableHtmlScroll',
                           href: `${host}#/react-revolution-function-disable-html-scroll`,
                         },
@@ -766,6 +703,10 @@ class App extends React.Component {
                             </span>
                           ),
                           data: [
+                            {
+                              text: '3.0.6',
+                              href: `${host}#/react-revolution-release-3-0-6`,
+                            },
                             {
                               text: '3.0.5',
                               href: `${host}#/react-revolution-release-3-0-5`,
@@ -1008,6 +949,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-stars" render={(props) => (<ReactRevolutionStars {...props} />)} />
               <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />
               {/* Functions */}
+              <Route exact path="/react-revolution-function-add-global-message" render={(props) => (<ReactRevolutionFunctionAddGlobalMessage {...props} />)} />
               <Route exact path="/react-revolution-function-uuid" render={(props) => (<ReactRevolutionFunctionUuid {...props} />)} />
               <Route exact path="/react-revolution-function-disable-html-scroll" render={(props) => (<ReactRevolutionFunctionDisableHtmlScroll {...props} />)} />
               <Route exact path="/react-revolution-function-enable-html-scroll" render={(props) => (<ReactRevolutionFunctionEnableHtmlScroll {...props} />)} />
@@ -1025,6 +967,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-3-0-3" render={(props) => (<Release303 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-4" render={(props) => (<Release304 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-5" render={(props) => (<Release305 {...props} />)} />
+              <Route exact path="/react-revolution-release-3-0-6" render={(props) => (<Release306 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

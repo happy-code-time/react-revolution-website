@@ -1,13 +1,8 @@
 import React from 'react';
-
 import { Accordion, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
-import trans from '../Translations/trans';
-
+import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
 import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Accordion } from 'react-revolution';
@@ -142,6 +137,10 @@ class ReactRevolutionAccordion extends React.Component
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
         this.countCallbacks = 0;
+
+        this.state = {
+            loading: true
+        };
 
         this.examples = [
             {
@@ -314,11 +313,11 @@ class ReactRevolutionAccordion extends React.Component
             <div className="Generator">
                 <LoadOnScroll
                     scrollReference={false}
-                    minify={40}
+                    minify={undefined}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} 
-                    fireScrollEvent={500}
+                    fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
                 {

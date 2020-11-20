@@ -1,6 +1,6 @@
 {
   "name": "davids-react-revolution",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Create fast modern responisive websites elements",
   "main": "website.jsx",
   "scripts": {

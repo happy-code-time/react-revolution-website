@@ -51,7 +51,7 @@ class LoadOnScroll extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'loading', 'minify', 'scrollReference', 'callbackProps', 'onReject', 'persistReject'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'loading', 'minify', 'scrollReference', 'callbackProps', 'onReject', 'persistReject', 'fireScrollEvent', 'fireScrollBack'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-load-on-scroll',
@@ -64,6 +64,8 @@ class LoadOnScroll extends React.Component
                 scrollReference: typeof true == typeof props.scrollReference ? props.scrollReference : true,
                 onReject: props.onReject ? props.onReject : '',
                 persistReject: typeof true == typeof props.persistReject ? props.persistReject : false,
+                fireScrollEvent: typeof 8 == typeof props.fireScrollEvent ? props.fireScrollEvent : 0, 
+                fireScrollBack: typeof true == typeof props.fireScrollBack ? props.fireScrollBack : true,
             };
         }
 
@@ -73,9 +75,12 @@ class LoadOnScroll extends React.Component
 
     componentDidMount(){
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-        const { data, fireScrollEvent, fireScrollBack, scrollReference } = this.state;
         this.attachScrollEvent();
-        this.buildData(data);
+        this.buildData(this.state.data);
+    }
+
+    fireScrollEvents(){
+        const { fireScrollEvent, fireScrollBack, scrollReference } = this.state;
 
         if(fireScrollEvent){
             
@@ -97,7 +102,11 @@ class LoadOnScroll extends React.Component
             if(!scrollReference){
 
                 if(fireScrollBack){
-                    this.scrollReference.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+
+                    setTimeout( () => {
+                        document.documentElement.scrollTop = 0;
+                    }, 100);
                 }
             }
         }
@@ -138,9 +147,9 @@ class LoadOnScroll extends React.Component
 
         try{
 
-            if(!scrollReference){
-                document.documentElement.scrollTop = document.documentElement.getBoundingClientRect().height;
-            }
+            // if(!scrollReference){
+            //     document.documentElement.scrollTop = document.documentElement.getBoundingClientRect().height;
+            // }
 
             if (scrollReference && this.scrollReference) {
                 this.scrollReference.scrollTop = this.scrollReference.getBoundingClientRect().height;
@@ -234,6 +243,7 @@ class LoadOnScroll extends React.Component
 
     buildData(data = []){
         let { dataJsx } = this.state;
+
         dataJsx.push(
             <span 
                 key={internalUuid()} 
@@ -250,6 +260,7 @@ class LoadOnScroll extends React.Component
             loadingData: false
         }, () => {
             this.callbackRendered = true;
+            this.fireScrollEvents();
         });
     }
 
@@ -287,11 +298,11 @@ class LoadOnScroll extends React.Component
 
     
     render() {
-        const { addClass, dataJsx, defaultClass, loadingData, errorData, loading, id, scrollReference, isError, onReject, persistReject } = this.state;
+        const { addClass, dataJsx, defaultClass, loadingData, errorData, loading, id, scrollReference, isError, onReject } = this.state;
 
         return (
             <div 
-                ref={ node => this.scrollReference = node}
+                ref={ (node) => this.scrollReference = node}
                 className={`${defaultClass} ${addClass} ${scrollReference ? '' : 'ignore' }`}
                 id={id}
             >

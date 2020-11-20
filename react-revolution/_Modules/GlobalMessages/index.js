@@ -130,12 +130,35 @@ class GlobalMessages extends React.Component
         clearInterval(this.globalMessagesIntervaller);
 
         this.globalMessagesIntervaller = setInterval(() => {
-            const { messagesApp } = this.state;
+            let { messagesApp } = this.state;
             let newMessagesApp = this.readStore();
 
             if (0 !== newMessagesApp.length) {
                 this.clearStore(false);
 
+                /**
+                 * Check for clear Stack
+                 */
+                let target = undefined;
+
+                for(let x = 0; x <= newMessagesApp.length-1; x++){
+                    const { clearStack } = newMessagesApp[x];
+
+                    if(undefined !== clearStack && typeof true === typeof clearStack && true == clearStack){
+                        target = newMessagesApp[x];
+                        break;
+                    }
+                }
+
+                if(target){
+                    return this.setState({
+                        messagesApp: [ target ]
+                    });
+                }
+
+                /**
+                 * Default messages generation process
+                 */
                 for(let x = 0; x <= newMessagesApp.length-1; x++){
                     newMessagesApp[x].unique = `${internalUuid()}`;
 
@@ -218,7 +241,7 @@ class GlobalMessages extends React.Component
                                         className="text"
                                         {...propsText}
                                     >
-                                        {`${text.prefix ? `${text.prefix} ` : ''} ${errorMessage ? `${errorMessage} ` : ''} ${text.suffix ? `${text.suffix}` : ''}`}
+                                        {`${text && text.prefix ? `${text.prefix} ` : ''} ${errorMessage ? `${errorMessage} ` : ''} ${text && text.suffix ? `${text.suffix}` : ''}`}
                                     </div>
 
                                     <div className="options">
@@ -227,7 +250,7 @@ class GlobalMessages extends React.Component
                                             className="single-option"
                                             {...propsClose}
                                         >
-                                            {`${close.text ? `${close.text} ` : ''}`}
+                                            {`${close && close.text ? `${close.text} ` : ''}`}
                                         </div>
                                         {
                                             link && typeof {} === typeof link && link.text && typeof '000' === typeof link.text &&

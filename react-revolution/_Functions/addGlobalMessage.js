@@ -1,11 +1,16 @@
-const addGlobalMessage = (messageKey = '', errorMessage = '', errorCode, disappear = undefined) => {
-    const message = { errorMessage, errorCode, disappear };
+const addGlobalMessage = (messageKey = '', errorMessage = '', errorCode, disappear = undefined, clearStack = false) => {
+    const message = { errorMessage, errorCode, disappear, clearStack };
 
     if(messageKey){
         let currentMessages = sessionStorage.getItem(messageKey);
 
         try{
             if(null !== currentMessages){
+
+                if(undefined !== clearStack && typeof true == typeof clearStack && true == clearStack){
+                    return sessionStorage.setItem(messageKey, JSON.stringify([message]));
+                }
+
                 currentMessages = JSON.parse(currentMessages);
                 currentMessages.push(message);
                 sessionStorage.setItem(messageKey, JSON.stringify(currentMessages));

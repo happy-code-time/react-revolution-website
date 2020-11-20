@@ -1,11 +1,7 @@
 @import "./globals";
 
 .Content {
-  position: absolute;
-  left: $dashboard_menu-width;
-  width: calc(100% - #{$dashboard_menu-width});
-  top:0;
-  z-index:2;
+  z-index: 5 !important;
 
   .data-header {
     width: 100%;
