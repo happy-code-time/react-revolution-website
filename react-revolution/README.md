@@ -1,17 +1,26 @@
 # React Revolution
 
-## Website: https://react-revolution.j.pl/
+React Revolution is a light javascript library to generate interactive modules for react projects.
 
-### React Revolution is a light javascript library to generate interactive modules for react project.
+## Website: 
+
+[https://react-revolution.j.pl/](https://react-revolution.j.pl/)
 
 ### Installation 
 - npm i react-revolution
 - yarn add react-revolution
 
+### Github
+
+[https://github.com/janitzed/react-revolution](React-Revolution)
+
 ### Example of usage
 
 ```
 import { Breadcrumbs } from 'react-revolution';
+
+// or default import 
+// import Breadcrumbs from 'react-revolution/Breadcrumbs';
 
 <Breadcrumbs 
     hashRouter={true}
@@ -97,19 +106,6 @@ and more .... !
 
 ### Functions
 
-
-**disableHtmlScroll** - The HTML tag will have the attributes: class = "overflow-hidden" and style = "overflow: hidden;" so that a user is not allowed to scroll which of the website.
-
-- [https://react-revolution.j.pl/#/react-revolution-function-disable-html-scroll](https://react-revolution.j.pl/#/react-revolution-function-disable-html-scroll)
-
-**enableHtmlScroll** - The class "overflow-hidden" and the style: "overflow: hidden;" are removed from the HTML tag. The user again has the option to scroll within the website.
-
-- [https://react-revolution.j.pl/#/react-revolution-function-enable-html-scroll](https://react-revolution.j.pl/#/react-revolution-function-enable-html-scroll)
-
-**scrollTopListener** - Scroll to the top of the current page on each location (window.location) change. Initial the function has to be called (best way is to call the function on componentDidMount) to initialise the location change listener. This function take 3 additional arguments. Argment 1: time (in miliseconds) to scroll to top of the page, argument 2: scroll behavior - 'auto','smooth','inherit','initial','unset', argument 3: remove the listener (boolean). To remove the listener pass to the 3 argument the value true (default the value is set to false).
-
-- [https://react-revolution.j.pl/#/react-revolution-function-scroll-top-listener](https://react-revolution.j.pl/#/react-revolution-function-scroll-top-listener)
-
 **urlExtract** - Extracts the URL on individual paths of the window.location, key and its values. The function receives 1 optional argument: isHashRouter (boolean) - by default the transferred value is undefined. This function extracts paths and key values for the window.location: "href", "hash" and "path".
 
 - [https://react-revolution.j.pl/#/react-revolution-function-url-extract](https://react-revolution.j.pl/#/react-revolution-function-url-extract)
@@ -117,3 +113,5 @@ and more .... !
 **uuid** - Extracts the URL on individual paths of the window.location, key and its values. The function receives 1 optional argument: isHashRouter (boolean) - by default the transferred value is undefined. This function extracts paths and key values for the window.location: "href", "hash" and "path".
 
 - [https://react-revolution.j.pl/#/react-revolution-function-uuid](https://react-revolution.j.pl/#/react-revolution-function-uuid)
+
+and more .... !

@@ -1,5 +1,5 @@
-const addGlobalMessage = (messageKey = '', errorMessage = '', errorCode, disappear = undefined, clearStack = false) => {
-    const message = { errorMessage, errorCode, disappear, clearStack };
+const addGlobalMessage = (messageKey = '', errorMessage = '', errorCode, disappear = undefined, clearStack = false, persistCurrentMessage = false) => {
+    const message = { errorMessage, errorCode, disappear, clearStack, persistCurrentMessage };
 
     if(messageKey){
         let currentMessages = sessionStorage.getItem(messageKey);

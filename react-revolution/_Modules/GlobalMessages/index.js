@@ -1,6 +1,7 @@
 import React from 'react';
 import internalUuid from '../internalFunctions/internalUuid';
 import loadStyle from '../internalFunctions/loadStyle';
+import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class GlobalMessages extends React.Component 
 {
@@ -32,6 +33,31 @@ class GlobalMessages extends React.Component
         this.setIntervaller = this.setIntervaller.bind(this);
         this.href = window.location.href;
     }
+
+    /**
+     * Force re-rendering of this component based
+     * on keysChangeListners keys
+     * @param {object} props 
+     * @param {object} state 
+     */
+    static getDerivedStateFromProps(props, state) {
+        if (getDerivedStateFromPropsCheck(['moduleStyle', 'globalStyle', 'addClass', 'defaultClass', 'id', 'messageKey', 'codeMapping', 'timer', 'empty'], props, state)) {            
+            return {
+                moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
+                globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-global-messages',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
+                messageKey: (props.messageKey && typeof '8' == typeof props.messageKey) ? props.messageKey : '',
+                codeMapping: (props.codeMapping && typeof {} === typeof props.codeMapping) ? props.codeMapping : {},
+                timer: (props.timer && typeof 8 == typeof props.timer) ? props.timer : 2500,
+                empty: (typeof true == typeof props.empty) ? props.empty : true,
+            };
+        }
+
+        return null;
+    }
+
 
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
@@ -140,19 +166,57 @@ class GlobalMessages extends React.Component
                  * Check for clear Stack
                  */
                 let target = undefined;
+                let persistGivenMessage = false;
 
                 for(let x = 0; x <= newMessagesApp.length-1; x++){
-                    const { clearStack } = newMessagesApp[x];
+                    const { clearStack, persistCurrentMessage } = newMessagesApp[x];
 
                     if(undefined !== clearStack && typeof true === typeof clearStack && true == clearStack){
                         target = newMessagesApp[x];
+                        persistGivenMessage = persistCurrentMessage;
                         break;
                     }
                 }
 
                 if(target){
+
+                    if(undefined !== persistGivenMessage && typeof true == typeof persistGivenMessage && true == persistGivenMessage){
+                        return this.setState({
+                            messagesApp: [ target ]
+                        });
+                    }
+                    else{
+                        return this.setState({
+                            messagesApp: []
+                        });
+                    }
+                }
+
+                /**
+                 * Check for clear Stack by errorCode
+                 */
+                let targetFound = undefined;
+                let messages = [];
+
+                for(let x = 0; x <= newMessagesApp.length-1; x++){
+                    const { clearStack, persistCurrentMessage } = newMessagesApp[x];
+
+                    if(undefined !== clearStack && typeof 8 === typeof clearStack){
+                        targetFound = true;
+                        target = newMessagesApp[x];
+                        messages = [...messagesApp, ...newMessagesApp];
+                        messages = messages.filter( item => undefined !== item.errorCode && typeof 8 === typeof item.errorCode && item.errorCode !== clearStack);
+
+                        if(undefined !== persistCurrentMessage && typeof true == typeof persistCurrentMessage && true == persistCurrentMessage){
+                            messages.push(target);
+                        }
+                        break;
+                    }
+                }
+
+                if(targetFound){
                     return this.setState({
-                        messagesApp: [ target ]
+                        messagesApp: messages
                     });
                 }
 

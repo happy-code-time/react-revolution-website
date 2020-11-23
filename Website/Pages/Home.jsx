@@ -24,9 +24,9 @@ class Home extends React.Component
     generateRandomText(){
         
         const items = [
-            'You Are Awesome',
-            'By David Janitzek',
-            "It's so good to see you"
+            'You Are Awesome!',
+            'Have a nice day!',
+            "It's so good to see you!"
         ];
 
         return items[Math.floor(Math.random() * items.length)];

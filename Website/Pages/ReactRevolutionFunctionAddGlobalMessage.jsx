@@ -7,48 +7,189 @@ import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 const jsExample1 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
+//import GlobalMessages from 'react-revolution/GlobalMessages';
+//import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
 
-componentDidMount(){
-    addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
-    addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
-    addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
+target_1() {
+    addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
+    addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
+    addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
 
     setTimeout(() => {
-        addGlobalMessage('custom_key_for_the_listener', 'Clear stack called!', 8, undefined, true);
+        const mappingCode = 1;
+        const disappear = undefined;
+        const clearStack = true; // clear all messages
+        const persistCurrentMessage = false; // False by default
+        addGlobalMessage('listener_1', 'Clear stack called!', mappingCode, disappear, clearStack, persistCurrentMessage);
     }, 3000);
 }
 
 render(){
     return(
-        <GlobalMessages
-            messageKey='custom_key_for_the_listener'
-            addClass='rr-global-messages-example'
-            timer={1000}
-            codeMapping={{
-                8: {
-                    title: 'Error',
-                    displayErrorCode: false,
-                    close: {
-                        text: 'close',
-                        props: {},
+        <span>
+            <button
+                style={
+                    {
+                        width: '100px',
+                        boxSizing: 'border-box',
+                        padding: '5px 10px',
+                        borderRadius: '5px',
+                        backgroundColor: 'dodgerblue',
+                        color: 'rgb(255,255,255)',
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        margin: '0 calc(50% - 50px)',
+                        border: '1px solid dodgerblue'
                     }
-                },
-            }}
-        />
+                }
+                onClick={() => this.target_1()}
+            >
+                Run example 1
+            </button>
+            <GlobalMessages
+                messageKey='listener_1'
+                addClass='rr-global-messages-example'
+                timer={1000}
+                codeMapping={{
+                    1: {
+                        title: 'Title',
+                        displayErrorCode: false,
+                        close: {
+                            text: 'close',
+                            props: {},
+                        }
+                    },
+                }}
+            />
+        </span>
     );
+}`;
+
+const jsExample2 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
+//import GlobalMessages from 'react-revolution/GlobalMessages';
+//import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
+
+target_2() {
+    addGlobalMessage('listener_2', 'Messages type 2.', 2);
+    addGlobalMessage('listener_2', 'Messages type 2.', 2);
+    addGlobalMessage('listener_2', 'Messages type 2.', 2);
+
+    /**
+     * Remove all messages with the code mapping type: 2
+     * and append the last given message
+     */
+    setTimeout(() => {
+        const mappingCode = 2;
+        const disappear = undefined;
+        const clearStack = true; // clear all messages
+        const persistCurrentMessage = true; // persist last message
+        addGlobalMessage('listener_2', 'Clear stack called and persist current message.', mappingCode, disappear, clearStack, persistCurrentMessage);
+    }, 2000);
 }
-`;
 
-const codeExample1 = `// Initialisator of new messages for the Component: GlobalMessages
+render(){
+    return(
+        <span>
+            <button
+                style={
+                    {
+                        width: '100px',
+                        boxSizing: 'border-box',
+                        padding: '5px 10px',
+                        borderRadius: '5px',
+                        backgroundColor: 'dodgerblue',
+                        color: 'rgb(255,255,255)',
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        margin: '0 calc(50% - 50px)',
+                        border: '1px solid dodgerblue'
+                    }
+                }
+                onClick={() => this.target_2()}
+            >
+                Run example 2
+            </button>
+            <GlobalMessages
+                messageKey='listener_2'
+                addClass='rr-global-messages-example'
+                timer={1000}
+                codeMapping={{
+                    2: {
+                        title: 'Title',
+                        displayErrorCode: false,
+                        close: {
+                            text: 'close',
+                            props: {},
+                        }
+                    },
+                }}
+            />
+        </span>
+    );
+}`;
 
-/**
- * @param {string} messageKey - global messages_key (key listener) to attach the generated JSX to the root component
- * @param {string} errorMessage - Custom message
- * @param {number} errorCode - custom error code based on the code mapping
- * @param {number} disappear - Message should disappear after this milliseconds
- * @param {boolean} clearStack - After a new message are attached, clear (remove) other messages (default: false)
- * /
-addGlobalMessage('custom_key_for_the_listener', 'Custom Error', 8, undefined, true);`;
+const jsExample3 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
+//import GlobalMessages from 'react-revolution/GlobalMessages';
+//import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
+
+target_3() {
+    addGlobalMessage('listener_3', 'Messages type 3.', 3);
+    addGlobalMessage('listener_3', 'Messages type 3.', 3);
+    addGlobalMessage('listener_2', 'Messages type 2 - persisted.', 2);
+
+    /**
+     * Remove all messages with the code mapping type: 3
+     * and do not append the last given message
+     */
+    setTimeout(() => {
+        const mappingCode = 1;
+        const disappear = undefined;
+        const clearStack = 3; // clear all messages
+        const persistCurrentMessage = false; // do NOT persist last message
+        addGlobalMessage('listener_3', 'dddddddddd', mappingCode, disappear, clearStack, persistCurrentMessage);
+    }, 2000);
+}
+
+render(){
+    return(
+        <span>
+            <button
+                style={
+                    {
+                        width: '100px',
+                        boxSizing: 'border-box',
+                        padding: '5px 10px',
+                        borderRadius: '5px',
+                        backgroundColor: 'dodgerblue',
+                        color: 'rgb(255,255,255)',
+                        textAlign: 'center',
+                        cursor: 'pointer',
+                        margin: '0 calc(50% - 50px)',
+                        border: '1px solid dodgerblue'
+                    }
+                }
+                onClick={() => this.target_3()}
+            >
+                Run example 3
+            </button>
+            <GlobalMessages
+                messageKey='listener_3'
+                addClass='rr-global-messages-example'
+                timer={1000}
+                codeMapping={{
+                    3: {
+                        title: 'Title',
+                        displayErrorCode: false,
+                        close: {
+                            text: 'close',
+                            props: {},
+                        }
+                    },
+                }}
+            />
+        </span>
+    );
+}`;
 
 const cssExample1 = `.rr-global-messages-example{
     .single-error{
@@ -60,32 +201,111 @@ class ReactRevolutionFunctionAddGlobalMessage extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
+        this.target_1 = this.target_1.bind(this);
+        this.target_2 = this.target_2.bind(this);
+        this.target_3 = this.target_3.bind(this);
         this.countCallbacks = 0;
 
         this.examples = [
             {
                 title: 'addGlobalMessage',
-                description: '',
+                description: 'Add global message and then clear the WHOLE stack (clear all messages) after 3 seconds.',
                 reactTextBefore: '',
-                react: codeExample1,
+                react: '',
                 reactTextAfter: '',
                 js: jsExample1,
                 css: cssExample1,
                 html: '',
-                live: "addGlobalMessage(messageKey = '', errorMessage = '', errorCode, disappear = undefined, clearStack = false);",
+                live: (
+                    <button
+                        style={
+                            {
+                                width: '100px',
+                                boxSizing: 'border-box',
+                                padding: '5px 10px',
+                                borderRadius: '5px',
+                                backgroundColor: 'dodgerblue',
+                                color: 'rgb(255,255,255)',
+                                textAlign: 'center',
+                                cursor: 'pointer',
+                                margin: '0 calc(50% - 50px)',
+                                border: '1px solid dodgerblue'
+                            }
+                        }
+                        onClick={() => this.target_1()}
+                    >
+                        Run example 1
+                    </button>
+                ),
+                isFunction: true
+            },
+            {
+                title: 'addGlobalMessage',
+                description: 'Add global message and then clear stack by codeMapping type: 2 (clear all messages with the passed type: 2).',
+                reactTextBefore: '',
+                react: '',
+                reactTextAfter: '',
+                js: jsExample2,
+                css: cssExample1,
+                html: '',
+                live: (
+                    <button
+                        style={
+                            {
+                                width: '100px',
+                                boxSizing: 'border-box',
+                                padding: '5px 10px',
+                                borderRadius: '5px',
+                                backgroundColor: 'dodgerblue',
+                                color: 'rgb(255,255,255)',
+                                textAlign: 'center',
+                                cursor: 'pointer',
+                                margin: '0 calc(50% - 50px)',
+                                border: '1px solid dodgerblue'
+                            }
+                        }
+                        onClick={() => this.target_2()}
+                    >
+                        Run example 2
+                    </button>
+                ),
+                isFunction: true
+            },
+            {
+                title: 'addGlobalMessage',
+                description: 'Add global message and then clear stack by codeMapping type: 3 (clear all messages with the passed type: 3) and persist last message with the passed typed type: 2.',
+                reactTextBefore: '',
+                react: '',
+                reactTextAfter: '',
+                js: jsExample3,
+                css: cssExample1,
+                html: '',
+                live: (
+                    (
+                        <button
+                            style={
+                                {
+                                    width: '100px',
+                                    boxSizing: 'border-box',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    backgroundColor: 'dodgerblue',
+                                    color: 'rgb(255,255,255)',
+                                    textAlign: 'center',
+                                    cursor: 'pointer',
+                                    margin: '0 calc(50% - 50px)',
+                                    border: '1px solid dodgerblue'
+                                }
+                            }
+                            onClick={() => this.target_3()}
+                        >
+                            Run example 3
+                        </button>
+                    )
+                ),
                 isFunction: true
             }
         ];
-    }
-
-    componentDidMount() {
-        addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
-        addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
-        addGlobalMessage('custom_key_for_the_listener', 'Will be removed in 3 seconds.', 8);
-
-        setTimeout(() => {
-            addGlobalMessage('custom_key_for_the_listener', 'Clear stack called!', 8, undefined, true);
-        }, 3000);
     }
 
     loadOnScrollCallback() {
@@ -98,6 +318,56 @@ class ReactRevolutionFunctionAddGlobalMessage extends React.Component {
         return new Promise(resolve => {
             resolve(buildModulesJsx(this.examples[this.countCallbacks]), this.countCallbacks + 1);
         });
+    }
+
+    target_1() {
+        addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
+        addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
+        addGlobalMessage('listener_1', 'Will be removed in 3 seconds.', 1);
+
+        setTimeout(() => {
+            const mappingCode = 1;
+            const disappear = undefined;
+            const clearStack = true; // clear all messages
+            const persistCurrentMessage = false; // False by default
+            addGlobalMessage('listener_1', 'Clear stack called!', mappingCode, disappear, clearStack, persistCurrentMessage);
+        }, 3000);
+    }
+
+    target_2() {
+        addGlobalMessage('listener_2', 'Messages type 2.', 2);
+        addGlobalMessage('listener_2', 'Messages type 2.', 2);
+        addGlobalMessage('listener_2', 'Messages type 2.', 2);
+
+        /**
+         * Remove all messages with the code mapping type: 2
+         * and append the last given message
+         */
+        setTimeout(() => {
+            const mappingCode = 2;
+            const disappear = undefined;
+            const clearStack = true; // clear all messages
+            const persistCurrentMessage = true; // persist last message
+            addGlobalMessage('listener_2', 'Clear stack with persist last message.', mappingCode, disappear, clearStack, persistCurrentMessage);
+        }, 2000);
+    }
+
+    target_3() {
+        addGlobalMessage('listener_3', 'Messages type 3.', 3);
+        addGlobalMessage('listener_3', 'Messages type 3.', 3);
+        addGlobalMessage('listener_2', 'Messages type 2 - persisted and last message ignored.', 2);
+
+        /**
+         * Remove all messages with the code mapping type: 3
+         * and do not append the last given message
+         */
+        setTimeout(() => {
+            const mappingCode = 1;
+            const disappear = undefined;
+            const clearStack = 3; // clear all messages
+            const persistCurrentMessage = false; // do NOT persist last message
+            addGlobalMessage('listener_3', 'dddddddddd', mappingCode, disappear, clearStack, persistCurrentMessage);
+        }, 2000);
     }
 
     render() {
@@ -113,12 +383,12 @@ class ReactRevolutionFunctionAddGlobalMessage extends React.Component {
                     fireScrollBack={true}
                 />
                 <GlobalMessages
-                    messageKey='custom_key_for_the_listener'
+                    messageKey='listener_1'
                     addClass='rr-global-messages-example'
                     timer={1000}
                     codeMapping={{
-                        8: {
-                            title: 'Error',
+                        1: {
+                            title: 'Title',
                             displayErrorCode: false,
                             close: {
                                 text: 'close',
@@ -127,6 +397,40 @@ class ReactRevolutionFunctionAddGlobalMessage extends React.Component {
                         },
                     }}
                 />
+                <span>
+                    <GlobalMessages
+                        messageKey='listener_2'
+                        addClass='rr-global-messages-example'
+                        timer={1000}
+                        codeMapping={{
+                            2: {
+                                title: 'Title',
+                                displayErrorCode: false,
+                                close: {
+                                    text: 'close',
+                                    props: {},
+                                }
+                            },
+                        }}
+                    />
+                </span>
+                <span>
+                    <GlobalMessages
+                        messageKey='listener_3'
+                        addClass='rr-global-messages-example'
+                        timer={1000}
+                        codeMapping={{
+                            3: {
+                                title: 'Title',
+                                displayErrorCode: false,
+                                close: {
+                                    text: 'close',
+                                    props: {},
+                                }
+                            },
+                        }}
+                    />
+                </span>
             </div>
         );
     }

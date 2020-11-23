@@ -1,75 +1,51 @@
 import React from 'react';
-
 import ReactDOM from 'react-dom';
+import disableHtmlScroll from './react-revolution/Functions/disableHtmlScroll';
+import enableHtmlScroll from './react-revolution/Functions/enableHtmlScroll';
+import uuid from './react-revolution/Functions/uuid';
+import urlExtract from './react-revolution/Functions/urlExtract';
+import scrollTopListener from './react-revolution/Functions/scrollTopListener';
+import './react-revolution/_Sass/rr-global-messages.scss';
 
-import { Stars, uuid } from './react-revolution/react-revolution';
-
-import './react-revolution/_Sass/rr-stars.scss';
-
-class App extends React.Component {
+class App extends React.Component 
+{
     constructor(props) {
         super(props);
-        this.callback = this.callback.bind(this);
 
-        this.state = {
-            filled: 2,
-        };
     }
 
-    callback(clickEvent, starClicked, callbackProps){
-        this.setState({
-            filled: starClicked
-        });
+    componentDidMount() {
+        disableHtmlScroll();
+
+        setTimeout(() => {
+            enableHtmlScroll();
+            document.documentElement.scrollTop = 200;
+            scrollTopListener(0);
+
+            setTimeout(() => {
+                window.location.href = 'http://localhost:3000/#/asdasdas';
+            }, 1000);
+        }, 3000);
+    }
+
+    uuids(){
+        const itmes = [];
+
+        for(let x = 0; x  <= 100; x++){
+            itmes.push(`${uuid()}\n`);
+        }
+
+        return itmes;
     }
 
     render() {
-        const { filled } = this.state;
 
         return (
-            <span>
-                <Stars
-                    count={5}
-                    filled={filled}
-                    fillHover={true}
-                    callback={this.callback}
-                    props={{}}
-                    color='orange-yellow'
-                    starsData={
-                        [
-                            {
-                                props: {
-                                    title: 'star 1'
-                                },
-                                data: ''
-                            },
-                            {
-                                props: {
-                                    title: 'star 2'
-                                },
-                                data: ''
-                            },
-                            {
-                                props: {
-                                    title: 'star 3'
-                                },
-                                data: ''
-                            },
-                            {
-                                props: {
-                                    title: 'star 4'
-                                },
-                                data: ''
-                            },
-                            {
-                                props: {
-                                    title: 'star 5'
-                                },
-                                data: ''
-                            }
-                        ]
-                    }
-                />
-            </span>
+            <div>
+               {
+                   `${JSON.stringify(urlExtract())} \n\n${this.uuids()}`
+               }
+            </div>
         );
     }
 }

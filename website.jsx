@@ -85,6 +85,7 @@ import Release303 from './Website/Releases/Release303';
 import Release304 from './Website/Releases/Release304';
 import Release305 from './Website/Releases/Release305';
 import Release306 from './Website/Releases/Release306';
+import Release400 from './Website/Releases/Release400';
 
 class App extends React.Component {
 
@@ -695,6 +696,24 @@ class App extends React.Component {
                           text: (
                             <span>
                               <span className="data-title">
+                                Releases 4.0
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: '4.0.0',
+                              href: `${host}#/react-revolution-release-4-0-0`,
+                            },
+                          ]
+                        },
+                        {
+                          text: (
+                            <span>
+                              <span className="data-title">
                                 Releases 3.0
                                 </span>
                               <span className="drop-down-icon">
@@ -968,6 +987,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-3-0-4" render={(props) => (<Release304 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-5" render={(props) => (<Release305 {...props} />)} />
               <Route exact path="/react-revolution-release-3-0-6" render={(props) => (<Release306 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-0" render={(props) => (<Release400 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

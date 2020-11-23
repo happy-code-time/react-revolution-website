@@ -3,7 +3,8 @@ import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolu
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const codeExample1 = `import { scrollTopListener } from 'react-revolution';`;
+const codeExample1 = `import { scrollTopListener } from 'react-revolution';
+//import scrollTopListener from 'react-revolution/Functions/scrollTopListener';`;
 
 const jsExample1 = `componentDidMount() {
     const scrollTopTime = 0;

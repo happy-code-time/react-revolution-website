@@ -6,7 +6,8 @@ import trans from '../Translations/trans';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const codeExample1 = `import { urlExtract } from 'react-revolution';`;
+const codeExample1 = `import { urlExtract } from 'react-revolution';
+//import urlExtract from 'react-revolution/Functions/urlExtract';`;
 
 const jsExample1 = `const data = urlExtract();
 

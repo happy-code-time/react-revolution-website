@@ -1,24 +1,21 @@
 {
   "name": "davids-react-revolution",
-  "version": "3.0.6",
-  "description": "Create fast modern responisive websites elements",
+  "version": "4.0.0",
+  "description": "Create fast, modern and responsive website components",
   "main": "website.jsx",
   "scripts": {
-    "build:module": "node ./node_modules/.bin/webpack --config webpack.module.production.js --mode production",
-    "build:module:dev": "node node_modules/webpack/bin/webpack.js --config webpack.module.development.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors",
+    "build:module:dev": "node node_modules/webpack/bin/webpack.js --config webpack.module.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors --mode development",
     "build:website": "npm run build:website:sass:prod && node node_modules/webpack/bin/webpack.js --config webpack.website.js --module-bind js=babel-loader --progress --profile --colors --mode production --env min",
     "build:website:dev": "npm run build:website:sass:dev & node node_modules/webpack/bin/webpack.js --config webpack.website.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors --mode development",
     "server": "lite-server -c bs-config.json",
     "compile": "./node_modules/.bin/gulp compile",
-    "watch:sass": "./node_modules/.bin/gulp watch:sass",
     "chmod:2775": "sudo chmod 2775 -R * && sudo chmod 775 -R *",
-    "watch": "npm run server & npm run build:website:dev & npm run watch:sass",
     "build:website:sass:dev": "node ./node_modules/.bin/node-sass --watch Website/Scss -o public/css",
     "build:website:sass:prod": "node ./node_modules/.bin/node-sass Website/Scss -o public/css"
   },
   "keywords": [],
   "author": "David Janitzek",
-  "license": "MIT",
+  "license": "GNU",
   "dependencies": {
     "@babel/runtime": "^7.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",

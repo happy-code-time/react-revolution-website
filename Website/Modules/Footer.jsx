@@ -86,7 +86,7 @@ class Footer extends React.Component
                                     content: (
                                         <div className='text text-center'>
                                             <div>
-                                                {`Ⓒ ${this.getCurrentYearText()} ${trans('rigthsText')}`}
+                                                {`Ⓒ ${this.getCurrentYearText()} GNU License`}
                                             </div>
                                         </div>
                                     ),

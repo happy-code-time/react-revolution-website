@@ -6,7 +6,8 @@ import trans from '../Translations/trans';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const codeExample1 = `import { enableHtmlScroll } from 'react-revolution';`;
+const codeExample1 = `import { enableHtmlScroll } from 'react-revolution';
+//import enableHtmlScroll from 'react-revolution/Functions/enableHtmlScroll';`;
 
 const jsExample1 = `enableHtmlScroll();`;
 

@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v3.0.6';
+const version = 'v4.0.0';
 
 const modules = [
     "Accordion",
@@ -62,20 +62,20 @@ const modules = [
     "Timeline",
     "Water404",
     // Functions
-    // "Functions/addGlobalMessage",
-    // "Functions/disableHtmlScroll",
-    // "Functions/enableHtmlScroll",
-    // "Functions/isObject",
-    // "Functions/scrollTopListener",
-    // "Functions/urlExtract",
-    // "Functions/uuid",
+    "Functions/addGlobalMessage",
+    "Functions/disableHtmlScroll",
+    "Functions/enableHtmlScroll",
+    "Functions/isObject",
+    "Functions/scrollTopListener",
+    "Functions/urlExtract",
+    "Functions/uuid",
 ];
 
 const removeDirs = [
     './public/**/*',
     './react-revolution/_Configurations/**/*',
-    // './react-revolution/Functions/**/*',
-    // './react-revolution/Functions',
+    './react-revolution/Functions/**/*',
+    './react-revolution/Functions',
 ];
 
 modules.map( dirAndModuleName => {
@@ -216,12 +216,12 @@ gulp.task('create:webpack:files', async function(cb){
             let entry  = `'./_Modules/${moduleName}/index.js'`;
             let outputPath = `path.resolve(__dirname, '../${moduleName}')`;
 
-            // if(-1 !== moduleName.indexOf('Functions/')){
-            //     const fnName = moduleName.replace('Functions/', '');
-            //     filename = "webpack.config.function." + fnName + ".production.js";
-            //     entry  = `'./_Functions/${fnName}.js'`;
-            //     outputPath = `path.resolve(__dirname, '../Functions/${fnName}')`;
-            // }
+            if(-1 !== moduleName.indexOf('Functions/')){
+                const fnName = moduleName.replace('Functions/', '');
+                filename = "webpack.config.function." + fnName + ".production.js";
+                entry  = `'./_Functions/${fnName}.js'`;
+                outputPath = `path.resolve(__dirname, '../Functions/${fnName}')`;
+            }
 
             let data = `
             const TerserPlugin = require('terser-webpack-plugin');
@@ -335,7 +335,7 @@ gulp.task('compile', function (callback) {
 /**
  * Multiple task runner
  */
-gulp.task('css', function (callback) {
+gulp.task('sass', function (callback) {
     runSequence(
         [
             'clean:css',
@@ -345,16 +345,4 @@ gulp.task('css', function (callback) {
             'build:css:website'
         ],
         callback);
-});
-
-/**
- * Websites scss watcher
- */
-gulp.task('buildSassWebsite', function () {
-    return gulp.src(['Website/Scss/index.scss'])
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(gulp.dest('public/css'))
-});
-gulp.task('watch:sass', function () {
-    gulp.watch('Website/Scss/**/*', gulp.series('buildSassWebsite'));
 });

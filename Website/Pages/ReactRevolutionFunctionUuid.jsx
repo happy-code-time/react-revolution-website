@@ -6,7 +6,8 @@ import trans from '../Translations/trans';
 
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const codeExample1 = `import { uuid } from 'react-revolution';`;
+const codeExample1 = `import { uuid } from 'react-revolution';
+//import uuid from 'react-revolution/Functions/uuid';`;
 
 const jsExample1 = `<span 
     key={uuid()}
