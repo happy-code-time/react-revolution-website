@@ -45,12 +45,17 @@ class Menu extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'reactRouter', 'animation', 'dashed', 'headData', 'activeClassName', 'toggledClassName', 'isActiveTree', 'forceClose', 'forceCloseAll', 'closeOnClickOutside', 'align', 'alignIcon'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['data'], props, state)) {
+            return {
+                data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
+            };
+        }
+
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'reactRouter', 'animation', 'dashed', 'headData', 'activeClassName', 'toggledClassName', 'isActiveTree', 'forceClose', 'forceCloseAll', 'closeOnClickOutside', 'align', 'alignIcon'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-menu',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                // data: (props.data && typeof [] == typeof props.data) ? buildDropDownStructure(props.data) : [],
                 reactRouter: typeof true == typeof props.reactRouter ? props.reactRouter : false,
                 animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : undefined,
                 dashed: typeof true == typeof props.dashed ? props.dashed : false,
