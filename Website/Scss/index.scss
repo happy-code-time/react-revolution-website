@@ -272,7 +272,7 @@
     background-color: $white;
     z-index: 5;
 
-    .rr-menu {
+    .rr-menu-height {
       height: calc(100% - 70px);
       overflow-x: hidden;
       overflow-y: hidden;
@@ -383,7 +383,7 @@
       }
     }
 
-    .rr-menu:hover {
+    .rr-menu-height:hover {
       overflow-y: auto;
     }
   }

@@ -1683,6 +1683,16 @@ const EN = {
         "type": "String",
         "default": "left"
     },
+    "menuHeight.singleItemsHeight": {
+        "description": "Individual height of each individual menu entry. Only relevant during the duration of an animation.",
+        "type": "Number",
+        "default": "35"
+    },
+    "menuHeight.animationTime": {
+        "description": "Animation time to control the time of the internal handling of classes. In order to get an animation flush with CSS, if the value is different than 300, the section 'animation .scss' must be found in the file 'rr-menu-height.scss' : menuHeightAnimateStart <timout> ms ease-in forwards; ' and 'animation: menuHeightAnimateStop <timout> ms ease-in forwards;' customize. ",
+        "type": "Number",
+        "default": "300"
+    },
 };
 
 export default EN;

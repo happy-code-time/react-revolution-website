@@ -118,7 +118,7 @@ class Menu extends React.Component {
                 <Link
                     to={href}
                     className={cls}
-                    onClick={() => this.toggle(unique, isChild)}
+                    onClick={() => this.toggle(unique)}
                 >
                     {
                         'left' == direction && icon &&
@@ -150,7 +150,7 @@ class Menu extends React.Component {
                 <a
                     href={href}
                     className={cls}
-                    onClick={() => this.toggle(unique, isChild)}
+                    onClick={() => this.toggle(unique)}
                 >
                     {
                         'left' == direction && icon &&
@@ -180,7 +180,7 @@ class Menu extends React.Component {
         return (
             <div
                 className={cls}
-                onClick={() => this.toggle(unique, isChild)}
+                onClick={() => this.toggle(unique)}
             >
                 {
                     'left' == direction && icon &&
@@ -279,9 +279,9 @@ class Menu extends React.Component {
      * toggled key to the oposite oolean value
      * @param {string} uniqueId 
      */
-    toggle(uniqueId, isChild) {
+    toggle(uniqueId) {
         const allowedAnimations = ['height', 'scale', 'opacity'];
-        const { data, isActiveTree, forceClose, forceCloseAll, toggledClassName, activeClassName } = this.state;
+        const { data, forceClose, forceCloseAll, toggledClassName, activeClassName } = this.state;
         let { animation } = this.state;
 
         if (!allowedAnimations.includes(animation)) {
@@ -289,31 +289,6 @@ class Menu extends React.Component {
         }
 
         let timeouterForAnimationBack = animation ? 300 : 0;
-
-        /**
-         * Remove active class from other childs, there are not active
-         * Remove from all nested childs
-         */
-        const removeActiveClass = (item) => {
-            /**
-             * Remove class active from the parent element
-             */
-            item.isActive = false;
-
-            /**
-             * Remove active class from the childs
-             */
-            const childData = item.data && item.data.length ? item.data : [];
-
-            for (let x = 0; x <= childData.length - 1; x++) {
-
-                childData[x].isActive = false;
-
-                if (childData[x].data && childData[x].data.length) {
-                    removeActiveClass(childData[x]);
-                }
-            }
-        };
 
         /**
          * Find the First item of the top, of the nested tree
@@ -327,13 +302,6 @@ class Menu extends React.Component {
                 return o;
             }
         };
-
-        /**
-         * Remove all active classes
-         */
-        // for (let i = 0; i <= data.length - 1; i++) {
-        //     removeActiveClass(data[i]);
-        // }
 
         /**
          * Toggle all opened menu items back with an animation if provided
@@ -508,28 +476,31 @@ class Menu extends React.Component {
             return null;
         }
 
-        const { animation, data } = this.state;
-        let allowSetState = false;
+        const { animation, data, toggledClassName, activeClassName } = this.state;
         let timer = animation ? 300 : 0;
 
         for (let x = 0; x <= data.length - 1; x++) {
 
             const forceClose = (o) => {
+                const { toggled } = o;
 
-                if (o.isParent && true == o.toggled) {
-                    o.classList = `${o.classList} ${animation ? `animation-${animation}-back` : ''}`;
-                    allowSetState = false;
+                if (toggled) {
+                    o.classList = `${o.classList} ${toggledClassName}-back ${activeClassName}-back ${animation ? `animation-${animation}-back` : ''}`;
+                    o.isActive = false;
 
-                    setTimeout(() => {
-                        o.toggled = false;
-                        o.isActive = false;
-                        o.classList = '';
-                        allowSetState = true;
+                    return this.setState({
+                        data
+                    }, () => {
+                        setTimeout(() => {
+                            o.classList = ''; // No animation to perform
+                            o.toggled = false; // Set toggle to false after the animation has been done
 
-                        if (allowSetState) {
-                            this.setState({ data });
-                        }
-                    }, timer);
+                            this.setState({
+                                data
+                            });
+
+                        }, timer);
+                    });
                 }
 
                 if (o.data && typeof [] === typeof o.data && o.data.length) {

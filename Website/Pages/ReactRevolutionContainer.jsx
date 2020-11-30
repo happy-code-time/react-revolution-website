@@ -132,7 +132,7 @@ const cssExample = `.container-example {
             margin-left: 5px;
         }
 
-        .rr-menu {
+        .rr-menu-height {
             height: calc(100% - 60px);
             overflow-x: hidden;
             overflow-y: hidden;
@@ -169,7 +169,7 @@ const cssExample = `.container-example {
             }
         }
 
-        .rr-menu:hover {
+        .rr-menu-height:hover {
             overflow-y: auto;
         }
     }

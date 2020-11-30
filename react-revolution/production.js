@@ -59,6 +59,8 @@ import LoadOnScroll from './_Modules/LoadOnScroll';
 
 import Menu from './_Modules/Menu';
 
+import MenuHeight from './_Modules/MenuHeight';
+
 import Modal from './_Modules/Modal';
 
 import PagerStatic from './_Modules/PagerStatic';
@@ -144,6 +146,7 @@ export {
     LoadingBoxTop,
     LoadOnScroll,
     Menu,
+    MenuHeight,
     Modal,
     PagerStatic,
     PagerDynamic,

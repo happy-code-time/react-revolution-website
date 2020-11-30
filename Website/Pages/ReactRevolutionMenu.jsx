@@ -710,7 +710,7 @@ class ReactRevolutionMenu extends React.Component
             },
             {
                 title: 'Menu',
-                description: trans('accordion.description2'),
+                description: 'closeOnClickOutside={true}.',
                 reactTextBefore: '',
                 react: codeExample3,
                 reactTextAfter: '',

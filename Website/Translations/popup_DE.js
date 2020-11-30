@@ -1681,6 +1681,16 @@ const DE = {
         "type": "String",
         "default": "left"
     },
+    "menuHeight.singleItemsHeight": {
+        "description": "Einzelne Höhe jedes einzelnen Menu Eintrages. Nur relevant wärend der Daur einer Animation.",
+        "type": "Number",
+        "default": "35"
+    },
+    "menuHeight.animationTime": {
+        "description": "Animationszeit um das interne Handling von Klassen zeitlich zu steuern. Um eine Animation mit CSS bündig hinzubekommen, wenn der Wert anders als 300 ist, muss man in der Datei 'rr-menu-height.scss' den Abschnitt 'animation: menuHeightAnimateStart <timout>ms ease-in forwards;' und 'animation: menuHeightAnimateStop <timout>ms ease-in forwards;' individuell anpassen.",
+        "type": "Number",
+        "default": "300"
+    },
 };
 
 export default DE;

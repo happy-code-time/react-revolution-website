@@ -224,7 +224,7 @@ html {
   /*
   * Minified second Content
   */
-  .Content.minified {
+  .ContentMinified {
     left: 0;
     width: 100vw;
   }
@@ -282,7 +282,7 @@ html {
     left: auto;
     right: $dashboard_menu-width-min;
   }
-  .Content.minified {
+  .ContentMinified {
     left: auto;
     right: -12px;
   }

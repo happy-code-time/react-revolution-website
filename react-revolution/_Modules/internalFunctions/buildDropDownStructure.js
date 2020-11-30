@@ -47,6 +47,10 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
                 data[x].isActive = false;
             }
 
+            if(undefined == data[x].classListChildren){
+                data[x].classListChildren = '';
+            }
+
             if(parent && data[x].data && typeof [] == typeof data[x].data && data[x].data.length){
                 data[x].childrensNestedCount = parent.childrensNestedCount+1;
             }

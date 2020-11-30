@@ -117,6 +117,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-menu'
         },
         {
+            name: 'MenuHeight',
+            link: 'react-revolution-menu-height'
+        },
+        {
             name: 'Modal',
             link: 'react-revolution-modal'
         },

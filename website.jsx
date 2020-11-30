@@ -3,7 +3,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import Home from './Website/Pages/Home';
 import ScrollTop from './Website/Modules/ScrollTop';
-import { uuid, Container, CloudsMountains404, Menu, SideBar, PopupBox, InputSuggestionObject } from './react-revolution/react-revolution';
+import { uuid, Container, CloudsMountains404, MenuHeight, SideBar, PopupBox, InputSuggestionObject } from './react-revolution/react-revolution';
 import { appNameShort, version } from './Website/Globals';
 import trans from './Website/Translations/trans';
 import possibleLanguagesLong from './Website/Functions/language/possibleLanguagesLong';
@@ -44,6 +44,7 @@ import ReactRevolutionInputSuggestionObject from './Website/Pages/ReactRevolutio
 import ReactRevolutionLightbulb404 from './Website/Pages/ReactRevolutionLightbulb404';
 import ReactRevolutionLoadingBoxTop from './Website/Pages/ReactRevolutionLoadingBoxTop';
 import ReactRevolutionMenu from './Website/Pages/ReactRevolutionMenu';
+import ReactRevolutionMenuHeight from './Website/Pages/ReactRevolutionMenuHeight';
 import ReactRevolutionModal from './Website/Pages/ReactRevolutionModal';
 import ReactRevolutionPagerStatic from './Website/Pages/ReactRevolutionPagerStatic';
 import ReactRevolutionPagerDynamic from './Website/Pages/ReactRevolutionPagerDynamic';
@@ -87,6 +88,7 @@ import Release305 from './Website/Releases/Release305';
 import Release306 from './Website/Releases/Release306';
 import Release400 from './Website/Releases/Release400';
 import Release401 from './Website/Releases/Release401';
+import Release402 from './Website/Releases/Release402';
 
 class App extends React.Component {
 
@@ -99,7 +101,7 @@ class App extends React.Component {
     this.toggleDashboardDirection = this.toggleDashboardDirection.bind(this);
 
     this.state = {
-      minifySidebard: '#/' == window.location.hash ? true : false,
+      minifySidebard: false,
       host: ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD,
       suggestions: [],
       inputValue: '',
@@ -327,16 +329,13 @@ class App extends React.Component {
             href={`${host}#/`}
             globalStyle={true} // load css for react-revolution globally
             moduleMenu={
-              <Menu
+              <MenuHeight
                 reactRouter={false}
                 align={align}
                 alignIcon='left'
                 isActiveTree={-1}
                 activeClassName='is-active'
                 toggledClassName='is-toggled'
-                forceClose={false} // close other toggled items recursively
-                forceCloseAll={false}
-                closeOnClickOutside={false}
                 animation='height'
                 data={
                   [
@@ -512,8 +511,26 @@ class App extends React.Component {
                           href: `${host}#/react-revolution-load-on-scroll`,
                         },
                         {
-                          text: 'Menu',
-                          href: `${host}#/react-revolution-menu`,
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Menu
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'Menu',
+                              href: `${host}#/react-revolution-menu`,
+                            },
+                            {
+                              text: 'MenuHeight',
+                              href: `${host}#/react-revolution-menu-height`,
+                            },
+                          ]
                         },
                         {
                           text: 'Modal',
@@ -705,6 +722,10 @@ class App extends React.Component {
                             </span>
                           ),
                           data: [
+                            {
+                              text: '4.0.2',
+                              href: `${host}#/react-revolution-release-4-0-2`,
+                            },
                             {
                               text: '4.0.1',
                               href: `${host}#/react-revolution-release-4-0-1`,
@@ -956,6 +977,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-input-suggestion-object" render={(props) => (<ReactRevolutionInputSuggestionObject {...props} />)} />
               <Route exact path="/react-revolution-loading-box-top" render={(props) => (<ReactRevolutionLoadingBoxTop {...props} />)} />
               <Route exact path="/react-revolution-menu" render={(props) => (<ReactRevolutionMenu {...props} />)} />
+              <Route exact path="/react-revolution-menu-height" render={(props) => (<ReactRevolutionMenuHeight {...props} />)} />
               <Route exact path="/react-revolution-modal" render={(props) => (<ReactRevolutionModal {...props} />)} />
               <Route exact path="/react-revolution-pager-static" render={(props) => (<ReactRevolutionPagerStatic {...props} />)} />
               <Route exact path="/react-revolution-pager-dynamic" render={(props) => (<ReactRevolutionPagerDynamic {...props} />)} />
@@ -994,6 +1016,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-3-0-6" render={(props) => (<Release306 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-0" render={(props) => (<Release400 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-1" render={(props) => (<Release401 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-2" render={(props) => (<Release402 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

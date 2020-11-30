@@ -1684,6 +1684,16 @@ const PL = {
         "type": "String",
         "default": "left"
     },
+    "menuHeight.singleItemsHeight": {
+        "description": "Indywidualna wysokość każdego pojedynczego wpisu menu. Ma znaczenie tylko podczas trwania animacji.",
+        "type": "Number",
+        "domyślny": "35"
+    },
+    "menuHeight.animationTime": {
+        "description": "Czas animacji do kontrolowania czasu wewnętrznej obsługi klas. Aby uzyskać animację równo z CSS, jeśli wartość jest inna niż 300, musisz przejść do 'animacji : menuHeightAnimateStart <timout> ms ułatw do przodu; ' oraz 'animacja: menuHeightAnimateStop <timout> ms eas-in forward;' dostosuj. ",
+        "type": "Number",
+        "domyślny": "300"
+    },
 };
 
 export default PL;
