@@ -1133,25 +1133,25 @@ const EN = {
         "type": "JSX | String",
         "default": "<empty string>"
     },
-    "persistUserSelection": {
-        "description": "Save the current setting of the toggled sidebar. If the user refresh the page, then the sidebars previous state are used.",
-        "type": "Boolean",
-        "default": "undefined"
+    "hideAt": {
+        "description": "If the document is 'resized' and the value is less than or equal to this value, the sidebar is completely minimized.",
+        "type": "Number",
+        "default": "520"
     },
-    "clearPersistUserSelection": {
-        "description": "Clear the saved sidebars previous state.",
-        "type": "Boolean",
-        "default": "undefined"
-    },
-    "sidebarMinifiedAt": {
-        "description": "If the key 'autopilot' are true then minify the sidebar to the min width, if false then hide the sidebar - sidebar are toggled with the 'toggleMenuHtml' key.",
+    "minifyAt": {
+        "description": "If the document is 'resized' and the value is less than or equal to this value, the sidebar is minimized.",
         "type": "Number",
         "default": "720"
     },
-    "sidebarMaxifiedAt": {
+    "maxifyAt": {
         "description": "Maxify the previously minified sidebar to the main (base) width.",
         "type": "Number",
         "default": "1024"
+    },
+    "minifySidebarOn": {
+        "description": "If the value of window.location.href or window.location.hash matches an entry in this list, then the sidebar is displayed completely minimized.",
+        "type": "String[]",
+        "default": "[]"
     },
     "displayMinifyMaxifyIcon": {
         "description": "Render the sidebars toggling HTML - the JSX from the key 'toggleMenuHtml'.",
@@ -1163,18 +1163,13 @@ const EN = {
         "type": "Boolean",
         "default": "undefined"
     },
-    "autopilot": {
-        "description": "If true then the resize event listener are resizing the sidebar in 3 steps. If false then the resize event listener are resizing the sidebar in 2 steps.",
-        "type": "Boolean",
-        "default": "false"
-    },
     "toggleMenuHtml": {
         "description": "Custom JSX used as toggling icon for the sidebar. This HTML are located inside the headers content.",
         "type": "String | JSX",
         "default": "<empty string>"
     },
     "closeMenuHtml": {
-        "description": "Custom JSX used as close icon on the sidebar if the documents width lower then the value passed to the module with the key 'sidebarMinifiedAt'.",
+        "description": "Custom JSX used as close icon on the sidebar if the documents width lower then the value passed to the module with the key 'minifyAt'.",
         "type": "String | JSX",
         "default": "<empty string>"
     },

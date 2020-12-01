@@ -17,13 +17,9 @@ const codeExample1 = `import { Container, SideBar, Menu } from 'react-revolution
 
 <Container
     addClass='container-example'
-    persistUserSelection={false}
-    clearPersistUserSelection={true} 
-    sidebarMinifiedAt={1024}
-    sidebarMaxifiedAt={720}
+    minifyAt={1024}
+    maxifyAt={720}
     displayMinifyMaxifyIcon={true}
-    minify={false}
-    autopilot={true}
     toggleMenuHtml={
         <i className="fas fa-bars " />
     }
@@ -235,13 +231,9 @@ class ReactRevolutionClouds404 extends React.Component
                 live: (
                     <Container
                         addClass='container-example'
-                        persistUserSelection={false} // set local sotrage on click
-                        clearPersistUserSelection={true} // do not remove the local storage on component-did-mount
-                        sidebarMinifiedAt={1024}
-                        sidebarMaxifiedAt={720}
+                        minifyAt={1024}
+                        maxifyAt={720}
                         displayMinifyMaxifyIcon={true}
-                        minify={false}
-                        autopilot={true}
                         toggleMenuHtml={
                             <i className="fas fa-bars " />
                         }
@@ -409,32 +401,20 @@ class ReactRevolutionClouds404 extends React.Component
                                     values: 'addClass'
                                 },
                                 {
-                                    key: 'persistUserSelection',
-                                    values: 'persistUserSelection'
+                                    key: 'hideAt',
+                                    values: 'hideAt'
                                 },
                                 {
-                                    key: 'clearPersistUserSelection',
-                                    values: 'clearPersistUserSelection'
+                                    key: 'minifyAt',
+                                    values: 'minifyAt'
                                 },
                                 {
-                                    key: 'sidebarMinifiedAt',
-                                    values: 'sidebarMinifiedAt'
-                                },
-                                {
-                                    key: 'sidebarMaxifiedAt',
-                                    values: 'sidebarMaxifiedAt'
+                                    key: 'maxifyAt',
+                                    values: 'maxifyAt'
                                 },
                                 {
                                     key: 'displayMinifyMaxifyIcon',
                                     values: 'displayMinifyMaxifyIcon'
-                                },
-                                {
-                                    key: 'minify',
-                                    values: 'minify'
-                                },
-                                {
-                                    key: 'autopilot',
-                                    values: 'autopilot'
                                 },
                                 {
                                     key: 'toggleMenuHtml',
@@ -475,6 +455,10 @@ class ReactRevolutionClouds404 extends React.Component
                                 {
                                     key: 'align',
                                     values: 'menu.align'
+                                },
+                                {
+                                    key: 'minifySidebarOn',
+                                    values: 'minifySidebarOn'
                                 },
                             ],
                             'rr-container'

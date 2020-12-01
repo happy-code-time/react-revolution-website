@@ -1133,25 +1133,25 @@ const PL = {
         "type": "JSX | String",
         "default": "<pusty ciąg>"
     },
-    "persistUserSelection": {
-        "description": "Zapisz bieżące ustawienia przełączanego paska bocznego. Jeśli użytkownik odświeży stronę, zostaną użyte poprzednie ustawienia pasków bocznych.",
-        "type": "Boolean",
-        "default": "undefined"
+    "hideAt": {
+        "description": "Jeśli dokument jest 'zmieniony', a wartość jest mniejsza lub równa tej wartości, pasek boczny jest całkowicie zminimalizowany.",
+        "type": "Number",
+        "default": "520"
     },
-    "clearPersistUserSelection": {
-        "description": "Wyczyść poprzedni stan zapisanych pasków bocznych.",
-        "type": "Boolean",
-        "default": "undefined"
-    },
-    "sidebarMinifiedAt": {
-        "description": "Jeśli klucz 'autopilot' jest prawdziwy, zmniejsz pasek boczny do minimalnej szerokości, jeśli fałsz, ukryj pasek boczny - przełącza się go za pomocą klawisza 'toggleMenuHtml'.",
+    "minifyAt": {
+        "description": "Jeśli 'zmieniono rozmiar' dokumentu, a wartość jest mniejsza lub równa tej wartości, pasek boczny jest zminimalizowany.",
         "type": "Number",
         "default": "720"
     },
-    "sidebarMaxifiedAt": {
+    "maxifyAt": {
         "description": "Maksymalizuj poprzednio zminimalizowany pasek boczny do szerokości głównej (bazowej).",
         "type": "Number",
         "default": "1024"
+    },
+    "minifySidebarOn": {
+        "description": "Jeśli wartość window.location.href lub window.location.hash pasuje do wpisu na tej liście, to pasek boczny jest wyświetlany całkowicie zminimalizowany.",
+        "type": "String[]",
+        "default": "[]"
     },
     "displayMinifyMaxifyIcon": {
         "description": "Renderuj boczne paski przełączające HTML - JSX z klucza 'toggleMenuHtml'.",
@@ -1163,18 +1163,13 @@ const PL = {
         "type": "Boolean",
         "default": "undefined"
     },
-    "autopilot": {
-        "description": "Jeśli prawda, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 3 krokach. Jeśli wartość false, to detektor zdarzenia zmiany rozmiaru zmienia rozmiar paska bocznego w 2 krokach.",
-        "type": "Boolean",
-        "default": "false"
-    },
     "toggleMenuHtml": {
         "description": "Niestandardowy JSX używany jako ikona przełączająca na pasku bocznym. Ten kod HTML znajduje się w treści nagłówków.",
         "type": "String | JSX",
         "default": "<pusty ciąg>"
     },
     "closeMenuHtml": {
-        "description": "Niestandardowy JSX używany jako ikona zamykania na pasku bocznym, jeśli szerokość dokumentów jest mniejsza niż wartość przekazana do modułu za pomocą klucza 'sidebarMinifiedAt'.",
+        "description": "Niestandardowy JSX używany jako ikona zamykania na pasku bocznym, jeśli szerokość dokumentów jest mniejsza niż wartość przekazana do modułu za pomocą klucza 'minifyAt'.",
         "type": "String | JSX",
         "default": "<pusty ciąg>"
     },

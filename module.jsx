@@ -6,38 +6,24 @@ import './react-revolution/_Sass/rr-container.scss';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            minifySidebard: true,
-          };
-    }
-
-    componentDidMount(){
-        const { minifySidebard } = this.state;
-
-        if ('#/' == window.location.hash && !minifySidebard) {
-            return this.setState({
-              minifySidebard: true
-            });
-          }
-      
-          if ('#/' !== window.location.hash && minifySidebard) {
-            this.setState({ minifySidebard: false });
-          }
     }
 
     render() {
-        const { minifySidebard } = this.state;
-        const host = '';
-
         return (
             <div>
 
                 <Container
                     addClass='container-example'
-                    sidebarMinifiedAt={1024}
-                    sidebarMaxifiedAt={720}
+                    minifyAt={1024}
+                    maxifyAt={720}
+                    hideAt={420}
+                    minifySidebarOn={
+                        [
+                            'http://localhost:3000/',
+                            'http://localhost:3000/#/'
+                        ]
+                    }
                     displayMinifyMaxifyIcon={true}
-                    minify={minifySidebard}
                     toggleMenuHtml={
                         <i className="fas fa-bars " />
                     }
@@ -50,7 +36,6 @@ class App extends React.Component {
                             textLong='text long'
                             textShort='text short'
                             href={undefined}
-                            globalStyle={true}
                             moduleMenu={
                                 <MenuHeight
                                     reactRouter={false}
@@ -68,7 +53,8 @@ class App extends React.Component {
                                                 data: [
                                                     {
                                                         icon: <i className="fas fa-golf-ball"></i>,
-                                                        text: 'Golf 1'
+                                                        text: 'Golf 1',
+                                                        href: 'http://localhost:3000/#/hallo'
                                                     },
                                                     {
                                                         icon: <i className="fas fa-golf-ball"></i>,

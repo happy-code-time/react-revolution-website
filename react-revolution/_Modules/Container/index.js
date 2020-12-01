@@ -16,7 +16,10 @@ class Container extends React.Component
              * App
              */
             href: window.location.href,
-            minifiedSecondSideBar: true,
+            isMin: (typeof true == typeof props.isMin) ? props.isMin : false,
+            isMax: (typeof true == typeof props.isMax) ? props.isMax : false,
+            isHidden: (typeof true == typeof props.isHidden) ? props.isHidden : true,
+            isHiddenClass: 'closed',
             /**
              * User
              */
@@ -26,25 +29,31 @@ class Container extends React.Component
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
-            persistUserSelection: (typeof true == typeof props.persistUserSelection) ? props.persistUserSelection : undefined,
-            clearPersistUserSelection: (typeof true == typeof props.clearPersistUserSelection) ? props.clearPersistUserSelection : undefined,
-            sidebarMinifiedAt: (typeof 8 == typeof props.sidebarMinifiedAt) ? props.sidebarMinifiedAt : 720,
-            sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt : 1024,
+            maxifyAt: (typeof 8 == typeof props.maxifyAt) ? props.maxifyAt : 1024,
+            minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 720,
+            hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 520,
             displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
-            minify: (typeof true == typeof props.minify) ? props.minify : false,
+            // head
             headerProps: (props.headerProps && typeof {} == typeof props.headerProps) ? props.headerProps : {},
             headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
+            // content
             contentProps: (props.contentProps && typeof {} == typeof props.contentProps) ? props.contentProps : {},
             contentData: props.contentData ? props.contentData : undefined,
+            // foot
             footerData: props.footerData ? props.footerData : undefined,
             footerProps: (props.footerProps && typeof {} == typeof props.footerProps) ? props.footerProps : {},
-            autopilot: (typeof true == typeof props.autopilot) ? props.autopilot : false,
             closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : undefined,
             toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : undefined,
-            isMinified: (typeof true == typeof props.isMinified) ? props.isMinified : false, 
-            sidebarMin: (typeof true == typeof props.sidebarMin) ? props.sidebarMin : false, 
-            contentMin: (typeof true == typeof props.contentMin) ? props.contentMin : false, 
+            // sidebars blacklist
+            minifySidebarOn: props.minifySidebarOn && typeof [] == typeof props.minifySidebarOn && props.minifySidebarOn.length ? props.minifySidebarOn : [],
             align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
+            hideOpenedHiddenSidebar: {
+                isHiddenClass: 'closed',
+                isMax: false,
+                isMin: false,
+                isHidden: true,
+                href: window.location.href
+            }
         };
 
         this.nodeSideBar = React.createRef();
@@ -57,50 +66,31 @@ class Container extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['moduleSidebar', 'headerData', 'contentData', 'persistUserSelection', 'sidebarMinifiedAt', 'sidebarMaxifiedAt', 'displayMinifyMaxifyIcon', 'minify', 'footerData', 'isMinified', 'sidebarMin', 'contentMin', 'align'], props, state)) {
-
-            if(state.persistUserSelection && null !== localStorage.getItem('persistUserSelection')){
-                try{
-                    const saved = JSON.parse(localStorage.getItem('persistUserSelection'));
-                    const { sidebarMin, contentMin, isMinified, minifiedSecondSideBar } = saved;
-                    return { sidebarMin, contentMin, isMinified, minifiedSecondSideBar };
-                }
-                catch(e){}
-            }
-
-            if (state.minify !== props.minify) {
-
-                if (props.minify) {
-                    return {
-                        sidebarMin: true,
-                        contentMin: true,
-                        isMinified: true,
-                        minify: true,
-                        minifiedSecondSideBar: true
-                    };
-                }
-                else {
-                    return {
-                        sidebarMin: false,
-                        contentMin: false,
-                        isMinified: false,
-                        minify: false
-                    };
-                }
-            }
-
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps','closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
+                id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
-                headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
-                contentData: (props.contentData && typeof {} == typeof props.contentData) ? props.contentData : undefined,
-                persistUserSelection: (typeof true == typeof props.persistUserSelection) ? props.persistUserSelection : undefined,
-                clearPersistUserSelection: (typeof true == typeof props.clearPersistUserSelection) ? props.clearPersistUserSelection : undefined,
-                sidebarMinifiedAt: (typeof 8 == typeof props.sidebarMinifiedAt) ? props.sidebarMinifiedAt : 720,
-                sidebarMaxifiedAt: (typeof 8 == typeof props.sidebarMaxifiedAt) ? props.sidebarMaxifiedAt : 1024,
+                maxifyAt: (typeof 8 == typeof props.maxifyAt) ? props.maxifyAt : 1024,
+                minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 720,
+                hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 520,
                 displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
-                minify: props.minify,
-                footerData: props.footerData,
+                // head
+                headerProps: (props.headerProps && typeof {} == typeof props.headerProps) ? props.headerProps : {},
+                headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
+                // content
+                contentProps: (props.contentProps && typeof {} == typeof props.contentProps) ? props.contentProps : {},
+                contentData: props.contentData ? props.contentData : undefined,
+                // foot
+                footerData: props.footerData ? props.footerData : undefined,
+                footerProps: (props.footerProps && typeof {} == typeof props.footerProps) ? props.footerProps : {},
+                closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : undefined,
+                toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : undefined,
+                // sidebars blacklist
+                minifySidebarOn: props.minifySidebarOn && typeof [] == typeof props.minifySidebarOn && props.minifySidebarOn.length ? props.minifySidebarOn : [],
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
+                href: window.location.href,
             };
         }
 
@@ -109,12 +99,6 @@ class Container extends React.Component
 
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
-        const { clearPersistUserSelection } = this.state;
-
-        if (clearPersistUserSelection || undefined === clearPersistUserSelection) {
-            localStorage.removeItem('persistUserSelection');
-        }
-
         window.addEventListener('resize', this.resizeView);
         window.addEventListener('mousedown', this.handleClick);
         this.resizeView();
@@ -126,141 +110,81 @@ class Container extends React.Component
     }
 
     handleClick(e) {
-        const { minifiedSecondSideBar, href, sidebarMaxifiedAt } = this.state;
+        const { isHidden, href, isHiddenClass } = this.state;
 
-        if (this.nodeSideBar && this.nodeSideBar.current && !this.nodeSideBar.current.contains(e.target) && this.nodeSideBar.current.classList && this.nodeSideBar.current.classList.contains('SidebarMinified')) {
-            this.nodeSideBar.current.classList.remove('opened');
-
-            if (!minifiedSecondSideBar) {
-                setTimeout(() => {
-                    this.setState({
-                        minifiedSecondSideBar: true
-                    });
-                }, 100);
-            }
+        if (this.nodeSideBar && this.nodeSideBar.current && !this.nodeSideBar.current.contains(e.target)) {
+            /**
+             * Hide opened hidden sidebar on location change
+             */
+            setTimeout(() => {
+                if(isHidden){
+                    if('opened' == isHiddenClass){
+                        this.setState(this.state.hideOpenedHiddenSidebar);
+                    }
+                }
+            }, 100);
         }
 
-        /**
-         * Auto closing sidebar on location change
-         * and if width smaller then 1024
-         */
         setTimeout(() => {
-
-            if (sidebarMaxifiedAt && sidebarMaxifiedAt >= document.documentElement.getBoundingClientRect().width) {
-                this.resizeView();
+            if(href !== window.location.href && isHidden){
+                this.setState(this.state.hideOpenedHiddenSidebar, this.resizeView);
             }
-
-            if (this.nodeSideBar && this.nodeSideBar.current && this.nodeSideBar.current.classList && this.nodeSideBar.current.classList.contains('SidebarMinified') && href !== window.location.href) {
-
-                this.setState({
-                    href: window.location.href
-                });
-
-                if (!minifiedSecondSideBar) {
-                    this.setState({
-                        minifiedSecondSideBar: true
-                    });
-                }
+            if(href !== window.location.href && !isHidden){
+                this.setState({ href: window.location.href }, (e) => this.resizeView(e, true));
             }
         }, 300);
     }
 
-    resizeView() {
-        const { autopilot, persistUserSelection, sidebarMinifiedAt, sidebarMaxifiedAt, minify } = this.state;
+    resizeView(event, persistCurrentSelection = false) {
+        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar } = this.state;
+        const documentWidth = document.documentElement.getBoundingClientRect().width;
 
-        if (persistUserSelection && null !== localStorage.getItem('persistUserSelection')) {
-            try {
-                const userSet = JSON.parse(localStorage.getItem('persistUserSelection'));
-                const { sidebarMin, contentMin, isMinified, minifiedSecondSideBar } = userSet;
-                return this.setState({ sidebarMin, contentMin, isMinified, minifiedSecondSideBar });
-            }
-            catch (e) {
-                //
+        if(minifySidebarOn && minifySidebarOn.length){
+            for(let x = 0; x <= minifySidebarOn.length-1; x++){
+                if(typeof '8' == typeof minifySidebarOn[x] && (window.location.href == minifySidebarOn[x] || window.location.hash == minifySidebarOn[x])){
+                    return this.setState(hideOpenedHiddenSidebar);
+                }
             }
         }
 
-        if (minify) {
+        if(persistCurrentSelection){
+            return null;
+        }
+
+        /**
+         * Max
+         */
+        if (documentWidth >= maxifyAt) {
             return this.setState({
-                sidebarMin: true,
-                contentMin: true,
-                isMinified: true,
+                isMax: true,
+                isMin: false,
+                isHidden: false,
+                isHiddenClass: ''
             });
         }
 
-        const documentWidth = document.documentElement.getBoundingClientRect().width;
-
-        if (autopilot) {
-            /**
-             * Lower then XXXXX
-             */
-            if (documentWidth <= sidebarMinifiedAt) {
-
-                if (documentWidth > sidebarMaxifiedAt) {
-                    return this.setState({
-                        sidebarMin: true,
-                        contentMin: true,
-                        isMinified: false, // show the minified icons set
-                        minifiedSecondSideBar: true
-                    });
-                }
-
-                if (documentWidth < sidebarMaxifiedAt) {
-                    return this.setState({
-                        sidebarMin: true,
-                        contentMin: true,
-                        isMinified: true,
-                    });
-                }
-
-            }
-
-            /**
-             * Bigger then XXXXXX
-             */
-            if (documentWidth >= sidebarMaxifiedAt) {
-                return this.setState({
-                    sidebarMin: false,
-                    contentMin: false,
-                    isMinified: false,
-                    minifiedSecondSideBar: true
-                });
-            }
+        /**
+         * Hidden
+         */
+        if (documentWidth <= hideAt) {
+            return this.setState({
+                isMax: false,
+                isMin: false,
+                isHidden: true,
+                isHiddenClass: 'closed'
+            });
         }
-        else {
-            /**
-             * Bigger then XXXXXX
-             */
-            if (documentWidth >= sidebarMaxifiedAt) {
-                return this.setState({
-                    sidebarMin: false,
-                    contentMin: false,
-                    isMinified: false,
-                    minifiedSecondSideBar: true
-                });
-            }
 
-            /**
-             * Lower then XXXX
-             */
-            if (documentWidth <= sidebarMinifiedAt) {
-                return this.setState({
-                    sidebarMin: true,
-                    contentMin: true,
-                    isMinified: true,
-                });
-            }
-
-            /**
-             * Lower then XXXXX
-             */
-            if (documentWidth < sidebarMaxifiedAt) {
-                return this.setState({
-                    sidebarMin: true,
-                    contentMin: true,
-                    isMinified: false, // show the minified icons set
-                    minifiedSecondSideBar: true
-                });
-            }
+        /**
+         * Min
+         */
+        if (documentWidth <= minifyAt) {
+            return this.setState({
+                isMax: false,
+                isMin: true,
+                isHidden: false,
+                isHiddenClass: ''
+            });
         }
 
         return null;
@@ -270,11 +194,16 @@ class Container extends React.Component
      * Get class names for the main sidebar
      */
     getClassNamesSidebar() {
-        const { sidebarMin, contentMin } = this.state;
+        const { isMin, isHidden } = this.state;
 
-        if (contentMin || sidebarMin) {
+        if (isHidden) {
+            return 'SideBar SideBar-hidden';
+        }
+
+        if (isMin) {
             return 'SideBar SideBar-min';
         }
+
         return 'SideBar';
     }
 
@@ -282,28 +211,16 @@ class Container extends React.Component
      * Get class names for the content
      */
     getClassNamesContent() {
-        const { contentMin, sidebarMin } = this.state;
+        const { isMin, isHidden } = this.state;
 
-        /**
-         * For screens smaller then 720px
-         * toggle the class name 'opened'
-         */
-        if (this.state.isMinified) {
-            const { minifiedSecondSideBar } = this.state;
-
-            if (minifiedSecondSideBar) {
-                return 'Content minified';
-            }
-            return 'Content minified';
+        if (isHidden) {
+            return 'Content Content-hidden';
         }
-        /**
-         * Default content functionality if
-         * screen is bigger then 720px
-         */
 
-        if (contentMin || sidebarMin) {
+        if (isMin) {
             return 'Content Content-min';
         }
+
         return 'Content';
     }
 
@@ -312,51 +229,58 @@ class Container extends React.Component
      * if the user clicks the menu icon
      */
     sideBar() {
-        const { isMinified } = this.state;
+        const { isMin, isHidden, isHiddenClass } = this.state;
 
-        /**
-         * Toggle the second sidebar on the x-axis (css property: left)
-         */
-        if (isMinified) {
+        if(isHidden){
+
+            if('closed' == isHiddenClass){
+                return this.setState({
+                    isHiddenClass: 'opened',
+                    isMax: false,
+                    isMin: false,
+                    isHidden: true,
+                });
+            }
+            else{
+                return this.setState({
+                    isHiddenClass: 'closed',
+                    isMax: false,
+                    isMin: false,
+                    isHidden: true,
+                });
+            }
+        }
+
+        if (isMin) {
             this.setState({
-                minifiedSecondSideBar: !this.state.minifiedSecondSideBar,
-            }, () => {
-                const { sidebarMin, contentMin, isMinified, minifiedSecondSideBar, persistUserSelection } = this.state;
-
-                if (persistUserSelection) {
-                    localStorage.setItem('persistUserSelection', JSON.stringify({ sidebarMin, contentMin, isMinified, minifiedSecondSideBar }));
-                }
+                isMax: true,
+                isMin: false,
+                isHidden: false,
             });
         } 
         else {
             this.setState({
-                sidebarMin: !this.state.sidebarMin,
-                contentMin: !this.state.contentMin,
-            }, () => {
-                const { sidebarMin, contentMin, isMinified, minifiedSecondSideBar, persistUserSelection } = this.state;
-
-                if (persistUserSelection) {
-                    localStorage.setItem('persistUserSelection', JSON.stringify({ sidebarMin, contentMin, isMinified, minifiedSecondSideBar }));
-                }
+                isMin: true,
+                isMax: false,
+                isHidden: false,
             });
         }
     }
 
     render() {
-        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, isMinified, align } = this.state;
-        const sidebarClassNames = this.getClassNamesSidebar();
+        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, isHidden, isHiddenClass, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, isMin, align } = this.state;
+        const sidebarClassNames = `${this.getClassNamesSidebar()} ${isHiddenClass}`;
         const contentClassNames = this.getClassNamesContent();
-        const cls = `${isMinified ? (this.state.minifiedSecondSideBar ? 'SideBar SidebarMinified' : 'SideBar SidebarMinified opened') : sidebarClassNames}`;
         const direction = ['left', 'right'].includes(align) ? align : 'left';
 
         return (
             <div id={id} className={`${defaultClass} ${direction} ${addClass}`}>
                 <div
                     ref={this.nodeSideBar}
-                    className={cls}
+                    className={sidebarClassNames}
                 >
                     {
-                        isMinified &&
+                        isHidden &&
                         <span 
                             className='close-side-bar action-icon'
                             onClick={e => this.sideBar()}
@@ -373,7 +297,7 @@ class Container extends React.Component
                 <div className={contentClassNames} {...contentProps}>
                     <div className={`data-header`} {...headerProps}>
                         {
-                            displayMinifyMaxifyIcon &&
+                            displayMinifyMaxifyIcon && 
                             <span 
                                 className='minify-menu'
                                 onClick={e => this.sideBar()}

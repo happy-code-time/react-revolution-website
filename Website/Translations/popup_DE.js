@@ -1130,25 +1130,25 @@ const DE = {
         "type": "JSX | String",
         "default": "<leere Zeichenfolge>"
     },
-    "persistUserSelection": {
-        "description": "Speichern Sie die aktuelle Einstellung der umgeschalteten Seitenleiste. Wenn der Benutzer die Seite aktualisiert, wird der vorherige Status der Seitenleiste verwendet.",
-        "type": "Boolean",
-        "default": "undefined"
+    "hideAt": {
+        "description": "Wenn das document 'resized' wird und der Wert kleiner oder gleich diesem Wert ist, wird die Sidebar komplett minimiert.",
+        "type": "Number",
+        "default": "520"
     },
-    "clearPersistUserSelection": {
-        "description": "Löschen Sie den vorherigen Status der gespeicherten Seitenleisten.",
-        "type": "Boolean",
-        "default": "undefined"
-    },
-    "sidebarMinifiedAt": {
-        "description": "Wenn die Taste 'autopilot' true ist, minimieren Sie die Seitenleiste auf die minimale Breite. Wenn false, wird die Seitenleiste ausgeblendet. Die Seitenleiste wird mit der Taste 'toggleMenuHtml' umgeschaltet.",
+    "minifyAt": {
+        "description": "Wenn das document 'resized' wird und der Wert kleiner oder gleich diesem Wert ist, wird die Sidebar minimiert.",
         "type": "Number",
         "default": "720"
     },
-    "sidebarMaxifiedAt": {
+    "maxifyAt": {
         "description": "Maximieren Sie die zuvor minimierte Seitenleiste auf die Hauptbreite (Basisbreite).",
         "type": "Number",
         "default": "1024"
+    },
+    "minifySidebarOn": {
+        "description": "Wenn der Wert von window.location.href oder window.location.hash mit einem eintrag dieser Liste matched, dann with die Sidebar komplett minimiert angezeigt.",
+        "type": "String[]",
+        "default": "[]"
     },
     "displayMinifyMaxifyIcon": {
         "description": "Rendern Sie die Seitenleisten, um HTML umzuschalten - die JSX aus dem Schlüssel 'toggleMenuHtml'.",
@@ -1160,18 +1160,13 @@ const DE = {
         "type": "Boolean",
         "default": "undefined"
     },
-    "autopilot": {
-        "description": "Wenn true, ändert der Listener für Größenänderungsereignisse die Seitenleiste in 3 Schritten. Wenn false, ändert der Listener für Größenänderungsereignisse die Seitenleiste in 2 Schritten.",
-        "type": "Boolean",
-        "default": "false"
-    },
     "toggleMenuHtml": {
         "description": "Benutzerdefiniertes JSX, das als Umschalt-Symbol für die Seitenleiste verwendet wird. Dieser HTML-Code befindet sich im Inhalt der Kopfzeilen.",
         "type": "String | JSX",
         "default": "<leere Zeichenfolge>"
     },
     "closeMenuHtml": {
-        "description": "Benutzerdefiniertes JSX wird als Schließsymbol in der Seitenleiste verwendet, wenn die Dokumentbreite geringer ist als der Wert, der mit dem Schlüssel 'sidebarMinifiedAt' an das Modul übergeben wurde.",
+        "description": "Benutzerdefiniertes JSX wird als Schließsymbol in der Seitenleiste verwendet, wenn die Dokumentbreite geringer ist als der Wert, der mit dem Schlüssel 'minifyAt' an das Modul übergeben wurde.",
         "type": "String | JSX",
         "default": "<leere Zeichenfolge>"
     },

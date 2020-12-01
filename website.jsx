@@ -89,6 +89,7 @@ import Release306 from './Website/Releases/Release306';
 import Release400 from './Website/Releases/Release400';
 import Release401 from './Website/Releases/Release401';
 import Release402 from './Website/Releases/Release402';
+import Release403 from './Website/Releases/Release403';
 
 class App extends React.Component {
 
@@ -96,12 +97,10 @@ class App extends React.Component {
     super(props);
     this.setOnClickEvent = this.setOnClickEvent.bind(this);
     this.checkLocation = this.checkLocation.bind(this);
-    this.changeSidebarMinifiedState = this.changeSidebarMinifiedState.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
     this.toggleDashboardDirection = this.toggleDashboardDirection.bind(this);
 
     this.state = {
-      minifySidebard: false,
       host: ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD,
       suggestions: [],
       inputValue: '',
@@ -120,7 +119,6 @@ class App extends React.Component {
     }
 
     this.setOnClickEvent();
-    this.changeSidebarMinifiedState();
     const layout = this.getLocalStorageValue('layout', 'light');
     this.setAppLayout(layout);
   }
@@ -168,7 +166,6 @@ class App extends React.Component {
       if (self.href !== window.location.href && count > 0) {
         document.documentElement.scrollTop = 0;
         self.href = window.location.href;
-        self.changeSidebarMinifiedState();
         return clearInterval(x);
       }
 
@@ -178,21 +175,6 @@ class App extends React.Component {
 
       count--;
     }, 100);
-  }
-
-  changeSidebarMinifiedState() {
-    const { minifySidebard } = this.state;
-    const hash = window.location.hash;
-
-    if ('#/' == hash && !minifySidebard) {
-      return this.setState({
-        minifySidebard: true
-      });
-    }
-
-    if ('#/' !== hash && minifySidebard) {
-      this.setState({ minifySidebard: false });
-    }
   }
 
   setLanguage(language = 'English') {
@@ -305,19 +287,21 @@ class App extends React.Component {
   }
 
   render() {
-    const { minifySidebard, host, inputValue, align } = this.state;
+    const { host, inputValue, align } = this.state;
 
     return (
       <Container
         id="rr-container"
         globalStyle={true}
-        persistUserSelection={false} // set local sotrage on click
-        clearPersistUserSelection={true} // do not remove the local storage on component did mount
-        sidebarMinifiedAt={1024}
-        ignoreMinify={true} // ignore to render the small (60px width menu on resize)
-        sidebarMaxifiedAt={1024}
+        minifyAt={1024}
+        maxifyAt={720}
+        hideAt={420}
+        minifySidebarOn={
+            [
+              '#/'
+            ]
+        }
         displayMinifyMaxifyIcon={true}
-        minify={minifySidebard}
         toggleMenuHtml={<i className="fas fa-bars"></i>}
         closeMenuHtml={<i className="fas fa-angle-left"></i>}
         align={align}
@@ -723,6 +707,10 @@ class App extends React.Component {
                           ),
                           data: [
                             {
+                              text: '4.0.3',
+                              href: `${host}#/react-revolution-release-4-0-3`,
+                            },
+                            {
                               text: '4.0.2',
                               href: `${host}#/react-revolution-release-4-0-2`,
                             },
@@ -1017,6 +1005,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-4-0-0" render={(props) => (<Release400 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-1" render={(props) => (<Release401 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-2" render={(props) => (<Release402 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-3" render={(props) => (<Release403 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

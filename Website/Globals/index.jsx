@@ -1,8 +1,8 @@
-const version = '4.0.2';
+const version = '4.0.3';
 
-const appName = 'React Revolution';
+const appName = `React Revolution`;
 
-const appNameShort = 'React Revolution';
+const appNameShort = `React Revolution`;
 
 const author = `David Janitzek`
 

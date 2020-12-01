@@ -2,12 +2,6 @@
 
 // default css is for the left site
 // right site are on the bottom of this file
-body,
-html {
-  margin: 0;
-  padding: 0;
-}
-
 .rr-container {
   position: relative;
   padding: 0;
@@ -75,7 +69,7 @@ html {
     }
   }
 
-  .SideBar.SideBar-min {
+  .SideBar-min {
     width: $dashboard_menu-width-min;
     transition-duration: 200ms;
 
@@ -84,7 +78,7 @@ html {
     }
   }
 
-  .SideBar.SideBar-min:hover {
+  .SideBar-min:hover {
     width: $dashboard_menu-width;
     z-index: 3;
 
@@ -93,18 +87,19 @@ html {
     }
   }
 
-  /*
-    * Minified second sidebar
-    */
-  .SidebarMinified {
+  .SideBar-hidden {
     position: fixed;
     width: $dashboard_menu-width;
-    left: -$dashboard_menu-width;
+    left: 0px;
     transition-duration: $default-transition;
     background-color: #343a40;
   }
 
-  .SidebarMinified.opened {
+  .SideBar-hidden.closed{
+    left: -$dashboard_menu-width !important;
+  }
+
+  .SideBar-hidden.opened {
     width: $dashboard_menu-width;
     left: 0px;
     background-color: #343a40;
@@ -224,7 +219,7 @@ html {
   /*
   * Minified second Content
   */
-  .ContentMinified {
+  .Content-hidden {
     left: 0;
     width: 100vw;
   }
@@ -265,11 +260,11 @@ html {
     border-right: none;
     border-left: 1px solid $border-color;
   }
-  .SidebarMinified {
+  .SideBar-hidden.closed {
     width: $dashboard_menu-width;
     right: -$dashboard_menu-width;
   }
-  .SidebarMinified.opened {
+  .SideBar-hidden.opened {
     left: auto;
     right: 0px;
   }
@@ -282,7 +277,7 @@ html {
     left: auto;
     right: $dashboard_menu-width-min;
   }
-  .ContentMinified {
+  .Content-hidden {
     left: auto;
     right: -12px;
   }

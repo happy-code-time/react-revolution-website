@@ -52,8 +52,8 @@ class App extends React.Component
                 <WebsiteContainer
                     persistUserSelection={false} // set local sotrage on click
                     clearPersistUserSelection={true} // do not remove the local storage on component did mount
-                    sidebarMinifiedAt={720}
-                    sidebarMaxifiedAt={1024}
+                    minifyAt={720}
+                    maxifyAt={1024}
                     displayMinifyMaxifyIcon={true}
                     moduleSidebar={
                         <ModuleSideBar

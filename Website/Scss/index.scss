@@ -50,7 +50,13 @@
     overflow: unset;
 
     .data-header{
+      background-color: #1873cc;
+      border-bottom: none;
       z-index: 3;
+    }
+
+    .data-header:hover{
+      z-index: 9;
     }
   }
   .rr-container.right .SideBar{
@@ -58,12 +64,12 @@
     overflow: hidden;
   }
 
-  .rr-container.right .SideBar.opened{
+  .rr-container.right .SideBar-hidden.opened{
     right: 0;
     overflow: hidden;
   }
 
-  .rr-container.right .SidebarMinified{
+  .rr-container.right .SideBar-hidden.closed{
     right: -300px;
     overflow: hidden;
   }
@@ -252,11 +258,12 @@
           white-space: nowrap;
           word-wrap: none;
           text-overflow: ellipsis;
+          transition-duration: $default-transition;
         }
 
         .long {
           margin: 13px 0 5px 5px;
-          font-size: 0.923rem;
+          font-size: 0.853rem;
         }
 
         .short {
@@ -397,7 +404,7 @@
   }
   .SideBar.SideBar-min {
     .logo-text-href{
-      padding-left: 5px;
+      padding-left: 0px;
     }
 
     .text{
@@ -609,7 +616,7 @@
   }
 
   .data-header,
-  .SidebarMinified.opened,
+  .SideBar-hidden.opened,
   .rr-sidebar {
     background-color: #242526; //rgb(0, 0, 0);
   }
@@ -764,7 +771,7 @@
   }
 
   .data-header,
-  .SidebarMinified.opened,
+  .SideBar-hidden.opened,
   .rr-sidebar {
     background-color: #252526;
   }
