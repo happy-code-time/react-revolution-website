@@ -1688,6 +1688,11 @@ const EN = {
         "type": "Number",
         "default": "300"
     },
+    "headerDataRight": {
+        "description": "The JSX data from the key 'headerData' should be displayed on the right and the JSX data from the key 'toggleMenuHtml' should be displayed on the left. If false then the JSX data from the key 'headerData' should be displayed on the left and the JSX data from the key 'toggleMenuHtml' are displayed on the right. ",
+        "type": "Boolean",
+        "default": "false"
+    },
 };
 
 export default EN;

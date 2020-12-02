@@ -1686,6 +1686,11 @@ const DE = {
         "type": "Number",
         "default": "300"
     },
+    "headerDataRight": {
+        "description": "Die JSX Daten von dem Schlüssel 'headerData' sollen rechts angezeigt generiert werden und die JSX Daten von dem Schlüssel 'toggleMenuHtml' sollen links angezeigt werden. Falls false dann werden die JSX Daten von dem Schlüssel 'headerData' links angezeigt und die JSX Daten von dem Schlüssel 'toggleMenuHtml' werden rechts angezeigt.",
+        "type": "Boolean",
+        "default": "false"
+    },
 };
 
 export default DE;

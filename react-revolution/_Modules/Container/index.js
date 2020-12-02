@@ -10,6 +10,7 @@ class Container extends React.Component
         this.sideBar = this.sideBar.bind(this);
         this.resizeView = this.resizeView.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.setIntervals = this.setIntervals.bind(this);
 
         this.state = {
             /**
@@ -53,10 +54,13 @@ class Container extends React.Component
                 isMin: false,
                 isHidden: true,
                 href: window.location.href
-            }
+            },
+            headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
+            href: window.location.href,
         };
 
         this.nodeSideBar = React.createRef();
+        this.interval = undefined;
     }
 
     /**
@@ -66,7 +70,7 @@ class Container extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps','closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'href', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps','closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
@@ -91,6 +95,7 @@ class Container extends React.Component
                 minifySidebarOn: props.minifySidebarOn && typeof [] == typeof props.minifySidebarOn && props.minifySidebarOn.length ? props.minifySidebarOn : [],
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
                 href: window.location.href,
+                headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
             };
         }
 
@@ -102,11 +107,27 @@ class Container extends React.Component
         window.addEventListener('resize', this.resizeView);
         window.addEventListener('mousedown', this.handleClick);
         this.resizeView();
+        this.setIntervals();
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.resizeView);
         window.removeEventListener('mousedown', this.handleClick);
+        this.setIntervals(false);
+    }
+
+    setIntervals(reassignInterval = true){
+        clearInterval(this.interval);
+
+        if(reassignInterval){
+            this.interval = setInterval( () => {
+                const { href } = this.state;
+
+                if(href !== window.location.href){
+                    this.setState({ href: window.location.href }, (e) => this.resizeView(null, null, true));
+                }
+            }, 500);
+        }
     }
 
     handleClick(e) {
@@ -135,8 +156,8 @@ class Container extends React.Component
         }, 300);
     }
 
-    resizeView(event, persistCurrentSelection = false) {
-        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar } = this.state;
+    resizeView(event, persistCurrentSelection = false, isInterval = false) {
+        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar, isMax, isMin, isHidden, isHiddenClass } = this.state;
         const documentWidth = document.documentElement.getBoundingClientRect().width;
 
         if(minifySidebarOn && minifySidebarOn.length){
@@ -147,6 +168,15 @@ class Container extends React.Component
             }
         }
 
+        if(isInterval){
+            return this.setState({
+                isMax,
+                isMin,
+                isHidden,
+                isHiddenClass
+            });
+        }
+        
         if(persistCurrentSelection){
             return null;
         }
@@ -268,7 +298,7 @@ class Container extends React.Component
     }
 
     render() {
-        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, isHidden, isHiddenClass, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, isMin, align } = this.state;
+        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, isHidden, isHiddenClass, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, headerDataRight, align } = this.state;
         const sidebarClassNames = `${this.getClassNamesSidebar()} ${isHiddenClass}`;
         const contentClassNames = this.getClassNamesContent();
         const direction = ['left', 'right'].includes(align) ? align : 'left';
@@ -297,6 +327,9 @@ class Container extends React.Component
                 <div className={contentClassNames} {...contentProps}>
                     <div className={`data-header`} {...headerProps}>
                         {
+                            !headerDataRight && headerData && headerData
+                        }
+                        {
                             displayMinifyMaxifyIcon && 
                             <span 
                                 className='minify-menu'
@@ -308,7 +341,7 @@ class Container extends React.Component
                         </span>
                         }
                         {
-                            headerData && headerData
+                            headerDataRight && headerData && headerData
                         }
                     </div>
                     {

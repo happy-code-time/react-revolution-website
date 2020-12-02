@@ -460,6 +460,10 @@ class ReactRevolutionClouds404 extends React.Component
                                     key: 'minifySidebarOn',
                                     values: 'minifySidebarOn'
                                 },
+                                {
+                                    key: 'headerDataRight',
+                                    values: 'headerDataRight'
+                                },
                             ],
                             'rr-container'
                         )

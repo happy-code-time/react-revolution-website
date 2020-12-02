@@ -1682,12 +1682,17 @@ const PL = {
     "menuHeight.singleItemsHeight": {
         "description": "Indywidualna wysokość każdego pojedynczego wpisu menu. Ma znaczenie tylko podczas trwania animacji.",
         "type": "Number",
-        "domyślny": "35"
+        "default": "35"
     },
     "menuHeight.animationTime": {
         "description": "Czas animacji do kontrolowania czasu wewnętrznej obsługi klas. Aby uzyskać animację równo z CSS, jeśli wartość jest inna niż 300, musisz przejść do 'animacji : menuHeightAnimateStart <timout> ms ułatw do przodu; ' oraz 'animacja: menuHeightAnimateStop <timout> ms eas-in forward;' dostosuj. ",
         "type": "Number",
-        "domyślny": "300"
+        "default": "300"
+    },
+    "headerDataRight": {
+        "description": "Dane JSX z klucza„ headerData ”powinny być wyświetlone po prawej stronie, a dane JSX z klucza„ toggleMenuHtml ”powinny zostać wyświetlone po lewej stronie. Jeśli false, dane JSX z klucza„ headerData ”powinny zostać wyświetlone po lewej stronie, a dane JSX z klucza 'toggleMenuHtml' są wyświetlane po prawej stronie.",
+        "type": "Boolean",
+        "default": "false"
     },
 };
 

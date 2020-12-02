@@ -92,6 +92,7 @@ import Release402 from './Website/Releases/Release402';
 import Release403 from './Website/Releases/Release403';
 import Release404 from './Website/Releases/Release404';
 import Release405 from './Website/Releases/Release405';
+import Release406 from './Website/Releases/Release406';
 
 class App extends React.Component {
 
@@ -307,6 +308,7 @@ class App extends React.Component {
         toggleMenuHtml={<i className="fas fa-bars"></i>}
         closeMenuHtml={<i className="fas fa-angle-left"></i>}
         align={align}
+        headerDataRight={true}
         moduleSidebar={
           <SideBar
             // image={<img alt="image" src='./public/images/icon-48.png' />}
@@ -709,6 +711,10 @@ class App extends React.Component {
                           ),
                           data: [
                             {
+                              text: '4.0.6',
+                              href: `${host}#/react-revolution-release-4-0-6`,
+                            },
+                            {
                               text: '4.0.5',
                               href: `${host}#/react-revolution-release-4-0-5`,
                             },
@@ -1018,6 +1024,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-4-0-3" render={(props) => (<Release403 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-4" render={(props) => (<Release404 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-5" render={(props) => (<Release405 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-6" render={(props) => (<Release406 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (
