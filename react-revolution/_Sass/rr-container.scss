@@ -92,7 +92,6 @@
     width: $dashboard_menu-width;
     left: 0px;
     transition-duration: $default-transition;
-    background-color: #343a40;
   }
 
   .SideBar-hidden.closed{
@@ -102,7 +101,6 @@
   .SideBar-hidden.opened {
     width: $dashboard_menu-width;
     left: 0px;
-    background-color: #343a40;
     z-index: 3;
     transition-duration: $default-transition;
   }

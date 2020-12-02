@@ -9,6 +9,7 @@ class SideBar extends React.Component
         this.state = {
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
+            addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sidebar',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
@@ -27,8 +28,9 @@ class SideBar extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'image', 'moduleMenu', 'textLong', 'textShort', 'href', 'hrefProps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'image', 'moduleMenu', 'textLong', 'textShort', 'href', 'hrefProps'], props, state)) {
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-sidebar',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
@@ -48,10 +50,10 @@ class SideBar extends React.Component
     }
 
     render() {
-        const { defaultClass, id, moduleMenu, image, textLong, textShort, href, hrefProps } = this.state;
+        const { defaultClass, id, addClass, moduleMenu, image, textLong, textShort, href, hrefProps } = this.state;
 
         return (
-            <div className={`${defaultClass}`} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 <div className="logo-text">
                     {
                         href &&

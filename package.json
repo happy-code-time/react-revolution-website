@@ -1,6 +1,6 @@
 {
   "name": "davids-react-revolution",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Create fast, modern and responsive website components",
   "main": "website.jsx",
   "scripts": {
