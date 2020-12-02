@@ -91,6 +91,7 @@ import Release401 from './Website/Releases/Release401';
 import Release402 from './Website/Releases/Release402';
 import Release403 from './Website/Releases/Release403';
 import Release404 from './Website/Releases/Release404';
+import Release405 from './Website/Releases/Release405';
 
 class App extends React.Component {
 
@@ -708,6 +709,10 @@ class App extends React.Component {
                           ),
                           data: [
                             {
+                              text: '4.0.5',
+                              href: `${host}#/react-revolution-release-4-0-5`,
+                            },
+                            {
                               text: '4.0.4',
                               href: `${host}#/react-revolution-release-4-0-4`,
                             },
@@ -1012,6 +1017,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-4-0-2" render={(props) => (<Release402 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-3" render={(props) => (<Release403 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-4" render={(props) => (<Release404 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-5" render={(props) => (<Release405 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (

@@ -14,8 +14,8 @@ class SideBar extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
             moduleMenu: (props.moduleMenu && typeof {} == typeof props.moduleMenu) ? props.moduleMenu : undefined,
-            textLong: (props.textLong && typeof '8' == typeof props.textLong) ? props.textLong : undefined,
-            textShort: (props.textShort && typeof '8' == typeof props.textShort) ? props.textShort : undefined,
+            textLong: props.textLong? props.textLong : undefined,
+            textShort: props.textShort ? props.textShort : undefined,
             href: (props.href && typeof '8' == typeof props.href) ? props.href : undefined,
             hrefProps: (props.hrefProps && typeof {} == typeof props.hrefProps) ? props.hrefProps : undefined,
         };
@@ -35,8 +35,8 @@ class SideBar extends React.Component
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 image: (props.image && typeof {} == typeof props.image) ? props.image : undefined,
                 moduleMenu: (props.moduleMenu && typeof {} == typeof props.moduleMenu) ? props.moduleMenu : undefined,
-                textLong: (props.textLong && typeof '8' == typeof props.textLong) ? props.textLong : undefined,
-                textShort: (props.textShort && typeof '8' == typeof props.textShort) ? props.textShort : undefined,
+                textLong: props.textLong? props.textLong : undefined,
+                textShort: props.textShort ? props.textShort : undefined,
                 href: (props.href && typeof '8' == typeof props.href) ? props.href : undefined,
                 hrefProps: (props.hrefProps && typeof {} == typeof props.hrefProps) ? props.hrefProps : undefined,
             };
@@ -72,7 +72,7 @@ class SideBar extends React.Component
                             }
                             <div className="text">
                                 {
-                                    textLong &&
+                                    textLong && typeof '8' == typeof textLong &&
                                     <span className="long">
                                         {
                                             textLong
@@ -80,12 +80,18 @@ class SideBar extends React.Component
                                     </span>
                                 }
                                 {
-                                    textShort &&
+                                    textLong && typeof '8' !== typeof textLong && textLong
+                                }
+                                {
+                                    textShort && typeof '8' == typeof textShort &&
                                     <span className="short">
                                         {
                                             textShort
                                         }
                                     </span>
+                                }
+                                {
+                                    textShort && typeof '8' !== typeof textShort && textShort
                                 }
                             </div>
                         </a>
