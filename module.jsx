@@ -8,10 +8,40 @@ class App extends React.Component {
         super(props);
     }
 
+    componentDidMount(){
+        
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/dddd';
+        }, 1000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/';
+        }, 5000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/dddd';
+        }, 10000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/dddde';
+        }, 15000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/ddddk';
+        }, 18000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/';
+        }, 22000);
+
+        setTimeout( () => {
+            window.location.href = 'http://localhost:3000/#/b';
+        }, 25000);
+    }
+
     render() {
         return (
             <div>
-
                 <Container
                     addClass='container-example'
                     minifyAt={1024}

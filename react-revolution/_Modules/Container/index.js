@@ -1,6 +1,9 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import loadStyle from '../internalFunctions/loadStyle';
+
+const containesOldStaffHolder = undefined;
+
 class Container extends React.Component
 {
     constructor(props) {
@@ -61,6 +64,7 @@ class Container extends React.Component
 
         this.nodeSideBar = React.createRef();
         this.interval = undefined;
+        this.containesOldStaffHolder = undefined;
     }
 
     /**
@@ -121,9 +125,7 @@ class Container extends React.Component
 
         if(reassignInterval){
             this.interval = setInterval( () => {
-                const { href } = this.state;
-
-                if(href !== window.location.href){
+                if(this.state.href !== window.location.href){
                     this.setState({ href: window.location.href }, (e) => this.resizeView(null, null, true));
                 }
             }, 500);
@@ -157,7 +159,7 @@ class Container extends React.Component
     }
 
     resizeView(event, persistCurrentSelection = false, isInterval = false) {
-        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar, isMax, isMin, isHidden, isHiddenClass } = this.state;
+        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar } = this.state;
         const documentWidth = document.documentElement.getBoundingClientRect().width;
 
         if(minifySidebarOn && minifySidebarOn.length){
@@ -168,13 +170,9 @@ class Container extends React.Component
             }
         }
 
-        if(isInterval){
-            return this.setState({
-                isMax,
-                isMin,
-                isHidden,
-                isHiddenClass
-            });
+        if(isInterval && this.containesOldStaffHolder){
+            const { isMax, isMin, isHidden, isHiddenClass } = this.containesOldStaffHolder;
+            return this.setState({ isMax, isMin, isHidden, isHiddenClass });
         }
         
         if(persistCurrentSelection){
@@ -184,37 +182,45 @@ class Container extends React.Component
         /**
          * Max
          */
+        let data = {};
+
         if (documentWidth >= maxifyAt) {
-            return this.setState({
+            data = {
                 isMax: true,
                 isMin: false,
                 isHidden: false,
-                isHiddenClass: ''
-            });
+                isHiddenClass: '',
+            };
+            this.containesOldStaffHolder = data;
+            return this.setState(data);
         }
 
         /**
          * Hidden
          */
         if (documentWidth <= hideAt) {
-            return this.setState({
+            data = {
                 isMax: false,
                 isMin: false,
                 isHidden: true,
-                isHiddenClass: 'closed'
-            });
+                isHiddenClass: 'closed',
+            };
+            this.containesOldStaffHolder = data;
+            return this.setState(data);
         }
 
         /**
          * Min
          */
         if (documentWidth <= minifyAt) {
-            return this.setState({
+            data = {
                 isMax: false,
                 isMin: true,
                 isHidden: false,
-                isHiddenClass: ''
-            });
+                isHiddenClass: '',
+            };
+            this.containesOldStaffHolder = data;
+            return this.setState(data);
         }
 
         return null;
@@ -261,6 +267,11 @@ class Container extends React.Component
     sideBar() {
         const { isMin, isHidden, isHiddenClass } = this.state;
 
+        const setCache = () => {
+            const { isMin, isMax, isHidden, isHiddenClass } = this.state;
+            this.containesOldStaffHolder = { isMin, isMax, isHidden, isHiddenClass };
+        };
+
         if(isHidden){
 
             if('closed' == isHiddenClass){
@@ -269,7 +280,7 @@ class Container extends React.Component
                     isMax: false,
                     isMin: false,
                     isHidden: true,
-                });
+                }, setCache);
             }
             else{
                 return this.setState({
@@ -277,7 +288,7 @@ class Container extends React.Component
                     isMax: false,
                     isMin: false,
                     isHidden: true,
-                });
+                }, setCache);
             }
         }
 
@@ -286,14 +297,14 @@ class Container extends React.Component
                 isMax: true,
                 isMin: false,
                 isHidden: false,
-            });
+            }, setCache);
         } 
         else {
             this.setState({
                 isMin: true,
                 isMax: false,
                 isHidden: false,
-            });
+            }, setCache);
         }
     }
 
