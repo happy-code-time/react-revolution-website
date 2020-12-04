@@ -1693,6 +1693,11 @@ const EN = {
         "type": "Boolean",
         "default": "false"
     },
+    "404.imagePath": {
+        "description": "Source of the image.",
+        "type": "String",
+        "default": "<empty string>"
+    },
 };
 
 export default EN;

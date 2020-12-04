@@ -13,6 +13,10 @@ const getAllAvailableModulesNames = () => {
             link: 'react-revolution-articles-images'
         },
         {
+            name: 'Astronaut404',
+            link: 'react-revolution-astronaut-404'
+        },
+        {
             name: 'Breadcrumbs',
             link: 'react-revolution-breadcrumbs'
         },
@@ -135,6 +139,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'PopupBox',
             link: 'react-revolution-popup-box'
+        },
+        {
+            name: 'Picture404',
+            link: 'react-revolution-picture-404'
         },
         {
             name: 'ReadMore',

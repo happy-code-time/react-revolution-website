@@ -19,6 +19,7 @@ import setDataLocalStorage from './Website/Functions/setDataLocalStorage';
 import ReactRevolutionAccordion from './Website/Pages/ReactRevolutionAccordion';
 import ReactRevolutionArticles from './Website/Pages/ReactRevolutionArticles';
 import ReactRevolutionArticlesImages from './Website/Pages/ReactRevolutionArticlesImages';
+import ReactRevolutionAstronaut404 from './Website/Pages/ReactRevolutionAstronaut404';
 import ReactRevolutionBreadcrumbs from './Website/Pages/ReactRevolutionBreadcrumbs';
 import ReactRevolutionCards from './Website/Pages/ReactRevolutionCards';
 import ReactRevolutionCardsScroll from './Website/Pages/ReactRevolutionCardsScroll';
@@ -48,6 +49,7 @@ import ReactRevolutionMenuHeight from './Website/Pages/ReactRevolutionMenuHeight
 import ReactRevolutionModal from './Website/Pages/ReactRevolutionModal';
 import ReactRevolutionPagerStatic from './Website/Pages/ReactRevolutionPagerStatic';
 import ReactRevolutionPagerDynamic from './Website/Pages/ReactRevolutionPagerDynamic';
+import ReactRevolutionPicture404 from './Website/Pages/ReactRevolutionPicture404';
 import ReactRevolutionPopupBox from './Website/Pages/ReactRevolutionPopupBox';
 import ReactRevolutionLoadOnScroll from './Website/Pages/ReactRevolutionLoadOnScroll';
 import ReactRevolutionReadMore from './Website/Pages/ReactRevolutionReadMore';
@@ -94,6 +96,7 @@ import Release404 from './Website/Releases/Release404';
 import Release405 from './Website/Releases/Release405';
 import Release406 from './Website/Releases/Release406';
 import Release407 from './Website/Releases/Release407';
+import Release408 from './Website/Releases/Release408';
 
 class App extends React.Component {
 
@@ -538,6 +541,10 @@ class App extends React.Component {
                           ),
                           data: [
                             {
+                              text: 'Astronaut404',
+                              href: `${host}#/react-revolution-astronaut-404`,
+                            },
+                            {
                               text: 'Clouds404',
                               href: `${host}#/react-revolution-clouds-404`,
                             },
@@ -550,12 +557,16 @@ class App extends React.Component {
                               href: `${host}#/react-revolution-dark-lines-404`,
                             },
                             {
-                              text: 'Water404',
-                              href: `${host}#/react-revolution-water-404`,
-                            },
-                            {
                               text: 'Lightbulb404',
                               href: `${host}#/react-revolution-lightbulb-404`,
+                            },
+                            {
+                              text: 'Picture404',
+                              href: `${host}#/react-revolution-picture-404`,
+                            },
+                            {
+                              text: 'Water404',
+                              href: `${host}#/react-revolution-water-404`,
                             },
                           ]
                         },
@@ -711,6 +722,10 @@ class App extends React.Component {
                             </span>
                           ),
                           data: [
+                            {
+                              text: '4.0.8',
+                              href: `${host}#/react-revolution-release-4-0-8`,
+                            },
                             {
                               text: '4.0.7',
                               href: `${host}#/react-revolution-release-4-0-7`,
@@ -962,6 +977,7 @@ class App extends React.Component {
               <Route exact path="/react-revolution-accordion" render={(props) => (<ReactRevolutionAccordion {...props} />)} />
               <Route exact path="/react-revolution-articles" render={(props) => (<ReactRevolutionArticles {...props} />)} />
               <Route exact path="/react-revolution-articles-images" render={(props) => (<ReactRevolutionArticlesImages {...props} />)} />
+              <Route exact path="/react-revolution-astronaut-404" render={(props) => (<ReactRevolutionAstronaut404 {...props} />)} />
               <Route exact path="/react-revolution-breadcrumbs" render={(props) => (<ReactRevolutionBreadcrumbs {...props} />)} />
               <Route exact path="/react-revolution-cards" render={(props) => (<ReactRevolutionCards {...props} />)} />
               <Route exact path="/react-revolution-cards-scroll" render={(props) => (<ReactRevolutionCardsScroll {...props} />)} />
@@ -993,8 +1009,6 @@ class App extends React.Component {
               <Route exact path="/react-revolution-popup-box" render={(props) => (<ReactRevolutionPopupBox {...props} />)} />
               <Route exact path="/react-revolution-load-on-scroll" render={(props) => (<ReactRevolutionLoadOnScroll {...props} />)} />
               <Route exact path="/react-revolution-lightbulb-404" render={(props) => (<ReactRevolutionLightbulb404 {...props} />)} />
-              <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
-              <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
               <Route exact path="/react-revolution-timeline" render={(props) => (<ReactRevolutionTimeline {...props} />)} />
               <Route exact path="/react-revolution-read-more" render={(props) => (<ReactRevolutionReadMore {...props} />)} />
               <Route exact path="/react-revolution-read-more-callback" render={(props) => (<ReactRevolutionReadMoreCallback {...props} />)} />
@@ -1002,6 +1016,9 @@ class App extends React.Component {
               <Route exact path="/react-revolution-scroll-to" render={(props) => (<ReactRevolutionScrollTo {...props} />)} />
               <Route exact path="/react-revolution-source-code" render={(props) => (<ReactRevolutionSourceCode {...props} />)} />
               <Route exact path="/react-revolution-stars" render={(props) => (<ReactRevolutionStars {...props} />)} />
+              <Route exact path="/react-revolution-table" render={(props) => (<ReactRevolutionTable {...props} />)} />
+              <Route exact path="/react-revolution-text-writer" render={(props) => (<ReactRevolutionTextWriter {...props} />)} />
+              <Route exact path="/react-revolution-picture-404" render={(props) => (<ReactRevolutionPicture404 {...props} />)} />
               <Route exact path="/react-revolution-water-404" render={(props) => (<ReactRevolutionWater404 {...props} />)} />
               {/* Functions */}
               <Route exact path="/react-revolution-function-add-global-message" render={(props) => (<ReactRevolutionFunctionAddGlobalMessage {...props} />)} />
@@ -1031,10 +1048,11 @@ class App extends React.Component {
               <Route exact path="/react-revolution-release-4-0-5" render={(props) => (<Release405 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-6" render={(props) => (<Release406 {...props} />)} />
               <Route exact path="/react-revolution-release-4-0-7" render={(props) => (<Release407 {...props} />)} />
+              <Route exact path="/react-revolution-release-4-0-8" render={(props) => (<Release408 {...props} />)} />
               {/* 404 */}
               <Route
                 render={(props) => (
-                  <CloudsMountains404
+                  <Astronaut404
                     addClass='page-not-found-404'
                     link={
                       {

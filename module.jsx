@@ -1,42 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Container, SideBar, MenuHeight } from '../react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-container.scss';
+import { Picture404, Container, SideBar, MenuHeight } from '../react-revolution/react-revolution';
+import './react-revolution/_Sass/rr-picture-404.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
-        
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/dddd';
-        }, 1000);
+    componentDidMount(){       
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/dddd';
+        // }, 1000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/';
-        }, 5000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/';
+        // }, 5000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/dddd';
-        }, 10000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/dddd';
+        // }, 10000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/dddde';
-        }, 15000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/dddde';
+        // }, 15000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/ddddk';
-        }, 18000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/ddddk';
+        // }, 18000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/';
-        }, 22000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/';
+        // }, 22000);
 
-        setTimeout( () => {
-            window.location.href = 'http://localhost:3000/#/b';
-        }, 25000);
+        // setTimeout( () => {
+        //     window.location.href = 'http://localhost:3000/#/b';
+        // }, 25000);
     }
 
     render() {
@@ -143,7 +142,17 @@ class App extends React.Component {
                     headerProps={undefined}
                     headerData={undefined}
                     contentProps={undefined}
-                    contentData={<div className='CONTENT' />}
+                    contentData={<div className='CONTENT'>
+                        <Picture404
+                            link={
+                                {
+                                    text: 'Home',
+                                    href: '/'
+                                }
+                            }
+                            imagePath='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
+                        />
+                    </div>}
                     footerProps={undefined}
                     footerData={<div className='FOOTER' />}
                 />

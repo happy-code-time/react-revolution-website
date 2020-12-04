@@ -1691,6 +1691,11 @@ const DE = {
         "type": "Boolean",
         "default": "false"
     },
+    "404.imagePath": {
+        "description": "Source des Bildes.",
+        "type": "String",
+        "default": "<leere Zeichenfolge>"
+    },
 };
 
 export default DE;

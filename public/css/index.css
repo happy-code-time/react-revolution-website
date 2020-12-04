@@ -3447,6 +3447,13 @@ h1,
       text-align: center;
       line-height: 100px; }
 
+.code-example-live-wrapper {
+  position: relative;
+  overflow: hidden; }
+  .code-example-live-wrapper .rr-astronaut-404 {
+    width: 100%;
+    height: 100vh; }
+
 .rr-timeline-example .content .title {
   background-color: rgba(245, 245, 245, 0.4); }
 

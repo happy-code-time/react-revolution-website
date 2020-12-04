@@ -1,11 +1,7 @@
 import React from 'react';
-
 import loadStyle from '../internalFunctions/loadStyle';
-
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
-
 import uuid from '../internalFunctions/internalUuid';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class ArticlesImages extends React.Component {

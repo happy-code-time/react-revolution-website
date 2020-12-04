@@ -1694,6 +1694,11 @@ const PL = {
         "type": "Boolean",
         "default": "false"
     },
+    "404.imagePath": {
+        "description": "Źródło obrazu.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
 };
 
 export default PL;

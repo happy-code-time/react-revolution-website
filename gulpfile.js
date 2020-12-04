@@ -16,12 +16,13 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v4.0.7';
+const version = 'v4.0.8';
 
 const modules = [
     "Accordion",
     "Articles",
     "ArticlesImages",
+    "Astronaut404",
     "Breadcrumbs",
     "Cards",
     "CardsScroll",
@@ -51,6 +52,7 @@ const modules = [
     "Modal",
     "PagerDynamic",
     "PagerStatic",
+    "Picture404",
     "PopupBox",
     "ReadMore",
     "ReadMoreCallback",
