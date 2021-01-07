@@ -1699,6 +1699,204 @@ const PL = {
         "type": "String",
         "default": "<pusty ciąg>"
     },
+    'slider.data': {
+        "description": "Tablica objektów.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'slider.data.data': {
+        "description": "Zdefiniowany przez użytkownika Jsx dowolny kod Jsx",
+        "type": "String|Jsx",
+        "default": "undefined"
+    },
+    'slider.data.image': {
+        "description": "Źródło obrazu.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'slider.data.callback': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po wywołaniu obrazu / slajdu. Argumentami zwracanymi są: Argument 1: indeks slajdu, Argument 2: wartości klucza 'callbackProps'.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'slider.data.callbackProps': {
+        "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako 2 argumenty do funkcji zwrotnej.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    'slider.displayDots': {
+        "description": "Zezwól na renderowanie punktów nawigacyjnych w paginatorze.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.callbackMount': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po zainicjowaniu komponentu suwaka. Ta funkcja zwraca 1 argument, wartość klucza: 'callbackMountProps'. Oczekiwana jest obietnica, która oczekuje liczby jako wartości zwracanej. Ta liczba jest zmieniana numer slajdu. Wartość nie może być ujemna (x> = 0) ani większa niż długość danych (x <data.length). ",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'slider.callbackMountProps': {
+        "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako 1 argument do funkcji 'callbackMount'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.imageAsBackground': {
+        "description": "Nie umieszczaj obrazu w tagu <img />, ale raczej jako backgroundImage i renderuj niestandardowe dane w obrazie / slajdzie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.displayPagination': {
+        "description": "Zezwól na renderowanie paginatora.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.displayDotsIndex': {
+        "description": "Zezwól na renderowanie indeksu pojedynczego paginatora.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.buttonsAlwaysVisible': {
+        "description": "Zawsze pokazuj przyciski nawigacyjne.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.next': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: dalej.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    'slider.previous': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: wcześniej.",
+        "type": "String | JSX",
+        "default": "<"
+    },
+    'slider.items.data': {
+        "description": "Tablica obiektów.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'slider.items.data.data': {
+        "description": "Niestandardowy Jsx.",
+        "type": "String | Jsx",
+        "default": "undefined"
+    },
+    'slider.items.itemsS': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno zostać wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest mniejsza niż przesłana wartość w kluczu 'resizeS' (domyślnie: 768px).",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.items.itemsL': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno zostać wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest mniejsza niż przesłana wartość w kluczu 'resizeL' (domyślnie: 1024px) i większa niż przesłana wartość w kluczu 'resizeS' (domyślnie: 768px). ",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.items.itemsXL': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest większa (lub równa) niż przesłana wartość w kluczu 'resizeXL' (domyślnie: 1260px)." ,
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.items.resizeS': {
+        "description": "Jeśli szerokość ekranu jest mniejsza niż ta wartość, to elementy 'itemsS' są generowane w pojedynczym sliderze.",
+        "type": "Number",
+        "default": "768"
+    },
+    'slider.items.resizeL': {
+        "description": "Jeśli szerokość ekranu jest mniejsza niż ta wartość, to elementy 'itemsL' są generowane w pojedynczym sliderze.",
+        "type": "Number",
+        "default": "1024"
+    },
+    'slider.items.resizeXL': {
+        "description": "Jeśli szerokość ekranu jest większa (lub równa) niż ta wartość, elementy 'itemsXL' są generowane w pojedynczym suwaku.",
+        "type": "Number",
+        "default": "1260"
+    },
+    'slider.example1': 'Slider z użyciem przycisków buttonsAlwaysVisible={false} (ustawienie standardowe).',
+    'slider.example2': 'Slider z użyciem przycisków buttonsAlwaysVisible={true}.',
+    'slider.example3': 'Slider z użyciem klucza displayPagination={false} do ukrycia paginatora.',
+    'slider.example4': 'Slider z przykładem generowania elementów w zależności od szerokości ekranu za pomocą klawiszy: resizeS, resizeL, resizeXL, resizeS, resizeL i resizeXL.',
+    'steps.next': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: dalej.",
+        "type": "String | JSX",
+        "default": "Next"
+    },
+    'steps.previous': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: wcześniej.",
+        "type": "String | JSX",
+        "default": "Previous"
+    },
+    'steps.submit': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: Zapisz.",
+        "type": "String | JSX",
+        "default": "Submit"
+    },
+    'steps.callback': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po naciśnięciu przycisku 'Zapisz'. Argumentami zwracanymi są: Argument 1: zdarzenie kliknięcia, Argument 2: wartości klucza 'callbackProps'.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'steps.callbackProps': {
+        "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako 2 argumenty do funkcji zwrotnej.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    'steps.progressBar': {
+        "description": "Wyświetl formant animowanego paska postępu.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.iconStep': {
+        "description": "Przejdź do następnego klikniętego punktu.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheck': {
+        "description": "Jeśli true, to obietnica (Promise) jest oczekiwana od funkcji 'callback', która zwraca prawdę lub fałsz. Jeśli prawda, użytkownik może przejść dalej.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheckNavigate': {
+        "description": "W połączeniu z 'callbackCheck={true}' sprawdzane jest, czy obietnica odpowiedniego kroku jest fałszywa (na przykład, jeśli użytkownik przechodzi od kroku 1 do kroku 3, kroki 1 i 2 muszą zostać sprawdzone). Użytkownik jest kierowany do kroku, w którym obietnica zwraca wartość fałsz. ",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.example1': 'Kroki ze standardowymi ustawieniami.',
+    'steps.example2': 'Kroki z użyciem klucza progressBar={true}.',
+    'steps.example3': 'Kroki z użyciem klucza iconStep={true}.',
+    'steps.example4': 'Kroki z użyciem kluczy callbackCheck={true} and iconStep={true}.',
+    "menu.data.callback": {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wykonywana po kliknięciu elementu menu, a ten element nie ma elementu potomnego. Funkcja ma tylko jeden argument zwrotny, wartość klucza 'callbackProps'.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    "menu.data.callbackProps": {
+        "description": "Zdefiniowany przez użytkownika argument funkcji zwrotnej.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    "menu.data.externalLink": {
+        "description": "Jeśli wartość to prawda, tag <a> jest generowany z atrybutem target = '_ blank'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'Suggestion.applySelected': {
+        "description": "Jeśli wartość jest fałszywa, wybrana wartość (z rozwijanych sugestii) nie zostanie przyjęta, ma to tylko na celu wywołanie funkcji zwrotnej bez zachowania wybranej 'sugestii'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.cards.cardWidthS': {
+        "description": "Szerokość karty (w pikselach) z wartością dokumentu resizeS={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthL': {
+        "description": "Szerokość karty (w px) z wartością dokumentu resizeL={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthXL': {
+        "description": "Szerokość karty (w pikselach) z wartością dokumentu resizeXL={xxx}.",
+        "type": "Number",
+        "default": "3"
+    },
 };
 
 export default PL;

@@ -3460,6 +3460,15 @@ h1,
 .rr-global-messages-example .single-error {
   background-color: #FF4469; }
 
+.slider-items-example .slide-item {
+  width: calc(100% - 20px); }
+  @media screen and (min-width: 1260) {
+    .slider-items-example .slide-item {
+      width: calc(33.2333% - 20px); } }
+  @media screen and (min-width: 1024) {
+    .slider-items-example .slide-item {
+      width: calc(50% - 20px); } }
+
 * {
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
 
@@ -3494,6 +3503,13 @@ h1,
     z-index: 3; }
   #app .rr-container .data-header:hover {
     z-index: 9; }
+
+#app .rr-container.right .component-search {
+  margin: 5px;
+  margin-left: 0px; }
+
+#app .rr-container.right .Content .data-header .minify-menu {
+  float: right; }
 
 #app .rr-container.right .SideBar {
   right: 0;
@@ -3533,7 +3549,6 @@ h1,
 
 #app .data-header .toggle-dashboard {
   float: right;
-  margin: 10px;
   color: white; }
 
 #app .data-header .toggle-dashboard:hover {
@@ -3692,7 +3707,7 @@ h1,
   #app .SideBar .rr-menu-height {
     height: calc(100% - 70px);
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     scrollbar-color: rgba(122, 122, 122, 0.88) transparent;
     scrollbar-width: thin;
     box-sizing: border-box;
@@ -3756,8 +3771,6 @@ h1,
     #app .SideBar .rr-menu-height .single-entry .animation-height-back .drop-down-icon,
     #app .SideBar .rr-menu-height .single-entry .is-toggled-back .drop-down-icon {
       transform: rotateZ(0deg); }
-  #app .SideBar .rr-menu-height:hover {
-    overflow-y: auto; }
 
 #app .SideBar.opened {
   z-index: 6; }
@@ -3857,8 +3870,15 @@ h1,
   .rr-articles-production .single-entry .title:hover {
     cursor: pointer; }
 
-.rr-custom-suggestion-website input {
-  min-width: 100%; }
+.component-search {
+  width: 25vw;
+  margin: 5px 0 5px 20px;
+  display: inline-block; }
+  .component-search .rr-custom-suggestion-website {
+    border-radius: 5px; }
+    .component-search .rr-custom-suggestion-website input {
+      border-radius: 5px;
+      min-width: 100%; }
 
 #app.dark .rr-custom-suggestion-website input {
   background-color: #242526;

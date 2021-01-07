@@ -49,7 +49,8 @@ class InputSuggestionObject extends React.Component
             sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
             sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
             searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
-            loading: props.loading ? props.loading : undefined
+            loading: props.loading ? props.loading : undefined,
+            applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -96,7 +97,7 @@ class InputSuggestionObject extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'inputPlaceholder', 'props', 'inputType', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'callback', 'callbackSelection', 'selected', 'loading'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id','value', 'suggestions', 'suggestionsToFilter', 'inputPlaceholder', 'props', 'inputType', 'applySelected', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'callback', 'callbackSelection', 'selected', 'loading'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
@@ -113,7 +114,8 @@ class InputSuggestionObject extends React.Component
                     searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
                     callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
                     callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
-                    loading: props.loading ? props.loading : undefined
+                    loading: props.loading ? props.loading : undefined,
+                    applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
                 }
             }
 
@@ -130,7 +132,8 @@ class InputSuggestionObject extends React.Component
                 searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
                 callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
                 callbackSelection: (props.callbackSelection && 'function' == typeof props.callbackSelection) ? props.callbackSelection : undefined,
-                loading: props.loading ? props.loading : undefined
+                loading: props.loading ? props.loading : undefined,
+                applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
             };
         }
 
@@ -406,7 +409,7 @@ class InputSuggestionObject extends React.Component
      * Append choosed user
      */
     toggleSelection(object) {
-        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue } = this.state;
+        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue, applySelected } = this.state;
 
         const { text } = object;
 
@@ -447,7 +450,7 @@ class InputSuggestionObject extends React.Component
         }
 
         this.setState({
-            selected,
+            selected: applySelected ? selected : [],
             plainValue: emptySuggestionAfterSelection ? '' : plainValue
         }, () => {
             
@@ -539,7 +542,7 @@ class InputSuggestionObject extends React.Component
         const { addClass, selected, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, selectedArrow, isLoading, loading } = this.state;
 
         return (
-            <div className={`${defaultClass} ${addClass}`}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 <div className="input">
                     {
                         0 !== selected.length &&
@@ -576,7 +579,6 @@ class InputSuggestionObject extends React.Component
                         onChange={(e) => this.setValue(e)}
                         placeholder={inputPlaceholder}
                         onKeyDown={(e) => this.handleKeyDown(e)}
-                        id={id}
                         {...props}
                     />
                     {

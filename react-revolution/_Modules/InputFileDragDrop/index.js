@@ -64,7 +64,7 @@ class InputFileDragDrop extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'isDraggingData', 'multiple', 'uploadOnClick'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'isDraggingData', 'multiple', 'uploadOnClick'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file-drag-drop',
@@ -294,7 +294,6 @@ class InputFileDragDrop extends React.Component
                         type="file"
                         onChange={(e) => this.handleFileUploadInputFiled(e)}
                         placeholder={inputPlaceholder}
-                        id={id}
                         type='file'
                         name='files[]'
                         {...props}

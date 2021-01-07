@@ -4,8 +4,7 @@ import loadStyle from '../internalFunctions/loadStyle';
 
 const containesOldStaffHolder = undefined;
 
-class Container extends React.Component
-{
+class Container extends React.Component {
     constructor(props) {
         super(props);
         this.getClassNamesContent = this.getClassNamesContent.bind(this);
@@ -74,7 +73,7 @@ class Container extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'href', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps','closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'href', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
@@ -120,12 +119,12 @@ class Container extends React.Component
         this.setIntervals(false);
     }
 
-    setIntervals(reassignInterval = true){
+    setIntervals(reassignInterval = true) {
         clearInterval(this.interval);
 
-        if(reassignInterval){
-            this.interval = setInterval( () => {
-                if(this.state.href !== window.location.href){
+        if (reassignInterval) {
+            this.interval = setInterval(() => {
+                if (this.state.href !== window.location.href) {
                     this.setState({ href: window.location.href }, (e) => this.resizeView(null, null, true));
                 }
             }, 500);
@@ -140,8 +139,8 @@ class Container extends React.Component
              * Hide opened hidden sidebar on location change
              */
             setTimeout(() => {
-                if(isHidden){
-                    if('opened' == isHiddenClass){
+                if (isHidden) {
+                    if ('opened' == isHiddenClass) {
                         this.setState(this.state.hideOpenedHiddenSidebar);
                     }
                 }
@@ -149,10 +148,10 @@ class Container extends React.Component
         }
 
         setTimeout(() => {
-            if(href !== window.location.href && isHidden){
+            if (href !== window.location.href && isHidden) {
                 this.setState(this.state.hideOpenedHiddenSidebar, this.resizeView);
             }
-            if(href !== window.location.href && !isHidden){
+            if (href !== window.location.href && !isHidden) {
                 this.setState({ href: window.location.href }, (e) => this.resizeView(e, true));
             }
         }, 300);
@@ -162,20 +161,20 @@ class Container extends React.Component
         const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar } = this.state;
         const documentWidth = document.documentElement.getBoundingClientRect().width;
 
-        if(minifySidebarOn && minifySidebarOn.length){
-            for(let x = 0; x <= minifySidebarOn.length-1; x++){
-                if(typeof '8' == typeof minifySidebarOn[x] && (window.location.href == minifySidebarOn[x] || window.location.hash == minifySidebarOn[x])){
+        if (minifySidebarOn && minifySidebarOn.length) {
+            for (let x = 0; x <= minifySidebarOn.length - 1; x++) {
+                if (typeof '8' == typeof minifySidebarOn[x] && (window.location.href == minifySidebarOn[x] || window.location.hash == minifySidebarOn[x])) {
                     return this.setState(hideOpenedHiddenSidebar);
                 }
             }
         }
 
-        if(isInterval && this.containesOldStaffHolder){
+        if (isInterval && this.containesOldStaffHolder) {
             const { isMax, isMin, isHidden, isHiddenClass } = this.containesOldStaffHolder;
             return this.setState({ isMax, isMin, isHidden, isHiddenClass });
         }
-        
-        if(persistCurrentSelection){
+
+        if (persistCurrentSelection) {
             return null;
         }
 
@@ -272,9 +271,9 @@ class Container extends React.Component
             this.containesOldStaffHolder = { isMin, isMax, isHidden, isHiddenClass };
         };
 
-        if(isHidden){
+        if (isHidden) {
 
-            if('closed' == isHiddenClass){
+            if ('closed' == isHiddenClass) {
                 return this.setState({
                     isHiddenClass: 'opened',
                     isMax: false,
@@ -282,7 +281,7 @@ class Container extends React.Component
                     isHidden: true,
                 }, setCache);
             }
-            else{
+            else {
                 return this.setState({
                     isHiddenClass: 'closed',
                     isMax: false,
@@ -298,7 +297,7 @@ class Container extends React.Component
                 isMin: false,
                 isHidden: false,
             }, setCache);
-        } 
+        }
         else {
             this.setState({
                 isMin: true,
@@ -322,7 +321,7 @@ class Container extends React.Component
                 >
                     {
                         isHidden &&
-                        <span 
+                        <span
                             className='close-side-bar action-icon'
                             onClick={e => this.sideBar()}
                         >
@@ -332,7 +331,7 @@ class Container extends React.Component
                         </span>
                     }
                     {
-                        moduleSidebar && moduleSidebar
+                        moduleSidebar && 'closed' !== isHiddenClass && moduleSidebar
                     }
                 </div>
                 <div className={contentClassNames} {...contentProps}>
@@ -341,15 +340,15 @@ class Container extends React.Component
                             !headerDataRight && headerData && headerData
                         }
                         {
-                            displayMinifyMaxifyIcon && 
-                            <span 
+                            displayMinifyMaxifyIcon &&
+                            <span
                                 className='minify-menu'
                                 onClick={e => this.sideBar()}
                             >
                                 {
                                     toggleMenuHtml
                                 }
-                        </span>
+                            </span>
                         }
                         {
                             headerDataRight && headerData && headerData
@@ -364,8 +363,8 @@ class Container extends React.Component
                         </div>
                     }
                     {
-                        footerData && 
-                        <div 
+                        footerData &&
+                        <div
                             className='data-footer'
                             {...footerProps}
                         >

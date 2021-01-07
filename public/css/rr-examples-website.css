@@ -790,3 +790,12 @@ h1,
 
 .rr-global-messages-example .single-error {
   background-color: #FF4469; }
+
+.slider-items-example .slide-item {
+  width: calc(100% - 20px); }
+  @media screen and (min-width: 1260) {
+    .slider-items-example .slide-item {
+      width: calc(33.2333% - 20px); } }
+  @media screen and (min-width: 1024) {
+    .slider-items-example .slide-item {
+      width: calc(50% - 20px); } }

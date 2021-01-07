@@ -121,16 +121,17 @@ class Menu extends React.Component {
         document.removeEventListener('click', this.handleClickOutside);
     }
 
-    buildSingleMenuItem(nodeType, cls, unique, icon, text, href) {
+    buildSingleMenuItem(nodeType, cls, unique, icon, text, href, dataChildren, callback, callbackProps, externalLink) {
         const { alignIcon } = this.state;
         const direction = ['left', 'right'].includes(alignIcon) ? alignIcon : 'left';
 
-        if ('link' == nodeType) {
+        if ('link' == nodeType && typeof '8' == typeof href) {
             return (
                 <Link
                     to={href}
                     className={cls}
-                    onClick={() => this.toggle(unique)}
+                    {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
                 >
                     {
                         'left' == direction && icon &&
@@ -157,12 +158,14 @@ class Menu extends React.Component {
             );
         }
 
-        if ('href' == nodeType) {
+        if (('href' == nodeType && typeof '8' == typeof href) || externalLink && true == externalLink) {
             return (
                 <a
                     href={href}
                     className={cls}
-                    onClick={() => this.toggle(unique)}
+                    {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                    {...((externalLink && true == externalLink) && { target: '_blank' })}
                 >
                     {
                         'left' == direction && icon &&
@@ -192,7 +195,8 @@ class Menu extends React.Component {
         return (
             <div
                 className={cls}
-                onClick={() => this.toggle(unique)}
+                {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
+                {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
             >
                 {
                     'left' == direction && icon &&
@@ -225,7 +229,7 @@ class Menu extends React.Component {
 
         if (data && data.length) {
             for (let x = 0; x <= data.length - 1; x++) {
-                let { text, toggled, unique, props, classList, classListChildren, href, icon, childrensNestedCount, key, isActive } = data[x];
+                let { text, toggled, unique, props, classList, classListChildren, href, icon, childrensNestedCount, key, isActive, callback, callbackProps, externalLink } = data[x];
 
                 if (href && typeof '8' == typeof href) {
                     href = href.toLowerCase();
@@ -259,7 +263,7 @@ class Menu extends React.Component {
                 }
 
                 const cls = `text ${isChild ? 'child' : ''} ${isActive ? activeClassName : ''} ${toggled ? toggledClassName : ''} ${dataChildren && 0 !== dataChildren.length ? 'hasChildren' : ''}`;
-                const dataLink = this.buildSingleMenuItem(nodeType, cls, unique, icon, text, href);
+                const dataLink = this.buildSingleMenuItem(nodeType, cls, unique, icon, text, href, dataChildren, callback, callbackProps, externalLink);
                 let inlineStyle = {
                     style : {}
                 };

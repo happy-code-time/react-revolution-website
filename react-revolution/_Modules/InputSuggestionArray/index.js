@@ -49,7 +49,8 @@ class InputSuggestionArray extends React.Component
             sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
             sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
             searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
-            loading: props.loading ? props.loading : undefined
+            loading: props.loading ? props.loading : undefined,
+            applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -96,7 +97,7 @@ class InputSuggestionArray extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'loading'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id','value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'applySelected', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'loading'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
@@ -113,7 +114,8 @@ class InputSuggestionArray extends React.Component
                     sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
                     sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
                     searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
-                    loading: props.loading ? props.loading : undefined
+                    loading: props.loading ? props.loading : undefined,
+                    applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
                 }
             }
 
@@ -130,7 +132,8 @@ class InputSuggestionArray extends React.Component
                 sortSelected: (props.sortSelected && typeof '8' == typeof props.sortSelected) ? props.sortSelected : undefined,
                 sortSuggestions: (props.sortSuggestions && typeof '8' == typeof props.sortSuggestions) ? props.sortSuggestions : undefined,
                 searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
-                loading: props.loading ? props.loading : undefined
+                loading: props.loading ? props.loading : undefined,
+                applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
             };
         }
 
@@ -404,7 +407,7 @@ class InputSuggestionArray extends React.Component
      * Append choosed user
      */
     toggleSelection(email) {
-        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue } = this.state;
+        let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue, applySelected } = this.state;
 
         if (!selected.includes(email)) {
             selected.push(email);
@@ -431,7 +434,7 @@ class InputSuggestionArray extends React.Component
         }
 
         this.setState({
-            selected,
+            selected: applySelected ? selected : [],
             plainValue: emptySuggestionAfterSelection ? '' : plainValue
         }, () => {
 
@@ -523,7 +526,7 @@ class InputSuggestionArray extends React.Component
         const { addClass, selected, defaultClass, id, props, suggestions, plainValue, inputPlaceholder, inputType, selectedArrow, loading, isLoading } = this.state;
 
         return (
-            <div className={`${defaultClass} ${addClass}`}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 <div className="input">
                     {
                         0 !== selected.length &&
@@ -556,7 +559,6 @@ class InputSuggestionArray extends React.Component
                         onChange={(e) => this.setValue(e)}
                         placeholder={inputPlaceholder}
                         onKeyDown={ (e) => this.handleKeyDown(e) }
-                        id={id}
                         {...props}
                     />
                     {

@@ -1,0 +1,416 @@
+import React from 'react';
+import { SliderItems, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import trans from '../Translations/trans'
+import buildModulesJsx from '../Functions/buildModulesJsx';
+import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
+
+const codeExample1 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            data={this.getCards()}
+        />
+</div>`;
+
+const codeExample2 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            data={this.getCards()}
+            buttonsAlwaysVisible={true}
+        />
+</div>`;
+
+const codeExample3 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            data={this.getCards()}
+            displayPagination={false}
+        />
+</div>`;
+
+const codeExample4 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            data={this.getCards()}
+            displayDots={false}
+            itemsS={2} // two items on resizeS (768px)
+            itemsL={4} // four items on resizeL (1024)
+            itemsXL={4} // five items on resizeXL (1140)
+            resizeS={768}
+            resizeL={1024}
+            resizeXL={1140}
+        />
+</div>`;
+
+const css = `.slider-items-example{
+    .slide-item{
+
+        @media screen and (min-width: 1140px){
+            width: calc(33.2333% - 20px);
+        }
+
+        @media screen and (min-width: 1024){
+            width: calc(50% - 20px);
+        }
+
+        width: calc(100% - 20px);
+    }
+}`;
+
+const js = `getCards() {
+    const items = 10;
+    const data = [];
+
+    for (let x = 0; x < items; x++) {
+
+        data.push(
+            {
+                data: (
+                    <span>
+                        {
+                            x + 1
+                        }
+                    </span>
+                )
+            }
+        );
+    }
+
+    return data;
+}`;
+
+class _SliderItems extends React.Component 
+{
+    constructor(props) {
+        super(props);
+        this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
+        this.countCallbacks = 0;
+
+        this.state = {
+            loading: true
+        };
+
+        this.examples = [
+            {
+                title: 'SliderItems',
+                description: trans('slider.example1'),
+                reactTextBefore: '',
+                react: codeExample1,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            data={this.getCards()}
+                            buttonsAlwaysVisible={true}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example3'),
+                reactTextBefore: '',
+                react: codeExample3,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            data={this.getCards()}
+                            displayPagination={false}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example4'),
+                reactTextBefore: '',
+                react: codeExample4,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            data={this.getCards()}
+                            displayDots={false}
+                            itemsS={2} // two items on resizeS (768px)
+                            itemsL={4} // four items on resizeL (1024)
+                            itemsXL={4} // five items on resizeXL (1140)
+                            resizeS={768}
+                            resizeL={1024}
+                            resizeXL={1140}
+                        />
+                    </div>
+                )
+            }
+        ];
+    }
+
+    getCards() {
+        const items = 10;
+        const data = [];
+
+        for (let x = 0; x < items; x++) {
+
+            data.push(
+                {
+                    data: (
+                        <span>
+                            {
+                                x + 1
+                            }
+                        </span>
+                    )
+                }
+            );
+        }
+
+        return data;
+    }
+
+    loadOnScrollCallback() {
+        this.countCallbacks += 1;
+
+        if (this.countCallbacks === this.examples.length) {
+            return Promise.resolve('break');
+        }
+
+        return new Promise(resolve => {
+            resolve(buildModulesJsx(this.examples[this.countCallbacks]), this.countCallbacks + 1);
+        });
+    }
+
+    render() {
+        return (
+            <div className="Generator">
+                <LoadOnScroll
+                    scrollReference={false}
+                    minify={undefined}
+                    callback={this.loadOnScrollCallback}
+                    loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
+                    data={buildModulesJsx(this.examples[0], 1)}
+                    fireScrollEvent={30}
+                    fireScrollBack={true}
+                />
+                {
+                    getDescriptionForstyle('rr-slider-items')
+                }
+                <h1 className="h1-title border-none my-3">
+                    {
+                        trans('keyUsageTitle')
+                    }
+                </h1>
+                <Table
+                    mediaBreak={1024}
+                    addClass='rr-table-website'
+                    keysToRead={
+                        [
+                            'key', 'value', 'type', 'default'
+                        ]
+                    }
+                    title={
+                        [
+                            trans('table.title.key'), trans('table.title.description'), trans('table.title.type'), trans('table.title.default')
+                        ]
+                    }
+                    data={
+                        buildTableKeysStructure(
+                            [
+                                {
+                                    key: 'globalStyle',
+                                    values: 'globalStyle'
+                                },
+                                {
+                                    key: 'moduleStyle',
+                                    values: 'moduleStyle'
+                                },
+                                {
+                                    key: 'id',
+                                    values: 'id'
+                                },
+                                {
+                                    key: 'defaultClass',
+                                    values: 'class'
+                                },
+                                {
+                                    key: 'addClass',
+                                    values: 'addClass'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'slider.items.data'
+                                },
+                                {
+                                    key: 'data.data',
+                                    values: 'slider.items.data.data'
+                                },
+                                {
+                                    key: 'itemsS',
+                                    values: 'slider.items.itemsS'
+                                },
+                                {
+                                    key: 'itemsL',
+                                    values: 'slider.items.itemsL'
+                                },
+                                {
+                                    key: 'itemsXL',
+                                    values: 'slider.items.itemsXL'
+                                },
+                                {
+                                    key: 'resizeS',
+                                    values: 'slider.items.resizeS'
+                                },
+                                {
+                                    key: 'resizeL',
+                                    values: 'slider.items.resizeL'
+                                },
+                                {
+                                    key: 'resizeXL',
+                                    values: 'slider.items.resizeXL'
+                                },
+                                {
+                                    key: 'displayPagination',
+                                    values: 'slider.displayPagination'
+                                },
+                                {
+                                    key: 'displayDots',
+                                    values: 'slider.displayDots'
+                                },
+                                {
+                                    key: 'displayDotsIndex',
+                                    values: 'slider.displayDotsIndex'
+                                },
+                                {
+                                    key: 'buttonsAlwaysVisible',
+                                    values: 'slider.buttonsAlwaysVisible'
+                                },
+                                {
+                                    key: 'next',
+                                    values: 'slider.next'
+                                },
+                                {
+                                    key: 'previous',
+                                    values: 'slider.previous'
+                                },
+                            ],
+                            'rr-slider-items'
+                        )
+                    }
+                />
+            </div>
+        );
+    }
+};
+
+export default _SliderItems;

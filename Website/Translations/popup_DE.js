@@ -11,7 +11,7 @@ const DE = {
     releaseNotes: 'Versionshinweise',
     back_404: 'Startseite',
     functions: 'Funktionen',
-    components: 'Komponente',
+    components: 'Komponenten',
     description_uuid: 'Die Funktion uuid gibt immer eine eindeutige Zeichenfolge zurück, die auf einer Zufallszahl und dem aktuellen Zeitstempel basiert.',
     description_disableHtmlScroll: 'Der HTML Tag bekommt die Attribute: className="overflow-hidden" und style="overflow: hidden;" damit ein Benutzer innerhalb der Webseite nicht scrollen darf.',
     description_enableHtmlScroll: 'Dem HTML Tag wird die Klasse "overflow-hidden" entfernt und der Style: "overflow: hidden;". Der Benutzer hat wieder die Möglichkeit innerhalb der Website zu scrollen.',
@@ -1695,6 +1695,209 @@ const DE = {
         "description": "Source des Bildes.",
         "type": "String",
         "default": "<leere Zeichenfolge>"
+    },
+    'slider.data' : {
+        "description": "Ein Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'slider.data.data': {
+        "description": "Benutzerdefinierter Jsx-Code",
+        "type": "String|Jsx",
+        "default": "undefined"
+    },
+    'slider.data.image': {
+        "description": "Source des Bildes.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'slider.data.callback': {
+        "description": "Bentuzerdefinierte Funktion die aufgerufen wird, wenn das Bild/ das Slide aufgerufen wird. Rückgabe Argumente sind: Argument 1: der Index des Slides, Argument 2: der Werte des Schlüssels 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'slider.data.callbackProps': {
+        "description": "Bentuzerdefinierte Daten die als 2 Argument zu der Callback Funktion übergeben wird.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'slider.displayDots': {
+        "description": "Erlauben von dem Rendern der Navigierungspunkte innerhalb des Paginators.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.callbackMount': {
+        "description": "Bentuzerdefinierte Funktion die aufgerufen wird nachdem die Slider Componente initialisiert wurde. diese function liefert 1 Argument zurück, den Wert von dem Schlüssel: 'callbackMountProps'. Es wird ein Promise erwartet der als Rückgabe Wert eine Nummer erwartet. Diese Nummer erändert die Slide-Nummer. Der Wert darf nicht negativ sein (x >= 0) und nicht größer als die daten Länge (x < data.length).",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'slider.callbackMountProps': {
+        "description": "Bentuzerdefinierte Daten die als 1 Argument zu der 'callbackMount' Funktion übergeben wird.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.imageAsBackground': {
+        "description": "Setzte das Bild nicht in ein <img /> tag, sonder als backgroundImage und render Benutzerdefinierte Daten innerhalb des Bildes/ Slides.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.displayPagination' : {
+        "description": "Rendern des Paginators erlauben.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.displayDotsIndex' : {
+        "description": "Rendern des einzelnen Paginators Index erlauben.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.buttonsAlwaysVisible' : {
+        "description": "Navigations Buttons immer einblenden.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.next' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
+        "type": "String|JSX",
+        "default": ">"
+    },
+    'slider.previous' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
+        "type": "String|JSX",
+        "default": "<"
+    },
+    'slider.previous' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
+        "type": "String|JSX",
+        "default": "<"
+    },
+    'slider.items.data' : {
+        "description": "Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'slider.items.data.data' : {
+        "description": "Benutzerdefiniertes Jsx.",
+        "type": "String|Jsx",
+        "default": "undefined"
+    },
+    'slider.items.itemsS' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite kleiner ist als der übergebene Wert im Schlüssel 'resizeS' (default: 768px).",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.items.itemsL' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite kleiner ist als der übergebene Wert im Schlüssel 'resizeL' (default: 1024px) und größer als der übergebene Wert im Schlüssel 'resizeS' (default: 768px).",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.items.itemsXL' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite größer (oder gleich) ist als der übergebene Wert im Schlüssel 'resizeXL' (default: 1260px).",
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.items.resizeS' : {
+        "description": "Wenn die Bildschirmbreite kleiner ist als dieser Wert, dann werden 'itemsS' Elemente im einelnen Slider generiert.",
+        "type": "Number",
+        "default": "768"
+    },
+    'slider.items.resizeL' : {
+        "description": "Wenn die Bildschirmbreite kleiner ist als dieser Wert, dann werden 'itemsL' Elemente im einelnen Slider generiert.",
+        "type": "Number",
+        "default": "1024"
+    },
+    'slider.items.resizeXL' : {
+        "description": "Wenn die Bildschirmbreite größer (oder gleich) ist als dieser Wert, dann werden 'itemsXL' Elemente im einelnen Slider generiert.",
+        "type": "Number",
+        "default": "1260"
+    },
+    'slider.example1' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={false} (standard Einstellung).',
+    'slider.example2' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={true}.',
+    'slider.example3' : 'Slider mit der Verwendung des Keys displayPagination={false} um den Paginator auszublenden.',
+    'slider.example4' : 'Slider mit dem Beispiel der Elementen Generierung je nach Bildschirmbreite mit Verwendung der Schlüssel: resizeS, resizeL, resizeXL, resizeS, resizeL und resizeXL.',
+    'steps.next' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
+        "type": "String|JSX",
+        "default": "Next"
+    },
+    'steps.previous' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
+        "type": "String|JSX",
+        "default": "Previous"
+    },
+    'steps.submit' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: Speichern.",
+        "type": "String|JSX",
+        "default": "Submit"
+    },
+    'steps.callback' : {
+        "description": "Bentuzerdefinierte Funktion die aufgerufen wird, wenn der Button 'Speichern' gedrückt wird. Rückgabe Argumente sind: Argument 1: der Click Event, Argument 2: der Werte des Schlüssels 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.callbackProps' : {
+        "description": "Bentuzerdefinierte Daten die als 2 Argument zu der Callback Funktion übergeben wird.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.progressBar' : {
+        "description": "Anzeigesteuerung der animierten ProgressBar.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.iconStep' : {
+        "description": "Navigiere zu dem nächsten Punkt der angeklickt wurde.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheck' : {
+        "description": "Falls true dann wird von der 'callback' Funktion ein Promise erwartet der true oder false zurückliefert. Falls true dann wird es erlaubt dem Benutzer weiter zu navigieren.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheckNavigate' : {
+        "description": "In Kombination mit 'callbackCheck={true}' wird geprüft ob der Promise des jeweiligen Steps false ist (wenn der Benutzer z.B.: von dem Step 1 zum Step 3 navigiert, müssen die Steps 1 udn 2 geprüft werden). Der Benutzer wir zu dem Step navigiert, wo der Promise den Wert false zurückliefert.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.example1' : 'Steps mit den Standard Einstellungen.',
+    'steps.example2' : 'Steps mit der Verwendung des Schlüssels progressBar={true}.',
+    'steps.example3' : 'Steps mit der Verwendung des Schlüssels iconStep={true}.',
+    'steps.example4' : 'Steps mit callbackCheck={true} und iconStep={true}.',
+    'menu.data.callback': {
+        "description": "Benutzerdefiniert Funktion die ausgeführt wird, wenn ein Menu Element angeklickt wurde und dieses Element keine Kind-Element besistz. Die Funktion hat nur ein Rückgabe Argument, den Wert des Schlüssels 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menu.data.callbackProps': {
+        "description": "Benutzerdefiniertes Argument für die Callback Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menu.data.externalLink': {
+        "description": "Wenn der Wert true ist, wird der Tag <a> generiert mit dem Attribute target='_blank'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestion.applySelected': {
+        "description": "Wenn der Wert false ist, dann wird der ausgewählte Wert (aus den DropDown Vorschlägen) nicht übernommen, dies hat den Zweck nur die Callback Funktion aufzurufen ohne die ausgewählte 'Suggestion' beizubehalten.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.cards.cardWidthS':{
+        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeS={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthL':{
+        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeL={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthXL':{
+        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeXL={xxx}.",
+        "type": "Number",
+        "default": "3"
     },
 };
 

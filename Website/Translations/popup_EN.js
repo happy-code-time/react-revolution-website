@@ -1698,6 +1698,204 @@ const EN = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.data': {
+        "description": "An array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'slider.data.data': {
+        "description": "User defined Jsx code",
+        "type": "String|Jsx",
+        "default": "undefined"
+    },
+    'slider.data.image': {
+        "description": "Source of the picture.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'slider.data.callback': {
+        "description": "User-defined function that is called when the image / slide is called. Return arguments are: Argument 1: the index of the slide, Argument 2: the values ​​of the key 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'slider.data.callbackProps': {
+        "description": "User-defined data that is passed as 2 arguments to the callback function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'slider.displayDots': {
+        "description": "Allow rendering of navigation points within the paginator.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.callbackMount': {
+        "description": "User-defined function that is called after the slider component has been initialized. This function returns 1 argument, the value of the key: 'callbackMountProps'. A promise is expected which expects a number as the return value. This number is changed the slide number. The value must not be negative (x> = 0) and not greater than the data length (x <data.length). ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'slider.callbackMountProps': {
+        "description": "User-defined data that is passed as 1 argument to the 'callbackMount' function.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.imageAsBackground': {
+        "description": "Don't put the image in an <img /> tag, but rather as a backgroundImage and render custom data within the image / slide.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.displayPagination': {
+        "description": "Allow rendering of the paginator.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.displayDotsIndex': {
+        "description": "Allow rendering of the single paginator index.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.buttonsAlwaysVisible': {
+        "description": "Always show navigation buttons.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.next': {
+        "description": "User-defined Jsx within the button: next.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    'slider.previous': {
+        "description": "User-defined Jsx within the button: earlier.",
+        "type": "String | JSX",
+        "default": "<"
+    },
+    'slider.items.data': {
+        "description": "Array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'slider.items.data.data': {
+        "description": "Custom Jsx.",
+        "type": "String | Jsx",
+        "default": "undefined"
+    },
+    'slider.items.itemsS': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is smaller than the transferred value in the key 'resizeS' (default: 768px).",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.items.itemsL': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is smaller than the transferred value in the key 'resizeL' (default: 1024px) and larger than the transferred value in the key 'resizeS' (default: 768px). ",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.items.itemsXL': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is greater (or equal) than the transferred value in the key 'resizeXL' (default: 1260px)." ,
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.items.resizeS': {
+        "description": "If the screen width is smaller than this value, then 'itemsS' elements are generated in the individual slider.",
+        "type": "Number",
+        "default": "768"
+    },
+    'slider.items.resizeL': {
+        "description": "If the screen width is smaller than this value, then 'itemsL' elements are generated in the individual slider.",
+        "type": "Number",
+        "default": "1024"
+    },
+    'slider.items.resizeXL': {
+        "description": "If the screen width is larger (or equal) than this value, 'itemsXL' elements are generated in the individual slider.",
+        "type": "Number",
+        "default": "1260"
+    },
+    'slider.example1': 'Slider using the key buttonsAlwaysVisible = {false} (standard setting).',
+    'slider.example2': 'Slider with the use of the key buttonsAlwaysVisible={true}.',
+    'slider.example3': 'Slider with the use of the key displayPagination={false} to hide the paginator.',
+    'slider.example4': 'Slider with the example of the elements generation depending on the screen width using the keys: resizeS, resizeL, resizeXL, resizeS, resizeL and resizeXL.',
+    'steps.next': {
+        "description": "User-defined Jsx within the button: next.",
+        "type": "String | JSX",
+        "default": "Next"
+    },
+    'steps.previous': {
+        "description": "User-defined Jsx within the button: earlier.",
+        "type": "String | JSX",
+        "default": "Previous"
+    },
+    'steps.submit': {
+        "description": "User-defined Jsx within the button: Save.",
+        "type": "String | JSX",
+        "default": "Submit"
+    },
+    'steps.callback': {
+        "description": "User-defined function that is called when the 'Save' button is pressed. Return arguments are: Argument 1: the click event, Argument 2: the values ​​of the key 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.callbackProps': {
+        "description": "User-defined data that is passed as 2 arguments to the callback function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.progressBar': {
+        "description": "Display control of the animated ProgressBar.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.iconStep': {
+        "description": "Navigate to the next point that was clicked.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheck': {
+        "description": "If true then the 'callback' function expects a promise which returns true or false. If true then the user is allowed to navigate further.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.callbackCheckNavigate': {
+        "description": "In combination with 'callbackCheck={true}' it is checked whether the promise of the respective step is false (for example, if the user navigates from step 1 to step 3, steps 1 and 2 must be checked). The user is navigated to the step where the promise returns the value false. ",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.example1': 'Steps with the standard settings.',
+    'steps.example2': 'Steps using the key progressBar={true}.',
+    'steps.example3': 'Steps using the key iconStep={true}.',
+    'steps.example4': 'Steps using the keys callbackCheck={true} and iconStep={true}.',
+    'menu.data.callback': {
+        "description": "User-defined function that is executed when a menu element has been clicked and this element has no child element. The function has only one return argument, the value of the key 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menu.data.callbackProps': {
+        "description": "User-defined argument for the callback function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menu.data.externalLink': {
+        "description": "If the value is true, the tag <a> is generated with the attribute target = '_ blank'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestion.applySelected': {
+        "description": "If the value is false, the selected value (from the drop-down suggestions) will not be adopted, this only has the purpose of calling the callback function without keeping the selected 'suggestion'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.cards.cardWidthS': {
+        "description": "The width of the card (in px) with the value of the document resizeS={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthL': {
+        "description": "The width of the card (in px) with the value of the document resizeL={xxx}.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.cardWidthXL': {
+        "description": "The width of the card (in px) with the value of the document resizeXL={xxx}.",
+        "type": "Number",
+        "default": "3"
+    },
 };
 
 export default EN;

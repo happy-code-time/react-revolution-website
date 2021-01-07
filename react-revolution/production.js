@@ -41,7 +41,11 @@ import ReadMore from './_Modules/ReadMore';
 import ReadMoreCallback from './_Modules/ReadMoreCallback';
 import ScrollTo from './_Modules/ScrollTo';
 import SideBar from './_Modules/SideBar';
+import Slider from './_Modules/Slider';
+import SliderCards from './_Modules/SliderCards';
+import SliderItems from './_Modules/SliderItems';
 import Stars from './_Modules/Stars';
+import Steps from './_Modules/Steps';
 import SourceCode from './_Modules/SourceCode';
 import Table from './_Modules/Table';
 import TextWriter from './_Modules/TextWriter';
@@ -101,7 +105,11 @@ export {
     ReadMoreCallback,
     ScrollTo,
     SideBar,
+    Slider,
+    SliderCards,
+    SliderItems,
     Stars,
+    Steps,
     SourceCode,
     Table,
     TextWriter,

@@ -2,155 +2,155 @@ const getAllAvailableModulesNames = () => {
     return [
         {
             name: 'Accordion',
-            link: 'react-revolution-accordion'
+            link: 'components/accordion'
         },
         {
             name: 'Articles',
-            link: 'react-revolution-articles'
+            link: 'components/articles'
         },
         {
             name: 'ArticlesImages',
-            link: 'react-revolution-articles-images'
+            link: 'components/articles-images'
         },
         {
             name: 'Astronaut404',
-            link: 'react-revolution-astronaut-404'
+            link: 'components/astronaut-404'
         },
         {
             name: 'Breadcrumbs',
-            link: 'react-revolution-breadcrumbs'
+            link: 'components/breadcrumbs'
         },
         {
             name: 'Cards',
-            link: 'react-revolution-cards'
+            link: 'components/cards'
         },
         {
             name: 'CardsScroll',
-            link: 'react-revolution-cards-scroll'
+            link: 'components/cards-scroll'
         },
         {
             name: 'CardsScrollCallback',
-            link: 'react-revolution-cards-scroll-callback'
+            link: 'components/cards-scroll-callback'
         },
         {
             name: 'Clipboard',
-            link: 'react-revolution-clipboard'
+            link: 'components/clipboard'
         },
         {
             name: 'Clouds404',
-            link: 'react-revolution-clouds-404'
+            link: 'components/clouds-404'
         },
         {
             name: 'CloudsMountains404',
-            link: 'react-revolution-clouds-mountains-404'
+            link: 'components/clouds-mountains-404'
         },
         {
             name: 'Container',
-            link: 'react-revolution-container'
+            link: 'components/container'
         },
         {
             name: 'CustomSuggestion',
-            link: 'react-revolution-custom-suggestion'
+            link: 'components/custom-suggestion'
         },
         {
             name: 'DarkLines404',
-            link: 'react-revolution-dark-lines-404'
+            link: 'components/dark-lines-404'
         },
         {
             name: 'DragDropArea',
-            link: 'react-revolution-drag-drop-area'
+            link: 'components/drag-drop-area'
         },
         {
             name: 'DragDropList',
-            link: 'react-revolution-drag-drop-list'
+            link: 'components/drag-drop-list'
         },
         {
             name: 'FullScreenListArray',
-            link: 'react-revolution-fullscreen-list-array'
+            link: 'components/fullscreen-list-array'
         },
         {
             name: 'FullScreenListObject',
-            link: 'react-revolution-fullscreen-list-object'
+            link: 'components/fullscreen-list-object'
         },
         {
             name: 'FullScreenOverlay',
-            link: 'react-revolution-fullscreen-overlay'
+            link: 'components/fullscreen-overlay'
         },
         {
             name: 'GlobalMessages',
-            link: 'react-revolution-global-messages'
+            link: 'components/global-messages'
         },
         {
             name: 'Icons',
-            link: 'react-revolution-icons'
+            link: 'components/icons'
         },
         {
             name: 'InputAnimation',
-            link: 'react-revolution-input-animation'
+            link: 'components/input-animation'
         },
         {
             name: 'InputFile',
-            link: 'react-revolution-input-file'
+            link: 'components/input-file'
         },
         {
             name: 'InputFileDragDrop',
-            link: 'react-revolution-input-file-drag-drop'
+            link: 'components/input-file-drag-drop'
         },
         {
             name: 'InputSuggestionArray',
-            link: 'react-revolution-input-suggestion-array'
+            link: 'components/input-suggestion-array'
         },
         {
             name: 'InputSuggestionObject',
-            link: 'react-revolution-input-suggestion-object'
+            link: 'components/input-suggestion-object'
         },
         {
             name: 'Lightbulb404',
-            link: 'react-revolution-lightbulb-404'
+            link: 'components/lightbulb-404'
         },
         {
             name: 'LoadingBoxTop',
-            link: 'react-revolution-loading-box-top'
+            link: 'components/loading-box-top'
         },
         {
             name: 'LoadOnScroll',
-            link: 'react-revolution-load-on-scroll'
+            link: 'components/load-on-scroll'
         },
         {
             name: 'Menu',
-            link: 'react-revolution-menu'
+            link: 'components/menu'
         },
         {
             name: 'MenuHeight',
-            link: 'react-revolution-menu-height'
+            link: 'components/menu-height'
         },
         {
             name: 'Modal',
-            link: 'react-revolution-modal'
+            link: 'components/modal'
         },
         {
             name: 'PagerStatic',
-            link: 'react-revolution-pager-static'
+            link: 'components/pager-static'
         },
         {
             name: 'PagerDynamic',
-            link: 'react-revolution-pager-dynamic'
+            link: 'components/pager-dynamic'
         },
         {
             name: 'PopupBox',
-            link: 'react-revolution-popup-box'
+            link: 'components/popup-box'
         },
         {
             name: 'Picture404',
-            link: 'react-revolution-picture-404'
+            link: 'components/picture-404'
         },
         {
             name: 'ReadMore',
-            link: 'react-revolution-read-more'
+            link: 'components/read-more'
         },
         {
             name: 'ReadMoreCallback',
-            link: 'react-revolution-read-more-callback'
+            link: 'components/read-more-callback'
         },
         {
             name: 'ScrollTo',
@@ -158,51 +158,67 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'SideBar',
-            link: 'react-revolution-sidebar'
+            link: 'components/sidebar'
+        },
+        {
+            name: 'Slider',
+            link: 'components/slider'
+        },
+        {
+            name: 'SliderCards',
+            link: 'components/slider-cards'
+        },
+        {
+            name: 'SliderItems',
+            link: 'components/slider-items'
         },
         {
             name: 'SourceCode',
-            link: 'react-revolution-source-code'
+            link: 'components/source-code'
         },
         {
             name: 'Stars',
-            link: 'react-revolution-stars'
+            link: 'components/stars'
+        },
+        {
+            name: 'Steps',
+            link: 'components/steps'
         },
         {
             name: 'Table',
-            link: 'react-revolution-table'
+            link: 'components/table'
         },
         {
             name: 'TextWriter',
-            link: 'react-revolution-text-writer'
+            link: 'components/text-writer'
         },
         {
             name: 'Timeline',
-            link: 'react-revolution-timeline'
+            link: 'components/timeline'
         },
         {
             name: 'Water404',
-            link: 'react-revolution-water-404'
+            link: 'components/water-404'
         },
         {
             name: 'disableHtmlScroll (function)',
-            link: 'react-revolution-function-disable-html-scroll'
+            link: 'functions/disableHtmlScroll'
         },
         {
             name: 'enableHtmlScroll (function)',
-            link: 'react-revolution-function-enable-html-scroll'
+            link: 'functions/EnableHtmlScroll'
         },
         {
             name: 'scrollTopListener (function)',
-            link: 'react-revolution-function-scroll-top-listener'
+            link: 'functions/scrollTopListener'
         },
         {
             name: 'urlExtract (function)',
-            link: 'react-revolution-function-url-extract'
+            link: 'functions/urlExtract'
         },
         {
             name: 'uuid (function)',
-            link: 'react-revolution-function-uuid'
+            link: 'functions/uuid'
         },
     ];
 };

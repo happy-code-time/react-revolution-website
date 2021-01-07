@@ -1,160 +1,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Picture404, Container, SideBar, MenuHeight } from '../react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-picture-404.scss';
+import { SliderCards } from '../react-revolution/react-revolution';
+import './react-revolution/_Sass/rr-slider-cards.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+        this.getCards = this.getCards.bind(this);
     }
 
-    componentDidMount(){       
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/dddd';
-        // }, 1000);
+    getCards() {
+        const items = 11;
+        const data = [];
 
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/';
-        // }, 5000);
+        for (let x = 0; x < items; x++) {
 
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/dddd';
-        // }, 10000);
+            data.push(
+                {
+                    data: (
+                        <span>
+                            {
+                                x + 1
+                            }
+                        </span>
+                    )
+                }
+            );
+        }
 
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/dddde';
-        // }, 15000);
-
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/ddddk';
-        // }, 18000);
-
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/';
-        // }, 22000);
-
-        // setTimeout( () => {
-        //     window.location.href = 'http://localhost:3000/#/b';
-        // }, 25000);
+        return data;
     }
 
     render() {
         return (
-            <div>
-                <Container
-                    addClass='container-example'
-                    minifyAt={1024}
-                    maxifyAt={720}
-                    hideAt={420}
-                    minifySidebarOn={
-                        [
-                            'http://localhost:3000/',
-                            'http://localhost:3000/#/'
-                        ]
+            <div
+                style={
+                    {
+                        width: '100%',
+                        maxWidth: '1140px',
+                        height: '500px',
+                        margin: '5vh auto'
                     }
-                    displayMinifyMaxifyIcon={true}
-                    toggleMenuHtml={
-                        <i className="fas fa-bars " />
-                    }
-                    closeMenuHtml={
-                        <i className="fas fa-angle-left" />
-                    }
-                    moduleSidebar={
-                        <SideBar
-                            image={<img alt="image" src='./public/images/icon-48.png' />}
-                            textLong='text long'
-                            textShort='text short'
-                            href={undefined}
-                            moduleMenu={
-                                <MenuHeight
-                                    reactRouter={false}
-                                    animation='height'
-                                    dropDown={
-                                        (
-                                            <i className="fas fa-angle-down dropDownIcon"></i>
-                                        )
-                                    }
-                                    data={
-                                        [
-                                            {
-                                                icon: <i className="fas fa-golf-ball"></i>,
-                                                text: 'Golf',
-                                                data: [
-                                                    {
-                                                        icon: <i className="fas fa-golf-ball"></i>,
-                                                        text: 'Golf 1',
-                                                        href: 'http://localhost:3000/#/hallo'
-                                                    },
-                                                    {
-                                                        icon: <i className="fas fa-golf-ball"></i>,
-                                                        text: 'Golf 2'
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                icon: <i className="fas fa-pump-soap"></i>,
-                                                text: 'Pump Soap',
-                                                data: [
-                                                    {
-                                                        icon: <i className="fas fa-pump-soap"></i>,
-                                                        text: 'Soap 1'
-                                                    },
-                                                    {
-                                                        icon: <i className="fas fa-pump-soap"></i>,
-                                                        text: 'Soap 2'
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                icon: <i className="fas fa-pizza-slice"></i>,
-                                                text: 'Pizza',
-                                                data: [
-                                                    {
-                                                        icon: <i className="fas fa-pizza-slice"></i>,
-                                                        text: 'Pizza 1'
-                                                    },
-                                                    {
-                                                        icon: <i className="fas fa-pizza-slice"></i>,
-                                                        text: 'Pizza 2'
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                icon: <i className="fas fa-ice-cream"></i>,
-                                                text: 'Ice',
-                                                data: [
-                                                    {
-                                                        icon: <i className="fas fa-ice-cream"></i>,
-                                                        text: 'Ice 1'
-                                                    },
-                                                    {
-                                                        icon: <i className="fas fa-ice-cream"></i>,
-                                                        text: 'Ice 2'
-                                                    }
-                                                ]
-                                            },
-                                        ]
-                                    }
-                                />
-                            }
-                        />
-                    }
-                    headerProps={undefined}
-                    headerData={undefined}
-                    contentProps={undefined}
-                    contentData={<div className='CONTENT'>
-                        <Picture404
-                            link={
-                                {
-                                    text: 'Home',
-                                    href: '/'
-                                }
-                            }
-                            imagePath='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
-                        />
-                    </div>}
-                    footerProps={undefined}
-                    footerData={<div className='FOOTER' />}
+                }
+            >
+                <SliderCards
+                    addClass='slider-items-example'
+                    data={this.getCards()}
+                    buttonsAlwaysVisible={true}
+                    itemsS={2} // two items on resizeS (768px)
+                    itemsL={3} // four items on resizeL (820)
+                    itemsXL={3} // five items on resizeXL (1140)
+                    slideItemsS={2}
+                    slideItemsL={3}
+                    slideItemsXL={3}
+                    cardWidthS={200}
+                    cardWidthL={250}
+                    cardWidthXL={330}
                 />
             </div>
         );

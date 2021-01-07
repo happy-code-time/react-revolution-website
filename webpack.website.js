@@ -1,7 +1,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const version = '4.0.8';
+const version = '4.1.0';
 
 const config = {
     resolve: {
@@ -58,7 +58,8 @@ module.exports = (env, argv) => {
             ignored: /node_modules/,
             poll: 1000
         };
-        config.devtool = 'eval-source-map';
+        // config.devtool = 'eval-source-map';
+        config.devtool = false;
         config.mode = 'development';
         config.output.filename = `${filename}`;
         config.performance = {

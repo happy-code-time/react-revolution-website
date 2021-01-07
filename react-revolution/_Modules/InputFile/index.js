@@ -1,7 +1,5 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class InputFile extends React.Component 
@@ -61,7 +59,7 @@ class InputFile extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['label', 'errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'multiple'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'label', 'errorCallback', 'readFileCallback', 'inputPlaceholder', 'errorCallbackCustomData', 'multiple'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-file',
@@ -204,13 +202,12 @@ class InputFile extends React.Component
         };
 
         return (
-            <div className={`${defaultClass} ${addClass}`}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 <input
                     ref={node => this.inputNode = node}
                     type="file"
                     onChange={(e) => this.handleFileUpload(e)}
                     placeholder={inputPlaceholder}
-                    id={id}
                     type='file'
                     name='files[]'
                     {...props}

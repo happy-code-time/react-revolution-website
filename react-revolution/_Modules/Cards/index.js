@@ -1,9 +1,6 @@
 import React from 'react';
-
 import internalUuid from '../internalFunctions/internalUuid';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class Cards extends React.Component 

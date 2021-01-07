@@ -755,3 +755,18 @@
         background-color: #FF4469;
     }
 }
+
+.slider-items-example{
+    .slide-item{
+
+        @media screen and (min-width: 1260){
+            width: calc(33.2333% - 20px);
+        }
+
+        @media screen and (min-width: 1024){
+            width: calc(50% - 20px);
+        }
+
+        width: calc(100% - 20px);
+    }
+}
