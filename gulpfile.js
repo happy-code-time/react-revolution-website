@@ -194,23 +194,6 @@ const buildModuleProduction = (filename, cb) => {
     })
 };
 
-const runReactRevolutionBuild = (cb) => {
-    return new Promise( (resolve, reject) => {
-        exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config webpack.js --module-bind js=babel-loader', function (err, stdout, stderr) {
-            console.log(stdout);
-            console.log(stderr);
-            cb(err);
-    
-            if(err){
-                reject(err)
-            }
-            else{
-                resolve(true);
-            }
-        });
-    });
-};
-
 gulp.task('create:webpack:files', async function(cb){
 
     modules.push('PRODUCTION');
@@ -312,12 +295,6 @@ gulp.task('create:webpack:files', async function(cb){
             .catch( e => {
                 console.log(`Module build failed: ${filename}. ${e}`)
             });
-        }
-        else{
-            /**
-             * Run main module build
-             */
-            await runReactRevolutionBuild(cb);
         }
     }
 });

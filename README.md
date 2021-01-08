@@ -52,10 +52,13 @@
         
         npm run build:website:dev
         npm run server
+        cd ../react-revolution
+        npm run build:dev
 
 - To run the module and website in production mode
         
         npm run compile
         gulp sass
         npm run build:website
-
+        cd ../react-revolution
+        npm run build
