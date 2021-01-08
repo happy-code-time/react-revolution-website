@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v4.1.0';
+const version = 'v4.1.1';
 
 const modules = [
     "Accordion",
@@ -196,7 +196,7 @@ const buildModuleProduction = (filename, cb) => {
 
 const runReactRevolutionBuild = (cb) => {
     return new Promise( (resolve, reject) => {
-        exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config webpack.config.production.js --module-bind js=babel-loader', function (err, stdout, stderr) {
+        exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config webpack.js --module-bind js=babel-loader', function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);
             cb(err);

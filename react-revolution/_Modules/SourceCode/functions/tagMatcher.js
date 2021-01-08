@@ -1,3 +1,4 @@
+
 const tagMatcher = (characters, lines, nextCharacter) => {
     /**
      * Unknown tag name check
@@ -119,9 +120,6 @@ const tagMatcher = (characters, lines, nextCharacter) => {
     }
 
     if (-1 !== characters.indexOf('<') && '>' == characters.charAt(characters.length - 1)) {
-        const dataToCheck = characters.substring(0, characters.indexOf('<'));
-
-        lines = this.extractNotFiltered(lines, dataToCheck);
 
         lines.push(
             {

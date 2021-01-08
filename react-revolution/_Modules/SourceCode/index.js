@@ -194,12 +194,7 @@ class ModuleSourceCode extends React.Component {
                 let codes = [];
 
                 if (promise) {
-                    try{
-                        codes = await this.generateLinePromise(data, time);
-                    }
-                    catch(e){
-
-                    }
+                    codes = await this.generateLinePromise(data, time);
                 }
                 else {
                     codes = this.generateLine(data);

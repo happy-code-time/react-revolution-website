@@ -9,11 +9,14 @@ class SliderCards extends React.Component {
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
         this.handleTouchEnd = this.handleTouchEnd.bind(this);
-        this.handleMouseStart = this.handleMouseStart.bind(this);
+        this.handleMouseDown = this.handleMouseDown.bind(this);
+        this.processMouseDown = this.processMouseDown.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
-        this.handleMouseEnd = this.handleMouseEnd.bind(this);
+        this.handleMouseUp = this.handleMouseUp.bind(this);
         this.handleMouseLeave = this.handleMouseLeave.bind(this);
         this.resizeView = this.resizeView.bind(this);
+        this.mouseDownListeners = this.mouseDownListeners.bind(this);
+        this.mouseMoveListeners = this.mouseMoveListeners.bind(this);
 
         this.state = {
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
@@ -22,11 +25,16 @@ class SliderCards extends React.Component {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: props.data && typeof [] == typeof props.data && props.data.length ? props.data : [],
+            slideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
             slidersUuid: props.uuid && typeof '8' === typeof props.uuid ? props.uuid : `${uuid()}`,
             displayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
+            paginationInside: typeof true == typeof props.paginationInside ? props.paginationInside : true,
             next: props.next ? props.next : '>',
             previous: props.previous ? props.previous : '<',
             docWidth: document.documentElement.getBoundingClientRect().width,
+            dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
+            displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
+            displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
             // data root holder
             slidesTransform: `translate3d(-0px,0,0)`,
             slidesWidth: 100,
@@ -42,12 +50,6 @@ class SliderCards extends React.Component {
             resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
             resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
             resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1260,
-            // single card width
-            cardWidthS: props.cardWidthS && typeof 8 == typeof props.cardWidthS ? props.cardWidthS : 300, 
-            cardWidthL: props.cardWidthL && typeof 8 == typeof props.cardWidthL ? props.cardWidthL : 300,
-            cardWidthXL: props.cardWidthXL && typeof 8 == typeof props.cardWidthXL ? props.cardWidthXL : 330, 
-            // defaults
-            cardWidth: props.cardWidthS && typeof 8 == typeof props.cardWidthS ? props.cardWidthS : 300, 
             itemsPerLine: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
             // items slide
             index: 0,
@@ -60,7 +62,6 @@ class SliderCards extends React.Component {
 
         this.slideWidth = 0;
         this.touchstartx = 0;
-        this.touchmovex = 0;
         this.movex = 0;
         this.longTouch = false;
 
@@ -81,7 +82,7 @@ class SliderCards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsS', 'slideItemsL','slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'displayDots', 'displayDotsIndex', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
@@ -89,6 +90,8 @@ class SliderCards extends React.Component {
                 data: props.data && typeof [] == typeof props.data && props.data.length ? props.data : [],
                 next: props.next ? props.next : '>',
                 previous: props.previous ? props.previous : '<',
+                slideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
+                paginationInside: typeof true == typeof props.paginationInside ? props.paginationInside : true,
                 displayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
                 // cards count in single row
                 itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
@@ -98,13 +101,12 @@ class SliderCards extends React.Component {
                 resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
                 resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
                 resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1140,
-                // single card width
-                cardWidthS: props.cardWidthS && typeof 8 == typeof props.cardWidthS ? props.cardWidthS : 300, 
-                cardWidthL: props.cardWidthL && typeof 8 == typeof props.cardWidthL ? props.cardWidthL : 300,
-                cardWidthXL: props.cardWidthXL && typeof 8 == typeof props.cardWidthXL ? props.cardWidthXL : 330, 
                 slideItemsS: props.slideItemsS && typeof 8 == typeof props.slideItemsS ? props.slideItemsS : 2,
                 slideItemsL: props.slideItemsL && typeof 8 == typeof props.slideItemsL ? props.slideItemsL : 3,
-                slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 3
+                slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 3,
+                dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
+                displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
+                displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
             };
         }
 
@@ -118,21 +120,16 @@ class SliderCards extends React.Component {
             return;
         }
 
-        this.setSlidesWidth();
-        this.bindUIEvents();
-        this.setResizeListener();
         this.slideWidth = this.getSlidersWidth();
-
-        setTimeout( () => {
-            this.resizeView();
-        }, 300);
+        this.setResizeListener();
+        this.mouseDownListeners();
+        this.resizeView();
     }
 
     componentWillUnmount() {
-        this.bindUIEvents(false);
-        this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-        this.sliderReference.removeEventListener('mouseup', this.handleMouseEnd);
-        document.removeEventListener('mouseup', this.handleMouseEnd);
+        this.setResizeListener(false);
+        this.mouseDownListeners(false);
+        this.mouseMoveListeners(false);
     }
 
     setResizeListener(attach = true) {
@@ -141,77 +138,54 @@ class SliderCards extends React.Component {
         if (attach) {
             window.addEventListener('resize', this.resizeView);
         }
-
-        this.resizeView();
     }
 
     resizeView() {
-        this.slideWidth = this.getSlidersWidth();
         this.setSlidesWidth();
-        const { itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL, cardWidthS, cardWidthL, cardWidthXL, slideItemsS, slideItemsL, slideItemsXL } = this.state;
+        this.slideWidth = this.getSlidersWidth();
+
+        const { itemsPerLine, itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL, slideItems, slideItemsS, slideItemsL, slideItemsXL } = this.state;
         const docWidth = document.documentElement.getBoundingClientRect().width;
 
-        // if (docWidth > 1140 && 4 !== itemsPerLine) {
-        if (docWidth > resizeXL) {
-            return this.setState({ itemsPerLine: itemsXL, cardWidth: cardWidthXL, slideItems: slideItemsS, index: 0}, this.slide);
+        if (docWidth > resizeXL && (itemsPerLine !== itemsXL || slideItems !== slideItemsXL)) {
+            return this.setState({
+                itemsPerLine: itemsXL,
+                slideItems: slideItemsXL,
+                index: 0,
+            }, this.slide);
         }
 
-        // if (docWidth < 1140 && docWidth >= 768 && 3 !== itemsPerLine) {
-        if (docWidth < resizeXL && docWidth >= resizeL) {
-            return this.setState({ itemsPerLine: itemsL, cardWidth: cardWidthL, slideItems: slideItemsL, index: 0}, this.slide);
+        if (docWidth < resizeXL && docWidth >= resizeL && (itemsPerLine !== itemsL || slideItems !== slideItemsL)) {
+            return this.setState({
+                itemsPerLine: itemsL,
+                slideItems: slideItemsL,
+                index: 0,
+            }, this.slide);
         }
 
-        // if (docWidth < 768 && 2 !== itemsPerLine) {
-        if (docWidth < resizeS) {
-            return this.setState({ itemsPerLine: itemsS, cardWidth: cardWidthS, slideItems: slideItemsXL, index: 0 }, this.slide);
+        if (docWidth < resizeS && (itemsPerLine !== itemsS || slideItems !== slideItemsS)) {
+            return this.setState({
+                itemsPerLine: itemsS,
+                slideItems: slideItemsS,
+                index: 0
+            }, this.slide);
         }
     }
 
     setSlidesWidth() {
         this.setState({
-            slidesWidth: this.getSlidersWidth() * this.getDataLength(),
-            slideWrapperWidth: (this.getSlidersWidth() * this.getDataLength()) / this.getDataLength(),
+            slidesWidth: (this.getSlidersWidth() * this.getDataLength()),
+            slideWrapperWidth: (this.getSlidersWidth() * this.getDataLength()-1) / this.getDataLength()-1,
         });
     }
 
     getSlidersWidth() {
-        if (this.sliderReference) {
-            return this.sliderReference.getBoundingClientRect().width;
+
+        if (this.wrapper) {
+            return this.wrapper.getBoundingClientRect().width;
         }
 
         return 0;
-    }
-
-    /**
-     * Remove & re-attach event handlers
-     */
-    bindUIEvents(attachListeners = true) {
-
-        if (!this.sliderReference) {
-            return;
-        }
-
-        // mobile
-        this.sliderReference.removeEventListener('touchstart', this.handleTouchStart);
-        this.sliderReference.removeEventListener('touchmove', this.handleTouchMove);
-        this.sliderReference.removeEventListener('touchend', this.handleTouchEnd);
-        this.sliderReference.removeEventListener('touchcancel', this.handleTouchEnd);
-        // desktop
-        this.sliderReference.removeEventListener('click', this.handleClick);
-        this.sliderReference.removeEventListener('dblclick', this.handleClick);
-        this.sliderReference.removeEventListener('mousedown', this.handleMouseStart);
-
-        if (attachListeners) {
-            // mobile
-            this.sliderReference.addEventListener('touchstart', this.handleTouchStart);
-            this.sliderReference.addEventListener('touchmove', this.handleTouchMove);
-            this.sliderReference.addEventListener('touchend', this.handleTouchEnd);
-            this.sliderReference.addEventListener('touchcancel', this.handleTouchEnd);
-            // desktop
-            this.sliderReference.addEventListener('dblclick', this.handleClick);
-            this.sliderReference.addEventListener('click', this.handleClick);
-            this.sliderReference.addEventListener('mousedown', this.handleMouseStart);
-        }
     }
 
     /**
@@ -229,80 +203,74 @@ class SliderCards extends React.Component {
             index: activeIndex
         }, this.slide);
     }
-    
-    slide() {
-        const { index, cardWidth } = this.state;
-        let width = (index*cardWidth)+(index*(this.getCardsMargin()*2));
 
-        if(index == 0){
+    getMaxSlidesWidth() {
+        return (this.getDataLength()-1) * this.getSlidersWidth();
+    }
+
+    getIndexDirectionLeft() {
+        let index = this.state.index - 1;
+
+        if (0 > index) {
+            index = 0;
+        }
+
+        return index;
+    }
+
+    getIndexDirectionRight() {
+        let index = this.state.index + 1;
+
+        if (index >= this.getDataLength()-1) {
+            index = this.getDataLength()-1;
+        }
+
+        return index;
+    }
+
+    slidePrevious() {
+        this.setState({ index: this.getIndexDirectionLeft() }, this.slide);
+    }
+
+    slideNext() {
+        this.setState({ index: this.getIndexDirectionRight() }, this.slide);
+    }
+
+    getCurrentSlidersTransformation() {
+        return ((this.state.index*this.state.slideItems) * this.getSingleCardsWidth());
+    }
+
+    slide() {
+        let width = this.getCurrentSlidersTransformation();
+
+        if (this.state.index == 0) {
             width = 0;
         }
 
-        const maxWidth = (this.getMaxSlides()*cardWidth)+(this.getMaxSlides()*this.getCardsMargin())-(this.getCardsMargin()*2);
+        const maxWidth = this.getMaxSlidesWidth();
 
-        if(width > maxWidth){
+        if (width > maxWidth) {
             width = maxWidth;
         }
 
         this.setState({
             dataTransform: `translate3d(-(${0})px,0,0)`,
             slidesTransform: `translate3d(-${width}px,0,0)`,
-        });
-    }
-
-    slidePrevious(){
-        let { index, slideItems } = this.state;
-
-        if(index !== 0){
-            index -= slideItems;
-
-            if(0 > index){
-                index = 0;
-            }
-        }
-        else{
-            index = 0;
-        }
-
-        this.setState({ index }, this.slide);
-    }
-
-    getMaxSlides(){
-        const { data, itemsPerLine, slideItems } = this.state;
-        return (data.length-1+slideItems)-itemsPerLine;
-    }
-
-    slideNext(){
-        let { index, slideItems } = this.state;
-        let maxIndex = this.getMaxSlides();
-
-        if(index == 0){
-            index = slideItems;
-        }
-        else{
-            index += slideItems;
-        }
-
-        if(index > maxIndex){
-            index = maxIndex;
-        }
-
-        this.setState({ index }, this.slide);
+        }, this.setSlidesWidth);
     }
 
     getButtonPreviousJsx() {
-        const { displayPagination, previous, index } = this.state;
 
-        if (!displayPagination) {
+        if (!this.state.displayPagination) {
             return;
         }
 
-        if (index > 0 && 2 <= this.getDataLength()) {
+        if (this.state.index > 0 && 2 <= this.getDataLength()) {
 
             return (
                 <span className="button-previous" onClick={() => this.slidePrevious()}>
                     {
-                        previous
+                        this.state.previous
                     }
                 </span>
             );
@@ -310,24 +278,61 @@ class SliderCards extends React.Component {
     }
 
     getButtonNextJsx() {
-        const { displayPagination, next, index, cardWidth } = this.state;
 
-        if (!displayPagination) {
+        if (!this.state.displayPagination) {
             return;
         }
 
-        const width = (index*cardWidth)+(index*(this.getCardsMargin()*2));
-        const maxWidth = (this.getMaxSlides()*cardWidth)+(this.getMaxSlides()*this.getCardsMargin())-cardWidth;
-
-        if(index < this.getMaxSlides() && width < maxWidth){
+        if (this.state.index < this.getDataLength() - 1) {
             return (
                 <span className="button-next" onClick={() => this.slideNext()}>
                     {
-                        next
+                        this.state.next
                     }
                 </span>
             );
         }
+    }
+
+    getDotsJsx() {
+        const { displayDotsIndex, index, data } = this.state;
+
+        if (2 > this.getDataLength()) {
+            return;
+        }
+
+        const getDotFromData = (i) => {
+            if (data && undefined !== data[i] && undefined !== data[i].dot) {
+                return data[i].dot;
+            }
+
+            return null;
+        };
+
+        return (
+            <div className="pagination">
+                <div className="actions">
+                    {
+                        this.getDataLength(true).map((x, i) => {
+                            return (
+                                <span
+                                    className={`action ${index === i ? 'active' : ''}`}
+                                    onClick={() => this.setSlide(i)}
+                                    key={`paginations-dot-${i}`}
+                                >
+                                    {
+                                        displayDotsIndex && `${i + 1}`
+                                    }
+                                    {
+                                        !displayDotsIndex && getDotFromData(i)
+                                    }
+                                </span>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        );
     }
 
     /**
@@ -335,26 +340,66 @@ class SliderCards extends React.Component {
      * Mouse
      * ##############################
      */
-    handleMouseStart(e) {
-        const self = this;
+    setDirection(pageX = 0) {
+        if (this.oldX < pageX) {
+            this.mouseDirection = 'l';
+        }
+        else {
+            this.mouseDirection = 'r';
+        }
+        this.oldX = pageX;
+    }
+
+    getDirection() {
+        return this.mouseDirection;
+    }
+
+    setAbs(abs) {
+        this.abs = abs;
+    }
+
+    getAbs() {
+        return this.abs;
+    }
+
+    /**
+     * Rect does not supports to give the layerX value
+     * so we have to add the listener manually
+     * https://reactjs.org/docs/events.html#mouse-events
+     * 
+     * @param {boolean} reattach 
+     */
+    mouseDownListeners(reattach = true) {
+        this.wrapper.removeEventListener('mousedown', this.processMouseDown);
+
+        if (reattach) {
+            this.wrapper.addEventListener('mousedown', this.processMouseDown);
+        }
+    }
+
+    mouseMoveListeners(reattach = true) {
+        this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
+
+        if (reattach) {
+            this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+        }
+    }
+
+    processMouseDown(e) {
         e.preventDefault();
-        this.mousestartx = e.layerX;
+        this.handleMouseDown(e)
+    }
+
+    handleMouseDown(event) {
+        this.mousestartx = event.layerX;
         this.mouseClicksStart = performance.now();
         this.blockMove = false;
         this.userMoving = false;
-
-        // remove
-        self.sliderReference.removeEventListener('mousemove', self.handleMouseMove);
-        self.sliderReference.removeEventListener('mouseup', self.handleMouseEnd);
-        self.sliderReference.removeEventListener('mouseleave', self.handleMouseLeave);
-        // add
-        self.sliderReference.addEventListener('mousemove', self.handleMouseMove);
-        self.sliderReference.addEventListener('mouseup', self.handleMouseEnd);
-        self.sliderReference.addEventListener('mouseleave', self.handleMouseLeave);
+        this.mouseMoveListeners();
 
         setTimeout(() => {
-            if (!self.userMoving || self.blockMove) {
-                self.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
+            if (!this.userMoving || this.blockMove) {
+                this.mouseMoveListeners(false);
             }
         }, 200);
     }
@@ -363,124 +408,91 @@ class SliderCards extends React.Component {
         this.userMoving = true;
 
         if (this.blockMove) {
-            this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
+            this.mouseMoveListeners(false);
             return;
         }
-        
-        let { index, cardWidth } = this.state;
+
+        let { index } = this.state;
         // Calculate distance to translate holder.
-        const currentWidth = (index*cardWidth)+(index*(this.getCardsMargin()*2));
+        const currentWidth = this.getCurrentSlidersTransformation();
         this.movex = currentWidth + (this.mousestartx - event.layerX);
-
         // mouse direction
-        if(this.oldX < event.pageX){
-            this.mouseDirection = 'l';
-        }
-        else{
-            this.mouseDirection = 'r';
-        }
-        // save current mouse directions x
-        this.oldX = event.pageX;
-        // max x movement
-        const maxMove = (this.getMaxSlides()*cardWidth)+(this.getMaxSlides()*(this.getCardsMargin()*2));
+        this.setDirection(event.pageX);
+        // save mouse movement in px value for mouseUp or leave
+        this.setAbs(Math.abs(index * this.getSingleCardsWidth() - this.movex));
 
-        if(this.movex < maxMove){
-            this.setState({ slidesTransform: `translate3d(-${this.movex}px,0,0)` });
+        if (this.movex < this.getMaxSlidesWidth()) {
+            // Inline style = avoid flipping while fast mouse moving
+            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
         }
     }
 
-    handleMouseEnd() {
+    handleMouseUp() {
         this.blockMove = true;
 
         if (115 >= performance.now() - this.mouseClicksStart || !this.userMoving) {
             this.userMoving = false;
-            this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-            this.sliderReference.removeEventListener('mouseleave', this.handleMouseLeave);
-            this.oldX = 0;
+            this.mouseMoveListeners(false);
             return;
         }
 
-        let { index, slideItems } = this.state;
-        const absMove = Math.abs(index * this.slideWidth - this.movex);
+        let { index, slideAfterMove } = this.state;
 
-        if (absMove > 10) {
+        if (this.getAbs() >= slideAfterMove) {
             /**
              * Move forwards (right)
              */
             if ('r' == this.mouseDirection) {
-                index += slideItems;
-
-                if(index > this.getMaxSlides()){
-                    index = this.getMaxSlides();
-                }
-            } 
+                index = this.getIndexDirectionRight();
+            }
             /**
              * Move backwards (left)
              */
-            if('l' == this.mouseDirection){
-                index -= slideItems;
-
-                if(0 > index){
-                    index = 0;
-                }
+            if ('l' == this.mouseDirection) {
+                index = this.getIndexDirectionLeft();
             }
         }
 
-        this.userMoving = false;
-        this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-        this.sliderReference.removeEventListener('mouseleave', this.handleMouseLeave);
         this.oldX = 0;
-
-        this.setState({ index }, () => {
-            this.slide();
-            this.bindUIEvents(true);
-        });
+        this.mouseMoveListeners(false);
+        this.setState({ index }, this.slide);
     }
 
-    handleMouseLeave(){
-        let { index, slideItems } = this.state;
-        const absMove = Math.abs(index * this.slideWidth - this.movex);
+    handleMouseLeave() {
+        let { index, slideAfterMove } = this.state;
         this.blockMove = true;
 
         if (this.userMoving) {
 
-            if (absMove > 10) {
+            if (this.getAbs() >= slideAfterMove) {
                 /**
                  * Move forwards (right)
                  */
                 if ('r' == this.mouseDirection) {
-                    index += slideItems;
-    
-                    if(index > this.getMaxSlides()){
-                        index = this.getMaxSlides();
-                    }
-                } 
+                    index = this.getIndexDirectionRight();
+                }
                 /**
                  * Move backwards (left)
                  */
-                if('l' == this.mouseDirection){
-                    index -= slideItems;
-    
-                    if(0 > index){
-                        index = 0;
-                    }
+                if ('l' == this.mouseDirection) {
+                    index = this.getIndexDirectionLeft();
                 }
             }
-    
+
             this.userMoving = false;
-            this.setState({ index }, () => {
-                this.slide();
-                this.bindUIEvents(true);
-            });
+            this.oldX = 0;
+            this.mouseMoveListeners(false);
+            this.setState({ index }, this.slide);
         }
     }
 
     handleClick() {
-        const self = this;
         this.blockMove = true;
+        this.userMoving = false;
+        this.mouseMoveListeners(false);
 
         setTimeout(() => {
-            self.blockMove = false;
+            this.blockMove = false;
         }, 100);
     }
 
@@ -490,14 +502,13 @@ class SliderCards extends React.Component {
      * ##############################
      */
     handleTouchStart(event) {
-        const self = this;
         this.longTouch = false;
         this.mouseClicksStart = performance.now();
         this.blockMove = false;
         this.userMoving = false;
 
         setTimeout(function () {
-            self.longTouch = true;
+            this.longTouch = true;
         }, 250);
 
         // Get the original touch position.
@@ -510,28 +521,19 @@ class SliderCards extends React.Component {
         if (this.blockMove) {
             return;
         }
-        
+
         let { index, cardWidth } = this.state;
-        // Continuously return touch position.
-        this.touchmovex = event.touches[0].pageX;
         // Calculate distance to translate holder.
-        const currentWidth = (index*cardWidth)+(index*(this.getCardsMargin()*2));
-        this.movex = currentWidth + (this.touchstartx - this.touchmovex);
-
+        const currentWidth = (index * cardWidth) + (index);
+        this.movex = currentWidth + (this.touchstartx - event.touches[0].pageX);
         // mouse direction
-        if(this.oldX < this.touchmovex){
-            this.mouseDirection = 'l';
-        }
-        else{
-            this.mouseDirection = 'r';
-        }
-        // save current mouse directions x
-        this.oldX = this.touchmovex;
-        // max x movement
-        const maxMove = (this.getMaxSlides()*cardWidth)+(this.getMaxSlides()*(this.getCardsMargin()*2));
+        this.setDirection(event.touches[0].pageX);
+        // save mouse movement in px value for mouseUp or leave
+        this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if(this.movex <= maxMove){
-            this.setState({ slidesTransform: `translate3d(-${this.movex}px,0,0)` });
+        if (this.movex < this.getMaxSlidesWidth()) {
+            // Inline style = avoid flipping while fast mouse moving
+            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
         }
     }
 
@@ -543,39 +545,27 @@ class SliderCards extends React.Component {
             return;
         }
 
-        let { index, slideItems } = this.state;
+        let { index, slideAfterMove } = this.state;
         const absMove = Math.abs(index * this.slideWidth - this.movex);
 
-        if (absMove > 50 || false == this.longTouch) {
+        if (absMove >= slideAfterMove || false == this.longTouch) {
             /**
              * Move forwards (right)
              */
             if ('r' == this.mouseDirection) {
-                index += slideItems;
-
-                if(index > this.getMaxSlides()){
-                    index = this.getMaxSlides();
-                }
-            } 
+                index = this.getIndexDirectionRight();
+            }
             /**
              * Move backwards (left)
              */
-            if('l' == this.mouseDirection){
-                index -= slideItems;
-
-                if(0 > index){
-                    index = 0;
-                }
+            if ('l' == this.mouseDirection) {
+                index = this.getIndexDirectionLeft();
             }
         }
 
         this.userMoving = false;
-        this.blockMove = false;
-
-        this.setState({ index }, () => {
-            this.slide();
-            this.bindUIEvents(true);
-        });
+        this.mouseMoveListeners(false);
+        this.setState({ index }, this.slide);
     }
 
     /**
@@ -604,25 +594,22 @@ class SliderCards extends React.Component {
             }
         }
 
-        if(getArray){
+        if (getArray) {
             return i;
         }
 
         return i.length;
     }
 
-    getCardsMargin(){
-        const { itemsPerLine, cardWidth } = this.state;
-        const slideWrapperWidth = (this.getSlidersWidth() * this.getDataLength()) / this.getDataLength();
-        const cardsCountRow = itemsPerLine*cardWidth;
-        const spaceToHandle = slideWrapperWidth-(cardsCountRow);
-        return (spaceToHandle/2)/itemsPerLine;
+    getSingleCardsWidth() {
+        return (this.state.slideWrapperWidth / this.state.itemsPerLine);
     }
+
     /**
      * Generate grouped cards
      */
     generateCards() {
-        const { itemsPerLine, data, cardWidth } = this.state;
+        const { itemsPerLine, data } = this.state;
 
         if (!data || !data.length) {
             return [];
@@ -630,12 +617,10 @@ class SliderCards extends React.Component {
 
         const cardsGroup = [];
         let card = [];
-        const marginLeftRight = this.getCardsMargin();
 
         const cardStyle = {
-            width: `${cardWidth}px`,
-            marginLeft: `${marginLeftRight}px`,
-            marginRight: `${marginLeftRight}px`
+            width: `${this.getSingleCardsWidth()}px`,
+            margin: `0`,
         };
 
         for (let x = 0; x <= data.length - 1; x++) {
@@ -670,17 +655,33 @@ class SliderCards extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, slidersUuid, slidesWidth, slidesTransform, dataTransform, slideWrapperWidth } = this.state;
+        const { addClass, defaultClass, id, displayDots, dotsInside, paginationInside, slidersUuid, slidesWidth, slidesTransform, dataTransform, slideWrapperWidth } = this.state;
         const data = this.generateCards();
 
         return (
             <div className={`${defaultClass} ${addClass} animate`} id={id}>
+                {
+                    !paginationInside && this.getButtonPreviousJsx()
+                }
                 {/* Need this wrapper to set a z-index lower then the page to avoid (on desktop the version) to execute the mousedown function (while using the pager). */}
-                <div key={`slide-wrapper-${slidersUuid}`} className="wrapper" ref={(node) => (this.sliderReference = node)}>
+                <div
+                    key={`wrapper-${uuid}`}
+                    className="wrapper"
+                    ref={(node) => (this.wrapper = node)}
+                    // Mobile
+                    onTouchStart={(e) => this.handleTouchStart(e)}
+                    onTouchMove={(e) => this.handleTouchMove(e)}
+                    onTouchEnd={(e) => this.handleTouchEnd(e)}
+                    // Desktop
+                    onClick={(e) => this.handleClick(e)}
+                    onMouseUp={(e) => this.handleMouseUp(e)}
+                    onMouseLeave={(e) => this.handleMouseLeave(e)}
+                >
                     {
-                        this.getButtonPreviousJsx()
+                        paginationInside && this.getButtonPreviousJsx()
                     }
                     <div
+                        ref={(node) => (this.transformer = node)}
                         key={`slides-transform-${slidersUuid}`}
                         className={`slides user-select-none animate`}
                         style={{
@@ -688,12 +689,12 @@ class SliderCards extends React.Component {
                             width: `${slidesWidth}px`,
                         }}
                     >
-                        {0 !== data.length && data.map((source, index) => {
+                        {0 !== data.length && data.map((source, i) => {
                             const { data } = source;
 
                             return (
                                 <div
-                                    key={`${slidersUuid}-${index}`}
+                                    key={`slide-wrapper-${slidersUuid}-${i}`}
                                     className="slide-wrapper"
                                     style={{
                                         width: `${slideWrapperWidth}px`,
@@ -716,9 +717,18 @@ class SliderCards extends React.Component {
                         })}
                     </div>
                     {
-                        this.getButtonNextJsx()
+                        displayDots && dotsInside && this.getDotsJsx()
+                    }
+                    {
+                        paginationInside && this.getButtonNextJsx()
                     }
                 </div>
+                {
+                    !paginationInside && this.getButtonNextJsx()
+                }
+                {
+                    displayDots && !dotsInside && this.getDotsJsx()
+                }
             </div>
         );
     }

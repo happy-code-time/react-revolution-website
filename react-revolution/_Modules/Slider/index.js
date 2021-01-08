@@ -9,12 +9,15 @@ class Slider extends React.Component {
         this.handleTouchStart = this.handleTouchStart.bind(this);
         this.handleTouchMove = this.handleTouchMove.bind(this);
         this.handleTouchEnd = this.handleTouchEnd.bind(this);
-        this.handleMouseStart = this.handleMouseStart.bind(this);
+        this.handleMouseDown = this.handleMouseDown.bind(this);
+        this.processMouseDown = this.processMouseDown.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
-        this.handleMouseEnd = this.handleMouseEnd.bind(this);
+        this.handleMouseUp = this.handleMouseUp.bind(this);
         this.handleMouseLeave = this.handleMouseLeave.bind(this);
         this.resizeView = this.resizeView.bind(this);
-
+        this.mouseDownListeners = this.mouseDownListeners.bind(this);
+        this.mouseMoveListeners = this.mouseMoveListeners.bind(this);
+        
         this.state = {
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
@@ -22,8 +25,9 @@ class Slider extends React.Component {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: props.data && typeof [] == typeof props.data && props.data.length ? props.data : [],
-            uuid: props.uuid && typeof '8' === typeof props.uuid ? props.uuid : `${uuid()}`,
+            slidersUuid: props.slidersUuid && typeof '8' === typeof props.slidersUuid ? props.slidersUuid : `${uuid()}`,
             displayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
+            slideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
             displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
             displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
             buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
@@ -45,16 +49,18 @@ class Slider extends React.Component {
 
         this.slideWidth = 0;
         this.touchstartx = 0;
-        this.touchmovex = 0;
         this.movex = 0;
         this.longTouch = false;
 
-        this.mousemovex = 0;
         this.mousestartx = 0;
 
         this.blockMove = false;
         this.mouseClicksStart = 0;
         this.userMoving = false;
+
+        this.oldX = 0;
+        this.mouseDirection = 'r';
+        this.abs = 0;
     }
 
     /**
@@ -64,7 +70,7 @@ class Slider extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible', 'callbackMount', 'callbackMountProps', 'imageAsBackground'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'slideAfterMove', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible', 'callbackMount', 'callbackMountProps', 'imageAsBackground'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider',
@@ -72,6 +78,7 @@ class Slider extends React.Component {
                 data: props.data && typeof [] == typeof props.data && props.data.length ? props.data : [],
                 next: props.next ? props.next : '>',
                 previous: props.previous ? props.previous : '<',
+                slideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
                 displayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
                 displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
                 displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
@@ -92,11 +99,11 @@ class Slider extends React.Component {
             return;
         }
 
+        this.slideWidth = this.getSlidersWidth();
         this.setSlidesWidth();
         this.setResizeListener();
-        this.bindUIEvents();
-        this.slideWidth = this.getSlidersWidth();
         this.callbackMount();
+        this.mouseDownListeners();
     }
 
     async callbackMount(){
@@ -126,7 +133,8 @@ class Slider extends React.Component {
 
     componentWillUnmount() {
         this.setResizeListener(false);
-        this.bindUIEvents(false);
+        this.mouseDownListeners(false);
+        this.mouseMoveListeners(false);
     }
 
     setResizeListener(attach = true) {
@@ -157,39 +165,12 @@ class Slider extends React.Component {
     }
 
     getSlidersWidth() {
-        if (this.sliderReference) {
-            return this.sliderReference.getBoundingClientRect().width;
+
+        if (this.wrapper) {
+            return this.wrapper.getBoundingClientRect().width;
         }
 
         return 0;
-    }
-
-    /**
-     * Remove & re-attach event handlers
-     */
-    bindUIEvents(attachListeners = true) {
-
-        if (!this.sliderReference) {
-            return;
-        }
-
-        // mobile
-        this.sliderReference.removeEventListener('touchstart', this.handleTouchStart);
-        this.sliderReference.removeEventListener('touchmove', this.handleTouchMove);
-        this.sliderReference.removeEventListener('touchend', this.handleTouchEnd);
-        // desktop
-        this.sliderReference.removeEventListener('click', this.handleClick);
-        this.sliderReference.removeEventListener('mousedown', this.handleMouseStart);
-
-        if (attachListeners) {
-            // mobile
-            this.sliderReference.addEventListener('touchstart', this.handleTouchStart);
-            this.sliderReference.addEventListener('touchmove', this.handleTouchMove);
-            this.sliderReference.addEventListener('touchend', this.handleTouchEnd);
-            // desktop
-            this.sliderReference.addEventListener('click', this.handleClick);
-            this.sliderReference.addEventListener('mousedown', this.handleMouseStart);
-        }
     }
 
     /**
@@ -246,120 +227,155 @@ class Slider extends React.Component {
      * Mouse
      * ##############################
      */
-    handleMouseStart(e) {
-        const self = this;
+    setDirection(pageX = 0){
+        if (this.oldX < pageX) {
+            this.mouseDirection = 'l';
+        }
+        else {
+            this.mouseDirection = 'r';
+        }
+        this.oldX = pageX;
+    }
+
+    getDirection(){
+        return this.mouseDirection;
+    }
+
+    setAbs(abs){
+        this.abs = abs;
+    }
+
+    getAbs(){
+        return this.abs;
+    }
+
+    allowSlideRight(){
+        return 'r' == this.getDirection() && this.state.index < this.state.data.length - 1;
+    }
+
+    allowSlideLeft(){
+        return 'l' == this.getDirection() && 0 < this.state.index;
+    }
+    
+    /**
+     * Rect does not supports to give the layerX value
+     * so we have to add the listener manually
+     * https://reactjs.org/docs/events.html#mouse-events
+     * 
+     * @param {boolean} reattach 
+     */
+    mouseDownListeners(reattach = true){
+        this.wrapper.removeEventListener('mousedown', this.processMouseDown);
+        
+        if(reattach){
+            this.wrapper.addEventListener('mousedown', this.processMouseDown);
+        }
+    }
+
+    mouseMoveListeners(reattach = true){
+        this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
+        
+        if(reattach){
+            this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+        }
+    }
+
+    processMouseDown(e){
         e.preventDefault();
-        this.mousestartx = e.layerX;
+        this.handleMouseDown(e)
+    }
+
+    handleMouseDown(event) {
+        this.mousestartx = event.layerX;
         this.mouseClicksStart = performance.now();
         this.blockMove = false;
         this.userMoving = false;
-
-        // remove
-        self.sliderReference.removeEventListener('mousemove', self.handleMouseMove);
-        self.sliderReference.removeEventListener('mouseup', self.handleMouseEnd);
-        self.sliderReference.removeEventListener('mouseleave', self.handleMouseLeave);
-        // add
-        self.sliderReference.addEventListener('mousemove', self.handleMouseMove);
-        self.sliderReference.addEventListener('mouseup', self.handleMouseEnd);
-        self.sliderReference.addEventListener('mouseleave', self.handleMouseLeave);
+        this.mouseMoveListeners();
 
         setTimeout(() => {
-            if (!self.userMoving || self.blockMove) {
-                self.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
+            if (!this.userMoving || this.blockMove) {
+                this.mouseMoveListeners(false);
             }
         }, 200);
     }
 
     handleMouseMove(event) {
-
         this.userMoving = true;
 
         if (this.blockMove) {
-            this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
+            this.mouseMoveListeners(false);
             return;
         }
+
         const { index } = this.state;
-        // Continuously return mouse position.
-        this.mousemovex = event.layerX;
+
         // Calculate distance to translate holder.
-        this.movex = index * this.slideWidth + (this.mousestartx - this.mousemovex);
-        // let panx = 100 - this.movex / 6;
+        this.movex = index * this.slideWidth + (this.mousestartx - event.layerX);
+        // mouse direction
+        this.setDirection(event.pageX);
+        // save mouse movement in px value for mouseUp or leave
+        this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if (this.movex < this.getSlidersWidth() * (this.state.data.length - 1)) {
-            // Makes the holder stop moving when there is no more content.
-            return this.setState({ slidesTransform: `translate3d(-${this.movex}px,0,0)` });
+        if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
+            // Inline style = avoid flipping while fast mouse moving
+            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
         }
-
-        // if (panx <= 0) {
-        //     // Corrects an edge-case problem where the background image moves without the container moving.
-        //     this.setState({ dataTransform: `translate3d(-(${0})px,0,0)` });
-        // }
     }
 
-    handleMouseEnd() {
+    handleMouseUp() {
         this.blockMove = true;
 
         if (115 >= performance.now() - this.mouseClicksStart || !this.userMoving) {
             this.userMoving = false;
-            this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-            this.sliderReference.removeEventListener('mouseleave', this.handleMouseLeave);
+            this.mouseMoveListeners(false);
             return;
         }
 
-        let { index } = this.state;
-        const absMove = Math.abs(index * this.slideWidth - this.movex);
+        let { index, slideAfterMove } = this.state;
 
-        if (absMove > 50) {
-            if (this.movex > index * this.slideWidth && index < this.state.data.length - 1) {
+        if (this.getAbs() > slideAfterMove) {
+            if (this.allowSlideRight()) {
                 index += 1;
-            } else if (this.movex < index * this.slideWidth && index > 0) {
+            }
+            if (this.allowSlideLeft()) {
                 index -= 1;
             }
         }
 
         this.userMoving = false;
-        this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-        this.sliderReference.removeEventListener('mouseleave', this.handleMouseLeave);
-
-        this.setState({ index }, () => {
-            this.slide();
-            this.bindUIEvents(true);
-        });
+        this.mouseMoveListeners(false);
+        this.setState({ index }, this.slide);
     }
 
     handleMouseLeave() {
-        let { index } = this.state;
-        const absMove = Math.abs(index * this.slideWidth - this.movex);
+        let { index, slideAfterMove } = this.state;
         this.blockMove = true;
 
         if (this.userMoving) {
+            this.mouseMoveListeners(false);
 
-            if (absMove > 50) {
-                if (this.movex > index * this.slideWidth && index < this.state.data.length - 1) {
+            if (this.getAbs() > slideAfterMove) {
+                if (this.allowSlideRight()) {
                     index += 1;
-                } else if (this.movex < index * this.slideWidth && index > 0) {
+                }
+                if (this.allowSlideLeft()) {
                     index -= 1;
                 }
             }
 
-            this.blockMove = true;
             this.userMoving = false;
-            this.sliderReference.removeEventListener('mousemove', this.handleMouseMove);
-
-            this.setState({ index }, () => {
-                this.slide();
-                this.bindUIEvents(true);
-            });
+            this.mouseMoveListeners(false);
+            this.setState({ index }, this.slide);
         }
     }
 
     handleClick() {
-        const self = this;
         this.blockMove = true;
         this.userMoving = false;
+        this.mouseMoveListeners(false);
 
         setTimeout(() => {
-            self.blockMove = false;
+            this.blockMove = false;
         }, 100);
     }
 
@@ -369,11 +385,10 @@ class Slider extends React.Component {
      * ##############################
      */
     handleTouchStart(event) {
-        const self = this;
         this.longTouch = false;
 
         setTimeout(function () {
-            self.longTouch = true;
+            this.longTouch = true;
         }, 250);
 
         // Get the original touch position.
@@ -382,45 +397,39 @@ class Slider extends React.Component {
 
     handleTouchMove(event) {
         let { index } = this.state;
-        // Continuously return touch position.
-        this.touchmovex = event.touches[0].pageX;
         // Calculate distance to translate holder.
-        this.movex = index * this.slideWidth + (this.touchstartx - this.touchmovex);
-        // Defines the speed the data should move at.
-        let panx = 100 - this.movex / 6;
+        this.movex = index * this.slideWidth + (this.touchstartx - event.touches[0].pageX);
+        // mouse direction
+        this.setDirection(event.touches[0].pageX);
+        // save mouse movement in px value for mouseUp or leave
+        this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if (this.movex < this.getSlidersWidth() * (this.state.data.length - 1)) {
-            // Makes the holder stop moving when there is no more content.
-            this.setState({ slidesTransform: `translate3d(-${this.movex}px,0,0)` });
-        }
-
-        if (panx < 50) {
-            // Corrects an edge-case problem where the background image moves without the container moving.
-            this.setState({ dataTransform: `translate3d(-(${panx})px,0,0)` });
+        if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
+            // Inline style = avoid flipping while fast mouse moving
+            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
         }
     }
 
     handleTouchEnd() {
-        let { index } = this.state;
-        // Calculate the distance swiped.
-        const absMove = Math.abs(index * this.slideWidth - this.movex);
-        // Calculate the index. All other calculations are based on the index.
-        if (absMove > this.slideWidth / 2 || this.longTouch === false) {
-            if (this.movex > index * this.slideWidth && index < this.state.data.length - 1) {
-                index += 1;
-            } else if (this.movex < index * this.slideWidth && index > 0) {
-                index -= 1;
+        let { index, slideAfterMove } = this.state;
+        this.blockMove = true;
+
+        if (this.userMoving) {
+            this.mouseMoveListeners(false);
+
+            if (this.getAbs() > slideAfterMove) {
+                if (this.allowSlideRight()) {
+                    index += 1;
+                }
+                if (this.allowSlideLeft()) {
+                    index -= 1;
+                }
             }
-        }
-        // Move and animate the elements.
-        let value = index * this.slideWidth;
 
-        // If the value is higher then the max available sliders height
-        if (value > this.getSlidersWidth() * (this.state.data.length - 1)) {
-            value -= (this.getSlidersWidth() * this.state.data.length) / this.state.data.length;
+            this.userMoving = false;
+            this.mouseMoveListeners(false);
+            this.setState({ index }, this.slide);
         }
-
-        this.setState({ index }, this.slide);
     }
 
     getButtonPreviousJsx() {
@@ -466,6 +475,14 @@ class Slider extends React.Component {
             return;
         }
 
+        const getDotFromData = (i) => {
+            if (data && undefined !== data[i] && undefined !== data[i].dot) {
+                return data[i].dot;
+            }
+
+            return null;
+        };
+
         return (
             <div className="pagination">
                 <div className="actions">
@@ -480,6 +497,9 @@ class Slider extends React.Component {
                                     {
                                         displayDotsIndex && `${i + 1}`
                                     }
+                                    {
+                                        !displayDotsIndex && getDotFromData(i)
+                                    }
                                 </span>
                             )
                         })
@@ -490,7 +510,7 @@ class Slider extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, uuid, data, slidesWidth, imageAsBackground, slidesTransform, imagesTransform, slideWrapperWidth } = this.state;
+        const { addClass, defaultClass, id, slidersUuid, data, slidesWidth, imageAsBackground, slidesTransform, imagesTransform, slideWrapperWidth } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass} animate`} id={id}>
@@ -498,8 +518,21 @@ class Slider extends React.Component {
                 {
                     this.getButtonPreviousJsx()
                 }
-                <div key={`slide-wrapper-${uuid}`} className="wrapper" ref={(node) => (this.sliderReference = node)}>
+                <div 
+                    key={`wrapper-${slidersUuid}`} 
+                    className="wrapper" 
+                    ref={(node) => (this.wrapper = node)}
+                    // Mobile
+                    onTouchStart={ (e) => this.handleTouchStart(e)}
+                    onTouchMove={ (e) => this.handleTouchMove(e)}
+                    onTouchEnd={ (e) => this.handleTouchEnd(e)}
+                    // Desktop
+                    onClick={ (e) => this.handleClick(e)}
+                    onMouseUp={ (e) => this.handleMouseUp(e)}
+                    onMouseLeave={ (e) => this.handleMouseLeave(e)}
+                >
                     <div
+                        ref={(node) => (this.transformer = node)}
                         className={`slides user-select-none animate`}
                         style={{
                             transform: `${slidesTransform}`,
@@ -516,7 +549,7 @@ class Slider extends React.Component {
 
                             return (
                                 <div
-                                    key={`${uuid}-${i}`}
+                                key={`slide-wrapper-${slidersUuid}-${i}`}
                                     className="slide-wrapper"
                                     style={{
                                         width: `${slideWrapperWidth}px`,

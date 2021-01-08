@@ -4,10 +4,8 @@
 
 - Change version in this files
 
-        webpack.module.development.js
-        webpack.module.production.js
-        webpack.website.development.js
-        webpack.website.production.js
+        webpack.module.js
+        webpack.website.js
         react-revolution/package.json
         react-revolution/_Globals/index.js
         Website/Globals/index.jsx

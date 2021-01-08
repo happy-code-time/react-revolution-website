@@ -107,7 +107,87 @@ const codeExample3 = `import { Slider } from 'react-revolution';
     />
 </div>`;
 
+
 const codeExample4 = `import { Slider } from 'react-revolution';
+// import Slider from 'react-revolution/Slider';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Slider
+        addClass='slider-items-example'
+        displayDotsIndex={false}
+        data={
+            [
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    dot: '😇',
+                },
+            ]
+        }
+    />
+</div>`;
+
+
+const codeExample5 = `import { Slider } from 'react-revolution';
+// import Slider from 'react-revolution/Slider';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Slider
+        addClass='slider-items-example'
+        dotsInside={false}
+        data={
+            [
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    dot: '😇',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    dot: '😇',
+                },
+            ]
+        }
+    />
+</div>`;
+
+const codeExample6 = `import { Slider } from 'react-revolution';
 // import Slider from 'react-revolution/Slider';
 
 <div
@@ -158,7 +238,7 @@ const codeExample4 = `import { Slider } from 'react-revolution';
     />
 </div>`;
 
-const jsExample4 = `callback(slideIndex, callbackProps){
+const jsExample6 = `callback(slideIndex, callbackProps){
     console.info(slideIndex, callbackProps);
 }
 
@@ -354,7 +434,101 @@ class _Slider extends React.Component {
                 reactTextBefore: '',
                 react: codeExample4,
                 reactTextAfter: '',
-                js: jsExample4,
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '500px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <Slider
+                            addClass='slider-items-example'
+                            displayDotsIndex={false}
+                            data={
+                                [
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                ]
+                            }
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'Slider',
+                description: trans('slider.example5'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '500px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <Slider
+                            addClass='slider-items-example'
+                            dotsInside={false}
+                            data={
+                                [
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        dot: '😇',
+                                    },
+                                ]
+                            }
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'Slider',
+                description: trans('slider.example6'),
+                reactTextBefore: '',
+                react: codeExample6,
+                reactTextAfter: '',
+                js: jsExample6,
                 css: '',
                 html: '',
                 live: (
@@ -411,7 +585,7 @@ class _Slider extends React.Component {
         ];
     }
 
-    callback(slideIndex, callbackProps){
+    callback(slideIndex, callbackProps) {
         console.info(slideIndex, callbackProps);
     }
 
@@ -551,6 +725,10 @@ class _Slider extends React.Component {
                                     values: 'slider.data.callbackProps'
                                 },
                                 {
+                                    key: 'data.dot',
+                                    values: 'slider.data.dot'
+                                },
+                                {
                                     key: 'displayPagination',
                                     values: 'slider.displayPagination'
                                 },
@@ -585,7 +763,11 @@ class _Slider extends React.Component {
                                 {
                                     key: 'imageAsBackground',
                                     values: 'slider.imageAsBackground'
-                                }
+                                },
+                                {
+                                    key: 'slideAfterMove',
+                                    values: 'slider.slideAfterMove'
+                                },
                             ],
                             'rr-slider'
                         )

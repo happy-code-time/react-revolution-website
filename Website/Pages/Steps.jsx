@@ -144,13 +144,59 @@ const codeExample4 = `import { Steps } from 'react-revolution';
         submit='Save'
         callbackCheck={true}
         callbackCheckNavigate={true}
-        data={
-            [
-                {...},
-                {...},
-                {...}
-            ]
-        }
+        data={[
+            {
+                text: 'Step 1',
+                icon: <i className="far fa-lemon"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Username</h1>
+                        <input 
+                            type="text" 
+                            style={{ width: '100%' }} 
+                            onChange={(e) => this.setValue('username', e.target.value)} 
+                            value={this.state.username} 
+                        />
+                    </div>
+                ),
+                callback: this.checkStep,
+                callbackProps: 'username'
+            },
+            {
+                text: 'Step 2',
+                icon: <i className="fas fa-balance-scale-right"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
+                        <input 
+                            type="password" 
+                            style={{ width: '100%' }} 
+                            onChange={(e) => this.setValue('password', e.target.value)} 
+                            value={this.state.password} 
+                        />
+                    </div>
+                ),
+                callback: this.checkStep,
+                callbackProps: ['username', 'password']
+            },
+            {
+                text: 'Step 3',
+                icon: <i className="fas fa-user"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>E-mail</h1>
+                        <input 
+                            type="email" 
+                            style={{ width: '100%' }} 
+                            onChange={(e) => this.setValue('email', e.target.value)} 
+                            value={this.state.email} 
+                        />
+                    </div>
+                ),
+                callback: this.submitCallback,
+                callbackProps: ['username', 'password', 'email']
+            }
+        ]}
     />
 </div>`;
 

@@ -1724,13 +1724,18 @@ const PL = {
         "type": "Dowolne",
         "default": "undefined"
     },
+    'slider.data.dot': {
+        "description": "Zdefiniowane przez użytkownika dane dotyczące 'zawartości' pojedynczego punktu nawigacyjnego.",
+        "type": "Any",
+        "default": "undefined"
+    },
     'slider.displayDots': {
         "description": "Zezwól na renderowanie punktów nawigacyjnych w paginatorze.",
         "type": "Boolean",
         "default": "true"
     },
     'slider.callbackMount': {
-        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po zainicjowaniu komponentu suwaka. Ta funkcja zwraca 1 argument, wartość klucza: 'callbackMountProps'. Oczekiwana jest obietnica, która oczekuje liczby jako wartości zwracanej. Ta liczba jest zmieniana numer slajdu. Wartość nie może być ujemna (x> = 0) ani większa niż długość danych (x <data.length). ",
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po zainicjowaniu komponentu slidera. Ta funkcja zwraca 1 argument, wartość klucza: 'callbackMountProps'. Oczekiwana jest obietnica, która oczekuje liczby jako wartości zwracanej. Ta liczba jest zmieniana numer slajdu. Wartość nie może być ujemna (x> = 0) ani większa niż długość danych (x <data.length). ",
         "type": "Funkcja",
         "default": "undefined"
     },
@@ -1745,9 +1750,24 @@ const PL = {
         "default": "false"
     },
     'slider.displayPagination': {
-        "description": "Zezwól na renderowanie paginatora.",
+        "description": "Zezwól na renderowanie paginatora - przycisk 'następny' i przycisk 'przed'.",
         "type": "Boolean",
-        "default": "true"
+        "default": "prawda"
+    },
+    'slider.paginationInside': {
+        "description": "Przycisk 'następny' i przycisk 'przed' powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli fałsz, przyciski są generowane poza sliderem.",
+        "type": "Boolean",
+        "default": "prawda"
+    },
+    'slider.dotsInside' : {
+        "description": "Okrągłe przyciski nawigacji powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli false, przyciski są generowane poza sliderem.",
+        "type": "Boolean",
+        "default": "prawda"
+    },
+    'slider.slideAfterMove': {
+        "description": "Autoslide tylko wtedy, gdy wartość jest większa lub równa x (>=) niż wartość określona tutaj.",
+        "type": "number",
+        "domyślny": "50"
     },
     'slider.displayDotsIndex': {
         "description": "Zezwól na renderowanie indeksu pojedynczego paginatora.",
@@ -1812,7 +1832,9 @@ const PL = {
     'slider.example1': 'Slider z użyciem przycisków buttonsAlwaysVisible={false} (ustawienie standardowe).',
     'slider.example2': 'Slider z użyciem przycisków buttonsAlwaysVisible={true}.',
     'slider.example3': 'Slider z użyciem klucza displayPagination={false} do ukrycia paginatora.',
-    'slider.example4': 'Slider z przykładem generowania elementów w zależności od szerokości ekranu za pomocą klawiszy: resizeS, resizeL, resizeXL, resizeS, resizeL i resizeXL.',
+    'slider.example4': 'Slider z kluczem displayDotsIndex={false}.',
+    'slider.example5': 'Slider z kluczem dotsInside={false}.',
+    'slider.example6': 'Slider z przykładem generowania elementów w zależności od szerokości ekranu za pomocą klawiszy: resizeS, resizeL, resizeXL, resizeS, resizeL i resizeXL.',
     'steps.next': {
         "description": "Zdefiniowany przez użytkownika Jsx w przycisku: dalej.",
         "type": "String | JSX",

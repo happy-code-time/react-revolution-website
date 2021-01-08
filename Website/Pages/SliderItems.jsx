@@ -77,6 +77,46 @@ const codeExample4 = `import { SliderItems } from 'react-revolution';
         }
     }
     >
+    <SliderItems
+        addClass='slider-items-example'
+        data={this.getCards('😇')}
+        displayDotsIndex={false}
+    />
+</div>`;
+
+const codeExample5 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderItems
+        addClass='slider-items-example'
+        data={this.getCards('😷')}
+        dotsInside={false}
+    />
+</div>`;
+
+const codeExample6 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
         <SliderItems
             data={this.getCards()}
             displayDots={false}
@@ -104,7 +144,7 @@ const css = `.slider-items-example{
     }
 }`;
 
-const js = `getCards() {
+const js = `getCards(dot = '') {
     const items = 10;
     const data = [];
 
@@ -118,7 +158,8 @@ const js = `getCards() {
                             x + 1
                         }
                     </span>
-                )
+                ),
+                dot
             }
         );
     }
@@ -228,6 +269,62 @@ class _SliderItems extends React.Component
                 react: codeExample4,
                 reactTextAfter: '',
                 js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            data={this.getCards('😇')}
+                            displayDotsIndex={false}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example5'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            data={this.getCards('😷')}
+                            dotsInside={false}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example6'),
+                reactTextBefore: '',
+                react: codeExample6,
+                reactTextAfter: '',
+                js: js,
                 css: '',
                 html: '',
                 live: (
@@ -257,7 +354,7 @@ class _SliderItems extends React.Component
         ];
     }
 
-    getCards() {
+    getCards(dot = '') {
         const items = 10;
         const data = [];
 
@@ -271,7 +368,8 @@ class _SliderItems extends React.Component
                                 x + 1
                             }
                         </span>
-                    )
+                    ),
+                    dot
                 }
             );
         }
@@ -356,6 +454,10 @@ class _SliderItems extends React.Component
                                     values: 'slider.items.data.data'
                                 },
                                 {
+                                    key: 'data.dot',
+                                    values: 'slider.data.dot'
+                                },
+                                {
                                     key: 'itemsS',
                                     values: 'slider.items.itemsS'
                                 },
@@ -384,12 +486,20 @@ class _SliderItems extends React.Component
                                     values: 'slider.displayPagination'
                                 },
                                 {
+                                    key: 'paginationInside',
+                                    values: 'slider.paginationInside'
+                                },
+                                {
                                     key: 'displayDots',
                                     values: 'slider.displayDots'
                                 },
                                 {
                                     key: 'displayDotsIndex',
                                     values: 'slider.displayDotsIndex'
+                                },
+                                {
+                                    key: 'dotsInside',
+                                    values: 'slider.dotsInside'
                                 },
                                 {
                                     key: 'buttonsAlwaysVisible',
@@ -402,6 +512,10 @@ class _SliderItems extends React.Component
                                 {
                                     key: 'previous',
                                     values: 'slider.previous'
+                                },
+                                {
+                                    key: 'slideAfterMove',
+                                    values: 'slider.slideAfterMove'
                                 },
                             ],
                             'rr-slider-items'

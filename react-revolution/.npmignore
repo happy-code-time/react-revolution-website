@@ -14,5 +14,4 @@ package-lock.json
 npm-debug.log
 production.js
 tsconfig.json
-webpack.config.production.js
-webpack.config.obfuscated.production.js
+webpack.js

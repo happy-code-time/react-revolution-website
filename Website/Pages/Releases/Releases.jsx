@@ -431,6 +431,38 @@ class Releases extends React.Component {
                         },
 
                     ]
+                },
+                '4.1.1': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".'
+                        },
+                        {
+                            key: 'Slider',
+                            value: 'Added new keys: "paginationInside", "dotsInside", "slideAfterMove", "data.dot".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new keys: "paginationInside", "slideAfterMove", "data.dot".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Removed keys: "cardWidthS", "cardWidthL", "cardWidthXL".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new keys: "paginationInside", "dotsInside", "slideAfterMove", "data.dot".'
+                        },
+                    ]
                 }
             }
         }

@@ -1723,6 +1723,11 @@ const EN = {
         "type": "Any",
         "default": "undefined"
     },
+    'slider.data.dot': {
+        "description": "User-defined data for the 'content' of a single navigation point.",
+        "type": "Any",
+        "default": "undefined"
+    },
     'slider.displayDots': {
         "description": "Allow rendering of navigation points within the paginator.",
         "type": "Boolean",
@@ -1744,9 +1749,24 @@ const EN = {
         "default": "false"
     },
     'slider.displayPagination': {
-        "description": "Allow rendering of the paginator.",
+        "description": "Allow rendering of the paginator - the button 'next' and the button 'before'.",
         "type": "Boolean",
         "default": "true"
+    },
+    'slider.paginationInside': {
+        "description": "The button 'next' and the button 'before' should be generated inside the slider (standard setting). If false, the buttons are generated outside the slider.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.dotsInside' : {
+        "description": "The navigations dots should be generated inside the slider (standard setting). If false, the dots are generated outside the slider.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.slideAfterMove': {
+        "description": "Autoslide only after the value is greater than or equal to x (>=) than the value specified here.",
+        "type": "number",
+        "default": "50"
     },
     'slider.displayDotsIndex': {
         "description": "Allow rendering of the single paginator index.",
@@ -1811,7 +1831,9 @@ const EN = {
     'slider.example1': 'Slider using the key buttonsAlwaysVisible = {false} (standard setting).',
     'slider.example2': 'Slider with the use of the key buttonsAlwaysVisible={true}.',
     'slider.example3': 'Slider with the use of the key displayPagination={false} to hide the paginator.',
-    'slider.example4': 'Slider with the example of the elements generation depending on the screen width using the keys: resizeS, resizeL, resizeXL, resizeS, resizeL and resizeXL.',
+    'slider.example4': 'Slider using the key displayDotsIndex={false}.',
+    'slider.example5': 'Slider using the key dotsInside={false}.',
+    'slider.example6': 'Slider with the example of the elements generation depending on the screen width using the keys: resizeS, resizeL, resizeXL, resizeS, resizeL and resizeXL.',
     'steps.next': {
         "description": "User-defined Jsx within the button: next.",
         "type": "String | JSX",

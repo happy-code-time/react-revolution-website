@@ -20,6 +20,46 @@ const codeExample1 = `import { SliderCards } from 'react-revolution';
     >
     <SliderCards
         addClass='slider-items-example'
+        data={this.getCards('😇')}
+        displayDotsIndex={false}
+    />
+</div>`;
+
+const codeExample2 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
+        data={this.getCards('😷')}
+        dotsInside={false}
+    />
+</div>`;
+
+const codeExample3 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
         data={this.getCards()}
         buttonsAlwaysVisible={true}
         // Resize listener lower then 768
@@ -49,7 +89,7 @@ const codeExample1 = `import { SliderCards } from 'react-revolution';
     />
 </div>`;
 
-const js = `getCards() {
+const js = `getCards(dot = '') {
     const items = 10;
     const data = [];
 
@@ -63,7 +103,8 @@ const js = `getCards() {
                             x + 1
                         }
                     </span>
-                )
+                ),
+                dot
             }
         );
     }
@@ -84,9 +125,65 @@ class _SliderCards extends React.Component {
         this.examples = [
             {
                 title: 'SliderCards',
-                description: '',
+                description: trans('slider.example4'),
                 reactTextBefore: '',
                 react: codeExample1,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            data={this.getCards('😇')}
+                            displayDotsIndex={false}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderCards',
+                description: trans('slider.example5'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            data={this.getCards('😷')}
+                            dotsInside={false}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderCards',
+                description: '',
+                reactTextBefore: '',
+                react: codeExample3,
                 reactTextAfter: '',
                 js: js,
                 css: '',
@@ -137,7 +234,7 @@ class _SliderCards extends React.Component {
         ];
     }
 
-    getCards() {
+    getCards(dot = '') {
         const items = 10;
         const data = [];
 
@@ -151,7 +248,8 @@ class _SliderCards extends React.Component {
                                 x + 1
                             }
                         </span>
-                    )
+                    ),
+                    dot
                 }
             );
         }
@@ -236,6 +334,10 @@ class _SliderCards extends React.Component {
                                     values: 'slider.items.data.data'
                                 },
                                 {
+                                    key: 'data.dot',
+                                    values: 'slider.data.dot'
+                                },
+                                {
                                     key: 'cardWidthS',
                                     values: 'slider.cards.cardWidthS'
                                 },
@@ -276,12 +378,20 @@ class _SliderCards extends React.Component {
                                     values: 'slider.displayPagination'
                                 },
                                 {
+                                    key: 'paginationInside',
+                                    values: 'slider.paginationInside'
+                                },
+                                {
                                     key: 'next',
                                     values: 'slider.next'
                                 },
                                 {
                                     key: 'previous',
                                     values: 'slider.previous'
+                                },
+                                {
+                                    key: 'slideAfterMove',
+                                    values: 'slider.slideAfterMove'
                                 },
                             ],
                             'rr-slider-cards'

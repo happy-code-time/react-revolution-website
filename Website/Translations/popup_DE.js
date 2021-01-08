@@ -1721,6 +1721,11 @@ const DE = {
         "type": "Any",
         "default": "undefined"
     },
+    'slider.data.dot': {
+        "description": "Bentuzerdefinierte Daten für den 'Inhalt' eines einzelenen navigierungs Punkt.",
+        "type": "Any",
+        "default": "undefined"
+    },
     'slider.displayDots': {
         "description": "Erlauben von dem Rendern der Navigierungspunkte innerhalb des Paginators.",
         "type": "Boolean",
@@ -1742,9 +1747,24 @@ const DE = {
         "default": "false"
     },
     'slider.displayPagination' : {
-        "description": "Rendern des Paginators erlauben.",
+        "description": "Rendern des Paginators erlauben - Der Button 'weiter' und der Button 'vorher'.",
         "type": "Boolean",
         "default": "true"
+    },
+    'slider.paginationInside' : {
+        "description": "Der Button 'weiter' und der Button 'vorher' sollen innerhalb des Sliders generiert werden (standard Einstellung). Wenn false, dann werden die Buttons außerhalb des Sliders generiert.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.dotsInside' : {
+        "description": "Die Navigierungspunkte sollen innerhalb des Sliders generiert werden (standard Einstellung). Wenn false, dann werden die Punkte außerhalb des Sliders generiert.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.slideAfterMove' : {
+        "description": "Autoslide nur nachdem der Wert größer oder gleich x (>=) als der hier angegebener Wert ist.",
+        "type": "number",
+        "default": "50"
     },
     'slider.displayDotsIndex' : {
         "description": "Rendern des einzelnen Paginators Index erlauben.",
@@ -1814,7 +1834,9 @@ const DE = {
     'slider.example1' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={false} (standard Einstellung).',
     'slider.example2' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={true}.',
     'slider.example3' : 'Slider mit der Verwendung des Keys displayPagination={false} um den Paginator auszublenden.',
-    'slider.example4' : 'Slider mit dem Beispiel der Elementen Generierung je nach Bildschirmbreite mit Verwendung der Schlüssel: resizeS, resizeL, resizeXL, resizeS, resizeL und resizeXL.',
+    'slider.example4' : 'Slider mit der Verwendung des Keys displayDotsIndex={false}.',
+    'slider.example5' : 'Slider mit der Verwendung des Keys dotsInside={false}.',
+    'slider.example6' : 'Slider mit dem Beispiel der Elementen Generierung je nach Bildschirmbreite mit Verwendung der Schlüssel: resizeS, resizeL, resizeXL, resizeS, resizeL und resizeXL.',
     'steps.next' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
         "type": "String|JSX",

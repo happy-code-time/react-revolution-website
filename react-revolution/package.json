@@ -1,11 +1,11 @@
 {
   "name": "react-revolution",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "React Revolution - interactive react components",
   "main": "react-revolution.js",
   "scripts": {
-    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.production.js --module-bind js=babel-loader --progress --profile --colors",
-    "build:dev": "node node_modules/webpack/bin/webpack.js --config webpack.config.production.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors"
+    "build": "node node_modules/webpack/bin/webpack.js --config webpack.js --module-bind js=babel-loader --progress --profile --colors --mode production",
+    "build:dev": "node node_modules/webpack/bin/webpack.js --config webpack.js --module-bind js=babel-loader --watch-poll --watch --progress --profile --colors --mode development"
   },
   "keywords": [
     "Accordion",
