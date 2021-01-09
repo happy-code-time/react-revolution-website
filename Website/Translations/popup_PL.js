@@ -1725,7 +1725,7 @@ const PL = {
         "default": "undefined"
     },
     'slider.data.dot': {
-        "description": "Zdefiniowane przez użytkownika dane dotyczące 'zawartości' pojedynczego punktu nawigacyjnego.",
+        "description": "Zdefiniowane przez użytkownika dane dotyczące 'zawartości' pojedynczego punktu nawigacyjnego. Klucz displayDotsIndex musi być false (displayDotsIndex={false}).",
         "type": "Any",
         "default": "undefined"
     },
@@ -1919,6 +1919,44 @@ const PL = {
         "type": "Number",
         "default": "3"
     },
+    'slider.paginationType': {
+        "description": "Typ paginatora. Możliwe typy: 1 i 2.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.autoplay': {
+        "description": "Czy slajd powinien zmienić się automatycznie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.autoplayTime': {
+        "description": "Opóźnienie czasowe (timeout) dla każdego następnego slajdu po poprzednim lub po zamontowaniu komponentu.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.autoplayNext': {
+        "description": "Jeśli true to kierunek slajdu jest w prawo, jeśli false to w lewo.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.animationTime': {
+        "description": "Czas transformacji suwaków dla autoodtwarzania i ruchu myszy / dotyku. Możliwe wartości od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"
+    },
+    'slider.allowMouseTouch': {
+        "description": "Pozwól użytkownikowi zmieniać suwak myszą lub palcem (ekran dotykowy).",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.wrapDirection': {
+        "description": "Jeśli true, a użytkownik jest na pierwszym slajdzie i wcześniej wciśnie przycisk, nawigacja zostanie przeprowadzona do ostatniego slajdu i odwrócona. Jeśli użytkownik jest na ostatnim slajdzie i ponownie wciśnie przycisk, zostanie wyświetlony pierwszy slajd.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.example7': 'Przykład z użyciem klucza paginationType={2}.',
+    'slider.example8': 'Przykład z użyciem klucza autoplay={true} i autoplayTime={5000}.',
+    'slider.example9': 'Przykład z użyciem klawisza animationTime="10" w celu ograniczenia wszystkich animacji do 1000 ms.',
 };
 
 export default PL;

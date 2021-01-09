@@ -38,7 +38,7 @@ class App extends React.Component {
         return (
             <span>
                 {/* SLIDER */}
-                <div
+                {/* <div
                     style={
                         {
                             width: '100%',
@@ -50,79 +50,27 @@ class App extends React.Component {
                 >
                     <Slider
                         addClass='slider-items-example'
-                        displayDotsIndex={false}
-                        data={
-                            [
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                    dot: '😇',
-                                },
-                            ]
-                        }
-                    />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <Slider
-                        addClass='slider-items-example'
-                        dotsInside={false}
-                        data={
-                            [
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                    dot: '😇',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                    dot: '😇',
-                                },
-                            ]
-                        }
-                    />
-                </div>
-                {/* ITEMS */}
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderItems
-                        addClass='slider-items-example'
-                        data={this.getCards()}
                         displayDotsIndex={true}
+                        buttonsAlwaysVisible={true}
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        data={
+                            [
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                            ]
+                        }
                     />
                 </div>
                 <div
@@ -135,10 +83,31 @@ class App extends React.Component {
                         }
                     }
                 >
-                    <SliderItems
+                    <Slider
                         addClass='slider-items-example'
-                        data={this.getCards('😇')}
-                        displayDotsIndex={false}
+                        displayDotsIndex={true}
+                        buttonsAlwaysVisible={true}
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        autoplay={true}
+                        autoplayTime={5000}
+                        data={
+                            [
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                            ]
+                        }
                     />
                 </div>
                 <div
@@ -151,10 +120,32 @@ class App extends React.Component {
                         }
                     }
                 >
-                    <SliderItems
+                    <Slider
                         addClass='slider-items-example'
-                        data={this.getCards('😷')}
-                        dotsInside={false}
+                        displayDotsIndex={true}
+                        buttonsAlwaysVisible={true}
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        autoplay={true}
+                        autoplayTime={5000}
+                        animationTime='10'
+                        data={
+                            [
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                            ]
+                        }
                     />
                 </div>
                 <div
@@ -167,12 +158,79 @@ class App extends React.Component {
                         }
                     }
                 >
+                    <Slider
+                        addClass='slider-items-example'
+                        displayDotsIndex={true}
+                        buttonsAlwaysVisible={true}
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        autoplay={true}
+                        allowMouseTouch={false}
+                        data={
+                            [
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                            ]
+                        }
+                    />
+                </div> */}
+                {/* ITEMS */}
+                {/* <div
+                    style={
+                        {
+                            width: '100%',
+                            maxWidth: '1024px',
+                            height: '300px',
+                            margin: '5vh auto'
+                        }
+                    }
+                >
                     <SliderItems
                         addClass='slider-items-example'
+                        displayDotsIndex={true}
+                        paginationType={2}
+                        buttonsAlwaysVisible={true}
+                        previous='«'
+                        next='»'
+                        autoplay={true}
+                        autoplayTime={5000}
                         data={this.getCards()}
-                        displayDots={false}
                     />
                 </div>
+                <div
+                    style={
+                        {
+                            width: '100%',
+                            maxWidth: '1024px',
+                            height: '300px',
+                            margin: '5vh auto'
+                        }
+                    }
+                >
+                    <SliderItems
+                        addClass='slider-items-example'
+                        displayDotsIndex={true}
+                        paginationType={2}
+                        buttonsAlwaysVisible={true}
+                        previous='«'
+                        next='»'
+                        autoplay={true}
+                        autoplayTime={5000}
+                        data={this.getCards()}
+                        animationTime='10'
+                    />
+                </div> */}
                 {/* CARDS */}
                 <div
                     style={
@@ -186,74 +244,68 @@ class App extends React.Component {
                 >
                     <SliderCards
                         addClass='slider-items-example'
-                        data={this.getCards()}
                         displayDotsIndex={true}
-                    />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderCards
-                        addClass='slider-items-example'
-                        data={this.getCards('😇')}
-                        displayDotsIndex={false}
-                    />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderCards
-                        addClass='slider-items-example'
-                        data={this.getCards('😷')}
-                        dotsInside={false}
-                    />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderCards
-                        addClass='slider-items-example'
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        buttonsAlwaysVisible={true}
+                        wrapDirection={false}
                         data={this.getCards()}
-                        displayDots={false}
-                        // Resize listener lower then 768
-                        resizeS={768}
-                        // Resize listener lower then 1024
-                        resizeL={1024}
-                        // Resize listener lower then 1260
-                        resizeXL={1260}
-                        // Items on each slide on screen lower then 768
-                        itemsS={2}
-                        // Items on each slide on screen lower then 1024
-                        itemsL={3}
-                        // Items on each slide on screen lower then 1260
-                        itemsXL={3}
-                        // Items to slide on screen lower then 768
-                        slideItemsS={2}
-                        // Items to slide on screen lower then 1024
-                        slideItemsL={3}
-                        // Items to slide on screen lower then 1260
-                        slideItemsXL={3}
+                    />
+                </div>
+                <div
+                    style={
+                        {
+                            width: '100%',
+                            maxWidth: '1024px',
+                            height: '300px',
+                            margin: '5vh auto'
+                        }
+                    }
+                >
+                    <SliderCards
+                        addClass='slider-items-example'
+                        displayDotsIndex={true}
+                        paginationType={2}
+                        previous='«'
+                        next='»'
+                        buttonsAlwaysVisible={true}
+                        data={this.getCards()}
+                    />
+                </div>
+                <div
+                    style={
+                        {
+                            width: '100%',
+                            maxWidth: '1024px',
+                            height: '300px',
+                            margin: '5vh auto'
+                        }
+                    }
+                >
+                    <SliderCards
+                        addClass='slider-items-example'
+                        autoplay={true}
+                        autoplayTime={5000}
+                        data={this.getCards()}
+                    />
+                </div>
+                <div
+                    style={
+                        {
+                            width: '100%',
+                            maxWidth: '1024px',
+                            height: '300px',
+                            margin: '5vh auto'
+                        }
+                    }
+                >
+                    <SliderCards
+                        addClass='slider-items-example'
+                        autoplay={true}
+                        autoplayTime={5000}
+                        animationTime='20'
+                        data={this.getCards()}
                     />
                 </div>
             </span>

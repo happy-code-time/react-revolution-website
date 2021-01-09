@@ -167,6 +167,83 @@ const js = `getCards(dot = '') {
     return data;
 }`;
 
+const codeExample7 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            displayDotsIndex={true}
+            paginationType={2}
+            buttonsAlwaysVisible={true}
+            previous='«'
+            next='»'
+            data={this.getCards()}
+        />
+</div>`;
+
+const codeExample8 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            displayDotsIndex={true}
+            paginationType={2}
+            buttonsAlwaysVisible={true}
+            previous='«'
+            next='»'
+            autoplay={true}
+            autoplayTime={5000}
+            data={this.getCards()}
+        />
+</div>`;
+
+const codeExample9 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            displayDotsIndex={true}
+            paginationType={2}
+            buttonsAlwaysVisible={true}
+            previous='«'
+            next='»'
+            autoplay={true}
+            autoplayTime={5000}
+            animationTime='10'
+            data={this.getCards()}
+        />
+</div>`;
+
 class _SliderItems extends React.Component 
 {
     constructor(props) {
@@ -325,7 +402,7 @@ class _SliderItems extends React.Component
                 react: codeExample6,
                 reactTextAfter: '',
                 js: js,
-                css: '',
+                css: css,
                 html: '',
                 live: (
                     <div
@@ -340,6 +417,7 @@ class _SliderItems extends React.Component
                     >
                         <SliderItems
                             data={this.getCards()}
+                            addClass='slider-items-example'
                             displayDots={false}
                             itemsS={2} // two items on resizeS (768px)
                             itemsL={4} // four items on resizeL (1024)
@@ -350,7 +428,108 @@ class _SliderItems extends React.Component
                         />
                     </div>
                 )
-            }
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example7'),
+                reactTextBefore: '',
+                react: codeExample7,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            buttonsAlwaysVisible={true}
+                            previous='«'
+                            next='»'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example8'),
+                reactTextBefore: '',
+                react: codeExample8,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            buttonsAlwaysVisible={true}
+                            previous='«'
+                            next='»'
+                            autoplay={true}
+                            autoplayTime={5000}
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: trans('slider.example9'),
+                reactTextBefore: '',
+                react: codeExample9,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            buttonsAlwaysVisible={true}
+                            previous='«'
+                            next='»'
+                            autoplay={true}
+                            autoplayTime={5000}
+                            animationTime='10'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
         ];
     }
 
@@ -516,6 +695,34 @@ class _SliderItems extends React.Component
                                 {
                                     key: 'slideAfterMove',
                                     values: 'slider.slideAfterMove'
+                                },
+                                {
+                                    key: 'paginationType',
+                                    values: 'slider.paginationType'
+                                },
+                                {
+                                    key: 'autoplay',
+                                    values: 'slider.autoplay'
+                                },
+                                {
+                                    key: 'autoplayTime',
+                                    values: 'slider.autoplayTime'
+                                },
+                                {
+                                    key: 'autoplayNext',
+                                    values: 'slider.autoplayNext'
+                                },
+                                {
+                                    key: 'animationTime',
+                                    values: 'slider.animationTime'
+                                },
+                                {
+                                    key: 'allowMouseTouch',
+                                    values: 'slider.allowMouseTouch'
+                                },
+                                {
+                                    key: 'wrapDirection',
+                                    values: 'slider.wrapDirection'
                                 },
                             ],
                             'rr-slider-items'

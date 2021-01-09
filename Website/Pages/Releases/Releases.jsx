@@ -463,6 +463,22 @@ class Releases extends React.Component {
                             value: 'Added new keys: "paginationInside", "dotsInside", "slideAfterMove", "data.dot".'
                         },
                     ]
+                },
+                '4.1.2': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new keys: "paginationType", "autoplay", "autoplayTime", "autoplayNext", "animationTime", "allowMouseTouch".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new keys: "buttonsAlwaysVisible", "paginationType", "autoplay", "autoplayTime", "autoplayNext", "animationTime", "allowMouseTouch".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new keys: "paginationType", "autoplay", "autoplayTime", "autoplayNext", "animationTime", "allowMouseTouch".'
+                        },
+                    ]
                 }
             }
         }

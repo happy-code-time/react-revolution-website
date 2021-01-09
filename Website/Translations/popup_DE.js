@@ -1722,7 +1722,7 @@ const DE = {
         "default": "undefined"
     },
     'slider.data.dot': {
-        "description": "Bentuzerdefinierte Daten für den 'Inhalt' eines einzelenen navigierungs Punkt.",
+        "description": "Bentuzerdefinierte Daten für den 'Inhalt' eines einzelenen navigierungs Punkt. Der Schlüssel displayDotsIndex muss false sein (displayDotsIndex={false}).",
         "type": "Any",
         "default": "undefined"
     },
@@ -1921,6 +1921,44 @@ const DE = {
         "type": "Number",
         "default": "3"
     },
+    'slider.paginationType' : {
+        "description": "Paginator Typ. Mögliche Typen: 1 und 2.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.autoplay' : {
+        "description": "Soll der Slide sich automatisch wechseln.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.autoplayTime' : {
+        "description": "Zeitverzögerung (Timeout) für jeden nächsten slide nach dem vorherigen oder nachdem die Komponente ge-mounted wurde.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.autoplayNext' : {
+        "description": "Wenn true dann ist die Slide Richtung rechts, falls false dann links.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.animationTime' : {
+        "description": "Sliders Tranformationszeit beim autoplay und beim Mouse/Touch move. Mögliche Werte von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"
+    },
+    'slider.allowMouseTouch' : {
+        "description": "Dem Benutzer erlauben den Slider mit der Maus oder dem Finger (TouchScreen) zu ändern.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.wrapDirection' : {
+        "description": "Wenn true und der Benutzer im ersten Slide ist, und den Button vorher drückt wird zum letzten Slide navigiert und umgegehrt. Wenn der Benutzer im letzten Slide ist und den Button weiter drückt, wird der erste Slide angezeigt.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.example7': 'Beispiel mit der Verwendung des Schlüssels paginationType={2}.',
+    'slider.example8': 'Beispiel mit der Verwendung des Schlüssels autoplay={true} und autoplayTime={5000}.',
+    'slider.example9': 'Beispiel mit der Verwendung des Schlüssels animationTime="10" um alle Animationen zu beschrencken auf 1000ms.',
 };
 
 export default DE;

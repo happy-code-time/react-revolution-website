@@ -1724,7 +1724,7 @@ const EN = {
         "default": "undefined"
     },
     'slider.data.dot': {
-        "description": "User-defined data for the 'content' of a single navigation point.",
+        "description": "User-defined data for the 'content' of a single navigation point. The key displayDotsIndex has to be false (displayDotsIndex={true}).",
         "type": "Any",
         "default": "undefined"
     },
@@ -1918,6 +1918,44 @@ const EN = {
         "type": "Number",
         "default": "3"
     },
+    'slider.paginationType': {
+        "description": "Paginator type. Possible types: 1 and 2.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.autoplay': {
+        "description": "Should the slide change automatically.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'slider.autoplayTime': {
+        "description": "Time delay (timeout) for every next slide after the previous one or after the component has been mounted.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.autoplayNext': {
+        "description": "If true then the slide direction is right, if false then left.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'slider.animationTime': {
+        "description": "Sliders transformation time for autoplay and mouse / touch move. Possible values ​​from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"
+    },
+    'slider.allowMouseTouch': {
+        "description": "Allow the user to change the slider with the mouse or finger (touch screen).",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.wrapDirection': {
+        "description": "If true and the user is in the first slide and presses the button beforehand, navigation to the last slide is made and vice versa. If the user is in the last slide and presses the button again, the first slide is displayed.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.example7': 'Example using the key paginationType={2}.',
+    'slider.example8': 'Example with the use of the key autoplay={true} and autoplayTime={5000}.',
+    'slider.example9': 'Example using the key animationTime="10" to limit all animations to 1000ms.',
 };
 
 export default EN;

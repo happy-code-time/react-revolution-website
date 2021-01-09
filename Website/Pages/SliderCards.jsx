@@ -112,6 +112,84 @@ const js = `getCards(dot = '') {
     return data;
 }`;
 
+const codeExample7 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        paginationType={2}
+        previous='«'
+        next='»'
+        buttonsAlwaysVisible={true}
+        data={this.getCards()}
+    />
+</div>`;
+
+const codeExample8 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        paginationType={2}
+        previous='«'
+        next='»'
+        buttonsAlwaysVisible={true}
+        autoplay={true}
+        autoplayTime={5000}
+        data={this.getCards()}
+    />
+</div>`;
+
+const codeExample9 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        paginationType={2}
+        previous='«'
+        next='»'
+        buttonsAlwaysVisible={true}
+        autoplay={true}
+        autoplayTime={5000}
+        animationTime='10'
+        data={this.getCards()}
+    />
+</div>`;
+
+
 class _SliderCards extends React.Component {
     constructor(props) {
         super(props);
@@ -230,7 +308,108 @@ class _SliderCards extends React.Component {
                         />
                     </div>
                 )
-            }
+            },
+            {
+                title: 'SliderCards',
+                description: trans('slider.example7'),
+                reactTextBefore: '',
+                react: codeExample7,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            previous='«'
+                            next='»'
+                            buttonsAlwaysVisible={true}
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderCards',
+                description: trans('slider.example8'),
+                reactTextBefore: '',
+                react: codeExample8,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            previous='«'
+                            next='»'
+                            buttonsAlwaysVisible={true}
+                            autoplay={true}
+                            autoplayTime={5000}
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderCards',
+                description: trans('slider.example9'),
+                reactTextBefore: '',
+                react: codeExample9,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            previous='«'
+                            next='»'
+                            buttonsAlwaysVisible={true}
+                            autoplay={true}
+                            autoplayTime={5000}
+                            animationTime='10'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
         ];
     }
 
@@ -392,6 +571,34 @@ class _SliderCards extends React.Component {
                                 {
                                     key: 'slideAfterMove',
                                     values: 'slider.slideAfterMove'
+                                },
+                                {
+                                    key: 'paginationType',
+                                    values: 'slider.paginationType'
+                                },
+                                {
+                                    key: 'autoplay',
+                                    values: 'slider.autoplay'
+                                },
+                                {
+                                    key: 'autoplayTime',
+                                    values: 'slider.autoplayTime'
+                                },
+                                {
+                                    key: 'autoplayNext',
+                                    values: 'slider.autoplayNext'
+                                },
+                                {
+                                    key: 'animationTime',
+                                    values: 'slider.animationTime'
+                                },
+                                {
+                                    key: 'allowMouseTouch',
+                                    values: 'slider.allowMouseTouch'
+                                },
+                                {
+                                    key: 'wrapDirection',
+                                    values: 'slider.wrapDirection'
                                 },
                             ],
                             'rr-slider-cards'

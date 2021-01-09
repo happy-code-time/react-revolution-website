@@ -1,0 +1,460 @@
+.bc-a {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-b {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-c {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-d {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-e {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-f {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-g {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-h {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-i {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-j {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-k {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-l {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-m {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-n {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-o {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-p {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-q {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-r {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-s {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-t {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-u {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-v {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-w {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-x {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-y {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bc-z {
+  background-color: rgba(0, 105, 148, 0.8); }
+
+.bg-dark-link {
+  background-color: #2D3748 !important; }
+
+* {
+  font-family: Helvetica Neue, Arial, sans-serif; }
+
+.w-100 {
+  width: 100% !important; }
+
+.text-elipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: none;
+  text-overflow: ellipsis; }
+
+.block {
+  display: block; }
+
+.flex {
+  display: flex; }
+
+.flex-row {
+  flex-direction: row; }
+
+.flex-column {
+  flex-direction: column; }
+
+.flex-start {
+  justify-content: flex-start; }
+
+.flex-space-around {
+  justify-content: space-around; }
+
+.flex-space-between {
+  justify-content: space-between; }
+
+.relative {
+  position: relative; }
+
+.m0 {
+  margin: 0 !important; }
+
+.mt-1 {
+  margin-top: 10px; }
+
+.mt-2 {
+  margin-top: 20px; }
+
+.mt-3 {
+  margin-top: 30px; }
+
+.mt-4 {
+  margin-top: 40px; }
+
+.mb-2 {
+  margin-bottom: 20px; }
+
+.mb-3 {
+  margin-bottom: 30px; }
+
+.mb-4 {
+  margin-bottom: 40px; }
+
+.font-input {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }
+
+.ff-title {
+  font-family: Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif; }
+
+.h1-title {
+  color: #7c8695;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: Ubuntu, Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.01123rem; }
+
+.text-center {
+  text-align: center; }
+
+.ff-roboto {
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif; }
+
+.buttons-group {
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 90%;
+  margin: 20px 5%; }
+
+.buttons-group-delete-account {
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 90%;
+  margin: 0 5%; }
+
+.yellow {
+  color: #ffeb3b; }
+
+.red {
+  color: #f44559; }
+
+.green {
+  color: #47b476; }
+
+.lime {
+  color: #C3FAE8; }
+
+.dodgerblue {
+  color: #1873CC; }
+
+.little-gray {
+  color: rgba(69, 69, 69, 0.7); }
+
+.action-icon {
+  color: #313435;
+  opacity: 0.8; }
+
+.action-icon:hover {
+  cursor: pointer; }
+
+.d-block {
+  display: block !important; }
+
+.d-none {
+  display: none !important; }
+
+.py-2 {
+  padding: 20px 0; }
+
+.my-2 {
+  margin: 20px 0; }
+
+.my-3 {
+  margin: 30px 0; }
+
+.my-0 {
+  margin: 0px 0 !important; }
+
+.no-padding {
+  padding: 0px !important; }
+
+.mr-2 {
+  margin-right: 20px; }
+
+h1,
+.h1 {
+  color: rgba(0, 0, 0, 0.77); }
+
+.text-center {
+  text-align: center; }
+
+.icon-security {
+  color: rgba(248, 165, 27, 0.7); }
+
+.icon-images {
+  color: rgba(30, 144, 255, 0.8); }
+
+.icon-messages {
+  color: #7a7a7a; }
+
+.icon-iframes {
+  color: rgba(71, 180, 118, 0.7); }
+
+.icon-cookies {
+  color: #deb887; }
+
+.cursor-pointer {
+  cursor: pointer; }
+
+.ellipsis {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: none;
+  text-overflow: ellipsis; }
+
+.button-action {
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 3px;
+  background-color: #1873CC;
+  box-shadow: 0px 0px 3px #1873CC;
+  color: white;
+  font-size: 0.87rem;
+  transition-duration: 200ms;
+  border: 1px solid transparent;
+  display: inline-block;
+  margin: 10px 0;
+  text-decoration: none; }
+
+.button-action:hover {
+  border: 1px solid #1873CC;
+  cursor: pointer; }
+
+.rr-sourcecode {
+  border-radius: 5px; }
+  .rr-sourcecode .code {
+    background-color: #2D3748;
+    overflow: hidden;
+    border-radius: 5px;
+    box-sizing: border-box; }
+    .rr-sourcecode .code .single-code-line-first .line-number,
+    .rr-sourcecode .code .single-code-line-first .line-code {
+      padding-top: 10px; }
+    .rr-sourcecode .code .single-code-line-last .line-number,
+    .rr-sourcecode .code .single-code-line-last .line-code {
+      padding-bottom: 10px; }
+    .rr-sourcecode .code .line-number {
+      box-sizing: border-box;
+      padding: 3px 0 3px 7px;
+      color: #718096;
+      font-size: 0.77rem;
+      margin-right: 10px; }
+    .rr-sourcecode .code .line-code {
+      box-sizing: border-box;
+      padding: 3px 0;
+      letter-spacing: 0.077rem;
+      font-size: 0.87rem; }
+
+.title-border {
+  box-sizing: border-box;
+  padding: 10px 0;
+  margin: 10px 0 20px 0;
+  color: #72777a;
+  border-bottom: 1px solid #dadce0;
+  font-size: 1.1rem; }
+  .title-border i {
+    margin: 0 10px; }
+
+.main-menu {
+  /*
+     * Animation drop down icon - down
+     */
+  padding-top: 30px;
+  list-style-type: none;
+  overflow: hidden;
+  overflow-anchor: none;
+  position: relative;
+  height: calc(100vh - 120px);
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 0;
+  position: relative;
+  padding-bottom: 50px;
+  /*
+     * Animate the toggling elements
+     */
+  /*
+     * Keep the original state
+     * without animation while set state
+     * on current toggled items
+     */
+  /*
+     * Toggled menu entry to show the drop down icon 
+     * to the direction: up
+     */
+  /*
+     * Toggle drow down icon back to initial state
+     * to the direction: down
+     */ }
+
+@keyframes rotateToggledLeft {
+  0% {
+    transform: rotateZ(43deg); }
+  100% {
+    transform: rotateZ(-43deg); } }
+
+@keyframes rotateToggledRight {
+  0% {
+    transform: rotateZ(-43deg); }
+  100% {
+    transform: rotateZ(43deg); } }
+
+@keyframes rotateToggleLeft {
+  0% {
+    transform: rotateZ(-43deg); }
+  100% {
+    transform: rotateZ(43deg); } }
+
+@keyframes rotateToggleRight {
+  0% {
+    transform: rotateZ(43deg); }
+  100% {
+    transform: rotateZ(-43deg); } }
+  .main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .main-menu .single-entry {
+    position: relative;
+    margin-top: 5px;
+    list-style-type: none;
+    color: #72777a;
+    letter-spacing: 0.2px;
+    transition-duration: 200ms;
+    font-weight: 500;
+    position: relative;
+    white-space: nowrap;
+    color: #72777a;
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding: 0px 15px;
+    display: inline-block;
+    width: 100%; }
+    .main-menu .single-entry .text {
+      font-size: 0.87rem;
+      margin-left: 20px; }
+    .main-menu .single-entry .icon {
+      font-size: 0.93rem;
+      margin: 10px 2px; }
+    .main-menu .single-entry .drop-down {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      transition-duration: 200ms; }
+    .main-menu .single-entry .drop-down:before,
+    .main-menu .single-entry .drop-down:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      width: 1px;
+      height: 10px;
+      overflow: hidden;
+      transition-duration: 200ms;
+      background-color: #272727; }
+    .main-menu .single-entry .drop-down:before {
+      right: 0; }
+    .main-menu .single-entry .drop-down:after {
+      right: 6px; }
+
+@keyframes showLiItems {
+  0% {
+    height: 0px;
+    overflow: hidden; }
+  100% {
+    height: 40px;
+    overflow: unset; } }
+
+@keyframes hideLiItems {
+  0% {
+    height: 40px;
+    overflow: unset; }
+  100% {
+    height: 0px;
+    overflow: hidden; } }
+  .main-menu .toggled ul li {
+    height: 0px;
+    overflow: hidden;
+    animation: showLiItems 350ms forwards ease-in;
+    transition-duration: 200ms; }
+  .main-menu .toggle-back .static {
+    animation: hideLiItems 350ms forwards ease-in; }
+  .main-menu ul .static {
+    height: 40px;
+    overflow: unset; }
+  .main-menu ul .dynamic {
+    height: auto;
+    overflow: unset; }
+  .main-menu .single-entry:hover {
+    cursor: pointer;
+    background-color: rgba(222, 222, 222, 0.6); }
+  .main-menu .drop-down.toggle:before {
+    transform: rotateZ(43deg); }
+  .main-menu .drop-down.toggle:after {
+    transform: rotateZ(-43deg); }
+  .main-menu .drop-down.persist-toggled:before {
+    transform: rotateZ(-43deg) !important; }
+  .main-menu .drop-down.persist-toggled:after {
+    transform: rotateZ(43deg) !important; }
+  .main-menu .drop-down.toggled:before {
+    animation: rotateToggledLeft 350ms forwards linear; }
+  .main-menu .drop-down.toggled:after {
+    animation: rotateToggledRight 350ms forwards linear; }
+  .main-menu .drop-down.toggle-back:before {
+    animation: rotateToggleLeft 350ms forwards linear; }
+  .main-menu .drop-down.toggle-back:after {
+    animation: rotateToggleRight 350ms forwards linear; }
