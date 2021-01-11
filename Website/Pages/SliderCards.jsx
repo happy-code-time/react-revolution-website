@@ -600,6 +600,10 @@ class _SliderCards extends React.Component {
                                     key: 'wrapDirection',
                                     values: 'slider.wrapDirection'
                                 },
+                                {
+                                    key: 'inlineStyle',
+                                    values: 'slider.inlineStyle'
+                                },
                             ],
                             'rr-slider-cards'
                         )

@@ -174,6 +174,16 @@ const DE = {
         "type": "Boolean",
         "default": "true"
     },
+    "loadonscroll.minify": {
+        "description": "Callback Funktion schneller aufrufen wärend des Scroll-Events.",
+        "type": "Number",
+        "default": "0"
+    },
+    "loadonscroll.scrolledToBottom": {
+        "description": "Die Callback Function wird nur ausgeführt wenn er Benutzer komplett am Ende der Website gelangt ist minus minify.",
+        "type": "Boolean",
+        "default": "false"
+    },
     "loadonscroll-description-1": "Beispiel mit Promise.resolve() drei mal.",
     "loadonscroll-description-2": "Beispiel mit Promise.reject() (gibt den undefinierten Standardwert als Wert zurück) die Schlüsselverwendung 'persistReject = {false}' (das Bildlaufereignis nicht entfernen) und 'onReject' (benutzerdefinierte Schaltfläche anzeigen für Rufen Sie die Rückruffunktion erneut auf.).",
     "loadonscroll-description-3": "Beispiel mit Promise.reject() (mit benutzerdefiniertem JSX als Fehlermeldung für den Benutzer) mit der Schlüsselverwendung 'persistReject = {true}' (Entfernen des Bildlaufereignisses!) und 'onReject' ( benutzerdefinierte Schaltfläche anzeigen, um die Rückruffunktion erneut aufzurufen).",
@@ -1953,6 +1963,11 @@ const DE = {
     },
     'slider.wrapDirection' : {
         "description": "Wenn true und der Benutzer im ersten Slide ist, und den Button vorher drückt wird zum letzten Slide navigiert und umgegehrt. Wenn der Benutzer im letzten Slide ist und den Button weiter drückt, wird der erste Slide angezeigt.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.inlineStyle' : {
+        "description": "Wenn der Slider mit der Maus bewegt wird ein inline-style verwendet. Wenn false dann setState.",
         "type": "Boolean",
         "default": "true"
     },

@@ -67,6 +67,7 @@ class SliderCards extends React.Component {
             allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
             buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
+            inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
         };
 
         this.slideWidth = 0;
@@ -91,7 +92,7 @@ class SliderCards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
@@ -124,6 +125,7 @@ class SliderCards extends React.Component {
                 allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
                 buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
+                inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
             };
         }
 
@@ -469,7 +471,7 @@ class SliderCards extends React.Component {
             return;
         }
 
-        let { index } = this.state;
+        let { index, inlineStyle } = this.state;
         // Calculate distance to translate holder.
         const currentWidth = this.getCurrentSlidersTransformation();
         this.movex = currentWidth + (this.mousestartx - event.layerX);
@@ -480,7 +482,13 @@ class SliderCards extends React.Component {
 
         if (this.movex < this.getMaxSlidesWidth()) {
             // Inline style = avoid flipping while fast mouse moving
-            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            if(inlineStyle){
+                return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            }
+
+            this.setState({
+                slidesTransform: `translate3d(-${this.movex}px,0,0)`
+            });
         }
     }
 
@@ -582,7 +590,7 @@ class SliderCards extends React.Component {
             return;
         }
 
-        let { index, cardWidth } = this.state;
+        let { index, cardWidth, inlineStyle } = this.state;
         // Calculate distance to translate holder.
         const currentWidth = (index * cardWidth) + (index);
         this.movex = currentWidth + (this.touchstartx - event.touches[0].pageX);
@@ -593,7 +601,13 @@ class SliderCards extends React.Component {
 
         if (this.movex < this.getMaxSlidesWidth()) {
             // Inline style = avoid flipping while fast mouse moving
-            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            if(inlineStyle){
+                return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            }
+
+            this.setState({
+                slidesTransform: `translate3d(-${this.movex}px,0,0)`
+            });
         }
     }
 

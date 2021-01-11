@@ -724,6 +724,10 @@ class _SliderItems extends React.Component
                                     key: 'wrapDirection',
                                     values: 'slider.wrapDirection'
                                 },
+                                {
+                                    key: 'inlineStyle',
+                                    values: 'slider.inlineStyle'
+                                },
                             ],
                             'rr-slider-items'
                         )

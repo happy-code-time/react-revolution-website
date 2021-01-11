@@ -174,6 +174,16 @@ const EN = {
         "type": "Boolean",
         "default": "true"
     },
+    "loadonscroll.minify": {
+        "description": "Callback function faster during the scroll event.",
+        "type": "Number",
+        "default": "0"
+    },
+    "loadonscroll.scrolledToBottom": {
+        "description": "The callback function is only executed when the user has completely reached the end of the website minus minify.",
+        "type": "Boolean",
+        "default": "false"
+    },
     "loadonscroll-description-1": "Example with Promise.resolve() three times.",
     "loadonscroll-description-2": "Example with Promise.reject() (returns default undefined as value) the key usage 'persistReject={false}' (do not remove the scroll event) and 'onReject' (display custom button to call the callback function again).",
     "loadonscroll-description-3": "Example with Promise.reject() (with custom JSX as error message for the user) with the key usage 'persistReject={true}' (remove the scroll event !) and 'onReject' (display custom button to call the callback function again).",
@@ -1950,6 +1960,11 @@ const EN = {
     },
     'slider.wrapDirection': {
         "description": "If true and the user is in the first slide and presses the button beforehand, navigation to the last slide is made and vice versa. If the user is in the last slide and presses the button again, the first slide is displayed.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.inlineStyle': {
+        "description": "If the slider is moved with the mouse an inline-style is used. If false then setState.",
         "type": "Boolean",
         "default": "true"
     },

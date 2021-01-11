@@ -479,6 +479,38 @@ class Releases extends React.Component {
                             value: 'Added new keys: "paginationType", "autoplay", "autoplayTime", "autoplayNext", "animationTime", "allowMouseTouch".'
                         },
                     ]
+                },
+                '4.1.3': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new key: "inlineStyle".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new key: "inlineStyle".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new key: "inlineStyle".'
+                        },
+                    ]
+                },
+                '4.1.4': {
+                    data: [
+                        {
+                            key: 'LoadOnScroll',
+                            value: 'Added new key: "scrolledToBottom".'
+                        },
+                        {
+                            key: 'LoadOnScroll',
+                            value: 'Fixed "Document listener" if the key scrollReference={false} and scrolledToBottom={true}.'
+                        },
+                        {
+                            key: 'LoadOnScroll',
+                            value: 'Added support for resolving data as array of Jsx elements. Currently the module expects single data as one single JSX element. Now if data is typeof JSX[], then this items rendered as single element.'
+                        },
+                    ]
                 }
             }
         }

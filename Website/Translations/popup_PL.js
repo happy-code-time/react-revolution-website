@@ -174,6 +174,16 @@ const PL = {
         "type": "Boolean",
         "default": "true"
     },
+    "loadonscroll.minify": {
+        "description": "Funkcja Callback działa szybciej podczas zdarzenia przewijania.",
+        "type": "Number",
+        "domyślny": "0"
+    },
+    "loadonscroll.scrolledToBottom": {
+        "description": "Funkcja Callback jest wykonywana tylko wtedy, gdy użytkownik całkowicie dotarł do końca strony internetowej minus minify.",
+        "type": "Boolean",
+        "default": "false"
+    },
     "loadonscroll-description-1": "Przykład z Promise.resolve() trzy razy.",
     "loadonscroll-description-2": "Przykład z Promise.reject () (zwraca domyślną wartość niezdefiniowaną) użycie klucza 'persistReject = {false}' (nie usuwaj zdarzenia przewijania) i 'onReject' (wyświetl niestandardowy przycisk wywołanie funkcji zwrotnej ponownie). ",
     "loadonscroll-description-3": "Przykład z Promise.reject () (z niestandardowym JSX jako komunikatem o błędzie dla użytkownika) z użyciem klucza„ persistReject = {true} ”(usuń zdarzenie przewijania!) i„ onReject ”( wyświetlić przycisk niestandardowy, aby ponownie wywołać funkcję oddzwaniania). ",
@@ -1951,6 +1961,11 @@ const PL = {
     },
     'slider.wrapDirection': {
         "description": "Jeśli true, a użytkownik jest na pierwszym slajdzie i wcześniej wciśnie przycisk, nawigacja zostanie przeprowadzona do ostatniego slajdu i odwrócona. Jeśli użytkownik jest na ostatnim slajdzie i ponownie wciśnie przycisk, zostanie wyświetlony pierwszy slajd.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'slider.inlineStyle': {
+        "description": "Jeśli slider jest przesuwany za pomocą myszy, używany jest inline-style. Jeśli false, to setState.",
         "type": "Boolean",
         "default": "true"
     },

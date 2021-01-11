@@ -55,6 +55,7 @@ class Slider extends React.Component {
             animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
             allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
+            inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
         };
 
         this.slideWidth = 0;
@@ -80,7 +81,7 @@ class Slider extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'dotsInside', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationInside', 'paginationType', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible', 'callbackMount', 'callbackMountProps', 'imageAsBackground'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'dotsInside', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationInside', 'paginationType', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible', 'callbackMount', 'callbackMountProps', 'imageAsBackground'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider',
@@ -105,6 +106,7 @@ class Slider extends React.Component {
                 animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
                 allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
+                inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
             };
         }
 
@@ -375,7 +377,7 @@ class Slider extends React.Component {
             return;
         }
 
-        const { index } = this.state;
+        const { index, inlineStyle } = this.state;
 
         // Calculate distance to translate holder.
         this.movex = index * this.slideWidth + (this.mousestartx - event.layerX);
@@ -386,7 +388,13 @@ class Slider extends React.Component {
 
         if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
             // Inline style = avoid flipping while fast mouse moving
-            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            if(inlineStyle){
+                return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            }
+
+            this.setState({
+                slidesTransform: `translate3d(-${this.movex}px,0,0)`
+            });
         }
     }
 
@@ -467,7 +475,7 @@ class Slider extends React.Component {
     }
 
     handleTouchMove(event) {
-        let { index } = this.state;
+        let { index, inlineStyle } = this.state;
         // Calculate distance to translate holder.
         this.movex = index * this.slideWidth + (this.touchstartx - event.touches[0].pageX);
         // mouse direction
@@ -477,7 +485,13 @@ class Slider extends React.Component {
 
         if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
             // Inline style = avoid flipping while fast mouse moving
-            this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            if(inlineStyle){
+                return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            }
+
+            this.setState({
+                slidesTransform: `translate3d(-${this.movex}px,0,0)`
+            });
         }
     }
 

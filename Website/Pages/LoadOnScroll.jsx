@@ -806,7 +806,7 @@ class _LoadOnScroll extends React.Component
                                 },
                                 {
                                     key: 'minify',
-                                    values: 'minify'
+                                    values: 'loadonscroll.minify'
                                 },
                                 {
                                     key: 'scrollReference',
@@ -827,6 +827,10 @@ class _LoadOnScroll extends React.Component
                                 {
                                     key: 'fireScrollEvent',
                                     values: 'loadonscroll.fireScrollEvent'
+                                },
+                                {
+                                    key: 'scrolledToBottom',
+                                    values: 'loadonscroll.scrolledToBottom'
                                 },
                             ],
                             'rr-load-on-scroll'

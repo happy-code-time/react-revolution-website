@@ -3,8 +3,7 @@ import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import loadStyle from '../internalFunctions/loadStyle';
 
-class LoadOnScroll extends React.Component 
-{
+class LoadOnScroll extends React.Component {
 
     constructor(props) {
         super(props);
@@ -37,11 +36,13 @@ class LoadOnScroll extends React.Component
             scrollReference: typeof true == typeof props.scrollReference ? props.scrollReference : true,
             onReject: props.onReject ? props.onReject : '',
             persistReject: typeof true == typeof props.persistReject ? props.persistReject : false,
-            fireScrollEvent: typeof 8 == typeof props.fireScrollEvent ? props.fireScrollEvent : 0, 
+            fireScrollEvent: typeof 8 == typeof props.fireScrollEvent ? props.fireScrollEvent : 0,
             fireScrollBack: typeof true == typeof props.fireScrollBack ? props.fireScrollBack : true,
+            scrolledToBottom: typeof true == typeof props.scrolledToBottom ? props.scrolledToBottom : false,
         };
 
         this.loadingAllowed = true;
+        this.fireScrollBackCount = 0;
     }
 
     /**
@@ -51,7 +52,7 @@ class LoadOnScroll extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'loading', 'minify', 'scrollReference', 'callbackProps', 'onReject', 'persistReject', 'fireScrollEvent', 'fireScrollBack'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'loading', 'minify', 'scrollReference', 'callbackProps', 'onReject', 'persistReject', 'fireScrollEvent', 'fireScrollBack', 'scrolledToBottom'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-load-on-scroll',
@@ -64,8 +65,9 @@ class LoadOnScroll extends React.Component
                 scrollReference: typeof true == typeof props.scrollReference ? props.scrollReference : true,
                 onReject: props.onReject ? props.onReject : '',
                 persistReject: typeof true == typeof props.persistReject ? props.persistReject : false,
-                fireScrollEvent: typeof 8 == typeof props.fireScrollEvent ? props.fireScrollEvent : 0, 
+                fireScrollEvent: typeof 8 == typeof props.fireScrollEvent ? props.fireScrollEvent : 0,
                 fireScrollBack: typeof true == typeof props.fireScrollBack ? props.fireScrollBack : true,
+                scrolledToBottom: typeof true == typeof props.scrolledToBottom ? props.scrolledToBottom : false,
             };
         }
 
@@ -73,38 +75,40 @@ class LoadOnScroll extends React.Component
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.attachScrollEvent();
         this.buildData(this.state.data);
     }
 
-    fireScrollEvents(){
+    fireScrollEvents() {
         const { fireScrollEvent, fireScrollBack, scrollReference } = this.state;
 
-        if(fireScrollEvent){
-            
+        if (fireScrollEvent) {
+
             if (this.scrollReference && scrollReference) {
                 this.scrollReference.scrollTop = fireScrollEvent;
             }
 
-            if(!scrollReference){
+            if (!scrollReference) {
                 document.documentElement.scrollTop = fireScrollEvent;
             }
         }
 
-        if(fireScrollBack){
-
+        if (fireScrollBack) {
+            
             if (this.scrollReference && scrollReference) {
                 this.scrollReference.scrollTop = 0;
             }
 
-            if(!scrollReference){
+            if (!scrollReference) {
 
-                if(fireScrollBack){
+                if (fireScrollBack && 0 == this.fireScrollBackCount) {
+                    this.fireScrollBackCount = 1;
+
                     document.documentElement.scrollTop = 0;
 
-                    setTimeout( () => {
+                    setTimeout(() => {
                         document.documentElement.scrollTop = 0;
                     }, 100);
                 }
@@ -112,7 +116,7 @@ class LoadOnScroll extends React.Component
         }
     }
 
-    attachScrollEvent(){
+    attachScrollEvent() {
         const { scrollReference } = this.state;
 
         if (this.scrollReference && scrollReference) {
@@ -120,32 +124,32 @@ class LoadOnScroll extends React.Component
             this.scrollReference.addEventListener('scroll', this.scrollEvent);
         }
 
-        if(!scrollReference){
+        if (!scrollReference) {
             document.removeEventListener('scroll', this.scrollEvent);
             document.addEventListener('scroll', this.scrollEvent);
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.removeScrollEvent();
     }
 
-    removeScrollEvent(){
+    removeScrollEvent() {
         const { scrollReference } = this.state;
 
         if (this.scrollReference) {
             this.scrollReference.removeEventListener('scroll', this.scrollEvent);
         }
 
-        if(!scrollReference){
+        if (!scrollReference) {
             document.removeEventListener('scroll', this.scrollEvent);
         }
     }
 
-    scrollToBottom(){
+    scrollToBottom() {
         const { scrollReference } = this.state;
 
-        try{
+        try {
 
             // if(!scrollReference){
             //     document.documentElement.scrollTop = document.documentElement.getBoundingClientRect().height;
@@ -155,107 +159,123 @@ class LoadOnScroll extends React.Component
                 this.scrollReference.scrollTop = this.scrollReference.getBoundingClientRect().height;
             }
         }
-        catch(e){
+        catch (e) {
 
         }
     }
 
-    loadMore(event){
+    loadMore(event) {
         const self = this;
         let { callback, persistReject, callbackProps } = this.state;
         this.removeScrollEvent();
 
-        if(callback){
+        if (callback) {
 
             this.setState({
                 loadingData: true,
                 isError: false
             }, async () => {
                 this.scrollToBottom();
-                
+
                 await (callback)(event, callbackProps)
-                .then( data => {
-                    
-                    if('break' == data){
-                        return self.setState({ loadingData: false });
-                    }
+                    .then(data => {
 
-                    self.buildData(data);
+                        if ('break' == data) {
+                            return self.setState({ loadingData: false });
+                        }
 
-                    if(persistReject){
-                        return null;
-                    }
+                        self.buildData(data);
 
-                    return self.attachScrollEvent();
-                })
-                .catch( errorData => {
+                        if (persistReject) {
+                            return null;
+                        }
 
-                    if(undefined == errorData){
-                        /**
-                         * No more items to load
-                         */
-                        return self.setState({ 
-                            loadingData: false,
-                            isError: true
+                        return self.attachScrollEvent();
+                    })
+                    .catch(errorData => {
+
+                        if (undefined == errorData) {
+                            /**
+                             * No more items to load
+                             */
+                            return self.setState({
+                                loadingData: false,
+                                isError: true
+                            }, () => {
+                                if (!persistReject) {
+                                    setTimeout(() => {
+                                        self.attachScrollEvent();
+                                        self.callbackRendered = true;
+                                    }, 500);
+                                }
+                            });
+                        }
+
+                        return self.setState({
+                            errorData,
+                            isError: true,
+                            loadingData: false
                         }, () => {
-                            if(!persistReject){
-                                setTimeout( () => {
+
+                            if (persistReject) {
+                                const timeouts = [100, 200];
+
+                                for (let x = 0; x <= timeouts.length - 1; x++) {
+                                    setTimeout(() => {
+                                        self.scrollToBottom();
+                                    }, timeouts[x]);
+                                }
+                            }
+
+                            if (!persistReject) {
+                                setTimeout(() => {
                                     self.attachScrollEvent();
                                     self.callbackRendered = true;
                                 }, 500);
                             }
                         });
-                    }
-
-                    return self.setState({
-                        errorData,
-                        isError: true,
-                        loadingData: false
-                    }, () => {
-
-                        if(persistReject){                            
-                            const timeouts = [ 100, 200 ];
-
-                            for(let x = 0; x <= timeouts.length-1; x++){
-                                setTimeout( () => {
-                                    self.scrollToBottom();
-                                }, timeouts[x]);
-                            }
-                        }
-
-                        if(!persistReject){
-                            setTimeout( () => {
-                                self.attachScrollEvent();
-                                self.callbackRendered = true;
-                            }, 500);
-                        }
                     });
-                });
             });
         }
-        else{
-            self.setState({ 
+        else {
+            self.setState({
                 loadingData: false,
                 isError: false
             });
         }
     }
 
-    buildData(data = []){
+    buildData(data = []) {
         let { dataJsx } = this.state;
 
-        dataJsx.push(
-            <span 
-                key={internalUuid()} 
-                className="section"
-            >
-                {
-                    data
-                }
-            </span>
-        );
+        if (typeof [] === typeof data && undefined !== data[0]) {
+            data.map(i => {
+                dataJsx.push(
+                    <span
 
-        this.setState({ 
+                        className="section"
+                    >
+                        {
+                            data
+                        }
+                    </span>
+                );
+            });
+        }
+        else {
+            dataJsx.push(
+                <span
+                    key={internalUuid()}
+                    className="section"
+                >
+                    {
+                        data
+                    }
+                </span>
+            );
+        }
+
+        this.setState({
             dataJsx,
             loadingData: false
         }, () => {
@@ -264,50 +284,60 @@ class LoadOnScroll extends React.Component
         });
     }
 
-    scrollEvent(e){
-        const { minify, scrollReference } = this.state;
+    scrollEvent(e) {
+        const { minify, scrollReference, scrolledToBottom } = this.state;
 
         /**
          * Reference listener
          */
         const min = parseInt(minify);
 
-        if(this.scrollReference && this.callbackRendered && scrollReference){
+        if (this.scrollReference && this.callbackRendered && scrollReference && !scrolledToBottom) {
             /**
              * Scrolled to bottom - min
              */
             if (this.scrollReference.offsetHeight + this.scrollReference.scrollTop >= this.scrollReference.scrollHeight - min) {
                 this.callbackRendered = false;
-                this.loadMore(e); 
+                return this.loadMore(e);
             }
         }
 
         /**
          * Document listener
          */
-        if(!scrollReference && document.body){
+        if(!scrollReference && document.body && !scrolledToBottom){
+            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - min) {
+                this.callbackRendered = false;
+                return this.loadMore(e); 
+            }
+        }
+
+        if (!scrollReference && document.documentElement && scrolledToBottom) {
             /**
              * Scrolled to bottom - min
              */
-            if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight - min) {
+            const currentScrollY = document.documentElement.scrollTop + document.documentElement.getBoundingClientRect().height;
+            const documentMaxHeight = document.documentElement.scrollHeight - min;
+
+            if (currentScrollY >= documentMaxHeight) {
                 this.callbackRendered = false;
-                this.loadMore(e); 
+                this.loadMore(e);
             }
         }
     }
 
-    
+
     render() {
         const { addClass, dataJsx, defaultClass, loadingData, errorData, loading, id, scrollReference, isError, onReject } = this.state;
 
         return (
-            <div 
-                ref={ (node) => this.scrollReference = node}
-                className={`${defaultClass} ${addClass} ${scrollReference ? '' : 'ignore' }`}
+            <div
+                ref={(node) => this.scrollReference = node}
+                className={`${defaultClass} ${addClass} ${scrollReference ? '' : 'ignore'}`}
                 id={id}
             >
                 {
-                    dataJsx && dataJsx.map( i => i)
+                    dataJsx && dataJsx.map(i => i)
                 }
                 {
                     loadingData && loading
@@ -317,7 +347,7 @@ class LoadOnScroll extends React.Component
                 }
                 {
                     isError && onReject &&
-                    <span onClick={ (e) => this.loadMore(e)}>
+                    <span onClick={(e) => this.loadMore(e)}>
                         {
                             onReject
                         }
