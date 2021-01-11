@@ -1997,6 +1997,11 @@ const PL = {
     'slider.example7': 'Przykład z użyciem klucza paginationType={2}.',
     'slider.example8': 'Przykład z użyciem klucza autoplay={true} i autoplayTime={5000}.',
     'slider.example9': 'Przykład z użyciem klawisza animationTime="10" w celu ograniczenia wszystkich animacji do 1000 ms.',
+    'slider.useLayerX': {
+        "description": "Jeśli slider (w wersji Desktop) zostanie przesunięty, do przesunięcia slidera używana jest wartość event.layerX. Jeśli wartość tego klucza jest false, używana jest wartość event.clientX.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default PL;

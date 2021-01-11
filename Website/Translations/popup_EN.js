@@ -1996,6 +1996,11 @@ const EN = {
     'slider.example7': 'Example using the key paginationType={2}.',
     'slider.example8': 'Example with the use of the key autoplay={true} and autoplayTime={5000}.',
     'slider.example9': 'Example using the key animationTime="10" to limit all animations to 1000ms.',
+    'slider.useLayerX': {
+        "description": "If the slider (in the desktop version) is moved, the value of event.layerX is used to move the slider. If the value of this key is false, the value of event.clientX is used.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default EN;

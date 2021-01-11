@@ -732,6 +732,10 @@ class _SliderItems extends React.Component
                                     key: 'inlineStyle',
                                     values: 'slider.inlineStyle'
                                 },
+                                {
+                                    key: 'useLayerX',
+                                    values: 'slider.useLayerX'
+                                },
                             ],
                             'rr-slider-items'
                         )

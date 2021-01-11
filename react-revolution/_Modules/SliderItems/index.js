@@ -62,6 +62,7 @@ class SliderItems extends React.Component {
             allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
             inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
+            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
         };
 
         this.slideWidth = 0;
@@ -87,7 +88,7 @@ class SliderItems extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['itemsS', 'itemsL', 'itemsXL', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationType', 'resizeS', 'resizeL', 'resizeXL', 'dotsInside', 'paginationInside', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['itemsS', 'itemsL', 'itemsXL', 'useLayerX', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationType', 'resizeS', 'resizeL', 'resizeXL', 'dotsInside', 'paginationInside', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-items',
@@ -117,6 +118,7 @@ class SliderItems extends React.Component {
                 allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
                 inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
+                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
             };
         }
 
@@ -133,8 +135,12 @@ class SliderItems extends React.Component {
         this.slideWidth = this.getSlidersWidth();
         this.setResizeListener();
         this.mouseDownListeners();
-        this.resizeView();
         this.autoplay();
+        this.resizeView();
+        
+        setTimeout( () => {
+            this.resizeView();
+        }, 300);
     }
 
     componentWillUnmount() {
@@ -453,7 +459,12 @@ class SliderItems extends React.Component {
     }
 
     handleMouseDown(event) {
-        this.mousestartx = event.layerX;
+        if(this.state.useLayerX){
+            this.mousestartx = event.layerX;
+        }
+        else{
+            this.mousestartx = event.clientX;
+        }
         this.mousedataClicksStart = performance.now();
         this.blockMove = false;
         this.userMoving = false;
@@ -476,7 +487,12 @@ class SliderItems extends React.Component {
 
         const { index, inlineStyle } = this.state;
         // Calculate distance to translate holder.
-        this.movex = index * this.slideWidth + (this.mousestartx - event.layerX);
+        if(this.state.useLayerX){
+            this.movex = index * this.slideWidth + (this.mousestartx - event.layerX);
+        }
+        else{
+            this.movex = index * this.slideWidth + (this.mousestartx - event.clientX);
+        }
         // mouse direction
         this.setDirection(event.pageX);
         // save mouse movement in px value for mouseUp or leave
@@ -847,9 +863,9 @@ class SliderItems extends React.Component {
                 {
                     displayDots && !dotsInside && 1 == paginationType && this.getDotsJsx()
                 }
-                    {
-                        2 == paginationType && !paginationInside && this.getPaginationType2()
-                    }
+                {
+                    2 == paginationType && !paginationInside && this.getPaginationType2()
+                }
             </div>
         );
     }

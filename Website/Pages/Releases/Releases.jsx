@@ -540,6 +540,22 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '4.1.7': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new key: "useLayerX".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new key: "useLayerX".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new key: "useLayerX".'
+                        },
+                    ]
+                },
             }
         }
     }

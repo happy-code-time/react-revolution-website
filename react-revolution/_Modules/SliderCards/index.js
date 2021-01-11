@@ -69,6 +69,7 @@ class SliderCards extends React.Component {
             buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
             inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
+            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
         };
 
         this.slideWidth = 0;
@@ -93,7 +94,7 @@ class SliderCards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'itemsXS', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsXS', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'useLayerX', 'dotsInside', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'itemsXS', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsXS', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
@@ -129,6 +130,7 @@ class SliderCards extends React.Component {
                 buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
                 inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
+                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
             };
         }
 
@@ -145,8 +147,12 @@ class SliderCards extends React.Component {
         this.slideWidth = this.getSlidersWidth();
         this.setResizeListener();
         this.mouseDownListeners();
-        this.resizeView();
         this.autoplay();
+        this.resizeView();
+
+        setTimeout( () => {
+            this.resizeView();
+        }, 300);
     }
 
     componentWillUnmount() {
@@ -470,7 +476,12 @@ class SliderCards extends React.Component {
     }
 
     handleMouseDown(event) {
-        this.mousestartx = event.layerX;
+        if(this.state.useLayerX){
+            this.mousestartx = event.layerX;
+        }
+        else{
+            this.mousestartx = event.clientX;
+        }
         this.mouseClicksStart = performance.now();
         this.blockMove = false;
         this.userMoving = false;
@@ -494,7 +505,13 @@ class SliderCards extends React.Component {
         let { index, inlineStyle } = this.state;
         // Calculate distance to translate holder.
         const currentWidth = this.getCurrentSlidersTransformation();
-        this.movex = currentWidth + (this.mousestartx - event.layerX);
+        // Calculate distance to translate holder.
+        if(this.state.useLayerX){
+            this.movex = currentWidth + (this.mousestartx - event.layerX);
+        }
+        else{
+            this.movex = currentWidth + (this.mousestartx - event.clientX);
+        }
         // mouse direction
         this.setDirection(event.pageX);
         // save mouse movement in px value for mouseUp or leave

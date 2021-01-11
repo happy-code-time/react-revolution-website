@@ -1984,6 +1984,11 @@ const DE = {
     'slider.example7': 'Beispiel mit der Verwendung des Schlüssels paginationType={2}.',
     'slider.example8': 'Beispiel mit der Verwendung des Schlüssels autoplay={true} und autoplayTime={5000}.',
     'slider.example9': 'Beispiel mit der Verwendung des Schlüssels animationTime="10" um alle Animationen zu beschrencken auf 1000ms.',
+    'slider.useLayerX' : {
+        "description": "Wenn der Slider (in der Desktop Variante) bewegt wird, wird zum bewegen des Sliders der Wert von event.layerX genommen. Wenn der Wert dieses Schlüssels false ist, wird der Wert von event.clientX genommen.",
+        "type": "Boolean",
+        "default": "true"
+    },
 };
 
 export default DE;
