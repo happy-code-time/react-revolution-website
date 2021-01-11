@@ -519,7 +519,27 @@ class Releases extends React.Component {
                             value: 'Bugfix JSX[] (fixed incoming data map function).'
                         },
                     ]
-                }
+                },
+                '4.1.6': {
+                    data: [
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new keys: "itemsXS", "slideItemsXS".'
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Improved resize check.'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new keys: "itemsXS".'
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Improved resize check.'
+                        },
+                    ]
+                },
             }
         }
     }

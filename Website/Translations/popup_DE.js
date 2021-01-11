@@ -1811,36 +1811,6 @@ const DE = {
         "type": "String|Jsx",
         "default": "undefined"
     },
-    'slider.items.itemsS' : {
-        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite kleiner ist als der übergebene Wert im Schlüssel 'resizeS' (default: 768px).",
-        "type": "Number",
-        "default": "1"
-    },
-    'slider.items.itemsL' : {
-        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite kleiner ist als der übergebene Wert im Schlüssel 'resizeL' (default: 1024px) und größer als der übergebene Wert im Schlüssel 'resizeS' (default: 768px).",
-        "type": "Number",
-        "default": "2"
-    },
-    'slider.items.itemsXL' : {
-        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite größer (oder gleich) ist als der übergebene Wert im Schlüssel 'resizeXL' (default: 1260px).",
-        "type": "Number",
-        "default": "3"
-    },
-    'slider.items.resizeS' : {
-        "description": "Wenn die Bildschirmbreite kleiner ist als dieser Wert, dann werden 'itemsS' Elemente im einelnen Slider generiert.",
-        "type": "Number",
-        "default": "768"
-    },
-    'slider.items.resizeL' : {
-        "description": "Wenn die Bildschirmbreite kleiner ist als dieser Wert, dann werden 'itemsL' Elemente im einelnen Slider generiert.",
-        "type": "Number",
-        "default": "1024"
-    },
-    'slider.items.resizeXL' : {
-        "description": "Wenn die Bildschirmbreite größer (oder gleich) ist als dieser Wert, dann werden 'itemsXL' Elemente im einelnen Slider generiert.",
-        "type": "Number",
-        "default": "1260"
-    },
     'slider.example1' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={false} (standard Einstellung).',
     'slider.example2' : 'Slider mit der Verwendung des Keys buttonsAlwaysVisible={true}.',
     'slider.example3' : 'Slider mit der Verwendung des Keys displayPagination={false} um den Paginator auszublenden.',
@@ -1916,20 +1886,60 @@ const DE = {
         "type": "Boolean",
         "default": "true"
     },
-    'slider.cards.cardWidthS':{
-        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeS={xxx}.",
+    'slider.cards.slideItemsXS':{
+        "description": "Anzahl der zu bewegenden Elementen (einzelne Karten) wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeS'.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.cards.slideItemsS':{
+        "description": "Anzahl der zu bewegenden Elementen (einzelne Karten) wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeL' aber größer ist als (der Wert von) 'resizeS'.",
         "type": "Number",
         "default": "2"
     },
-    'slider.cards.cardWidthL':{
-        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeL={xxx}.",
-        "type": "Number",
-        "default": "2"
-    },
-    'slider.cards.cardWidthXL':{
-        "description": "Die Breite der Karte (in px) bei dem Wert des Documents resizeXL={xxx}.",
+    'slider.cards.slideItemsL':{
+        "description": "Anzahl der zu bewegenden Elementen (einzelne Karten) wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeXL' aber größer ist als (der Wert von) 'resizeL'.",
         "type": "Number",
         "default": "3"
+    },
+    'slider.cards.slideItemsXL':{
+        "description": "Anzahl der zu bewegenden Elementen (einzelne Karten) wenn die Breite des Documents größer ist als (der Wert von) 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
+    'slider.items.itemsXS' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeS'.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.items.itemsS' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeL' aber größer ist als (der Wert von) 'resizeS'.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.items.itemsL' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Breite des Documents kleiner ist als (der Wert von) 'resizeXL' aber größer ist als (der Wert von) 'resizeL'.",
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.items.itemsXL' : {
+        "description": "Wie viele Objekte aus dem Übergebenen Schlüssel 'data' (Array) sollen in dem einzelnen Slide angezeigt werden wenn die Bildschirmbreite größer (oder gleich) ist als der übergebene Wert im Schlüssel 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
+    'slider.items.resizeS' : {
+        "description": "Wenn die Breite des Documents kleiner als dieser Wert ist, dann ist die anzahl der Generierten Element 'itemsXS'. Wenn die Breite des Documents größer ist als dieser Wert und kleiner als 'itemsL', dann soll die Anzahl der generierten Elemente 'itemsS' entsprechen.",
+        "type": "Number",
+        "default": "768"
+    },
+    'slider.items.resizeL' : {
+        "description": "Wenn die Breite des Documents größer ist als dieser Wert und kleiner als 'itemsXL', dann soll die Anzahl der generierten Elemente 'itemsL' entsprechen.",
+        "type": "Number",
+        "default": "1024"
+    },
+    'slider.items.resizeXL' : {
+        "description": "Wenn die Breite des Documents größer ist als dieser Wert, dann soll die Anzahl der generierten Elemente 'itemsXL' entsprechen.",
+        "type": "Number",
+        "default": "1260"
     },
     'slider.paginationType' : {
         "description": "Paginator Typ. Mögliche Typen: 1 und 2.",

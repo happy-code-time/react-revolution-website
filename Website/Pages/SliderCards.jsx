@@ -517,16 +517,24 @@ class _SliderCards extends React.Component {
                                     values: 'slider.data.dot'
                                 },
                                 {
-                                    key: 'cardWidthS',
-                                    values: 'slider.cards.cardWidthS'
+                                    key: 'slideItemsXS',
+                                    values: 'slider.cards.slideItemsXS'
                                 },
                                 {
-                                    key: 'cardWidthL',
-                                    values: 'slider.cards.cardWidthL'
+                                    key: 'slideItemsS',
+                                    values: 'slider.cards.slideItemsS'
                                 },
                                 {
-                                    key: 'cardWidthXL',
-                                    values: 'slider.cards.cardWidthXL'
+                                    key: 'slideItemsL',
+                                    values: 'slider.cards.slideItemsL'
+                                },
+                                {
+                                    key: 'slideItemsXL',
+                                    values: 'slider.cards.slideItemsXL'
+                                },
+                                {
+                                    key: 'itemsXS',
+                                    values: 'slider.items.itemsXS'
                                 },
                                 {
                                     key: 'itemsS',

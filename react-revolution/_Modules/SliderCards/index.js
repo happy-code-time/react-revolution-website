@@ -44,21 +44,22 @@ class SliderCards extends React.Component {
             // each single img tag
             dataTransform: `translate3d(-0px,0,0)`,
             // cards count in single row
+            itemsXS: props.itemsXS && typeof 8 == typeof props.itemsXS ? props.itemsXS : 1,
             itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
             itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 3,
-            itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 3,
+            itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 4,
             // cards count based on document width
             resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
             resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
             resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1260,
-            itemsPerLine: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
+            itemsPerLine: props.itemsXS && typeof 8 == typeof props.itemsXS ? props.itemsXS : 1,
             // items slide
             index: 0,
             // items to slide on button action
-            slideItems: props.slideItemsS && typeof 8 == typeof props.slideItemsS ? props.slideItemsS : 2,
+            slideItemsXS: props.slideItemsXS && typeof 8 == typeof props.slideItemsXS ? props.slideItemsXS : 1,
             slideItemsS: props.slideItemsS && typeof 8 == typeof props.slideItemsS ? props.slideItemsS : 2,
             slideItemsL: props.slideItemsL && typeof 8 == typeof props.slideItemsL ? props.slideItemsL : 3,
-            slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 3,
+            slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 4,
             paginationType: props.paginationType && typeof 8 == typeof props.paginationType && 0 < props.paginationType && 2 <= props.paginationType ? props.paginationType : 1,
             autoplay: typeof true == typeof props.autoplay ? props.autoplay : false,
             autoplayTime: props.autoplayTime && typeof 8 == typeof props.autoplayTime && 0 < props.autoplayTime ? props.autoplayTime : 5000,
@@ -92,7 +93,7 @@ class SliderCards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'dotsInside', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'itemsXS', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsXS', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
@@ -104,16 +105,18 @@ class SliderCards extends React.Component {
                 paginationInside: typeof true == typeof props.paginationInside ? props.paginationInside : true,
                 displayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
                 // cards count in single row
+                itemsXS: props.itemsXS && typeof 8 == typeof props.itemsXS ? props.itemsXS : 1,
                 itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
                 itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 3,
-                itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 3,
+                itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 4,
                 // cards count based on document width
                 resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
                 resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
                 resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1140,
+                slideItemsXS: props.slideItemsXS && typeof 8 == typeof props.slideItemsXS ? props.slideItemsXS : 1,
                 slideItemsS: props.slideItemsS && typeof 8 == typeof props.slideItemsS ? props.slideItemsS : 2,
                 slideItemsL: props.slideItemsL && typeof 8 == typeof props.slideItemsL ? props.slideItemsL : 3,
-                slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 3,
+                slideItemsXL: props.slideItemsXL && typeof 8 == typeof props.slideItemsXL ? props.slideItemsXL : 4,
                 dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
                 displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
                 displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
@@ -178,30 +181,47 @@ class SliderCards extends React.Component {
         this.setSlidesWidth();
         this.slideWidth = this.getSlidersWidth();
 
-        const { itemsPerLine, itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL, slideItems, slideItemsS, slideItemsL, slideItemsXL } = this.state;
+        const { index, itemsPerLine, itemsXS, itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL, slideItems, slideItemsXS, slideItemsS, slideItemsL, slideItemsXL } = this.state;
         const docWidth = document.documentElement.getBoundingClientRect().width;
 
-        if (docWidth > resizeXL && (itemsPerLine !== itemsXL || slideItems !== slideItemsXL)) {
-            return this.setState({
-                itemsPerLine: itemsXL,
-                slideItems: slideItemsXL,
-                index: 0,
-            }, this.slide);
+        let temp_itemsPerLine = itemsPerLine;
+        let temp_slideItems = slideItems;
+        let temp_index = index;
+        let apply = false;
+
+        if (docWidth < resizeS) {
+            temp_itemsPerLine = itemsXS;
+            temp_slideItems = slideItemsXS;
+            temp_index = 0;
+            apply = true;
         }
 
-        if (docWidth < resizeXL && docWidth >= resizeL && (itemsPerLine !== itemsL || slideItems !== slideItemsL)) {
-            return this.setState({
-                itemsPerLine: itemsL,
-                slideItems: slideItemsL,
-                index: 0,
-            }, this.slide);
+        if (docWidth < resizeL && docWidth >= resizeS && !apply) {
+            temp_itemsPerLine = itemsS;
+            temp_slideItems = slideItemsS;
+            temp_index = 0;
+            apply = true;
         }
 
-        if (docWidth < resizeS && (itemsPerLine !== itemsS || slideItems !== slideItemsS)) {
+        if (docWidth < resizeXL && docWidth >= resizeL && !apply) {
+            temp_itemsPerLine = itemsL;
+            temp_slideItems = slideItemsL;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if (docWidth > resizeXL) {
+            temp_itemsPerLine = itemsXL;
+            temp_slideItems = slideItemsXL;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if(apply){
             return this.setState({
-                itemsPerLine: itemsS,
-                slideItems: slideItemsS,
-                index: 0
+                itemsPerLine: temp_itemsPerLine,
+                slideItems: temp_slideItems,
+                index: temp_index,
             }, this.slide);
         }
     }

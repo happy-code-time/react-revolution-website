@@ -637,6 +637,10 @@ class _SliderItems extends React.Component
                                     values: 'slider.data.dot'
                                 },
                                 {
+                                    key: 'itemsXS',
+                                    values: 'slider.items.itemsXS'
+                                },
+                                {
                                     key: 'itemsS',
                                     values: 'slider.items.itemsS'
                                 },

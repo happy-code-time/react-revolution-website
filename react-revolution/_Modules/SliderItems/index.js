@@ -36,9 +36,10 @@ class SliderItems extends React.Component {
             buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
             next: props.next ? props.next : '>',
             previous: props.previous ? props.previous : '<',
-            itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 1,
-            itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 2,
-            itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 3,
+            itemsXS: props.itemsXS && typeof 8 == typeof props.itemsXS ? props.itemsXS : 1,
+            itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
+            itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 3,
+            itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 4,
             resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
             resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
             resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1260,
@@ -99,9 +100,10 @@ class SliderItems extends React.Component {
                 dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside : true,
                 displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
                 buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
-                itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 1,
-                itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 2,
-                itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 3,
+                itemsXS: props.itemsXS && typeof 8 == typeof props.itemsXS ? props.itemsXS : 1,
+                itemsS: props.itemsS && typeof 8 == typeof props.itemsS ? props.itemsS : 2,
+                itemsL: props.itemsL && typeof 8 == typeof props.itemsL ? props.itemsL : 3,
+                itemsXL: props.itemsXL && typeof 8 == typeof props.itemsXL ? props.itemsXL : 4,
                 resizeS: props.resizeS && typeof 8 == typeof props.resizeS ? props.resizeS : 768,
                 resizeL: props.resizeL && typeof 8 == typeof props.resizeL ? props.resizeL : 1024,
                 resizeXL: props.resizeXL && typeof 8 == typeof props.resizeXL ? props.resizeXL : 1140,
@@ -167,19 +169,42 @@ class SliderItems extends React.Component {
         this.setSlidesWidth();
         this.slideWidth = this.getSlidersWidth();
 
-        const { itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL } = this.state;
+        const { itemsPerLine, index, itemsXS, itemsS, itemsL, itemsXL, resizeS, resizeL, resizeXL } = this.state;
         const docWidth = document.documentElement.getBoundingClientRect().width;
 
-        if (docWidth > resizeXL) {
-            return this.setState({ itemsPerLine: itemsXL, index: 0 }, this.slide);
-        }
-
-        if (docWidth > resizeL) {
-            return this.setState({ itemsPerLine: itemsL, index: 0 }, this.slide);
-        }
+        let temp_itemsPerLine = itemsPerLine;
+        let temp_index = index;
+        let apply = false;
 
         if (docWidth < resizeS) {
-            return this.setState({ itemsPerLine: itemsS, index: 0 }, this.slide);
+            temp_itemsPerLine = itemsXS;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if (docWidth < resizeL && docWidth >= resizeS && !apply) {
+            temp_itemsPerLine = itemsS;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if (docWidth < resizeXL && docWidth >= resizeL && !apply) {
+            temp_itemsPerLine = itemsL;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if (docWidth > resizeXL) {
+            temp_itemsPerLine = itemsXL;
+            temp_index = 0;
+            apply = true;
+        }
+
+        if(apply){
+            return this.setState({
+                itemsPerLine: temp_itemsPerLine,
+                index: temp_index,
+            }, this.slide);
         }
 
         this.slide();

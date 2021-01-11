@@ -1808,33 +1808,58 @@ const EN = {
         "type": "String | Jsx",
         "default": "undefined"
     },
-    'slider.items.itemsS': {
-        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is smaller than the transferred value in the key 'resizeS' (default: 768px).",
+    'slider.cards.slideItemsXS': {
+        "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeS'.",
         "type": "Number",
         "default": "1"
     },
-    'slider.items.itemsL': {
-        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is smaller than the transferred value in the key 'resizeL' (default: 1024px) and larger than the transferred value in the key 'resizeS' (default: 768px). ",
+    'slider.cards.slideItemsS': {
+        "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeL' but larger than (the value of) 'resizeS'.",
         "type": "Number",
         "default": "2"
     },
-    'slider.items.itemsXL': {
-        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is greater (or equal) than the transferred value in the key 'resizeXL' (default: 1260px)." ,
+    'slider.cards.slideItemsL': {
+        "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeXL' but larger than (the value of) 'resizeL'.",
         "type": "Number",
         "default": "3"
     },
+    'slider.cards.slideItemsXL': {
+        "description": "Number of elements to be moved (individual cards) if the width of the document is larger than (the value of) 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
+    'slider.items.itemsXS': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the width of the document is smaller than (the value of) 'resizeS'.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.items.itemsS': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the single slide if the width of the document is smaller than (the value of) 'resizeL' but larger than (the value of) 'resizeS'. ",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.items.itemsL': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the single slide if the width of the document is smaller than (the value of) 'resizeXL' but larger than (the value of) 'resizeL'. ",
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.items.itemsXL': {
+        "description": "How many objects from the transferred key 'data' (array) should be displayed in the individual slide if the screen width is greater (or equal) than the transferred value in the key 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
     'slider.items.resizeS': {
-        "description": "If the screen width is smaller than this value, then 'itemsS' elements are generated in the individual slider.",
+        "description": "If the width of the document is smaller than this value, then the number of generated elements is 'itemsXS'. If the width of the document is larger than this value and smaller than 'itemsL', then the number of generated Items match 'itemsS'. ",
         "type": "Number",
         "default": "768"
     },
     'slider.items.resizeL': {
-        "description": "If the screen width is smaller than this value, then 'itemsL' elements are generated in the individual slider.",
+        "description": "If the width of the document is larger than this value and smaller than 'itemsXL', then the number of generated elements should correspond to 'itemsL'.",
         "type": "Number",
         "default": "1024"
     },
     'slider.items.resizeXL': {
-        "description": "If the screen width is larger (or equal) than this value, 'itemsXL' elements are generated in the individual slider.",
+        "description": "If the width of the document is larger than this value, then the number of generated elements should correspond to 'itemsXL'.",
         "type": "Number",
         "default": "1260"
     },

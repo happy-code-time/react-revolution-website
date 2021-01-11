@@ -1810,34 +1810,59 @@ const PL = {
         "default": "undefined"
     },
     'slider.items.itemsS': {
-        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno zostać wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest mniejsza niż przesłana wartość w kluczu 'resizeS' (domyślnie: 768px).",
-        "type": "Number",
-        "default": "1"
-    },
-    'slider.items.itemsL': {
-        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno zostać wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest mniejsza niż przesłana wartość w kluczu 'resizeL' (domyślnie: 1024px) i większa niż przesłana wartość w kluczu 'resizeS' (domyślnie: 768px). ",
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeL', ale większa niż (wartość) 'resizeS'. ",
         "type": "Number",
         "default": "2"
     },
-    'slider.items.itemsXL': {
-        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest większa (lub równa) niż przesłana wartość w kluczu 'resizeXL' (domyślnie: 1260px)." ,
+    'slider.items.itemsL': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeXL', ale większa niż (wartość) 'resizeL'. ",
         "type": "Number",
         "default": "3"
     },
+    'slider.items.itemsXL': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość ekranu jest większa (lub równa) niż przesłana wartość w kluczu 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
     'slider.items.resizeS': {
-        "description": "Jeśli szerokość ekranu jest mniejsza niż ta wartość, to elementy 'itemsS' są generowane w pojedynczym sliderze.",
+        "opis": "Jeżeli szerokość dokumentu jest mniejsza niż ta wartość, to liczba wygenerowanych elementów wynosi 'itemsXS'. Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsL', to liczba wygenerowanych Pozycje pasują do 'itemsS'. ",
         "type": "Number",
         "default": "768"
     },
     'slider.items.resizeL': {
-        "description": "Jeśli szerokość ekranu jest mniejsza niż ta wartość, to elementy 'itemsL' są generowane w pojedynczym sliderze.",
+        "opis": "Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsXL', to ilość wygenerowanych elementów powinna odpowiadać 'itemsL'.",
         "type": "Number",
         "default": "1024"
     },
     'slider.items.resizeXL': {
-        "description": "Jeśli szerokość ekranu jest większa (lub równa) niż ta wartość, elementy 'itemsXL' są generowane w pojedynczym suwaku.",
+        "opis": "Jeżeli szerokość dokumentu jest większa niż ta wartość, to ilość wygenerowanych elementów powinna odpowiadać 'itemsXL'.",
         "type": "Number",
         "default": "1260"
+    },
+    'slider.cards.slideItemsXS': {
+        "description": "Liczba elementów do przeniesienia (pojedynczych kart), jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeS'.",
+        "type": "Number",
+        "default": "1"
+    },
+    'slider.cards.slideItemsS': {
+        "description": "Liczba elementów do przeniesienia (pojedynczych kart), jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeL', ale większa niż (wartość) 'resizeS'.",
+        "type": "Number",
+        "default": "2"
+    },
+    'slider.cards.slideItemsL': {
+        "description": "Liczba elementów do przeniesienia (pojedynczych kart), jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeXL', ale większa niż (wartość) 'resizeL'.",
+        "type": "Number",
+        "default": "3"
+    },
+    'slider.cards.slideItemsXL': {
+        "description": "Liczba elementów do przeniesienia (pojedynczych kart), jeśli szerokość dokumentu jest większa niż (wartość) 'resizeXL'.",
+        "type": "Number",
+        "default": "4"
+    },
+    'slider.items.itemsXS': {
+        "description": "Ile obiektów z przesłanego klucza 'data' (tablica) powinno być wyświetlonych na pojedynczym slajdzie, jeśli szerokość dokumentu jest mniejsza niż (wartość) 'resizeS'.",
+        "type": "Number",
+        "default": "1"
     },
     'slider.example1': 'Slider z użyciem przycisków buttonsAlwaysVisible={false} (ustawienie standardowe).',
     'slider.example2': 'Slider z użyciem przycisków buttonsAlwaysVisible={true}.',

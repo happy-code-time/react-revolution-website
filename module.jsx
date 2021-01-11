@@ -186,7 +186,7 @@ class App extends React.Component {
                     />
                 </div> */}
                 {/* ITEMS */}
-                {/* <div
+                <div
                     style={
                         {
                             width: '100%',
@@ -230,9 +230,9 @@ class App extends React.Component {
                         data={this.getCards()}
                         animationTime='10'
                     />
-                </div> */}
+                </div>
                 {/* CARDS */}
-                <div
+                {/* <div
                     style={
                         {
                             width: '100%',
@@ -252,8 +252,8 @@ class App extends React.Component {
                         wrapDirection={false}
                         data={this.getCards()}
                     />
-                </div>
-                <div
+                </div> */}
+                {/* <div
                     style={
                         {
                             width: '100%',
@@ -307,7 +307,7 @@ class App extends React.Component {
                         animationTime='20'
                         data={this.getCards()}
                     />
-                </div>
+                </div> */}
             </span>
         );
     }
