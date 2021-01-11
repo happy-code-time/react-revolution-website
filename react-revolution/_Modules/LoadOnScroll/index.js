@@ -256,7 +256,7 @@ class LoadOnScroll extends React.Component {
                         className="section"
                     >
                         {
-                            data
+                            i
                         }
                     </span>
                 );

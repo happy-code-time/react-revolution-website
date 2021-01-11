@@ -511,6 +511,14 @@ class Releases extends React.Component {
                             value: 'Added support for resolving data as array of Jsx elements. Currently the module expects single data as one single JSX element. Now if data is typeof JSX[], then this items rendered as single element.'
                         },
                     ]
+                },
+                '4.1.5': {
+                    data: [
+                        {
+                            key: 'LoadOnScroll',
+                            value: 'Bugfix JSX[] (fixed incoming data map function).'
+                        },
+                    ]
                 }
             }
         }
