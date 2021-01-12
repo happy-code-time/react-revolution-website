@@ -46,11 +46,11 @@ class LiveGenerationSteps extends React.Component {
          * Live code generation - website speedup
          */
         if(data && data.length && undefined !== data[step]) {
-            const { liveGeneration } = data[step];
+            const { liveGeneration, liveGenerationProps } = data[step];
 
             if (liveGeneration && 'function' == typeof liveGeneration) {
                 (async () => {
-                    const liveData = await (liveGeneration)().then(r => r).catch(e => '');
+                    const liveData = await (liveGeneration)(liveGenerationProps).then(r => r).catch(e => '');
                     return this.setState({ liveData, update: false });
                 })();
             }

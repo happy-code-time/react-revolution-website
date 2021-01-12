@@ -1620,6 +1620,10 @@ class _Steps extends React.Component {
                                     key: 'data.liveGeneration',
                                     values: 'steps.data.liveGeneration'
                                 },
+                                {
+                                    key: 'data.liveGenerationProps',
+                                    values: 'steps.data.liveGenerationProps'
+                                },
                             ],
                             'rr-steps'
                         )

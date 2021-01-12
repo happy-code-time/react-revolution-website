@@ -1908,8 +1908,13 @@ const DE = {
         "default": "undefined"
     },
     'steps.data.liveGeneration' : {
-        "description": "Benutzerdefinierte Funktion um die Daten des Contents (eines einzelnen Steps) in echtzeit zu generieren. Diese Funktion muss ein Promise zurückliefern. Das Ergebis von Promise.resolve(...) ist dann der Content (JSX) was der Benutzer sieht. Funktioniert nur wenn der übergeordnete Schlüssel 'liveGeneration={true}' ist.",
+        "description": "Benutzerdefinierte Funktion um die Daten des Contents (eines einzelnen Steps) in echtzeit zu generieren. Diese Funktion muss ein Promise zurückliefern. Das Ergebis von Promise.resolve(...) ist dann der Content (JSX) was der Benutzer sieht. Funktioniert nur wenn der übergeordnete Schlüssel 'liveGeneration={true}' ist. Diese Funktion liefert ein Argument zurück 'liveGenerationProps'.",
         "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.liveGenerationProps' : {
+        "description": "Benutzerdefinierte Daten für die Funktion 'liveGeneration'.",
+        "type": "Any",
         "default": "undefined"
     },
     'steps.errorDataInside': {

@@ -1,6 +1,6 @@
 {
   "name": "react-revolution",
-  "version": "4.1.9",
+  "version": "4.2.0",
   "description": "React Revolution - interactive react components",
   "main": "react-revolution.js",
   "scripts": {

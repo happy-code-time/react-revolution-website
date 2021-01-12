@@ -324,6 +324,11 @@ class App extends React.Component
 
     [
       {
+        version: '4.2',
+        start: 0,
+        end: 0
+      },
+      {
         version: '4.1',
         start: 0,
         end: 9

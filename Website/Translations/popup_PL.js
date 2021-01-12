@@ -1965,6 +1965,11 @@ const PL = {
         "type": "Function",
         "default": "undefined"
     },
+    'steps.data.liveGenerationProps' : {
+        "description": "Dane zdefiniowane przez użytkownika dla funkcji 'liveGeneration'.",
+        "type": "Any",
+        "default": "undefined"
+    },
     'steps.errorDataInside': {
         "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna być wyświetlana poza obszarem zawartości. Jeśli prawda, wiadomość jest wyświetlana w obszarze zawartości.",
         "type": "Boolean",

@@ -1,4 +1,4 @@
-const version = 'v4.1.9';
+const version = 'v4.2.0';
 
 let host = 'https://react-revolution.j.pl/';
 

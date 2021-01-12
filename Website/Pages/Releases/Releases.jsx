@@ -572,6 +572,14 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '4.2.0': {
+                    data: [
+                        {
+                            key: 'Steps',
+                            value: 'Added new key: "data.liveGenerationProps".'
+                        },
+                    ]
+                },
             }
         }
     }

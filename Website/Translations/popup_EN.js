@@ -1964,6 +1964,11 @@ const EN = {
         "type": "Function",
         "default": "undefined"
     },
+    'steps.data.liveGenerationProps' : {
+        "description": "User-defined data for the callback function 'liveGeneration'.",
+        "type": "Any",
+        "default": "undefined"
+    },
     'steps.errorDataInside': {
         "description": "The value of the response 'liveGeneration' (error message) should be displayed outside the content area. If true, the message will be displayed within the content area.",
         "type": "Boolean",
