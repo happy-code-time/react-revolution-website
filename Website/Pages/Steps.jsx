@@ -272,6 +272,285 @@ submitCallback(type) {
     }
 }`;
 
+const codeExample5 = `import { Steps } from 'react-revolution';
+// import Steps from 'react-revolution/Steps';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Steps
+        progressBar={true}
+        iconStep={true}
+        next='Next'
+        previous='Previous'
+        submit='Save'
+        callbackCheck={true}
+        callbackCheckNavigate={true}
+        data={[
+            {
+                text: 'Step 1',
+                icon: <i className="far fa-lemon"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Username</h1>
+                        <input type="text" style={{ width: '100%' }} onChange={(e) => this.setValue('username', e.target.value)} value={this.state.username} />
+                    </div>
+                ),
+                callback: this.checkStep,
+                callbackProps: 'username'
+            },
+            {
+                text: 'Step 2',
+                icon: <i className="fas fa-balance-scale-right"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
+                        <input type="password" style={{ width: '100%' }} onChange={(e) => this.setValue('password', e.target.value)} value={this.state.password} />
+                    </div>
+                ),
+                callback: this.checkStep,
+                callbackProps: ['username', 'password']
+            },
+            {
+                text: 'Step 3',
+                icon: <i className="fas fa-user"></i>,
+                data: (
+                    <div style={{ margin: '0 auto', width: '300px' }}>
+                        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>E-mail</h1>
+                        <input type="email" style={{ width: '100%' }} onChange={(e) => this.setValue('email', e.target.value)} value={this.state.email} />
+                    </div>
+                ),
+                callback: this.submitCallback,
+                callbackProps: ['username', 'password', 'email']
+            }
+        ]}
+    />
+</div>`;
+
+const jsExample5 = `constructor(props) {
+    super(props);
+    this.advanced_checkStep = this.advanced_checkStep.bind(this);
+    this.advanced_submit = this.advanced_submit.bind(this);
+    this.advanced_setValue = this.advanced_setValue.bind(this);
+
+    this.state = {
+        username2: '',
+        password2: '',
+        email2: ''
+    };
+}
+
+advanced_setValue(type, v) {
+    this.setState({
+        [type]: v
+    });
+}
+
+advanced_checkStep(type) {
+    return new Promise((resolve, reject) => {
+
+        if (typeof [] == typeof type) {
+
+            for (let x = 0; x <= type.length - 1; x++) {
+                if (!this.state[type[x]]) {
+                    resolve(false);
+                    break;
+                }
+            }
+
+            return resolve(true);
+        }
+        else {
+            if (!this.state[type]) {
+                return resolve(false);
+            }
+            else {
+                return resolve(true);
+            }
+        }
+    });
+}
+
+getErrorText(onErrorProps) {
+    return new Promise((resolve, reject) => {
+        resolve(onErrorProps);
+    });
+}
+
+advanced_submit() {
+    confirm('Well done!');
+}`;
+
+const codeExample6 = `import { Steps } from 'react-revolution';
+// import Steps from 'react-revolution/Steps';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Steps
+        progressBar={true}
+        iconStep={true}
+        next='Next'
+        previous='Previous'
+        submit='Save'
+        callbackCheck={true}
+        callbackCheckNavigate={true}
+        errorDataInside={false}
+        errorAlignTop={false}
+        liveGeneration={true}
+        data={[
+            {
+                text: 'Step 1',
+                icon: <i className="far fa-lemon"></i>,
+                liveGeneration: this.liveGeneration_username,
+                callback: this.liveGeneration_checkStep,
+                callbackProps: 'username3',
+                onError: this.liveGeneration_getErrorText,
+                onErrorProps: 'Username is a required field.',
+            },
+            {
+                text: 'Step 2',
+                icon: <i className="fas fa-balance-scale-right"></i>,
+                liveGeneration: this.liveGeneration_password,
+                callback: this.liveGeneration_checkStep,
+                callbackProps: ['username3', 'password3'],
+                onError: this.liveGeneration_getErrorText,
+                onErrorProps: 'Password is a required field.',
+            },
+            {
+                text: 'Step 3',
+                icon: <i className="fas fa-user"></i>,
+                liveGeneration: this.liveGeneration_email,
+                callback: this.liveGeneration_checkStep,
+                callbackProps: ['username3', 'password3', 'email3'],
+                onError: this.liveGeneration_getErrorText,
+                onErrorProps: 'Email is a required field.',
+                submit: this.liveGeneration_submit
+            }
+        ]}
+    />
+</div>`;
+
+const jsExample6 = `constructor(props) {
+    super(props);
+    this.liveGeneration_username = this.liveGeneration_username.bind(this);
+    this.liveGeneration_password = this.liveGeneration_password.bind(this);
+    this.liveGeneration_email = this.liveGeneration_email.bind(this);
+    this.liveGeneration_checkStep = this.liveGeneration_checkStep.bind(this);
+    this.liveGeneration_submit = this.liveGeneration_submit.bind(this);
+    this.liveGeneration_setValue = this.liveGeneration_setValue.bind(this);
+
+    this.state = {
+        username2: '',
+        password2: '',
+        email2: ''
+    };
+}
+
+liveGeneration_setValue(type, v) {
+    this.setState({
+        [type]: v
+    });
+}
+
+liveGeneration_checkStep(type) {
+    return new Promise((resolve, reject) => {
+
+        if (typeof [] == typeof type) {
+
+            for (let x = 0; x <= type.length - 1; x++) {
+                if (!this.state[type[x]]) {
+                    resolve(false);
+                    break;
+                }
+            }
+
+            return resolve(true);
+        }
+        else {
+            if (!this.state[type]) {
+                return resolve(false);
+            }
+            else {
+                return resolve(true);
+            }
+        }
+    });
+}
+
+liveGeneration_getErrorText(onErrorProps) {
+    return new Promise((resolve, reject) => {
+        resolve(onErrorProps);
+    });
+}
+
+liveGeneration_submit() {
+    confirm('Well done!');
+}
+
+liveGeneration_username() {
+    return new Promise((resolve, reject) => {
+        resolve(
+            <div style={{ margin: '0 auto', width: '300px' }}>
+                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Username</h1>
+                <input
+                    type="text"
+                    style={{ width: '100%' }}
+                    onChange={(e) => this.setValue('username3', e.target.value)}
+                    value={this.state.username3}
+                />
+            </div>
+        );
+    });
+}
+
+liveGeneration_password() {
+    return new Promise((resolve, reject) => {
+        resolve(
+            <div style={{ margin: '0 auto', width: '300px' }}>
+                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
+                <input
+                    type="password"
+                    style={{ width: '100%' }}
+                    onChange={(e) => this.setValue('password3', e.target.value)}
+                    value={this.state.password3}
+                />
+            </div>
+        );
+    });
+}
+
+liveGeneration_email() {
+    return new Promise((resolve, reject) => {
+        resolve(
+            <div style={{ margin: '0 auto', width: '300px' }}>
+                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>E-mail</h1>
+                <input
+                    type="email"
+                    style={{ width: '100%' }}
+                    onChange={(e) => this.setValue('email3', e.target.value)}
+                    value={this.state.email3}
+                />
+            </div>
+        );
+    });
+}`;
+
+
 class _Steps extends React.Component {
     constructor(props) {
         super(props);
@@ -281,11 +560,30 @@ class _Steps extends React.Component {
         this.submitCallback = this.submitCallback.bind(this);
         this.countCallbacks = 0;
 
+        this.advanced_checkStep = this.advanced_checkStep.bind(this);
+        this.advanced_submit = this.advanced_submit.bind(this);
+        this.advanced_setValue = this.advanced_setValue.bind(this);
+
+        this.liveGeneration_username = this.liveGeneration_username.bind(this);
+        this.liveGeneration_password = this.liveGeneration_password.bind(this);
+        this.liveGeneration_email = this.liveGeneration_email.bind(this);
+        this.liveGeneration_checkStep = this.liveGeneration_checkStep.bind(this);
+        this.liveGeneration_submit = this.liveGeneration_submit.bind(this);
+        this.liveGeneration_setValue = this.liveGeneration_setValue.bind(this);
+
         this.state = {
             loading: true,
             username: '',
             password: '',
-            email: ''
+            email: '',
+
+            username2: '',
+            password2: '',
+            email2: '',
+
+            username3: '',
+            password3: '',
+            email3: '',
         };
 
         this.examples = [
@@ -432,7 +730,9 @@ class _Steps extends React.Component {
             },
         ];
     }
-
+    /**
+     * Examples 1 - 4
+     */
     setValue(type, v) {
         this.setState({
             [type]: v
@@ -473,7 +773,7 @@ class _Steps extends React.Component {
                 break;
             }
 
-            if(x == type.length-1){
+            if (x == type.length - 1) {
                 confirm('All fields are valid.');
             }
         }
@@ -490,6 +790,142 @@ class _Steps extends React.Component {
                 </p>
             </div>
         );
+    }
+
+    /**
+     * Example 5
+     */
+    advanced_setValue(type, v) {
+        this.setState({
+            [type]: v
+        });
+    }
+
+    advanced_checkStep(type) {
+        return new Promise((resolve, reject) => {
+
+            if (typeof [] == typeof type) {
+
+                for (let x = 0; x <= type.length - 1; x++) {
+                    if (!this.state[type[x]]) {
+                        resolve(false);
+                        break;
+                    }
+                }
+
+                return resolve(true);
+            }
+            else {
+                if (!this.state[type]) {
+                    return resolve(false);
+                }
+                else {
+                    return resolve(true);
+                }
+            }
+        });
+    }
+
+    getErrorText(onErrorProps) {
+        return new Promise((resolve, reject) => {
+            resolve(onErrorProps);
+        });
+    }
+
+    advanced_submit() {
+        confirm('Well done!');
+    }
+
+    /**
+     * Example 6
+     */
+    liveGeneration_setValue(type, v) {
+        this.setState({
+            [type]: v
+        });
+    }
+
+    liveGeneration_checkStep(type) {
+        return new Promise((resolve, reject) => {
+
+            if (typeof [] == typeof type) {
+
+                for (let x = 0; x <= type.length - 1; x++) {
+                    if (!this.state[type[x]]) {
+                        resolve(false);
+                        break;
+                    }
+                }
+
+                return resolve(true);
+            }
+            else {
+                if (!this.state[type]) {
+                    return resolve(false);
+                }
+                else {
+                    return resolve(true);
+                }
+            }
+        });
+    }
+
+    liveGeneration_getErrorText(onErrorProps) {
+        return new Promise((resolve, reject) => {
+            resolve(onErrorProps);
+        });
+    }
+
+    liveGeneration_submit() {
+        confirm('Well done!');
+    }
+
+    liveGeneration_username() {
+        return new Promise((resolve, reject) => {
+            resolve(
+                <div style={{ margin: '0 auto', width: '300px' }}>
+                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Username</h1>
+                    <input
+                        type="text"
+                        style={{ width: '100%' }}
+                        onChange={(e) => this.setValue('username3', e.target.value)}
+                        value={this.state.username3}
+                    />
+                </div>
+            );
+        });
+    }
+
+    liveGeneration_password() {
+        return new Promise((resolve, reject) => {
+            resolve(
+                <div style={{ margin: '0 auto', width: '300px' }}>
+                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
+                    <input
+                        type="password"
+                        style={{ width: '100%' }}
+                        onChange={(e) => this.setValue('password3', e.target.value)}
+                        value={this.state.password3}
+                    />
+                </div>
+            );
+        });
+    }
+
+    liveGeneration_email() {
+        return new Promise((resolve, reject) => {
+            resolve(
+                <div style={{ margin: '0 auto', width: '300px' }}>
+                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>E-mail</h1>
+                    <input
+                        type="email"
+                        style={{ width: '100%' }}
+                        onChange={(e) => this.setValue('email3', e.target.value)}
+                        value={this.state.email3}
+                    />
+                </div>
+            );
+        });
     }
 
     loadOnScrollCallback() {
@@ -649,6 +1085,293 @@ class _Steps extends React.Component {
                         )
                     }
                 </div>
+
+                <h1 className="h1-title border-none my-3">
+                    Steps
+                </h1>
+                <p className="description">
+                    {
+                        trans('steps.example5')
+                    }
+                </p>
+                <div className="code-example mt-4">
+                    <div className="code-example-live">
+                        <div
+                            style={
+                                {
+                                    width: '100%',
+                                    maxWidth: '1024px',
+                                    height: '500px',
+                                    margin: '5vh auto'
+                                }
+                            }
+                        >
+                            <Steps
+                                progressBar={true}
+                                iconStep={true}
+                                next='Next'
+                                previous='Previous'
+                                submit='Save'
+                                callbackCheck={true}
+                                callbackCheckNavigate={true}
+                                errorDataInside={false}
+                                errorAlignTop={false}
+                                data={[
+                                    {
+                                        text: 'Step 1',
+                                        icon: <i className="far fa-lemon"></i>,
+                                        data: (
+                                            <div style={{ margin: '0 auto', width: '300px' }}>
+                                                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Username</h1>
+                                                <input
+                                                    type="text"
+                                                    style={{ width: '100%' }}
+                                                    onChange={(e) => this.advanced_setValue('username2', e.target.value)}
+                                                    value={this.state.username2}
+                                                />
+                                            </div>
+                                        ),
+                                        callback: this.advanced_checkStep,
+                                        callbackProps: 'username2',
+                                        onError: this.getErrorText,
+                                        onErrorProps: 'Username is a required field.',
+                                    },
+                                    {
+                                        text: 'Step 2',
+                                        icon: <i className="fas fa-balance-scale-right"></i>,
+                                        data: (
+                                            <div style={{ margin: '0 auto', width: '300px' }}>
+                                                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
+                                                <input
+                                                    type="password"
+                                                    style={{ width: '100%' }}
+                                                    onChange={(e) => this.setValue('password2', e.target.value)}
+                                                    value={this.state.password2}
+                                                />
+                                            </div>
+                                        ),
+                                        callback: this.advanced_checkStep,
+                                        callbackProps: ['username2', 'password2'],
+                                        onError: this.getErrorText,
+                                        onErrorProps: 'Password is a required field.',
+                                    },
+                                    {
+                                        text: 'Step 3',
+                                        icon: <i className="fas fa-user"></i>,
+                                        data: (
+                                            <div style={{ margin: '0 auto', width: '300px' }}>
+                                                <h1 style={{ textAlign: 'center', margin: '20px 0' }}>E-mail</h1>
+                                                <input
+                                                    type="email"
+                                                    style={{ width: '100%' }}
+                                                    onChange={(e) => this.advanced_setValue('email2', e.target.value)}
+                                                    value={this.state.email2}
+                                                />
+                                            </div>
+                                        ),
+                                        callback: this.advanced_checkStep,
+                                        callbackProps: ['username2', 'password2', 'email2'],
+                                        onError: this.getErrorText,
+                                        onErrorProps: 'Email is a required field.',
+                                        submit: this.advanced_submit
+                                    }
+                                ]}
+                            />
+                        </div>
+                    </div>
+                    {
+                        generateArticles(
+                            (
+                                <h1 className="h1-example">
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={false}
+                                        layout='dark'
+                                        code={codeExample5}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample5}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample5}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample5}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                </div>
+                <h1 className="h1-title border-none my-3">
+                    Steps
+                </h1>
+                <p className="description">
+                    {
+                        trans('steps.example6')
+                    }
+                </p>
+                <div className="code-example mt-4">
+                    <div className="code-example-live">
+                        <div
+                            style={
+                                {
+                                    width: '100%',
+                                    maxWidth: '1024px',
+                                    height: '500px',
+                                    margin: '5vh auto'
+                                }
+                            }
+                        >
+                            <Steps
+                                progressBar={true}
+                                iconStep={true}
+                                next='Next'
+                                previous='Previous'
+                                submit='Save'
+                                callbackCheck={true}
+                                callbackCheckNavigate={true}
+                                errorDataInside={false}
+                                errorAlignTop={false}
+                                liveGeneration={true}
+                                data={[
+                                    {
+                                        text: 'Step 1',
+                                        icon: <i className="far fa-lemon"></i>,
+                                        liveGeneration: this.liveGeneration_username,
+                                        callback: this.liveGeneration_checkStep,
+                                        callbackProps: 'username3',
+                                        onError: this.liveGeneration_getErrorText,
+                                        onErrorProps: 'Username is a required field.',
+                                    },
+                                    {
+                                        text: 'Step 2',
+                                        icon: <i className="fas fa-balance-scale-right"></i>,
+                                        liveGeneration: this.liveGeneration_password,
+                                        callback: this.liveGeneration_checkStep,
+                                        callbackProps: ['username3', 'password3'],
+                                        onError: this.liveGeneration_getErrorText,
+                                        onErrorProps: 'Password is a required field.',
+                                    },
+                                    {
+                                        text: 'Step 3',
+                                        icon: <i className="fas fa-user"></i>,
+                                        liveGeneration: this.liveGeneration_email,
+                                        callback: this.liveGeneration_checkStep,
+                                        callbackProps: ['username3', 'password3', 'email3'],
+                                        onError: this.liveGeneration_getErrorText,
+                                        onErrorProps: 'Email is a required field.',
+                                        submit: this.liveGeneration_submit
+                                    }
+                                ]}
+                            />
+                        </div>
+                    </div>
+                    {
+                        generateArticles(
+                            (
+                                <h1 className="h1-example">
+                                    <i className="fas fa-atom" />
+                                    {
+                                        trans('reactCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={false}
+                                        layout='dark'
+                                        code={codeExample6}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={codeExample6}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                    {
+                        generateArticles(
+                            (
+                                <h1
+                                    title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                    className="h1-example"
+                                >
+                                    <i className="fab fa-node-js" />
+                                    {
+                                        trans('jsCodeTitle')
+                                    }
+                                </h1>
+                            ),
+                            (
+                                <span>
+                                    <SourceCode
+                                        lineNumber={true}
+                                        layout='dark'
+                                        code={jsExample6}
+                                    />
+                                    <Clipboard
+                                        animation='jump' // scale, jump
+                                        data={(
+                                            <div title={trans('copyToClipboard')} className="button-action">
+                                                <i className="far fa-clipboard"></i>
+                                            </div>
+                                        )}
+                                        clipboard={jsExample6}
+                                    />
+                                </span>
+                            )
+                        )
+                    }
+                </div>
+
                 {
                     getDescriptionForstyle('rr-steps')
                 }
@@ -728,6 +1451,54 @@ class _Steps extends React.Component {
                                 {
                                     key: 'iconStep',
                                     values: 'steps.iconStep'
+                                },
+                                {
+                                    key: 'errorDataInside',
+                                    values: 'steps.errorDataInside'
+                                },
+                                {
+                                    key: 'errorAlignTop',
+                                    values: 'steps.errorAlignTop'
+                                },
+                                {
+                                    key: 'liveGeneration',
+                                    values: 'steps.liveGeneration'
+                                },
+                                {
+                                    key: 'data',
+                                    values: 'steps.data'
+                                },
+                                {
+                                    key: 'data.text',
+                                    values: 'steps.data.text'
+                                },
+                                {
+                                    key: 'data.icon',
+                                    values: 'steps.data.icon'
+                                },
+                                {
+                                    key: 'data.data',
+                                    values: 'steps.data.data'
+                                },
+                                {
+                                    key: 'data.callback',
+                                    values: 'steps.data.callback'
+                                },
+                                {
+                                    key: 'data.callbackProps',
+                                    values: 'steps.data.callbackProps'
+                                },
+                                {
+                                    key: 'data.onError',
+                                    values: 'steps.data.onError'
+                                },
+                                {
+                                    key: 'data.onErrorProps',
+                                    values: 'steps.data.onErrorProps'
+                                },
+                                {
+                                    key: 'data.liveGeneration',
+                                    values: 'steps.data.liveGeneration'
                                 },
                             ],
                             'rr-steps'

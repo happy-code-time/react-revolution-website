@@ -189,6 +189,31 @@ const codeExample9 = `import { SliderCards } from 'react-revolution';
     />
 </div>`;
 
+const codeExample10 = `import { SliderCards } from 'react-revolution';
+// import SliderCards from 'react-revolution/SliderCards';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderCards
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        paginationType={2}
+        previous='«'
+        next='»'
+        buttonsAlwaysVisible={true}
+        useLayerX={false}
+        data={this.getCards()}
+    />
+</div>`;
+
 
 class _SliderCards extends React.Component {
     constructor(props) {
@@ -405,6 +430,39 @@ class _SliderCards extends React.Component {
                             autoplay={true}
                             autoplayTime={5000}
                             animationTime='10'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderCards',
+                description: 'useLayerX={false}',
+                reactTextBefore: '',
+                react: codeExample10,
+                reactTextAfter: '',
+                js: js,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderCards
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            previous='«'
+                            next='»'
+                            buttonsAlwaysVisible={true}
+                            useLayerX={false}
                             data={this.getCards()}
                         />
                     </div>

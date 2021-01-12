@@ -556,6 +556,14 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '4.1.8': {
+                    data: [
+                        {
+                            key: 'Steps',
+                            value: 'Added new keys: "errorDataInside", "errorAlignTop", "liveGeneration", "data.callbackOnError", "data.callbackOnErrorProps", "data.liveGeneration".'
+                        },
+                    ]
+                },
             }
         }
     }

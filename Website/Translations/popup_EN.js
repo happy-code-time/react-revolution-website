@@ -1914,10 +1914,72 @@ const EN = {
         "type": "Boolean",
         "default": "false"
     },
+    'steps.liveGeneration': {
+        "description": "Activates a special function to generate the data of the content (of a single step) in real time. Only works if the child element of the data also contains a callback function 'liveGeneration'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.data': {
+        "description": "Array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'steps.data.text': {
+        "description": "The text in each step.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.icon': {
+        "description": "The icon of a single step.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.data': {
+        "description": "The content of a single step.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.callback': {
+        "description": "If the user clicks the button 'next' or 'before', this function is called. This returns an argument 'callbackProps'. This function must return a promise. If the value (resolve) is true, the user is allowed to continue navigating, otherwise not. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.callbackProps': {
+        "description": "User-defined data for the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.onError': {
+        "description": "User-defined function that is called when the function 'callback' returns false (Promise.resolve (false)). This function must return a promise. The result of this promise is interpreted as an error message and displayed to the user. This function returns an argument 'onErrorProps'. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.onErrorProps': {
+        "description": "User-defined data for the 'onError' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.liveGeneration': {
+        "description": "User-defined function to generate the data of the content (of a single step) in real time. This function must return a promise. The result of Promise.resolve (...) is then the content (JSX) what the user only works if the parent key is 'liveGeneration = {true}'. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.errorDataInside': {
+        "description": "The value of the response 'liveGeneration' (error message) should be displayed outside the content area. If true, the message will be displayed within the content area.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.errorAlignTop': {
+        "description": "The value of the response 'liveGeneration' (error message) should be displayed below the content area. If true, the message is displayed above the content area.",
+        "type": "Boolean",
+        "default": "false"
+    },
     'steps.example1': 'Steps with the standard settings.',
     'steps.example2': 'Steps using the key progressBar={true}.',
     'steps.example3': 'Steps using the key iconStep={true}.',
     'steps.example4': 'Steps using the keys callbackCheck={true} and iconStep={true}.',
+    'steps.example5': 'Steps with a user-defined "onError" function and user-defined data for this function "onErrorProps".',
+    'steps.example6': 'Steps with a user-defined "onError" function, user-defined data for this function "onErrorProps" and live code (JSX) code generation using the "liveGeneration" function.',
     'menu.data.callback': {
         "description": "User-defined function that is executed when a menu element has been clicked and this element has no child element. The function has only one return argument, the value of the key 'callbackProps'.",
         "type": "Function",

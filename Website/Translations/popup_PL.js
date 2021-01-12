@@ -177,7 +177,7 @@ const PL = {
     "loadonscroll.minify": {
         "description": "Funkcja Callback działa szybciej podczas zdarzenia przewijania.",
         "type": "Number",
-        "domyślny": "0"
+        "default": "0"
     },
     "loadonscroll.scrolledToBottom": {
         "description": "Funkcja Callback jest wykonywana tylko wtedy, gdy użytkownik całkowicie dotarł do końca strony internetowej minus minify.",
@@ -1777,7 +1777,7 @@ const PL = {
     'slider.slideAfterMove': {
         "description": "Autoslide tylko wtedy, gdy wartość jest większa lub równa x (>=) niż wartość określona tutaj.",
         "type": "number",
-        "domyślny": "50"
+        "default": "50"
     },
     'slider.displayDotsIndex': {
         "description": "Zezwól na renderowanie indeksu pojedynczego paginatora.",
@@ -1825,17 +1825,17 @@ const PL = {
         "default": "4"
     },
     'slider.items.resizeS': {
-        "opis": "Jeżeli szerokość dokumentu jest mniejsza niż ta wartość, to liczba wygenerowanych elementów wynosi 'itemsXS'. Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsL', to liczba wygenerowanych Pozycje pasują do 'itemsS'. ",
+        "description": "Jeżeli szerokość dokumentu jest mniejsza niż ta wartość, to liczba wygenerowanych elementów wynosi 'itemsXS'. Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsL', to liczba wygenerowanych Pozycje pasują do 'itemsS'. ",
         "type": "Number",
         "default": "768"
     },
     'slider.items.resizeL': {
-        "opis": "Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsXL', to ilość wygenerowanych elementów powinna odpowiadać 'itemsL'.",
+        "description": "Jeżeli szerokość dokumentu jest większa niż ta wartość i mniejsza niż 'itemsXL', to ilość wygenerowanych elementów powinna odpowiadać 'itemsL'.",
         "type": "Number",
         "default": "1024"
     },
     'slider.items.resizeXL': {
-        "opis": "Jeżeli szerokość dokumentu jest większa niż ta wartość, to ilość wygenerowanych elementów powinna odpowiadać 'itemsXL'.",
+        "description": "Jeżeli szerokość dokumentu jest większa niż ta wartość, to ilość wygenerowanych elementów powinna odpowiadać 'itemsXL'.",
         "type": "Number",
         "default": "1260"
     },
@@ -1911,7 +1911,67 @@ const PL = {
         "default": "false"
     },
     'steps.callbackCheckNavigate': {
-        "description": "W połączeniu z 'callbackCheck={true}' sprawdzane jest, czy obietnica odpowiedniego kroku jest fałszywa (na przykład, jeśli użytkownik przechodzi od kroku 1 do kroku 3, kroki 1 i 2 muszą zostać sprawdzone). Użytkownik jest kierowany do kroku, w którym obietnica zwraca wartość fałsz. ",
+        "description": "W połączeniu z 'callbackCheck={true}' sprawdzane jest, czy obietnica odpowiedniego kroku jest false (na przykład, jeśli użytkownik przechodzi od kroku 1 do kroku 3, kroki 1 i 2 muszą zostać sprawdzone). Użytkownik jest kierowany do kroku, w którym obietnica zwraca wartość false.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.liveGeneration': {
+        "description": "Aktywuje specjalną funkcję do generowania danych treści (pojedynczego kroku) w czasie rzeczywistym. Działa tylko wtedy, gdy element potomny danych zawiera również funkcję zwrotną 'liveGeneration'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.data': {
+        "description": "Tablica obiektów.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'steps.data.text': {
+        "description": "Tekst w każdym kroku.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.icon': {
+        "description": "Ikona pojedynczego kroku.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.data': {
+        "description": "Zawartość jednego kroku.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'steps.data.callback': {
+        "description": "Jeśli użytkownik kliknie przycisk „następny” lub „poprzedni”, wywoływana jest ta funkcja. Zwraca argument „callbackProps”. Ta funkcja musi zwracać obietnicę (Promise). Jeśli wartość (resolve) jest true, użytkownik może kontynuować nawigację, w przeciwnym razie nie. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.callbackProps': {
+        "description": "Dane zdefiniowane przez użytkownika dla funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.onError': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana, gdy funkcja 'callback' zwraca false (Promise.resolve (false)). Ta funkcja musi zwrócić obietnicę (Promise). Wynik tej obietnicy jest interpretowany jako komunikat o błędzie i wyświetlany użytkownikowi. Ta funkcja zwraca argument 'onErrorProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.onErrorProps': {
+        "description": "Dane zdefiniowane przez użytkownika dla funkcji 'onError'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.liveGeneration': {
+        "description": "Zdefiniowana przez użytkownika funkcja generująca dane treści (pojedynczego kroku) w czasie rzeczywistym. Ta funkcja musi zwracać obietnicę (Promise). Wynikiem Promise.resolve(...) jest wtedy treść (JSX), którą użytkownik widzi. Działa tylko wtedy, gdy klucz nadrzędny 'liveGeneration={true}'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.errorDataInside': {
+        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna być wyświetlana poza obszarem zawartości. Jeśli prawda, wiadomość jest wyświetlana w obszarze zawartości.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.errorAlignTop': {
+        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna zostać wyświetlona poniżej obszaru zawartości. Jeśli prawda, wiadomość jest wyświetlana nad obszarem zawartości.",
         "type": "Boolean",
         "default": "false"
     },
@@ -1919,6 +1979,8 @@ const PL = {
     'steps.example2': 'Kroki z użyciem klucza progressBar={true}.',
     'steps.example3': 'Kroki z użyciem klucza iconStep={true}.',
     'steps.example4': 'Kroki z użyciem kluczy callbackCheck={true} and iconStep={true}.',
+    'steps.example5': 'Kroki ze zdefiniowaną przez użytkownika funkcją "onError" i danymi zdefiniowanymi przez użytkownika dla tej funkcji "onErrorProps".',
+    'steps.example6': 'Kroki ze zdefiniowaną przez użytkownika funkcją "onError", zdefiniowane przez użytkownika dane dla tej funkcji "onErrorProps" i generowanie kodu Live Code (JSX) przy użyciu funkcji "liveGeneration".',
     "menu.data.callback": {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wykonywana po kliknięciu elementu menu, a ten element nie ma elementu potomnego. Funkcja ma tylko jeden argument zwrotny, wartość klucza 'callbackProps'.",
         "type": "Funkcja",

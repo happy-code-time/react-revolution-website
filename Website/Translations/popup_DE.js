@@ -1862,10 +1862,72 @@ const DE = {
         "type": "Boolean",
         "default": "false"
     },
+    'steps.liveGeneration' : {
+        "description": "Schaltet eine spezielle Funktion frei um die Daten des Contents (eines einzelnen Steps) in echtzeit zu generieren. Funktioniert nur dann, wenn auch das Kindelement der Daten eine Callback Funktion 'liveGeneration' beinhaltet.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.data' : {
+        "description": "Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'steps.data.text' : {
+        "description": "Der Text im einzelnen Step.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'steps.data.icon' : {
+        "description": "Das Icon eines einzelnen Steps.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'steps.data.data' : {
+        "description": "Der Content einses einzelnen Steps.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'steps.data.callback' : {
+        "description": "Wenn der Benutzer den Button 'weiter' oder 'vorher' anklickt, wird diese Funktion aufgerufen. Diese liefert ein Argument zurück 'callbackProps'. Diese Funktion muss ein Promise zurück liefern. Wenn der Wert (resolve) true ist, wird dem Benutzer erlaubt weiter zu navigieren, ansonsten nicht.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.callbackProps' : {
+        "description": "Benutzerdefinierte Daten für die 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.onError' : {
+        "description": "Benutzerdefinierte Funktion die aufgerufen wird, wenn die Funktion 'callback' false (Promise.resolve(false)) zurückliefert. Diese Funktion muss ein Promise zurückliefern. Das Ergebnis dieses Promises wird als Fehlermeldung interpretiert und dem Benutzer angezeigt. Diese Funktion liefert ein Argument zurück 'onErrorProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.data.onErrorProps' : {
+        "description": "Benutzerdefinierte Daten für die 'onError' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'steps.data.liveGeneration' : {
+        "description": "Benutzerdefinierte Funktion um die Daten des Contents (eines einzelnen Steps) in echtzeit zu generieren. Diese Funktion muss ein Promise zurückliefern. Das Ergebis von Promise.resolve(...) ist dann der Content (JSX) was der Benutzer sieht. Funktioniert nur wenn der übergeordnete Schlüssel 'liveGeneration={true}' ist.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'steps.errorDataInside': {
+        "description": "Der Wert der Rückmeldung 'liveGeneration' (Fehlermeldung) soll auserhalb des Content Bereiches angezeigt werden. Falls true, wird die Meldung innerhalb des Content Bereiches angezeigt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'steps.errorAlignTop': {
+        "description": "Der Wert der Rückmeldung 'liveGeneration' (Fehlermeldung) soll unterhalb des Content Bereiches angezeigt werden. Falls true, wird die Meldung überhalb des Content Bereiches angezeigt.",
+        "type": "Boolean",
+        "default": "false"
+    },
     'steps.example1' : 'Steps mit den Standard Einstellungen.',
     'steps.example2' : 'Steps mit der Verwendung des Schlüssels progressBar={true}.',
     'steps.example3' : 'Steps mit der Verwendung des Schlüssels iconStep={true}.',
     'steps.example4' : 'Steps mit callbackCheck={true} und iconStep={true}.',
+    'steps.example5' : 'Steps mit eine Benutzerdefinierten "onError" Funktion und Benutzerdefinierten Daten für diese Funktion "onErrorProps".',
+    'steps.example6' : 'Steps mit eine Benutzerdefinierten "onError" Funktion, Benutzerdefinierten Daten für diese Funktion "onErrorProps" und Live Code (JSX) Code Generation mittels der Funktion "liveGeneration".',
     'menu.data.callback': {
         "description": "Benutzerdefiniert Funktion die ausgeführt wird, wenn ein Menu Element angeklickt wurde und dieses Element keine Kind-Element besistz. Die Funktion hat nur ein Rückgabe Argument, den Wert des Schlüssels 'callbackProps'.",
         "type": "Function",

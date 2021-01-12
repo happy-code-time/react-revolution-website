@@ -326,7 +326,7 @@ class App extends React.Component
       {
         version: '4.1',
         start: 0,
-        end: 7
+        end: 8
       },
       {
         version: '4.0',
@@ -826,22 +826,6 @@ class App extends React.Component
                       text: trans('changeTintTitle'),
                       toggled: false,
                       data: this.generateLayoutsMenu()
-                    },
-                    {
-                      icon: <i className="far fa-circle circle"></i>,
-                      text: trans('fastActions'),
-                      toggled: false,
-                      data: [
-                        {
-                          text: trans('getStarted'),
-                          callback: () => window.location.href = `${host}#/components/accordion`,
-                        },
-                        {
-                          text: 'Github',
-                          externalLink: true,
-                          href: 'https://github.com/janitzed/react-revolution'
-                        }
-                      ]
                     },
                   ]
                 }

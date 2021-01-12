@@ -244,6 +244,31 @@ const codeExample9 = `import { SliderItems } from 'react-revolution';
         />
 </div>`;
 
+const codeExample10 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+        <SliderItems
+            addClass='slider-items-example'
+            displayDotsIndex={true}
+            paginationType={2}
+            buttonsAlwaysVisible={true}
+            previous='«'
+            next='»'
+            useLayerX={false}
+            data={this.getCards()}
+        />
+</div>`;
+
 class _SliderItems extends React.Component 
 {
     constructor(props) {
@@ -525,6 +550,39 @@ class _SliderItems extends React.Component
                             autoplay={true}
                             autoplayTime={5000}
                             animationTime='10'
+                            data={this.getCards()}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'SliderItems',
+                description: 'useLayerX={false}',
+                reactTextBefore: '',
+                react: codeExample10,
+                reactTextAfter: '',
+                js: js,
+                css: css,
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '300px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <SliderItems
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            paginationType={2}
+                            buttonsAlwaysVisible={true}
+                            previous='«'
+                            next='»'
+                            useLayerX={false}
                             data={this.getCards()}
                         />
                     </div>
