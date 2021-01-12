@@ -564,6 +564,14 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '4.1.9': {
+                    data: [
+                        {
+                            key: 'Steps',
+                            value: 'Added new keys: "iconBg", "buttonsBg", "progressBgBlank", "progressBgStripe", "progressBgStripe".'
+                        },
+                    ]
+                },
             }
         }
     }

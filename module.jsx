@@ -133,6 +133,11 @@ class App extends React.Component {
                     errorDataInside={false}
                     errorAlignTop={false}
                     liveGeneration={true}
+                    iconBg='#673ab7'
+                    progressBgBlank='rgba(103,58,183,0.6)'
+                    progressBgStripe='rgb(103,58,183)'
+                    progressBgSize={30}
+                    buttonsBg='#673ab7'
                     data={[
                         {
                             text: 'Step 1',
@@ -146,21 +151,35 @@ class App extends React.Component {
                         {
                             text: 'Step 2',
                             icon: <i className="fas fa-balance-scale-right"></i>,
+                            liveGeneration: this.liveGeneration_email,
+                        },
+                        {
+                            text: 'Step 3',
+                            icon: <i className="fas fa-balance-scale-right"></i>,
                             liveGeneration: this.liveGeneration_password,
                             callback: this.checkStep,
-                            callbackProps: ['username', 'password'],
+                            callbackProps: 'password',
                             onError: this.getErrorText,
                             onErrorProps: 'Password is a required field.',
                         },
                         {
-                            text: 'Step 3',
-                            icon: <i className="fas fa-user"></i>,
+                            text: 'Step 4',
+                            icon: <i className="fas fa-balance-scale-right"></i>,
+                            liveGeneration: this.liveGeneration_email,
+                        },
+                        {
+                            text: 'Step 5',
+                            icon: <i className="fas fa-balance-scale-right"></i>,
+                            liveGeneration: this.liveGeneration_email,
+                        },
+                        {
+                            text: 'Step 6',
+                            icon: <i className="fas fa-balance-scale-right"></i>,
                             liveGeneration: this.liveGeneration_email,
                             callback: this.checkStep,
-                            callbackProps: ['username', 'password', 'email'],
+                            callbackProps: 'email',
                             onError: this.getErrorText,
                             onErrorProps: 'Email is a required field.',
-                            submit: this.submit
                         }
                     ]}
                 />

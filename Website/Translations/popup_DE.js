@@ -1922,9 +1922,35 @@ const DE = {
         "type": "Boolean",
         "default": "false"
     },
+    'steps.iconBg': {
+        "description": "Icons Hintergrundfarbe.",
+        "type": "String",
+        "default": "rgb(71, 180, 118)"
+    },
+    'steps.progressBgBlank': {
+        "description": "Erster Teil der animierten Progressbar.",
+        "type": "String",
+        "default": "rgba(71, 180, 118, 0.9)"
+    },
+    'steps.progressBgStripe': {
+        "description": "Zweiter Teil der animierten Progressbar.",
+        "type": "String",
+        "default": "rgb(71, 180, 118)"
+    },
+    'steps.progressBgSize': {
+        "description": "Linien Breite (in px) der animierten Progressbar.",
+        "type": "Number",
+        "default": "30"
+    },
+    'steps.buttonsBg': {
+        "description": "Buttons Hintergrundfarbe (weiter, vorher, submit).",
+        "type": "String",
+        "default": "rgb(71, 180, 118)"
+    },
     'steps.example1' : 'Steps mit den Standard Einstellungen.',
     'steps.example2' : 'Steps mit der Verwendung des Schlüssels progressBar={true}.',
     'steps.example3' : 'Steps mit der Verwendung des Schlüssels iconStep={true}.',
+    'steps.example3a': 'Steps mit iner Benutzerdefinierten Farbenbestimmung.',
     'steps.example4' : 'Steps mit callbackCheck={true} und iconStep={true}.',
     'steps.example5' : 'Steps mit eine Benutzerdefinierten "onError" Funktion und Benutzerdefinierten Daten für diese Funktion "onErrorProps".',
     'steps.example6' : 'Steps mit eine Benutzerdefinierten "onError" Funktion, Benutzerdefinierten Daten für diese Funktion "onErrorProps" und Live Code (JSX) Code Generation mittels der Funktion "liveGeneration".',

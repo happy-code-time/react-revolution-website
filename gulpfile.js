@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v4.1.8';
+const version = 'v4.1.9';
 
 const modules = [
     "Accordion",

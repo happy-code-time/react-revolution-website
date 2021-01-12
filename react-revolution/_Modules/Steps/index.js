@@ -27,7 +27,12 @@ class Steps extends React.Component {
             iconStep: typeof true == typeof props.iconStep && true === props.iconStep ? true : false,
             errorDataInside: typeof true == typeof props.errorDataInside && true === props.errorDataInside ? true : false,
             errorAlignTop: typeof true == typeof props.errorAlignTop && true === props.errorAlignTop ? true : false,
-            liveGeneration: typeof true == typeof props.liveGeneration && true === props.liveGeneration ? true : false, 
+            liveGeneration: typeof true == typeof props.liveGeneration && true === props.liveGeneration ? true : false,
+            iconBg: props.iconBg && typeof '8' === typeof props.iconBg ? props.iconBg : 'rgb(71, 180, 118)',
+            progressBgBlank: props.progressBgBlank && typeof '8' === typeof props.progressBgBlank ? props.progressBgBlank : 'rgba(71, 180, 118, 0.9)',
+            progressBgStripe: props.progressBgStripe && typeof '8' === typeof props.progressBgStripe ? props.progressBgStripe : 'rgb(71, 180, 118)',
+            progressBgSize: props.progressBgSize && typeof 8 == typeof props.progressBgSize ? props.progressBgSize : 30,
+            buttonsBg: props.buttonsBg && typeof '8' === typeof props.buttonsBg ? props.buttonsBg : 'rgb(71, 180, 118', 
         };
     }
 
@@ -38,7 +43,7 @@ class Steps extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'liveGeneration', 'defaultClass', 'errorDataInside', 'errorAlignTop', 'id', 'data', 'next', 'previous', 'submit', 'progressBar', 'iconStep', 'callbackCheck', 'submitCallback', 'callbackCheckNavigate'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'liveGeneration', 'iconBg', 'buttonsBg', 'progressBgSize', 'progressBgBlank', 'progressBgStripe', 'defaultClass', 'errorDataInside', 'errorAlignTop', 'id', 'data', 'next', 'previous', 'submit', 'progressBar', 'iconStep', 'callbackCheck', 'submitCallback', 'callbackCheckNavigate'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps',
@@ -53,7 +58,12 @@ class Steps extends React.Component {
                 callbackCheckNavigate: typeof true == typeof props.callbackCheckNavigate && true === props.callbackCheckNavigate ? true : false,
                 errorDataInside: typeof true == typeof props.errorDataInside && true === props.errorDataInside ? true : false,
                 errorAlignTop: typeof true == typeof props.errorAlignTop && true === props.errorAlignTop ? true : false,
-                liveGeneration: typeof true == typeof props.liveGeneration && true === props.liveGeneration ? true : false, 
+                liveGeneration: typeof true == typeof props.liveGeneration && true === props.liveGeneration ? true : false,
+                iconBg: props.iconBg && typeof '8' === typeof props.iconBg ? props.iconBg : 'rgb(71, 180, 118)',
+                progressBgBlank: props.progressBgBlank && typeof '8' === typeof props.progressBgBlank ? props.progressBgBlank : 'rgba(71, 180, 118, 0.9)',
+                progressBgStripe: props.progressBgStripe && typeof '8' === typeof props.progressBgStripe ? props.progressBgStripe : 'rgb(71, 180, 118)',
+                progressBgSize: props.progressBgSize && typeof 8 == typeof props.progressBgSize ? props.progressBgSize : 30,
+                buttonsBg: props.buttonsBg && typeof '8' === typeof props.buttonsBg ? props.buttonsBg : 'rgb(71, 180, 118', 
             };
         }
 
@@ -65,28 +75,43 @@ class Steps extends React.Component {
     }
 
     getHeadersJsx() {
-        const { data, step, iconStep } = this.state;
-        const liWidth = Math.ceil(100 / data.length - 1);
-        const marginXUl = Math.ceil((100 - (liWidth * (data.length - 1))) / 2);
-        const marginXLi = Math.ceil(marginXUl / (data.length - 1));
+        const { data, step, iconStep, iconBg } = this.state;
+        const liWidth = (1 == data.length) ? 100 : Math.ceil(100 / data.length - 1);
+        const marginXUl = (1 == data.length) ? 0 : Math.ceil((100 - (liWidth * (data.length - 1))) / 2);
+        const marginXLi = (1 == data.length) ? 0 : Math.ceil(marginXUl / (data.length - 1));
+        let inlineStyle = {
+            width: `calc(${liWidth}% + ${marginXLi}px)`
+        };
+
+        let iconColor = {
+            '--stripes-filled':  iconBg,
+        };
 
         return (
             <ul>
                 {data.map((o, index) => {
                     const { icon, text } = o;
+                    const cls = `step ${step >= index ? 'step-filled' : ''} ${step === index ? 'step-active' : ''} ${iconStep ? 'cursor-pointer' : ''}`;
+
+                    if(step >= index){
+                        inlineStyle = {
+                            '--stripes-filled':  iconBg,
+                            width: inlineStyle.width
+                        }
+                    };
 
                     return (
                         <li
-                            style={{ width: `calc(${liWidth}% + ${marginXLi}px)` }}
                             key={`step-${index}`}
-                            className={`step ${step >= index ? 'step-filled' : ''} ${step === index ? 'step-active' : ''} ${iconStep ? 'cursor-pointer' : ''}`}
+                            className={cls}
+                            style={inlineStyle}
                             {...((iconStep) && { onClick: (e) => this.slide(step, index) })}
                         >
                             <div className={`${step >= index ? 'icon-filled' : 'icon-not-filled'} ${step === index ? 'icon-active' : ''}`}>
-                                <span className="icon">{icon && icon}</span>
+                                <span className="icon" style={iconColor}>{icon && icon}</span>
                             </div>
                             <div className={`${step >= index ? 'text-filled' : 'text-not-filled'} ${step === index ? 'text-active' : ''}`}>
-                                <span className="text">{text && text}</span>
+                                <span className="text" style={iconColor}>{text && text}</span>
                             </div>
                         </li>
                     );
@@ -104,13 +129,13 @@ class Steps extends React.Component {
         if (data && data.length && undefined !== data[step] && !liveGeneration) {
             return data[step].data;
         }
-        
+
         return null;
     }
 
-    async checkSubmit(){
+    async checkSubmit() {
         const { callbackCheckNavigate } = this.state;
-        const { callback, callbackProps, onError, onErrorProps, submit } = this.state.data[this.state.data.length-1];
+        const { callback, callbackProps, onError, onErrorProps, submit } = this.state.data[this.state.data.length - 1];
 
         const allowedToSetStep = await (callback)(callbackProps);
         /**
@@ -119,19 +144,19 @@ class Steps extends React.Component {
         if (typeof false == typeof allowedToSetStep && false == allowedToSetStep && callbackCheckNavigate) {
 
             if (onError && 'function' == typeof onError) {
-                const currentError =  await (onError)(onErrorProps).then(r => r).catch(e => '');
-                return this.setState({ 
+                const currentError = await (onError)(onErrorProps).then(r => r).catch(e => '');
+                return this.setState({
                     currentError,
-                    step: this.state.data.length-1,
+                    step: this.state.data.length - 1,
                 });
             }
             else {
                 return this.setState({
-                    step: this.state.data.length-1,
+                    step: this.state.data.length - 1,
                     currentError: ''
                 });
             }
-        }   
+        }
 
         if (submit && 'function' == typeof submit) {
             return this.setState({
@@ -145,61 +170,65 @@ class Steps extends React.Component {
         let allowedToSetStep = false;
 
         let current = currentStep;
-        let end = nextStep - 1;
+        let end = nextStep;
 
         const check = () => {
             const { callback, callbackProps, onError, onErrorProps } = data[current];
 
             if (!callback) {
+
                 if (end > current) {
                     current += 1;
                     return check();
                 }
+
+                if (end == current) {
+                    return this.setState({
+                        step: current,
+                        currentError: ''
+                    });
+                }
             }
             else {
+                (async () => {
+                    allowedToSetStep = await (callback)(callbackProps);
 
-                try {
+                    /**
+                     * Current check returned false (navigate the user to the wrong page)
+                     */
+                    if (typeof false == typeof allowedToSetStep && false == allowedToSetStep && callbackCheckNavigate) {
 
-                    (async () => {
-                        allowedToSetStep = await (callback)(callbackProps);
-                        /**
-                         * Current check returned false (navigate the user to the wrong page)
-                         */
-                        if (typeof false == typeof allowedToSetStep && false == allowedToSetStep && callbackCheckNavigate) {
-
-                            if (onError && 'function' == typeof onError) {
-                                const currentError =  await (onError)(onErrorProps).then(r => r).catch(e => '');
-                                return this.setState({ 
-                                    currentError,
-                                    step: current,
-                                });
-                            }
-                            else {
-                                return this.setState({
-                                    step: current,
-                                    currentError: ''
-                                });
-                            }
+                        if (onError && 'function' == typeof onError) {
+                            const currentError = await (onError)(onErrorProps).then(r => r).catch(e => '');
+                            return this.setState({
+                                currentError,
+                                step: current,
+                            });
                         }
-                        /**
-                         * Last step, all previously checks returned true
-                         */
-                        if(typeof true == typeof allowedToSetStep && true == allowedToSetStep && end == current){
-                            return this.setState({ 
-                                step: nextStep,
+                        else {
+                            return this.setState({
+                                step: current,
                                 currentError: ''
                             });
                         }
-                        /**
-                         * Current check returned true, process further
-                         */
-                        if (typeof true == typeof allowedToSetStep && true == allowedToSetStep && end > current) {
-                            current += 1;
-                            check();
-                        }
-                    })();
-                }
-                catch (e) { }
+                    }
+                    /**
+                     * Last step, all previously checks returned true
+                     */
+                    if (typeof true == typeof allowedToSetStep && true == allowedToSetStep && end == current) {
+                        return this.setState({
+                            step: nextStep,
+                            currentError: ''
+                        });
+                    }
+                    /**
+                     * Current check returned true, process further
+                     */
+                    if (typeof true == typeof allowedToSetStep && true == allowedToSetStep && end > current) {
+                        current += 1;
+                        return check();
+                    }
+                })();
             }
         };
 
@@ -207,10 +236,9 @@ class Steps extends React.Component {
     }
 
     slide(currentStep, nextStep) {
-        const { data } = this.state;
+        const { data, callbackCheck } = this.state;
 
         if (undefined !== data[currentStep]) {
-            const { callbackCheck } = this.state;
             const { callback, callbackProps } = data[currentStep];
 
             /**
@@ -224,7 +252,7 @@ class Steps extends React.Component {
              * Ignore check for passed items
              */
             if (nextStep < currentStep) {
-                return this.setState({ 
+                return this.setState({
                     step: nextStep,
                     currentError: ''
                 });
@@ -235,10 +263,10 @@ class Steps extends React.Component {
             }
 
             if (callback) {
-                (callback)(callbackProps)
+                (callback)(callbackProps);
             }
 
-            this.setState({ 
+            this.setState({
                 step: nextStep,
                 currentError: ''
             });
@@ -246,7 +274,11 @@ class Steps extends React.Component {
     }
 
     getActionButtonsJsx() {
-        const { step, data, next, previous, submit } = this.state;
+        const { step, data, next, previous, submit, buttonsBg } = this.state;
+
+        const bgStyle = {
+            '--buttons-bg' : buttonsBg
+        };
 
         /**
          * Step: first
@@ -255,7 +287,7 @@ class Steps extends React.Component {
             return (
                 <div className="flex justify-content-between">
                     <span></span>
-                    <button className="btn-next" onClick={() => this.slide(step, step + 1)}>
+                    <button className="btn-next" style={bgStyle} onClick={() => this.slide(step, step + 1)}>
                         {next}
                     </button>
                 </div>
@@ -269,7 +301,7 @@ class Steps extends React.Component {
             return (
                 <div className="flex justify-content-between">
                     <span></span>
-                    <button className="btn-submit" onClick={() => this.checkSubmit()}>
+                    <button className="btn-submit" style={bgStyle} onClick={() => this.checkSubmit()}>
                         {submit}
                     </button>
                 </div>
@@ -282,10 +314,10 @@ class Steps extends React.Component {
         if (step === data.length - 1) {
             return (
                 <div className="flex justify-content-between">
-                    <button className="btn-previous" onClick={() => this.slide(step, step - 1)}>
+                    <button className="btn-previous" style={bgStyle} onClick={() => this.slide(step, step - 1)}>
                         {previous}
                     </button>
-                    <button className="btn-next" onClick={() => this.checkSubmit()}>
+                    <button className="btn-next" style={bgStyle} onClick={() => this.checkSubmit()}>
                         {submit}
                     </button>
                 </div>
@@ -297,10 +329,10 @@ class Steps extends React.Component {
          */
         return (
             <div className="flex justify-content-between">
-                <button className="btn-previous" onClick={() => this.slide(step, step - 1)}>
+                <button className="btn-previous" style={bgStyle} onClick={() => this.slide(step, step - 1)}>
                     {previous}
                 </button>
-                <button className="btn-next" onClick={() => this.slide(step, step + 1)}>
+                <button className="btn-next" style={bgStyle} onClick={() => this.slide(step, step + 1)}>
                     {next}
                 </button>
             </div>
@@ -308,18 +340,33 @@ class Steps extends React.Component {
     }
 
     getProgressBarJsx() {
-        let { step, data } = this.state;
+        let { step, data, progressBgBlank, progressBgStripe, progressBgSize } = this.state;
         step += 1;
         let progress = ((100 / data.length - 1) * step);
 
         if (data.length === step) {
             progress = 100;
         }
+       
+        const stripes = {
+            width: `${progress}%`,
+            backgroundImage: `linear-gradient(
+                135deg,
+                ${progressBgStripe} 25%,
+                ${progressBgBlank} 25%,
+                ${progressBgBlank} 50%,
+                ${progressBgStripe} 50%,
+                ${progressBgStripe} 75%,
+                ${progressBgBlank} 75%,
+                ${progressBgStripe} 100%
+            )`,
+            backgroundSize: `${progressBgSize}px ${progressBgSize}px`
+        }
 
         return (
             <div className="progress-bar">
                 <span className="bar">
-                    <span className="progress stripes animated" style={{ width: `${progress}%` }}></span>
+                    <span className="progress stripes animated" style={stripes}></span>
                 </span>
             </div>
         );

@@ -1975,9 +1975,35 @@ const PL = {
         "type": "Boolean",
         "default": "false"
     },
+    'steps.iconBg': {
+        "description": "Kolor tła ikon.",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
+    'steps.progressBgBlank': {
+        "description": "Pierwsza część animowanego paska postępu.",
+        "type": "String",
+        "default": "rgba (71, 180, 118, 0,9)"
+    },
+    'steps.progressBgStripe': {
+        "description": "Druga część animowanego paska postępu.",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
+    'steps.progressBgSize': {
+        "description": "Szerokość linii (w px) animowanego paska postępu.",
+        "type": "Number",
+        "default": "30"
+    },
+    'steps.buttonsBg': {
+        "description": "Kolor tła przycisków (następny, przed, zatwierdź).",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
     'steps.example1': 'Kroki ze standardowymi ustawieniami.',
     'steps.example2': 'Kroki z użyciem klucza progressBar={true}.',
     'steps.example3': 'Kroki z użyciem klucza iconStep={true}.',
+    'steps.example3a': 'Kroki z definicją koloru zdefiniowaną przez użytkownika.',
     'steps.example4': 'Kroki z użyciem kluczy callbackCheck={true} and iconStep={true}.',
     'steps.example5': 'Kroki ze zdefiniowaną przez użytkownika funkcją "onError" i danymi zdefiniowanymi przez użytkownika dla tej funkcji "onErrorProps".',
     'steps.example6': 'Kroki ze zdefiniowaną przez użytkownika funkcją "onError", zdefiniowane przez użytkownika dane dla tej funkcji "onErrorProps" i generowanie kodu Live Code (JSX) przy użyciu funkcji "liveGeneration".',

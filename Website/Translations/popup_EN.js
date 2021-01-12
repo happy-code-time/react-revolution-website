@@ -1974,9 +1974,35 @@ const EN = {
         "type": "Boolean",
         "default": "false"
     },
+    'steps.iconBg': {
+        "description": "Icons background color.",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
+    'steps.progressBgBlank': {
+        "description": "First part of the animated progress bar.",
+        "type": "String",
+        "default": "rgba (71, 180, 118, 0.9)"
+    },
+    'steps.progressBgStripe': {
+        "description": "Second part of the animated progress bar.",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
+    'steps.progressBgSize': {
+        "description": "Line width (in px) of the animated progress bar.",
+        "type": "Number",
+        "default": "30"
+    },
+    'steps.buttonsBg': {
+        "description": "Buttons background color (next, before, submit).",
+        "type": "String",
+        "default": "rgb (71, 180, 118)"
+    },
     'steps.example1': 'Steps with the standard settings.',
     'steps.example2': 'Steps using the key progressBar={true}.',
     'steps.example3': 'Steps using the key iconStep={true}.',
+    'steps.example3a': 'Steps with a user-defined color definition.',
     'steps.example4': 'Steps using the keys callbackCheck={true} and iconStep={true}.',
     'steps.example5': 'Steps with a user-defined "onError" function and user-defined data for this function "onErrorProps".',
     'steps.example6': 'Steps with a user-defined "onError" function, user-defined data for this function "onErrorProps" and live code (JSX) code generation using the "liveGeneration" function.',

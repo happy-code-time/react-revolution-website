@@ -123,6 +123,53 @@ const codeExample3 = `import { Steps } from 'react-revolution';
     />
 </div>`;
 
+const codeExample3a = `import { Steps } from 'react-revolution';
+// import Steps from 'react-revolution/Steps';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Steps
+        progressBar={true}
+        iconStep={true}
+        callback={() => { console.info('SAVE') }}
+        next='Next'
+        previous='Previous'
+        submit='Save'
+
+        iconBg='#673ab7'
+        progressBgBlank='rgba(103,58,183,0.6)'
+        progressBgStripe='rgb(103,58,183)'
+        progressBgSize={30}
+        buttonsBg='#673ab7'
+        
+        data={[
+            {
+                text: 'Step 1',
+                icon: <i className="far fa-lemon"></i>,
+                data: this.generateList(1),
+            },
+            {
+                text: 'Step 2',
+                icon: <i className="fas fa-balance-scale-right"></i>,
+                data: this.generateList(2),
+            },
+            {
+                text: 'Step 3',
+                icon: <i className="fas fa-user"></i>,
+                data: this.generateList(3),
+            }
+        ]}
+    />
+</div>`;
+
 const codeExample4 = `import { Steps } from 'react-revolution';
 // import Steps from 'react-revolution/Steps';
 
@@ -707,6 +754,59 @@ class _Steps extends React.Component {
                             next='Next'
                             previous='Previous'
                             submit='Save'
+                            data={[
+                                {
+                                    text: 'Step 1',
+                                    icon: <i className="far fa-lemon"></i>,
+                                    data: this.generateList(1),
+                                },
+                                {
+                                    text: 'Step 2',
+                                    icon: <i className="fas fa-balance-scale-right"></i>,
+                                    data: this.generateList(2),
+                                },
+                                {
+                                    text: 'Step 3',
+                                    icon: <i className="fas fa-user"></i>,
+                                    data: this.generateList(3),
+                                }
+                            ]}
+                        />
+                    </div>
+                )
+            },
+            {
+                title: 'Steps',
+                description: trans('steps.example3a'),
+                reactTextBefore: '',
+                react: codeExample3a,
+                reactTextAfter: '',
+                js: jsExample1,
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '500px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <Steps
+                            progressBar={true}
+                            iconStep={true}
+                            callback={() => { console.info('SAVE') }}
+                            next='Next'
+                            previous='Previous'
+                            submit='Save'
+                            iconBg='#673ab7'
+                            progressBgBlank='rgba(103,58,183,0.6)'
+                            progressBgStripe='rgb(103,58,183)'
+                            progressBgSize={30}
+                            buttonsBg='#673ab7'
                             data={[
                                 {
                                     text: 'Step 1',
@@ -1463,6 +1563,26 @@ class _Steps extends React.Component {
                                 {
                                     key: 'liveGeneration',
                                     values: 'steps.liveGeneration'
+                                },
+                                {
+                                    key: 'iconBg',
+                                    values: 'steps.iconBg'
+                                },
+                                {
+                                    key: 'buttonsBg',
+                                    values: 'steps.buttonsBg'
+                                },
+                                {
+                                    key: 'progressBgBlank',
+                                    values: 'steps.progressBgBlank'
+                                },
+                                {
+                                    key: 'progressBgStripe',
+                                    values: 'steps.progressBgStripe'
+                                },
+                                {
+                                    key: 'progressBgSize',
+                                    values: 'steps.progressBgSize'
                                 },
                                 {
                                     key: 'data',
