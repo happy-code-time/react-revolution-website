@@ -129,6 +129,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/modal'
         },
         {
+            name: 'Overlay',
+            link: 'components/overlay'
+        },
+        {
             name: 'PagerStatic',
             link: 'components/pager-static'
         },
@@ -139,6 +143,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'PopupBox',
             link: 'components/popup-box'
+        },
+        {
+            name: 'PopupData',
+            link: 'components/popup-data'
         },
         {
             name: 'Picture404',

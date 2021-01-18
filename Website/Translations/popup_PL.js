@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const PL = {
+    vailableComponents: 'Moduły',
     authorLink: 'Autor',
     lastReleaseNotes: 'Ostatnie wydanie',
     fastActions: 'Przydatne linki',
@@ -2095,6 +2096,67 @@ const PL = {
         "type": "Boolean",
         "default": "true"
     },
+    'overlay.display': {
+        "description": "Wyświetl sterowanie nakładką.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'overlay.callback': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po naciśnięciu klawisza 'Escape' lub kliknięciu ciemnej ramki. Ta funkcja zwraca argument 'callbackProps'.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'overlay.callbackProps': {
+        "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako argument funkcji 'callback'.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    'overlay.data': {
+        "description": "Dane zdefiniowane przez użytkownika w nakładce.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupData.direction': {
+        "description": "Kierunek wyskakującego okienka względem 'Posiadacza'.",
+        "type": "String",
+        "default": "left"
+    },
+    'popupData.holderData': {
+        "description": "Dane zdefiniowane przez użytkownika, które wyzwalają pojawienie się wyskakującego okienka. Istnieją wstępnie wprowadzone symbole zastępcze: dots, square, hamburger lub hamburger-left. Nazwy te są również zastrzeżone i nie można ich zmienić.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupData.animationTime': {
+        "description": "Jeśli programista określił czas trwania przejścia inny niż 300 w swoim CSS, wówczas moduł potrzebuje tej wartości tutaj (aby był w 100% zgodny). Ma to znaczenie tylko wtedy, gdy zdecydujesz się na wstępnie zdefiniowany symbol zastępczy : dots, square, hamburger lub hamburger-left. ",
+        "type": "Number",
+        "default": "300"
+    },
+    'popupData.animation': {
+        "description": "Jeśli programista wybierze predefiniowany symbol zastępczy: dots, square, hamburger lub hamburger-left, automatycznie uruchamiana jest animacja. Jeśli chcesz to wyłączyć, wartość musi mieć wartość„ false ”(animacja = {false}). ",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'popupData.contentData': {
+        "description": "Niestandardowy JSX lub tablica obiektów.",
+        "type": "{} [] | JSX",
+        "default": "[]"
+    },
+    'popupData.contentData.data': {
+        "description": "Niestandardowy JSX, jeśli zdecydujesz się na tablicę obiektów dla klucza 'contentData'. Każde pojedyncze pole 'data' jest spakowane za pomocą <li>.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'popupData.example1': 'Przykład ze zmienną zdefiniowaną przez użytkownika, OUTSIDE - LEFT (symbol zastępczy znajduje się poza danymi), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example1a': 'Przykład ze zmienną zdefiniowaną przez użytkownika, OUTSIDE - LEFT (symbol zastępczy znajduje się poza danymi), zmienną zdefiniowaną przez użytkownika i danymi w postaci JSX.',
+    'popupData.example2': 'Przykład ze zmienną zdefiniowaną przez użytkownika, OUTSIDE - RIGHT (symbol zastępczy znajduje się poza danymi), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example3': 'Przykład ze zmienną zdefiniowaną przez użytkownika, OUTSIDE - CENTER (symbol zastępczy znajduje się poza danymi), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example4': 'Przykład ze zmienną zdefiniowaną przez użytkownika, INSIDE - LEFT (symbol zastępczy znajduje się wewnątrz danych), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example5': 'Przykład ze zmienną zdefiniowaną przez użytkownika, INSIDE - RIGHT (symbol zastępczy znajduje się wewnątrz danych), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example6': 'Przykład ze zmienną zdefiniowaną przez użytkownika, INSIDE - CENTER (symbol zastępczy znajduje się w danych), zmienną zdefiniowaną przez użytkownika i danymi w postaci tablicy obiektów.',
+    'popupData.example7': 'Przykład z użyciem predefiniowanego symbolu zastępczego: DOTS. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
+    'popupData.example8': 'Przykład użycia predefiniowanego symbolu zastępczego: SQUARE. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
+    'popupData.example9': 'Przykład z użyciem predefiniowanego symbolu zastępczego: HAMBURGER. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
+    'popupData.example10': 'Przykład z użyciem predefiniowanego symbolu zastępczego: HAMBURGER-RIGHT. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
 };
 
 export default PL;

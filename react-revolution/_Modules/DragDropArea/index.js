@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import copyFunctions from '../internalFunctions/copyFunctions';
 import internalUuid from '../internalFunctions/internalUuid';
 
-class DragDropArea extends Component {
+class DragDropArea extends React.Component {
 
     constructor(props) {
         super(props);
@@ -44,9 +44,9 @@ class DragDropArea extends Component {
             data: (props.data && typeof {} == typeof props.data) ? props.data : {},
             itemsPerLine: (props.itemsPerLine && typeof 8 == typeof props.itemsPerLine) ? props.itemsPerLine : 2,
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
-            callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
+            callbackAllowDrop: (props.callbackAllowDrop && typeof function(){} == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
             callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
             lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
             lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',
@@ -67,9 +67,9 @@ class DragDropArea extends Component {
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: props.data && typeof {} == typeof props.data ? props.data : {},
                 itemsPerLine: (props.itemsPerLine && typeof 8 == typeof props.itemsPerLine) ? props.itemsPerLine : 2,
-                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
                 callbackProps: props.callbackProps ? props.callbackProps : undefined,
-                callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
+                callbackAllowDrop: (props.callbackAllowDrop && typeof function(){} == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
                 lineNumber: (typeof true == typeof props.lineNumber) ? props.lineNumber : false,
                 lineNumberChar: (typeof '8' == typeof props.lineNumberChar) ? props.lineNumberChar : '',

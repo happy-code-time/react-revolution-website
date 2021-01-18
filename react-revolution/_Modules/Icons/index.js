@@ -138,7 +138,7 @@ class Icons extends React.Component
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             iconsType: (props.iconsType && typeof '8' == typeof props.iconsType) ? props.iconsType : 'Smileys',
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             displayTabs: (typeof true == typeof props.displayTabs) ? props.displayTabs : true,
             renderItems: (props.renderItems && typeof [] == typeof props.renderItems) ? props.renderItems : renderDefaultItems,
             translations: (props.translations && typeof {} == typeof props.translations) ? props.translations : undefined,
@@ -158,7 +158,7 @@ class Icons extends React.Component
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-icons',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
                 displayTabs: (typeof true == typeof props.displayTabs) ? props.displayTabs : true,
                 renderItems: (props.renderItems && typeof [] == typeof props.renderItems) ? props.renderItems : renderDefaultItems,
                 translations: (props.translations && typeof {} == typeof props.translations) ? props.translations : undefined,
@@ -200,7 +200,7 @@ class Icons extends React.Component
     callback(event, icon) {
         const { callback } = this.state;
 
-        if (callback && 'function' == typeof callback) {
+        if (callback && typeof function(){} == typeof callback) {
             (callback)(event, icon);
         }
     }

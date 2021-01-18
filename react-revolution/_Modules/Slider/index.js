@@ -43,7 +43,7 @@ class Slider extends React.Component {
             imagesTransform: `translate3d(-0px,0,0)`,
             // current slide index
             index: 0,
-            callbackMount: props.callbackMount && 'function' == typeof props.callbackMount ? props.callbackMount : undefined,
+            callbackMount: props.callbackMount && typeof function(){} == typeof props.callbackMount ? props.callbackMount : undefined,
             callbackMountProps: props.callbackMountProps,
             imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
             dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
@@ -95,7 +95,7 @@ class Slider extends React.Component {
                 displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
                 displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
                 buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
-                callbackMount: props.callbackMount && 'function' == typeof props.callbackMount ? props.callbackMount : undefined,
+                callbackMount: props.callbackMount && typeof function(){} == typeof props.callbackMount ? props.callbackMount : undefined,
                 callbackMountProps: props.callbackMountProps,
                 imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
                 dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
@@ -219,7 +219,7 @@ class Slider extends React.Component {
     slide() {
         const { data, index } = this.state;
 
-        if (data && data[index] && data[index].callback && 'function' == typeof data[index].callback) {
+        if (data && data[index] && data[index].callback && typeof function(){} == typeof data[index].callback) {
             (data[index].callback)(index, data[index].callbackProps);
         }
 
@@ -336,18 +336,22 @@ class Slider extends React.Component {
             return;
         }
 
-        this.wrapper.removeEventListener('mousedown', this.processMouseDown);
+        if(this.wrapper) {
+            this.wrapper.removeEventListener('mousedown', this.processMouseDown);
 
-        if (reattach) {
-            this.wrapper.addEventListener('mousedown', this.processMouseDown);
+            if (reattach) {
+                this.wrapper.addEventListener('mousedown', this.processMouseDown);
+            }   
         }
     }
 
     mouseMoveListeners(reattach = true) {
-        this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
+        if(this.wrapper) {
+            this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
 
-        if (reattach) {
-            this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+            if (reattach) {
+                this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+            }
         }
     }
 
@@ -398,7 +402,7 @@ class Slider extends React.Component {
         // save mouse movement in px value for mouseUp or leave
         this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
+        if (this.movex < this.slideWidth * (this.state.data.length - 1) && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
             if(inlineStyle){
                 return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
@@ -495,7 +499,7 @@ class Slider extends React.Component {
         // save mouse movement in px value for mouseUp or leave
         this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if (this.movex < this.slideWidth * (this.state.data.length - 1)) {
+        if (this.movex < this.slideWidth * (this.state.data.length - 1) && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
             if(inlineStyle){
                 return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;

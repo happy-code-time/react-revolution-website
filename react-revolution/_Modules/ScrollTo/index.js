@@ -16,7 +16,7 @@ class ScrollTo extends React.Component
             navigationTime: (props.navigationTime && typeof 8 == typeof props.navigationTime) ? props.navigationTime : 300,
             navigationTarget: (props.navigationTarget && typeof '8' == typeof props.navigationTarget) ? props.navigationTarget : '',
             html: props.html ? props.html : undefined,
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined
         };
     }
 

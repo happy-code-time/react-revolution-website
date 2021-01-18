@@ -119,7 +119,7 @@ class Menu extends React.Component {
                     to={href}
                     className={cls}
                     {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
                 >
                     {
                         'left' == direction && icon &&
@@ -153,7 +153,7 @@ class Menu extends React.Component {
                     className={cls}
                     {...((externalLink && true == externalLink) && { target: '_blank' })}
                     {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
                 >
                     {
                         'left' == direction && icon &&
@@ -184,7 +184,7 @@ class Menu extends React.Component {
             <div
                 className={cls}
                 {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
             >
                 {
                     'left' == direction && icon &&

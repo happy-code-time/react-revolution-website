@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const EN = {
+    vailableComponents: 'Components',
     authorLink: 'Author',
     lastReleaseNotes: 'Last release',
     fastActions: 'Useful links',
@@ -2094,6 +2095,67 @@ const EN = {
         "type": "Boolean",
         "default": "true"
     },
+    'overlay.display': {
+        "description": "Overlay display control.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'overlay.callback': {
+        "description": "User-defined function that is called when the 'Escape' key is pressed or the dark border is clicked. This function returns an argument 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'overlay.callbackProps': {
+        "description": "User-defined data that are passed as an argument for the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'overlay.data': {
+        "description": "User-defined data within the overlay.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupData.direction': {
+        "description": "Direction of the popup window relative to the 'Holder'.",
+        "type": "String",
+        "default": "left"
+    },
+    'popupData.holderData': {
+        "description": "User-defined data that are the trigger for the popup window to appear. There are pre-entered placeholders: dots, square, hamburger and hamburger-left. These names are also reserved and cannot be changed.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupData.animationTime': {
+        "description": "If the developer has specified a transition-duration time other than 300 in his CSS, then the module needs this value here (to be 100% compatible). This is only relevant if you opt for a predefined placeholder : dots, square, hamburger or hamburger-left. ",
+        "type": "Number",
+        "default": "300"
+    },
+    'popupData.animation': {
+        "description": "If the developer opts for a predefined placeholder: dots, square, hamburger or hamburger-left, an animation is automatically triggered. If you want to switch this off, the value must be 'false' (animation = {false}). ",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'popupData.contentData': {
+        "description": "Custom JSX or an array of objects.",
+        "type": "{} [] | JSX",
+        "default": "[]"
+    },
+    'popupData.contentData.data': {
+        "description": "Custom JSX if you opt for an array of objects for the key 'contentData'. Each individual field 'data' is packed with an <li>.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'popupData.example1': 'Example with a user-defined placeholder, OUTSIDE - LEFT (the placeholder is outside the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example1a': 'Example with a user-defined placeholder, OUTSIDE - LEFT (the placeholder is outside the data), user-defined placeholder and data in the form of JSX.',
+    'popupData.example2': 'Example with a user-defined placeholder, OUTSIDE - RIGHT (the placeholder is outside the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example3': 'Example with a user-defined placeholder, OUTSIDE - CENTER (the placeholder is outside the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example4': 'Example with a user-defined placeholder, INSIDE - LEFT (the placeholder is inside the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example5': 'Example with a user-defined placeholder, INSIDE - RIGHT (the placeholder is within the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example6': 'Example with a user-defined placeholder, INSIDE - CENTER (the placeholder is located within the data), user-defined placeholder and data in the form of an array of objects.',
+    'popupData.example7': 'Example with the use of a predefined placeholder: DOTS. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
+    'popupData.example8': 'Example with the use of a predefined placeholder: SQUARE. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
+    'popupData.example9': 'Example with the use of a predefined placeholder: HAMBURGER. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
+    'popupData.example10': 'Example with the use of a predefined placeholder: HAMBURGER-RIGHT. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
 };
 
 export default EN;

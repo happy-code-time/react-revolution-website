@@ -33,7 +33,7 @@ class Water404 extends React.Component {
         if(link){
             const { callback } = link;
 
-            if (callback && 'function' === typeof callback) {
+            if (callback && typeof function(){} == typeof callback) {
                 (callback)(e);
             }
         }

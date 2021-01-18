@@ -1,7 +1,5 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class Modal extends React.Component 
@@ -25,7 +23,7 @@ class Modal extends React.Component
             data: props.data ? props.data : undefined,
             close: props.close ? props.close : undefined,
             display: typeof true == typeof props.display ? props.display : false,
-            callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+            callback: props.callback && typeof function(){} == typeof props.callback ? props.callback : undefined,
             closeOnKeyDown: typeof true == typeof props.closeOnKeyDown ? props.closeOnKeyDown : true,
             closeOnClickDimmed: typeof true == typeof props.closeOnClickDimmed ? props.closeOnClickDimmed : true,
         };
@@ -57,14 +55,14 @@ class Modal extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['defaultClass', 'id', 'data', 'display', 'callback'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'display', 'callback'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-modal',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: props.data ? props.data : undefined,
                 display: typeof true == typeof props.display ? props.display : false,
-                callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+                callback: props.callback && typeof function(){} == typeof props.callback ? props.callback : undefined,
             };
         }
 

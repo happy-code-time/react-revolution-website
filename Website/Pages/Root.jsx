@@ -25,8 +25,8 @@ class Root extends React.Component
         
         const items = [
             'You Are Awesome!',
-            'Have a nice day!',
-            "It's so good to see you!"
+            "It's so good to see you!",
+            "Best components ever!"
         ];
 
         return items[Math.floor(Math.random() * items.length)];
@@ -56,7 +56,7 @@ class Root extends React.Component
                             </h2>
                         </div>
                     </div>
-                    <br/>
+                    {/* <br/>
                     <br/>
                     <Cards
                         itemsPerLine={3}
@@ -82,7 +82,7 @@ class Root extends React.Component
                                 }
                             ]
                         }
-                    />
+                    /> */}
                     <div className="example flex">
                         <div className="example-1">
                             <h1 className="title-border">
@@ -170,7 +170,6 @@ class Root extends React.Component
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }

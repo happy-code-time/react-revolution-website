@@ -150,7 +150,7 @@ class SliderCards extends React.Component {
         this.autoplay();
         this.resizeView();
 
-        setTimeout( () => {
+        setTimeout(() => {
             this.resizeView();
         }, 300);
     }
@@ -223,7 +223,7 @@ class SliderCards extends React.Component {
             apply = true;
         }
 
-        if(apply){
+        if (apply) {
             return this.setState({
                 itemsPerLine: temp_itemsPerLine,
                 slideItems: temp_slideItems,
@@ -275,11 +275,11 @@ class SliderCards extends React.Component {
 
         if (0 > index) {
 
-            if(this.state.wrapDirection){
+            if (this.state.wrapDirection) {
                 // Change to the last in index
-                index = this.getDataLength()-1;
+                index = this.getDataLength() - 1;
             }
-            else{
+            else {
                 // hold current position
                 index = 0;
             }
@@ -293,11 +293,11 @@ class SliderCards extends React.Component {
 
         if (index > this.getDataLength() - 1) {
 
-            if(this.state.wrapDirection){
+            if (this.state.wrapDirection) {
                 // Change to the first in index
                 index = 0;
             }
-            else{
+            else {
                 // hold current position
                 index = this.getDataLength() - 1;
             }
@@ -450,22 +450,26 @@ class SliderCards extends React.Component {
     mouseDownListeners(reattach = true) {
         const { allowMouseTouch } = this.state;
 
-        if(!allowMouseTouch){
+        if (!allowMouseTouch) {
             return;
         }
-        
-        this.wrapper.removeEventListener('mousedown', this.processMouseDown);
 
-        if (reattach) {
-            this.wrapper.addEventListener('mousedown', this.processMouseDown);
+        if (this.wrapper) {
+            this.wrapper.removeEventListener('mousedown', this.processMouseDown);
+
+            if (reattach) {
+                this.wrapper.addEventListener('mousedown', this.processMouseDown);
+            }
         }
     }
 
     mouseMoveListeners(reattach = true) {
-        this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
+        if (this.wrapper) {
+            this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
 
-        if (reattach) {
-            this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+            if (reattach) {
+                this.wrapper.addEventListener('mousemove', this.handleMouseMove);
+            }
         }
     }
 
@@ -476,10 +480,10 @@ class SliderCards extends React.Component {
     }
 
     handleMouseDown(event) {
-        if(this.state.useLayerX){
+        if (this.state.useLayerX) {
             this.mousestartx = event.layerX;
         }
-        else{
+        else {
             this.mousestartx = event.clientX;
         }
         this.mouseClicksStart = performance.now();
@@ -506,10 +510,10 @@ class SliderCards extends React.Component {
         // Calculate distance to translate holder.
         const currentWidth = this.getCurrentSlidersTransformation();
         // Calculate distance to translate holder.
-        if(this.state.useLayerX){
+        if (this.state.useLayerX) {
             this.movex = currentWidth + (this.mousestartx - event.layerX);
         }
-        else{
+        else {
             this.movex = currentWidth + (this.mousestartx - event.clientX);
         }
         // mouse direction
@@ -517,9 +521,9 @@ class SliderCards extends React.Component {
         // save mouse movement in px value for mouseUp or leave
         this.setAbs(Math.abs(index * this.getSingleCardsWidth() - this.movex));
 
-        if (this.movex < this.getMaxSlidesWidth()) {
+        if (this.movex < this.getMaxSlidesWidth() && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
-            if(inlineStyle){
+            if (inlineStyle) {
                 return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
             }
 
@@ -636,9 +640,9 @@ class SliderCards extends React.Component {
         // save mouse movement in px value for mouseUp or leave
         this.setAbs(Math.abs(index * this.slideWidth - this.movex));
 
-        if (this.movex < this.getMaxSlidesWidth()) {
+        if (this.movex < this.getMaxSlidesWidth() && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
-            if(inlineStyle){
+            if (inlineStyle) {
                 return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
             }
 

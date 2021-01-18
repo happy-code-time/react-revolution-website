@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React from 'react';
 import loadStyle from '../internalFunctions/loadStyle';
 
 class InputAnimation extends React.Component 
@@ -24,40 +23,16 @@ class InputAnimation extends React.Component
             defaultClassOrigin: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-animation',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             inputType: (props.type && typeof '8' == typeof props.type) ? props.type : 'text',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
             inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             animatePlaceholder: (typeof true == typeof props.animatePlaceholder) ? props.animatePlaceholder : true,
-            onEnter: (props.onEnter && 'function' == typeof props.onEnter) ? props.onEnter : undefined,
+            onEnter: (props.onEnter && typeof function(){} == typeof props.onEnter) ? props.onEnter : undefined,
             allowOnlyAZ: (typeof true == typeof props.allowOnlyAZ) ? props.allowOnlyAZ : false,
             getValueFromCallback: (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false,
         }
     }
-
-    // /**
-    //  * Force re-rendering of this component based
-    //  * on keysChangeListners keys
-    //  * @param {object} props 
-    //  * @param {object} state 
-    //  */
-    // static getDerivedStateFromProps(props, state) {
-    //     if (getDerivedStateFromPropsCheck(['value'], props, state)) {
-    //         const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
-
-    //         // if(getValueFromCallback){
-    //         //     return {
-    //         //         plainValue: props.value
-    //         //     }
-    //         // }
-
-    //         return {
-    //             plainValue: state.plainValue
-    //         };
-    //     }
-
-    //     return null;
-    // }
 
     componentDidMount(){
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);

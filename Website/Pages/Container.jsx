@@ -122,7 +122,7 @@ const cssExample = `.container-example {
 
     .SideBar {
         width: 150px;
-        transition-duration: $default_transition;
+        transition-duration: $default-transition;
 
         .logo{
             margin-left: 5px;
@@ -142,7 +142,7 @@ const cssExample = `.container-example {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                transition-duration: $default_transition;
+                transition-duration: $default-transition;
 
                 i{
                     display: inline-block;
@@ -155,7 +155,7 @@ const cssExample = `.container-example {
                     color: #7c8695;
                     font-size: 0.87rem;
                     letter-spacing: 0.0111rem;
-                    transition-duration: $default_transition;
+                    transition-duration: $default-transition;
                     padding-left: 0px;
                 }
 

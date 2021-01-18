@@ -47,10 +47,12 @@ import _LoadingBoxTop from './Website/Pages/LoadingBoxTop';
 import _Menu from './Website/Pages/Menu';
 import _MenuHeight from './Website/Pages/MenuHeight';
 import _Modal from './Website/Pages/Modal';
+import _Overlay from './Website/Pages/Overlay';
 import _PagerStatic from './Website/Pages/PagerStatic';
 import _PagerDynamic from './Website/Pages/PagerDynamic';
 import _Picture404 from './Website/Pages/Picture404';
 import _PopupBox from './Website/Pages/PopupBox';
+import _PopupData from './Website/Pages/PopupData';
 import _LoadOnScroll from './Website/Pages/LoadOnScroll';
 import _ReadMore from './Website/Pages/ReadMore';
 import _ReadMoreCallback from './Website/Pages/ReadMoreCallback';
@@ -81,6 +83,8 @@ import _FunctionUrlExtract from './Website/Pages/FunctionUrlExtract';
  * Releases
  */
 import Releases from './Website/Pages/Releases/Releases';
+import Components from './Website/Modules/Components';
+import Footer from './Website/Modules/Footer';
 
 class App extends React.Component 
 {
@@ -323,6 +327,11 @@ class App extends React.Component
     const menu = [];
 
     [
+      {
+        version: '5.0',
+        start: 0,
+        end: 0
+      },
       {
         version: '4.2',
         start: 0,
@@ -633,6 +642,10 @@ class App extends React.Component
                           href: `${host}#/components/modal`,
                         },
                         {
+                          text: 'Overlay',
+                          href: `${host}#/components/overlay`,
+                        },
+                        {
                           text: (
                             <span>
                               <span className="data-title">
@@ -696,9 +709,28 @@ class App extends React.Component
                             },
                           ]
                         },
+
                         {
-                          text: 'PopupBox',
-                          href: `${host}#/components/popup-box`,
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Popups
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'PopupBox',
+                              href: `${host}#/components/popup-box`,
+                            },
+                            {
+                              text: 'PopupData',
+                              href: `${host}#/components/popup-data`,
+                            },
+                          ]
                         },
                         {
                           text: (
@@ -895,9 +927,11 @@ class App extends React.Component
               <Route exact path="/components/menu" render={(props) => (<_Menu {...props} />)} />
               <Route exact path="/components/menu-height" render={(props) => (<_MenuHeight {...props} />)} />
               <Route exact path="/components/modal" render={(props) => (<_Modal {...props} />)} />
+              <Route exact path="/components/overlay" render={(props) => (<_Overlay {...props} />)} />
               <Route exact path="/components/pager-static" render={(props) => (<_PagerStatic {...props} />)} />
               <Route exact path="/components/pager-dynamic" render={(props) => (<_PagerDynamic {...props} />)} />
               <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
+              <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
               <Route exact path="/components/load-on-scroll" render={(props) => (<_LoadOnScroll {...props} />)} />
               <Route exact path="/components/lightbulb-404" render={(props) => (<_Lightbulb404 {...props} />)} />
               <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />
@@ -943,7 +977,13 @@ class App extends React.Component
             </Switch>
           </Router>
         }
-        footerData={<ScrollTop />}
+        footerData={
+          <span>
+            <ScrollTop />
+            <Components />
+            <Footer />
+          </span>
+        }
       />
     );
   }

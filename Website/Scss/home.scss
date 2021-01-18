@@ -54,7 +54,7 @@
 
       .card {
         border: none;
-        transition-duration: $default_transition;
+        transition-duration: $default-transition;
 
         @media screen and (min-width: $media-break) {
           width: 250px;
@@ -118,7 +118,7 @@
 
       width: calc(100% - 40px);
       margin: 20px;
-      transition-duration: $default_transition;
+      transition-duration: $default-transition;
     }
 
     .example-2 {
@@ -129,7 +129,7 @@
 
       height: 100%;
       margin: 20px;
-      transition-duration: $default_transition;
+      transition-duration: $default-transition;
     }
   }
 

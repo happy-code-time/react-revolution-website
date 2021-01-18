@@ -32,7 +32,9 @@ import LoadingBoxTop from './_Modules/LoadingBoxTop';
 import LoadOnScroll from './_Modules/LoadOnScroll';
 import Menu from './_Modules/Menu';
 import MenuHeight from './_Modules/MenuHeight';
+import PopupData from './_Modules/PopupData';
 import Modal from './_Modules/Modal';
+import Overlay from './_Modules/Overlay';
 import PagerStatic from './_Modules/PagerStatic';
 import PagerDynamic from './_Modules/PagerDynamic';
 import Picture404 from './_Modules/Picture404';
@@ -97,10 +99,12 @@ export {
     Menu,
     MenuHeight,
     Modal,
+    Overlay,
     PagerStatic,
     PagerDynamic,
     Picture404,
     PopupBox,
+    PopupData,
     ReadMore,
     ReadMoreCallback,
     ScrollTo,

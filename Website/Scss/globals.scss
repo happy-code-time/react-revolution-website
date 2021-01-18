@@ -1,8 +1,8 @@
 @import "./colors";
 
-$default_transition: 200ms !default;
+$default-transition: 200ms !default;
 
-$default_transition_popup_boxes: 250ms;
+$default-transition_popup_boxes: 250ms;
 
 $menu-messages-width: 220px;
 
@@ -33,6 +33,8 @@ $dashboard_header-height: 60px;
 $popupMenuWidth: 150px;
 
 $popupMenuWidth-min: 50px;
+
+$boder-radius: 5px;
 
 * {
   font-family: Helvetica Neue, Arial, sans-serif;
@@ -267,7 +269,7 @@ h1,
   box-shadow: 0px 0px 3px $dodgerblue;
   color: $white;
   font-size: 0.87rem;
-  transition-duration: $default_transition;
+  transition-duration: $default-transition;
   border: 1px solid transparent;
   display: inline-block;
   margin: 10px 0;

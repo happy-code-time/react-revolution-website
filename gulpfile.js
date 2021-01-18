@@ -16,7 +16,7 @@ const run = require('gulp-run');
 
 var exec = require('child_process').exec;
 
-const version = 'v4.2.0';
+const version = 'v5.0.0';
 
 const modules = [
     "Accordion",
@@ -50,10 +50,12 @@ const modules = [
     "Menu",
     "MenuHeight",
     "Modal",
+    "Overlay",
     "PagerDynamic",
     "PagerStatic",
     "Picture404",
     "PopupBox",
+    "PopupData",
     "ReadMore",
     "ReadMoreCallback",
     "ScrollTo",

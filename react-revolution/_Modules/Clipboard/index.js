@@ -31,7 +31,7 @@ class Clipboard extends React.Component
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+            callback: props.callback && typeof function(){} == typeof props.callback ? props.callback : undefined,
             callbackProps: props.callbackProps,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
             clipboard: props.clipboard,
@@ -55,7 +55,7 @@ class Clipboard extends React.Component
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-clipboard',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                callback: props.callback && 'function' == typeof props.callback ? props.callback : undefined,
+                callback: props.callback && typeof function(){} == typeof props.callback ? props.callback : undefined,
                 callbackProps: props.callbackProps,
                 data: props.data && typeof [] == typeof props.data ? props.data : [],
                 clipboard: props.clipboard

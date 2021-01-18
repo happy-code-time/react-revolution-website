@@ -71,7 +71,7 @@
         list-style-type: none;
         color: $menu-color;
         letter-spacing: 0.2px;
-        transition-duration: $default_transition;
+        transition-duration: $default-transition;
         font-weight: 500;
         position: relative;
         white-space: nowrap;
@@ -98,7 +98,7 @@
             position: absolute;
             top: 10px;
             right: 15px;
-            transition-duration: $default_transition;
+            transition-duration: $default-transition;
         }
 
         .drop-down:before,
@@ -109,7 +109,7 @@
             width: 1px;
             height: 10px;
             overflow: hidden;
-            transition-duration: $default_transition;
+            transition-duration: $default-transition;
             background-color: rgb(39,39,39);
         }
         .drop-down:before{
@@ -152,7 +152,7 @@
                 height: 0px;
                 overflow: hidden;
                 animation: showLiItems 350ms forwards ease-in;
-                transition-duration: $default_transition;
+                transition-duration: $default-transition;
             }
         }
     }

@@ -30,7 +30,7 @@ class LoadOnScroll extends React.Component {
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: props.data && typeof [] == typeof props.data ? props.data : '',
             loading: props.loading ? props.loading : '',
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
             minify: typeof 8 == typeof props.minify ? props.minify : 0,
             scrollReference: typeof true == typeof props.scrollReference ? props.scrollReference : true,
@@ -78,7 +78,7 @@ class LoadOnScroll extends React.Component {
     componentDidMount() {
         loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.attachScrollEvent();
-        this.buildData(this.state.data);
+        this.buildData(this.state.data, true);
     }
 
     fireScrollEvents() {
@@ -245,7 +245,7 @@ class LoadOnScroll extends React.Component {
         }
     }
 
-    buildData(data = []) {
+    buildData(data = [], fireScrollEvent = false) {
         let { dataJsx } = this.state;
 
         if (typeof [] === typeof data && undefined !== data[0]) {
@@ -280,7 +280,15 @@ class LoadOnScroll extends React.Component {
             loadingData: false
         }, () => {
             this.callbackRendered = true;
-            this.fireScrollEvents();
+
+            /**
+             * Fired only once, after component did mount
+             */
+            if(fireScrollEvent){
+                setTimeout( () => {
+                    this.fireScrollEvents();
+                }, 300);
+            }
         });
     }
 

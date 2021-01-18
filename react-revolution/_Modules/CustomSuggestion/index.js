@@ -1,9 +1,6 @@
-import * as React from 'react';
-
+import React from 'react';
 import uuid from '../../_Functions/uuid';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class CustomSuggestion extends React.Component 
@@ -32,7 +29,7 @@ class CustomSuggestion extends React.Component
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-custom-suggestion',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             plainValue: (props.value && typeof '8' == typeof props.value) ? props.value : '',
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             suggestions: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
             inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
             props: (props.props && typeof {} == typeof props.props) ? props.props : {},
@@ -59,7 +56,7 @@ class CustomSuggestion extends React.Component
             if(callbackRerender){
                 return {
                     suggestions: state.suggestions,
-                    callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                    callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
                     inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
                     props: (props.props && typeof {} == typeof props.props) ? props.props : {},
                     inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',
@@ -73,7 +70,7 @@ class CustomSuggestion extends React.Component
             return {
                 suggestions: props.suggestions,
                 plainValue: state.plainValue,
-                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
                 inputPlaceholder: (props.inputPlaceholder && typeof '8' == typeof props.inputPlaceholder) ? props.inputPlaceholder : '',
                 props: (props.props && typeof {} == typeof props.props) ? props.props : {},
                 inputType: (props.inputType && typeof '8' == typeof props.inputType) ? props.inputType : 'text',

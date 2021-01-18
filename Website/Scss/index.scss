@@ -8,6 +8,7 @@
 @import "./footer";
 @import "./generator";
 @import "./rr-examples-website";
+@import "./Components";
 
 * {
   font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica-Neue", Helvetica,
@@ -191,7 +192,7 @@
             letter-spacing: 0.2px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
             z-index: 1;
-            transition-duration: $default_transition;
+            transition-duration: $default-transition;
             height: 40px;
             line-height: 30px;
             box-sizing: border-box;
@@ -215,7 +216,7 @@
           box-sizing: border-box;
           padding: 10px 20px;
           text-align: center;
-          transition-duration: $default_transition;
+          transition-duration: $default-transition;
           text-decoration: none;
 
           i {
@@ -284,7 +285,7 @@
   }
 
   .SideBar {
-    transition-duration: $default_transition;
+    transition-duration: $default-transition;
     background-color: $white;
     z-index: 5;
 
@@ -304,7 +305,7 @@
         width: 100%;
         text-overflow: ellipsis;
         white-space: nowrap;
-        transition-duration: $default_transition;
+        transition-duration: $default-transition;
         box-sizing: border-box;
         margin: 0;
 
@@ -320,7 +321,7 @@
         a {
           color: #7c8695;
           font-size: 0.923rem;
-          transition-duration: $default_transition;
+          transition-duration: $default-transition;
         }
 
         .text {
@@ -530,6 +531,7 @@
 }
 
 .code-example-live {
+  min-height: 40px;
   box-sizing: border-box;
   padding: 10px 5px;
   border: 1px solid rgba(69, 69, 69, 0.1);

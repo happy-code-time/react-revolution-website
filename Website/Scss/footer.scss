@@ -57,5 +57,9 @@
         font-size: 0.87rem;
         color: $white;
         line-height: 35px;
+        white-space: nowrap;
+        word-wrap: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

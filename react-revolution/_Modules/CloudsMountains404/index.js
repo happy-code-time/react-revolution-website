@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
-class CloudsMountains404 extends Component {
+class CloudsMountains404 extends React.Component {
 
     constructor(props) {
         super(props);
@@ -34,7 +32,7 @@ class CloudsMountains404 extends Component {
         if(link){
             const { callback } = link;
 
-            if (callback && 'function' === typeof callback) {
+            if (callback && typeof function(){} == typeof callback) {
                 (callback)(e);
             }
         }

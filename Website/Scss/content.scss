@@ -15,7 +15,7 @@
     z-index: 6;
 
     i{
-      transition-duration: $default_transition;
+      transition-duration: $default-transition;
     }
 
     .rr-custom-suggestion{
@@ -26,10 +26,10 @@
           }
 
           li{
-            transition-duration: $default_transition;
+            transition-duration: $default-transition;
 
             a,p{
-              transition-duration: $default_transition;
+              transition-duration: $default-transition;
             }
           }
           
@@ -52,7 +52,7 @@
       box-sizing: border-box;
       padding: 12px 13px;
       border-radius: 50%;
-      transition-duration: $default_transition;
+      transition-duration: $default-transition;
 
       i{
         color:$white;
@@ -76,7 +76,7 @@
       box-sizing: border-box;
       padding: 10px;
       border-radius: 50%;
-      transition-duration: $default_transition;
+      transition-duration: $default-transition;
       position: relative;
       font-size: 1.12rem;
       margin-right: 10px;

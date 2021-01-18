@@ -143,7 +143,7 @@ class Steps extends React.Component {
          */
         if (typeof false == typeof allowedToSetStep && false == allowedToSetStep && callbackCheckNavigate) {
 
-            if (onError && 'function' == typeof onError) {
+            if (onError && typeof function(){} == typeofonError) {
                 const currentError = await (onError)(onErrorProps).then(r => r).catch(e => '');
                 return this.setState({
                     currentError,
@@ -158,7 +158,7 @@ class Steps extends React.Component {
             }
         }
 
-        if (submit && 'function' == typeof submit) {
+        if (submit && typeof function(){} == typeofsubmit) {
             return this.setState({
                 currentError: ''
             }, (submit)());
@@ -190,6 +190,15 @@ class Steps extends React.Component {
                 }
             }
             else {
+                
+                // Go to the last step without an check
+                if (end == current) {
+                    return this.setState({
+                        step: nextStep,
+                        currentError: ''
+                    });
+                }
+
                 (async () => {
                     allowedToSetStep = await (callback)(callbackProps);
 
@@ -198,7 +207,7 @@ class Steps extends React.Component {
                      */
                     if (typeof false == typeof allowedToSetStep && false == allowedToSetStep && callbackCheckNavigate) {
 
-                        if (onError && 'function' == typeof onError) {
+                        if (onError && typeof function(){} == typeofonError) {
                             const currentError = await (onError)(onErrorProps).then(r => r).catch(e => '');
                             return this.setState({
                                 currentError,

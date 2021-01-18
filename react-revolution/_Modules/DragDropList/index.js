@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import copyArray from '../internalFunctions/copyArray';
 import internalUuid from '../internalFunctions/internalUuid';
 
-class DragDropList extends Component {
+class DragDropList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -50,9 +50,9 @@ class DragDropList extends Component {
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: (props.data && typeof [] == typeof props.data) ? props.data : [],
             mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
-            callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
+            callbackAllowDrop: (props.callbackAllowDrop && typeof function(){} == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
             callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
             placeholder: props.placeholder ? props.placeholder : undefined,
             areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
@@ -89,11 +89,11 @@ class DragDropList extends Component {
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-drag-drop-list',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: (props.data && typeof [] == typeof props.data) ? props.data : [],
-                callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+                callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
                 callbackProps: props.callbackProps ? props.callbackProps : undefined,
                 placeholder: props.placeholder ? props.placeholder : undefined,
                 areaProps: (props.areaProps && typeof {} == typeof props.areaProps) ? props.areaProps : {},
-                callbackAllowDrop: (props.callbackAllowDrop && 'function' == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
+                callbackAllowDrop: (props.callbackAllowDrop && typeof function(){} == typeof props.callbackAllowDrop) ? props.callbackAllowDrop : undefined,
                 callbackAllowDropProps: props.callbackAllowDropProps ? props.callbackAllowDropProps : undefined,
                 dropLoading: props.dropLoading ? props.dropLoading : undefined,
                 placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',

@@ -32,7 +32,7 @@ class CardsScrollCallback extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             itemsPerLine: props.itemsPerLine && typeof 8 == typeof props.itemsPerLine ? props.itemsPerLine : 3,
             data: props.data && typeof [] == typeof props.data ? props.data : [],
-            callback: (props.callback && 'function' == typeof props.callback) ? props.callback : undefined,
+            callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
             loading: props.loading ? props.loading : '',
             onReject: props.onReject ? props.onReject : '',

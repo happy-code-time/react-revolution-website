@@ -131,7 +131,7 @@ class Menu extends React.Component {
                     to={href}
                     className={cls}
                     {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
                 >
                     {
                         'left' == direction && icon &&
@@ -164,7 +164,7 @@ class Menu extends React.Component {
                     href={href}
                     className={cls}
                     {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                    {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                    {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
                     {...((externalLink && true == externalLink) && { target: '_blank' })}
                 >
                     {
@@ -196,7 +196,7 @@ class Menu extends React.Component {
             <div
                 className={cls}
                 {...((dataChildren && dataChildren.length) && { onClick: (e) => this.toggle(unique) })}
-                {...(((!dataChildren || 0 == dataChildren.length) && callback && 'function' == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
+                {...(((!dataChildren || 0 == dataChildren.length) && callback && typeof function(){} == typeof callback) && { onClick: (e) => (callback)(callbackProps) })}
             >
                 {
                     'left' == direction && icon &&

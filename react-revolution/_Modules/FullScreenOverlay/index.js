@@ -1,11 +1,7 @@
-import * as React from 'react';
-
+import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
 import disableHtmlScroll from '../../_Functions/disableHtmlScroll';
-
 import enableHtmlScroll from '../../_Functions/enableHtmlScroll';
-
 import loadStyle from '../internalFunctions/loadStyle';
 
 class FullScreenOverlay extends React.Component 
@@ -30,7 +26,7 @@ class FullScreenOverlay extends React.Component
             closeOnEsc: (typeof true == typeof props.closeOnEsc) ? props.closeOnEsc : true,
             data: props.data ? props.data : '',
             animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : '',
-            callbackClose: ('function' == typeof props.callbackClose) ? props.callbackClose : undefined,
+            callbackClose: (typeof function(){} == typeof props.callbackClose) ? props.callbackClose : undefined,
             display: (typeof true == typeof props.display) ? props.display : false,
             iconClose: props.iconClose ? props.iconClose : undefined,
             dimmed: (typeof true == typeof props.dimmed) ? props.dimmed : false,
@@ -56,7 +52,7 @@ class FullScreenOverlay extends React.Component
                 closeOnEsc: (typeof true == typeof props.closeOnEsc) ? props.closeOnEsc : true,
                 data: props.data ? props.data : '',
                 animation: (props.animation && typeof '8' == typeof props.animation) ? props.animation : '',
-                callbackClose: ('function' == typeof props.callbackClose) ? props.callbackClose : undefined,
+                callbackClose: (typeof function(){} == typeof props.callbackClose) ? props.callbackClose : undefined,
                 display: (typeof true == typeof props.display) ? props.display : false,
                 iconClose: props.iconClose ? props.iconClose : undefined,
                 dimmed: (typeof true == typeof props.dimmed) ? props.dimmed : true,
@@ -114,7 +110,7 @@ class FullScreenOverlay extends React.Component
         if(event.keyCode === 27) {
             const { callbackClose } = self.state;
 
-            if(callbackClose && 'function' == typeof callbackClose){
+            if(callbackClose && typeof function(){} == typeof callbackClose){
                 enableHtmlScroll();
                 window.removeEventListener("keydown", this.EscListener, false);
                 this.fadeOut();
@@ -125,7 +121,7 @@ class FullScreenOverlay extends React.Component
     closeClick(e, force = false){
         const { closeOnClick, callbackClose } = this.state;
 
-        if(force || (closeOnClick && callbackClose && 'function' == typeof callbackClose) && this.contentReference && !e.target.contains(this.contentReference)){
+        if(force || (closeOnClick && callbackClose && typeof function(){} == typeof callbackClose) && this.contentReference && !e.target.contains(this.contentReference)){
             enableHtmlScroll();
             window.removeEventListener("keydown", this.EscListener, false);
             this.fadeOut();

@@ -3,6 +3,7 @@ import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesName
 const len = getAllAvailableModulesNames().length-1;
 
 const DE = {
+    vailableComponents: 'Komponenten',
     authorLink: 'Author',
     lastReleaseNotes: 'Letzte Version',
     fastActions: 'Hilfreiche Links',
@@ -2082,6 +2083,67 @@ const DE = {
         "type": "Boolean",
         "default": "true"
     },
+    'overlay.display' : {
+        "description": "Anzeigesteuerung des Overlays.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'overlay.callback' : {
+        "description": "Benutzerdefinierte Funktion die aufgerufen wird wenn, der 'Escape' Key gedrückt wird oder der dunkle Rand angeklickt wird. Diese Funktion liefert ein Argument zurück 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'overlay.callbackProps' : {
+        "description": "Benutzerdefinierte Daten die als Argument für die 'callback' Funktion übergeben werden.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'overlay.data' : {
+        "description": "Benutzerdefinierte Daten innerhalb des Overlays.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'popupData.direction' : {
+        "description": "Richtung des Popup Fensters relativ zu dem 'Holder'.",
+        "type": "String",
+        "default": "left"
+    },
+    'popupData.holderData' : {
+        "description": "Benutzerdefinierte Daten die er Auslöser sind, damit das Popup Fenster erscheint. Es gibt voreingetragene Platzhalter: dots, square, hamburger und hamburger-left. Diese Namen sind auch reserviert und können nicht geändert werden.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'popupData.animationTime' : {
+        "description": "Falls der Entwickler in seinem CSS eine andere transition-duration Zeit angegeben hat als 300, dann benötigt das Modul (um 100% kompatibel zu sein) diesen Wert hier. Dies ist nur relevant wenn man sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left.",
+        "type": "Number",
+        "default": "300"
+    },
+    'popupData.animation' : {
+        "description": "Falls der Entwickler sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left wird automatisch eine Animation ausgelöst. Falls man diese ausschalten möchte muss der Wert 'false' sein (animation={false}).",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'popupData.contentData' : {
+        "description": "Benutzerdefiniertes JSX oder ein Array aus Objekten.",
+        "type": "{}[] | JSX",
+        "default": "[]"
+    },
+    'popupData.contentData.data' : {
+        "description": "Benutzerdefiniertes JSX falls man sich bei dem Schlüssel 'contentData' für ein Array aus Objekten entscheided. Jedes einzelnes Feld 'data' wird ein <li> gepackt.",
+        "type": "JSX|String",
+        "default": "undefined"
+    },
+    'popupData.example1' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, OUTSIDE - LEFT (der Platzhalter befindet sich auserhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example1a' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, OUTSIDE - LEFT (der Platzhalter befindet sich auserhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form on JSX.',
+    'popupData.example2' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, OUTSIDE - RIGHT (der Platzhalter befindet sich auserhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example3' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, OUTSIDE - CENTER (der Platzhalter befindet sich auserhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example4' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, INSIDE - LEFT (der Platzhalter befindet sich innerhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example5' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, INSIDE - RIGHT (der Platzhalter befindet sich innerhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example6' : 'Beispiel mit einem benutzerdefiniertem Platzhalter, INSIDE - CENTER (der Platzhalter befindet sich innerhalb der Daten), benutzerdefiniertem Platzhalter und Daten in Form eines Arrays aus Objekten.',
+    'popupData.example7' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: DOTS. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
+    'popupData.example8' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: SQUARE. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
+    'popupData.example9' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: HAMBURGER. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
+    'popupData.example10' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: HAMBURGER-RIGHT. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
 };
 
 export default DE;

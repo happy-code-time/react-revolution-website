@@ -32,7 +32,7 @@ class PopupBox extends React.Component
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             data: props.data ? props.data : '',
             icon: props.icon ? props.icon : '',
-            iconCallback: (props.iconCallback && 'function' == typeof props.iconCallback) ? props.iconCallback : undefined,
+            iconCallback: (props.iconCallback && typeof function(){} == typeof props.iconCallback) ? props.iconCallback : undefined,
             animationTime: (props.animationTime && typeof 8 == typeof props.animationTime) ? props.animationTime : 300,
             animation: (props.animation && typeof '8' == typeof props.animation && defaultAnimationTypes.includes(props.animation)) ? props.animation : 'top-left',
         };
@@ -54,7 +54,7 @@ class PopupBox extends React.Component
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 data: props.data ? props.data : '',
                 icon: props.icon ? props.icon : '',
-                iconCallback: (props.iconCallback && 'function' == typeof props.iconCallback) ? props.iconCallback : undefined,
+                iconCallback: (props.iconCallback && typeof function(){} == typeof props.iconCallback) ? props.iconCallback : undefined,
                 animationTime: (props.animationTime && typeof 8 == typeof props.animationTime) ? props.animationTime : 300,
                 animation: (props.animation && typeof '8' == typeof props.animation && defaultAnimationTypes.includes(props.animation)) ? props.animation : 'top-left',
             };

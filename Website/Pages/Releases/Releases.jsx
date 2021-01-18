@@ -580,6 +580,22 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.0.0': {
+                    data: [
+                        {
+                            key: 'Overlay',
+                            value: 'New component.'
+                        },
+                        {
+                            key: 'PopupData',
+                            value: 'New component.'
+                        },
+                        {
+                            key: 'Steps',
+                            value: 'Bugfix for the last step navigation.'
+                        },
+                    ]
+                },
             }
         }
     }
