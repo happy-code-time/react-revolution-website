@@ -1,12 +1,10 @@
-@import './globals';
-
-.rr-slider-cards {
+.rr-slider {
   position: relative;
   width: 100%;
   height: 100%;
 
-  .wrapper {
-    position: relative;
+  .slider-wrapper {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -34,18 +32,6 @@
     -webkit-user-select: none;
   }
 
-  .slide-item{
-    box-sizing: border-box;
-    padding: 10px;
-    
-    .data{
-      width: 100%;
-      height: 100%;
-      border-radius: $border-radius;
-      border: 1px solid $border-color;
-    }
-  }
-
   .button-next {
     right: 20px;
   }
@@ -61,7 +47,6 @@
     left: 0;
     height: 100%;
     overflow-y: hidden;
-    width: 100%;
   }
 
   .slide-wrapper {
@@ -73,16 +58,37 @@
   .slide-data,
   .slide-group,
   .slide,
-  .slide-wrapper {
+  .slide img,
+  .slide-wrapper,
+  .slide-image-data-wrapper,
+  .slide-image-data {
     width: 100%;
     height: 100%;
   }
 
-  .slide-group {
-    display: flex;
+  .slide img {
+    position: absolute;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .slide-image-data-wrapper {
+    position: relative;
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .slide-image-data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 
   .pagination {
+    position: absolute;
+    bottom: 5px;
     width: 100%;
     z-index: 5;
     display: flex;

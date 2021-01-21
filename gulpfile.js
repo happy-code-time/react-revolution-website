@@ -1,22 +1,15 @@
 const gulp = require('gulp');
-
 const del = require('del');
-
 const imagemin = require('gulp-imagemin');
-
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
-
 const runSequence = require('gulp4-run-sequence');
-
 const sass = require("gulp-sass");
-
 const fs = require("fs");
-
 const run = require('gulp-run');
-
 var exec = require('child_process').exec;
+const { performance } = require('perf_hooks');
 
-const version = 'v5.0.0';
+const version = 'v5.0.1';
 
 const modules = [
     "Accordion",
@@ -45,10 +38,14 @@ const modules = [
     "InputSuggestionArray",
     "InputSuggestionObject",
     "Lightbulb404",
+    "ListSwitch",
     "LoadingBoxTop",
     "LoadOnScroll",
     "Menu",
+    "MenuDropDown",
     "MenuHeight",
+    "MenuHoverX",
+    "MenuHoverY",
     "Modal",
     "Overlay",
     "PagerDynamic",
@@ -66,9 +63,12 @@ const modules = [
     "SourceCode",
     "Stars",
     "Steps",
+    "StepsGenerator",
+    "StepsGeneratorDragDrop",
     "Table",
     "TextWriter",
     "Timeline",
+    "TimelineList",
     "Water404",
     // Functions
     "Functions/addGlobalMessage",
@@ -77,7 +77,7 @@ const modules = [
     "Functions/isObject",
     "Functions/scrollTopListener",
     "Functions/urlExtract",
-    "Functions/uuid",
+    "Functions/uuid"
 ];
 
 const removeDirs = [
@@ -182,7 +182,6 @@ gulp.task('build:css:website', function (done) {
 const buildModuleProduction = (filename, cb) => {
     return new Promise( (resolve, reject) => {
         exec('cd react-revolution && node ./node_modules/webpack/bin/webpack.js --config ./_Configurations/' + filename + ' --module-bind js=babel-loader', function (err, stdout, stderr) {
-            console.log(stdout);
             console.log(stderr);
             cb(err);
 
@@ -198,106 +197,126 @@ const buildModuleProduction = (filename, cb) => {
 
 gulp.task('create:webpack:files', async function(cb){
 
-    modules.push('PRODUCTION');
+    const timeStart = performance.now();
+    const info = [];
 
     for(let x = 0; x <= modules.length-1; x++){
         const moduleName = modules[x];
+        const innerStart = performance.now();
 
-        if('PRODUCTION' !== moduleName){
-            let filename = "webpack.config." + moduleName + ".production.js";
-            let entry  = `'./_Modules/${moduleName}/index.js'`;
-            let outputPath = `path.resolve(__dirname, '../${moduleName}')`;
+        let filename = "webpack.config." + moduleName + ".production.js";
+        let entry  = `'./_Modules/${moduleName}/index.js'`;
+        let outputPath = `path.resolve(__dirname, '../${moduleName}')`;
 
-            if(-1 !== moduleName.indexOf('Functions/')){
-                const fnName = moduleName.replace('Functions/', '');
-                filename = "webpack.config.function." + fnName + ".production.js";
-                entry  = `'./_Functions/${fnName}.js'`;
-                outputPath = `path.resolve(__dirname, '../Functions/${fnName}')`;
-            }
-
-            let data = `
-            const TerserPlugin = require('terser-webpack-plugin');
-    
-            const Dotenv = require('dotenv-webpack');
-    
-            const path = require('path');
-    
-            module.exports = {
-            optimization: {
-                minimizer: [
-                new TerserPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: true, // Must be set to true if using source-maps in production
-                    terserOptions: {
-                    ecma: undefined,
-                    warnings: false,
-                    parse: {},
-                    compress: {},
-                    mangle: true,
-                    module: false,
-                    output: null,
-                    toplevel: false,
-                    nameCache: null,
-                    ie8: false,
-                    keep_classnames: undefined,
-                    keep_fnames: false,
-                    safari10: false,
-                    }
-                }),
-                ],
-            },
-            cache: false,
-            mode: 'production',
-            entry: `+entry+`,
-            output: {
-                path: `+outputPath+`,
-                filename: 'index.js',
-                libraryTarget: 'commonjs2'
-            },
-            module: {
-                rules: [
-                    {
-                        test: /\.js$/,
-                        include: path.resolve(__dirname, '**/*'),
-                        exclude: /(node_modules|bower_components|public|production.js|_Sass)/,
-                        use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['env']
-                        }
-                        }
-                    },
-                    {
-                        test: /\.scss$/,
-                        use: [
-                        "style-loader",
-                        "css-loader",
-                        "sass-loader"
-                        ]
-                    }
-                    ]
-                },
-                externals: {
-                    'react': 'commonjs react'
-                },
-                plugins: [
-                    new Dotenv(),
-                ]
-            };`;
-    
-            fs.writeFile("./react-revolution/_Configurations/" + filename, data, cb);
-
-            await buildModuleProduction(filename, cb)
-            .then( () => {
-                    console.log(`Module build done: ${filename}`)
-                    run('npm run chmod:2775').exec();
-                }
-            )
-            .catch( e => {
-                console.log(`Module build failed: ${filename}. ${e}`)
-            });
+        if(-1 !== moduleName.indexOf('Functions/')){
+            const fnName = moduleName.replace('Functions/', '');
+            filename = "webpack.config.function." + fnName + ".production.js";
+            entry  = `'./_Functions/${fnName}.js'`;
+            outputPath = `path.resolve(__dirname, '../Functions/${fnName}')`;
         }
+
+        let data = `
+        const TerserPlugin = require('terser-webpack-plugin');
+        const Dotenv = require('dotenv-webpack');
+        const path = require('path');
+
+        module.exports = {
+        optimization: {
+            minimizer: [
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true, // Must be set to true if using source-maps in production
+                terserOptions: {
+                ecma: undefined,
+                warnings: false,
+                parse: {},
+                compress: {},
+                mangle: true,
+                module: false,
+                output: null,
+                toplevel: false,
+                nameCache: null,
+                ie8: false,
+                keep_classnames: undefined,
+                keep_fnames: false,
+                safari10: false,
+                }
+            }),
+            ],
+        },
+        cache: false,
+        mode: 'production',
+        entry: `+entry+`,
+        output: {
+            path: `+outputPath+`,
+            filename: 'index.js',
+            libraryTarget: 'commonjs2'
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    include: path.resolve(__dirname, '**/*'),
+                    exclude: /(node_modules|bower_components|public|production.js|_Sass)/,
+                    use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                    }
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                    ]
+                }
+                ]
+            },
+            externals: {
+                'react': 'commonjs react'
+            },
+            plugins: [
+                new Dotenv(),
+            ]
+        };`;
+
+        fs.writeFile("./react-revolution/_Configurations/" + filename, data, cb);
+        run('clear').exec();
+
+        await buildModuleProduction(filename, cb)
+        .then( () => {
+                let ms = (performance.now() - innerStart);
+                let s = ms/1000;
+                run('npm run chmod:2775').exec();
+                info.push(`[${x+1}]\n\t${moduleName}\n\t- ${ms} ms\n\t- ${s} s`);
+
+                ms = (performance.now() - timeStart);
+                s = ms/1000;
+                const  m = s/60;
+
+                setTimeout(() => {
+                    run('clear').exec();
+                }, 5000);
+
+                setTimeout(() => {
+                    if(x == modules.length-1){
+    
+                        for(let i = 0; i <= info.length-1; i++){
+                            console.log(info[i]);
+                        }
+    
+                        console.log(`\n\n[+] Builded ${modules.length-1} modules\n[+] Builded in ${s} seconds\n[+] Builded in ${m} minutes`);
+                    }
+                }, 10000);
+            }
+        )
+        .catch( e => {
+            throw new Error(`Module build failed: ${filename}. ${e}`);
+        });
     }
 });
 

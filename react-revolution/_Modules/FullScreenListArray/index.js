@@ -172,7 +172,7 @@ class FullScreenListArray extends React.Component
      * On "ESC" key press
      */
     EscListener(event){
-        if(event.keyCode === 27) {
+        if(event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27 || event.which === 27) {
             this.removeEscEventListener();
             this.callbackClose();
         }

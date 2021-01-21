@@ -686,7 +686,7 @@ class Slider extends React.Component {
                 }
                 <div
                     key={`wrapper-${slidersUuid}`}
-                    className="wrapper"
+                    className="slider-wrapper"
                     ref={(node) => (this.wrapper = node)}
                     // Mobile
                     {...((true == allowMouseTouch) && { onTouchStart: (e) => this.handleTouchStart(e) })}

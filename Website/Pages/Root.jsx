@@ -1,15 +1,9 @@
 
-import * as React from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 import trans from '../Translations/trans';
-
-import { TextWriter, Cards, SourceCode, Clipboard } from '.././../react-revolution/react-revolution';
-
+import { TextWriter, SourceCode, Clipboard } from '.././../react-revolution/react-revolution';
 import { exampleHome, exampleInstallationNpm, exampleInstallationYarn } from '../CodeExamples/homeExample';
-
-import Footer from '../Modules/Footer';
 
 class Root extends React.Component 
 {
@@ -56,33 +50,6 @@ class Root extends React.Component
                             </h2>
                         </div>
                     </div>
-                    {/* <br/>
-                    <br/>
-                    <Cards
-                        itemsPerLine={3}
-                        data={
-                            [
-                                {
-                                    title: <i className="far fa-clock" />,
-                                    content: trans('fast')
-                                    // content: trans('fast.description')
-                                },
-                                {
-                                    title: <i className="fas fa-balance-scale-right"/>,
-                                    props: {
-                                        className: 'card flex flex-column card-middle'
-                                    },
-                                    content: trans('light')
-                                    // content: trans('light.description')
-                                },
-                                {
-                                    title: <i className="fas fa-user-cog"/>,
-                                    content: trans('interactive'),
-                                    // content: trans('interactive.description')
-                                }
-                            ]
-                        }
-                    /> */}
                     <div className="example flex">
                         <div className="example-1">
                             <h1 className="title-border">
@@ -94,7 +61,7 @@ class Root extends React.Component
                             <SourceCode
                                 layout='dark'
                                 lineNumber={true}
-                                code={exampleHome}
+                                code={exampleHome()}
                             />
                             <Clipboard
                                 animation='jump' // scale, jump
@@ -103,7 +70,7 @@ class Root extends React.Component
                                         <i className="far fa-clipboard"></i>
                                     </div>
                                 )}
-                                clipboard={exampleHome}
+                                clipboard={exampleHome()}
                             />
                         </div>
                         <div className="example-2 flex flex-column flex-space-between">

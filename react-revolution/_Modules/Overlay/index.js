@@ -61,7 +61,7 @@ class Overlay extends React.Component
     }
 
     EscListener(event) {
-        if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
+        if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27 || event.which === 27) {
             this.cancel();
         }
     }

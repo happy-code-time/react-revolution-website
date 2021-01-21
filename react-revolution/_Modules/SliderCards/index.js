@@ -856,7 +856,7 @@ class SliderCards extends React.Component {
                 {/* Need this wrapper to set a z-index lower then the page to avoid (on desktop the version) to execute the mousedown function (while using the pager). */}
                 <div
                     key={`wrapper-${uuid}`}
-                    className="wrapper"
+                    className="slider-wrapper"
                     ref={(node) => (this.wrapper = node)}
                     // Mobile
                     {...((true == allowMouseTouch) && { onTouchStart: (e) => this.handleTouchStart(e) })}

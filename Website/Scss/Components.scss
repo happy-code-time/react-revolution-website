@@ -6,7 +6,7 @@
     padding: 10px 20px;
     white-space: pre-wrap;
 
-    a{
+    .component-link{
         box-sizing: border-box;
         padding: 10px 15px;
         background-color: #2D3748;
@@ -19,7 +19,11 @@
         transition-duration: 300ms;
     }
 
-    a:hover{
+    .component-link-active{
+        background-color: $dodgerblue;
+    }
+
+    .component-link:hover{
         color: rgba(222,222,222,1);
     }
 }

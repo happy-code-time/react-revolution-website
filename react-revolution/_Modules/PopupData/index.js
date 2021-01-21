@@ -28,6 +28,8 @@ class PopupData extends React.Component {
             holderInside: (typeof true == typeof props.holderInside) ? true : false, 
             animationTimeout: (typeof 8 == typeof props.animationTimeout) ? props.animationTimeout : 300,
             animation: (typeof true == typeof props.animation) ? props.animation : true,
+            closeOnEsc: (typeof true == typeof props.closeOnEsc) ? props.closeOnEsc : true,
+            closeOnOutsideClick: (typeof true == typeof props.closeOnOutsideClick) ? props.closeOnOutsideClick : true,
         };
     }
 
@@ -38,7 +40,7 @@ class PopupData extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'animation', 'animationTimeout', 'holderData', 'contentData', 'direction', 'holderInside'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'closeOnEsc', 'closeOnOutsideClick', 'animation', 'animationTimeout', 'holderData', 'contentData', 'direction', 'holderInside'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-popup-data',
@@ -49,6 +51,8 @@ class PopupData extends React.Component {
                 holderInside: (typeof true == typeof props.holderInside) ? true : false,
                 animationTimeout: (typeof 8 == typeof props.animationTimeout) ? props.animationTimeout : 300,
                 animation: (typeof true == typeof props.animation) ? props.animation : true,
+                closeOnEsc: (typeof true == typeof props.closeOnEsc) ? props.closeOnEsc : true,
+                closeOnOutsideClick: (typeof true == typeof props.closeOnOutsideClick) ? props.closeOnOutsideClick : true,
             };
         }
 
@@ -145,6 +149,8 @@ class PopupData extends React.Component {
                     id={this.state.id}
                     animationTimeout={this.state.animationTimeout}
                     animation={this.state.animation}
+                    closeOnEsc={this.state.closeOnEsc}
+                    closeOnOutsideClick={this.state.closeOnOutsideClick}
                 />
             }
 
@@ -161,6 +167,8 @@ class PopupData extends React.Component {
                     id={this.state.id}
                     animationTimeout={this.state.animationTimeout}
                     animation={this.state.animation}
+                    closeOnEsc={this.state.closeOnEsc}
+                    closeOnOutsideClick={this.state.closeOnOutsideClick}
                 />
             }
 
@@ -176,6 +184,8 @@ class PopupData extends React.Component {
                 id={this.state.id}
                 animationTimeout={this.state.animationTimeout}
                 animation={this.state.animation}
+                closeOnEsc={this.state.closeOnEsc}
+                closeOnOutsideClick={this.state.closeOnOutsideClick}
             />
         }
 
@@ -194,6 +204,8 @@ class PopupData extends React.Component {
                     id={this.state.id}
                     animationTimeout={this.state.animationTimeout}
                     animation={this.state.animation}
+                    closeOnEsc={this.state.closeOnEsc}
+                    closeOnOutsideClick={this.state.closeOnOutsideClick}
                 />
             }
 
@@ -210,6 +222,8 @@ class PopupData extends React.Component {
                     id={this.state.id}
                     animationTimeout={this.state.animationTimeout}
                     animation={this.state.animation}
+                    closeOnEsc={this.state.closeOnEsc}
+                    closeOnOutsideClick={this.state.closeOnOutsideClick}
                 />
             }
 
@@ -225,6 +239,8 @@ class PopupData extends React.Component {
                 id={this.state.id}
                 animationTimeout={this.state.animationTimeout}
                 animation={this.state.animation}
+                closeOnEsc={this.state.closeOnEsc}
+                closeOnOutsideClick={this.state.closeOnOutsideClick}
             />
         }
 

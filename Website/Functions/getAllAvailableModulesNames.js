@@ -109,6 +109,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/lightbulb-404'
         },
         {
+            name: 'ListSwitch',
+            link: 'components/list-switch'
+        },
+        {
             name: 'LoadingBoxTop',
             link: 'components/loading-box-top'
         },
@@ -121,8 +125,20 @@ const getAllAvailableModulesNames = () => {
             link: 'components/menu'
         },
         {
+            name: 'MenuDropDown',
+            link: 'components/menu-dropdown'
+        },
+        {
             name: 'MenuHeight',
             link: 'components/menu-height'
+        },
+        {
+            name: 'MenuHoverX',
+            link: 'components/menu-hover-x'
+        },
+        {
+            name: 'MenuHoverY',
+            link: 'components/menu-hover-y'
         },
         {
             name: 'Modal',
@@ -193,6 +209,14 @@ const getAllAvailableModulesNames = () => {
             link: 'components/steps'
         },
         {
+            name: 'StepsGenerator',
+            link: 'components/steps-generator'
+        },
+        {
+            name: 'StepsGeneratorDragDrop',
+            link: 'components/steps-generator-drag-drop'
+        },
+        {
             name: 'Table',
             link: 'components/table'
         },
@@ -203,6 +227,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'Timeline',
             link: 'components/timeline'
+        },
+        {
+            name: 'TimelineList',
+            link: 'components/timeline-list'
         },
         {
             name: 'Water404',

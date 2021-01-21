@@ -63,17 +63,17 @@ const DE = {
     "id": {
         "description": 'Setzte eine id für das Root Element dieses Modules.',
         "type": 'String',
-        "default": '<leere Zeichenfolge>'
+        "default": '<empty string>'
     },
     "class": {
         "description": 'Ersetze die Hauptklasse gegen eine eigene. Falls dies genutzt wird, greifen die Standard Styles, die das Module mitbringt, nicht mehr.',
         "type": 'String',
-        "default": '<leere Zeichenfolge>'
+        "default": '<empty string>'
     },
     "addClass": {
         "description": 'Setzte eine zusätzliche Klasse für das Root Element dieses Modules.',
         "type": 'String',
-        "default": '<leere Zeichenfolge>'
+        "default": '<empty string>'
     },
     "inputanimation.callback": {
         "description": "Benutzerdefinierte definierte Funktionen werden jedes Mal aufgerufen, wenn sich die Eingabe geändert hat. Diese Funktion gibt 1 Argument zurück - den aktuellen Wert des Eingabefelds.",
@@ -87,7 +87,7 @@ const DE = {
     },
     "accordion.data": {
         "description": "Hauptdaten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     'accordion.data.href': {
@@ -103,12 +103,12 @@ const DE = {
     'accordion.data.text' : {
         "description": "Der anzuzeigende Text bevor ein Kind Element aufgeklappt wird.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     'accordion.data.dataToggle' : {
         "description": "Der anzuzeigende Inhalt eines Elementes nachdem das Mutter Element aufgeklappt wurde.",
         "type": "String | JSX ",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     'accordion.data.toggled' : {
         "description": "Ist das Element ge-toggelt order nicht.",
@@ -117,7 +117,7 @@ const DE = {
     },
     'props' : {
         "description": "Die HTML Eigenschaften des HTML Elementes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "itemsPerLine": {
@@ -132,12 +132,12 @@ const DE = {
     },
     "data": {
         "description": "Hauptdaten - Array von Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "cards.data": {
         "description": "Hauptdaten - Array von Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "cards.data.title": {
@@ -163,7 +163,7 @@ const DE = {
     "loadonscroll.data": {
         "description": "Benutzerdefinierte Daten, die beim ersten Mal gerendert werden sollen.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "loadonscroll.fireScrollEvent": {
         "description": "Ein Zahl die bewirkt, dass das angesprochene Element (scrollReference) nach unten ge-scrollt wird mit der angegebenen Zahl. Dieses Verhalten wird in 'componentDidMount' (einmaling) aufgerufen.",
@@ -207,12 +207,12 @@ const DE = {
     "cards.callback.onReject": {
         "description": "Benutzerdefinierte Daten, die angezeigt werden sollen, nachdem ein Versprechen abgelehnt wurde, und der Benutzer sollte wieder mehr Daten laden können. An diese Daten wird das Klickereignis angehängt.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "cards.loading": {
         "description": "Wärend zusätzliche Elemente geladen werden, kann ein eigen definiertes JSX Element gerendert werden.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "customsuggestion.callback": {
         "description": "Nachdem eine Änderung im Input Feld statt findet, wird diese Übergebene Funktion aufgerufen mit 1 Paramater: Wert des Input Feldes. Der Callback muss eine Liste and Objecten zurück liefern. Die Struktur ist im 'suggestions' Key beschrieben.",
@@ -221,7 +221,7 @@ const DE = {
     },
     "customsuggestion.suggestions": {
         "description": "Liste von Objecten",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "customsuggestion.suggestions.href": {
@@ -246,7 +246,7 @@ const DE = {
     },
     "customsuggestion.suggestions.props": {
         "description": "Die HTML Eigenschaften des HTML Elementes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "customsuggestion.suggestions.onClickValue": {
@@ -262,7 +262,7 @@ const DE = {
     "clipboard.data": {
         "description": "Custom JSX.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "clipboard.animation": {
         "description": "Eine Animation, wenn ein Klickereignis für die benutzerdefinierten 'Daten' ausgelöst wird. Animationen, die verwendet werden können: 'skalieren', 'springen'.",
@@ -282,7 +282,7 @@ const DE = {
     "plainValue": {
         "description": "Der Wert des Input Feldes.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "inputsuggestionarray.callbackSelection": {
         "description": "Benutzerdefinierte Funktion dam dem ein Element ausgewählt wurde. Diese Function liefert 1 Argument. Argument 1: Liste der Ausgewählten Elemente (angeklickten Element).",
@@ -302,7 +302,7 @@ const DE = {
     "inputPlaceholder": {
         "description": "Platzhalter.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "inputType": {
         "description": "Typ eines Inptu Feldes.",
@@ -332,7 +332,7 @@ const DE = {
     "iconClose": {
         "description": "Benutzer definiertes HTML mit der Aktion das Module 'zu schließenden'.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "inputActive": {
         "description": "Soll das Input Feld mit angezeigt werden oder nicht.",
@@ -342,7 +342,7 @@ const DE = {
     "noDataText": {
         "description": "Falls keine Elemente gefunden wurden, dann wird dieser Text angezeigt.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "callbackClose": {
         "description": "Benutzer definierte Funktion, die ohne Argumente aufgerufen wird, nachdem dass Element geschlossen wurde.",
@@ -356,12 +356,12 @@ const DE = {
     },
     "listarray.data": {
         "description": "Array der anzuzeigenden Zeichenfolgen (Werte).",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data": {
         "description": "Array of Objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data.text": {
@@ -397,12 +397,12 @@ const DE = {
     "fullscreenOverlay.animation": {
         "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'scale','left','top','right', 'bottom'.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "popupbox.data": {
         "description": "Benutzerdefinierte JSX-Daten in der umgeschalteten Box.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "popupbox.animation": {
         "description": "Eine Animation wärend des renders des Modules. Animationen die verwendet werden können: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.",
@@ -417,7 +417,7 @@ const DE = {
     "fullscreenoverlay.data": {
         "description": "Benutzerdefinierte JSX-Daten, die im Overlay angezeigt werden sollen.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "disableScroll": {
         "description": "Während der Anzeige des Modules, soll das HTML Element (Tag) scrollbar sein oder nicht.",
@@ -427,11 +427,11 @@ const DE = {
     "messageKey": {
         "description": "Ein unique string.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "codeMapping": {
         "description": "Object",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.title": {
@@ -446,7 +446,7 @@ const DE = {
     },
     "codeMapping.text": {
         "description": "Object - Anzuzeigender Text als Meldung.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.text.prefix": {
@@ -461,12 +461,12 @@ const DE = {
     },
     "codeMapping.text.props": {
         "description": "Die HTML Eigenschaften des HTML Elementes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.close": {
         "description": "Object - Text um die Mitteilungs Box zu schließen.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "codeMapping.close.text": {
@@ -476,12 +476,12 @@ const DE = {
     },
     "codeMapping.close.props": {
         "description": "Die HTML Eigenschaften des HTML Elementes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link": {
         "description": "Object - Externer Link.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link.text": {
@@ -496,7 +496,7 @@ const DE = {
     },
     "codeMapping.link.href": {
         "description": "Das Attribut 'to' im <Link> Tag oder 'href' im <a> Tag.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "timer": {
@@ -516,17 +516,17 @@ const DE = {
     },
     "renderItems": {
         "description": "Welche Elemente sollen standardmäßig angezeigt werden.",
-        "type": "Array",
+        "type": "[]",
         "default": "'Smileys', 'Peoples','Animals', 'Plants', 'Nature', 'Food', 'Activity', 'Travel', 'Objects','Symbols', 'Currency', 'Arrows', 'Html'"
     },
     "translations": {
         "description": "Übersetzungen für die jeweiligen Überschriften der Icons Sets.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "custom": {
         "description": "Benutzer definierte Icons Sets als Array aus Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "custom.title": {
@@ -536,7 +536,7 @@ const DE = {
     },
     "custom.data": {
         "description": "Array aus Strings mit benutzerdefinierten Icons.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "defaultClassOrigin": {
@@ -547,7 +547,7 @@ const DE = {
     "animatePlaceholder": {
         "description": "Platzhalter (der dann auch animiert wird).",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "onEnter": {
         "description": "Benutzerdefinierte Funktion wenn der Benutzer Enter drückt innerhalb des Input Feldes. Diese Funktion liefert 1 Argument: der aktuelle Wert des Input Feldes.",
@@ -577,7 +577,7 @@ const DE = {
     "label": {
         "description": "Das anzuzeigende JSX innerhalb eine <label> Tags",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "readFileCallback": {
         "description": "Benutzerdefinierte Funktion um eine Datei zu verarbeiten. Es werden 2 Argumente übergeben: Argument 1: Die Datei, Argument 2: Der Dateityp.",
@@ -602,7 +602,7 @@ const DE = {
     "isDraggingData": {
         "description": "Wenn ein Benutzer aktuell im Status 'dragging' ist, dann kann eine Benutzerdefiniertes JSX angezeigt werden.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "uploadOnClick": {
         "description": "Erlaube auch das Verarbeiten von Dateien wenn der Benutzer auf den 'Drag & Drop' Bereich ein Klick Event durchführt.",
@@ -611,12 +611,12 @@ const DE = {
     },
     "selected": {
         "description": "Ein Array mit ausgewählten Elementen aus der Liste.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "suggestionsToFilter": {
         "description": "Ein Array aus Elementen (Strings) die danach zur Auswahl für den Benutzer erscheinen.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "emptySuggestionAfterSelection": {
@@ -637,7 +637,7 @@ const DE = {
     "text": {
         "description": "Der anzuzeigende Text.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "scrollReference": {
         "description": "Wenn true, dann wird das Root Element des Modules als Referenz genommen ansonsten das HTML document Elment.",
@@ -652,7 +652,7 @@ const DE = {
     "icon": {
         "description": "Benutzerdefiniertes JSX um das Modul zu schließen.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "iconCallback": {
         "description": "Benutzerdefiniertes Callback wenn das 'icon' angeglickt wrid.",
@@ -691,18 +691,18 @@ const DE = {
     },
     "hrefProps": {
         "description": "Die HTML Eigenschaften des <a> Tags.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "title": {
         "description": "Array von Strings - Tabellenüberschrift.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "writer.text": {
         "description": "Zu schreibender Text.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "speed": {
         "description": "Speed of the text writer in ms.",
@@ -731,7 +731,7 @@ const DE = {
     },
     "replaces": {
         "description": "Object - Replace Text after, the text was written.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "replaces.from": {
@@ -756,12 +756,12 @@ const DE = {
     },
     "table.data": {
         "description": "Array aus Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "table.keysToRead": {
         "description": "Array aus Strings - welche Keys sollen aus dem Object ausgelesen werden.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "table.titleOnMinified": {
@@ -833,12 +833,12 @@ const DE = {
 
     "pagination.data": {
         "description": "Array von benutzerdefinierten Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.searchOnKeys": {
         "description": "Array von Zeichenfolgen. Array von (bereitgestellten Objekten innerhalb des 'Daten'-Schlüssels) Schlüsselnamen zur Verwendung des Suchfelds (Eingabefelds).",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.itemsPerSite": {
@@ -848,7 +848,7 @@ const DE = {
     },
     "pagination.keysToRender": {
         "description": "Array von Zeichenfolgen. Array von Schlüsselnamen, die basierend auf dem Array von Objekten angezeigt werden sollen (Schlüssel: 'Daten').",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.liCallback": {
@@ -894,12 +894,12 @@ const DE = {
     "pagination.paginationTextPrefix": {
         "description": "Text von 'Page'.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.paginationTextMiddle": {
         "description": "Text von 'of'.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.prevPages": {
         "description": "Wie viele Seiten sollten 'vor' der aktuellen Seite (als vorherige Seiten) angezeigt werden?",
@@ -934,12 +934,12 @@ const DE = {
     "pagination.previousButton": {
         "description": "HTML für die vorherige Schaltfläche.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.nextButton": {
         "description": "HTML für die nächste Schaltfläche.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.searchActive": {
         "description": "Rendern Sie das Sucheingabefeld.",
@@ -949,12 +949,12 @@ const DE = {
     "pagination.searchPlaceholder": {
         "description": "Platzhalter eingeben.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.searchPlaceholder": {
         "description": "Platzhalter.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.searchIcon": {
         "description": "Der HTML-Code der Suchschaltfläche auf der rechten Seite des Sucheingabefelds. Wenn der Benutzer auf das Suchsymbol klickt, wird eine Suche ausgeführt.",
@@ -969,7 +969,7 @@ const DE = {
     "pagination.searchValue": {
         "description": "Zum ersten Mal einen benutzerdefinierten Suchwert neu erstellen, um eine Suche ohne Benutzerinteraktion auszuführen.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.searchOnKeyDown": {
         "description": "Führen Sie eine Suche nach den bereitgestellten Daten durch, wenn der Benutzer den Eingabewert ändert.",
@@ -979,17 +979,17 @@ const DE = {
     "pagination.searchTitle": {
         "description": "Tag <h1> als Titel für das Suchfeld.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.paginationTitle": {
         "description": "Tag <h1> als Titel für die Tabelle.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.paginationTitle": {
         "description": "Tag <h1> als Titel für die Tabelle.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.fallbackLoading": {
         "description": "Verwenden Sie ein Ladesymbol, während der Benutzer Daten filtert.",
@@ -1004,17 +1004,17 @@ const DE = {
     "pagination.fallbackNoData": {
         "description": "Benutzerdefinierte Daten zum Rendern, wenn keine Daten angegeben werden.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.fallbackNoDataSearch": {
         "description": "Benutzerdefinierte Daten zum Rendern, wenn während der Suche keine Daten gefunden wurden.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "pagination.fallbackMounting": {
         "description": "Verwenden Sie ein Ladesymbol, während das Modul (die Komponente) Daten generiert.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "removeHashFromDomain": {
         "description": "Entfernung der Zeichenkette '/#/' von dem Text der Domände.",
@@ -1046,12 +1046,12 @@ const DE = {
     },
     "matcher": {
         "description": "Array von Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.words": {
         "description": "Array von übereinstimmenden Zeichenfolgen / Wörtern.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.className": {
@@ -1066,13 +1066,13 @@ const DE = {
     },
     "sourceCode": {
         "description": "Array von Zeichenfolgen. Welche logischen Funktionen sollten für jede Zeile in der angegebenen Reihenfolge aufgerufen werden, um bestimmten Codes zu entsprechen. Die Schritte für jede Codezeile sind: 1 - Tags: JSX (HTML) -Tags. 2 - Eigenschaften: HTML-Eigenschaften wie className. 3 - Variablen: Wörter, die das gleiche (=) Zeichen enthalten. 4 - objectProperty: einzelne Eigenschaft eines Objekts, wenn das Doppelpunktzeichen angegeben ist. 5 - Funktionen: Übereinstimmung mit einzelnen Funktionen. 6 - Wörter: Übereinstimmung Benutzerdefinierte Wörter. 7 - Anführungszeichen: Übereinstimmende Anführungszeichen ('' ',', '\"'). 8 - Klammern: Übereinstimmende Klammern ('(', '}', ']'). ",
-        "type": "Array",
+        "type": "[]",
         "default": "['tags', 'properties', 'variables', 'objectProperty', 'functions', 'words', 'quote', 'brackets']"
     },
     "code": {
         "description": "Hauptzeichenfolge zum Generieren des Quellcodes.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "link.404": {
         "description": "Objekt für die Backlink-Funktionalität.",
@@ -1122,7 +1122,7 @@ const DE = {
     "404.shipname": {
         "description": "Name des Schiffs.",
         "type": "JSX | String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "scroll-to-desc-1": "Beispiel mit einer Navigierung zum Start der Seite innerhalb von 1 Sekunde.",
     "scroll-to-desc-2": "Beispiel mit einer Navigierung zum ersten Beispiel innerhalb von 300 Millisekunden.",
@@ -1134,12 +1134,12 @@ const DE = {
     "navigationTarget": {
         "description": "Navigieren Sie auf der Seite zu diesem HTML-Element (Selektor). Geben Sie für eine Klasse die erste Position ein. (Punkt) Wenn es sich um eine ID handelt, muss an der ersten Position ein # (Hash) stehen. Wenn der Schlüssel 'html' leer / undefiniert ist und der Wert 'bottom' lautet, gibt das Modul einen vordefinierten HTML-Bildlauf nach unten und eine Bildlauffunktion nach unten zurück. Wenn der Wert 'top' lautet, führt das Modul einen Bildlauf nach oben durch vordefiniertes HTML und scrollen Sie zur obersten Funktionalität.",
         "type": "JSX | String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "html": {
         "description": "Benutzerdefiniertes HTML das angezeigt wird, falls der Key 'navigationTarget' keinen . (Punkt) oder # (Hash) an der ersten Stelle stehen hat.",
         "type": "JSX | String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "hideAt": {
         "description": "Wenn das document 'resized' wird und der Wert kleiner oder gleich diesem Wert ist, wird die Sidebar komplett minimiert.",
@@ -1174,12 +1174,12 @@ const DE = {
     "toggleMenuHtml": {
         "description": "Benutzerdefiniertes JSX, das als Umschalt-Symbol für die Seitenleiste verwendet wird. Dieser HTML-Code befindet sich im Inhalt der Kopfzeilen.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "closeMenuHtml": {
         "description": "Benutzerdefiniertes JSX wird als Schließsymbol in der Seitenleiste verwendet, wenn die Dokumentbreite geringer ist als der Wert, der mit dem Schlüssel 'minifyAt' an das Modul übergeben wurde.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "moduleSidebar": {
         "description": "Das Modul 'Menu'.",
@@ -1189,7 +1189,7 @@ const DE = {
     "headerData": {
         "description": "Benutzerdefiniertes JSX im Header-Bereich.",
         "type": "Modul",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "headerProps": {
         "description": "Eigenschaften von Header div.",
@@ -1199,7 +1199,7 @@ const DE = {
     "contentData": {
         "description": "Benutzerdefiniertes JSX im Inhaltsbereich.",
         "type": "Modul",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "contentProps": {
         "description": "Eigenschaften von Content div.",
@@ -1209,7 +1209,7 @@ const DE = {
     "footerData": {
         "description": "Benutzerdefiniertes JSX im Fußzeilenbereich.",
         "type": "Modul",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "footerProps": {
         "description": "Footer div`s Eigenschaften.",
@@ -1310,12 +1310,12 @@ const DE = {
     "articles.toggleForwards": {
         "description": "Benutzerdefiniertes JSX um den Text/Daten einzublenden. Wenn definiert, dann wird der Schlüssel 'toggleOn' ignoriert.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "articles.toggleBackwards": {
         "description": "Benutzerdefiniertes JSX um den Text/Daten auszublenden.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "articles.description.1": "Beispiel mit der Verwendung des Schlüssels 'border'.",
     "articles.description.2": "Beispiel mit der Schlüsselverwendung closeOnClickOutside={true}. Dies bedeutet, dass alle umgeschalteten Artikel geschlossen werden, wenn der Benutzer außerhalb des Moduls klickt.",
@@ -1339,12 +1339,12 @@ const DE = {
     "readmore.data": {
         "description": "Der Haupttext.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "readmore.dataToggle": {
         "description": "Der Text der eingeblendet werden soll.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "readmore.callback.toggleOnReject": {
         "description": "Ermöglichen Sie die erneute Anzeige der Schaltfläche über die Taste 'Ablehnung ablehnen', um die Abfrage zu wiederholen (Rückruf).",
@@ -1386,12 +1386,12 @@ const DE = {
     "modal.data": {
         "description": "Eigen definiertes HTML order String der angezeigt werden soll.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "modal.close": {
         "description": "Eigen definiertes HTML order String. Zu diesem HTML wird die 'callback' Funktion hinzugefügt.",
         "type": "String | JSX",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "modal.closeOnKeyDown": {
         "description": "Füge den 'keydown' und 'touch' Event zu dem DOM Element hinzu um die 'callback' Funktion aufzurufen.",
@@ -1445,7 +1445,7 @@ const DE = {
     },
     "timeline.data": {
         "description": "Timelines Daten in Form eines Arrays aus Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "timeline.data.title": {
@@ -1474,7 +1474,7 @@ const DE = {
     },
     "drag.drop.data.data": {
         "description": "Array von Objekten mit einzelnen Elementen.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "drag.drop.data.data.text": {
@@ -1555,7 +1555,7 @@ const DE = {
     "drag.drop.lineNumberChar": {
         "description": "kann nur verwendet werden, wenn der Schlüssel 'lineNumber' wahr ist. Zeigen Sie ein benutzerdefiniertes Zeichen nach der Zeilennummer an.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "description.dragDropList.1": "Beispiel mit einer Standard-Drag & Drop-Funktion basierend auf einem Rückruf zum Anwenden der Statusänderungen.",
     "description.dragDropList.2": "Beispiel mit einer benutzerdefinierten Funktion callbackAllowDrop (Versprechen - Sie müssen mit dem Wert true oder false auflösen oder ablehnen), um true / false zurückzugeben, um Statusänderungen anzuwenden oder zu verwerfen.",
@@ -1576,7 +1576,7 @@ const DE = {
     },
     "drag.drop.list.data": {
         "description": "Array von Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "drag.drop.list.text": {
@@ -1621,11 +1621,11 @@ const DE = {
     "stars.color": {
         "description": "Farbe der gefüllten und ungefüllten Sterne. Standardmäßig sind 3 Farben verfügbar: 'orange', 'orange-yellow' und 'yellow'.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     "stars.starsData": {
         "description": "Array von Objekten.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "stars.starsData.props": {
@@ -1705,7 +1705,7 @@ const DE = {
     "404.imagePath": {
         "description": "Source des Bildes.",
         "type": "String",
-        "default": "<leere Zeichenfolge>"
+        "default": "<empty string>"
     },
     'slider.data' : {
         "description": "Ein Array aus Objekten.",
@@ -2144,6 +2144,324 @@ const DE = {
     'popupData.example8' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: SQUARE. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
     'popupData.example9' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: HAMBURGER. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
     'popupData.example10' : 'Beispiel mit der Verwendung eines vordefiniertem Platzhalters: HAMBURGER-RIGHT. Um die Animation auszuschalten (wenn das Element angeklickt wurde) muss man der Komponente den Schlüssel animation={false} übergeben.',
+    'menuXY.direction' : {
+        "description": "Richtung der anzuzeigenden Kindelemente. Mögliche Richtungen: 'right' und 'left'.",
+        "type": "String",
+        "default": "right"
+    },
+    'menuXY.data' : {
+        "description": "Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'menuXY.data.callback' : {
+        "description": "Benutzerdefinierte Funktion die aufgerufen wird sobald ein Kind Element angeklickt wird. Diese Funktion liefert ein Argument zurück 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menuXY.data.callbackProps' : {
+        "description": "Benutzerdefinierte Daten für die 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuXY.data.data' : {
+        "description": "Weitere verschachtelte Kindelemente.",
+        "type": "{}[]",
+        "default": "undefined"
+    },
+    'menuXY.example1': "Beispiel mit der Richgtung der Kindelemente: 'right'.",
+    'menuXY.example2': "Beispiel mit der Richgtung der Kindelemente: 'left'.",
+    'menuXY.example1a': "Beispiel mit der Richgtung der Kindelemente: 'right'.",
+    'menuXY.example2a': "Beispiel mit der Richgtung der Kindelemente: 'left'.",
+    'menuDropDown.placeholder' : {
+        "description": "Platzhalter damit das Menu angezeigt werden kann.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.holderLoading' : {
+        "description": "Wenn die Daten 'geholt' werden, wird in dieser Zeit ein Lade-Platzhalter angezeigt.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.callback' : {
+        "description": "Wenn der Platzhalter angeklickt wird, wird diese Funktion aufgerufen um die Benutzerdefinierten Daten zu laden. Diese callback Funktion muss ein Promise zurückliefern. Diese Funktion gibt ein Argument zurück: 'callbackProps'.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'menuDropDown.callbackProps' : {
+        "description": "Einziges Argument für die 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuDropDown.closeOnEsc' : {
+        "description": "Wenn der Endanwender die Taste 'Esc' drückt, wird das Menü geschlossen. Falls man dieses Feature abschalten möchte, soll der Wert dieses Schlüssels auf 'false' gesetzt werden.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.closeOnOutsideClick' : {
+        "description": "Wenn der Endanwender einen Mausklick außerhalb des Menüs tätigt, wird das Menü geschlossen. Falls man dieses Feature abschalten möchte, soll der Wert dieses Schlüssels auf 'false' gesetzt werden.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.example1' : 'Beispiel mit einer sofortiger Anzeigen von Daten.',
+    'menuDropDown.example2' : 'Beispiel mit einem Lade Platzhalter in der Zeit wo die Daten geladen werden.',
+    'listSwitch.data' : {
+        "description": "Vordefinierte Daten die schon bereit stehen wenn die Komponente geladen wird.",
+        "type": "String|Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data' : {
+        "description": "Vordefinierte Daten die schon bereit stehen wenn die Komponente geladen wird. Dies gilt nur wenn der Schlüssel 'callback' undefined ist!",
+        "type": "String|Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data.text' : {
+        "description": "Anzuzeigendes JSX",
+        "type": "String|Jsx",
+        "default": "undefined"
+    },
+    'listSwitch.data.next' : {
+        "description": "Falls dieses Mutter-Element Kindelement beinhaltet (data:[]), wird dieses JSX als der Button 'weiter' dargestellt.",
+        "type": "String|Jsx",
+        "default": "<"
+    },
+    'listSwitch.data.previous' : {
+        "description": "Das anzuzeigende JSX, der 'zurück' Button, innerhalb von Kind-Elementen.",
+        "type": "String|Jsx",
+        "default": ">"
+    },
+    'listSwitch.data.callback' : {
+        "description": "Falls der Endanwender ein Element anklickt, wird diese Funktion aufgerufen. Diese Funktion liefer den Wert von 'callbackProps' zurück.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'listSwitch.data.callbackProps' : {
+        "description": "Einziges Argument der 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'listSwitch.previous' : {
+        "description": "Wenn der Benutzer ein verschachteltes Element anklickt, werden die Daten dieses Schlüssels als 'zurück' Button bereitgestellt. Der zurück Button, kann (falls vorhanden) von den Kindelementen überschrieben werden!",
+        "type": "String|Jsx",
+        "default": "<"
+    },
+    'listSwitch.next' : {
+        "description": "Wenn in Element verschachtelte Kindelement beinhaltet, werden die Daten dieses Schlüssels als 'weiter' Button bereitgestellt. Der weiter Button, kann (falls vorhanden) von den Kindelementen überschrieben werden!",
+        "type": "String|Jsx",
+        "default": ">"
+    },
+    'listSwitch.title' : {
+        "description": "Erster Titel der Daten. Alle weiteren Titels werden aus dem jeweiligen angeklickten Element dargestellt (Der Schlüssel 'text' des angeklickten Kindelementes).",
+        "type": "String|Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.arrowNextClick' : {
+        "description": "Soll der Klick Event auf den 'next' Button angelagert werden oder global auf das ganze Element. Gilt nur für den 'weiter' Button.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.arrowNextClick' : {
+        "description": "Soll der Klick Event auf den 'next' Button angelagert werden oder global auf das ganze Element. Gilt nur für den 'weiter' Button.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.animation' : {
+        "description": "Das Bewegen innerhalb der Mutter-Kind-Element soll animiert werden.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'listSwitch.animationTimeout' : {
+        "description": "Das Bewegen innerhalb der Mutter-Kind-Element soll wiederhergestellt werden (Endeder Animation) nach dieser Zeit (ms). Muss kompatibel mit der (react-revolution) CSS Datei sein ($default-transition: 300ms).",
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.animationTimeout' : {
+        "description": "Das Bewegen innerhalb der Mutter-Kind-Element soll wiederhergestellt werden (Endeder Animation) nach dieser Zeit (ms). Muss kompatibel mit der (react-revolution) CSS Datei sein ($default-transition: 300ms).",
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.closeAfterCallback' : {
+        "description": "Wenn ein (verschacheltes) Element eine 'callback' Funktion beinhaltet (es handelt sich hier nicht um die root 'callback' Funktion), wird nach dem Aufruf dieser Funktion, die angezeigten Daten geschloßen.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetSlides' : {
+        "description": "Wenn die angezeigten Daten wieder geschloßen werden, wird der Inhalt der geswitchten Daten wieder auf den Anfang zurück gestellt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetData' : {
+        "description": "Wenn die angezeigten Daten wieder geschloßen werden, werden die Daten die von der Komponente erhalten wurde gelöscht, somit ist die 'callback' Funktion wieder aktiviert um (eventuell neue) Daten wieder nachzuladen, wenn der Benutzer nochmals die Daten anzeigen lässt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.example1': 'Beispiel mit einer Bereitstellung von Daten direkt bei dem Laden der Komponente.',
+    'listSwitch.example2': 'Beispiel mit einer Bereitstellung von Daten, erst nachdem der Benutzer den Platzhalter angeklickt hat. Falls der Wert des Schlüssels "resetData" nicht true ist, dann werden die Daten nur einmal geladen, danach sind die Daten immer verfügbar, ohne das Laden der Daten nochmals anzustoßen.',
+    'stepGen.callback': {
+        "description": "Benutzerdefiniert Funktion die immer aufgerufen wird, sobal eine Änderung im eines der Input/Textare Felder gemacht wird. Diese Funktion liefert 2 Argumnte zurück. Argument 1: callbackProps, Argument 2: die jetztigen Werte (Array aus Objekten) der Input/Textare Felder.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'stepGen.callbackProps': {
+        "description": "Der Wert des ersten Arguemnts der 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.defaultSteps': {
+        "description": "Anzahl der zu generierender Felder.",
+        "type": "Number",
+        "default": "3"
+    },
+    'stepGen.addNewStepOn': {
+        "description": "Wenn der Benutzer im Feld x ist, wird geprüft wie viele Felder noch übrig sind. Wenn die Anzahl der Übrigen Felder kleiner oder gleich diesem Wert ist, wird ein zusätzliches Feld automatisch hinzugefügt. Wenn der Wert dieses Schlüssel 0 ist, wird die Autogenerierung ignoriert.",
+        "type": "Number",
+        "default": "0"
+    },
+    'stepGen.addStep': {
+        "description": "Benutzerdefiniertes JSX für den Benutzer, damit ein weiteres Feld manuell hinzugefügt werden kann.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.removeStep': {
+        "description": "Benutzerdefiniertes JSX für den Benutzer, damit ein einzelnes Feld wieder gelöscht werden kann.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.stepPrefix': {
+        "description": "Prefix für den Benutzer des jeweiligen Schrittes.",
+        "type": "String|JSX",
+        "default": "Step"
+    },
+    'stepGen.displayStepCount': {
+        "description": "Der Count des jeweiligen Schrittes. Wird hinter dem Prefix dargestellt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.useInput': {
+        "description": "Anstatt eines Textare Feldes, wird ein Input Feld generiert, wenn der Wert dieses Schlüssels 'true' ist.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.onEnter': {
+        "description": "Wenn der Benutzer 'Enter' drückt (innerhalb eines Input/Textarea Feldes), wird diese Funktion mit dem Argument 'onEnterProps' aufgerfuen.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'stepGen.onEnterProps': {
+        "description": "Das einzige Argument für die 'onEnter' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.onEsc': {
+        "description": "Wenn der Benutzer 'Esc' drückt (innerhalb eines Input/Textarea Feldes), wird diese Funktion mit dem Argument 'onEscProps' aufgerfuen.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'stepGen.onEscProps': {
+        "description": "Das einzige Argument für die 'onEsc' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.removeStepAlignTop': {
+        "description": "Das JSX zum löschen eines Schrittes wird überhalb des einzelnen Schrittes angezeigt. Falls der Wert 'false' ist, wird der Löschbutton unterhalb angezeigt.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'stepGen.submit': {
+        "description": "Ein 'submit' Button der Unterhalb der Schritte generiert wird.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.submitCallback': {
+        "description": "Benutzerdefiniert Funktion die aufgerfuen wird nachdem der Benutzer den 'submit' Button angeklickt hat. Diese Funktion liefert ein Argument zurück 'submitCallbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.submitCallbackProps': {
+        "description": "Das einzige Argument für die 'submitCallback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.resetOnSubmit': {
+        "description": "Nachdem der Benutzer den 'submit' Button angeklickt hat, wird die ganze Komponente auf den ursprünglichen Zustand wiederhergestellt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button. Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',
+    'stepGenDragDrop.placeholderPosition' : {
+        "description": "Wenn der Benutzer mit dem Ziehen eines Elements beginnt und sich über der Ablageposition befindet, generieren Sie den PLACEHOLDER an der Stelle des schwebenden Elements. Verfügbare Optionen: 'top' (Platzhalter befinden sich immer oben auf einem schwebenden Element), ' bottom '(Platzhalter befinden sich immer am unteren Rand eines schwebenden Elements) und' auto '(Platzhalter werden automatisch erkannt). ",
+        "type": "String",
+        "default": "auto"
+    },
+    'stepGenDragDrop.placeholder' : {
+        "description": "Anzuzeigender Platzhalter wärend einer Drag Phase.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button, eines selbst definiertem Platzhalter und der Platzhalter Richtung "auto". Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',
+    'timelineList.direction': {
+        "description": "Richtung der Timeline. Mögliche Richtungen: 'right' und 'left'.",
+        "type": "String",
+        "default": "left"
+    },
+    'timelineList.data': {
+        "description": "Objekt aus Objekten.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.props': {
+        "description": "HTML Argumente für den Schlüssel des Objektes (Zeit - Title des jeweiligen Timline Eintrages).",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.data': {
+        "description": "Objekt.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.icon': {
+        "description": "Anzuzeigendes JSX anstelle des Icons.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'timelineList.data.iconProps': {
+        "description": "HTML Argumente für das Icon HTML Element.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.dataProps': {
+        "description": "HTML Argumente für das data HTML Element.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.callback': {
+        "description": "Callback Funktion nachdem ein Bneutzer das 'Icon' anklickt. Diese Funktion liefert ein einzelnes Argument: 'callbackProps' zurück.",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'timelineList.data.callbackProps': {
+        "description": "Einzelnes Argument der 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'timelineList.data.data.data': {
+        "description": "Benutzerdefinierte JSX Daten des einzelnen Timeline Eintrages.",
+        "type": "String|JSX",
+        "default": "undefined"
+    },
+    'timelineList.timelineStart': {
+        "description": "Benutzerdefinierte JSX Daten die am Anfang der Timeline (Anfang des Striches ganz oben) angezeigt werden.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.timelineEnd': {
+        "description": "Benutzerdefinierte JSX Daten die am End der Timeline (Ende des Striches ganz unten) angezeigt werden.",
+        "type": "String|JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.example1' : 'Beispiel mit der Timeline auf der linken Seite und der Verwendung der Schlüssel: "timelineStart" und "timelineEnd". Öffne deine Entwickler Konsole um die Logs beim anklicken der Icons zu beobachten.',
+    'timelineList.example2' : 'Beispiel mit der Timeline auf der linken Seite und ohne der Verwendung der Schlüssel: "timelineStart" und "timelineEnd". Öffne deine Entwickler Konsole um die Logs beim anklicken der Icons zu beobachten.',
+    'timelineList.example3' : 'Beispiel mit der Verwendung von props.',
 };
 
 export default DE;

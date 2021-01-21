@@ -33,7 +33,10 @@ react-revolution/Lightbulb404
 react-revolution/LoadingBoxTop
 react-revolution/LoadOnScroll
 react-revolution/Menu
+react-revolution/MenuDropDown
 react-revolution/MenuHeight
+react-revolution/MenuHoverX
+react-revolution/MenuHoverY
 react-revolution/Modal
 react-revolution/Overlay
 react-revolution/PagerDynamic

@@ -117,7 +117,7 @@ const EN = {
     },
     "props": {
         "description": "The HTML properties of the HTML element.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "itemsPerLine": {
@@ -251,7 +251,7 @@ const EN = {
     },
     "customsuggestion.suggestions.props": {
         "description": "The HTML properties of the HTML element.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "customsuggestion.suggestions.onClickValue": {
@@ -366,12 +366,12 @@ const EN = {
     },
     "listarray.data": {
         "description": "Array of Strings (values) to display.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data": {
         "description": "Array of Objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data.text": {
@@ -436,7 +436,7 @@ const EN = {
     },
     "codeMapping": {
         "description": "Object",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.title": {
@@ -451,7 +451,7 @@ const EN = {
     },
     "codeMapping.text": {
         "description": "Object - Text to be displayed as a message.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.text.prefix": {
@@ -466,12 +466,12 @@ const EN = {
     },
     "codeMapping.text.props": {
         "description": "The HTML properties of the HTML element.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.close": {
         "description": "Object text to close the message box.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "codeMapping.close.text": {
@@ -481,12 +481,12 @@ const EN = {
     },
     "codeMapping.close.props": {
         "description": "The HTML properties of the HTML element.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link": {
         "description": "Object - External Link.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link.text": {
@@ -501,7 +501,7 @@ const EN = {
     },
     "codeMapping.link.href": {
         "description": "The attribute 'to' in the <Link> tag or 'href' in the <a> tag.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "timer": {
@@ -526,7 +526,7 @@ const EN = {
     },
     "translations": {
         "description": "Translations for the respective headings of the icon sets.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "custom": {
@@ -696,12 +696,12 @@ const EN = {
     },
     "hrefProps": {
         "description": "The HTML properties of the <a> tag.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "title": {
         "description": "Array of strings - table heading.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "writer.text": {
@@ -736,7 +736,7 @@ const EN = {
     },
     "replaces": {
         "description": "Object - Replace Text after, the text was written.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "replaces.from": {
@@ -837,12 +837,12 @@ const EN = {
     
     "pagination.data": {
         "description": "Array of custom defined objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.searchOnKeys": {
         "description": "Array of strings. Array of (provided objects inside the 'data' key) key names to use the search (input) field.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.itemsPerSite": {
@@ -852,7 +852,7 @@ const EN = {
     },
     "pagination.keysToRender": {
         "description": "Array of strings. Array of key names Which should be displayed based on the Array of objects (key: 'data').",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.liCallback": {
@@ -1049,12 +1049,12 @@ const EN = {
     },
     "matcher": {
         "description": "Array of objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.words": {
         "description": "Array of strings/ words to match.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.className": {
@@ -1069,7 +1069,7 @@ const EN = {
     },
     "sourceCode": {
         "description": "Array of strings. Which logical functions should be called, for each line in the provided order, to match specific codes. The steps for each line of code are: 1 - tags: JSX (HTML) tags. 2 - properties: HTML properties like className. 3 - variables: words thats includes the equal (=) character. 4 - objectProperty: single property of an object if the colon character are provided. 5 - functions: match single functions. 6 - words: match custom provided words. 7 - quotes: match quotes (''', '\"'). 8 - bracktes: match brackets ( '(', '}', ']').",
-        "type": "Array",
+        "type": "[]",
         "default": "[ 'tags', 'properties', 'variables', 'objectProperty', 'functions', 'words', 'quotes', 'brackets']"
     },
     "code": {
@@ -1079,7 +1079,7 @@ const EN = {
     },
     "link.404": {
         "description": "Object for the back link functionality.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "link.404.text": {
@@ -1094,12 +1094,12 @@ const EN = {
     },
     "link.404.props": {
         "description": "The HTML properties of the <a> tag.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "link.404.callback": {
         "description": "Callback function on click event. This function returns 1 argument. Argument 1: click event.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "text404": {
@@ -1196,7 +1196,7 @@ const EN = {
     },
     "headerProps": {
         "description": "Header div`s properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "contentData": {
@@ -1206,7 +1206,7 @@ const EN = {
     },
     "contentProps": {
         "description": "Content div`s properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "footerData": {
@@ -1216,7 +1216,7 @@ const EN = {
     },
     "footerProps": {
         "description": "Footer div`s properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "dashed" : {
@@ -1242,7 +1242,7 @@ const EN = {
     },
     "articles.titleProps": {
         "description": "The titles HTML tags attributes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.text": {
@@ -1252,7 +1252,7 @@ const EN = {
     },
     "articles.textProps": {
         "description": "The text HTML tags attributes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.image": {
@@ -1262,7 +1262,7 @@ const EN = {
     },
     "articles.imageProps": {
         "description": "The images HTML tags attributes.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.imageData": {
@@ -1277,7 +1277,7 @@ const EN = {
     },
     "articles.border": {
         "description": "Object.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.border.site": {
@@ -1448,7 +1448,7 @@ const EN = {
     },
     "timeline.data": {
         "description": "Timelines data as array of object.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "timeline.data.title": {
@@ -1472,12 +1472,12 @@ const EN = {
     "description.dragDrop.4" : "Example with the area 'Fruits' - only drop allowed and 'Vegetables' - only drag allowed.",
     "drag.drop.data": {
         "description": "Object.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.data.data": {
         "description": "Array of objects with single items.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "drag.drop.data.data.text": {
@@ -1497,7 +1497,7 @@ const EN = {
     },
     "drag.drop.data.areaProps": {
         "description": "Areas (ul) properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.data.titleProps": {
@@ -1574,12 +1574,12 @@ const EN = {
     },
     "drag.drop.list.areaProps": {
         "description": "Custom ul properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.list.data": {
         "description": "Array of objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "drag.drop.list.text": {
@@ -1589,7 +1589,7 @@ const EN = {
     },
     "drag.drop.list.props": {
         "description": "Custom li properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "stars.description.1" : "Example with stars in readonly mode and without filled stars and in default black color.",
@@ -1628,12 +1628,12 @@ const EN = {
     },
     "stars.starsData": {
         "description": "Array of objects.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "stars.starsData.props": {
         "description": "Object with custom properties.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "stars.starsData.data": {
@@ -2156,6 +2156,324 @@ const EN = {
     'popupData.example8': 'Example with the use of a predefined placeholder: SQUARE. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
     'popupData.example9': 'Example with the use of a predefined placeholder: HAMBURGER. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
     'popupData.example10': 'Example with the use of a predefined placeholder: HAMBURGER-RIGHT. To switch off the animation (when the element has been clicked) you have to transfer the key animation={false} to the component. ',
+    'menuXY.direction': {
+        "description": "Direction of the child elements to be displayed. Possible directions: 'right' and 'left'.",
+        "type": "String",
+        "default": "right"
+    },
+    'menuXY.data': {
+        "description": "Array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'menuXY.data.callback': {
+        "description": "User-defined function that is called as soon as a child element is clicked. This function returns an argument 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menuXY.data.callbackProps': {
+        "description": "User-defined data for the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuXY.data.data': {
+        "description": "More nested child elements.",
+        "type": "{} []",
+        "default": "undefined"
+    },
+    'menuXY.example1': "Example with the direction of the child elements: 'right'.",
+    'menuXY.example2': "Example with the direction of the child elements: 'left'.",
+    'menuXY.example1a': "Example with the direction of the child elements: 'right'.",
+    'menuXY.example2a': "Example with the direction of the child elements: 'left'.",
+    'menuDropDown.placeholder': {
+        "description": "Placeholder so that the menu can be displayed.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.holderLoading': {
+        "description": "If the data is 'fetched', a loading placeholder is displayed during this time.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.callback': {
+        "description": "If the placeholder is clicked, this function is called to load the user-defined data. This callback function must return a promise. This function returns an argument: 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menuDropDown.callbackProps': {
+        "description": "Only argument for the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuDropDown.closeOnEsc': {
+        "description": "If the end user presses the 'Esc' key, the menu is closed. If you want to switch this feature off, the value of this key should be set to 'false'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.closeOnOutsideClick': {
+        "description": "If the end user clicks outside of the menu, the menu will be closed. If you want to turn this feature off, the value of this key should be set to 'false'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.example1': 'Example with an instant display of data.',
+    'menuDropDown.example2': 'Example with a load placeholder in the time when the data is loaded.',
+    'listSwitch.data': {
+        "description": "Predefined data that are already available when the component is loaded.",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data': {
+        "description": "Predefined data that are already available when the component is loaded. This only applies if the key 'callback' is undefined!",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data.text': {
+        "description": "JSX to be displayed",
+        "type": "String | Jsx",
+        "default": "undefined"
+    },
+    'listSwitch.data.next': {
+        "description": "If this mother element contains child element (data: []), this JSX is displayed as the button 'next'.",
+        "type": "String | Jsx",
+        "default": "<"
+    },
+    'listSwitch.data.previous': {
+        "description": "The JSX to be displayed, the 'back' button, within child elements.",
+        "type": "String | Jsx",
+        "default": ">"
+    },
+    'listSwitch.data.callback': {
+        "description": "If the end user clicks on an element, this function is called. This function returns the value of 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'listSwitch.data.callbackProps': {
+        "description": "Single argument of the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'listSwitch.previous': {
+        "description": "If the user clicks on a nested element, the data of this key are provided as a 'back' button. The back button can (if available) be overwritten by the child elements!",
+        "type": "String | Jsx",
+        "default": "<"
+    },
+    'listSwitch.next': {
+        "description": "If element contains nested child elements, the data of this key are provided as a 'next' button. The next button can (if available) be overwritten by the child elements!",
+        "type": "String | Jsx",
+        "default": ">"
+    },
+    'listSwitch.title': {
+        "description": "First title of the data. All other titles are shown from the respective element clicked (the key 'text' of the child element clicked).",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.arrowNextClick': {
+        "description": "Should the click event be attached to the 'next' button or globally on the entire element. Only applies to the 'next' button.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.arrowNextClick': {
+        "description": "Should the click event be attached to the 'next' button or globally on the entire element. Only applies to the 'next' button.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.animation': {
+        "description": "Moving within the mother-child element should be animated.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'listSwitch.animationTimeout': {
+        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms)." ,
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.animationTimeout': {
+        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms)." ,
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.closeAfterCallback': {
+        "description": "If a (nested) element contains a 'callback' function (this is not the root 'callback' function), the displayed data is closed after this function is called.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetSlides': {
+        "description": "When the displayed data is closed again, the content of the switched data is reset to the beginning.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetData': {
+        "description": "When the displayed data is closed again, the data received from the component is deleted, so the 'callback' function is activated again to reload (possibly new) data when the user displays the data again . ",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.example1': 'Example with a provision of data directly when the component is loaded.',
+    'listSwitch.example2': 'Example with a provision of data only after the user has clicked on the placeholder. If the value of the "resetData" key is not true, the data is only loaded once, after which the data is always available without having to load the data again.',
+    'stepGen.callback': {
+        "description": "User-defined function that is always called as soon as a change is made in one of the input / text fields. This function returns 2 arguments. Argument 1: callbackProps, argument 2: the current values ​​(array of objects) of the input / Textar fields. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.callbackProps': {
+        "description": "The value of the first argument of the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.defaultSteps': {
+        "description": "Number of fields to be generated.",
+        "type": "Number",
+        "default": "3"
+    },
+    'stepGen.addNewStepOn': {
+        "description": "If the user is in the field x, the system checks how many fields are left. If the number of remaining fields is less than or equal to this value, an additional field is automatically added. If the value of this key is 0, auto generation is ignored. ",
+        "type": "Number",
+        "default": "0"
+    },
+    'stepGen.addStep': {
+        "description": "Custom JSX for the user so that another field can be added manually.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.removeStep': {
+        "description": "Custom JSX for the user, so that a single field can be deleted again.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.stepPrefix': {
+        "description": "Prefix for the user of the respective step.",
+        "type": "String | JSX",
+        "default": "Step"
+    },
+    'stepGen.displayStepCount': {
+        "description": "The count of the respective step. Is shown after the prefix.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.useInput': {
+        "description": "Instead of a text field, an input field is generated if the value of this key is 'true'.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.onEnter': {
+        "description": "If the user presses 'Enter' (within an input / textarea field), this function is called with the argument 'onEnterProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.onEnterProps': {
+        "description": "The only argument for the 'onEnter' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.onEsc': {
+        "description": "If the user presses 'Esc' (within an input / textarea field), this function is called with the argument 'onEscProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.onEscProps': {
+        "description": "The only argument for the 'onEsc' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.removeStepAlignTop': {
+        "description": "The JSX for deleting a step is displayed above the individual step. If the value is 'false', the delete button is displayed below.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'stepGen.submit': {
+        "description": "A 'submit' button that is generated below the steps.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.submitCallback': {
+        "description": "User-defined function that is called after the user has clicked the 'submit' button. This function returns an argument 'submitCallbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.submitCallbackProps': {
+        "description": "The only argument for the 'submitCallback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.resetOnSubmit': {
+        "description": "After the user has clicked the 'submit' button, the entire component will be restored to its original state.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.example1': 'Example with the generation of 3 fields (at the start), one delete and one submit button. Open your developer console to watch the changes. ',
+    'stepGenDragDrop.placeholderPosition' : {
+        "description": "If the user starts dragging an element and is over the drop position then generate the PLACEHOLDER on the site of the hovered element. Available options: 'top' (placeholder are always on the top of an hovered item), 'bottom' (placeholder are always on the bottom of an hovered item) and 'auto' (placeholder are detected automatically).",
+        "type": "String",
+        "default": "auto"
+    },
+    'stepGenDragDrop.placeholder': {
+        "description": "Placeholder to be displayed during a drag phase.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.example1': 'Example with the generation of 3 fields (at the start), a delete and submit button, a self-defined placeholder and the placeholder in the direction of "auto". Open your developer console to watch the changes.',
+    'timelineList.direction': {
+        "description": "Direction of the timeline. Possible directions: 'right' and 'left'.",
+        "type": "String",
+        "default": "left"
+    },
+    'timelineList.data': {
+        "description": "Object of objects.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.props': {
+        "description": "HTML arguments for the key of the object (time - title of the respective timeline entry).",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.data': {
+        "description": "Object.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.icon': {
+        "description": "JSX to be displayed instead of the icon.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'timelineList.data.iconProps': {
+        "description": "HTML arguments for the icon HTML element.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.dataProps': {
+        "description": "HTML arguments for the data HTML element.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.callback': {
+        "description": "Callback function after a user clicks on the 'Icon'. This function returns a single argument: 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'timelineList.data.callbackProps': {
+        "description": "Single argument of the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'timelineList.data.data.data': {
+        "description": "User-defined JSX data of the individual timeline entry.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'timelineList.timelineStart': {
+        "description": "User-defined JSX data that is displayed at the beginning of the timeline (beginning of the line at the top).",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.timelineEnd': {
+        "description": "User-defined JSX data that is displayed at the end of the timeline (end of the line at the bottom).",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.example1': 'Example with the timeline on the left and using the keys: "timelineStart" and "timelineEnd". Open your developer console to watch the logs by clicking the icons. ',
+    'timelineList.example2': 'Example with the timeline on the left and without using the keys: "timelineStart" and "timelineEnd". Open your developer console to watch the logs by clicking the icons. ',
+    'timelineList.example3': 'Example using props.',
 };
 
 export default EN;

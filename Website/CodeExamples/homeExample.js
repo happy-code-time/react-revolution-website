@@ -1,5 +1,14 @@
-const exampleHome = 
-`import { Icons } from 'react-revolution';
+const exampleHome = () => {
+
+const code1 = `import { Stars } from 'react-revolution';
+
+<Stars 
+    count={5} 
+    filled={2} 
+    color='orange-yellow' 
+/>`;
+
+const code2 = `import { Icons } from 'react-revolution';
 
 <Icons
     displayTabs={true}
@@ -8,17 +17,27 @@ const exampleHome =
         [
             'Smileys',
             'Activity',
-           'Travel'
+            'Travel'
         ]
     }
 />`;
 
-const exampleInstallationNpm = `npm i react-revolution`;
+const code3 = `import { Breadcrumbs } from 'react-revolution';
 
-const exampleInstallationYarn = `yarn add react-revolution`;
+<Breadcrumbs 
+    domainName='Home' 
+/>`;
 
-export {
-    exampleHome,
-    exampleInstallationNpm,
-    exampleInstallationYarn
-};
+    const codes = [ code1, code2, code3, code3, code2, code1 ];
+    return codes[Math.floor(Math.random() * codes.length)];
+    };
+    
+    const exampleInstallationNpm = `npm i react-revolution`;
+    
+    const exampleInstallationYarn = `yarn add react-revolution`;
+    
+    export {
+        exampleHome,
+        exampleInstallationNpm,
+        exampleInstallationYarn
+    };

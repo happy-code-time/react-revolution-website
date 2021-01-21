@@ -311,7 +311,7 @@ h1,
   box-sizing: border-box;
   padding: 10px 20px;
   white-space: pre-wrap; }
-  .Components a {
+  .Components .component-link {
     box-sizing: border-box;
     padding: 10px 15px;
     background-color: #2D3748;
@@ -322,5 +322,7 @@ h1,
     text-decoration: none;
     display: inline-block;
     transition-duration: 300ms; }
-  .Components a:hover {
+  .Components .component-link-active {
+    background-color: #1873CC; }
+  .Components .component-link:hover {
     color: #dedede; }

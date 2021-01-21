@@ -63,21 +63,21 @@ const PL = {
     "id": {
         "description": 'Ustaw id dla głównego elementu tego modułu.',
         "type": 'String',
-        "default": '<pusty ciąg>'
+        "default": '<empty string>'
     },
     "class": {
         "description": 'Zastąp główną klasę własną. Jeśli jest używany, standardowe style, które przynosi moduł, nie mają już zastosowania. ',
         "type": 'String',
-        "default": '<pusty ciąg>'
+        "default": '<empty string>'
     },
     "addClass": {
         "description": 'Ustaw dodatkową klasę dla głównego elementu tego modułu.',
         "type": 'String',
-        "default": '<pusty ciąg>'
+        "default": '<empty string>'
     },
     "inputanimation.callback": {
         "description": "Funkcje zdefiniowane przez użytkownika są wywoływane za każdym razem, gdy dane wejściowe ulegną zmianie. Ta funkcja zwraca 1 argument - bieżącą wartość pola wejściowego.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "accordion.animation": {
@@ -87,7 +87,7 @@ const PL = {
     },
     "accordion.data": {
         "description": "główne dane.",
-        "type": "tablica",
+        "type": "[]",
         "default": "[]"
     },
     'accordion.data.href': {
@@ -103,12 +103,12 @@ const PL = {
     'accordion.data.text': {
         "description": "Tekst do wyświetlenia przed rozwinięciem elementu potomnego.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "accordion.data.dataToggle": {
         "description": "Zawartość elementu do wyświetlenia po rozwinięciu elementu nadrzędnego.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "accordion.data.toggled": {
         "description": "Czy element jest przełączany czy nie.",
@@ -117,7 +117,7 @@ const PL = {
     },
     "props": {
         "description": "Właściwości HTML elementu HTML.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "itemsPerLine": {
@@ -132,12 +132,12 @@ const PL = {
     },
     "data": {
         "description": "Główne dane - Tablica Obiektów.",
-        "type": "tablica",
+        "type": "[]",
         "default": "[]"
     },
     "cards.data": {
         "description": "Główne dane - Tablica Obiektów.",
-        "type": "tablica",
+        "type": "[]",
         "default": "[]"
     },
     "cards.data.title": {
@@ -163,7 +163,7 @@ const PL = {
     "loadonscroll.data": {
         "description": "Niestandardowe dane do renderowania po raz pierwszy.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "loadonscroll.fireScrollEvent": {
         "description": "Liczba, która powoduje, że adresowany element (scrollReference) jest przewijany w dół o określoną liczbę. To zachowanie jest wywoływane w 'componentDidMount' (raz).",
@@ -196,7 +196,7 @@ const PL = {
     },
     "cards.callback": {
         "description": "Jeśli element główny został przewinięty do końca w dół, dane można załadować ponownie. Jeśli wywołanie zwrotne zwraca 'break', zdarzenie przewijania jest usuwane z elementu głównego. Do tej funkcji przekazywane są 2 argumenty. Argument 1: zdarzenie (przewiń, kliknij: dla danych klucza 'onReject'), argument 2: dane niestandardowe dostarczone przez klucz 'callbackProps'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "cards.callback.persistReject": {
@@ -207,16 +207,16 @@ const PL = {
     "cards.callback.onReject": {
         "description": "Dane niestandardowe do wyświetlenia po odrzuceniu obietnicy, a użytkownik powinien być w stanie ponownie załadować więcej danych. Do tych danych dołączone jest zdarzenie kliknięcia.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "cards.loading": {
         "description": "Podczas wczytywania dodatkowych elementów można renderować samodzielnie zdefiniowany element JSX.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "customsuggestion.callback": {
         "description": "Po zmianie w polu wejściowym wywoływana jest funkcja z 1 parametrem: Wartość pola wejściowego. Callback musi zwrócić listę i obiekty. Struktura jest descriptionana w kluczu 'sugestie'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "customsuggestion.suggestions.text": {
@@ -231,7 +231,7 @@ const PL = {
     },
     "customsuggestion.suggestions": {
         "description": "lista obiektów",
-        "type": "tablica",
+        "type": "[]",
         "default": "undefined"
     },
     "customsuggestion.suggestions.href": {
@@ -251,7 +251,7 @@ const PL = {
     },
     "customsuggestion.suggestions.props": {
         "description": "Właściwości HTML elementu HTML.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "customsuggestion.suggestions.onClickValue": {
@@ -267,7 +267,7 @@ const PL = {
     "clipboard.data": {
         "description": "Niestandardowy JSX.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "clipboard.animation": {
         "description": "Animacja uruchamiająca zdarzenie kliknięcia na niestandardowych 'danych'. Animacje, których można użyć: 'skala', 'skok'.",
@@ -276,7 +276,7 @@ const PL = {
     },
     "clipboard.callback": {
         "description": "Własna funkcja zwrotna wywoływana po kliknięciu przycisku schowka. Ta funkcja zwraca 2 argumenty. Argument 1: zdarzenie kliknięcia, argument 2: niestandardowe wywołanie zwrotne, argument 3: dane schowka.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "clipboard.callbackProps": {
@@ -287,16 +287,16 @@ const PL = {
     "plainValue": {
         "description": "Wartość pola wejściowego.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "inputsuggestionarray.callbackSelection": {
         "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "inputsuggestionobject.callbackSelection": {
         "description": "Zdefiniowana przez użytkownika funkcja, dla której wybrano element. Ta funkcja dostarcza 1 argument. Argument 1: Lista wybranych elementów (kliknięty element).",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "inputsuggestionobject.loading": {
@@ -307,7 +307,7 @@ const PL = {
     "inputPlaceholder": {
         "description": "Symbol zastępczy.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "inputType": {
         "description": "Typ pola Inptu.",
@@ -337,7 +337,7 @@ const PL = {
     "iconClose": {
         "description": "Zdefiniowany przez użytkownika HTML z akcją 'zamknij' moduł.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "inputActive": {
         "description": "Czy pole wejściowe powinno być wyświetlane czy nie?",
@@ -347,26 +347,26 @@ const PL = {
     "noDataText": {
         "description": "Jeśli nie znaleziono żadnych elementów, ten tekst zostanie wyświetlony.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "callbackClose": {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana bez argumentów po zamknięciu pozycji.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "listarray.callback": {
         "description": "Zdefiniowane przez użytkownika funkcje zwrotne są uruchamiane, jeśli użytkownik kliknie element listy. Funkcja zwraca 2 argumenty. Argument 1: zdarzenie kliknięcia, Argument 2: kliknięty wpis.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "listarray.data": {
         "description": "Tablica ciągów (wartości) do wyświetlenia.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data": {
         "description": "Tablica obiektów.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "listobject.data.text": {
@@ -402,12 +402,12 @@ const PL = {
     "fullscreenOverlay.animation": {
         "description": "Animacja podczas renderowania modułu. Animacje, które można wykorzystać: 'skala', 'lewa', 'góra', 'prawa', 'dół'.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "popupbox.data": {
         "description": "Niestandardowe dane JSX w przełączanym polu.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "popupbox.animation": {
         "description": "Animacja podczas renderowania modułu. Animacje, które można wykorzystać: 'lewy górny', 'prawy górny', 'lewy dolny', 'prawy dolny'.",
@@ -422,7 +422,7 @@ const PL = {
     "fullscreenoverlay.data": {
         "description": "Niestandardowe dane JSX do wyświetlenia w nakładce.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "disableScroll": {
         "description": "Podczas wyświetlania modułu element HTML (tag) powinien być przewijalny lub nie.",
@@ -432,11 +432,11 @@ const PL = {
     "messageKey": {
         "description": "Unikalny ciąg.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "codeMapping": {
         "description": "Obiekt",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.title": {
@@ -451,7 +451,7 @@ const PL = {
     },
     "codeMapping.text": {
         "description": "Obiekt - Tekst do wyświetlenia jako wiadomość.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.text.prefix": {
@@ -466,12 +466,12 @@ const PL = {
     },
     "codeMapping.text.props": {
         "description": "Właściwości HTML elementu HTML.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.close": {
         "description": "Tekst obiektu do zamknięcia okna komunikatu.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "codeMapping.close.text": {
@@ -481,12 +481,12 @@ const PL = {
     },
     "codeMapping.close.props": {
         "description": "Właściwości HTML elementu HTML.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link": {
         "description": "Obiekt - Link zewnętrzny.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "codeMapping.link.text": {
@@ -501,7 +501,7 @@ const PL = {
     },
     "codeMapping.link.href": {
         "description": "Atrybut 'to' w tagu <Link> lub 'href' w tagu <a>.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "timer": {
@@ -521,17 +521,17 @@ const PL = {
     },
     "renderItems": {
         "description": "Które elementy powinny być wyświetlane domyślnie.",
-        "type": "tablica",
+        "type": "[]",
         "default": "'Smileys',' Peoples', 'Animals',' Plants', 'Nature', 'Food', 'Activity', 'Travel', 'Objects',' Symbols', 'Currency', ' Arrows', 'Html' "
     },
     "translations": {
         "description": "Tłumaczenia odpowiednich nagłówków zestawów ikon.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "custom": {
         "description": "Zdefiniowane przez użytkownika zestawy ikon jako tablica obiektów.",
-        "type": "tablica",
+        "type": "[]",
         "default": "undefined"
     },
     "custom.title": {
@@ -541,7 +541,7 @@ const PL = {
     },
     "custom.data": {
         "description": "Tablica ciągów z niestandardowymi ikonami.",
-        "type": "tablica",
+        "type": "[]",
         "default": "undefined"
     },
     "defaultClassOrigin": {
@@ -552,11 +552,11 @@ const PL = {
     "animatePlaceholder": {
         "description": "Placeholder (który jest wtedy również animowany).",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "onEnter": {
         "description": "Funkcja zdefiniowana przez użytkownika, gdy użytkownik naciśnie klawisz Enter w polu wejściowym. Ta funkcja udostępnia 1 argument: bieżącą wartość pola wejściowego.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "getValueFromCallback": {
@@ -582,16 +582,16 @@ const PL = {
     "label": {
         "description": "JSX do wyświetlenia w tagu <label>",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "readFileCallback": {
         "description": "Benutzerdefinierte Funktion um eine Datei zu verarbeiten. Es werden 2 Argumente übergeben: Argument 1: Die Datei, Argument 2: Der Dateityp.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "errorCallback": {
         "description": "Zdefiniowane przez użytkownika wywołanie zwrotne podczas błędu obsługi pliku. Przekazuje 2 argumenty. Argument 1: Typ błędu (unsupported_filetype, maximum_filesize_reached, unrecognized_filetype, empty_filecontent, empty_filename), Argumnt 2: 'errorCallbackCustomData'",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "errorCallbackCustomData": {
@@ -607,7 +607,7 @@ const PL = {
     "isDraggingData": {
         "description": "Jeśli użytkownik jest obecnie w stanie„ przeciągania ”, może zostać wyświetlony zdefiniowany przez użytkownika JSX.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "uploadOnClick": {
         "description": "Zezwól na przetwarzanie plików, gdy użytkownik kliknie obszar 'przeciągnij i upuść'.",
@@ -616,12 +616,12 @@ const PL = {
     },
     "selected": {
         "description": "Tablica wybranych pozycji z listy.",
-        "type": "tablica",
+        "type": "[]",
         "default": "[]"
     },
     "suggestionsToFilter": {
         "description": "Tablica elementów (stringi), które następnie pojawią się do wyboru przez użytkownika.",
-        "type": "tablica",
+        "type": "[]",
         "default": "[]"
     },
     "emptySuggestionAfterSelection": {
@@ -642,7 +642,7 @@ const PL = {
     "text": {
         "description": "Tekst do wyświetlenia.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "scrollReference": {
         "description": "Jeśli true, główny element modułu jest używany jako odniesienie, w przeciwnym razie dokument HTML Elment.",
@@ -657,11 +657,11 @@ const PL = {
     "icon": {
         "description": "Niestandardowy JSX do zamknięcia modułu.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "iconCallback": {
         "description": "Niestandardowe wywołanie zwrotne po kliknięciu 'ikony'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "animationTime": {
@@ -696,18 +696,18 @@ const PL = {
     },
     "hrefProps": {
         "description": "Właściwości HTML tagu <a>.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "title": {
         "description": "Tablica ciągów - nagłówek tabeli.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "writer.text": {
         "description": "Tekst do napisania.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "speed": {
         "description": "Szybkość zapisywania tekstu w ms.",
@@ -736,7 +736,7 @@ const PL = {
     },
     "replaces": {
         "description": "Obiekt - Zastąp tekst po, tekst został zapisany.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "replaces.from": {
@@ -761,12 +761,12 @@ const PL = {
     },
     "table.data": {
         "description": "Tablica obiektów.",
-        "type": "tablica",
+        "type": "[]",
         "default": "undefined"
     },
     "table.keysToRead": {
         "description": "Tablica ciągów - które klucze należy odczytać z obiektu.",
-        "type": "tablica",
+        "type": "[]",
         "default": "undefined"
     },
     "table.titleOnMinified": {
@@ -837,12 +837,12 @@ const PL = {
 
     "pagination.data": {
         "description": "Tablica obiektów zdefiniowanych przez użytkownika.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.searchOnKeys": {
         "description": "Tablica ciągów. Tablica (obiektów podanych w kluczu 'data') nazw kluczy do użycia w polu wyszukiwania (wejściowym).",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.itemsPerSite": {
@@ -852,17 +852,17 @@ const PL = {
     },
     "pagination.keysToRender": {
         "description": "Tablica ciągów. Tablica nazw kluczy, które powinny być wyświetlane na podstawie tablicy obiektów (klucz: 'dane').",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "pagination.liCallback": {
         "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik kliknie pojedynczą linię. Ta funkcja zwraca 2 argumenty. Argument 1: clickEvent, Argument 2: bieżący kliknięty element jako obiekt.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "pagination.inputCallback": {
         "description": "Niestandardowa funkcja zwrotna, jeśli użytkownik zmieni wartość pola wejściowego. Ta funkcja zwraca 1 argument. Argument 1: zdarzenie.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "pagination.lineNumber": {
@@ -898,12 +898,12 @@ const PL = {
     "pagination.paginationTextPrefix": {
         "description": "Tekst 'strona'",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.paginationTextMiddle": {
         "description": "Tekst 'z'.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.prevPages": {
         "description": "Ile stron powinno być wyświetlanych 'przed' bieżącą stroną (tak jak poprzednie strony).",
@@ -938,12 +938,12 @@ const PL = {
     "pagination.previousButton": {
         "description": "HTML dla poprzedniego przycisku.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.nextButton": {
         "description": "HTML dla następnego przycisku.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.searchActive": {
         "description": "Renderuj pole wyszukiwania.",
@@ -953,12 +953,12 @@ const PL = {
     "pagination.searchPlaceholder": {
         "description": "Symbol zastępczy danych wejściowych.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.searchPlaceholder": {
         "description": "Placeholder.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.searchIcon": {
         "description": "Kod HTML przycisku wyszukiwania po prawej stronie pola wyszukiwania. Jeśli użytkownik kliknie ikonę wyszukiwania, wyszukiwanie zostanie wykonane.",
@@ -973,7 +973,7 @@ const PL = {
     "pagination.searchValue": {
         "description": "Ponów po raz pierwszy niestandardową wartość wyszukiwania, aby przeprowadzić wyszukiwanie bez interakcji z użytkownikiem.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.searchOnKeyDown": {
         "description": "Wykonaj wyszukiwanie na dostarczonych danych, jeśli użytkownik zmienia wartość wejściową.",
@@ -983,17 +983,17 @@ const PL = {
     "pagination.searchTitle": {
         "description": "Tag <h1> jako tytuł pola wyszukiwania.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.paginationTitle": {
         "description": "Tag <h1> jako tytuł tabeli.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.paginationTitle": {
         "description": "Tag <h1> jako tytuł tabeli.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.fallbackLoading": {
         "description": "Użyj ikony ładowania, gdy użytkownik filtruje dane.",
@@ -1008,17 +1008,17 @@ const PL = {
     "pagination.fallbackNoData": {
         "description": "Niestandardowe dane do renderowania w przypadku braku danych.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.fallbackNoDataSearch": {
         "description": "Niestandardowe dane do renderowania, jeśli podczas wyszukiwania nie znaleziono żadnych danych.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "pagination.fallbackMounting": {
         "description": "Użyj ikony ładowania, gdy moduł (komponent) generuje dane.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "removeHashFromDomain": {
         "description": "Usuń znaki '/#/' z nazwy domeny.",
@@ -1049,12 +1049,12 @@ const PL = {
     },
     "matcher": {
         "description": "Tablica obiektów.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.words": {
         "description": "Tablica ciągów / słów do dopasowania.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "matcher.className": {
@@ -1069,17 +1069,17 @@ const PL = {
     },
     "sourceCode": {
         "description": "Tablica ciągów. Które funkcje logiczne należy wywołać dla każdego wiersza w podanej kolejności, aby dopasować określone kody. Kroki dla każdego wiersza kodu są następujące: 1 - tagi: tagi JSX (HTML). 2 - properties: właściwości HTML, takie jak className. 3 - zmienne: słowa zawierające znak równości (=). 4 - objectProperty: pojedyncza właściwość obiektu, jeśli podano znak dwukropka. 5 - funkcje: dopasuj pojedyncze funkcje. 6 - słowa: dopasuj niestandardowe słowa. 7 - cudzysłowy: dopasuj cudzysłowy ('' ',', '\"'). 8 - nawiasy: dopasuj nawiasy ('(', '}', ']'). ",
-        "type": "Array",
+        "type": "[]",
         "default": "['tagi', 'właściwości', 'zmienne', 'właściwość obiektu', 'funkcje', 'słowa', 'cudzysłowy', 'nawiasy']"
     },
     "code": {
         "description": "Główny ciąg do generowania kodu źródłowego.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "link.404": {
         "description": "Obiekt dla funkcji linku wstecznego.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "link.404.text": {
@@ -1094,12 +1094,12 @@ const PL = {
     },
     "link.404.props": {
         "description": "Właściwości HTML tagu <a>.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "link.404.callback": {
         "description": "Funkcja wywołania zwrotnego po kliknięciu. Ta funkcja zwraca 1 argument. Argument 1: zdarzenie kliknięcia.",
-        "type": "Object",
+        "type": "{}",
         "default": "undefined"
     },
     "text404": {
@@ -1125,7 +1125,7 @@ const PL = {
     "404.shipname": {
         "description": "Nazwa statku.",
         "type": "JSX | String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "scroll-to-desc-1": "Przykład z nawigacją na początek strony w ciągu 1 sekundy.",
     "scroll-to-desc-2": "Przykład z nawigacją do pierwszego przykładu w ciągu 300 milisekund.",
@@ -1137,12 +1137,12 @@ const PL = {
     "navigationTarget": {
         "description": "Przejdź na stronie do tego elementu HTML (selektora). W przypadku klasy wpisz pierwszą pozycję. (kropka), jeśli jest to identyfikator, na pierwszej pozycji musi znajdować się # (hash). Jeśli klucz `` html '' jest pusty / niezdefiniowany, a wartość jest 'bottom' - wówczas moduł zwraca przewijanie do dołu predefiniowany html i przewijanie do dołu funkcjonalność, jeśli wartość to 'top' - wówczas moduł ponownie dostraja przewijanie do góry predefiniowany html i przewijanie do góry funkcjonalności. ",
         "type": "JSX | String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "html": {
         "description": "Niestandardowy kod HTML, który jest wyświetlany, jeśli klucz 'navigationTarget' nie ma znaku. (kropka) lub # (krzyżyka) na pierwszej pozycji.",
         "type": "JSX | String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "hideAt": {
         "description": "Jeśli dokument jest 'zmieniony', a wartość jest mniejsza lub równa tej wartości, pasek boczny jest całkowicie zminimalizowany.",
@@ -1177,12 +1177,12 @@ const PL = {
     "toggleMenuHtml": {
         "description": "Niestandardowy JSX używany jako ikona przełączająca na pasku bocznym. Ten kod HTML znajduje się w treści nagłówków.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "closeMenuHtml": {
         "description": "Niestandardowy JSX używany jako ikona zamykania na pasku bocznym, jeśli szerokość dokumentów jest mniejsza niż wartość przekazana do modułu za pomocą klucza 'minifyAt'.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "moduleSidebar": {
         "description": "Moduł 'Menu'.",
@@ -1192,31 +1192,31 @@ const PL = {
     "headerData": {
         "description": "Niestandardowy JSX w obszarze nagłówków.",
         "type": "Moduł",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "headerProps": {
         "description": "Właściwości elementu div nagłówka.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "contentData": {
         "description": "Niestandardowy JSX w obszarze zawartości.",
         "type": "Moduł",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "contentProps": {
         "description": "Właściwości div środkowej części.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "footerData": {
         "description": "Niestandardowy JSX w obszarze stopki.",
         "type": "Moduł",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "footerProps": {
         "description": "Właściwości elementu div stopki.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "dashed" : {
@@ -1242,7 +1242,7 @@ const PL = {
     },
     "articles.titleProps": {
         "description": "Atrybuty tagów HTML tytułów.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.text": {
@@ -1252,7 +1252,7 @@ const PL = {
     },
     "articles.textProps": {
         "description": "Tekstowe atrybuty tagów HTML.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.image": {
@@ -1262,7 +1262,7 @@ const PL = {
     },
     "articles.imageProps": {
         "description": "Atrybuty tagów HTML obrazów.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.imageData": {
@@ -1277,7 +1277,7 @@ const PL = {
     },
     "articles.border": {
         "description": "Obiekt.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "articles.border.site": {
@@ -1313,12 +1313,12 @@ const PL = {
     "articles.toggleForwards": {
         "description": "Własny zdefiniowany JSX aby ukazać dane. Gdy zostaje użyty, wtedy klucz 'toggleOn' zostaje zignorowany.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "articles.toggleBackwards": {
         "description": "Własny zdefiniowany JSX aby ukryć dane.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "articles.description.1": "Przykład z kluczem: 'border'.",
     "articles.description.2": "Przykład z użyciem klucza closeOnClickOutside={true}. Oznacza to zamknięcie wszystkich przełączanych artykułów, jeśli użytkownik wykona kliknięcie poza modułem.",
@@ -1342,12 +1342,12 @@ const PL = {
     "readmore.data": {
         "description": "Tekst główny.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "readmore.dataToggle": {
         "description": "Tekst do wyświetlenia.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "readmore.callback.toggleOnReject": {
         "description": "Zezwól na ponowne wyświetlenie przycisku z klucza 'toggleReject' aby ponownie wykonać zapytanie (callback).",
@@ -1389,12 +1389,12 @@ const PL = {
     "modal.data": {
         "description": "Samodzielnie zdefiniowany ciąg zamówienia HTML do wyświetlenia.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "modal.close": {
         "description": "Samodzielnie zdefiniowany ciąg zamówienia HTML. Do tego kodu HTML dodano funkcję 'callback'.",
         "type": "String | JSX",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "modal.closeOnKeyDown": {
         "description": "Dodaj zdarzenie 'keydown' i 'touch' do elementu DOM, aby wywołać funkcję 'callback'.",
@@ -1448,7 +1448,7 @@ const PL = {
     },
     "timeline.data": {
         "description": "Dane osi czasu w postaci tablicy obiektów.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "timeline.data.title": {
@@ -1472,12 +1472,12 @@ const PL = {
     "description.dragDrop.4": "Przykład z obszarem 'Owoce' - dozwolone tylko upuszczanie i 'Warzywa' - dozwolone tylko przeciąganie.",
     "drag.drop.data": {
         "description": "Obiekt.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.data.data": {
         "description": "Tablica obiektów z pojedynczymi pozycjami.",
-        "type": "Array",
+        "type": "[]",
         "default": "undefined"
     },
     "drag.drop.data.data.text": {
@@ -1497,7 +1497,7 @@ const PL = {
     },
     "drag.drop.data.areaProps": {
         "description": "Nieruchomości (ul).",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.data.titleProps": {
@@ -1558,7 +1558,7 @@ const PL = {
     "drag.drop.lineNumberChar": {
         "description": "można użyć tylko wtedy, gdy klucz 'lineNumber' ma wartość true. Wyświetl niestandardowy znak po numerze linii.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "description.dragDropList.1": "Przykład z domyślną funkcją przeciągnij i upuść na podstawie wywołania zwrotnego w celu zastosowania zmian stanu.",
     "description.dragDropList.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu.",
@@ -1574,12 +1574,12 @@ const PL = {
     },
     "drag.drop.list.areaProps": {
         "description": "Niestandardowe właściwości ul.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "drag.drop.list.data": {
         "description": "Tablica obiektów.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "drag.drop.list.text": {
@@ -1589,7 +1589,7 @@ const PL = {
     },
     "drag.drop.list.props": {
         "description": "Niestandardowe właściwości li.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "stars.description.1": "Przykład z gwiazdkami w trybie tylko do odczytu i bez wypełnionych gwiazdek oraz w domyślnym czarnym kolorze.",
@@ -1613,27 +1613,27 @@ const PL = {
     },
     "stars.callback": {
         "description": "Niestandardowa funkcja wywołania zwrotnego po kliknięciu gwiazdki. Ta funkcja zwraca 3 argumenty: Argument 1: zdarzenie kliknięcia, Argument 2: aktualnie kliknięta gwiazda, Argument 3: callbackProps.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "stars.callbackProps": {
         "description": "Dane zdefiniowane przez użytkownika przekazane jako ostatni argument do funkcji 'callback'.",
-        "type": "Dowolne",
+        "type": "Any",
         "default": "undefined"
     },
     "stars.color": {
         "description": "Kolor wypełnionych i niewypełnionych gwiazdek. Domyślnie dostępne są 3 kolory: 'orange', 'orange-yellow' i 'yellow'.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     "stars.starsData": {
         "description": "Tablica obiektów.",
-        "type": "Array",
+        "type": "[]",
         "default": "[]"
     },
     "stars.starsData.props": {
         "description": "Obiekt z niestandardowymi właściwościami.",
-        "type": "Object",
+        "type": "{}",
         "default": "{}"
     },
     "stars.starsData.data": {
@@ -1708,7 +1708,7 @@ const PL = {
     "404.imagePath": {
         "description": "Źródło obrazu.",
         "type": "String",
-        "default": "<pusty ciąg>"
+        "default": "<empty string>"
     },
     'slider.data': {
         "description": "Tablica objektów.",
@@ -1727,12 +1727,12 @@ const PL = {
     },
     'slider.data.callback': {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po wywołaniu obrazu / slajdu. Argumentami zwracanymi są: Argument 1: indeks slajdu, Argument 2: wartości klucza 'callbackProps'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     'slider.data.callbackProps': {
         "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako 2 argumenty do funkcji zwrotnej.",
-        "type": "Dowolne",
+        "type": "Any",
         "default": "undefined"
     },
     'slider.data.dot': {
@@ -1747,7 +1747,7 @@ const PL = {
     },
     'slider.callbackMount': {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po zainicjowaniu komponentu slidera. Ta funkcja zwraca 1 argument, wartość klucza: 'callbackMountProps'. Oczekiwana jest obietnica, która oczekuje liczby jako wartości zwracanej. Ta liczba jest zmieniana numer slajdu. Wartość nie może być ujemna (x> = 0) ani większa niż długość danych (x <data.length). ",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     'slider.callbackMountProps': {
@@ -1763,17 +1763,17 @@ const PL = {
     'slider.displayPagination': {
         "description": "Zezwól na renderowanie paginatora - przycisk 'następny' i przycisk 'przed'.",
         "type": "Boolean",
-        "default": "prawda"
+        "default": "true"
     },
     'slider.paginationInside': {
         "description": "Przycisk 'następny' i przycisk 'przed' powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli fałsz, przyciski są generowane poza sliderem.",
         "type": "Boolean",
-        "default": "prawda"
+        "default": "true"
     },
     'slider.dotsInside' : {
         "description": "Okrągłe przyciski nawigacji powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli false, przyciski są generowane poza sliderem.",
         "type": "Boolean",
-        "default": "prawda"
+        "default": "true"
     },
     'slider.slideAfterMove': {
         "description": "Autoslide tylko wtedy, gdy wartość jest większa lub równa x (>=) niż wartość określona tutaj.",
@@ -1888,12 +1888,12 @@ const PL = {
     },
     'steps.callback': {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po naciśnięciu przycisku 'Zapisz'. Argumentami zwracanymi są: Argument 1: zdarzenie kliknięcia, Argument 2: wartości klucza 'callbackProps'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     'steps.callbackProps': {
         "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako 2 argumenty do funkcji zwrotnej.",
-        "type": "Dowolne",
+        "type": "Any",
         "default": "undefined"
     },
     'steps.progressBar': {
@@ -2015,12 +2015,12 @@ const PL = {
     'steps.example6': 'Kroki ze zdefiniowaną przez użytkownika funkcją "onError", zdefiniowane przez użytkownika dane dla tej funkcji "onErrorProps" i generowanie kodu Live Code (JSX) przy użyciu funkcji "liveGeneration".',
     "menu.data.callback": {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wykonywana po kliknięciu elementu menu, a ten element nie ma elementu potomnego. Funkcja ma tylko jeden argument zwrotny, wartość klucza 'callbackProps'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     "menu.data.callbackProps": {
         "description": "Zdefiniowany przez użytkownika argument funkcji zwrotnej.",
-        "type": "Dowolne",
+        "type": "Any",
         "default": "undefined"
     },
     "menu.data.externalLink": {
@@ -2103,12 +2103,12 @@ const PL = {
     },
     'overlay.callback': {
         "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po naciśnięciu klawisza 'Escape' lub kliknięciu ciemnej ramki. Ta funkcja zwraca argument 'callbackProps'.",
-        "type": "Funkcja",
+        "type": "Function",
         "default": "undefined"
     },
     'overlay.callbackProps': {
         "description": "Dane zdefiniowane przez użytkownika, które są przekazywane jako argument funkcji 'callback'.",
-        "type": "Dowolne",
+        "type": "Any",
         "default": "undefined"
     },
     'overlay.data': {
@@ -2157,6 +2157,324 @@ const PL = {
     'popupData.example8': 'Przykład użycia predefiniowanego symbolu zastępczego: SQUARE. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
     'popupData.example9': 'Przykład z użyciem predefiniowanego symbolu zastępczego: HAMBURGER. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
     'popupData.example10': 'Przykład z użyciem predefiniowanego symbolu zastępczego: HAMBURGER-RIGHT. Aby wyłączyć animację (gdy element został kliknięty) musisz przenieść kluczową animację={false} do komponentu. ',
+    'menuXY.direction': {
+        "description": "Kierunek wyświetlanych elementów potomnych. Możliwe kierunki: 'right' i 'left'.",
+        "type": "String",
+        "default": "right"
+    },
+    'menuXY.data': {
+        "description": "Tablica obiektów.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'menuXY.data.callback': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po kliknięciu elementu podrzędnego. Ta funkcja zwraca argument 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menuXY.data.callbackProps': {
+        "description": "Zdefiniowane przez użytkownika dane dla funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuXY.data.data': {
+        "description": "Więcej zagnieżdżonych elementów potomnych.",
+        "type": "{} []",
+        "default": "undefined"
+    },
+    'menuXY.example1': "Przykład z kierunkiem elementów potomnych: 'right'.",
+    'menuXY.example2': "Przykład z kierunkiem elementów potomnych: 'left'.",
+    'menuXY.example1a': "Przykład z kierunkiem elementów potomnych: 'right'.",
+    'menuXY.example2a': "Przykład z kierunkiem elementów potomnych: 'left'.",
+    'menuDropDown.placeholder': {
+        "description": "Symbol zastępczy, aby można było wyświetlić menu.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.holderLoading': {
+        "description": "Jeśli dane są 'pobierane', w tym czasie wyświetlany jest symbol zastępczy ładowania.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'menuDropDown.callback': {
+        "description": "Po kliknięciu symbolu zastępczego ta funkcja jest wywoływana w celu załadowania danych zdefiniowanych przez użytkownika. Ta funkcja zwrotna musi zwrócić obietnicę. Ta funkcja zwraca argument: 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'menuDropDown.callbackProps': {
+        "description": "Jedyny argument funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'menuDropDown.closeOnEsc': {
+        "description": "Jeśli użytkownik końcowy naciśnie klawisz 'Esc', menu zostanie zamknięte. Jeśli chcesz wyłączyć tę funkcję, wartość tego klawisza powinna być ustawiona na 'false'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.closeOnOutsideClick': {
+        "description": "Jeśli użytkownik końcowy kliknie poza menu, menu zostanie zamknięte. Jeśli chcesz wyłączyć tę funkcję, wartość tego klucza powinna być ustawiona na 'false'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'menuDropDown.example1': 'Przykład z natychmiastowym wyświetlaniem danych.',
+    'menuDropDown.example2': 'Przykład z elementem zastępczym ładowania w czasie ładowania danych.',
+    'listSwitch.data': {
+        "description": "Predefiniowane dane, które są już dostępne podczas ładowania komponentu.",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data': {
+        "description": "Predefiniowane dane, które są już dostępne podczas ładowania komponentu. Ma to zastosowanie tylko wtedy, gdy klucz 'callback' jest niezdefiniowany!",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.data.text': {
+        "description": "JSX do wyświetlenia",
+        "type": "String | Jsx",
+        "default": "undefined"
+    },
+    'listSwitch.data.next': {
+        "description": "Jeśli ten element macierzysty zawiera element potomny (dane: []), ten JSX jest wyświetlany jako przycisk 'następny'.",
+        "type": "String | Jsx",
+        "default": "<"
+    },
+    'listSwitch.data.previous': {
+        "description": "JSX do wyświetlenia, przycisk 'wstecz', w elementach potomnych.",
+        "type": "String | Jsx",
+        "default": ">"
+    },
+    'listSwitch.data.callback': {
+        "description": "Jeśli użytkownik końcowy kliknie element, wywoływana jest ta funkcja. Ta funkcja zwraca wartość 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'listSwitch.data.callbackProps': {
+        "description": "Pojedynczy argument funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'listSwitch.previous': {
+        "description": "Jeśli użytkownik kliknie zagnieżdżony element, dane tego klucza są dostarczane jako przycisk 'wstecz'. Przycisk wstecz może (jeśli jest dostępny) zostać nadpisany przez elementy potomne!",
+        "type": "String | Jsx",
+        "default": "<"
+    },
+    'listSwitch.next': {
+        "description": "Jeśli element zawiera zagnieżdżone elementy potomne, dane tego klucza są podawane jako przycisk 'następny'. Następny przycisk może (jeśli jest dostępny) zostać nadpisany przez elementy potomne!",
+        "type": "String | Jsx",
+        "default": ">"
+    },
+    'listSwitch.title': {
+        "description": "Pierwszy tytuł danych. Wszystkie inne tytuły są wyświetlane po kliknięciu odpowiedniego elementu (klucz 'tekst' klikniętego elementu potomnego).",
+        "type": "String | Jsx",
+        "default": "<empty string>"
+    },
+    'listSwitch.arrowNextClick': {
+        "description": "Czy kliknięcie powinno być dołączone do przycisku„ następny ”, czy też globalnie na całym elemencie. Dotyczy tylko przycisku„ następny ”.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.arrowNextClick': {
+        "description": "Czy kliknięcie powinno być dołączone do przycisku„ następny ”, czy też globalnie na całym elemencie. Dotyczy tylko przycisku„ następny ”.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.animation': {
+        "description": "Ruch w elemencie matka-dziecko powinien być animowany.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'listSwitch.animationTimeout': {
+        "description": "Ruch wewnątrz elementu matka-dziecko powinien zostać przywrócony (koniec animacji) po tym czasie (ms). Musi być zgodny z plikiem CSS (reakcja-rewolucja) ($ default-przejście: 300ms)." ,
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.animationTimeout': {
+        "description": "Ruch wewnątrz elementu matka-dziecko powinien zostać przywrócony (koniec animacji) po tym czasie (ms). Musi być zgodny z plikiem CSS (reakcja-rewolucja) ($ default-przejście: 300ms)." ,
+        "type": "Number",
+        "default": "350"
+    },
+    'listSwitch.closeAfterCallback': {
+        "description": "Jeśli (zagnieżdżony) element zawiera funkcję 'callback' (nie jest to główna funkcja 'callback'), wyświetlane dane zostaną zamknięte po wywołaniu tej funkcji.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetSlides': {
+        "description": "Kiedy wyświetlane dane zostaną ponownie zamknięte, zawartość przełączanych danych jest resetowana do początku.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.resetData': {
+        "description": "Kiedy wyświetlane dane zostaną ponownie zamknięte, dane otrzymane z komponentu są usuwane, więc funkcja 'callback' jest ponownie aktywowana w celu ponownego załadowania (prawdopodobnie nowych) danych, gdy użytkownik ponownie wyświetli dane . ",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'listSwitch.example1': 'Przykład z dostarczaniem danych bezpośrednio podczas ładowania komponentu.',
+    'listSwitch.example2': 'Przykład z dostarczeniem danych dopiero po kliknięciu przez użytkownika symbolu zastępczego. Jeśli wartość klucza "resetData" nie jest prawdziwa, dane są ładowane tylko raz, po czym są zawsze dostępne bez konieczności ponownego ładowania danych. ',
+    'stepGen.callback': {
+        "description": "Zdefiniowana przez użytkownika funkcja, która jest wywoływana zawsze po dokonaniu zmiany w jednym z pól wejściowych / tekstowych. Ta funkcja zwraca 2 argumenty. Argument 1: callbackProps, argument 2: bieżące wartości (tablica obiektów) wejścia / Pola tekstowe. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.callbackProps': {
+        "description": "Wartość pierwszego argumentu funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.defaultSteps': {
+        "description": "Liczba pól do wygenerowania.",
+        "type": "Number",
+        "default": "3"
+    },
+    'stepGen.addNewStepOn': {
+        "description": "Jeśli użytkownik znajduje się w polu x, sprawdzane jest, ile pól pozostało. Jeśli liczba pozostałych pól jest mniejsza lub równa tej wartości, automatycznie dodawane jest dodatkowe pole. Jeśli wartość tego klucza wynosi 0, automatyczne generowanie jest ignorowane. ",
+        "type": "Number",
+        "default": "0"
+    },
+    'stepGen.addStep': {
+        "description": "Niestandardowy JSX dla użytkownika, aby można było dodać ręcznie inne pole.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.removeStep': {
+        "description": "Niestandardowy JSX dla użytkownika, dzięki czemu pojedyncze pole może zostać ponownie usunięte.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.stepPrefix': {
+        "description": "Prefiks dla użytkownika odpowiedniego kroku.",
+        "type": "String | JSX",
+        "default": "Step"
+    },
+    'stepGen.displayStepCount': {
+        "description": "Liczba odpowiednich kroków. Jest wyświetlana po prefiksie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.useInput': {
+        "description": "Zamiast pola tekstowego generowane jest pole wejściowe, jeśli wartością tego klucza jest „true”.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.onEnter': {
+        "description": "Jeśli użytkownik naciśnie 'Enter' (w polu wejściowym / tekstowym), ta funkcja jest wywoływana z argumentem 'onEnterProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.onEnterProps': {
+        "description": "Jedyny argument funkcji 'onEnter'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.onEsc': {
+        "description": "Jeśli użytkownik naciśnie 'Esc' (w polu wejściowym / tekstowym), ta funkcja jest wywoływana z argumentem 'onEscProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.onEscProps': {
+        "description": "Jedyny argument funkcji 'onEsc'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.removeStepAlignTop': {
+        "description": "JSX do usuwania kroku jest wyświetlany nad pojedynczym krokiem. Jeśli wartość to 'false', przycisk usuwania jest wyświetlany poniżej.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'stepGen.submit': {
+        "description": "Przycisk 'wyślij' generowany pod krokami.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'stepGen.submitCallback': {
+        "description": "Funkcja zdefiniowana przez użytkownika, która jest wywoływana po kliknięciu przez użytkownika przycisku 'wyślij'. Ta funkcja zwraca argument 'submitCallbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.submitCallbackProps': {
+        "description": "Jedyny argument funkcji 'submitCallback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'stepGen.resetOnSubmit': {
+        "description": "Po kliknięciu przez użytkownika przycisku 'wyślij' cały komponent jest przywracany do pierwotnego stanu.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.example1': 'Przykład z wygenerowaniem 3 pól (na początku), jednego przycisku usuwania i jednego przycisku przesyłania. Otwórz konsolę programisty, aby obserwować zmiany. ',
+    'stepGenDragDrop.placeholderPosition' : {
+        "description": "Jeśli użytkownik zacznie przeciągać element i znajduje się nad pozycją upuszczenia, wygeneruj PLACEHOLDER na stronie elementu najechanego kursorem. Dostępne opcje: 'top' (symbole zastępcze są zawsze na górze elementu najechanego kursorem), ' bottom '(symbole zastępcze są zawsze na dole elementu najechanego kursorem) i' auto '(symbole zastępcze są wykrywane automatycznie). ",
+        "type": "String",
+        "default": "auto"
+    },
+    'stepGenDragDrop.placeholder': {
+        "description": "Symbol zastępczy do wyświetlenia podczas fazy przeciągania.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.example1': 'Przykład z generacją 3 pól (na początku), przyciskiem usuwania i przesyłania, samodzielnie zdefiniowanym symbolem zastępczym i symbolem zastępczym w kierunku „auto”. Otwórz konsolę programisty, aby obserwować zmiany. ',
+    'timelineList.direction': {
+        "description": "Kierunek osi czasu. Możliwe kierunki: 'right' i 'left'.",
+        "type": "String",
+        "default": "left"
+    },
+    'timelineList.data': {
+        "description": "Obiekt z objektów.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.props': {
+        "description": "Argumenty HTML dla klucza obiektu (czas - tytuł odpowiedniego wpisu na osi czasu).",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.data': {
+        "description": "Objekt.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.icon': {
+        "description": "JSX do wyświetlenia zamiast ikony.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'timelineList.data.iconProps': {
+        "description": "Argumenty HTML dla elementu HTML icon.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.dataProps': {
+        "description": "Argumenty HTML dla elementu danych HTML.",
+        "type": "{}",
+        "default": "undefined"
+    },
+    'timelineList.data.callback': {
+        "description": "Funkcja wywołania zwrotnego po kliknięciu przez użytkownika ikony '. Ta funkcja zwraca pojedynczy argument:' callbackProps '.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'timelineList.data.callbackProps': {
+        "description": "Pojedynczy argument funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'timelineList.data.data.data': {
+        "description": "Zdefiniowane przez użytkownika dane JSX dotyczące indywidualnego wpisu na osi czasu.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'timelineList.timelineStart': {
+        "description": "Zdefiniowane przez użytkownika dane JSX do wyświetlenia na początku osi czasu (początek linii u góry).",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.timelineEnd': {
+        "description": "Zdefiniowane przez użytkownika dane JSX, które są wyświetlane na końcu osi czasu (koniec linii na dole).",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'timelineList.example1': 'Przykład z osią czasu po lewej i użyciem klawiszy: "timelineStart" i "timelineEnd". Otwórz konsolę programisty, aby obejrzeć dzienniki, klikając ikony. ',
+    'timelineList.example2': 'Przykład z osią czasu po lewej stronie i bez użycia klawiszy: "timelineStart" i "timelineEnd". Otwórz konsolę programisty, aby obejrzeć dzienniki, klikając ikony. ',
+    'timelineList.example3': 'Przykład z użyciem objektów.',   
 };
 
 export default PL;

@@ -3,7 +3,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import Root from './Website/Pages/Root';
 import ScrollTop from './Website/Modules/ScrollTop';
-import { Container, Astronaut404, MenuHeight, SideBar, InputSuggestionObject } from './react-revolution/react-revolution';
+import { Container, Astronaut404, MenuHeight, SideBar, InputSuggestionObject, ListSwitch } from './react-revolution/react-revolution';
 import { appNameShort, version } from './Website/Globals';
 import trans from './Website/Translations/trans';
 import possibleLanguagesLong from './Website/Functions/language/possibleLanguagesLong';
@@ -43,9 +43,13 @@ import _InputFileDragDrop from './Website/Pages/InputFileDragDrop';
 import _InputSuggestionArray from './Website/Pages/InputSuggestionArray';
 import _InputSuggestionObject from './Website/Pages/InputSuggestionObject';
 import _Lightbulb404 from './Website/Pages/Lightbulb404';
+import _ListSwitch from './Website/Pages/ListSwitch';
 import _LoadingBoxTop from './Website/Pages/LoadingBoxTop';
 import _Menu from './Website/Pages/Menu';
+import _MenuDropDown from './Website/Pages/MenuDropDown';
 import _MenuHeight from './Website/Pages/MenuHeight';
+import _MenuHoverX from './Website/Pages/MenuHoverX';
+import _MenuHoverY from './Website/Pages/MenuHoverY';
 import _Modal from './Website/Pages/Modal';
 import _Overlay from './Website/Pages/Overlay';
 import _PagerStatic from './Website/Pages/PagerStatic';
@@ -64,9 +68,12 @@ import _SliderCards from './Website/Pages/SliderCards';
 import _SliderItems from './Website/Pages/SliderItems';
 import _Stars from './Website/Pages/Stars';
 import _Steps from './Website/Pages/Steps';
+import _StepsGenerator from './Website/Pages/StepsGenerator';
+import _StepsGeneratorDragDrop from './Website/Pages/StepsGeneratorDragDrop';
 import _Table from './Website/Pages/Table';
 import _TextWriter from './Website/Pages/TextWriter';
 import _Timeline from './Website/Pages/Timeline';
+import _TimelineList from './Website/Pages/TimelineList';
 import _Water404 from './Website/Pages/Water404';
 
 /**
@@ -86,8 +93,7 @@ import Releases from './Website/Pages/Releases/Releases';
 import Components from './Website/Modules/Components';
 import Footer from './Website/Modules/Footer';
 
-class App extends React.Component 
-{
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.setOnClickEvent = this.setOnClickEvent.bind(this);
@@ -268,7 +274,7 @@ class App extends React.Component
       data.push(
         {
           text: (
-            <span className="ellipsis">
+            <span>
               {
                 trans(`${name}Theme`)
               }
@@ -330,7 +336,7 @@ class App extends React.Component
       {
         version: '5.0',
         start: 0,
-        end: 0
+        end: 1
       },
       {
         version: '4.2',
@@ -406,6 +412,21 @@ class App extends React.Component
     return links;
   }
 
+  getSettings() {
+    return [
+      {
+        text: trans('changeLanguageTitle'),
+        data: this.generateLanguagesMenu(),
+        next: <i className="fas fa-globe-americas"></i>
+      },
+      {
+        text: trans('changeTintTitle'),
+        data: this.generateLayoutsMenu(),
+        next: <i className="fas fa-tint"></i>
+      },
+    ];
+  }
+
   render() {
     const { host, inputValue, align } = this.state;
 
@@ -447,7 +468,7 @@ class App extends React.Component
                     {
                       icon: <i className="far fa-circle circle"></i>,
                       text: trans('components'),
-                      toggled: false,
+                      toggled: true,
                       data: [
                         {
                           text: 'Accordion',
@@ -608,6 +629,10 @@ class App extends React.Component
                           ]
                         },
                         {
+                          text: 'ListSwitch',
+                          href: `${host}#/components/list-switch`,
+                        },
+                        {
                           text: 'LoadingBoxTop',
                           href: `${host}#/components/loading-box-top`,
                         },
@@ -619,7 +644,7 @@ class App extends React.Component
                           text: (
                             <span>
                               <span className="data-title">
-                                Menu
+                                Menus
                                 </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
@@ -632,8 +657,20 @@ class App extends React.Component
                               href: `${host}#/components/menu`,
                             },
                             {
+                              text: 'MenuDropDown',
+                              href: `${host}#/components/menu-dropdown`,
+                            },
+                            {
                               text: 'MenuHeight',
                               href: `${host}#/components/menu-height`,
+                            },
+                            {
+                              text: 'MenuHoverX',
+                              href: `${host}#/components/menu-hover-x`,
+                            },
+                            {
+                              text: 'MenuHoverY',
+                              href: `${host}#/components/menu-hover-y`,
                             },
                           ]
                         },
@@ -827,6 +864,28 @@ class App extends React.Component
                           href: `${host}#/components/steps`,
                         },
                         {
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                StepsGenerators
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'StepsGenerator',
+                              href: `${host}#/components/steps-generator`,
+                            },
+                            {
+                              text: 'StepsGeneratorDragDrop',
+                              href: `${host}#/components/steps-generator-drag-drop`,
+                            },
+                          ]
+                        },
+                        {
                           text: 'Table',
                           href: `${host}#/components/table`,
                         },
@@ -835,34 +894,40 @@ class App extends React.Component
                           href: `${host}#/components/text-writer`,
                         },
                         {
-                          text: 'Timeline',
-                          href: `${host}#/components/timeline`,
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Timelines
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'Timeline',
+                              href: `${host}#/components/timeline`,
+                            },
+                            {
+                              text: 'TimelineList',
+                              href: `${host}#/components/timeline-list`,
+                            },
+                          ]
                         },
                       ]
                     },
                     {
                       icon: <i className="far fa-circle circle"></i>,
                       text: trans('functions'),
-                      toggled: false,
+                      toggled: true,
                       data: this.getFunctionsMenu()
                     },
                     {
                       icon: <i className="far fa-circle circle"></i>,
                       text: trans('releaseNotes'),
-                      toggled: false,
+                      toggled: true,
                       data: this.generateReleasesMenu()
-                    },
-                    {
-                      icon: <i className="far fa-circle circle"></i>,
-                      text: trans('changeLanguageTitle'),
-                      toggled: false,
-                      data: this.generateLanguagesMenu()
-                    },
-                    {
-                      icon: <i className="far fa-circle circle"></i>,
-                      text: trans('changeTintTitle'),
-                      toggled: false,
-                      data: this.generateLayoutsMenu()
                     },
                   ]
                 }
@@ -877,6 +942,13 @@ class App extends React.Component
               className='fas fa-stream icon-dashbord toggle-dashboard minify-menu'
               onClick={() => this.toggleDashboardDirection()}
             ></i>
+            <ListSwitch
+              addClass='icon-dashbord toggle-dashboard list-switch-website'
+              direction='right'
+              placeholder={<i className="fas fa-cog"></i>}
+              data={this.getSettings()}
+              resetSlides={true}
+            />
             <span className="component-search">
               <InputSuggestionObject
                 addClass='rr-custom-suggestion-website'
@@ -925,16 +997,20 @@ class App extends React.Component
               <Route exact path="/components/input-suggestion-object" render={(props) => (<_InputSuggestionObject {...props} />)} />
               <Route exact path="/components/loading-box-top" render={(props) => (<_LoadingBoxTop {...props} />)} />
               <Route exact path="/components/menu" render={(props) => (<_Menu {...props} />)} />
+              <Route exact path="/components/menu-dropdown" render={(props) => (<_MenuDropDown {...props} />)} />
               <Route exact path="/components/menu-height" render={(props) => (<_MenuHeight {...props} />)} />
+              <Route exact path="/components/menu-hover-x" render={(props) => (<_MenuHoverX {...props} />)} />
+              <Route exact path="/components/menu-hover-y" render={(props) => (<_MenuHoverY {...props} />)} />
               <Route exact path="/components/modal" render={(props) => (<_Modal {...props} />)} />
               <Route exact path="/components/overlay" render={(props) => (<_Overlay {...props} />)} />
               <Route exact path="/components/pager-static" render={(props) => (<_PagerStatic {...props} />)} />
               <Route exact path="/components/pager-dynamic" render={(props) => (<_PagerDynamic {...props} />)} />
+              <Route exact path="/components/picture-404" render={(props) => (<_Picture404 {...props} />)} />
               <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
               <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
               <Route exact path="/components/load-on-scroll" render={(props) => (<_LoadOnScroll {...props} />)} />
               <Route exact path="/components/lightbulb-404" render={(props) => (<_Lightbulb404 {...props} />)} />
-              <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />
+              <Route exact path="/components/list-switch" render={(props) => (<_ListSwitch {...props} />)} />
               <Route exact path="/components/read-more" render={(props) => (<_ReadMore {...props} />)} />
               <Route exact path="/components/read-more-callback" render={(props) => (<_ReadMoreCallback {...props} />)} />
               <Route exact path="/components/sidebar" render={(props) => (<_Sidebar {...props} />)} />
@@ -945,9 +1021,12 @@ class App extends React.Component
               <Route exact path="/components/source-code" render={(props) => (<_SourceCode {...props} />)} />
               <Route exact path="/components/stars" render={(props) => (<_Stars {...props} />)} />
               <Route exact path="/components/steps" render={(props) => (<_Steps {...props} />)} />
+              <Route exact path="/components/steps-generator" render={(props) => (<_StepsGenerator {...props} />)} />
+              <Route exact path="/components/steps-generator-drag-drop" render={(props) => (<_StepsGeneratorDragDrop {...props} />)} />
               <Route exact path="/components/table" render={(props) => (<_Table {...props} />)} />
               <Route exact path="/components/text-writer" render={(props) => (<_TextWriter {...props} />)} />
-              <Route exact path="/components/picture-404" render={(props) => (<_Picture404 {...props} />)} />
+              <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />
+              <Route exact path="/components/timeline-list" render={(props) => (<_TimelineList {...props} />)} />
               <Route exact path="/components/water-404" render={(props) => (<_Water404 {...props} />)} />
               {/* Functions */}
               <Route exact path="/functions/addGlobalMessage" render={(props) => (<_FunctionAddGlobalMessage {...props} />)} />

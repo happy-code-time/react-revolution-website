@@ -26,7 +26,9 @@ class OutsideCenter extends React.Component {
             menuLeft: '0px',
             animationTimeout: props.animationTimeout,
             dataClass: '',
-            animation: props.animation
+            animation: props.animation,
+            closeOnEsc: props.closeOnEsc,
+            closeOnOutsideClick: props.closeOnOutsideClick
         };
 
         this.int = '';
@@ -39,7 +41,7 @@ class OutsideCenter extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['uuid', 'animation', 'animationTimeout', 'holderData', 'contentData', 'addClass', 'defaultClass', 'id', 'holderData', 'contentData'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['closeOnEsc', 'closeOnOutsideClick', 'uuid', 'animation', 'animationTimeout', 'holderData', 'contentData', 'addClass', 'defaultClass', 'id', 'holderData', 'contentData'], props, state)) {
             return {
                 uuid: props.uuid,
                 holderData: props.holderData,
@@ -50,7 +52,9 @@ class OutsideCenter extends React.Component {
                 holderData: props.holderData,
                 contentData: props.contentData,
                 animationTimeout: props.animationTimeout,
-                animation: props.animation
+                animation: props.animation,
+                closeOnEsc: props.closeOnEsc,
+                closeOnOutsideClick: props.closeOnOutsideClick
             };
         }
 
@@ -69,30 +73,38 @@ class OutsideCenter extends React.Component {
     }
 
     addEscEventListener() {
-        window.addEventListener('keydown', this.EscListener, false);
+        if (this.state.closeOnEsc) {
+            window.addEventListener('keydown', this.EscListener, false);
+        }
     }
 
     removeEscEventListener() {
-        window.removeEventListener('keydown', this.EscListener, false);
+        if (this.state.closeOnEsc) {
+            window.removeEventListener('keydown', this.EscListener, false);
+        }
     }
 
     attachHandleClick() {
-        this.removeHandleClick();
-        document.addEventListener('click', this.handleClick);
+        if(this.state.closeOnOutsideClick){
+            this.removeHandleClick();
+            document.addEventListener('click', this.handleClick);
+        }
     }
 
     removeHandleClick() {
-        document.removeEventListener('click', this.handleClick);
+        if(this.state.closeOnOutsideClick){
+            document.removeEventListener('click', this.handleClick);
+        }
     }
 
     handleClick(event) {
-        if (this.refNode && this.refNode && !this.refNode.contains(event.target) && true == this.state.displayMenu) {
+        if (this.refNode && this.refNode && !this.refNode.contains(event.target) && true == this.state.displayMenu && true === this.state.closeOnOutsideClick) {
             this.hideMenu();
         }
     }
 
     EscListener(event) {
-        if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27) {
+        if (event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27 || event.which === 27) {
             this.hideMenu();
         }
     }

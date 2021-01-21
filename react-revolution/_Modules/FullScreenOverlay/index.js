@@ -107,7 +107,7 @@ class FullScreenOverlay extends React.Component
     EscListener(event){
         const self = this;
 
-        if(event.keyCode === 27) {
+        if(event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27 || event.which === 27) {
             const { callbackClose } = self.state;
 
             if(callbackClose && typeof function(){} == typeof callbackClose){
