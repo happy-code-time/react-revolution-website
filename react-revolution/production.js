@@ -49,6 +49,7 @@ import ScrollTo from './_Modules/ScrollTo';
 import SideBar from './_Modules/SideBar';
 import Slider from './_Modules/Slider';
 import SliderCards from './_Modules/SliderCards';
+import SliderFullscreen from './_Modules/SliderFullscreen';
 import SliderItems from './_Modules/SliderItems';
 import Stars from './_Modules/Stars';
 import Steps from './_Modules/Steps';
@@ -121,6 +122,7 @@ export {
     ScrollTo,
     SideBar,
     Slider,
+    SliderFullscreen,
     SliderCards,
     SliderItems,
     Stars,

@@ -3842,6 +3842,9 @@ h1,
 :root, html, body {
   scroll-behavior: smooth; }
 
+#app .rr-timeline-list .timeline-entry .data {
+  white-space: pre-wrap; }
+
 #app .FullScreenLoading {
   position: fixed;
   z-index: 100;

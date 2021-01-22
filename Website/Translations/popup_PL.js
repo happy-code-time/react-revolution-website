@@ -2065,8 +2065,8 @@ const PL = {
     },
     'slider.autoplayNext': {
         "description": "Jeśli true to kierunek slajdu jest w prawo, jeśli false to w lewo.",
-        "type": "Number",
-        "default": "5000"
+        "type": "Boolean",
+        "default": "true"
     },
     'slider.animationTime': {
         "description": "Czas transformacji suwaków dla autoodtwarzania i ruchu myszy / dotyku. Możliwe wartości od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
@@ -2474,7 +2474,134 @@ const PL = {
     },
     'timelineList.example1': 'Przykład z osią czasu po lewej i użyciem klawiszy: "timelineStart" i "timelineEnd". Otwórz konsolę programisty, aby obejrzeć dzienniki, klikając ikony. ',
     'timelineList.example2': 'Przykład z osią czasu po lewej stronie i bez użycia klawiszy: "timelineStart" i "timelineEnd". Otwórz konsolę programisty, aby obejrzeć dzienniki, klikając ikony. ',
-    'timelineList.example3': 'Przykład z użyciem objektów.',   
+    'timelineList.example3': 'Przykład z użyciem objektów.',  
+    'fss.fsDisplayPagination': {
+        "description": "Zezwól na renderowanie paginatora - przycisk 'następny' i przycisk 'przed'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsSlideAfterMove': {
+        "description": "Autoslide tylko wtedy, gdy wartość jest większa lub równa x (> =) niż wartość określona tutaj.",
+        "type": "Number",
+        "default": "50"
+    },
+    'fss.fsDisplayPreview': {
+        "description": "Zezwól na renderowanie miniatur poniżej slidera pełnego ekranu.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewWidth': {
+        "description": "Szerokość (piks.) pojedynczego obrazu podglądu poniżej slidera pełnego ekranu.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewHeight': {
+        "description": "Wysokość (w pikselach) pojedynczego obrazu podglądu poniżej slidera pełnego ekranu.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewMarginX': {
+        "description": "Właściwość CSS margin-left / right (px) pojedynczego obrazu podglądu poniżej slidera pełnego ekranu.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsPreviewMarginY': {
+        "description": "Właściwość CSS margin-top / bottom (px) pojedynczego obrazu podglądu poniżej slidera pełnego ekranu.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsWrapDirection': {
+        "description": "Jeśli true, a użytkownik jest na pierwszym slajdzie i wcześniej wciśnie przycisk, nawigacja zostanie przeprowadzona do ostatniego slajdu i odwrócona. Jeśli użytkownik jest na ostatnim slajdzie i ponownie wciśnie przycisk, zostanie wyświetlony pierwszy slajd.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewToggle': {
+        "description": "Zdefiniowany przez użytkownika JSX w przycisku, aby ukryć lub pokazać dolny slider podglądu.",
+        "type": "String | JSX",
+        "default": "⇩"
+    },
+    'fss.fsToggleDirection': {
+        "description": "Strona przycisku do wyświetlenia w celu ukrycia lub wyświetlenia dolnego slidera podglądu. Możliwe wartości: 'left' lub 'right'.",
+        "type": "String | JSX",
+        "default": "right"
+    },
+    'fss.fsImageAsBackground': {
+        "description": "Nie umieszczaj obrazu w tagu <img />, ale raczej jako backgroundImage i renderuj niestandardowe dane w obrazie / slajdzie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.fsAutoplayIcon': {
+        "description": "Niestandardowy JSX do rozpoczęcia pokazu slajdów.",
+        "type": "String | JSX",
+        "default": "🎞"
+    },
+    'fss.fsCloseIcon': {
+        "description": "Niestandardowy JSX do zamykania slidera.",
+        "type": "String | JSX",
+        "default": "x"
+    },
+    'fss.fsUseLayerX': {
+        "description": "Jeśli slider (w wersji dla komputerów stacjonarnych) zostanie przesunięty, do przesunięcia slidera używana jest wartość event.layerX. Jeśli wartość tego klucza jest fałszywa, używana jest wartość event.clientX.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayTime': {
+        "description": "Opóźnienie czasowe (timeout) dla każdego następnego slajdu po poprzednim lub po zamontowaniu komponentu.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'fss.fsAutoplayNext': {
+        "description": "Jeśli true, kierunek slajdu jest w prawo, jeśli fałsz to w lewo.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAnimationTime': {
+        "description": "Czas transformacji slidera dla autoodtwarzania i ruchu myszy / dotyku. Możliwe wartości od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"
+    },
+    'fss.fsNext': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: dalej.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    'fss.fsPrevious': {
+        "description": "Zdefiniowany przez użytkownika Jsx w przycisku: wcześniej.",
+        "type": "String | JSX",
+        "default": "<"
+    },
+    'fss.fsAutoplayStopIcon': {
+        "description": "Niestandardowy JSX do zakończenia pokazu slajdów.",
+        "type": "String | JSX",
+        "default": "🛑"
+    },
+    'fss.fsDisplayDots': {
+        "description": "Zezwól na renderowanie punktów nawigacyjnych w paginatorze.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayStopOnLast': {
+        "description": "Jeśli slider znajduje się na końcu / początku (w zależności od wartości klucza 'fsAutoplayNext'), pokaz slajdów się zakończy.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsDisplayDotsIndex': {
+        "description": "Zezwól na renderowanie indeksu pojedynczego paginatora.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.fsCloseOnEsc': {
+        "description": "Po naciśnięciu klawisza 'Escape' slider powinien nadal być wyświetlany lub wyświetlanie powinno zostać przerwane.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsActive': {
+        "description": "Kiedy klikniesz na obrazek, ukarze się pełnoekranowy slider.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.example1': 'Przykład suwaka z obsługą pełnego ekranu. Pełny ekran jest aktywowany po kliknięciu zdjęcia. Suwak można zamknąć klawiszem ESC lub przyciskiem X. ',
+    'fss.example2': 'Suwak można zamknąć klawiszem ESC lub X.',
 };
 
 export default PL;

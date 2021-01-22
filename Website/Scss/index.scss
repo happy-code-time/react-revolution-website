@@ -27,6 +27,14 @@
 
 #app {
 
+  .rr-timeline-list {
+    .timeline-entry{
+      .data{
+        white-space: pre-wrap;
+      }
+    }
+  }
+
   .FullScreenLoading{
     position: fixed;
     z-index: 100;

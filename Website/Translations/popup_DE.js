@@ -380,7 +380,7 @@ const DE = {
         "default": "false"
     },
     "closeOnEsc": {
-        "description": "Beim Drücken der 'Escape' Taste, soll das Module eiterhin angezeigt werden oder die Anzeige soll unterbrochen werden.",
+        "description": "Beim Drücken der 'Escape' Taste, soll das Module weiterhin angezeigt werden oder die Anzeige soll unterbrochen werden.",
         "type": "Boolean",
         "default": "false"
     },
@@ -1753,7 +1753,7 @@ const DE = {
         "default": "false"
     },
     'slider.imageAsBackground': {
-        "description": "Setzte das Bild nicht in ein <img /> tag, sonder als backgroundImage und render Benutzerdefinierte Daten innerhalb des Bildes/ Slides.",
+        "description": "Fügen Sie das Bild nicht in ein <img /> -Tag ein, sondern als Hintergrundbild und rendern Sie benutzerdefinierte Daten innerhalb des Bildes / der Folie.",
         "type": "Boolean",
         "default": "false"
     },
@@ -1774,7 +1774,7 @@ const DE = {
     },
     'slider.slideAfterMove' : {
         "description": "Autoslide nur nachdem der Wert größer oder gleich x (>=) als der hier angegebener Wert ist.",
-        "type": "number",
+        "type": "Number",
         "default": "50"
     },
     'slider.displayDotsIndex' : {
@@ -1789,17 +1789,12 @@ const DE = {
     },
     'slider.next' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": ">"
     },
     'slider.previous' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
-        "type": "String|JSX",
-        "default": "<"
-    },
-    'slider.previous' : {
-        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<"
     },
     'slider.items.data' : {
@@ -1820,17 +1815,17 @@ const DE = {
     'slider.example6' : 'Slider mit dem Beispiel der Elementen Generierung je nach Bildschirmbreite mit Verwendung der Schlüssel: resizeS, resizeL, resizeXL, resizeS, resizeL und resizeXL.',
     'steps.next' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "Next"
     },
     'steps.previous' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "Previous"
     },
     'steps.submit' : {
         "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: Speichern.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "Submit"
     },
     'steps.callback' : {
@@ -1875,17 +1870,17 @@ const DE = {
     },
     'steps.data.text' : {
         "description": "Der Text im einzelnen Step.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'steps.data.icon' : {
         "description": "Das Icon eines einzelnen Steps.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'steps.data.data' : {
         "description": "Der Content einses einzelnen Steps.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'steps.data.callback' : {
@@ -2052,8 +2047,8 @@ const DE = {
     },
     'slider.autoplayNext' : {
         "description": "Wenn true dann ist die Slide Richtung rechts, falls false dann links.",
-        "type": "Number",
-        "default": "5000"
+        "type": "Boolean",
+        "default": "true"
     },
     'slider.animationTime' : {
         "description": "Sliders Tranformationszeit beim autoplay und beim Mouse/Touch move. Mögliche Werte von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
@@ -2100,7 +2095,7 @@ const DE = {
     },
     'overlay.data' : {
         "description": "Benutzerdefinierte Daten innerhalb des Overlays.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'popupData.direction' : {
@@ -2110,7 +2105,7 @@ const DE = {
     },
     'popupData.holderData' : {
         "description": "Benutzerdefinierte Daten die er Auslöser sind, damit das Popup Fenster erscheint. Es gibt voreingetragene Platzhalter: dots, square, hamburger und hamburger-left. Diese Namen sind auch reserviert und können nicht geändert werden.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'popupData.animationTime' : {
@@ -2175,12 +2170,12 @@ const DE = {
     'menuXY.example2a': "Beispiel mit der Richgtung der Kindelemente: 'left'.",
     'menuDropDown.placeholder' : {
         "description": "Platzhalter damit das Menu angezeigt werden kann.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'menuDropDown.holderLoading' : {
         "description": "Wenn die Daten 'geholt' werden, wird in dieser Zeit ein Lade-Platzhalter angezeigt.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'menuDropDown.callback' : {
@@ -2319,17 +2314,17 @@ const DE = {
     },
     'stepGen.addStep': {
         "description": "Benutzerdefiniertes JSX für den Benutzer, damit ein weiteres Feld manuell hinzugefügt werden kann.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'stepGen.removeStep': {
         "description": "Benutzerdefiniertes JSX für den Benutzer, damit ein einzelnes Feld wieder gelöscht werden kann.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'stepGen.stepPrefix': {
         "description": "Prefix für den Benutzer des jeweiligen Schrittes.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "Step"
     },
     'stepGen.displayStepCount': {
@@ -2369,7 +2364,7 @@ const DE = {
     },
     'stepGen.submit': {
         "description": "Ein 'submit' Button der Unterhalb der Schritte generiert wird.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'stepGen.submitCallback': {
@@ -2395,7 +2390,7 @@ const DE = {
     },
     'stepGenDragDrop.placeholder' : {
         "description": "Anzuzeigender Platzhalter wärend einer Drag Phase.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'stepGenDragDrop.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button, eines selbst definiertem Platzhalter und der Platzhalter Richtung "auto". Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',
@@ -2421,7 +2416,7 @@ const DE = {
     },
     'timelineList.data.icon': {
         "description": "Anzuzeigendes JSX anstelle des Icons.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'timelineList.data.iconProps': {
@@ -2446,22 +2441,149 @@ const DE = {
     },
     'timelineList.data.data.data': {
         "description": "Benutzerdefinierte JSX Daten des einzelnen Timeline Eintrages.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "undefined"
     },
     'timelineList.timelineStart': {
         "description": "Benutzerdefinierte JSX Daten die am Anfang der Timeline (Anfang des Striches ganz oben) angezeigt werden.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'timelineList.timelineEnd': {
         "description": "Benutzerdefinierte JSX Daten die am End der Timeline (Ende des Striches ganz unten) angezeigt werden.",
-        "type": "String|JSX",
+        "type": "String | JSX",
         "default": "<empty string>"
     },
     'timelineList.example1' : 'Beispiel mit der Timeline auf der linken Seite und der Verwendung der Schlüssel: "timelineStart" und "timelineEnd". Öffne deine Entwickler Konsole um die Logs beim anklicken der Icons zu beobachten.',
     'timelineList.example2' : 'Beispiel mit der Timeline auf der linken Seite und ohne der Verwendung der Schlüssel: "timelineStart" und "timelineEnd". Öffne deine Entwickler Konsole um die Logs beim anklicken der Icons zu beobachten.',
     'timelineList.example3' : 'Beispiel mit der Verwendung von props.',
+    'fss.fsDisplayPagination' : {
+        "description": "Rendern des Paginators erlauben - Der Button 'weiter' und der Button 'vorher'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsSlideAfterMove' : {
+        "description": "Autoslide nur nachdem der Wert größer oder gleich x (>=) als der hier angegebener Wert ist.",
+        "type": "Number",
+        "default": "50"
+    },
+    'fss.fsDisplayPreview' : {
+        "description": "Erlauben vom rendern der Vorschaubilder unterhalb des Fullscreen Sliders.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewWidth' : {
+        "description": "Die Weite (px) eines einzelnen Vorschaubildes unterhalb des Fullscreen Sliders.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewHeight' : {
+        "description": "Die Höhe (px) eines einzelnen Vorschaubildes unterhalb des Fullscreen Sliders.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewMarginX' : {
+        "description": "Die CSS Eigenschaft margin-left/right (px) eines einzelnen Vorschaubildes unterhalb des Fullscreen Sliders.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsPreviewMarginY' : {
+        "description": "Die CSS Eigenschaft margin-top/bottom (px) eines einzelnen Vorschaubildes unterhalb des Fullscreen Sliders.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsWrapDirection' : {
+        "description": "Wenn true und der Benutzer im ersten Slide ist, und den Button vorher drückt wird zum letzten Slide navigiert und umgegehrt. Wenn der Benutzer im letzten Slide ist und den Button weiter drückt, wird der erste Slide angezeigt.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewToggle' : {
+        "description": "Benutzerdefiniertes JSX innerhalb des Buttons um den unteren Vorschauslider zu verschtecken oder wieder anzuzeigen.",
+        "type": "String | JSX",
+        "default": "⇩"
+    },
+    'fss.fsToggleDirection' : {
+        "description": "Anzuzeigende Seite des Buttons um den unteren Vorschauslider zu verschtecken oder wieder anzuzeigen. Mögliche Werte: 'left' oder 'right'.",
+        "type": "String | JSX",
+        "default": "right"
+    },
+    'fss.fsImageAsBackground' : {
+        "description": "Fügen Sie das Bild nicht in ein <img /> -Tag ein, sondern als Hintergrundbild und rendern Sie benutzerdefinierte Daten innerhalb des Bildes / der Folie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.fsAutoplayIcon' : {
+        "description": "Benutzerdefiniertes JSX um eine Slideshow zu starten.",
+        "type": "String | JSX",
+        "default": "🎞"  
+    },
+    'fss.fsCloseIcon' : {
+        "description": "Benutzerdefiniertes JSX um den Slider zu schließn.",
+        "type": "String | JSX",
+        "default": "x" 
+    },
+    'fss.fsUseLayerX' : {
+        "description": "Wenn der Slider (in der Desktop Variante) bewegt wird, wird zum bewegen des Sliders der Wert von event.layerX genommen. Wenn der Wert dieses Schlüssels false ist, wird der Wert von event.clientX genommen.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayTime' : {
+        "description": "Zeitverzögerung (Timeout) für jeden nächsten slide nach dem vorherigen oder nachdem die Komponente ge-mounted wurde.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'fss.fsAutoplayNext' : {
+        "description": "Wenn true dann ist die Slide Richtung rechts, falls false dann links.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAnimationTime' : {
+        "description": "Sliders Tranformationszeit beim autoplay und beim Mouse/Touch move. Mögliche Werte von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"        
+    },
+    'fss.fsNext' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: weiter.",
+        "type": "String | JSX",
+        "default": ">"  
+    },
+    'fss.fsPrevious' : {
+        "description": "Bentuzerdefiniertes Jsx innerhalb des Buttons: früher.",
+        "type": "String | JSX",
+        "default": "<"
+    },
+    'fss.fsAutoplayStopIcon' : {
+        "description": "Benutzerdefiniertes JSX um eine Slideshow zu beenden.",
+        "type": "String | JSX",
+        "default": "🛑"  
+    },
+    'fss.fsDisplayDots' : {
+        "description": "Erlauben von dem Rendern der Navigierungspunkte innerhalb des Paginators.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayStopOnLast' : {
+        "description": "Wenn der Slider am Ende/Anfang (je nach dem Wert des Schlüssels 'fsAutoplayNext') ist, wird die Slideshow beended.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsDisplayDotsIndex' : {
+        "description": "Rendern des einzelnen Paginators Index erlauben.",
+        "type": "Boolean",
+        "default": "false"  
+    },
+    'fss.fsCloseOnEsc': {
+        "description": "Beim Drücken der 'Escape' Taste, soll der Fullscreen Slider weiterhin angezeigt werden oder die Anzeige soll unterbrochen werden.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsActive': {
+        "description": "Beim anklicken eines Bildes wird ein Fullscreen Slider geöffnet.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.example1': 'Slider Beispiel mit einem Fullscreen support. Der Fullscreen wird aktiviert, sobald man ein Foto anklickt. Der Slider kann mit der ESC Taste oder dem X Button geschlossen werden.',
+    'fss.example2': 'Der Slider kann mit der ESC Taste oder dem X Button geschlossen werden.',
 };
 
 export default DE;

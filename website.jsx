@@ -64,7 +64,8 @@ import _ScrollTo from './Website/Pages/ScrollTo';
 import _SourceCode from './Website/Pages/SourceCode';
 import _Sidebar from './Website/Pages/Sidebar';
 import _Slider from './Website/Pages/Slider';
-import _SliderCards from './Website/Pages/SliderCards';
+import _SliderCards from './Website/Pages/SliderCards'
+import _SliderFullscreen from './Website/Pages/SliderFullscreen'
 import _SliderItems from './Website/Pages/SliderItems';
 import _Stars from './Website/Pages/Stars';
 import _Steps from './Website/Pages/Steps';
@@ -336,7 +337,7 @@ class App extends React.Component {
       {
         version: '5.0',
         start: 0,
-        end: 1
+        end: 2
       },
       {
         version: '4.2',
@@ -820,6 +821,10 @@ class App extends React.Component {
                               href: `${host}#/components/slider-cards`,
                             },
                             {
+                              text: 'SliderFullscreen',
+                              href: `${host}#/components/slider-fullscreen`,
+                            },
+                            {
                               text: 'SliderItems',
                               href: `${host}#/components/slider-items`,
                             }
@@ -1016,6 +1021,7 @@ class App extends React.Component {
               <Route exact path="/components/sidebar" render={(props) => (<_Sidebar {...props} />)} />
               <Route exact path="/components/slider" render={(props) => (<_Slider {...props} />)} />
               <Route exact path="/components/slider-cards" render={(props) => (<_SliderCards {...props} />)} />
+              <Route exact path="/components/slider-fullscreen" render={(props) => (<_SliderFullscreen {...props} />)} />
               <Route exact path="/components/slider-items" render={(props) => (<_SliderItems {...props} />)} />
               <Route exact path="/components/scroll-to" render={(props) => (<_ScrollTo {...props} />)} />
               <Route exact path="/components/source-code" render={(props) => (<_SourceCode {...props} />)} />

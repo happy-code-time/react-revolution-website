@@ -77,7 +77,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'CardsScrollCallback',
+                            key: 'CardsScrollCallback - part 1',
                             value: 'Added Promise.reject() support.',
                             icon: <i className="fas fa-wrench"></i>,
                             iconProps: {
@@ -88,19 +88,8 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'CardsScrollCallback',
-                            value: 'Added new key "persistReject".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'CardsScrollCallback',
-                            value: 'Added new key "onReject".',
+                            key: 'CardsScrollCallback - part 2',
+                            value: 'Added new keys: \n\npersistReject\nonReject\n',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -111,18 +100,7 @@ class Releases extends React.Component {
                         },
                         {
                             key: 'Articles',
-                            value: 'Added new keys "toggleForwards".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Articles',
-                            value: 'Added new keys "toggleBackwards".',
+                            value: 'Added new keys: \n\ntoggleForwards\ntoggleBackwards\n',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -133,18 +111,7 @@ class Releases extends React.Component {
                         },
                         {
                             key: 'ArticlesImages',
-                            value: 'Added new key "toggleForwards".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'ArticlesImages',
-                            value: 'Added new key "toggleBackwards".',
+                            value: 'Added new keys: \n\ntoggleForwards\ntoggleBackwards\n',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -158,7 +125,7 @@ class Releases extends React.Component {
                 '1.2.0': {
                     data: [
                         {
-                            key: 'LoadOnScroll',
+                            key: 'LoadOnScroll - part 1',
                             value: 'Renamed key from "loadMoreLoadingIcon" to "loading".',
                             icon: <i className="far fa-edit"></i>,
                             iconProps: {
@@ -169,8 +136,8 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'LoadOnScroll',
-                            value: 'Added new key "callbackProps".',
+                            key: 'LoadOnScroll - part 2',
+                            value: 'Added new keys: \n\ncallbackProps\npersistReject\nonReject\nfireScrollEvent\nfireScrollBack\n',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -180,52 +147,8 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'LoadOnScroll',
+                            key: 'LoadOnScroll - part 3',
                             value: 'Added Promise.reject() support.',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'LoadOnScroll',
-                            value: 'Added new key "persistReject".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'LoadOnScroll',
-                            value: 'Added new key "onReject".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'LoadOnScroll',
-                            value: 'Added new key "fireScrollEvent".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'LoadOnScroll',
-                            value: 'Added new key "fireScrollBack".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -261,7 +184,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Clipboard',
+                            key: 'Clipboard - part 1',
                             value: 'Bugfix of the callback function.',
                             icon: <i className="fas fa-bug"></i>,
                             iconProps: {
@@ -272,7 +195,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Clipboard',
+                            key: 'Clipboard - part 2',
                             value: 'Added new key "callbackProps".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -446,7 +369,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'CustomSuggestion',
+                            key: 'CustomSuggestion - part 1',
                             value: 'Bugfix - applying new suggestions dynamically passed in state after custom callback function has been called.',
                             icon: <i className="fas fa-bug"></i>,
                             iconProps: {
@@ -457,7 +380,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'CustomSuggestion',
+                            key: 'CustomSuggestion - part 2',
                             value: 'Added new key "loading" - to display an custom loading icon (data) while callback function are executed and waiting to resolve the Promise.',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -484,84 +407,7 @@ class Releases extends React.Component {
                         },
                         {
                             key: 'Menu',
-                            value: 'Added new key "headData".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "activeClassName".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "toggledClassName".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "isActiveTree".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "forceClose".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "forceCloseAll".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "align".',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'Menu',
-                            value: 'Added new key "alignIcon".',
+                            value: 'Added new keys: \n\nheadData\nactiveClassName\ntoggledClassName\nisActiveTree\nforceClose\nforceCloseAll\nalign\nalignIcon\n',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
                                 style: {
@@ -643,12 +489,12 @@ class Releases extends React.Component {
                 '4.0.3': {
                     data: [
                         {
-                            key: 'Container',
+                            key: 'Container - part 1',
                             value: 'Removed keys "persistUserSelection", "clearPersistUserSelection", "minify", "autopilot".',
                             icon: '☠'
                         },
                         {
-                            key: 'Container',
+                            key: 'Container - part 2',
                             value: 'Renamed key from "minify" to "minifyAt".',
                             icon: <i className="far fa-edit"></i>,
                             iconProps: {
@@ -659,7 +505,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Container',
+                            key: 'Container - part 3',
                             value: 'Renamed key from "maxify" to "maxifyAt".',
                             icon: <i className="far fa-edit"></i>,
                             iconProps: {
@@ -670,7 +516,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Container',
+                            key: 'Container - part 4',
                             value: 'Added new key "hideAt".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -681,7 +527,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Container',
+                            key: 'Container - part 5',
                             value: 'Added new key "minifySidebarOn".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -883,7 +729,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Menu',
+                            key: 'Menu - part 1',
                             value: 'Fixed onClick event. Previously the onClick event was attached to all childs. Now the onClick event are attached, only if the element has nested childrens.',
                             icon: <i className='fas fa-bug'></i>,
                             iconProps: {
@@ -894,8 +740,9 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Menu',
+                            key: 'Menu - part 2',
                             value: 'Fixed tag generation from <a> to <div> if the key "href" are not passed to the single menu entry, this means href is undefined, null or other then typeof "string".',
+                            icon: <i className="fas fa-bug"></i>,
                             iconProps: {
                                 style: {
                                     color: 'rgb(255,255,255)',
@@ -904,7 +751,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Menu',
+                            key: 'Menu - part 3',
                             value: 'Added to data tree new keys: callback, callbackProps, externalLink.',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -915,8 +762,9 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'MenuHeight',
+                            key: 'MenuHeight - part 1',
                             value: 'Fixed onClick event. Previously the onClick event was attached to all childs. Now the onClick event are attached, only if the element has nested childrens.',
+                            icon: <i className="fas fa-bug"></i>,
                             iconProps: {
                                 style: {
                                     color: 'rgb(255,255,255)',
@@ -925,7 +773,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'MenuHeight',
+                            key: 'MenuHeight - part 2',
                             value: 'Added to data tree new keys: callback, callbackProps, externalLink.',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -936,7 +784,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'MenuHeight',
+                            key: 'MenuHeight - part 3',
                             value: 'Fixed tag generation from <a> to <div> if the key "href" are not passed to the single menu entry, this means href is undefined, null or other then typeof "string".',
                             icon: <i className="fas fa-bug"></i>,
                             iconProps: {
@@ -974,7 +822,7 @@ class Releases extends React.Component {
                 '4.1.1': {
                     data: [
                         {
-                            key: 'Slider',
+                            key: 'Slider - part 1',
                             value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
@@ -985,7 +833,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'Slider',
+                            key: 'Slider - part 2',
                             value: 'Added new keys: "paginationInside", "dotsInside", "slideAfterMove", "data.dot".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -996,7 +844,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderCards',
+                            key: 'SliderCards - part 1',
                             value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
@@ -1007,7 +855,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderCards',
+                            key: 'SliderCards - part 2',
                             value: 'Added new keys: "paginationInside", "slideAfterMove", "data.dot".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -1018,12 +866,12 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderCards',
+                            key: 'SliderCards - part 3',
                             value: 'Removed keys: "cardWidthS", "cardWidthL", "cardWidthXL".',
                             icon: '☠'
                         },
                         {
-                            key: 'SliderItems',
+                            key: 'SliderItems - part 1',
                             value: 'Improvement of listeners and slide move action to avoid (on mouse move) slide "flipping".',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
@@ -1034,7 +882,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderItems',
+                            key: 'SliderItems - part 2',
                             value: 'Added new keys: "paginationInside", "dotsInside", "slideAfterMove", "data.dot".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -1123,7 +971,7 @@ class Releases extends React.Component {
                 '4.1.4': {
                     data: [
                         {
-                            key: 'LoadOnScroll',
+                            key: 'LoadOnScroll - part 1',
                             value: 'Added new key: "scrolledToBottom".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -1134,7 +982,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'LoadOnScroll',
+                            key: 'LoadOnScroll - part 2',
                             value: 'Fixed "Document listener" if the key scrollReference={false} and scrolledToBottom={true}.',
                             icon: <i className="fas fa-bug"></i>,
                             iconProps: {
@@ -1145,7 +993,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'LoadOnScroll',
+                            key: 'LoadOnScroll - part 3',
                             value: 'Added support for resolving data as array of Jsx elements. Currently the module expects single data as one single JSX element. Now if data is typeof JSX[], then this items rendered as single element.',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
@@ -1175,7 +1023,7 @@ class Releases extends React.Component {
                 '4.1.6': {
                     data: [
                         {
-                            key: 'SliderCards',
+                            key: 'SliderCards - part 1',
                             value: 'Added new keys: "itemsXS", "slideItemsXS".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -1186,7 +1034,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderCards',
+                            key: 'SliderCards - part 2',
                             value: 'Improved resize check.',
                             icon: <i className="fas fa-wrench"></i>,
                             iconProps: {
@@ -1197,7 +1045,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderItems',
+                            key: 'SliderItems - part 1',
                             value: 'Added new keys: "itemsXS".',
                             icon: <i className="fas fa-key"></i>,
                             iconProps: {
@@ -1208,7 +1056,7 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'SliderItems',
+                            key: 'SliderItems - part 2',
                             value: 'Improved resize check.',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
@@ -1492,6 +1340,43 @@ class Releases extends React.Component {
                                 style: {
                                     color: 'rgb(255,255,255)',
                                     background: '#FF4459'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.0.2': {
+                    data: [
+                        {
+                            key: 'SliderFullscreen',
+                            value: 'New component.',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Slider - part 1',
+                            value: 'Added Fullscreen support.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Slider - part 2',
+                            value: "Added new keys for the fullscreen support: \n\nfsActive\nfsDisplayPagination\nfsSlideAfterMove\nfsDisplayPreview\nfsPreviewWidth\nfsPreviewHeight\nfsPreviewMarginX\nfsPreviewMarginY\nfsPreviewToggle\nfsToggleDirection\nfsImageAsBackground\nfsWrapDirection\nfsCloseIcon\nfsUseLayerX\nfsAutoplayTime\nfsAutoplayIcon\nfsAutoplayNext\nfsAutoplayStopIcon\nfsAutoplayStopOnLast\nfsAnimationTime\nfsNext\nfsPrevious\nfsDisplayDots\nfsDisplayDotsIndex\nfsCloseOnEsc\n",
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
                                 }
                             },
                         },

@@ -9,7 +9,7 @@ const run = require('gulp-run');
 var exec = require('child_process').exec;
 const { performance } = require('perf_hooks');
 
-const version = 'v5.0.1';
+const version = 'v5.0.2';
 
 const modules = [
     "Accordion",
@@ -59,6 +59,7 @@ const modules = [
     "SideBar",
     "Slider",
     "SliderCards",
+    "SliderFullscreen",
     "SliderItems",
     "SourceCode",
     "Stars",

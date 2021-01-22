@@ -1,94 +1,150 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ListSwitch } from './react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-list-switch.scss';
-import './Website/Scss/list-switch-website.scss';
+import { SliderFullscreen, Slider } from './react-revolution/react-revolution';
+import './react-revolution/_Sass/rr-slider.scss';
+import './react-revolution/_Sass/rr-slider-fullscreen.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.logData = this.logData.bind(this);
-        this.submitSteps = this.submitSteps.bind(this);
+        this.toogleFSS = this.toogleFSS.bind(this);
+
+        this.state = {
+            display: false
+        };
     }
 
-    getdata() {
-        return [
-            {
-                text: 'Settings',
-                callback: console.info,
-                callbackProps: 'clicked',
-                next: '⚙',
-                previous: '<',
-                data: [
-                    {
-                        text: 'Profile',
-                        callback: console.info,
-                        callbackProps: 'clicked',
-                        next: '👤',
-                        previous: '<',
-                        data: [
-                            {
-                                text: 'Private settings',
-                                callback: console.info,
-                                callbackProps: 'clicked',
-                                previous: '<',
-                                next: '🕵',
-                                data: [
-                                    {
-                                        text: 'Setting 1',
-                                        callback: console.info,
-                                        callbackProps: 'clicked',
-                                    },
-                                    {
-                                        text: 'Setting 2',
-                                        callback: console.info,
-                                        callbackProps: 'clicked',
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        text: 'Location',
-                        callback: console.info,
-                        callbackProps: 'clicked',
-                        next: '🌐',
-                        previous: '',
-                        data: [
-                            {
-                                text: 'City',
-                                callback: console.info,
-                                callbackProps: 'clicked',
-                            },
-                            {
-                                text: 'Street',
-                                callback: console.info,
-                                callbackProps: 'clicked',
-                            }
-                        ]
-                    }
-                ]
-            },
-        ];
-    }
-
-    logData(callbackProps, steps) {
-        console.log(steps);
-    }
-
-    submitSteps(submitStepsProps, steps) {
-        console.log(steps);
+    toogleFSS(closeCallbackProps) {
+        this.setState({
+            display: !this.state.display
+        });
     }
 
     render() {
         return (
-            <span>
-                <ListSwitch
-                    addClass='list-switch-website'
-                    placeholder='🔧'
-                    data={this.getdata()}
+            <div
+                style={
+                    {
+                        width: '100%',
+                        maxWidth: '1024px',
+                        height: '300px',
+                        margin: '5vh auto'
+                    }
+                }
+            >
+                <Slider
+                    addClass='slider-items-example'
+                    displayDotsIndex={true}
+                    buttonsAlwaysVisible={true}
+                    paginationType={2}
+                    autoplayStopOnLast={true}
+                    //Fullscreen mode
+                    fsPrevious='«'
+                    fsNext='»'
+                    fsUseLayerX={false}
+                    fsImageAsBackground={false}
+                    fsPreviewToggle='⇩'
+                    fsToggleDirection='right'
+                    fsCloseIcon='✖'
+                    fsAutoplayIcon='🖥'
+                    fsAutoplayStopIcon='stop'
+                    fsAutoplayTime={3000}
+                    fsAutoplayNext={true}
+                    fsAnimationTime='05'
+                    fsWrapDirection={true}
+                    fsSlideAfterMove={true}
+                    fsDisplayPreview={true}
+                    fsDisplayPagination={true}
+                    fsAutoplayStopOnLast={false}
+                    data={
+                        [
+                            {
+                                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                            },
+                            {
+                                image: 'public/images/chania.jpg',
+                            },
+                            {
+                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                            },
+                            {
+                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                            },
+                            {
+                                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                            },
+                            {
+                                image: 'public/images/chania.jpg',
+                            },
+                            {
+                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                            },
+                            {
+                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                            },
+                        ]
+                    }
                 />
-            </span>
+
+                <button onClick={() => this.toogleFSS()}>
+                    toggle FSS
+                </button>
+                {
+                    this.state.display &&
+                    <SliderFullscreen
+                        addClass='slider-items-example'
+                        closeCallback={this.toogleFSS}
+                        closeCallbackProps='any'
+                        buttonsAlwaysVisible={true}
+                        autoplayStopOnLast={true}
+                        previous='«'
+                        next='»'
+                        useLayerX={false}
+                        imageAsBackground={false}
+                        previewToggle='⇩'
+                        toggleDirection='right'
+                        closeIcon='✖'
+                        autoplayIcon='🖥'
+                        autoplayStopIcon='stop'
+                        autoplayTime={3000}
+                        autoplayNext={true}
+                        animationTime='05'
+                        wrapDirection={true}
+                        slideAfterMove={true}
+                        displayPreview={true}
+                        displayPagination={true}
+                        autoplayStopOnLast={false}
+                        data={
+                            [
+                                {
+                                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                },
+                                {
+                                    image: 'public/images/chania.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                                {
+                                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                },
+                                {
+                                    image: 'public/images/chania.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                },
+                                {
+                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                },
+                            ]
+                        }
+                    />
+                }
+            </div>
         );
     }
 }

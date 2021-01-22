@@ -193,6 +193,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/slider-cards'
         },
         {
+            name: 'SliderFullscreen',
+            link: 'components/slider-fullscreen'
+        },
+        {
             name: 'SliderItems',
             link: 'components/slider-items'
         },

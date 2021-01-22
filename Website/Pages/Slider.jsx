@@ -454,6 +454,63 @@ const codeExample10 = `import { Slider } from 'react-revolution';
     />
 </div>`;
 
+const codeExample11 = `import { Slider } from 'react-revolution';
+// import Slider from 'react-revolution/Slider';
+
+<Slider
+    addClass='slider-items-example'
+    displayDotsIndex={true}
+    buttonsAlwaysVisible={true}
+    paginationType={2}
+    autoplayStopOnLast={true}
+    //Fullscreen mode
+    fsPrevious='«'
+    fsNext='»'
+    fsUseLayerX={false}
+    fsImageAsBackground={false}
+    fsPreviewToggle='⇩'
+    fsToggleDirection='right'
+    fsCloseIcon='✖'
+    fsAutoplayStopIcon='stop'
+    fsAutoplayTime={3000}
+    fsAutoplayNext={true}
+    fsAnimationTime='05'
+    fsWrapDirection={true}
+    fsSlideAfterMove={true}
+    fsDisplayPreview={true}
+    fsDisplayPagination={true}
+    fsAutoplayStopOnLast={false}
+    fsActive={true}
+    data={
+        [
+            {
+                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+            },
+            {
+                image: 'public/images/chania.jpg',
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+            },
+            {
+                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+            },
+            {
+                image: 'public/images/chania.jpg',
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+            },
+            {
+                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+            },
+        ]
+    }
+/>`;
+
 
 class _Slider extends React.Component {
     constructor(props) {
@@ -940,6 +997,82 @@ class _Slider extends React.Component {
                     </div>
                 )
             },
+            {
+                title: 'Slider',
+                description: trans('fss.example1'),
+                reactTextBefore: '',
+                react: codeExample11,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '500px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <Slider
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            buttonsAlwaysVisible={true}
+                            paginationType={2}
+                            autoplayStopOnLast={true}
+                            //Fullscreen mode
+                            fsPrevious='«'
+                            fsNext='»'
+                            fsUseLayerX={false}
+                            fsImageAsBackground={false}
+                            fsPreviewToggle='⇩'
+                            fsToggleDirection='right'
+                            fsCloseIcon='✖'
+                            fsAutoplayStopIcon='stop'
+                            fsAutoplayTime={3000}
+                            fsAutoplayNext={true}
+                            fsAnimationTime='05'
+                            fsWrapDirection={true}
+                            fsSlideAfterMove={true}
+                            fsDisplayPreview={true}
+                            fsDisplayPagination={true}
+                            fsAutoplayStopOnLast={false}
+                            fsActive={true}
+                            data={
+                                [
+                                    {
+                                        image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/chania.jpg',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/chania.jpg',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                    },
+                                    {
+                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                    },
+                                ]
+                            }
+                        />
+                    </div>
+                )
+            },
         ];
     }
 
@@ -1162,6 +1295,106 @@ class _Slider extends React.Component {
                                     key: 'useLayerX',
                                     values: 'slider.useLayerX'
                                 },
+                                {
+                                    key: 'fsActive',
+                                    values: 'fss.fsActive'
+                                },
+                                {
+                                    key: 'fsDisplayPagination',
+                                    values: 'fss.fsDisplayPagination'
+                                },
+                                {
+                                    key: 'fsSlideAfterMove',
+                                    values: 'fss.fsSlideAfterMove'
+                                },
+                                {
+                                    key: 'fsDisplayPreview',
+                                    values: 'fss.fsDisplayPreview'
+                                },
+                                {
+                                    key: 'fsPreviewWidth',
+                                    values: 'fss.fsPreviewWidth'
+                                },
+                                {
+                                    key: 'fsPreviewHeight',
+                                    values: 'fss.fsPreviewHeight'
+                                },
+                                {
+                                    key: 'fsPreviewMarginX',
+                                    values: 'fss.fsPreviewMarginX'
+                                },
+                                {
+                                    key: 'fsPreviewMarginY',
+                                    values: 'fss.fsPreviewMarginY'
+                                },
+                                {
+                                    key: 'fsPreviewToggle',
+                                    values: 'fss.fsPreviewToggle'
+                                },
+                                {
+                                    key: 'fsToggleDirection',
+                                    values: 'fss.fsToggleDirection'
+                                },
+                                {
+                                    key: 'fsImageAsBackground',
+                                    values: 'fss.fsImageAsBackground'
+                                },
+                                {
+                                    key: 'fsWrapDirection',
+                                    values: 'fss.fsWrapDirection'
+                                },
+                                {
+                                    key: 'fsCloseIcon',
+                                    values: 'fss.fsCloseIcon'
+                                },
+                                {
+                                    key: 'fsUseLayerX',
+                                    values: 'fss.fsUseLayerX'
+                                },
+                                {
+                                    key: 'fsAutoplayTime',
+                                    values: 'fss.fsAutoplayTime'
+                                },
+                                {
+                                    key: 'fsAutoplayIcon',
+                                    values: 'fss.fsAutoplayIcon'
+                                },
+                                {
+                                    key: 'fsAutoplayNext',
+                                    values: 'fss.fsAutoplayNext'
+                                },
+                                {
+                                    key: 'fsAutoplayStopIcon',
+                                    values: 'fss.fsAutoplayStopIcon'
+                                },
+                                {
+                                    key: 'fsAutoplayStopOnLast',
+                                    values: 'fss.fsAutoplayStopOnLast'
+                                },
+                                {
+                                    key: 'fsAnimationTime',
+                                    values: 'fss.fsAnimationTime'
+                                },
+                                {
+                                    key: 'fsNext',
+                                    values: 'fss.fsNext'
+                                },
+                                {
+                                    key: 'fsPrevious',
+                                    values: 'fss.fsPrevious'
+                                },
+                                {
+                                    key: 'fsDisplayDots',
+                                    values: 'fss.fsDisplayDots'
+                                },
+                                {
+                                    key: 'fsDisplayDotsIndex',
+                                    values: 'fss.fsDisplayDotsIndex'
+                                },
+                                {
+                                    key: 'fsCloseOnEsc',
+                                    values: 'fss.fsCloseOnEsc'
+                                },                           
                             ],
                             'rr-slider'
                         )

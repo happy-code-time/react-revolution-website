@@ -1,7 +1,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const version = '5.0.1';
+const version = '5.0.2';
 
 const config = {
     resolve: {

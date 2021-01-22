@@ -2,6 +2,7 @@ import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import loadStyle from '../internalFunctions/loadStyle';
 import uuid from '../internalFunctions/internalUuid';
+import Fullscreen from './Fullscreen';
 
 class Slider extends React.Component {
     constructor(props) {
@@ -18,8 +19,22 @@ class Slider extends React.Component {
         this.mouseDownListeners = this.mouseDownListeners.bind(this);
         this.mouseMoveListeners = this.mouseMoveListeners.bind(this);
         this.autoplay = this.autoplay.bind(this);
+        this.parent_closeFullscreenSlider = this.parent_closeFullscreenSlider.bind(this);
+        this.parent_setSlide = this.parent_setSlide.bind(this);
 
         this.state = {
+            // App
+            // images root holder
+            slidesTransform: `translate3d(-0px,0,0)`,
+            slidesWidth: 100,
+            // each single image holder
+            slideWrapperWidth: '100%',
+            // each single img tag
+            imagesTransform: `translate3d(-0px,0,0)`,
+            // current slide index
+            index: 0,
+            fullscreenactive: false,
+            // User
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
@@ -34,16 +49,7 @@ class Slider extends React.Component {
             buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
             next: props.next ? props.next : '>',
             previous: props.previous ? props.previous : '<',
-            // images root holder
-            slidesTransform: `translate3d(-0px,0,0)`,
-            slidesWidth: 100,
-            // each single image holder
-            slideWrapperWidth: '100%',
-            // each single img tag
-            imagesTransform: `translate3d(-0px,0,0)`,
-            // current slide index
-            index: 0,
-            callbackMount: props.callbackMount && typeof function(){} == typeof props.callbackMount ? props.callbackMount : undefined,
+            callbackMount: props.callbackMount && typeof function () { } == typeof props.callbackMount ? props.callbackMount : undefined,
             callbackMountProps: props.callbackMountProps,
             imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
             dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
@@ -57,6 +63,33 @@ class Slider extends React.Component {
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
             inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
             useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+            autoplayStopOnLast: typeof true == typeof props.autoplayStopOnLast ? props.autoplayStopOnLast : true,
+            // slider fullscreen
+            fsDisplayPreview: typeof true == typeof props.fsDisplayPreview ? props.fsDisplayPreview : true,
+            fsWrapDirection: typeof true == typeof props.fsWrapDirection ? props.fsWrapDirection : true,
+            fsDisplayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
+            fsSlideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
+            fsPreviewWidth: props.fsPreviewWidth && typeof 8 == typeof props.fsPreviewWidth ? props.fsPreviewWidth : 80,
+            fsPreviewHeight: props.fsPreviewHeight && typeof 8 == typeof props.fsPreviewHeight ? props.fsPreviewHeight : 70,
+            fsPreviewMarginX: props.fsPreviewMarginX && typeof 8 == typeof props.fsPreviewMarginX ? props.fsPreviewMarginX : 10,
+            fsPreviewMarginY: props.fsPreviewMarginY && typeof 8 == typeof props.fsPreviewMarginY ? props.fsPreviewMarginY : 10,
+            fsAutoplayIcon: props.fsAutoplayIcon ? props.fsAutoplayIcon : '🎞',
+            fsPreviewToggle: props.fsPreviewToggle ? props.fsPreviewToggle : '⇩',
+            fsToggleDirection: (props.fsToggleDirection && typeof '8' == typeof props.fsToggleDirection && ['left', 'right'].includes(props.fsToggleDirection)) ? props.fsToggleDirection : 'right',
+            fsNext: props.fsNext ? props.fsNext : '>>',
+            fsPrevious: props.fsPrevious ? props.fsPrevious : '<<',
+            fsImageAsBackground: typeof true == typeof props.fsImageAsBackground ? props.fsImageAsBackground : false,
+            fsCloseIcon: props.fsCloseIcon ? props.fsCloseIcon : 'x',
+            fsUseLayerX: typeof true == typeof props.fsUseLayerX ? props.fsUseLayerX : true,
+            fsAutoplayTime: props.fsAutoplayTime && typeof 8 == typeof props.fsAutoplayTime && 0 < props.fsAutoplayTime ? props.fsAutoplayTime : 5000,
+            fsAutoplayNext: typeof true == typeof props.fsAutoplayNext ? props.fsAutoplayNext : true,
+            fsAnimationTime: (props.fsAnimationTime && typeof '8' == typeof props.fsAnimationTime) ? props.fsAnimationTime : '05',
+            fsAutoplayStopIcon: props.fsAutoplayStopIcon ? props.fsAutoplayStopIcon : '🛑',
+            fsDisplayDots: typeof true == typeof props.fsDisplayDots ? props.fsDisplayDots : true,
+            fsDisplayDotsIndex: typeof true == typeof props.fsDisplayDotsIndex ? props.fsDisplayDotsIndex : true,
+            fsAutoplayStopOnLast: typeof true == typeof props.fsAutoplayStopOnLast ? props.fsAutoplayStopOnLast : true,
+            fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
+            fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
         };
 
         this.slideWidth = 0;
@@ -73,6 +106,10 @@ class Slider extends React.Component {
         this.oldX = 0;
         this.mouseDirection = 'r';
         this.abs = 0;
+
+        // Fullscreen slider
+        this.moveTimeoutReset = undefined;
+        this.wasMove = false;
     }
 
     /**
@@ -82,8 +119,61 @@ class Slider extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'useLayerX', 'defaultClass', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'dotsInside', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationInside', 'paginationType', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible', 'callbackMount', 'callbackMountProps', 'imageAsBackground'], props, state)) {
+        if (getDerivedStateFromPropsCheck([
+            'index',
+            'addClass',
+            'useLayerX',
+            'defaultClass',
+            'inlineStyle',
+            'allowMouseTouch',
+            'slideAfterMove',
+            'wrapDirection',
+            'dotsInside',
+            'autoplay',
+            'autoplayTime',
+            'autoplayNext',
+            'animationTime',
+            'paginationInside',
+            'paginationType',
+            'id',
+            'data',
+            'next',
+            'previous',
+            'displayPagination',
+            'displayDots',
+            'displayDotsIndex',
+            'buttonsAlwaysVisible',
+            'callbackMount',
+            'callbackMountProps',
+            'imageAsBackground',
+            'fsDisplayPreview',
+            'fsWrapDirection',
+            'fsDisplayPagination',
+            'fsSlideAfterMove',
+            'fsPreviewWidth',
+            'fsPreviewHeight',
+            'fsPreviewMarginX',
+            'fsPreviewMarginY',
+            'fsAutoplayIcon',
+            'fsPreviewToggle',
+            'fsToggleDirection',
+            'fsNext',
+            'fsPrevious',
+            'fsImageAsBackground',
+            'fsCloseIcon',
+            'fsUseLayerX',
+            'fsAutoplayTime',
+            'fsAutoplayNext',
+            'fsAnimationTime',
+            'fsAutoplayStopIcon',
+            'fsDisplayDots',
+            'fsAutoplayStopOnLast',
+            'fsDisplayDotsIndex',
+            'fsCloseOnEsc',
+            'fsActive'
+        ], props, state)) {
             return {
+                index: state.index, // to handle indexes made by child fullscreen events
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -95,7 +185,7 @@ class Slider extends React.Component {
                 displayDots: typeof true == typeof props.displayDots ? props.displayDots : true,
                 displayDotsIndex: typeof true == typeof props.displayDotsIndex ? props.displayDotsIndex : false,
                 buttonsAlwaysVisible: typeof true == typeof props.buttonsAlwaysVisible ? props.buttonsAlwaysVisible : false,
-                callbackMount: props.callbackMount && typeof function(){} == typeof props.callbackMount ? props.callbackMount : undefined,
+                callbackMount: props.callbackMount && typeof function () { } == typeof props.callbackMount ? props.callbackMount : undefined,
                 callbackMountProps: props.callbackMountProps,
                 imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
                 dotsInside: typeof true == typeof props.dotsInside ? props.dotsInside2 : true,
@@ -109,6 +199,32 @@ class Slider extends React.Component {
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
                 inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
                 useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+                // fullscreen slider
+                fsDisplayPreview: typeof true == typeof props.fsDisplayPreview ? props.fsDisplayPreview : true,
+                fsWrapDirection: typeof true == typeof props.fsWrapDirection ? props.fsWrapDirection : true,
+                fsDisplayPagination: typeof true == typeof props.displayPagination ? props.displayPagination : true,
+                fsSlideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
+                fsPreviewWidth: props.fsPreviewWidth && typeof 8 == typeof props.fsPreviewWidth ? props.fsPreviewWidth : 80,
+                fsPreviewHeight: props.fsPreviewHeight && typeof 8 == typeof props.fsPreviewHeight ? props.fsPreviewHeight : 70,
+                fsPreviewMarginX: props.fsPreviewMarginX && typeof 8 == typeof props.fsPreviewMarginX ? props.fsPreviewMarginX : 10,
+                fsPreviewMarginY: props.fsPreviewMarginY && typeof 8 == typeof props.fsPreviewMarginY ? props.fsPreviewMarginY : 10,
+                fsAutoplayIcon: props.fsAutoplayIcon ? props.fsAutoplayIcon : '🎞',
+                fsPreviewToggle: props.fsPreviewToggle ? props.fsPreviewToggle : '⇩',
+                fsToggleDirection: (props.fsToggleDirection && typeof '8' == typeof props.fsToggleDirection && ['left', 'right'].includes(props.fsToggleDirection)) ? props.fsToggleDirection : 'right',
+                fsNext: props.fsNext ? props.fsNext : '>>',
+                fsPrevious: props.fsPrevious ? props.fsPrevious : '<<',
+                fsImageAsBackground: typeof true == typeof props.fsImageAsBackground ? props.fsImageAsBackground : false,
+                fsCloseIcon: props.fsCloseIcon ? props.fsCloseIcon : 'x',
+                fsUseLayerX: typeof true == typeof props.fsUseLayerX ? props.fsUseLayerX : true,
+                fsAutoplayTime: props.fsAutoplayTime && typeof 8 == typeof props.fsAutoplayTime && 0 < props.fsAutoplayTime ? props.fsAutoplayTime : 5000,
+                fsAutoplayNext: typeof true == typeof props.fsAutoplayNext ? props.fsAutoplayNext : true,
+                fsAnimationTime: (props.fsAnimationTime && typeof '8' == typeof props.fsAnimationTime) ? props.fsAnimationTime : '05',
+                fsAutoplayStopIcon: props.fsAutoplayStopIcon ? props.fsAutoplayStopIcon : '🛑',
+                fsDisplayDots: typeof true == typeof props.fsDisplayDots ? props.fsDisplayDots : true,
+                fsAutoplayStopOnLast: typeof true == typeof props.fsAutoplayStopOnLast ? props.fsAutoplayStopOnLast : true,
+                fsDisplayDotsIndex: typeof true == typeof props.fsDisplayDotsIndex ? props.fsDisplayDotsIndex : true,
+                fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
+                fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
             };
         }
 
@@ -130,14 +246,23 @@ class Slider extends React.Component {
         this.autoplay();
     }
 
-    autoplay(reattach = true){
+    autoplay(reattach = true) {
         const { autoplay } = this.state;
         clearTimeout(this.timeouter);
 
-        if(autoplay && reattach){
+        if (autoplay && reattach) {
             const { autoplayTime, autoplayNext } = this.state;
 
-            this.timeouter = setTimeout( () => {
+            this.timeouter = setTimeout(() => {
+
+                if(autoplayNext && this.state.index === this.state.data.length-1 && this.state.autoplayStopOnLast){
+                    return clearTimeout(this.timeouter);
+                }
+
+                if(!autoplayNext && 0 === this.state.index && this.state.autoplayStopOnLast){
+                    return clearTimeout(this.timeouter);
+                }
+
                 autoplayNext ? this.slideNext() : this.slidePrevious();
                 this.autoplay();
             }, autoplayTime);
@@ -173,6 +298,7 @@ class Slider extends React.Component {
         this.setResizeListener(false);
         this.mouseDownListeners(false);
         this.mouseMoveListeners(false);
+        clearTimeout(this.timeouter);
     }
 
     setResizeListener(attach = true) {
@@ -219,7 +345,7 @@ class Slider extends React.Component {
     slide() {
         const { data, index } = this.state;
 
-        if (data && data[index] && data[index].callback && typeof function(){} == typeof data[index].callback) {
+        if (data && data[index] && data[index].callback && typeof function () { } == typeof data[index].callback) {
             (data[index].callback)(index, data[index].callbackProps);
         }
 
@@ -235,11 +361,11 @@ class Slider extends React.Component {
 
         if (index === 0) {
 
-            if(this.state.wrapDirection){
+            if (this.state.wrapDirection) {
                 // Change to the last in index
                 index = this.state.data.length;
             }
-            else{
+            else {
                 // hold current position
                 index = 1;
             }
@@ -257,11 +383,11 @@ class Slider extends React.Component {
         let { index } = this.state;
 
         if (index === this.state.data.length - 1) {
-            if(this.state.wrapDirection){
+            if (this.state.wrapDirection) {
                 // Change to the last in index
                 index = -1;
             }
-            else{
+            else {
                 // hold current position
                 index = this.state.data.length - 2;
             }
@@ -332,21 +458,21 @@ class Slider extends React.Component {
     mouseDownListeners(reattach = true) {
         const { allowMouseTouch } = this.state;
 
-        if(!allowMouseTouch){
+        if (!allowMouseTouch) {
             return;
         }
 
-        if(this.wrapper) {
+        if (this.wrapper) {
             this.wrapper.removeEventListener('mousedown', this.processMouseDown);
 
             if (reattach) {
                 this.wrapper.addEventListener('mousedown', this.processMouseDown);
-            }   
+            }
         }
     }
 
     mouseMoveListeners(reattach = true) {
-        if(this.wrapper) {
+        if (this.wrapper) {
             this.wrapper.removeEventListener('mousemove', this.handleMouseMove);
 
             if (reattach) {
@@ -361,10 +487,10 @@ class Slider extends React.Component {
     }
 
     handleMouseDown(event) {
-        if(this.state.useLayerX){
+        if (this.state.useLayerX) {
             this.mousestartx = event.layerX;
         }
-        else{
+        else {
             this.mousestartx = event.clientX;
         }
         this.mouseClicksStart = performance.now();
@@ -391,10 +517,10 @@ class Slider extends React.Component {
         const { index, inlineStyle } = this.state;
 
         // Calculate distance to translate holder.
-        if(this.state.useLayerX){
+        if (this.state.useLayerX) {
             this.movex = index * this.slideWidth + (this.mousestartx - event.layerX);
         }
-        else{
+        else {
             this.movex = index * this.slideWidth + (this.mousestartx - event.clientX);
         }
         // mouse direction
@@ -404,14 +530,21 @@ class Slider extends React.Component {
 
         if (this.movex < this.slideWidth * (this.state.data.length - 1) && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
-            if(inlineStyle){
-                return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
+            if (inlineStyle) {
+                this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
             }
-
-            this.setState({
-                slidesTransform: `translate3d(-${this.movex}px,0,0)`
-            });
+            else {
+                this.setState({
+                    slidesTransform: `translate3d(-${this.movex}px,0,0)`
+                });
+            }
         }
+
+        this.wasMove = true;
+        clearTimeout(this.moveTimeoutReset);
+        this.moveTimeoutReset = setTimeout(() => {
+            this.wasMove = false;
+        }, 500);
     }
 
     handleMouseUp() {
@@ -464,13 +597,22 @@ class Slider extends React.Component {
     }
 
     handleClick() {
-        this.blockMove = true;
-        this.userMoving = false;
-        this.mouseMoveListeners(false);
+        if (this.wasMove) {
+            this.blockMove = true;
+            this.mouseMoveListeners(false);
+            this.userMoving = false;
 
-        setTimeout(() => {
-            this.blockMove = false;
-        }, 100);
+            return setTimeout(() => {
+                this.blockMove = false;
+            }, 100);
+        }
+
+        // Click handle to activate the fullscreen slider
+        if(this.state.fsActive){
+            this.setState({
+                fullscreenactive: true
+            });
+        }
     }
 
     /**
@@ -491,6 +633,7 @@ class Slider extends React.Component {
     }
 
     handleTouchMove(event) {
+        this.userMoving = true;
         let { index, inlineStyle } = this.state;
         // Calculate distance to translate holder.
         this.movex = index * this.slideWidth + (this.touchstartx - event.touches[0].pageX);
@@ -501,7 +644,7 @@ class Slider extends React.Component {
 
         if (this.movex < this.slideWidth * (this.state.data.length - 1) && this.transformer) {
             // Inline style = avoid flipping while fast mouse moving
-            if(inlineStyle){
+            if (inlineStyle) {
                 return this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
             }
 
@@ -620,7 +763,7 @@ class Slider extends React.Component {
 
         const pagesrData = [];
 
-       // Button previous
+        // Button previous
         if (index > 0 && 2 <= data.length || buttonsAlwaysVisible) {
             pagesrData.push(
                 <li key={`slide-previous-${slidersUuid}`} className="page-item" onClick={() => this.slidePrevious()}>
@@ -633,7 +776,7 @@ class Slider extends React.Component {
             );
         }
 
-       // Pages
+        // Pages
         data.map((x, i) => {
             pagesrData.push(
                 <li
@@ -675,109 +818,160 @@ class Slider extends React.Component {
         );
     }
 
+    parent_closeFullscreenSlider() {
+        this.setState({ fullscreenactive: false });
+    }
+
+    parent_setSlide(index){
+        this.setSlide(index);
+    }
+
     render() {
-        const { addClass, defaultClass, id, displayDots, allowMouseTouch, displayPagination, animationTime, paginationType, dotsInside, paginationInside, slidersUuid, data, slidesWidth, imageAsBackground, slidesTransform, imagesTransform, slideWrapperWidth } = this.state;
+        const { addClass, defaultClass, id, fsActive, displayDots, allowMouseTouch, displayPagination, animationTime, paginationType, dotsInside, paginationInside, slidersUuid, data, slidesWidth, imageAsBackground, slidesTransform, imagesTransform, slideWrapperWidth, fullscreenactive } = this.state;
 
         return (
             <div className={`${defaultClass} ${addClass} animate-${animationTime}`} id={id}>
-                {/* Need this wrapper to set a z-index lower then the page to avoid (on desktop the version) to execute the mousedown function (while using the pager). */}
+
                 {
-                    !paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
+                    fullscreenactive &&
+                    <Fullscreen
+                        // App
+                        parent_closeFullscreenSlider={this.parent_closeFullscreenSlider}
+                        parent_setSlide={this.parent_setSlide}
+                        slidersUuid={this.state.slidersUuid}
+                        slidesTransform={this.state.slidesTransform}
+                        slidesWidth={this.state.slidesWidth}
+                        slideWrapperWidth={this.state.slideWrapperWidth}
+                        imagesTransform={this.state.imagesTransform}
+                        index={this.state.index}
+                        data={this.state.data}
+                        // User
+                        displayPagination={this.state.fsDisplayPagination}
+                        slideAfterMove={this.state.fsSlideAfterMove}
+                        previewWidth={this.state.fsPreviewWidth}
+                        previewHeight={this.state.fsPreviewHeight}
+                        previewMarginX={this.state.fsPreviewMarginX}
+                        previewMarginY={this.state.fsPreviewMarginY}
+                        displayPreview={this.state.fsDisplayPreview}
+                        wrapDirection={this.state.fsWrapDirection}
+                        previewToggle={this.state.fsPreviewToggle}
+                        toggleDirection={this.state.fsToggleDirection}
+                        imageAsBackground={this.state.fsImageAsBackground}
+                        autoplayIcon={this.state.fsAutoplayIcon}
+                        closeIcon={this.state.fsCloseIcon}
+                        useLayerX={this.state.fsUseLayerX}
+                        autoplayTime={this.state.fsAutoplayTime}
+                        autoplayNext={this.state.fsAutoplayNext}
+                        animationTime={this.state.fsAnimationTime}
+                        next={this.state.fsNext}
+                        previous={this.state.fsPrevious}
+                        autoplayStopIcon={this.state.fsAutoplayStopIcon}
+                        displayDots={this.state.fsDisplayDots}
+                        autoplayStopOnLast={this.state.fsAutoplayStopOnLast}
+                        displayDotsIndex={this.state.fsDisplayDotsIndex}
+                        closeOnEsc={this.state.fsCloseOnEsc}
+                    />
                 }
-                <div
-                    key={`wrapper-${slidersUuid}`}
-                    className="slider-wrapper"
-                    ref={(node) => (this.wrapper = node)}
-                    // Mobile
-                    {...((true == allowMouseTouch) && { onTouchStart: (e) => this.handleTouchStart(e) })}
-                    {...((true == allowMouseTouch) && { onTouchMove: (e) => this.handleTouchMove(e) })}
-                    {...((true == allowMouseTouch) && { onTouchEnd: (e) => this.handleTouchEnd(e) })}
-                    // Desktop
-                    {...((true == allowMouseTouch) && { onClick: (e) => this.handleClick(e) })}
-                    {...((true == allowMouseTouch) && { onMouseUp: (e) => this.handleMouseUp(e) })}
-                    {...((true == allowMouseTouch) && { onMouseLeave: (e) => this.handleMouseLeave(e) })}
-                >
+                <span>
+                    {/* Need this wrapper to set a z-index lower then the page to avoid (on desktop the version) to execute the mousedown function (while using the pager). */}
                     {
-                        paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
+                        !paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
                     }
                     <div
-                        ref={(node) => (this.transformer = node)}
-                        className={`slides user-select-none animate-${animationTime}`}
-                        style={{
-                            transform: `${slidesTransform}`,
-                            width: `${slidesWidth}px`,
-                        }}
+                        key={`wrapper-${slidersUuid}`}
+                        className="slider-wrapper"
+                        ref={(node) => (this.wrapper = node)}
+                        // Mobile
+                        {...((true == allowMouseTouch) && { onTouchStart: (e) => this.handleTouchStart(e) })}
+                        {...((true == allowMouseTouch) && { onTouchMove: (e) => this.handleTouchMove(e) })}
+                        {...((true == allowMouseTouch) && { onTouchEnd: (e) => this.handleTouchEnd(e) })}
+                        // Desktop
+                        {...((true == allowMouseTouch) && { onMouseUp: (e) => this.handleMouseUp(e) })}
+                        {...((true == allowMouseTouch) && { onMouseLeave: (e) => this.handleMouseLeave(e) })}
                     >
-                        {0 !== data.length && data.map((s, i) => {
+                        {
+                            paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
+                        }
+                        <div
+                            ref={(node) => (this.transformer = node)}
+                            className={`slides user-select-none animate-${animationTime}`}
+                            style={{
+                                transform: `${slidesTransform}`,
+                                width: `${slidesWidth}px`,
+                            }}
+                        >
+                            {0 !== data.length && data.map((s, i) => {
 
-                            if (typeof {} !== typeof s || undefined == s.image || typeof '8' !== typeof s.image) {
-                                return;
-                            }
+                                if (typeof {} !== typeof s || undefined == s.image || typeof '8' !== typeof s.image) {
+                                    return;
+                                }
 
-                            const { image, data } = s;
+                                const { image, data } = s;
 
-                            return (
-                                <div
-                                    key={`slide-wrapper-${slidersUuid}-${i}`}
-                                    className="slide-wrapper"
-                                    style={{
-                                        width: `${slideWrapperWidth}px`,
-                                    }}
-                                >
-                                    <div className="slide">
-                                        {
-                                            imageAsBackground &&
-                                            <div
-                                                className={`slide-image slide-image-data-wrapper animate-${animationTime}`}
-                                                style={{
-                                                    transform: `${imagesTransform}`,
-                                                    backgroundImage: `url(${image})`
-                                                }}
-                                            >
-                                                {
-                                                    data &&
-                                                    <div className='slide-image-data'>
-                                                        {
-                                                            data
-                                                        }
-                                                    </div>
-                                                }
-                                            </div>
-                                        }
-                                        {
-                                            !imageAsBackground &&
-                                            <img
-                                                className={`slide-image animate-${animationTime}`}
-                                                src={image}
-                                                style={{
-                                                    transform: `${imagesTransform}`,
-                                                }}
-                                            />
-                                        }
+                                return (
+                                    <div
+                                        key={`slide-wrapper-${slidersUuid}-${i}`}
+                                        className="slide-wrapper"
+                                        style={{
+                                            width: `${slideWrapperWidth}px`,
+                                        }}
+                                        {...((true == allowMouseTouch) && { onClick: (e) => this.handleClick(e) })}
+                                    >
+                                        <div className="slide">
+                                            {
+                                                imageAsBackground &&
+                                                <div
+                                                    className={`slide-image slide-image-data-wrapper animate-${animationTime}`}
+                                                    style={{
+                                                        transform: `${imagesTransform}`,
+                                                        backgroundImage: `url(${image})`
+                                                    }}
+                                                >
+                                                    {
+                                                        data &&
+                                                        <div className='slide-image-data'>
+                                                            {
+                                                                data
+                                                            }
+                                                        </div>
+                                                    }
+                                                </div>
+                                            }
+                                            {
+                                                !imageAsBackground &&
+                                                <img
+                                                    className={`slide-image animate-${animationTime}`}
+                                                    src={image}
+                                                    style={{
+                                                        transform: `${imagesTransform}`,
+                                                    }}
+                                                />
+                                            }
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
+                        {
+                            displayDots && dotsInside && 1 == paginationType && this.getDotsJsx()
+                        }
+                        {
+                            paginationInside && displayPagination && 1 == paginationType && this.getButtonNextJsx()
+                        }
+                        {
+                            2 == paginationType && paginationInside && this.getPaginationType2()
+                        }
                     </div>
                     {
-                        displayDots && dotsInside && 1 == paginationType && this.getDotsJsx()
+                        displayDots && !dotsInside && 1 == paginationType && this.getDotsJsx()
                     }
                     {
-                        paginationInside && displayPagination && 1 == paginationType && this.getButtonNextJsx()
+                        !paginationInside && displayPagination && 1 == paginationType && this.getButtonNextJsx()
                     }
                     {
-                        2 == paginationType && paginationInside && this.getPaginationType2()
+                        2 == paginationType && !paginationInside && this.getPaginationType2()
                     }
-                </div>
-                {
-                    displayDots && !dotsInside && 1 == paginationType && this.getDotsJsx()
-                }
-                {
-                    !paginationInside && displayPagination && 1 == paginationType && this.getButtonNextJsx()
-                }
-                {
-                    2 == paginationType && !paginationInside && this.getPaginationType2()
-                }
+                </span>
             </div>
         );
     }

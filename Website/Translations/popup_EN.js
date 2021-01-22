@@ -2064,8 +2064,8 @@ const EN = {
     },
     'slider.autoplayNext': {
         "description": "If true then the slide direction is right, if false then left.",
-        "type": "Number",
-        "default": "5000"
+        "type": "Boolean",
+        "default": "true"
     },
     'slider.animationTime': {
         "description": "Sliders transformation time for autoplay and mouse / touch move. Possible values ​​from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
@@ -2474,6 +2474,133 @@ const EN = {
     'timelineList.example1': 'Example with the timeline on the left and using the keys: "timelineStart" and "timelineEnd". Open your developer console to watch the logs by clicking the icons. ',
     'timelineList.example2': 'Example with the timeline on the left and without using the keys: "timelineStart" and "timelineEnd". Open your developer console to watch the logs by clicking the icons. ',
     'timelineList.example3': 'Example using props.',
+    'fss.fsDisplayPagination': {
+        "description": "Allow rendering of the paginator - the button 'next' and the button 'before'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsSlideAfterMove': {
+        "description": "Autoslide only after the value is greater than or equal to x (> =) than the value specified here.",
+        "type": "Number",
+        "default": "50"
+    },
+    'fss.fsDisplayPreview': {
+        "description": "Allow rendering the thumbnails below the fullscreen slider.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewWidth': {
+        "description": "The width (px) of a single preview image below the fullscreen slider.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewHeight': {
+        "description": "The height (px) of a single preview image below the fullscreen slider.",
+        "type": "Number",
+        "default": "80"
+    },
+    'fss.fsPreviewMarginX': {
+        "description": "The CSS property margin-left / right (px) of a single preview image below the fullscreen slider.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsPreviewMarginY': {
+        "description": "The CSS property margin-top / bottom (px) of a single preview image below the fullscreen slider.",
+        "type": "Number",
+        "default": "10"
+    },
+    'fss.fsWrapDirection': {
+        "description": "If true and the user is in the first slide and presses the button beforehand, navigation is carried out to the last slide and reversed. If the user is in the last slide and presses the button again, the first slide is displayed.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsPreviewToggle': {
+        "description": "User-defined JSX within the button to hide or show the lower preview slider.",
+        "type": "String | JSX",
+        "default": "⇩"
+    },
+    'fss.fsToggleDirection': {
+        "description": "The side of the button to be displayed in order to hide or display the lower preview slider. Possible values: 'left' or 'right'.",
+        "type": "String | JSX",
+        "default": "right"
+    },
+    'fss.fsImageAsBackground': {
+        "description": "Don't put the image in an <img /> tag, but rather as a backgroundImage and render custom data within the image / slide.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.fsAutoplayIcon': {
+        "description": "Custom JSX to start a slideshow.",
+        "type": "String | JSX",
+        "default": "🎞"
+    },
+    'fss.fsCloseIcon': {
+        "description": "Custom JSX to close the slider.",
+        "type": "String | JSX",
+        "default": "x"
+    },
+    'fss.fsUseLayerX': {
+        "description": "If the slider (in the desktop version) is moved, the value of event.layerX is used to move the slider. If the value of this key is false, the value of event.clientX is used.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayTime': {
+        "description": "Time delay (timeout) for every next slide after the previous one or after the component has been mounted.",
+        "type": "Number",
+        "default": "5000"
+    },
+    'fss.fsAutoplayNext': {
+        "description": "If true then the slide direction is right, if false then left.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAnimationTime': {
+        "description": "Sliders transformation time for autoplay and mouse / touch move. Possible values ​​from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "05"
+    },
+    'fss.fsNext': {
+        "description": "User-defined Jsx within the button: next.",
+        "type": "String | JSX",
+        "default": ">"
+    },
+    'fss.fsPrevious': {
+        "description": "User-defined Jsx within the button: earlier.",
+        "type": "String | JSX",
+        "default": "<"
+    },
+    'fss.fsAutoplayStopIcon': {
+        "description": "Custom JSX to end a slideshow.",
+        "type": "String | JSX",
+        "default": "🛑"
+    },
+    'fss.fsDisplayDots': {
+        "description": "Allow rendering of navigation points within the paginator.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsAutoplayStopOnLast': {
+        "description": "If the slider is at the end / beginning (depending on the value of the key 'fsAutoplayNext'), the slideshow will end.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsDisplayDotsIndex': {
+        "description": "Allow rendering of the single paginator index.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.fsCloseOnEsc': {
+        "description": "When you press the 'Escape' key, the fullscreen slider should continue to be displayed or the display should be interrupted.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'fss.fsActive': {
+        "description": "When you click on an image, a fullscreen slider will be generated.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'fss.example1': 'Slider example with fullscreen support. The full screen is activated as soon as you click on a photo. The slider can be closed with the ESC key or the X button. ',
+    'fss.example2': 'The slider can be closed with the ESC key or the X button.',
 };
 
 export default EN;
