@@ -1,5 +1,4 @@
 import React from 'react';
-import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import copyFunctions from '../internalFunctions/copyFunctions';
 import internalUuid from '../internalFunctions/internalUuid';
@@ -80,7 +79,6 @@ class DragDropArea extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.dragCounter = 0;
         const { mediaBreak } = this.state;
 

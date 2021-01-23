@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 import isObject from '../../_Functions/isObject';
 import internalUuid from '../internalFunctions/internalUuid';
 
@@ -27,10 +26,6 @@ class Stars extends React.Component {
             starsData: (props.starsData && typeof [] == typeof props.starsData) ? props.starsData : [],
             color: (props.color && typeof '8' == typeof props.color && ['orange', 'orange-yellow', 'yellow'].includes(props.color)) ? props.color : '',
         };
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

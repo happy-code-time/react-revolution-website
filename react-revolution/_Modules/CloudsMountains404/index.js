@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class CloudsMountains404 extends React.Component {
 
@@ -20,10 +19,6 @@ class CloudsMountains404 extends React.Component {
             text2: props.text2 && typeof '8' == typeof props.text2 ? props.text2 : 'was not found',
             bad: typeof true == typeof props.bad ? props.bad : false,
         }
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     callback(e) {

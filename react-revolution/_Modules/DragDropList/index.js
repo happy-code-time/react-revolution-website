@@ -1,5 +1,4 @@
 import React from 'react';
-import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import copyArray from '../internalFunctions/copyArray';
 import internalUuid from '../internalFunctions/internalUuid';
@@ -106,7 +105,6 @@ class DragDropList extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.attachHandleClick();
 
         const { placeholderPosition } = this.state;

@@ -1,6 +1,5 @@
 import React from 'react';
 import internalUuid from '../internalFunctions/internalUuid';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class CardsScrollCallback extends React.Component 
 {
@@ -45,7 +44,6 @@ class CardsScrollCallback extends React.Component
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { data, mediaBreak } = this.state;
 
         this.attachScrollEvent();

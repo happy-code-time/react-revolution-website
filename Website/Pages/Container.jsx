@@ -32,7 +32,6 @@ const codeExample1 = `import { Container, SideBar, Menu } from 'react-revolution
             textLong='text long'
             textShort='text short'
             href={undefined}
-            globalStyle={true}
             moduleMenu={
                 <Menu
                     reactRouter={false}
@@ -246,7 +245,6 @@ class _Clouds404 extends React.Component
                                 textLong='text long'
                                 textShort='text short'
                                 href={undefined}
-                                globalStyle={true}
                                 moduleMenu={
                                     <Menu
                                         reactRouter={false}

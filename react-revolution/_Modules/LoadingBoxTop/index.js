@@ -1,8 +1,5 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
-import loadStyle from '../internalFunctions/loadStyle';
 
 class LoadingBoxTop extends React.Component
 {
@@ -21,10 +18,6 @@ class LoadingBoxTop extends React.Component
             text: (props.text && typeof '8' == typeof props.text) ? props.text : '',
             display: typeof true == typeof props.display ? props.display : false
         }
-    }
-
-    componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

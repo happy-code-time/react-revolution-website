@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loadStyle from '../internalFunctions/loadStyle';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class Astronaut404 extends React.Component {
@@ -53,7 +52,6 @@ class Astronaut404 extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.drawVisor();
         this.animate();
     }

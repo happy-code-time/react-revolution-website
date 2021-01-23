@@ -1,5 +1,4 @@
 import React from 'react';
-import loadStyle from '../internalFunctions/loadStyle';
 import internalUuid from '../internalFunctions/internalUuid';
 
 class ScrollTo extends React.Component 
@@ -18,10 +17,6 @@ class ScrollTo extends React.Component
             html: props.html ? props.html : undefined,
             callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined
         };
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     navigateWindowToElement(event, masterId) {

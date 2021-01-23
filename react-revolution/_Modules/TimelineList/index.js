@@ -1,7 +1,6 @@
 import React from 'react';
 import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class TimelineList extends React.Component {
 
@@ -48,10 +47,6 @@ class TimelineList extends React.Component {
         }
 
         return null;
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     callback(callback, callbackProps){

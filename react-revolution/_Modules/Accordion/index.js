@@ -1,7 +1,6 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class Accordion extends React.Component 
 {
@@ -48,7 +47,6 @@ class Accordion extends React.Component
     }
 
     componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnClickOutside } = this.state;
 
         if(closeOnClickOutside){

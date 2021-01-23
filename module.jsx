@@ -1,23 +1,66 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SliderFullscreen, Slider } from './react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-slider.scss';
-import './react-revolution/_Sass/rr-slider-fullscreen.scss';
+import { Ribbon, RibbonMultiple } from './react-revolution/react-revolution';
+import './react-revolution/_Sass/rr-ribbon.scss';
+import './react-revolution/_Sass/rr-ribbon-multiple.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.toogleFSS = this.toogleFSS.bind(this);
-
-        this.state = {
-            display: false
-        };
     }
 
-    toogleFSS(closeCallbackProps) {
-        this.setState({
-            display: !this.state.display
-        });
+    getJsx() {
+        return (
+            <div
+                style={
+                    {
+                        borderRadius: '5px',
+                        boxShadow: '0px 0px 9px rgb(233,233,233)',
+                        overflow: 'hidden'
+                    }
+                }
+            >
+                <img
+                    src='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
+                    style={
+                        {
+                            width: '100%',
+                            height: '50%',
+                        }
+                    }
+                />
+                <p
+                    style={
+                        {
+                            boxSizing: 'border-box',
+                            padding: '10px'
+                        }
+                    }
+                >
+                    Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore
+                    magna aliquyam erat,
+                    sed diam voluptua.
+                    At vero eos et accusam et
+                    justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren,
+                    no sea takimata sanctus est
+                    Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam
+                    voluptua. At vero eos et accusam
+                    et justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren, no sea
+                    takimata sanctus est Lorem ipsum
+                    dolor sit amet.
+                </p>
+            </div>
+        );
     }
 
     render() {
@@ -25,125 +68,167 @@ class App extends React.Component {
             <div
                 style={
                     {
-                        width: '100%',
-                        maxWidth: '1024px',
-                        height: '300px',
-                        margin: '5vh auto'
+                        width: '320px',
+                        margin: '100px'
                     }
                 }
             >
-                <Slider
-                    addClass='slider-items-example'
-                    displayDotsIndex={true}
-                    buttonsAlwaysVisible={true}
-                    paginationType={2}
-                    autoplayStopOnLast={true}
-                    //Fullscreen mode
-                    fsPrevious='«'
-                    fsNext='»'
-                    fsUseLayerX={false}
-                    fsImageAsBackground={false}
-                    fsPreviewToggle='⇩'
-                    fsToggleDirection='right'
-                    fsCloseIcon='✖'
-                    fsAutoplayIcon='🖥'
-                    fsAutoplayStopIcon='stop'
-                    fsAutoplayTime={3000}
-                    fsAutoplayNext={true}
-                    fsAnimationTime='05'
-                    fsWrapDirection={true}
-                    fsSlideAfterMove={true}
-                    fsDisplayPreview={true}
-                    fsDisplayPagination={true}
-                    fsAutoplayStopOnLast={false}
-                    data={
+                <p>TOP-RIGHT | BOTTOM-LEFT </p>
+                <RibbonMultiple
+                    ribbons={
                         [
                             {
-                                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                background: '#FF4459',
+                                color: 'rgb(255,255,255)',
+                                ribbon: (
+                                    <span>
+                                        SALE!
+                                    </span>
+                                )
                             },
                             {
-                                image: 'public/images/chania.jpg',
-                            },
-                            {
-                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                            },
-                            {
-                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                            },
-                            {
-                                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-                            },
-                            {
-                                image: 'public/images/chania.jpg',
-                            },
-                            {
-                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                            },
-                            {
-                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                            },
+                                background: 'green',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'bottom',
+                                directionX: 'left',
+                                ribbon: (
+                                    <span>
+                                        -90%
+                                    </span>
+                                )
+                            }
                         ]
                     }
+                    content={this.getJsx()}
+                />
+                <p>TOP-LEFT | BOTTOM-RIGHT </p>
+                <RibbonMultiple
+                    ribbons={
+                        [
+                            {
+                                background: '#FF4459',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'top',
+                                directionX: 'left',
+                                ribbon: (
+                                    <span>
+                                        SALE!
+                                    </span>
+                                )
+                            },
+                            {
+                                background: 'green',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'bottom',
+                                ribbon: (
+                                    <span>
+                                        -90%
+                                    </span>
+                                )
+                            }
+                        ]
+                    }
+                    content={this.getJsx()}
                 />
 
-                <button onClick={() => this.toogleFSS()}>
-                    toggle FSS
-                </button>
-                {
-                    this.state.display &&
-                    <SliderFullscreen
-                        addClass='slider-items-example'
-                        closeCallback={this.toogleFSS}
-                        closeCallbackProps='any'
-                        buttonsAlwaysVisible={true}
-                        autoplayStopOnLast={true}
-                        previous='«'
-                        next='»'
-                        useLayerX={false}
-                        imageAsBackground={false}
-                        previewToggle='⇩'
-                        toggleDirection='right'
-                        closeIcon='✖'
-                        autoplayIcon='🖥'
-                        autoplayStopIcon='stop'
-                        autoplayTime={3000}
-                        autoplayNext={true}
-                        animationTime='05'
-                        wrapDirection={true}
-                        slideAfterMove={true}
-                        displayPreview={true}
-                        displayPagination={true}
-                        autoplayStopOnLast={false}
-                        data={
-                            [
-                                {
-                                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-                                },
-                                {
-                                    image: 'public/images/chania.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                },
-                                {
-                                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-                                },
-                                {
-                                    image: 'public/images/chania.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                },
-                            ]
-                        }
-                    />
-                }
+                <p>ALL </p>
+                <RibbonMultiple
+                    ribbons={
+                        [
+                            {
+                                background: '#FF4459',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'top',
+                                directionX: 'left',
+                                ribbon: (
+                                    <span>
+                                        SALE!
+                                    </span>
+                                )
+                            },
+                            {
+                                background: 'green',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'top',
+                                ribbon: (
+                                    <span>
+                                        Only
+                                    </span>
+                                )
+                            },
+                            {
+                                background: '#FF4459',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'bottom',
+                                ribbon: (
+                                    <span>
+                                        -90%
+                                    </span>
+                                )
+                            },
+                            {
+                                background: 'green',
+                                color: 'rgb(255,255,255)',
+                                directionY: 'bottom',
+                                directionX: 'left',
+                                ribbon: (
+                                    <span>
+                                        today!
+                                    </span>
+                                )
+                            }
+                        ]
+                    }
+                    content={this.getJsx()}
+                />
+                <p>TOP-RIGHT</p>
+                <Ribbon
+                    background='#FF4459'
+                    color='rgb(255,255,255)'
+                    ribbon={
+                        <span>
+                            SALE!
+                                        </span>
+                    }
+                    content={this.getJsx()}
+                />
+                <p>TOP-LEFT</p>
+                <Ribbon
+                    directionX='left'
+                    background='#FF4459'
+                    color='rgb(255,255,255)'
+                    ribbon={
+                        <span>
+                            WINTER SALE!
+                                        </span>
+                    }
+                    content={this.getJsx()}
+                />
+                <p>BOTTOM-RIGHT</p>
+                <Ribbon
+                    directionY='bottom'
+                    background='#FF4459'
+                    color='rgb(255,255,255)'
+                    ribbon={
+                        <span>
+                            WINTER SALE!
+                                        </span>
+                    }
+                    content={this.getJsx()}
+                />
+                <p>BOTTOM-LEFT</p>
+                <Ribbon
+                    directionX='left'
+                    directionY='bottom'
+                    background='#FF4459'
+                    color='rgb(255,255,255)'
+                    ribbon={
+                        <span>
+                            WINTER SALE!
+                                        </span>
+                    }
+                    content={this.getJsx()}
+                />
             </div>
         );
     }

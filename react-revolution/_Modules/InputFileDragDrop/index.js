@@ -1,8 +1,5 @@
 import React from 'react';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
-import loadStyle from '../internalFunctions/loadStyle';
 
 class InputFileDragDrop extends React.Component 
 {
@@ -51,10 +48,6 @@ class InputFileDragDrop extends React.Component
         };
 
         this.dragCounter = 0;
-    }
-
-    componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

@@ -1,7 +1,6 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const version = '5.0.2';
 
 const config = {
     resolve: {
@@ -65,8 +64,6 @@ const config = {
 };
 
 module.exports = (env, argv) => {
-    const filename = 'v' + version + '.app.js';
-
     if (argv.mode === 'development') {
         config.watch = true;
         config.watchOptions = {
@@ -76,7 +73,7 @@ module.exports = (env, argv) => {
         // config.devtool = 'eval-source-map';
         config.devtool = false;
         config.mode = 'development';
-        config.output.filename = `${filename}`;
+        config.output.filename = '1611429927265386893432170692.js';
         config.performance = {
             hints: 'error'
         };
@@ -88,7 +85,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'production') {
         config.devtool = false;
         config.mode = 'production';
-        config.output.filename = `${filename}`;
+        config.output.filename = '1611429927265386893432170692.js';
         config.performance = {
             hints: false
         };
@@ -104,7 +101,7 @@ module.exports = (env, argv) => {
             minimizer: [
                 new TerserPlugin({
                     test: /\.jsx|.js(\?.*)?$/i,
-                    exclude: /\/node_modules/,
+                    exclude: /node_modules/,
                     parallel: true,
                     terserOptions: {
                         nameCache: null,
@@ -115,24 +112,6 @@ module.exports = (env, argv) => {
                         extractComments: true,
                         ecma: 6
                     },
-                    // minify: (file, sourceMap) => {
-                    //     const uglifyJsOptions = {
-                    //         compress: true,
-                    //         ie8: false,
-                    //         keep_fnames: false,
-                    //         sourceMap: false,
-                    //         warnings: false,
-                    //         toplevel: false
-                    //     };
-
-                    //     if (sourceMap) {
-                    //         uglifyJsOptions.sourceMap = {
-                    //             content: sourceMap,
-                    //         };
-                    //     }
-
-                    //     return require('uglify-js').minify(file, uglifyJsOptions);
-                    // }
                 }),
             ],
         }

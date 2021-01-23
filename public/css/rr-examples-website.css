@@ -799,3 +799,9 @@ h1,
   @media screen and (min-width: 1024) {
     .slider-items-example .slide-item {
       width: calc(50% - 20px); } }
+
+#app .rr-ribbon,
+#app .rr-ribbon-multiple {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto; }

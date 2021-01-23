@@ -19,7 +19,6 @@ const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolut
 <div className="rr-revolution-pager-example">
     <PagerDynamic
         getDataCallback={this.pageData}
-        globalStyle={true}
         data={this.getData()}
         itemsPerSite={10}
         globalCount={100}
@@ -62,7 +61,6 @@ const codeExample2 = `import { PagerDynamic, uuid } from 'react-revolution';
 <div className="rr-revolution-pager-example">
     <PagerDynamic
         getDataCallback={this.pageData}
-        globalStyle={true}
         data={this.getData()}
         itemsPerSite={10}
         globalCount={100}
@@ -283,7 +281,6 @@ class _PagerDynamic extends React.Component {
                     <div className="rr-revolution-pager-example">
                         <PagerDynamic
                             getDataCallback={this.pageData}
-                            globalStyle={true}
                             data={this.getData()}
                             itemsPerSite={10}
                             globalCount={100}
@@ -388,7 +385,6 @@ class _PagerDynamic extends React.Component {
                 <div className="rr-revolution-pager-example">
                     <PagerDynamic
                         getDataCallback={this.pageData}
-                        globalStyle={true}
                         data={this.getData()}
                         itemsPerSite={10}
                         globalCount={100}

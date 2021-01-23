@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 import uuid from '../internalFunctions/internalUuid';
 
 class SliderItems extends React.Component {
@@ -126,7 +125,6 @@ class SliderItems extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
 
         if (!this.state.data.length) {
             return;

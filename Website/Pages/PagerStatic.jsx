@@ -17,7 +17,6 @@ const codeExample1 = `import { PagerStatic } from 'react-revolution';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic
-        globalStyle={true}
         data={this.getDataExample1()}
         itemsPerSite={10}
         paginationTextPrefix='page'
@@ -42,7 +41,6 @@ const codeExample2 = `import { PagerStatic } from 'react-revolution';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic
-        globalStyle={true}
         data={this.getDataExample2()}
         itemsPerSite={10}
         displayTotal={false}
@@ -79,7 +77,6 @@ const codeExample3 = `import { PagerStatic, uuid } from 'react-revolution';
 
 <div className="rr-revolution-pager-example">
     <PagerStatic
-        globalStyle={true}
         data={this.getDataExample3()}
         itemsPerSite={10}
         displayTotal={false}
@@ -352,7 +349,6 @@ class _PagerStatic extends React.Component {
                 live: (
                     <div className="rr-revolution-pager-example">
                         <PagerStatic
-                            globalStyle={true}
                             /**
                              * data
                              */
@@ -557,7 +553,6 @@ class _PagerStatic extends React.Component {
                 </h1>
                 <div className="rr-revolution-pager-example">
                     <PagerStatic
-                        globalStyle={true}
                         /**
                          * data
                          */
@@ -743,7 +738,6 @@ class _PagerStatic extends React.Component {
                 </h1>
                 <div className="rr-revolution-pager-example">
                     <PagerStatic
-                        globalStyle={true}
                         /**
                          * data
                          */

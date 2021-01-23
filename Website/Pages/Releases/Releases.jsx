@@ -1382,6 +1382,81 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.0.3': {
+                    data: [
+                        {
+                            key: 'TimelineList',
+                            value: 'Changed css property z-index from 10 to 2.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Ribbon',
+                            value: 'New component.',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'RibbonMultiple',
+                            value: 'New component.',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'New styles support',
+                            value: `Added scss and css files to local module (inside the node_modules). 
+\nImport the global css file: @import "react-revolution/css/react-revolution.css"
+\nImport the global scss file: @import "react-revolution/scss/react-revolution.scss"
+\nImport a single css (module) file, then import it: @import "react-revolution/css/<file-name>.css"
+\nImport a single scss (module) file, then import it: @import "react-revolution/scss/<file-name>.scss"`,
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                            dataProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            }
+                        },
+                        {
+                            key: 'Styles support',
+                            value: `Removed global style support. \n\nThe support of the key globalStyle={true} are no longer supported and has been removed from all modules.`,
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                            dataProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            }
+                        },
+                    ]
+                },
             }
         }
     }
@@ -1398,7 +1473,7 @@ class Releases extends React.Component {
                     loaded: true,
                     lastUrl: window.location.href,
                     version: dataFromUrl,
-                    data: this.generateStructure(releases[dataFromUrl].data)
+                    data: this.generateStructure(releases[dataFromUrl].data),
                 });
             });
         }
@@ -1425,8 +1500,9 @@ class Releases extends React.Component {
                 data: [
                     {
                         icon: o.icon ? o.icon : '🖲',
+                        iconProps: o.iconProps ? o.iconProps : {},
                         data: o.value,
-                        iconProps: o.iconProps ? o.iconProps : {}
+                        dataProps: o.dataProps ? o.dataProps : {},
                     }
                 ]
             }

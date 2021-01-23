@@ -1,4 +1,4 @@
-@import './globals';
+@import './globals.scss';
 
 // Default direction left
 .rr-timeline-list{
@@ -6,7 +6,7 @@
     .timline-wrapper{
         display: inline-block;
         position: relative;
-        z-index: 10;
+        z-index: 2;
     }
 
     .timline-wrapper:before{
@@ -19,7 +19,7 @@
         bottom: 0;
         margin: 0;
         width: 4px;
-        z-index: 5;
+        z-index: 1;
     }
 
     .timline-wrapper.timline-wrapper-has-start{
@@ -42,13 +42,13 @@
         border-radius: 50%;
         box-shadow: 0px 0px 6px $border-color;
         background-color: $white;
-        z-index: 10;
+        z-index: 2;
     }
 
     // Root - time
     .timeline-time{
         position: relative;
-        z-index: 10;
+        z-index: 2;
         display: inline-block;
         margin: 10px 0;
         clear: both;
@@ -66,7 +66,7 @@
     .timeline-area{
         position: relative;
         box-sizing: border-box;
-        z-index: 10;
+        z-index: 2;
     }
 
     // Line
@@ -80,7 +80,7 @@
     // Icon
     .entry-icon{
         position: relative;
-        z-index: 10;
+        z-index: 2;
         box-sizing: border-box;
         padding: 5px 10px;
     }
@@ -105,7 +105,7 @@
     // Data
     .entry-data{
         position: relative;
-        z-index: 10;
+        z-index: 2;
         box-sizing: border-box;
         padding: 5px 10px;
     }
@@ -136,7 +136,7 @@
         border-radius: 50%;
         box-shadow: 0px 0px 6px $border-color;
         background-color: $white;
-        z-index: 10;
+        z-index: 2;
     }
 
     // Align items to the right

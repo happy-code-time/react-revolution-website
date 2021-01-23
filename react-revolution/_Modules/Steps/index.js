@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 import LiveGenerationSteps from './LiveGenerationSteps';
 
 class Steps extends React.Component {
@@ -68,10 +67,6 @@ class Steps extends React.Component {
         }
 
         return null;
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     getHeadersJsx() {

@@ -1,7 +1,6 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import internalUuid from '../internalFunctions/internalUuid';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class SliderFullscreen extends React.Component {
     constructor(props) {
@@ -192,7 +191,6 @@ class SliderFullscreen extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
 
         if (!this.state.data.length) {
             return;

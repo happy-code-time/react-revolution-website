@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class InputFile extends React.Component 
 {
@@ -46,10 +45,6 @@ class InputFile extends React.Component
             errorCallbackCustomData: props.errorCallbackCustomData ? props.errorCallbackCustomData : undefined,
             multiple: (typeof true == typeof props.multiple) ? props.multiple : false,
         }
-    }
-
-    componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

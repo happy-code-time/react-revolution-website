@@ -3,13 +3,14 @@ const del = require('del');
 const imagemin = require('gulp-imagemin');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const runSequence = require('gulp4-run-sequence');
-const sass = require("gulp-sass");
+const gulpSass = require("gulp-sass");
 const fs = require("fs");
 const run = require('gulp-run');
 var exec = require('child_process').exec;
 const { performance } = require('perf_hooks');
 
-const version = 'v5.0.2';
+const timestamp = Math.floor(Date.now() / 1000);
+const randomHash = `${timestamp}${Math.floor(Math.random() * 1000000)}${Math.floor(Math.random() * 1000000)}${Math.floor(Math.random() * 1000000)}`;
 
 const modules = [
     "Accordion",
@@ -55,6 +56,8 @@ const modules = [
     "PopupData",
     "ReadMore",
     "ReadMoreCallback",
+    "Ribbon",
+    "RibbonMultiple",
     "ScrollTo",
     "SideBar",
     "Slider",
@@ -93,7 +96,6 @@ modules.map( dirAndModuleName => {
     removeDirs.push(`./react-revolution/${dirAndModuleName}`);
 });
 
-
 /**
  * Clean
  */
@@ -113,8 +115,6 @@ gulp.task('clean:css', function (done) {
         [
             './public/css/**/*',
             './public/css',
-            './public/react-revolution/'+version+'/css/**/*',
-            './public/react-revolution/'+version+'/scss/**/*',
         ],
         {
             dot: true
@@ -150,35 +150,16 @@ gulp.task('copy:ff', function (done) {
     done();
 });
 
-/**
- * Compile single scss for modules
- */
-gulp.task('build:css:modules', function (done) {
-    gulp.src("react-revolution/_Sass/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/"+version+"/css"));
+gulp.task('copy:css:scss:modules', (done) => {
+    // Copy global scss files 
+    gulp.src(`react-revolution/_Sass/**/*.scss`).pipe(gulp.dest(`react-revolution/scss/`));
+    console.log('Copy sass files done');
+    // Copy global css files 
+    gulp.src("react-revolution/_Sass/**/*.scss").pipe(gulpSass({ outputStyle: "compressed" })).pipe(gulp.dest("react-revolution/css/"));
+    console.log('Copy css files done');
     done();
 });
 
-/**
- * Compile all scss from modules to single css file
- */
-gulp.task('build:css:all', function (done) {
-    gulp.src("react-revolution/_Sass/react-revolution.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/react-revolution/"+version+"/css"));
-    done();
-});
-
-/**
- * Copy sass file to public folder
- */
-gulp.task('copy:css:modules', function (done) {
-    gulp.src("react-revolution/_Sass/**/*.scss").pipe(gulp.dest("public/react-revolution/"+version+"/scss"));
-    done();
-});
-
-
-gulp.task('build:css:website', function (done) {
-    gulp.src("Website/Scss/**/*.scss").pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)).pipe(gulp.dest("public/css"));
-    done();
-});
 
 const buildModuleProduction = (filename, cb) => {
     return new Promise( (resolve, reject) => {
@@ -321,6 +302,290 @@ gulp.task('create:webpack:files', async function(cb){
     }
 });
 
+gulp.task('create:websites:webpack', function (done) {
+    
+    const webpackData = `const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
+const config = {
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+    cache: false,
+    entry: path.resolve(__dirname, 'website.jsx'),
+    output: {
+        path: path.resolve(__dirname, 'public'),
+    },
+    module: {
+        rules: [
+            {
+                test: \/\\.jsx\?$\/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react', '@babel/preset-env'],
+                    }
+                }
+            },
+            {
+                test: \/\\.css$\/,
+                use: [
+                    "style-loader",
+                    "css-loader"
+                ]
+            },
+            {
+                test: \/\\.scss$/\,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\\.woff(2)?(\\?v=[0-9]\\.[0-9]\\.[0-9])?$/,
+                use: "url-loader?limit=10000&mimetype=application/font-woff"
+            },
+            {
+                test: /\\.(ttf|eot|svg)(\\?v=[0-9]\\.[0-9]\\.[0-9])?$/,
+                use: "file-loader"
+            },
+            {
+                test: \/\\.(png|jpg)$\/,
+                include: path.join(__dirname, 'public/images'),
+                use: 'url-loader?limit=10000'
+            }
+        ]
+    },
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+    },
+    plugins: [
+        new Dotenv()
+    ]
+};
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.watch = true;
+        config.watchOptions = {
+            ignored: /node_modules/,
+            poll: 1000
+        };
+        // config.devtool = 'eval-source-map';
+        config.devtool = false;
+        config.mode = 'development';
+        config.output.filename = '`+randomHash+`.js';
+        config.performance = {
+            hints: 'error'
+        };
+        config.optimization = {
+            splitChunks: {}
+        };
+    }
+
+    if (argv.mode === 'production') {
+        config.devtool = false;
+        config.mode = 'production';
+        config.output.filename = '`+randomHash+`.js';
+        config.performance = {
+            hints: false
+        };
+        config.optimization = {
+            minimize: true,
+            mangleWasmImports: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            mergeDuplicateChunks: true,
+            flagIncludedChunks: true,
+            concatenateModules: true,
+            nodeEnv: 'production',
+            // minimizer: [
+            //     new TerserPlugin({
+            //         test: /\\.jsx|.js(\\?.*)?$\/i,
+            //         exclude: \/node_modules/\,
+            //         parallel: true,
+            //         terserOptions: {
+            //             nameCache: null,
+            //             ie8: true,
+            //             keep_fnames: false,
+            //             safari10: true,
+            //             keep_classnames: false,
+            //             extractComments: true,
+            //             ecma: 6
+            //         },
+            //     }),
+            // ],
+        }
+    }
+
+    return config;
+};`;
+
+    fs.writeFile("./webpack.website.js", webpackData, done);
+});
+
+gulp.task('create:module:webpack', function (done) {
+    
+    const webpackData = `const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+
+const config = {
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
+    cache: false,
+    entry: path.resolve(__dirname, 'module.jsx'),
+    output: {
+        path: path.resolve(__dirname, 'public'),
+    },
+    module: {
+        rules: [
+            {
+                test: \/\\.jsx\?$\/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-react', '@babel/preset-env'],
+                    }
+                }
+            },
+            {
+                test: \/\\.css$\/,
+                use: [
+                    "style-loader",
+                    "css-loader"
+                ]
+            },
+            {
+                test: \/\\.scss$/\,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\\.woff(2)?(\\?v=[0-9]\\.[0-9]\\.[0-9])?$/,
+                use: "url-loader?limit=10000&mimetype=application/font-woff"
+            },
+            {
+                test: /\\.(ttf|eot|svg)(\\?v=[0-9]\\.[0-9]\\.[0-9])?$/,
+                use: "file-loader"
+            },
+            {
+                test: \/\\.(png|jpg)$\/,
+                include: path.join(__dirname, 'public/images'),
+                use: 'url-loader?limit=10000'
+            }
+        ]
+    },
+    externals: {
+        'cheerio': 'window',
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+    },
+    plugins: [
+        new Dotenv()
+    ]
+};
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.watch = true;
+        config.watchOptions = {
+            ignored: /node_modules/,
+            poll: 1000
+        };
+        // config.devtool = 'eval-source-map';
+        config.devtool = false;
+        config.mode = 'development';
+        config.output.filename = '`+randomHash+`.js';
+        config.performance = {
+            hints: 'error'
+        };
+        config.optimization = {
+            splitChunks: {}
+        };
+    }
+
+    if (argv.mode === 'production') {
+        config.devtool = false;
+        config.mode = 'production';
+        config.output.filename = '`+randomHash+`.js';
+        config.performance = {
+            hints: false
+        };
+        config.optimization = {
+            minimize: true,
+            mangleWasmImports: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            mergeDuplicateChunks: true,
+            flagIncludedChunks: true,
+            concatenateModules: true,
+            nodeEnv: 'production',
+            minimizer: [
+                new TerserPlugin({
+                    test: /\\.jsx|.js(\\?.*)?$\/i,
+                    exclude: \/node_modules/\,
+                    parallel: true,
+                    terserOptions: {
+                        nameCache: null,
+                        ie8: true,
+                        keep_fnames: false,
+                        safari10: true,
+                        keep_classnames: false,
+                        extractComments: true,
+                        ecma: 6
+                    },
+                }),
+            ],
+        }
+    }
+
+    return config;
+};`;
+
+    fs.writeFile("./webpack.module.js", webpackData, done);
+});
+
+gulp.task('create:websites:html', function (done) {
+const htmlData = `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React Revolution</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
+    <link rel="canonical" href="http://react-revolution.j.pl/">
+    <link rel="alternate" href="http://react-revolution.j.pl/" hreflang="x-default">
+    <link rel="alternate" href="https://react-revolution.j.pl/" hreflang="en">
+    <meta name="description" content="React Revolution for React">
+    <meta name="author" content="David Janitzek">
+    <link rel="stylesheet" href="./public/fontawesome-free-5.12.1-web/css/all.css" />
+    <link rel="stylesheet" href="./public/css/react-revolution.css" />
+    <link rel="stylesheet" href="./public/css/index.css" />
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script src='./public/`+randomHash+`.js'></script>
+</html>
+`;
+    fs.writeFile("./index.html", htmlData, done);
+});
+
+gulp.task('copy:css:rr', function (done) {
+    gulp.src("Website/Scss/react-revolution.css").pipe(gulpSass({ outputStyle: "compressed" }).on("error", gulpSass.logError)).pipe(gulp.dest("public/css"));
+    done();
+});
 /**
  * Multiple task runner
  */
@@ -329,10 +594,12 @@ gulp.task('compile', function (callback) {
         [
             'clean',
             'copy:ff',
+            'copy:css:rr',
             'compress:images',
-            'build:css:modules',
-            'build:css:all',
-            'copy:css:modules',
+            'create:websites:webpack',
+            'create:module:webpack',
+            'create:websites:html',
+            'copy:css:scss:modules',
             'create:webpack:files',
         ],
         callback);
@@ -341,14 +608,17 @@ gulp.task('compile', function (callback) {
 /**
  * Multiple task runner
  */
-gulp.task('sass', function (callback) {
+gulp.task('module', function (callback) {
     runSequence(
         [
-            'clean:css',
-            'build:css:modules',
-            'build:css:all',
-            'copy:css:modules',
-            'build:css:website'
+            'clean',
+            'copy:ff',
+            'copy:css:rr',
+            'compress:images',
+            'create:websites:webpack',
+            'create:module:webpack',
+            'create:websites:html',
+            'copy:css:scss:modules'
         ],
         callback);
 });

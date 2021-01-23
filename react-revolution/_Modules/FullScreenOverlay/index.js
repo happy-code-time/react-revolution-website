@@ -2,7 +2,6 @@ import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import disableHtmlScroll from '../../_Functions/disableHtmlScroll';
 import enableHtmlScroll from '../../_Functions/enableHtmlScroll';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class FullScreenOverlay extends React.Component 
 {
@@ -64,7 +63,6 @@ class FullScreenOverlay extends React.Component
     }
 
     componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnEsc, disableScroll, display } = this.state;
 
         if(closeOnEsc){

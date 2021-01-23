@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 class SideBar extends React.Component
 {
     constructor(props) {
@@ -43,10 +42,6 @@ class SideBar extends React.Component
         }
 
         return null;
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     render() {

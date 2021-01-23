@@ -1,8 +1,6 @@
 import React from 'react';
 import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
-
 class Clipboard extends React.Component 
 {
     
@@ -37,10 +35,6 @@ class Clipboard extends React.Component
             clipboard: props.clipboard,
             animation: props.animation && typeof '8' == typeof props.animation ? props.animation : undefined,
         };
-    }
-
-    componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     /**

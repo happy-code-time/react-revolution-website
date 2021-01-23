@@ -60,6 +60,8 @@ import _PopupData from './Website/Pages/PopupData';
 import _LoadOnScroll from './Website/Pages/LoadOnScroll';
 import _ReadMore from './Website/Pages/ReadMore';
 import _ReadMoreCallback from './Website/Pages/ReadMoreCallback';
+import _Ribbon from './Website/Pages/Ribbon';
+import _RibbonMultiple from './Website/Pages/RibbonMultiple';
 import _ScrollTo from './Website/Pages/ScrollTo';
 import _SourceCode from './Website/Pages/SourceCode';
 import _Sidebar from './Website/Pages/Sidebar';
@@ -93,6 +95,8 @@ import _FunctionUrlExtract from './Website/Pages/FunctionUrlExtract';
 import Releases from './Website/Pages/Releases/Releases';
 import Components from './Website/Modules/Components';
 import Footer from './Website/Modules/Footer';
+// Style
+import './react-revolution/css/react-revolution.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -337,7 +341,7 @@ class App extends React.Component {
       {
         version: '5.0',
         start: 0,
-        end: 2
+        end: 3
       },
       {
         version: '4.2',
@@ -434,7 +438,6 @@ class App extends React.Component {
     return (
       <Container
         id="rr-container"
-        globalStyle={true}
         minifyAt={1024}
         maxifyAt={720}
         hideAt={420}
@@ -454,7 +457,6 @@ class App extends React.Component {
             textLong={appNameShort}
             textShort={`v${version}`}
             href={`${host}#/`}
-            globalStyle={true} // load css for react-revolution globally
             moduleMenu={
               <MenuHeight
                 reactRouter={false}
@@ -793,6 +795,28 @@ class App extends React.Component {
                           ],
                         },
                         {
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Ribbons
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'Ribbon',
+                              href: `${host}#/components/ribbon`,
+                            },
+                            {
+                              text: 'RibbonMultiple',
+                              href: `${host}#/components/ribbon-multiple`,
+                            },
+                          ],
+                        },
+                        {
                           text: 'ScrollTo',
                           href: `${host}#/components/scroll-to`,
                         },
@@ -1018,6 +1042,8 @@ class App extends React.Component {
               <Route exact path="/components/list-switch" render={(props) => (<_ListSwitch {...props} />)} />
               <Route exact path="/components/read-more" render={(props) => (<_ReadMore {...props} />)} />
               <Route exact path="/components/read-more-callback" render={(props) => (<_ReadMoreCallback {...props} />)} />
+              <Route exact path="/components/ribbon" render={(props) => (<_Ribbon {...props} />)} />
+              <Route exact path="/components/ribbon-multiple" render={(props) => (<_RibbonMultiple {...props} />)} />
               <Route exact path="/components/sidebar" render={(props) => (<_Sidebar {...props} />)} />
               <Route exact path="/components/slider" render={(props) => (<_Slider {...props} />)} />
               <Route exact path="/components/slider-cards" render={(props) => (<_SliderCards {...props} />)} />

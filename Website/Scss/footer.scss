@@ -8,6 +8,8 @@
     .content{
         margin: 0 auto;
         max-width: 1400px;
+        box-sizing: border-box;
+        padding: 0 10px;
     }
 
     .card{
@@ -19,8 +21,8 @@
 
         width: calc(100% - 20px);
         margin: 10px;
-        min-height: unset;
-        border: none;
+        min-height: unset !important;
+        border: none !important;
 
         .title{
             color: $white;

@@ -5,6 +5,7 @@ import { host, version } from '../Globals';
 import trans from '../Translations/trans';
 
 const getDescriptionForstyle = (name) => {
+    return null;
     const css = `${host}public/react-revolution/v${version}/css/${name}.css`;
     const scss = `${host}public/react-revolution/v${version}/scss/${name}.scss`;
     const globalCss = `${host}public/react-revolution/v${version}/css/globals.css`;

@@ -1,5 +1,4 @@
 import React from 'react';
-import loadStyle from '../internalFunctions/loadStyle';
 import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
@@ -65,10 +64,6 @@ class ReadMoreCallback extends React.Component
         }
 
         return null;
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     toggle(event) {

@@ -1,6 +1,6 @@
 import getAllAvailableModulesNames from '../Functions/getAllAvailableModulesNames';
 
-const len = getAllAvailableModulesNames().length-1;
+const len = getAllAvailableModulesNames().length - 1;
 
 const EN = {
     vailableComponents: 'Components',
@@ -31,9 +31,9 @@ const EN = {
     fast: 'Fast',
     light: 'Light',
     interactive: 'Interactive',
-    "fast.description" : "Minimal generation time and optimal source usage of the browser.",
-    "light.description" : `With the current number of ${len} Modules a total size of less than 190 KB.`,
-    "interactive.description" : "Each module can be designed freely and contains callback functions.",
+    "fast.description": "Minimal generation time and optimal source usage of the browser.",
+    "light.description": `With the current number of ${len} Modules a total size of less than 190 KB.`,
+    "interactive.description": "Each module can be designed freely and contains callback functions.",
     exampleOfUsage: 'Usage example',
     copyToClipboard: 'Copy to clipboard',
     installation: 'Installation',
@@ -53,10 +53,10 @@ const EN = {
     jsCodeTitle: 'Javascript code',
     loading: 'Loading...',
     keyUsageTitle: 'Keys Explanations',
-    "table.title.key" : 'Key',
-    "table.title.description" : 'Description',
-    "table.title.type" : 'Type',
-    "table.title.default" : 'Default',
+    "table.title.key": 'Key',
+    "table.title.description": 'Description',
+    "table.title.type": 'Type',
+    "table.title.default": 'Default',
     /**
      * Module keys
      */
@@ -160,7 +160,7 @@ const EN = {
         "type": "String | JSX",
         "default": "undefined"
     },
-    "loadonscroll.data" : {
+    "loadonscroll.data": {
         "description": "Custom data to render on the first time.",
         "type": "String | JSX",
         "default": "<empty string>"
@@ -294,7 +294,7 @@ const EN = {
         "type": "Function",
         "default": "undefined"
     },
-    "inputsuggestionobject.loading" : {
+    "inputsuggestionobject.loading": {
         "description": "User-defined custom JSX data to show an loading icon while executing the 'callback' function. The passed callback function has to be an Promise. To show suggestions the Promise has to be resolved or rejected.",
         "type": "String | JSX",
         "default": "undefined"
@@ -418,7 +418,7 @@ const EN = {
         "description": "Should the lightly darkened area be displayed or not.",
         "type": "Boolean",
         "default": "false"
-    },   
+    },
     "fullscreenoverlay.data": {
         "description": "Custom JSX data to display inside the overlay.",
         "type": "String | JSX",
@@ -774,27 +774,27 @@ const EN = {
         "type": "Boolean",
         "default": "true"
     },
-    "bread.hashRouter" : {
+    "bread.hashRouter": {
         "description": "Is the current React App inside an ReactRouter or not. If true the hostname (first breadcrumbs) becomes the suffix '/#/'.",
         "type": "Boolean",
         "default": "false"
     },
-    "bread.domainName" : {
+    "bread.domainName": {
         "description": "Replace the hostname (first breadcrumb) with a customized text",
         "type": "String",
         "default": "undefined"
     },
-    "bread.delimiter" : {
+    "bread.delimiter": {
         "description": "Delimiter between the breadrumbs.",
         "type": "String | JSX",
         "default": ">"
     },
-    "bread.overwriteText" : {
+    "bread.overwriteText": {
         "description": "Has to be used with the key: 'moduleMenu'. If true then the first menu childs key: 'text' are displayed instead of the breadcrumbs path. If false then the menus first childs key: 'text' are ignored.",
         "type": "Boolean",
         "default": "false"
     },
-    "bread.moduleMenu" : {
+    "bread.moduleMenu": {
         "description": "Attached the module: 'Menu' only available for the last breadcrumb. Only one single child allowed as parent element - child nesting allowed without limitations.",
         "type": "<Menu>",
         "default": "undefined"
@@ -807,18 +807,18 @@ const EN = {
     /**
      * Descriptions
      */
-    "accordion.description.1" : "Example with a single nested childs.",
-    "accordion.description.2" : "Example with 4 nested childs.",
-    "accordion.description.3" : "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
-    "cards.scroll.description" : "The Cards module will load more items, if the bottom of the parent div are reached.",
-    "cards.scrollCallback.description" : "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
-    "cards.scrollCallback.example1" : "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
-    "cards.scrollCallback.example2" : "Example width Promise.reject() (default returns undefined), custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed and the callback function not called again on a scroll event.",
-    "cards.scrollCallback.example3" : "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={false}' (default the value is false) it`s mean the scrollEvent listener are NOT removed! The user can scroll down back and the callback function are called again.",
-    "cards.scrollCallback.example4" : "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed! This example provides the key 'onReject' with a custom JSX - to this HTML are attached an click event. This click event call the custom 'callback' function.",
-    "icons.description" : "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
-    "icons.description2" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
-    "icons.description3" : "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
+    "accordion.description.1": "Example with a single nested childs.",
+    "accordion.description.2": "Example with 4 nested childs.",
+    "accordion.description.3": "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
+    "cards.scroll.description": "The Cards module will load more items, if the bottom of the parent div are reached.",
+    "cards.scrollCallback.description": "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
+    "cards.scrollCallback.example1": "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
+    "cards.scrollCallback.example2": "Example width Promise.reject() (default returns undefined), custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed and the callback function not called again on a scroll event.",
+    "cards.scrollCallback.example3": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={false}' (default the value is false) it`s mean the scrollEvent listener are NOT removed! The user can scroll down back and the callback function are called again.",
+    "cards.scrollCallback.example4": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed! This example provides the key 'onReject' with a custom JSX - to this HTML are attached an click event. This click event call the custom 'callback' function.",
+    "icons.description": "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
+    "icons.description2": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
+    "icons.description3": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
     /**
      * 
      */
@@ -834,7 +834,7 @@ const EN = {
     },
     styleLoading: "Styles used for this module",
     "runtime.generator.description": 'If an error occured (runtime generator are not defined) while using the callback functionality in this module (callback), please install: npm install --save @babel/runtime && npm install --save-dev @babel/plugin-transform-runtime; Then in the .babelrc file add this line: {"presets": ["@babel/preset-env", "@babel/preset-react"],"plugins": [["@babel/transform-runtime"]]}.',
-    
+
     "pagination.data": {
         "description": "Array of custom defined objects.",
         "type": "[]",
@@ -1219,7 +1219,7 @@ const EN = {
         "type": "{}",
         "default": "{}"
     },
-    "dashed" : {
+    "dashed": {
         "description": "Draw, on the left side, for each toggle menu entry a dashed border.",
         "type": "Boolean",
         "default": "false"
@@ -1374,8 +1374,8 @@ const EN = {
         "type": "String | JSX",
         "default": "undefined"
     },
-    "readmore-description-1" : "Example with the custom button 'read more'.",
-    "readmore-description-2" : "Example with the custom button 'read more' and 'read less'.",
+    "readmore-description-1": "Example with the custom button 'read more'.",
+    "readmore-description-2": "Example with the custom button 'read more' and 'read less'.",
     "readmore-callback-description-1": "Example using the 'read more' button with a callback method that lasts 2000ms, during this time the HTML of the 'loading' key is shown. In this case its own gif image. The module's internal function waits ( await) to resolve the 'promise' (Promise -> resolve) to get the data to show. When the data has been loaded once, it will not be loaded a second time! When 'Promise.reject ()' is in place and there is no data, then 'nothing' happens and the 'toggleForwards' key reappears. ",
     "readmore-callback-description-2": "Example using the 'read more' button and 'read less' with a callback method that lasts 2000ms, during this time the HTML of the 'loading' key is shown, in this case your own gif image. The module's inner function waits (await) for a Promise -> resolve to get the data to show. When the data has been loaded once, it will not be loaded a second time! If the promise has failed (> reject) then also you can pass data to the module. When 'Promise.reject ()' has place and there is no data, then 'nothing' happens and the key 'toggleForwards' reappears. ",
     "readmore-callback-description-3": "Example with Promise.reject() and returned custom JSX data (error message) and with the key 'toggleOnReject={true}' and 'toggleReject' (custom button - try again).",
@@ -1466,10 +1466,10 @@ const EN = {
         "type": "String | JSX",
         "default": "undefined"
     },
-    "description.dragDrop.1" : "Example with a default drag & drop functionality based on a callback to apply the state changes.",
-    "description.dragDrop.2" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
-    "description.dragDrop.3" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes and custom Loading icon while waiting for the response of the 'callbackAllowDrop' function.",
-    "description.dragDrop.4" : "Example with the area 'Fruits' - only drop allowed and 'Vegetables' - only drag allowed.",
+    "description.dragDrop.1": "Example with a default drag & drop functionality based on a callback to apply the state changes.",
+    "description.dragDrop.2": "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
+    "description.dragDrop.3": "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes and custom Loading icon while waiting for the response of the 'callbackAllowDrop' function.",
+    "description.dragDrop.4": "Example with the area 'Fruits' - only drop allowed and 'Vegetables' - only drag allowed.",
     "drag.drop.data": {
         "description": "Object.",
         "type": "{}",
@@ -1560,8 +1560,8 @@ const EN = {
         "type": "String",
         "default": "<empty string>"
     },
-    "description.dragDropList.1" : "Example with a default drag & drop functionality based on a callback to apply the state changes.",
-    "description.dragDropList.2" : "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
+    "description.dragDropList.1": "Example with a default drag & drop functionality based on a callback to apply the state changes.",
+    "description.dragDropList.2": "Example with a custom callbackAllowDrop (Promise - you have to resolve or reject with the value true or false) function to return true/ false to apply or discard state changes.",
     "drag.drop.list.placeholder": {
         "description": "Custom JSX data to render inside the placeholder.",
         "type": "String | JSX",
@@ -1592,10 +1592,10 @@ const EN = {
         "type": "{}",
         "default": "{}"
     },
-    "stars.description.1" : "Example with stars in readonly mode and without filled stars and in default black color.",
-    "stars.description.2" : "Example with stars in readonly mode and 2 filled stars of 5 and with the filled color 'orange-yellow'.",
-    "stars.description.3" : "Example with stars in callback mode and 0 filled stars of 5 and with the custom callback function to re-render filled items after  star has been clicked.",
-    "stars.description.4" : "Example with custom properties (title) passed to each star.",
+    "stars.description.1": "Example with stars in readonly mode and without filled stars and in default black color.",
+    "stars.description.2": "Example with stars in readonly mode and 2 filled stars of 5 and with the filled color 'orange-yellow'.",
+    "stars.description.3": "Example with stars in callback mode and 0 filled stars of 5 and with the custom callback function to re-render filled items after  star has been clicked.",
+    "stars.description.4": "Example with custom properties (title) passed to each star.",
     "stars.count": {
         "description": "How many stars should be generated.",
         "type": "Number",
@@ -1641,14 +1641,14 @@ const EN = {
         "type": "String | JSX",
         "default": "undefined"
     },
-    "InputSuggestionObject.description.1" : "Example with a preloaded list to filter and a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (object) key 'text'. You can render/ display the value of the key 'text' or a different value (JSX) by passing to the childs (object) the key 'jsx'.",
-    "InputSuggestionObject.description.2" : "Example with a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
-    "InputSuggestionArray.description.1" : "Example with a preloaded list to filter with a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (arrays) text entry.",
-    "CustomSuggestion.description.1" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new internal state) and with a predefiend suggestions list.",
-    "CustomSuggestion.description.2" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={false}' - its mean accept the suggestion comes from outsite.",
-    "CustomSuggestion.description.3" : "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new state = the incoming suggestions from the Promise) and a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
-    "GlobalMessages.description.1" : "Example with a single message. This message will only disappear if the user change the current location.",
-    "GlobalMessages.description.2" : "Example with a single message. This message will disappear after two seconds.",
+    "InputSuggestionObject.description.1": "Example with a preloaded list to filter and a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (object) key 'text'. You can render/ display the value of the key 'text' or a different value (JSX) by passing to the childs (object) the key 'jsx'.",
+    "InputSuggestionObject.description.2": "Example with a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
+    "InputSuggestionArray.description.1": "Example with a preloaded list to filter with a key-sensitive search. The (key-sensitive/ key-NOT-sensitive) filter function are executed internal and is based on the childs (arrays) text entry.",
+    "CustomSuggestion.description.1": "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new internal state) and with a predefiend suggestions list.",
+    "CustomSuggestion.description.2": "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={false}' - its mean accept the suggestion comes from outsite.",
+    "CustomSuggestion.description.3": "Example with suggestions with an href to redirect the user after the click event and the key 'callbackRerender={true}' (required to accept the new state = the incoming suggestions from the Promise) and a key-not-sensitive search and with the key 'loading' based on the callback function and the passed callback have to be an Promise (in combination with the key 'loading'!). For this (await) time the loading icon are displayed. If you resolve or reject the Promise, then the loading icon/ data are disappear.",
+    "GlobalMessages.description.1": "Example with a single message. This message will only disappear if the user change the current location.",
+    "GlobalMessages.description.2": "Example with a single message. This message will disappear after two seconds.",
     "menu.headData": {
         "description": "User-defined JSX data at the top of the menu.",
         "type": "String | JSX",
@@ -1769,7 +1769,7 @@ const EN = {
         "type": "Boolean",
         "default": "true"
     },
-    'slider.dotsInside' : {
+    'slider.dotsInside': {
         "description": "The navigations dots should be generated inside the slider (standard setting). If false, the dots are generated outside the slider.",
         "type": "Boolean",
         "default": "true"
@@ -1965,7 +1965,7 @@ const EN = {
         "type": "Function",
         "default": "undefined"
     },
-    'steps.data.liveGenerationProps' : {
+    'steps.data.liveGenerationProps': {
         "description": "User-defined data for the callback function 'liveGeneration'.",
         "type": "Any",
         "default": "undefined"
@@ -2283,12 +2283,12 @@ const EN = {
         "default": "true"
     },
     'listSwitch.animationTimeout': {
-        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms)." ,
+        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms).",
         "type": "Number",
         "default": "350"
     },
     'listSwitch.animationTimeout': {
-        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms)." ,
+        "description": "Movement within the mother-child element should be restored (end of animation) after this time (ms). Must be compatible with the (react-revolution) CSS file ($ default-transition: 300ms).",
         "type": "Number",
         "default": "350"
     },
@@ -2400,7 +2400,7 @@ const EN = {
         "default": "false"
     },
     'stepGen.example1': 'Example with the generation of 3 fields (at the start), one delete and one submit button. Open your developer console to watch the changes. ',
-    'stepGenDragDrop.placeholderPosition' : {
+    'stepGenDragDrop.placeholderPosition': {
         "description": "If the user starts dragging an element and is over the drop position then generate the PLACEHOLDER on the site of the hovered element. Available options: 'top' (placeholder are always on the top of an hovered item), 'bottom' (placeholder are always on the bottom of an hovered item) and 'auto' (placeholder are detected automatically).",
         "type": "String",
         "default": "auto"
@@ -2601,6 +2601,48 @@ const EN = {
     },
     'fss.example1': 'Slider example with fullscreen support. The full screen is activated as soon as you click on a photo. The slider can be closed with the ESC key or the X button. ',
     'fss.example2': 'The slider can be closed with the ESC key or the X button.',
+    'ribbon.directionX': {
+        "description": "Side of the ribbon on the X-axis. Possible X-orientations: 'left' and 'right'.",
+        "type": "String",
+        "default": "right"
+    },
+    'ribbon.directionY': {
+        "description": "Side of the ribbon on the Y-axis. Possible Y-orientations: 'top' and 'bottom'.",
+        "type": "String",
+        "default": "top"
+    },
+    'ribbon.background': {
+        "description": "Background color of the ribbon.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.color': {
+        "description": "Color of the ribbon.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.ribbon': {
+        "description": "Text of the ribbon.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.content': {
+        "description": "Contents of the box.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.example1': 'Example with the direction: TOP | RIGHT. ',
+    'ribbon.example2': 'Example with the direction: TOP | LEFT. ',
+    'ribbon.example3': 'Example with the direction: BOTTOM | RIGHT. ',
+    'ribbon.example4': 'Example with the direction: BOTTOM | LEFT. ',
+    'ribbon.ribbons': {
+        "description": "Array excluding objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'ribbonM.example1': 'Example with the 2 directions: TOP | RIGHT and BOTTOM | LEFT. ',
+    'ribbonM.example1': 'Example with the 2 directions: TOP | LEFT and BOTTOM | RIGHT. ',
+    'ribbonM.example3': 'Example with all directions.',
 };
 
 export default EN;

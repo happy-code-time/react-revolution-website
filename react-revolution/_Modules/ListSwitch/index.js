@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import uuid from '../../_Functions/uuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import internalUuid from '../internalFunctions/internalUuid';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class ListSwitch extends React.Component {
     constructor(props) {
@@ -89,7 +87,6 @@ class ListSwitch extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.addEscEventListener();
         this.attachHandleClick();
 
@@ -168,6 +165,8 @@ class ListSwitch extends React.Component {
     }
 
     toggle() {
+
+        console.log(this.state.data);
 
         if (this.state.data.length) {
             return this.setState({

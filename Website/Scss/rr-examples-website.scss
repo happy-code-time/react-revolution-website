@@ -770,3 +770,12 @@
         width: calc(100% - 20px);
     }
 }
+
+#app{
+    .rr-ribbon,
+    .rr-ribbon-multiple{
+        display: block;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}

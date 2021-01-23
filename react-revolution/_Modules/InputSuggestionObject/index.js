@@ -1,10 +1,6 @@
 import React from 'react';
-
 import uuid from '../../_Functions/uuid';
-
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-
-import loadStyle from '../internalFunctions/loadStyle';
 
 class InputSuggestionObject extends React.Component 
 {
@@ -61,7 +57,6 @@ class InputSuggestionObject extends React.Component
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.setFocusUpdater(true);
         document.addEventListener('mousedown', this.handleMouseDown);
     }

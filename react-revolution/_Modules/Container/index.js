@@ -1,8 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
-
-const containesOldStaffHolder = undefined;
 
 class Container extends React.Component {
     constructor(props) {
@@ -106,7 +103,6 @@ class Container extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         window.addEventListener('resize', this.resizeView);
         window.addEventListener('mousedown', this.handleClick);
         this.resizeView();

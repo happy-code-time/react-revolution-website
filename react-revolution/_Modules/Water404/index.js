@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class Water404 extends React.Component {
 
@@ -21,10 +20,6 @@ class Water404 extends React.Component {
             bad: typeof true == typeof props.bad ? props.bad : false,
             shipName: props.shipName && typeof '8' == typeof props.shipName ? props.shipName : '',
         }
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     callback(e) {

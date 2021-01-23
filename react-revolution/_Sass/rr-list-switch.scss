@@ -1,10 +1,15 @@
-@import './globals';
+@import './globals.scss';
 
 .rr-list-switch{
     display: inline-block;
 
     .ctx{
         position: relative;
+
+        .text{
+            position: relative;
+            z-index: 2;
+        }
     }
 
     .ctx .text:hover{

@@ -2584,6 +2584,48 @@ const DE = {
     },
     'fss.example1': 'Slider Beispiel mit einem Fullscreen support. Der Fullscreen wird aktiviert, sobald man ein Foto anklickt. Der Slider kann mit der ESC Taste oder dem X Button geschlossen werden.',
     'fss.example2': 'Der Slider kann mit der ESC Taste oder dem X Button geschlossen werden.',
+    'ribbon.directionX' : {
+        "description": "Seite des ribbons auf der X-Achse. Mögliche X-Ausrichtungen: 'left' und 'right'.",
+        "type": "String",
+        "default": "right"
+    },
+    'ribbon.directionY' : {
+        "description": "Seite des ribbons auf der Y-Achse. Mögliche Y-Ausrichtungen: 'top' und 'bottom'.",
+        "type": "String",
+        "default": "top"
+    },
+    'ribbon.background' : {
+        "description": "Hintergrundfarbe des Ribbons.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.color' : {
+        "description": "Farbe des Ribbons.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.ribbon' : {
+        "description": "Text des Ribbons.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.content' : {
+        "description": "Inhalt der Box.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.example1' : 'Beispiel mit der Richtung: TOP | RIGHT.',
+    'ribbon.example2' : 'Beispiel mit der Richtung: TOP | LEFT.',
+    'ribbon.example3' : 'Beispiel mit der Richtung: BOTTOM | RIGHT.',
+    'ribbon.example4' : 'Beispiel mit der Richtung: BOTTOM | LEFT.',
+    'ribbon.ribbons' : {
+        "description": "Array auß Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'ribbonM.example1' : 'Beispiel mit der 2 Richtungen: TOP | RIGHT und BOTTOM | LEFT.',
+    'ribbonM.example1' : 'Beispiel mit der 2 Richtungen: TOP | LEFT und BOTTOM | RIGHT.',
+    'ribbonM.example3' : 'Beispiel mit allen Richtungen.',
 };
 
 export default DE;

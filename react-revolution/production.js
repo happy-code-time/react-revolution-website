@@ -45,6 +45,8 @@ import Picture404 from './_Modules/Picture404';
 import PopupBox from './_Modules/PopupBox';
 import ReadMore from './_Modules/ReadMore';
 import ReadMoreCallback from './_Modules/ReadMoreCallback';
+import Ribbon from './_Modules/Ribbon';
+import RibbonMultiple from './_Modules/RibbonMultiple';
 import ScrollTo from './_Modules/ScrollTo';
 import SideBar from './_Modules/SideBar';
 import Slider from './_Modules/Slider';
@@ -119,6 +121,8 @@ export {
     PopupData,
     ReadMore,
     ReadMoreCallback,
+    Ribbon,
+    RibbonMultiple,
     ScrollTo,
     SideBar,
     Slider,

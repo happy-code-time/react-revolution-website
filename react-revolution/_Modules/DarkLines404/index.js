@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class DarkLines404 extends React.Component 
 {
@@ -23,10 +22,6 @@ class DarkLines404 extends React.Component
             text1: props.text1 && typeof '8' == typeof props.text1 ? props.text1 : 'requested page',
             text2: props.text2 && typeof '8' == typeof props.text2 ? props.text2 : 'was not found',
         };
-    }
-
-    componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
     }
 
     callback(e) {

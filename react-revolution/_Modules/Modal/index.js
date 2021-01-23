@@ -1,6 +1,5 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class Modal extends React.Component 
 {
@@ -32,7 +31,6 @@ class Modal extends React.Component
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnKeyDown } = this.state;
 
         if(closeOnKeyDown){

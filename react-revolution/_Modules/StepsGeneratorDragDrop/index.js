@@ -1,8 +1,6 @@
 import React from 'react';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import internalUuid from '../internalFunctions/internalUuid';
-import loadStyle from '../internalFunctions/loadStyle';
-
 class StepsGeneratorDragDrop extends React.Component {
     constructor(props) {
         super(props);
@@ -97,7 +95,6 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         this.generateDefaultSteps();
 
         this.attachHandleClick();

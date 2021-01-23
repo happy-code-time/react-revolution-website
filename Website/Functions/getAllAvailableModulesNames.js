@@ -177,6 +177,14 @@ const getAllAvailableModulesNames = () => {
             link: 'components/read-more-callback'
         },
         {
+            name: 'Ribbon',
+            link: 'components/ribbon'
+        },
+        {
+            name: 'RibbonMultiple',
+            link: 'components/Ribbon-multiple'
+        },
+        {
             name: 'ScrollTo',
             link: 'rr-scroll-to'
         },

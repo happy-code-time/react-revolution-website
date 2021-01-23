@@ -1,5 +1,4 @@
 import React from 'react';
-import loadStyle from '../internalFunctions/loadStyle';
 import buildDropDownStructure from '../internalFunctions/buildDropDownStructure';
 import uuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
@@ -69,7 +68,6 @@ class ArticlesImages extends React.Component {
     }
 
     componentDidMount() {
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { mediaBreak } = this.state;
 
         if (mediaBreak) {

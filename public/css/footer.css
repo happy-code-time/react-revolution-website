@@ -312,12 +312,14 @@ h1,
   background-color: #2D3748; }
   .Footer .content {
     margin: 0 auto;
-    max-width: 1400px; }
+    max-width: 1400px;
+    box-sizing: border-box;
+    padding: 0 10px; }
   .Footer .card {
     width: calc(100% - 20px);
     margin: 10px;
-    min-height: unset;
-    border: none; }
+    min-height: unset !important;
+    border: none !important; }
     @media screen and (min-width: 1024px) {
       .Footer .card {
         width: 33%;

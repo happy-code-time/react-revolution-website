@@ -2602,6 +2602,48 @@ const PL = {
     },
     'fss.example1': 'Przykład suwaka z obsługą pełnego ekranu. Pełny ekran jest aktywowany po kliknięciu zdjęcia. Suwak można zamknąć klawiszem ESC lub przyciskiem X. ',
     'fss.example2': 'Suwak można zamknąć klawiszem ESC lub X.',
+    'ribbon.directionX': {
+        "description": "Strona wstążki na osi X. Możliwe orientacje X: 'left' i 'right'.",
+        "type": "String",
+        "default": "right"
+    },
+    'ribbon.directionY': {
+        "description": "Strona wstążki na osi Y. Możliwe wyrównania Y: 'top' i 'bottom'.",
+        "type": "String",
+        "domyślny": "do góry"
+    },
+    'ribbon.background': {
+        "description": "Kolor tła wstążki.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.color': {
+        "description": "Kolor wstążki.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'ribbon.ribbon': {
+        "description": "Tekst wstążki.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.content': {
+        "description": "Zawartość pudełka.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
+    'ribbon.example1': 'Przykład z kierunkiem: TOP | RIGHT. ',
+    'ribbon.example2': 'Przykład z kierunkiem: TOP | LEFT. ',
+    'ribbon.example3': 'Przykład z kierunkiem: BOTTOM | RIGHT. ',
+    'ribbon.example4': 'Przykład z kierunkiem: BOTTOM | LEFT. ',
+    'ribbon.ribbons': {
+        "description": "Tablica wykluczająca obiekty.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'ribbonM.example1': 'Przykład z dwoma kierunkami: TOP | RIGHT i BOTTOM | LEFT. ',
+    'ribbonM.example1': 'Przykład z dwoma kierunkami: TOP | LEFT i BOTTOM | RIGHT. ',
+    'ribbonM.example3': 'Przykład ze wszystkimi kierunkami.',
 };
 
 export default PL;

@@ -1,7 +1,6 @@
 import React from 'react';
 import internalUuid from '../internalFunctions/internalUuid';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
-import loadStyle from '../internalFunctions/loadStyle';
 
 class FullScreenListObject extends React.Component
 {
@@ -83,7 +82,6 @@ class FullScreenListObject extends React.Component
      * After mount
      */
     componentDidMount(){
-        loadStyle(this.state.moduleStyle, this.state.globalStyle, this.state.defaultClass);
         const { closeOnEsc } = this.state;
 
         if(closeOnEsc){
@@ -128,7 +126,7 @@ class FullScreenListObject extends React.Component
             return `${defaultClass} ${animation ? `${animation}` : ''}`;
         }
 
-        return `rr-fullscreenlist ${animation ? `${animation}` : ''}`;
+        return `rr-full-screen-list-object ${animation ? `${animation}` : ''}`;
     }
 
     /**
