@@ -8,7 +8,6 @@ import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { LoadOnScroll, LoadingBoxTop } from 'react-revolution';
 // import LoadOnScroll from 'react-revolution/LoadOnScroll';
@@ -744,9 +743,6 @@ class _LoadOnScroll extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-load-on-scroll')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -768,14 +764,6 @@ class _LoadOnScroll extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

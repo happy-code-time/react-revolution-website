@@ -1,14 +1,8 @@
 import React from 'react';
-
 import { Table, ArticlesImages, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ArticlesImages } from 'react-revolution';
 // import ArticlesImages from 'react-revolution/ArticlesImages';
@@ -390,9 +384,6 @@ class _ArticlesImages extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-articles-images')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -414,14 +405,6 @@ class _ArticlesImages extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

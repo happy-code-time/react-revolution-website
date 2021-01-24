@@ -8,7 +8,6 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
 // import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
@@ -905,9 +904,6 @@ class _CardsScrollCallback extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-cards-scroll-callback')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -929,14 +925,6 @@ class _CardsScrollCallback extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

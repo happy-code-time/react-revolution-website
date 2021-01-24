@@ -3,7 +3,6 @@ import { Accordion, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revol
 import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Accordion } from 'react-revolution';
 // import Accordion from 'react-revolution/Accordion';
@@ -320,9 +319,6 @@ class _Accordion extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-accordion')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -344,14 +340,6 @@ class _Accordion extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

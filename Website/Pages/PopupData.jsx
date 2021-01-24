@@ -3,7 +3,6 @@ import { Table, Slider, PopupData, LoadOnScroll, LoadingBoxTop } from '../../rea
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { PopupData } from 'react-revolution';
 // import PopupData from 'react-revolution/PopupData';
@@ -772,9 +771,6 @@ class _PopupData extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-popup-data')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -797,14 +793,6 @@ class _PopupData extends React.Component {
                         buildTableKeysStructure(
                             [
                                 {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
-                                {
                                     key: 'id',
                                     values: 'id'
                                 },
@@ -825,8 +813,8 @@ class _PopupData extends React.Component {
                                     values: 'popupData.holderData'
                                 },
                                 {
-                                    key: 'animationTime',
-                                    values: 'popupData.animationTime'
+                                    key: 'animationTimeout',
+                                    values: 'popupData.animationTimeout'
                                 },
                                 {
                                     key: 'animation',

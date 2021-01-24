@@ -10,7 +10,6 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import { host } from '../Globals';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -580,9 +579,6 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-custom-suggestion')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -604,14 +600,6 @@ class _CustomSuggestion extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

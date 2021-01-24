@@ -2099,7 +2099,7 @@ const DE = {
         "default": "undefined"
     },
     'popupData.direction' : {
-        "description": "Richtung des Popup Fensters relativ zu dem 'Holder'.",
+        "description": "Richtung des Popup Fensters relativ zu dem 'Holder' Mögliche Richtungen: 'left', 'right' oder 'center'.",
         "type": "String",
         "default": "left"
     },
@@ -2108,13 +2108,13 @@ const DE = {
         "type": "String | JSX",
         "default": "undefined"
     },
-    'popupData.animationTime' : {
+    'popupData.animationTimeout' : {
         "description": "Falls der Entwickler in seinem CSS eine andere transition-duration Zeit angegeben hat als 300, dann benötigt das Modul (um 100% kompatibel zu sein) diesen Wert hier. Dies ist nur relevant wenn man sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left.",
         "type": "Number",
         "default": "300"
     },
     'popupData.animation' : {
-        "description": "Falls der Entwickler sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left wird automatisch eine Animation ausgelöst. Falls man diese ausschalten möchte muss der Wert 'false' sein (animation={false}).",
+        "description": "Falls der Entwickler sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left wird automatisch eine Animation ausgelöst. Falls man diese ausschalten möchte muss der Wert 'false' sein (animation={false}). Wenn animtion={true} und das Menu angezeigt werden soll, dann bekommt der Root <div> die Klasse 'data-active', wenn das Menu wieder geschlossen wird, bekommt der Root <div> die Klasse 'data-inactive'.",
         "type": "Boolean",
         "default": "true"
     },
@@ -2626,6 +2626,40 @@ const DE = {
     'ribbonM.example1' : 'Beispiel mit der 2 Richtungen: TOP | RIGHT und BOTTOM | LEFT.',
     'ribbonM.example1' : 'Beispiel mit der 2 Richtungen: TOP | LEFT und BOTTOM | RIGHT.',
     'ribbonM.example3' : 'Beispiel mit allen Richtungen.',
+    'popupHover.animation' : {
+        "description": "Falls der Entwickler sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left wird automatisch eine Animation ausgelöst. Falls man diese ausschalten möchte muss der Wert 'false' sein (animation={false}). Wenn animtion={true} und das Menu angezeigt werden soll, dann bekommt der Root <div> die Klasse 'data-active', wenn das Menu wieder geschlossen wird, bekommt der Root <div> die Klasse 'data-inactive'.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'popupHover.direction' : {
+        "description": "Richtung des Popup Fensters relativ zu dem 'Holder' Mögliche Richtungen: 'left', 'right' oder 'center'.",
+        "type": "String",
+        "default": "left"
+    },
+    'popupHover.holderData' : {
+        "description": "Benutzerdefinierte Daten die er Auslöser sind, damit das Popup Fenster erscheint. Es gibt voreingetragene Platzhalter: dots, square, hamburger und hamburger-left. Diese Namen sind auch reserviert und können nicht geändert werden.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupHover.animationTimeout' : {
+        "description": "Falls der Entwickler in seinem CSS eine andere transition-duration Zeit angegeben hat als 300, dann benötigt das Modul (um 100% kompatibel zu sein) diesen Wert hier. Dies ist nur relevant wenn man sich für einen vordefinierten Platzhalter entscheided: dots, square, hamburger oder hamburger-left.",
+        "type": "Number",
+        "default": "300"
+    },
+    'popupHover.contentData' : {
+        "description": "Benutzerdefiniertes JSX oder ein Array aus Objekten.",
+        "type": "{}[] | JSX",
+        "default": "[]"
+    },
+    'popupHover.contentData.data' : {
+        "description": "Benutzerdefiniertes JSX falls man sich bei dem Schlüssel 'contentData' für ein Array aus Objekten entscheided. Jedes einzelnes Feld 'data' wird ein <li> gepackt.",
+        "type": "JSX|String",
+        "default": "undefined"
+    },
+    'popupHover.description' : "Wenn ein Benutzer mit der Mauß ein Hover über den Platzhalter durchführt, werden die anzuzeigenden Daten angezeigt. Wenn der Schlüssel animation={true} ist, bekommt der Daten Haltender <div> zusätzlich die Klasse 'menu-active'. Wenn ein Benutzer mit der Mauß wieder weg navigiert (von dem Platzhalter oder den Daten) und der Schlüssel animation={true} ist, bekommt der Daten Haltender <div> zusätzlich die Klasse 'menu-inactive'.",
+    'popupHover.example1' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der linken Seite.',
+    'popupHover.example2' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der rechten Seite.',
+    'popupHover.example3' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten die zentriert werden.',
 };
 
 export default DE;

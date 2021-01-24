@@ -8,7 +8,6 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { InputFileDragDrop } from 'react-revolution';
 // import InputFileDragDrop from 'react-revolution/InputFileDragDrop';
@@ -235,9 +234,6 @@ class _InputFileDragDrop extends React.Component
                         },
                     }}
                 />
-                {
-                    getDescriptionForstyle('rr-input-file-drag-drop')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -259,14 +255,6 @@ class _InputFileDragDrop extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

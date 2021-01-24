@@ -3,7 +3,6 @@ import { Table, LoadOnScroll, LoadingBoxTop, MenuHoverX } from '../../react-revo
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { MenuHoverX } from 'react-revolution';
 // import MenuHoverX from 'react-revolution/MenuHoverX';
@@ -424,9 +423,6 @@ class _MenuHoverX extends React.Component {
                     fireScrollEvent={30}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-menu-hover-x')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -448,14 +444,6 @@ class _MenuHoverX extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

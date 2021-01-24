@@ -6,7 +6,6 @@ import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -190,9 +189,6 @@ class _Modal extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-modal')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -214,14 +210,6 @@ class _Modal extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

@@ -10,7 +10,6 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import { host } from '../Globals';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Menu } from 'react-revolution';
 // import Menu from 'react-revolution/Menu';
@@ -807,9 +806,6 @@ class _Menu extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-menu')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -831,14 +827,6 @@ class _Menu extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

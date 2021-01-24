@@ -8,7 +8,6 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { PopupBox } from 'react-revolution';
 // import PopupBox from 'react-revolution/PopupBox';
@@ -263,9 +262,6 @@ class _PopupBox extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-popupbox')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -287,14 +283,6 @@ class _PopupBox extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

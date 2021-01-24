@@ -3,7 +3,6 @@ import { Table, RibbonMultiple, LoadOnScroll, LoadingBoxTop } from '../../react-
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { RibbonMultiple } from 'react-revolution';
 // import RibbonMultiple from 'react-revolution/RibbonMultiple';
@@ -406,9 +405,6 @@ class _RibbonMultiple extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-ribbon-multiple')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -430,14 +426,6 @@ class _RibbonMultiple extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

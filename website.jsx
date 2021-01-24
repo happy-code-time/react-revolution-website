@@ -57,6 +57,7 @@ import _PagerDynamic from './Website/Pages/PagerDynamic';
 import _Picture404 from './Website/Pages/Picture404';
 import _PopupBox from './Website/Pages/PopupBox';
 import _PopupData from './Website/Pages/PopupData';
+import _PopupHover from './Website/Pages/PopupHover';
 import _LoadOnScroll from './Website/Pages/LoadOnScroll';
 import _ReadMore from './Website/Pages/ReadMore';
 import _ReadMoreCallback from './Website/Pages/ReadMoreCallback';
@@ -341,7 +342,7 @@ class App extends React.Component {
       {
         version: '5.0',
         start: 0,
-        end: 3
+        end: 4
       },
       {
         version: '4.2',
@@ -770,6 +771,10 @@ class App extends React.Component {
                               text: 'PopupData',
                               href: `${host}#/components/popup-data`,
                             },
+                            {
+                              text: 'PopupHover',
+                              href: `${host}#/components/popup-hover`,
+                            },
                           ]
                         },
                         {
@@ -1037,6 +1042,7 @@ class App extends React.Component {
               <Route exact path="/components/picture-404" render={(props) => (<_Picture404 {...props} />)} />
               <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
               <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
+              <Route exact path="/components/popup-hover" render={(props) => (<_PopupHover {...props} />)} />
               <Route exact path="/components/load-on-scroll" render={(props) => (<_LoadOnScroll {...props} />)} />
               <Route exact path="/components/lightbulb-404" render={(props) => (<_Lightbulb404 {...props} />)} />
               <Route exact path="/components/list-switch" render={(props) => (<_ListSwitch {...props} />)} />

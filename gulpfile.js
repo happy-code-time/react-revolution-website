@@ -54,6 +54,7 @@ const modules = [
     "Picture404",
     "PopupBox",
     "PopupData",
+    "PopupHover",
     "ReadMore",
     "ReadMoreCallback",
     "Ribbon",

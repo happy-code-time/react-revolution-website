@@ -3,7 +3,6 @@ import { Table, LoadOnScroll, LoadingBoxTop, TimelineList } from '../../react-re
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { TimelineList } from 'react-revolution';
 // import TimelineList from 'react-revolution/TimelineList';
@@ -674,9 +673,6 @@ class _TimelineList extends React.Component {
                     fireScrollEvent={30}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-timeline-list')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -698,14 +694,6 @@ class _TimelineList extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

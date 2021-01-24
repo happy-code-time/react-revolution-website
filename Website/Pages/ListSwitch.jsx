@@ -3,7 +3,6 @@ import { Table, LoadOnScroll, LoadingBoxTop, ListSwitch } from '../../react-revo
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { ListSwitch } from 'react-revolution';
 // import ListSwitch from 'react-revolution/ListSwitch';
@@ -357,9 +356,6 @@ class _ListSwitch extends React.Component {
                     fireScrollEvent={30}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-list-switch')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -382,14 +378,6 @@ class _ListSwitch extends React.Component {
                         buildTableKeysStructure(
                             [
                                 {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
-                                {
                                     key: 'id',
                                     values: 'id'
                                 },
@@ -403,19 +391,19 @@ class _ListSwitch extends React.Component {
                                 },
                                 {
                                     key: 'placeholder',
-                                    values: 'menuDragDrop.placeholder'
+                                    values: 'menuDropDown.placeholder'
                                 },
                                 {
                                     key: 'holderLoading',
-                                    values: 'menuDragDrop.holderLoading'
+                                    values: 'menuDropDown.holderLoading'
                                 },
                                 {
                                     key: 'closeOnEsc',
-                                    values: 'menuDragDrop.closeOnEsc'
+                                    values: 'menuDropDown.closeOnEsc'
                                 },
                                 {
                                     key: 'closeOnOutsideClick',
-                                    values: 'menuDragDrop.closeOnOutsideClick'
+                                    values: 'menuDropDown.closeOnOutsideClick'
                                 },
                                 {
                                     key: 'data',
@@ -443,11 +431,11 @@ class _ListSwitch extends React.Component {
                                 },
                                 {
                                     key: 'callback',
-                                    values: 'menuDragDrop.callback'
+                                    values: 'menuDropDown.callback'
                                 },
                                 {
                                     key: 'callbackProps',
-                                    values: 'menuDragDrop.callbackProps'
+                                    values: 'menuDropDown.callbackProps'
                                 },
                                 {
                                     key: 'previous',

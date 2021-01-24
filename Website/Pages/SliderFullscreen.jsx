@@ -2,7 +2,6 @@ import React from 'react';
 import { SliderFullscreen, Table, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans'
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { SliderFullscreen } from 'react-revolution';
@@ -116,7 +115,6 @@ class _SliderFullscreen extends React.Component {
     }
 
     toogleFSS(closeCallbackProps) {
-        console.log()
         this.setState({
             display: !this.state.display
         });
@@ -274,9 +272,6 @@ class _SliderFullscreen extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-slider-fullscreen')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -298,14 +293,6 @@ class _SliderFullscreen extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

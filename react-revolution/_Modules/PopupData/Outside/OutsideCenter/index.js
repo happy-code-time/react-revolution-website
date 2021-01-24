@@ -8,6 +8,7 @@ class OutsideCenter extends React.Component {
         this.attachHandleClick = this.attachHandleClick.bind(this);
         this.removeHandleClick = this.removeHandleClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this);
 
         this.state = {
             displayMenu: false,
@@ -30,7 +31,7 @@ class OutsideCenter extends React.Component {
             closeOnOutsideClick: props.closeOnOutsideClick
         };
 
-        this.int = '';
+        this.holderOutside = undefined;
     }
 
     /**
@@ -171,15 +172,19 @@ class OutsideCenter extends React.Component {
             maxIntervals -= 1;
 
             if(0 <= maxIntervals && this.toggledMenu && this.holderOutside){
-
+                let left = (this.holderOutside.getBoundingClientRect().width / 2) - (this.toggledMenu.getBoundingClientRect().width / 2);
+                
                 return this.setState({
-                    menuLeft: `-${parseInt((this.toggledMenu.getBoundingClientRect().width / 2) - (this.holderOutside.getBoundingClientRect().width / 2))}px`,
+                    menuLeft: `${left}px`,
                 }, () => {
+                    this.isproecessing = false;
                     this.setState({ menuDisplay: true });
                 });
             }
 
-            return calculateLeft(maxIntervals);
+            if(0 <= maxIntervals){
+                return calculateLeft(maxIntervals);
+            }
         };
 
         if (false === this.state.animation) {

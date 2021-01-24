@@ -2117,7 +2117,7 @@ const PL = {
         "default": "undefined"
     },
     'popupData.direction': {
-        "description": "Kierunek wyskakującego okienka względem 'Posiadacza'.",
+        "description": "Kierunek wyskakującego okienka względem 'Posiadacza'. Kierunki: 'left', 'right' oraz 'center'.",
         "type": "String",
         "default": "left"
     },
@@ -2132,7 +2132,7 @@ const PL = {
         "default": "300"
     },
     'popupData.animation': {
-        "description": "Jeśli programista wybierze predefiniowany symbol zastępczy: dots, square, hamburger lub hamburger-left, automatycznie uruchamiana jest animacja. Jeśli chcesz to wyłączyć, wartość musi mieć wartość„ false ”(animacja = {false}). ",
+        "description": "Jeśli programista zdecyduje się na predefiniowany symbol zastępczy: kropki, kwadrat, hamburger lub hamburger po lewej stronie, animacja jest uruchamiana automatycznie. Jeśli chcesz to wyłączyć, wartość musi mieć wartość„ false ”(animacja = {false }). Jeśli animtion = {true} i menu ma zostać wyświetlone, element główny <div> otrzymuje klasę „data-active”, a po ponownym zamknięciu menu root <div> otrzymuje klasę „data-inactive '. ",
         "type": "Boolean",
         "default": "true"
     },
@@ -2644,6 +2644,40 @@ const PL = {
     'ribbonM.example1': 'Przykład z dwoma kierunkami: TOP | RIGHT i BOTTOM | LEFT. ',
     'ribbonM.example1': 'Przykład z dwoma kierunkami: TOP | LEFT i BOTTOM | RIGHT. ',
     'ribbonM.example3': 'Przykład ze wszystkimi kierunkami.',
+    'popupHover.animation': {
+        "description": "Jeśli programista zdecyduje się na predefiniowany symbol zastępczy: kropki, kwadrat, hamburger lub hamburger po lewej stronie, automatycznie uruchamia się animacja. Jeśli chcesz to wyłączyć, wartość musi mieć wartość„ false ”(animacja = {false }). Jeśli animtion = {true} i menu ma zostać wyświetlone, element główny <div> otrzymuje klasę „data-active”, a po ponownym zamknięciu menu root <div> otrzymuje klasę „data-inactive '. ",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'popupHover.direction': {
+        "description": "Kierunek wyskakującego okienka względem 'Posiadacza' Możliwe kierunki: 'left', 'right' lub 'center'.",
+        "type": "String",
+        "default": "left"
+    },
+    'popupHover.holderData': {
+        "description": "Dane zdefiniowane przez użytkownika, które wyzwalają pojawienie się wyskakującego okienka. Istnieją wstępnie wprowadzone symbole zastępcze: kropki, kwadrat, hamburger i hamburger po lewej stronie. Nazwy te są również zastrzeżone i nie można ich zmienić.",
+        "type": "String | JSX",
+        "default": "undefined"
+    },
+    'popupHover.animationTimeout': {
+        "description": "Jeśli programista określił czas trwania przejścia inny niż 300 w swoim CSS, wówczas moduł potrzebuje tutaj tej wartości (aby był w 100% kompatybilny). Ma to znaczenie tylko wtedy, gdy zdecydujesz się na wstępnie zdefiniowany symbol zastępczy: kropki, kwadrat, hamburger lub hamburger po lewej stronie. ",
+        "type": "Number",
+        "default": "300"
+    },
+    'popupHover.contentData': {
+        "description": "Niestandardowy JSX lub tablica obiektów.",
+        "type": "{} [] | JSX",
+        "default": "[]"
+    },
+    'popupHover.contentData.data': {
+        "description": "Niestandardowy JSX, jeśli wybierzesz tablicę obiektów dla klucza 'contentData'. Każde pojedyncze pole 'data' jest spakowane za pomocą <li>.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'popupHover.description': "Jeśli użytkownik może najechać kursorem na symbol zastępczy, wyświetlane są dane do wyświetlenia. Jeśli animation={true}, wtedy root <div> również otrzymuje klasę 'menu-active' .Jeśli użytkownik opuści mysz (od symbolu zastępczego lub danych), a kluczem jest animation={true}, wtedy root <div> również otrzyma klasę 'menu-inactive'.",
+    'popupHover.example1': 'Przykład z wyrównaniem danych do wyświetlenia po lewej stronie.',
+    'popupHover.example2': 'Przykład z wyrównaniem danych do wyświetlenia po prawej stronie.',
+    'popupHover.example3': 'Przykład z wyrównaniem wyświetlanych danych, które zostaną wyśrodkowane.',
 };
 
 export default PL;

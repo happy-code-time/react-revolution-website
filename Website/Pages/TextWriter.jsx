@@ -8,7 +8,6 @@ import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -180,9 +179,6 @@ class _TextWriter extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-text-writer')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -204,14 +200,6 @@ class _TextWriter extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

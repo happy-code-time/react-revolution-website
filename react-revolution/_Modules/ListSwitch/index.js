@@ -166,8 +166,6 @@ class ListSwitch extends React.Component {
 
     toggle() {
 
-        console.log(this.state.data);
-
         if (this.state.data.length) {
             return this.setState({
                 display: !this.state.display,

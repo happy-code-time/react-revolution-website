@@ -8,7 +8,6 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import toggleZindex from '../Functions/toggleZindex';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -228,9 +227,6 @@ class _FullScreenListObject extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-full-screen-list-array')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -252,14 +248,6 @@ class _FullScreenListObject extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

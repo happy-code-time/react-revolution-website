@@ -3,7 +3,6 @@ import { Table, Ribbon, LoadOnScroll, LoadingBoxTop } from '../../react-revoluti
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { Ribbon } from 'react-revolution';
 // import Ribbon from 'react-revolution/Ribbon';
@@ -303,9 +302,6 @@ class _Ribbon extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-ribbon')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -327,14 +323,6 @@ class _Ribbon extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

@@ -28,8 +28,6 @@ class InsideCenter extends React.Component {
             closeOnEsc: props.closeOnEsc,
             closeOnOutsideClick: props.closeOnOutsideClick
         };
-
-        this.int = '';
     }
 
     /**
@@ -169,17 +167,20 @@ class InsideCenter extends React.Component {
         const calculateLeft = (maxIntervals = 20) => {
             maxIntervals -= 1;
 
-            if (0 <= maxIntervals && this.toggledMenu && this.holderMenu) {
-                const left = (this.toggledMenu.getBoundingClientRect().width / 2) - (this.holderMenu.getBoundingClientRect().width/2);
-
+            if (0 <= maxIntervals && this.holderOutside && this.holderMenu) {
+                let left = (this.holderOutside.getBoundingClientRect().width / 2) - (this.holderMenu.getBoundingClientRect().width / 2);
+                
                 return this.setState({
-                    menuLeft: `-${parseInt(left)}px`,
+                    menuLeft: `-${left}px`,
                 }, () => {
+                    this.isproecessing = false;
                     this.setState({ menuDisplay: true });
                 });
             }
 
-            return calculateLeft(maxIntervals);
+            if(0 <= maxIntervals){
+                return calculateLeft(maxIntervals);
+            }
         };
 
         if (false === this.state.animation) {
@@ -259,7 +260,7 @@ class InsideCenter extends React.Component {
                 >
                     <div 
                         className={`data-holder data-inside`}
-                        ref={e => this.toggledMenu = e}
+                        ref={e => this.holderOutside = e}
                     >
                         <div className='main'>
                             <span

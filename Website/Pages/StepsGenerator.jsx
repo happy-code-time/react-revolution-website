@@ -3,7 +3,6 @@ import { Table, LoadOnScroll, LoadingBoxTop, StepsGenerator } from '../../react-
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { StepsGenerator } from 'react-revolution';
 // import StepsGenerator from 'react-revolution/StepsGenerator';
@@ -216,9 +215,6 @@ class _StepsGenerator extends React.Component {
                     fireScrollEvent={30}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-steps-generator')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -240,14 +236,6 @@ class _StepsGenerator extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

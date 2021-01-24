@@ -10,7 +10,6 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import { host } from '../Globals';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { SideBar, Menu } from 'react-revolution';
 // import SideBar from 'react-revolution/SideBar';
@@ -178,9 +177,6 @@ class _Sidebar extends React.Component
                     fireScrollEvent={30}
                     fireScrollBack={true} 
                 />
-                {
-                    getDescriptionForstyle('rr-sidebar')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -202,14 +198,6 @@ class _Sidebar extends React.Component
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

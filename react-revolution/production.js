@@ -36,13 +36,14 @@ import MenuDropDown from './_Modules/MenuDropDown';
 import MenuHeight from './_Modules/MenuHeight';
 import MenuHoverX from './_Modules/MenuHoverX';
 import MenuHoverY from './_Modules/MenuHoverY';
-import PopupData from './_Modules/PopupData';
 import Modal from './_Modules/Modal';
 import Overlay from './_Modules/Overlay';
 import PagerStatic from './_Modules/PagerStatic';
 import PagerDynamic from './_Modules/PagerDynamic';
 import Picture404 from './_Modules/Picture404';
 import PopupBox from './_Modules/PopupBox';
+import PopupData from './_Modules/PopupData';
+import PopupHover from './_Modules/PopupHover';
 import ReadMore from './_Modules/ReadMore';
 import ReadMoreCallback from './_Modules/ReadMoreCallback';
 import Ribbon from './_Modules/Ribbon';
@@ -119,6 +120,7 @@ export {
     Picture404,
     PopupBox,
     PopupData,
+    PopupHover,
     ReadMore,
     ReadMoreCallback,
     Ribbon,

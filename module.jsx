@@ -1,234 +1,187 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Ribbon, RibbonMultiple } from './react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-ribbon.scss';
-import './react-revolution/_Sass/rr-ribbon-multiple.scss';
+import { PopupHover, ListSwitch } from './react-revolution/react-revolution';
+import './react-revolution/_Sass/rr-popup-hover.scss';
+import './react-revolution/_Sass/rr-list-switch.scss';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+        this.getdata = this.getdata.bind(this);
     }
 
-    getJsx() {
-        return (
-            <div
-                style={
+    getdata() {
+        return [
+            {
+                text: 'Settings',
+                callback: console.info,
+                callbackProps: 'clicked',
+                next: '⚙',
+                previous: '<',
+                data: [
                     {
-                        borderRadius: '5px',
-                        boxShadow: '0px 0px 9px rgb(233,233,233)',
-                        overflow: 'hidden'
+                        text: 'Profile',
+                        callback: console.info,
+                        callbackProps: 'clicked',
+                        next: '👤',
+                        previous: '<',
+                        data: [
+                            {
+                                text: 'Private settings',
+                                callback: console.info,
+                                callbackProps: 'clicked',
+                                previous: '<',
+                                next: '🕵',
+                                data: [
+                                    {
+                                        text: 'Setting 1',
+                                        callback: console.info,
+                                        callbackProps: 'clicked',
+                                    },
+                                    {
+                                        text: 'Setting 2',
+                                        callback: console.info,
+                                        callbackProps: 'clicked',
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Location',
+                        callback: console.info,
+                        callbackProps: 'clicked',
+                        next: '🌐',
+                        previous: '',
+                        data: [
+                            {
+                                text: 'City',
+                                callback: console.info,
+                                callbackProps: 'clicked',
+                            },
+                            {
+                                text: 'Street',
+                                callback: console.info,
+                                callbackProps: 'clicked',
+                            }
+                        ]
                     }
-                }
-            >
-                <img
-                    src='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
-                    style={
-                        {
-                            width: '100%',
-                            height: '50%',
-                        }
-                    }
-                />
-                <p
-                    style={
-                        {
-                            boxSizing: 'border-box',
-                            padding: '10px'
-                        }
-                    }
-                >
-                    Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore
-                    magna aliquyam erat,
-                    sed diam voluptua.
-                    At vero eos et accusam et
-                    justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren,
-                    no sea takimata sanctus est
-                    Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam
-                    voluptua. At vero eos et accusam
-                    et justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren, no sea
-                    takimata sanctus est Lorem ipsum
-                    dolor sit amet.
-                </p>
-            </div>
-        );
+                ]
+            },
+        ];
     }
 
     render() {
         return (
-            <div
-                style={
-                    {
-                        width: '320px',
-                        margin: '100px'
+            <div style={{ margin: '100px' }}>
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    .PopupHoverStyle {
+                        float: left;
+                        box-sizing: border-box;
+                        padding: 5px 10px;
+                        margin-right: 10px;
+                        border-bottom: 1px solid rgb(122,122,122);
                     }
-                }
-            >
-                <p>TOP-RIGHT | BOTTOM-LEFT </p>
-                <RibbonMultiple
-                    ribbons={
-                        [
-                            {
-                                background: '#FF4459',
-                                color: 'rgb(255,255,255)',
-                                ribbon: (
-                                    <span>
-                                        SALE!
-                                    </span>
-                                )
-                            },
-                            {
-                                background: 'green',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'bottom',
-                                directionX: 'left',
-                                ribbon: (
-                                    <span>
-                                        -90%
-                                    </span>
-                                )
-                            }
-                        ]
-                    }
-                    content={this.getJsx()}
-                />
-                <p>TOP-LEFT | BOTTOM-RIGHT </p>
-                <RibbonMultiple
-                    ribbons={
-                        [
-                            {
-                                background: '#FF4459',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'top',
-                                directionX: 'left',
-                                ribbon: (
-                                    <span>
-                                        SALE!
-                                    </span>
-                                )
-                            },
-                            {
-                                background: 'green',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'bottom',
-                                ribbon: (
-                                    <span>
-                                        -90%
-                                    </span>
-                                )
-                            }
-                        ]
-                    }
-                    content={this.getJsx()}
-                />
-
-                <p>ALL </p>
-                <RibbonMultiple
-                    ribbons={
-                        [
-                            {
-                                background: '#FF4459',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'top',
-                                directionX: 'left',
-                                ribbon: (
-                                    <span>
-                                        SALE!
-                                    </span>
-                                )
-                            },
-                            {
-                                background: 'green',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'top',
-                                ribbon: (
-                                    <span>
-                                        Only
-                                    </span>
-                                )
-                            },
-                            {
-                                background: '#FF4459',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'bottom',
-                                ribbon: (
-                                    <span>
-                                        -90%
-                                    </span>
-                                )
-                            },
-                            {
-                                background: 'green',
-                                color: 'rgb(255,255,255)',
-                                directionY: 'bottom',
-                                directionX: 'left',
-                                ribbon: (
-                                    <span>
-                                        today!
-                                    </span>
-                                )
-                            }
-                        ]
-                    }
-                    content={this.getJsx()}
-                />
-                <p>TOP-RIGHT</p>
-                <Ribbon
-                    background='#FF4459'
-                    color='rgb(255,255,255)'
-                    ribbon={
-                        <span>
-                            SALE!
-                                        </span>
-                    }
-                    content={this.getJsx()}
-                />
-                <p>TOP-LEFT</p>
-                <Ribbon
-                    directionX='left'
-                    background='#FF4459'
-                    color='rgb(255,255,255)'
-                    ribbon={
-                        <span>
-                            WINTER SALE!
-                                        </span>
-                    }
-                    content={this.getJsx()}
-                />
-                <p>BOTTOM-RIGHT</p>
-                <Ribbon
-                    directionY='bottom'
-                    background='#FF4459'
-                    color='rgb(255,255,255)'
-                    ribbon={
-                        <span>
-                            WINTER SALE!
-                                        </span>
-                    }
-                    content={this.getJsx()}
-                />
-                <p>BOTTOM-LEFT</p>
-                <Ribbon
-                    directionX='left'
-                    directionY='bottom'
-                    background='#FF4459'
-                    color='rgb(255,255,255)'
-                    ribbon={
-                        <span>
-                            WINTER SALE!
-                                        </span>
-                    }
-                    content={this.getJsx()}
-                />
+                `}} />
+                <br />
+                <br />
+                <br />
+                <p>CENTER</p>
+                <br />
+                <br />
+                <br />
+                <div>
+                    <PopupHover
+                        addClass='PopupHoverStyle'
+                        direction='center'
+                        holderData='PopupHoverStyle PopupHoverStyle'
+                        displayOnHover={true}
+                        hideOnLeave={true}
+                        animation={true}
+                        contentData={
+                            [
+                                {
+                                    data: (
+                                        <a href="#">
+                                            link 1
+                                        </a>
+                                    )
+                                },
+                                {
+                                    data: (
+                                        <a href="#">
+                                            link 2
+                                        </a>
+                                    )
+                                }
+                            ]
+                        }
+                    />
+                    <PopupHover
+                        addClass='PopupHoverStyle'
+                        direction='center'
+                        holderData='dots'
+                        displayOnHover={true}
+                        hideOnLeave={true}
+                        animation={true}
+                        contentData={
+                            [
+                                {
+                                    data: (
+                                        <a href="#">
+                                            link 1
+                                        </a>
+                                    )
+                                },
+                                {
+                                    data: (
+                                        <a href="#">
+                                            link 2
+                                        </a>
+                                    )
+                                }
+                            ]
+                        }
+                    />
+                    <PopupHover
+                        addClass='PopupHoverStyle'
+                        direction='center'
+                        holderData='square'
+                        displayOnHover={true}
+                        hideOnLeave={true}
+                        animation={true}
+                        contentData={
+                            (
+                                <div>
+                                    <br />
+                                    <h1>First header</h1>
+                                    <br />
+                                    <hr />
+                                    <br />
+                                    <p>Menu entry 1</p>
+                                    <br />
+                                    <p>Menu entry 2</p>
+                                    <br />
+                                    <p>Menu entry 3</p>
+                                    <br />
+                                    <hr />
+                                    <br />
+                                    <h1>Second header</h1>
+                                    <br />
+                                    <p>Single child entry 1</p>
+                                    <br />
+                                    <p>Single child entry 2</p>
+                                    <br />
+                                    <p>Single child entry 3</p>
+                                    <br />
+                                    <hr />
+                                    <br />
+                                </div>
+                            )
+                        }
+                    />
+                </div>
             </div>
         );
     }

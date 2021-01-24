@@ -165,6 +165,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/popup-data'
         },
         {
+            name: 'PopupHover',
+            link: 'components/popup-hover'
+        },
+        {
             name: 'Picture404',
             link: 'components/picture-404'
         },

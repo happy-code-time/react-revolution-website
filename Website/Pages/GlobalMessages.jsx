@@ -6,7 +6,6 @@ import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -317,9 +316,6 @@ class _GlobalMessages extends React.Component {
                         )
                     }
                 </div>
-                {
-                    getDescriptionForstyle('rr-global-messages')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -341,14 +337,6 @@ class _GlobalMessages extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

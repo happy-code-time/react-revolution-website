@@ -3,7 +3,6 @@ import { Table, LoadOnScroll, LoadingBoxTop, MenuDropDown } from '../../react-re
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 
 const codeExample1 = `import { MenuDropDown } from 'react-revolution';
 // import MenuDropDown from 'react-revolution/MenuDropDown';
@@ -294,9 +293,6 @@ class _MenuDropDown extends React.Component {
                     fireScrollEvent={30}
                     fireScrollBack={true}
                 />
-                {
-                    getDescriptionForstyle('rr-menu-dropdown')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -318,14 +314,6 @@ class _MenuDropDown extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'

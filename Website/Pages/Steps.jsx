@@ -3,7 +3,6 @@ import { Steps, Table, LoadOnScroll, LoadingBoxTop, SourceCode, Clipboard } from
 import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import getDescriptionForstyle from '../Functions/getDescriptionForstyle';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { Steps } from 'react-revolution';
@@ -1471,10 +1470,6 @@ class _Steps extends React.Component {
                         )
                     }
                 </div>
-
-                {
-                    getDescriptionForstyle('rr-steps')
-                }
                 <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
@@ -1496,14 +1491,6 @@ class _Steps extends React.Component {
                     data={
                         buildTableKeysStructure(
                             [
-                                {
-                                    key: 'globalStyle',
-                                    values: 'globalStyle'
-                                },
-                                {
-                                    key: 'moduleStyle',
-                                    values: 'moduleStyle'
-                                },
                                 {
                                     key: 'id',
                                     values: 'id'
