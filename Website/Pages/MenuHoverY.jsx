@@ -20,49 +20,49 @@ const codeExample1 = `import { MenuHoverY } from 'react-revolution';
             [
                 {
                     text: 'Step 1',
-                    callback: console.log,
+                    callback: console.info,
                     callbackProps: 'clicked',
                     data: [
                         {
                             text: 'Step 2',
-                            callback: console.log,
+                            callback: console.info,
                             callbackProps: 'clicked',
                             data: [
                                 {
                                     text: 'Step 3',
-                                    callback: console.log,
+                                    callback: console.info,
                                     callbackProps: 'clicked',
                                 },
                                 {
                                     text: 'Step 3',
-                                    callback: console.log,
+                                    callback: console.info,
                                     callbackProps: 'clicked',
                                     data: [
                                         {
                                             text: 'Step 4b',
-                                            callback: console.log,
+                                            callback: console.info,
                                             callbackProps: 'clicked',
                                             data: [
                                                 {
                                                     text: 'Step 5a',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     text: 'Step 5b',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
@@ -71,29 +71,29 @@ const codeExample1 = `import { MenuHoverY } from 'react-revolution';
                                         },
                                         {
                                             text: 'Step 4b',
-                                            callback: console.log,
+                                            callback: console.info,
                                             callbackProps: 'clicked',
                                             data: [
                                                 {
                                                     text: 'Step 5a',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     text: 'Step 5b',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
@@ -106,44 +106,44 @@ const codeExample1 = `import { MenuHoverY } from 'react-revolution';
                         },
                         {
                             text: 'Step 2',
-                            callback: console.log,
+                            callback: console.info,
                             callbackProps: 'clicked',
                             data: [
                                 {
                                     text: 'Step 3',
-                                    callback: console.log,
+                                    callback: console.info,
                                     callbackProps: 'clicked',
                                 },
                                 {
                                     text: 'Step 3',
-                                    callback: console.log,
+                                    callback: console.info,
                                     callbackProps: 'clicked',
                                     data: [
                                         {
                                             text: 'Step 4b',
-                                            callback: console.log,
+                                            callback: console.info,
                                             callbackProps: 'clicked',
                                             data: [
                                                 {
                                                     text: 'Step 5a',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     text: 'Step 5b',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
@@ -152,29 +152,29 @@ const codeExample1 = `import { MenuHoverY } from 'react-revolution';
                                         },
                                         {
                                             text: 'Step 4b',
-                                            callback: console.log,
+                                            callback: console.info,
                                             callbackProps: 'clicked',
                                             data: [
                                                 {
                                                     text: 'Step 5a',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
                                                 },
                                                 {
                                                     text: 'Step 5b',
-                                                    callback: console.log,
+                                                    callback: console.info,
                                                     callbackProps: 'clicked',
                                                     data: [
                                                         {
                                                             text: 'Step 6',
-                                                            callback: console.log,
+                                                            callback: console.info,
                                                             callbackProps: 'clicked',
                                                         }
                                                     ]
@@ -223,49 +223,49 @@ class _MenuHoverY extends React.Component {
                                 [
                                     {
                                         text: 'Step 1',
-                                        callback: console.log,
+                                        callback: console.info,
                                         callbackProps: 'clicked',
                                         data: [
                                             {
                                                 text: 'Step 2',
-                                                callback: console.log,
+                                                callback: console.info,
                                                 callbackProps: 'clicked',
                                                 data: [
                                                     {
                                                         text: 'Step 3',
-                                                        callback: console.log,
+                                                        callback: console.info,
                                                         callbackProps: 'clicked',
                                                     },
                                                     {
                                                         text: 'Step 3',
-                                                        callback: console.log,
+                                                        callback: console.info,
                                                         callbackProps: 'clicked',
                                                         data: [
                                                             {
                                                                 text: 'Step 4b',
-                                                                callback: console.log,
+                                                                callback: console.info,
                                                                 callbackProps: 'clicked',
                                                                 data: [
                                                                     {
                                                                         text: 'Step 5a',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
                                                                         text: 'Step 5b',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
@@ -274,29 +274,29 @@ class _MenuHoverY extends React.Component {
                                                             },
                                                             {
                                                                 text: 'Step 4b',
-                                                                callback: console.log,
+                                                                callback: console.info,
                                                                 callbackProps: 'clicked',
                                                                 data: [
                                                                     {
                                                                         text: 'Step 5a',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
                                                                         text: 'Step 5b',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
@@ -309,44 +309,44 @@ class _MenuHoverY extends React.Component {
                                             },
                                             {
                                                 text: 'Step 2',
-                                                callback: console.log,
+                                                callback: console.info,
                                                 callbackProps: 'clicked',
                                                 data: [
                                                     {
                                                         text: 'Step 3',
-                                                        callback: console.log,
+                                                        callback: console.info,
                                                         callbackProps: 'clicked',
                                                     },
                                                     {
                                                         text: 'Step 3',
-                                                        callback: console.log,
+                                                        callback: console.info,
                                                         callbackProps: 'clicked',
                                                         data: [
                                                             {
                                                                 text: 'Step 4b',
-                                                                callback: console.log,
+                                                                callback: console.info,
                                                                 callbackProps: 'clicked',
                                                                 data: [
                                                                     {
                                                                         text: 'Step 5a',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
                                                                         text: 'Step 5b',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
@@ -355,29 +355,29 @@ class _MenuHoverY extends React.Component {
                                                             },
                                                             {
                                                                 text: 'Step 4b',
-                                                                callback: console.log,
+                                                                callback: console.info,
                                                                 callbackProps: 'clicked',
                                                                 data: [
                                                                     {
                                                                         text: 'Step 5a',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
                                                                         text: 'Step 5b',
-                                                                        callback: console.log,
+                                                                        callback: console.info,
                                                                         callbackProps: 'clicked',
                                                                         data: [
                                                                             {
                                                                                 text: 'Step 6',
-                                                                                callback: console.log,
+                                                                                callback: console.info,
                                                                                 callbackProps: 'clicked',
                                                                             }
                                                                         ]

@@ -48,6 +48,7 @@ class SliderFullscreen extends React.Component {
             sliderPreviewTransformation: 0,
             ulAnimationDisabled: true,
             autoplay: false,
+            isUserCurrentlySliding: false,
             // User
             moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
             globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
@@ -63,9 +64,9 @@ class SliderFullscreen extends React.Component {
             imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
             autoplayTime: props.autoplayTime && typeof 8 == typeof props.autoplayTime && 0 < props.autoplayTime ? props.autoplayTime : 5000,
             autoplayNext: typeof true == typeof props.autoplayNext ? props.autoplayNext : true,
-            animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
+            animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '06',
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
-            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
             autoplayStopOnLast: typeof true == typeof props.autoplayStopOnLast ? props.autoplayStopOnLast : true,
             //
             displayPreview: typeof true == typeof props.displayPreview ? props.displayPreview : true,
@@ -83,6 +84,7 @@ class SliderFullscreen extends React.Component {
             closeCallback: props.closeCallback && typeof function () { } === typeof props.closeCallback ? props.closeCallback : undefined,
             closeCallbackProps: props.closeCallbackProps,
             closeOnEsc: typeof true == typeof props.closeOnEsc ? props.closeOnEsc : true,
+            onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
         };
         
         this.maxSlidePreviewSlide = (this.state.data.length * this.state.previewWidth) + (this.state.data.length * this.state.previewMarginX);
@@ -150,7 +152,8 @@ class SliderFullscreen extends React.Component {
             'autoplayStopIcon',
             'closeCallback',
             'closeCallbackProps',
-            'closeOnEsc'
+            'closeOnEsc',
+            'onSlideTime'
         ], props, state)) {
 
             return {
@@ -165,9 +168,9 @@ class SliderFullscreen extends React.Component {
                 imageAsBackground: typeof true == typeof props.imageAsBackground ? props.imageAsBackground : false,
                 autoplayTime: props.autoplayTime && typeof 8 == typeof props.autoplayTime && 0 < props.autoplayTime ? props.autoplayTime : 5000,
                 autoplayNext: typeof true == typeof props.autoplayNext ? props.autoplayNext : true,
-                animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
+                animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '06',
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
-                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
                 autoplayStopOnLast: typeof true == typeof props.autoplayStopOnLast ? props.autoplayStopOnLast : true,
                 displayPreview: typeof true == typeof props.displayPreview ? props.displayPreview : true,
                 previewWidth: props.previewWidth && typeof 8 == typeof props.previewWidth ? props.previewWidth : 80,
@@ -184,6 +187,7 @@ class SliderFullscreen extends React.Component {
                 closeCallback: props.closeCallback && typeof function () { } === typeof props.closeCallback ? props.closeCallback : undefined,
                 closeCallbackProps: props.closeCallbackProps,
                 closeOnEsc: typeof true == typeof props.closeOnEsc ? props.closeOnEsc : true,
+                onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
             };
         }
 
@@ -336,10 +340,12 @@ class SliderFullscreen extends React.Component {
             this.preview_movex = 0;
         }
 
+        this.movex = index * this.state.slideWrapperWidth;
+
         this.setState({
             ulAnimationDisabled: false,
             dataTransform: `translate3d(-(${0})px,0,0)`,
-            slidesTransform: `translate3d(-${index * this.state.slideWrapperWidth}px,0,0)`,
+            slidesTransform: `translate3d(-${this.movex}px,0,0)`,
             sliderPreviewTransformation: `translate3d(-${this.preview_movex}px,0,0)`
         }, () => {
 
@@ -486,6 +492,11 @@ class SliderFullscreen extends React.Component {
 
     processMouseDown(e) {
         e.preventDefault();
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
+
         this.handleMouseDown(e);
     }
 
@@ -576,9 +587,13 @@ class SliderFullscreen extends React.Component {
             }
         }
 
-        this.userMoving = false;
-        this.mouseMoveListeners(false);
-        this.setState({ index }, this.slide);
+        this.setState({
+            isUserCurrentlySliding: false
+        }, () => {
+            this.userMoving = false;
+            this.mouseMoveListeners(false);
+            this.setState({ index }, this.slide);
+        });
     }
 
     handleMouseLeave() {
@@ -604,8 +619,15 @@ class SliderFullscreen extends React.Component {
 
             this.userMoving = false;
             this.mouseMoveListeners(false);
-            this.setState({ index }, this.slide);
+            return this.setState({
+                index,
+                isUserCurrentlySliding: false
+            }, this.slide);
         }
+        
+        this.setState({ 
+            isUserCurrentlySliding: false
+        });
     }
 
     handleClick() {
@@ -617,6 +639,10 @@ class SliderFullscreen extends React.Component {
         this.blockMove = true;
         this.mouseMoveListeners(false);
         this.userMoving = false;
+
+        this.setState({ 
+            isUserCurrentlySliding: false
+        });
 
         return setTimeout(() => {
             this.blockMove = false;
@@ -761,6 +787,10 @@ class SliderFullscreen extends React.Component {
 
         // Get the original touch position.
         this.touchstartx = event.touches[0].pageX;
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
     }
 
     handleTouchMove(event) {
@@ -806,10 +836,18 @@ class SliderFullscreen extends React.Component {
                 }
             }
 
-            this.userMoving = false;
-            this.mouseMoveListeners(false);
-            this.setState({ index }, this.slide);
+            return this.setState({
+                isUserCurrentlySliding: false
+            }, () => {
+                this.userMoving = false;
+                this.mouseMoveListeners(false);
+                this.setState({ index }, this.slide);
+            });
         }
+
+        this.setState({
+            isUserCurrentlySliding: false
+        });
     }
 
     /**
@@ -1034,6 +1072,8 @@ class SliderFullscreen extends React.Component {
             slidesTransform, 
             imagesTransform, 
             slideWrapperWidth,
+            onSlideTime,
+            isUserCurrentlySliding
         } = this.state;
 
         return (
@@ -1085,7 +1125,8 @@ class SliderFullscreen extends React.Component {
                         displayPagination && !autoplay && this.getButtonPreviousJsx()
                     }
                     <div
-                        className={`slides user-select-none animate-${animationTime}`}
+                        key={`slides-${slidersUuid}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,

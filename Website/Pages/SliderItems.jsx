@@ -782,6 +782,10 @@ class _SliderItems extends React.Component
                                     key: 'useLayerX',
                                     values: 'slider.useLayerX'
                                 },
+                                {
+                                    key: 'onSlideTime',
+                                    values: 'slider.onSlideTime'
+                                },
                             ],
                             'rr-slider-items'
                         )

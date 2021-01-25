@@ -1709,6 +1709,11 @@ const EN = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.onSlideTime' : {
+        "description": "Sliders transformation time during an ACTIVE mouse / touch slide. Possible values ​​are '0' and from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "0"
+    },
     'slider.data': {
         "description": "An array of objects.",
         "type": "{} []",
@@ -2068,9 +2073,9 @@ const EN = {
         "default": "true"
     },
     'slider.animationTime': {
-        "description": "Sliders transformation time for autoplay and mouse / touch move. Possible values ​​from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "description": "Sliders transformation time for autoplay and mouse / touch move. Possible values '0' and ​​from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",
-        "default": "05"
+        "default": "06"
     },
     'slider.allowMouseTouch': {
         "description": "Allow the user to change the slider with the mouse or finger (touch screen).",
@@ -2085,7 +2090,7 @@ const EN = {
     'slider.inlineStyle': {
         "description": "If the slider is moved with the mouse an inline-style is used. If false then setState.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'slider.example7': 'Example using the key paginationType={2}.',
     'slider.example8': 'Example with the use of the key autoplay={true} and autoplayTime={5000}.',
@@ -2093,7 +2098,7 @@ const EN = {
     'slider.useLayerX': {
         "description": "If the slider (in the desktop version) is moved, the value of event.layerX is used to move the slider. If the value of this key is false, the value of event.clientX is used.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'overlay.display': {
         "description": "Overlay display control.",

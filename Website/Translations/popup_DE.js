@@ -1707,6 +1707,11 @@ const DE = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.onSlideTime' : {
+        "description": "Sliders Tranformationszeit wärend eines AKTIVEN Mauß/Touch slides. Mögliche Werte sind '0' und von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "0"
+    },
     'slider.data' : {
         "description": "Ein Array aus Objekten.",
         "type": "{}[]",
@@ -2053,7 +2058,7 @@ const DE = {
     'slider.animationTime' : {
         "description": "Sliders Tranformationszeit beim autoplay und beim Mouse/Touch move. Mögliche Werte von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",
-        "default": "05"
+        "default": "06"
     },
     'slider.allowMouseTouch' : {
         "description": "Dem Benutzer erlauben den Slider mit der Maus oder dem Finger (TouchScreen) zu ändern.",
@@ -2068,7 +2073,7 @@ const DE = {
     'slider.inlineStyle' : {
         "description": "Wenn der Slider mit der Maus bewegt wird ein inline-style verwendet. Wenn false dann setState.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'slider.example7': 'Beispiel mit der Verwendung des Schlüssels paginationType={2}.',
     'slider.example8': 'Beispiel mit der Verwendung des Schlüssels autoplay={true} und autoplayTime={5000}.',
@@ -2076,7 +2081,7 @@ const DE = {
     'slider.useLayerX' : {
         "description": "Wenn der Slider (in der Desktop Variante) bewegt wird, wird zum bewegen des Sliders der Wert von event.layerX genommen. Wenn der Wert dieses Schlüssels false ist, wird der Wert von event.clientX genommen.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'overlay.display' : {
         "description": "Anzeigesteuerung des Overlays.",

@@ -1471,6 +1471,109 @@ class Releases extends React.Component {
                             },
                         },
                     ]
+                },
+                '5.0.5': {
+                    data: [
+                        {
+                            key: 'Slider - part 1',
+                            value: `Changed default value of the key: "inlineStyle" and "fsInlineStyle" to false.\nChanged default value of the key: "animationTime" and "fsAnimationTime" to '06'.\n`,
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Slider - part 2',
+                            value: 'Added new keys \n\nonSlideTime\nfsOnSlideTime',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderCards - part 1',
+                            value: `Changed default value of the key: "inlineStyle" to false.\nChanged default value of the key: "animationTime" to '06'.\n`,
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderCards - part 2',
+                            value: 'Added new key\n\nonSlideTime',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderCards - part 3',
+                            value: 'Fixed bug on touch/mouse-move handler. Dont swap direction from first to the last and from last to the first card, even the swapDirection={true}. SwapDirection key supports only the previous and next button.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderItems - part 1',
+                            value: `Changed default value of the key: "inlineStyle" to false.\nChanged default value of the key: "animationTime" to '06'.\n`,
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderItems - part 2',
+                            value: 'Added new key\n\nonSlideTime',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderFullscreen - part 1',
+                            value: `Changed default value of the key: "inlineStyle" to false.\nChanged default value of the key: "animationTime" to '06'.\n`,
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderFullscreen - part 2',
+                            value: 'Added new key\n\nonSlideTime',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
                 }
             }
         }

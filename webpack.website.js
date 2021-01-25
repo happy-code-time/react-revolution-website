@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
         // config.devtool = 'eval-source-map';
         config.devtool = false;
         config.mode = 'development';
-        config.output.filename = '161149268080352834588136689.js';
+        config.output.filename = '1611603734898320876757944165.js';
         config.performance = {
             hints: 'error'
         };
@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'production') {
         config.devtool = false;
         config.mode = 'production';
-        config.output.filename = '161149268080352834588136689.js';
+        config.output.filename = '1611603734898320876757944165.js';
         config.performance = {
             hints: false
         };
@@ -98,22 +98,6 @@ module.exports = (env, argv) => {
             flagIncludedChunks: true,
             concatenateModules: true,
             nodeEnv: 'production',
-            // minimizer: [
-            //     new TerserPlugin({
-            //         test: /\.jsx|.js(\?.*)?$/i,
-            //         exclude: /node_modules/,
-            //         parallel: true,
-            //         terserOptions: {
-            //             nameCache: null,
-            //             ie8: true,
-            //             keep_fnames: false,
-            //             safari10: true,
-            //             keep_classnames: false,
-            //             extractComments: true,
-            //             ecma: 6
-            //         },
-            //     }),
-            // ],
         }
     }
 

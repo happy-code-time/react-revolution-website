@@ -1710,6 +1710,11 @@ const PL = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.onSlideTime' : {
+        "description": "Czas transformacji suwaków podczas AKTYWNEGO poruszania slajderem poprzez ruchy myszka lub palcem po ekranie dotykowym. Możliwe wartości to '0' i od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "type": "String",
+        "default": "0"
+    },
     'slider.data': {
         "description": "Tablica objektów.",
         "type": "{}[]",
@@ -2069,9 +2074,9 @@ const PL = {
         "default": "true"
     },
     'slider.animationTime': {
-        "description": "Czas transformacji suwaków dla autoodtwarzania i ruchu myszy / dotyku. Możliwe wartości od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
+        "description": "Czas transformacji suwaków dla autoodtwarzania i ruchu myszy / dotyku. Możliwe wartości '0' oraz od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",
-        "default": "05"
+        "default": "06"
     },
     'slider.allowMouseTouch': {
         "description": "Pozwól użytkownikowi zmieniać suwak myszą lub palcem (ekran dotykowy).",
@@ -2086,7 +2091,7 @@ const PL = {
     'slider.inlineStyle': {
         "description": "Jeśli slider jest przesuwany za pomocą myszy, używany jest inline-style. Jeśli false, to setState.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'slider.example7': 'Przykład z użyciem klucza paginationType={2}.',
     'slider.example8': 'Przykład z użyciem klucza autoplay={true} i autoplayTime={5000}.',
@@ -2094,7 +2099,7 @@ const PL = {
     'slider.useLayerX': {
         "description": "Jeśli slider (w wersji Desktop) zostanie przesunięty, do przesunięcia slidera używana jest wartość event.layerX. Jeśli wartość tego klucza jest false, używana jest wartość event.clientX.",
         "type": "Boolean",
-        "default": "true"
+        "default": "false"
     },
     'overlay.display': {
         "description": "Wyświetl sterowanie nakładką.",

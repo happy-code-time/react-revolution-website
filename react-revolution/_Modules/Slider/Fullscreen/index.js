@@ -38,7 +38,6 @@ class Fullscreen extends React.Component {
             slidesTransform: props.slidesTransform,
             slidesWidth: props.slidesWidth,
             slideWrapperWidth: props.slideWrapperWidth,
-            imagesTransform: props.imagesTransform,
             index: props.index,
             data: props.data,
             index: props.index,
@@ -52,6 +51,7 @@ class Fullscreen extends React.Component {
             maxSlidePreviewSlide: (props.data.length * props.previewWidth) + (props.data.length * props.previewMarginX),
             ulAnimationDisabled: true,
             autoplay: false,
+            isUserCurrentlySliding: false,
             // User
             displayPagination: props.displayPagination,
             slideAfterMove: props.slideAfterMove,
@@ -78,7 +78,8 @@ class Fullscreen extends React.Component {
             displayDots: props.displayDots,
             autoplayStopOnLast: props.autoplayStopOnLast,
             displayDotsIndex: props.displayDotsIndex,
-            closeOnEsc: props.closeOnEsc
+            closeOnEsc: props.closeOnEsc,
+            onSlideTime: props.onSlideTime
         };
 
         this.slideWidth = 0;
@@ -137,7 +138,8 @@ class Fullscreen extends React.Component {
             'displayDots',
             'autoplayStopOnLast',
             'displayDotsIndex',
-            'closeOnEsc'
+            'closeOnEsc',
+            'onSlideTime'
         ], props, state)) {
 
             return {
@@ -164,7 +166,8 @@ class Fullscreen extends React.Component {
                 displayDots: props.displayDots,
                 autoplayStopOnLast: props.autoplayStopOnLast,
                 displayDotsIndex: props.displayDotsIndex,
-                closeOnEsc: props.closeOnEsc
+                closeOnEsc: props.closeOnEsc,
+                onSlideTime: props.onSlideTime
             };
         }
 
@@ -310,10 +313,12 @@ class Fullscreen extends React.Component {
             this.preview_movex = 0;
         }
 
+        this.movex = index * this.state.slideWrapperWidth;
+
+
         this.setState({
             ulAnimationDisabled: false,
-            dataTransform: `translate3d(-(${0})px,0,0)`,
-            slidesTransform: `translate3d(-${index * this.state.slideWrapperWidth}px,0,0)`,
+            slidesTransform: `translate3d(-${this.movex}px,0,0)`,
             sliderPreviewTransformation: `translate3d(-${this.preview_movex}px,0,0)`
         }, () => {
 
@@ -464,6 +469,11 @@ class Fullscreen extends React.Component {
 
     processMouseDown(e) {
         e.preventDefault();
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
+
         this.handleMouseDown(e);
     }
 
@@ -554,9 +564,13 @@ class Fullscreen extends React.Component {
             }
         }
 
-        this.userMoving = false;
-        this.mouseMoveListeners(false);
-        this.setState({ index }, this.slide);
+        this.setState({
+            isUserCurrentlySliding: false
+        }, () => {
+            this.userMoving = false;
+            this.mouseMoveListeners(false);
+            this.setState({ index }, this.slide);
+        });
     }
 
     handleMouseLeave() {
@@ -580,10 +594,18 @@ class Fullscreen extends React.Component {
                 }
             }
 
+
             this.userMoving = false;
             this.mouseMoveListeners(false);
-            this.setState({ index }, this.slide);
+            return this.setState({
+                index,
+                isUserCurrentlySliding: false
+            }, this.slide);
         }
+        
+        this.setState({ 
+            isUserCurrentlySliding: false
+        });
     }
 
     handleClick() {
@@ -739,6 +761,10 @@ class Fullscreen extends React.Component {
 
         // Get the original touch position.
         this.touchstartx = event.touches[0].pageX;
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
     }
 
     handleTouchMove(event) {
@@ -784,10 +810,18 @@ class Fullscreen extends React.Component {
                 }
             }
 
-            this.userMoving = false;
-            this.mouseMoveListeners(false);
-            this.setState({ index }, this.slide);
+            return this.setState({
+                isUserCurrentlySliding: false
+            }, () => {
+                this.userMoving = false;
+                this.mouseMoveListeners(false);
+                this.setState({ index }, this.slide);
+            });
         }
+
+        this.setState({
+            isUserCurrentlySliding: false
+        });
     }
 
     /**
@@ -983,7 +1017,7 @@ class Fullscreen extends React.Component {
     }
 
     render() {
-        const { uuid, animationTime, previewToggle, displayDots, autoplay, autoplayStopIcon, autoplayIcon, ulAnimationDisabled, closeIcon, displayPagination, renderPreview, toggleDirection, slidersUuid, data, index, displayPreview, slidesWidth, previewMarginX, previewMarginY, previewWidth, previewHeight, maxSlidePreviewSlide, sliderPreviewTransformation, imageAsBackground, slidesTransform, imagesTransform, slideWrapperWidth } = this.state;
+        const { uuid, animationTime, previewToggle, isUserCurrentlySliding, displayDots, autoplay, onSlideTime, autoplayStopIcon, autoplayIcon, ulAnimationDisabled, closeIcon, displayPagination, renderPreview, toggleDirection, slidersUuid, data, index, displayPreview, slidesWidth, previewMarginX, previewMarginY, previewWidth, previewHeight, maxSlidePreviewSlide, sliderPreviewTransformation, imageAsBackground, slidesTransform, slideWrapperWidth } = this.state;
 
         return (
             <div className={`fullscreen-slider animate-${animationTime}`}>
@@ -1034,7 +1068,8 @@ class Fullscreen extends React.Component {
                         displayPagination && !autoplay && this.getButtonPreviousJsx()
                     }
                     <div
-                        className={`slides user-select-none animate-${animationTime}`}
+                        key={`slides-${slidersUuid}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,
@@ -1063,7 +1098,6 @@ class Fullscreen extends React.Component {
                                                 <div
                                                     className={`slide-image slide-image-data-wrapper animate-${animationTime}`}
                                                     style={{
-                                                        transform: `${imagesTransform}`,
                                                         backgroundImage: `url(${image})`
                                                     }}
                                                 >
@@ -1082,9 +1116,6 @@ class Fullscreen extends React.Component {
                                                 <img
                                                     className={`slide-image animate-${animationTime}`}
                                                     src={image}
-                                                    style={{
-                                                        transform: `${imagesTransform}`,
-                                                    }}
                                                 />
                                             }
                                         </span>
@@ -1118,6 +1149,7 @@ class Fullscreen extends React.Component {
                         }
                         <div className='preview'>
                             <ul
+                                key={`ul-preview${slidersUuid}`}
                                 ref={(node) => this.sliderPreviewRef = node}
                                 style={
                                     {
@@ -1163,7 +1195,6 @@ class Fullscreen extends React.Component {
                                                         <div
                                                             className={`slide-image slide-image-data-wrapper animate-${animationTime}`}
                                                             style={{
-                                                                transform: `${imagesTransform}`,
                                                                 backgroundImage: `url(${image})`
                                                             }}
                                                         >
@@ -1182,9 +1213,6 @@ class Fullscreen extends React.Component {
                                                         <img
                                                             className={`slide-image animate-${animationTime}`}
                                                             src={image}
-                                                            style={{
-                                                                transform: `${imagesTransform}`,
-                                                            }}
                                                         />
                                                     }
                                                 </span>

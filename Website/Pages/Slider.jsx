@@ -1382,7 +1382,15 @@ class _Slider extends React.Component {
                                 {
                                     key: 'fsCloseOnEsc',
                                     values: 'fss.fsCloseOnEsc'
-                                },                           
+                                },
+                                {
+                                    key: 'onSlideTime',
+                                    values: 'slider.onSlideTime'
+                                },
+                                {
+                                    key: 'fsOnSlideTime',
+                                    values: 'slider.onSlideTime'
+                                },           
                             ],
                             'rr-slider'
                         )

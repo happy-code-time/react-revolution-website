@@ -401,6 +401,10 @@ class _SliderFullscreen extends React.Component {
                                     key: 'closeOnEsc',
                                     values: 'fss.fsCloseOnEsc'
                                 },  
+                                {
+                                    key: 'onSlideTime',
+                                    values: 'slider.onSlideTime'
+                                },
                             ],
                             'rr-slider-fullscreen'
                         )

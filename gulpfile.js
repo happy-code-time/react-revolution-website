@@ -405,22 +405,6 @@ module.exports = (env, argv) => {
             flagIncludedChunks: true,
             concatenateModules: true,
             nodeEnv: 'production',
-            // minimizer: [
-            //     new TerserPlugin({
-            //         test: /\\.jsx|.js(\\?.*)?$\/i,
-            //         exclude: \/node_modules/\,
-            //         parallel: true,
-            //         terserOptions: {
-            //             nameCache: null,
-            //             ie8: true,
-            //             keep_fnames: false,
-            //             safari10: true,
-            //             keep_classnames: false,
-            //             extractComments: true,
-            //             ecma: 6
-            //         },
-            //     }),
-            // ],
         }
     }
 

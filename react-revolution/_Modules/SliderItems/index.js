@@ -49,19 +49,19 @@ class SliderItems extends React.Component {
             slidesWidth: 100,
             // each single image holder
             slideWrapperWidth: '100%',
-            // each single img tag
-            dataTransform: `translate3d(-0px,0,0)`,
             // current slide index
             index: 0,
+            isUserCurrentlySliding: false,
             paginationType: props.paginationType && typeof 8 == typeof props.paginationType && 0 < props.paginationType && 2 <= props.paginationType ? props.paginationType : 1,
             autoplay: typeof true == typeof props.autoplay ? props.autoplay : false,
             autoplayTime: props.autoplayTime && typeof 8 == typeof props.autoplayTime && 0 < props.autoplayTime ? props.autoplayTime : 5000,
             autoplayNext: typeof true == typeof props.autoplayNext ? props.autoplayNext : true,
-            animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
+            animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '06',
             allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
             wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
-            inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
-            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+            inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : false,
+            useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
+            onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
         };
 
         this.slideWidth = 0;
@@ -87,7 +87,7 @@ class SliderItems extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['itemsS', 'itemsL', 'itemsXL', 'useLayerX', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationType', 'resizeS', 'resizeL', 'resizeXL', 'dotsInside', 'paginationInside', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['itemsS', 'itemsL', 'onSlideTime',  'itemsXL', 'useLayerX', 'inlineStyle', 'allowMouseTouch', 'slideAfterMove', 'wrapDirection', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'paginationType', 'resizeS', 'resizeL', 'resizeXL', 'dotsInside', 'paginationInside', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination', 'displayDots', 'displayDotsIndex', 'buttonsAlwaysVisible'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-items',
@@ -110,14 +110,15 @@ class SliderItems extends React.Component {
                 paginationInside: typeof true == typeof props.paginationInside ? props.paginationInside : true,
                 slideAfterMove: typeof 8 == typeof props.slideAfterMove ? props.slideAfterMove : 50,
                 paginationType: props.paginationType && typeof 8 == typeof props.paginationType && 0 < props.paginationType && 2 <= props.paginationType ? props.paginationType : 1,
-                animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '05',
+                animationTime: (props.animationTime && typeof '8' == typeof props.animationTime) ? props.animationTime : '06',
                 autoplay: typeof true == typeof props.autoplay ? props.autoplay : false,
                 autoplayTime: props.autoplayTime && typeof 8 == typeof props.autoplayTime && 0 < props.autoplayTime ? props.autoplayTime : 5000,
                 autoplayNext: typeof true == typeof props.autoplayNext ? props.autoplayNext : true,
                 allowMouseTouch: typeof true == typeof props.allowMouseTouch ? props.allowMouseTouch : true,
                 wrapDirection: typeof true == typeof props.wrapDirection ? props.wrapDirection : true,
-                inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : true,
-                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : true,
+                inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : false,
+                useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
+                onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
             };
         }
 
@@ -248,8 +249,14 @@ class SliderItems extends React.Component {
         });
     }
 
-    slide() {
-        let width = this.state.index * this.state.slideWrapperWidth;
+    slide(i = null) {
+        let  { index } = this.state;
+
+        if(null !== i){
+            index = i;
+        }
+
+        let width = index * this.state.slideWrapperWidth;
         const maxWidth = (this.slideWidth * (this.getDataLength()));
 
         if (width > maxWidth) {
@@ -257,7 +264,7 @@ class SliderItems extends React.Component {
         }
 
         this.setState({
-            dataTransform: `translate3d(-(${0})px,0,0)`,
+            index,
             slidesTransform: `translate3d(-${width}px,0,0)`,
         }, () => {
             this.userMoving = false;
@@ -456,6 +463,11 @@ class SliderItems extends React.Component {
 
     processMouseDown(e) {
         e.preventDefault();
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
+
         this.handleMouseDown(e);
         this.autoplay(false);
     }
@@ -532,10 +544,14 @@ class SliderItems extends React.Component {
             }
         }
 
-        this.oldX = 0;
-        this.mouseMoveListeners(false);
-        this.autoplay();
-        this.setState({ index }, this.slide);
+        this.setState({
+            isUserCurrentlySliding: false
+        }, () => {
+            this.oldX = 0;
+            this.mouseMoveListeners(false);
+            this.autoplay();
+            this.slide(index);
+        });
     }
 
     handleMouseLeave() {
@@ -557,14 +573,26 @@ class SliderItems extends React.Component {
             this.oldX = 0;
             this.mouseMoveListeners(false);
             this.autoplay();
-            this.setState({ index }, this.slide);
+            return this.setState({
+                isUserCurrentlySliding: false
+            }, () => {
+                this.slide(index)
+            });
         }
+        
+        this.setState({ 
+            isUserCurrentlySliding: false
+        });
     }
 
     handleClick() {
         this.blockMove = true;
         this.userMoving = false;
         this.mouseMoveListeners(false);
+
+        this.setState({ 
+            isUserCurrentlySliding: false
+        });
 
         setTimeout(() => {
             this.blockMove = false;
@@ -589,6 +617,10 @@ class SliderItems extends React.Component {
 
         // Get the original touch position.
         this.touchstartx = event.touches[0].pageX;
+
+        this.setState({
+            isUserCurrentlySliding: true
+        });
     }
 
     handleTouchMove(event) {
@@ -634,11 +666,19 @@ class SliderItems extends React.Component {
                 }
             }
 
-            this.userMoving = false;
-            this.mouseMoveListeners(false);
-            this.autoplay();
-            this.setState({ index }, this.slide);
+            return this.setState({
+                isUserCurrentlySliding: false
+            }, () => {
+                this.userMoving = false;
+                this.mouseMoveListeners(false);
+                this.autoplay();
+                this.setState({ index }, this.slide);
+            });
         }
+
+        this.setState({
+            isUserCurrentlySliding: false
+        });
     }
 
     /**
@@ -788,11 +828,11 @@ class SliderItems extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, paginationInside, allowMouseTouch, displayPagination, animationTime, paginationType, dotsInside, displayDots, slidersUuid, slidesWidth, slidesTransform, dataTransform, slideWrapperWidth, itemsPerLine } = this.state;
+        const { addClass, defaultClass, id, paginationInside, allowMouseTouch, displayPagination, isUserCurrentlySliding, onSlideTime, animationTime, paginationType, dotsInside, displayDots, slidersUuid, slidesWidth, slidesTransform, slideWrapperWidth, itemsPerLine } = this.state;
         const data = this.generateCards();
 
         return (
-            <div className={`${defaultClass} ${addClass} animate-${animationTime}`} id={id}>
+            <div className={`${defaultClass} ${addClass}`} id={id}>
                 {
                     !paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
                 }
@@ -816,7 +856,7 @@ class SliderItems extends React.Component {
                     <div
                         ref={(node) => (this.transformer = node)}
                         key={`slides-transform-${slidersUuid}`}
-                        className={`slides user-select-none animate-${animationTime}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,
@@ -835,10 +875,7 @@ class SliderItems extends React.Component {
                                 >
                                     <div className="slide">
                                         <div
-                                            className={`slide-data animate-${animationTime}`}
-                                            style={{
-                                                transform: `${dataTransform}`,
-                                            }}
+                                            className={`slide-data`}
                                         >
                                             {
                                                 data && data
