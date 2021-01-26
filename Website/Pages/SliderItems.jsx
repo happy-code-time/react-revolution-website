@@ -1,8 +1,9 @@
 import React from 'react';
-import { SliderItems, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { SliderItems, Table, LoadOnScroll, LoadingBoxTop, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { SliderItems } from 'react-revolution';
 // import SliderItems from 'react-revolution/SliderItems';
@@ -268,8 +269,82 @@ const codeExample10 = `import { SliderItems } from 'react-revolution';
         />
 </div>`;
 
-class _SliderItems extends React.Component 
-{
+const codeExample11 = `import { SliderItems } from 'react-revolution';
+// import SliderItems from 'react-revolution/SliderItems';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '300px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <SliderItems
+        staticData={
+            <div className='user-actions'>
+                <style dangerouslySetInnerHTML={{
+                    __html: \` 
+                            .static-data{
+                                top:10px;
+                                right:20px;                                            
+                            }                                        
+                            .static-data i {
+                                color: red;
+                                cursor: pointer;
+                                font-size: 3rem;
+                            }
+                        \`}}
+                />
+                <i
+                    className={\`\${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}\`}
+                    onClick={() => {
+                        this.setState({
+                            like: !this.state.like
+                        })
+                    }}
+                ></i>
+            </div>
+        }
+        addClass='slider-items-example'
+        data={this.getCards()}
+        displayDots={false}
+    />
+</div>`;
+
+const js11 = `constructor(props) {
+    super(props);
+
+    this.state = {
+        like: false
+    };
+    
+    getCards(dot = '') {
+    const items = 10;
+    const data = [];
+
+    for (let x = 0; x < items; x++) {
+
+        data.push(
+            {
+                data: (
+                    <span>
+                        {
+                            x + 1
+                        }
+                    </span>
+                ),
+                dot
+            }
+        );
+    }
+
+    return data;
+}`;
+
+class _SliderItems extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -638,6 +713,120 @@ class _SliderItems extends React.Component
                     fireScrollBack={true}
                 />
                 <h1 className="h1-title border-none my-3">
+                    SliderItems
+                </h1>
+                {/* 
+                    Example with code based on state change
+                */}
+                <div className="code-example mt-4">
+                    <div className="code-example-live">
+                        <div
+                            style={
+                                {
+                                    width: '100%',
+                                    maxWidth: '1024px',
+                                    height: '300px',
+                                    margin: '5vh auto'
+                                }
+                            }
+                        >
+                            <SliderItems
+                                staticData={
+                                    <div className='user-actions'>
+                                        <style dangerouslySetInnerHTML={{
+                                            __html: ` 
+                                                .static-data{
+                                                    top:10px;
+                                                    right:20px;                                            
+                                                }                                        
+                                                .static-data i {
+                                                    color: red;
+                                                    cursor: pointer;
+                                                    font-size: 3rem;
+                                                }
+                                            `}}
+                                        />
+                                        <i
+                                            className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
+                                            onClick={() => {
+                                                this.setState({
+                                                    like: !this.state.like
+                                                })
+                                            }}
+                                        ></i>
+                                    </div>
+                                }
+                                addClass='slider-items-example'
+                                data={this.getCards()}
+                                displayDots={false}
+                            />
+                        </div>
+                        {
+                            generateArticles(
+                                (
+                                    <h1 className="h1-example">
+                                        <i className="fas fa-atom" />
+                                        {
+                                            trans('reactCodeTitle')
+                                        }
+                                    </h1>
+                                ),
+                                (
+                                    <span>
+                                        <SourceCode
+                                            lineNumber={true}
+                                            layout='dark'
+                                            code={codeExample11}
+                                        />
+                                        <Clipboard
+                                            animation='jump' // scale, jump
+                                            data={(
+                                                <div title={trans('copyToClipboard')} className="button-action">
+                                                    <i className="far fa-clipboard"></i>
+                                                </div>
+                                            )}
+                                            clipboard={codeExample11}
+                                        />
+                                    </span>
+                                )
+                            )
+                        }
+                        {
+                            generateArticles(
+                                (
+                                    <h1
+                                        title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                        className="h1-example"
+                                    >
+                                        <i className="fab fa-node-js" />
+                                        {
+                                            trans('jsCodeTitle')
+                                        }
+                                    </h1>
+                                ),
+                                (
+                                    <span>
+                                        <SourceCode
+                                            lineNumber={true}
+                                            layout='dark'
+                                            code={js11}
+                                        />
+                                        <Clipboard
+                                            animation='jump' // scale, jump
+                                            data={(
+                                                <div title={trans('copyToClipboard')} className="button-action">
+                                                    <i className="far fa-clipboard"></i>
+                                                </div>
+                                            )}
+                                            clipboard={js11}
+                                        />
+                                    </span>
+                                )
+                            )
+                        }
+                    </div>
+                </div>
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }
@@ -785,6 +974,10 @@ class _SliderItems extends React.Component
                                 {
                                     key: 'onSlideTime',
                                     values: 'slider.onSlideTime'
+                                },
+                                {
+                                    key: 'staticData',
+                                    values: 'slider.staticData'
                                 },
                             ],
                             'rr-slider-items'

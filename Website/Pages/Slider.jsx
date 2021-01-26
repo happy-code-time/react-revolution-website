@@ -1,8 +1,9 @@
 import React from 'react';
-import { Slider, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Slider, Table, LoadOnScroll, LoadingBoxTop, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { Slider } from 'react-revolution';
 // import Slider from 'react-revolution/Slider';
@@ -456,60 +457,136 @@ const codeExample10 = `import { Slider } from 'react-revolution';
 const codeExample11 = `import { Slider } from 'react-revolution';
 // import Slider from 'react-revolution/Slider';
 
-<Slider
-    addClass='slider-items-example'
-    displayDotsIndex={true}
-    buttonsAlwaysVisible={true}
-    paginationType={2}
-    autoplayStopOnLast={true}
-    //Fullscreen mode
-    fsPrevious='«'
-    fsNext='»'
-    fsUseLayerX={false}
-    fsImageAsBackground={false}
-    fsPreviewToggle='⇩'
-    fsToggleDirection='right'
-    fsCloseIcon='✖'
-    fsAutoplayStopIcon='stop'
-    fsAutoplayTime={3000}
-    fsAutoplayNext={true}
-    fsAnimationTime='05'
-    fsWrapDirection={true}
-    fsSlideAfterMove={true}
-    fsDisplayPreview={true}
-    fsDisplayPagination={true}
-    fsAutoplayStopOnLast={false}
-    fsActive={true}
-    data={
-        [
-            {
-                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-            },
-            {
-                image: 'public/images/chania.jpg',
-            },
-            {
-                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-            },
-            {
-                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-            },
-            {
-                image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
-            },
-            {
-                image: 'public/images/chania.jpg',
-            },
-            {
-                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-            },
-            {
-                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-            },
-        ]
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
     }
-/>`;
+    >
+    <Slider
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        buttonsAlwaysVisible={true}
+        paginationType={2}
+        autoplayStopOnLast={true}
+        //Fullscreen mode
+        fsPrevious='«'
+        fsNext='»'
+        fsUseLayerX={false}
+        fsImageAsBackground={false}
+        fsPreviewToggle='⇩'
+        fsToggleDirection='right'
+        fsCloseIcon='✖'
+        fsAutoplayStopIcon='stop'
+        fsAutoplayTime={3000}
+        fsAutoplayNext={true}
+        fsAnimationTime='05'
+        fsWrapDirection={true}
+        fsSlideAfterMove={true}
+        fsDisplayPreview={true}
+        fsDisplayPagination={true}
+        fsAutoplayStopOnLast={false}
+        fsActive={true}
+        data={
+            [
+                {
+                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/chania.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                },
+                {
+                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/chania.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                },
+            ]
+        }
+    />
+</div>`;
 
+const codeExample12 = `import { Slider } from 'react-revolution';
+// import Slider from 'react-revolution/Slider';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Slider
+        staticData={
+            <div className='user-actions'>
+                <style dangerouslySetInnerHTML={{
+                    __html: \` 
+                    .static-data{
+                        top:10px;
+                        right:20px;                                            
+                    }                                        
+                    .static-data i {
+                        color: red;
+                        cursor: pointer;
+                        font-size: 3rem;
+                    }
+                    \`}}
+                />
+                <i
+                    className={\`\${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}\`}
+                    onClick={() => {
+                        this.setState({
+                            like: !this.state.like
+                        })
+                    }}
+                ></i>
+            </div>
+        }
+        data={
+            [
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                },
+                {
+                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                },
+            ]
+        }
+    />
+</div>`;
+
+const js12 = `constructor(props) {
+    super(props);
+
+    this.state = {
+        like: false
+    };
+}`;
 
 class _Slider extends React.Component {
     constructor(props) {
@@ -518,7 +595,8 @@ class _Slider extends React.Component {
         this.countCallbacks = 0;
 
         this.state = {
-            loading: true
+            loading: true,
+            like: false
         };
 
         this.examples = [
@@ -1151,6 +1229,133 @@ class _Slider extends React.Component {
                     fireScrollBack={true}
                 />
                 <h1 className="h1-title border-none my-3">
+                    Slider
+                </h1>
+                {/* 
+                    Example with code based on state change
+                */}
+                <div className="code-example mt-4">
+                    <div className="code-example-live">
+                        <div
+                            style={
+                                {
+                                    width: '100%',
+                                    maxWidth: '1024px',
+                                    height: '500px',
+                                    margin: '5vh auto'
+                                }
+                            }
+                        >
+                            <Slider
+                                staticData={
+                                    <div className='user-actions'>
+                                        <style dangerouslySetInnerHTML={{
+                                            __html: ` 
+                                        .static-data{
+                                            top:10px;
+                                            right:20px;                                            
+                                        }                                        
+                                        .static-data i {
+                                            color: red;
+                                            cursor: pointer;
+                                            font-size: 3rem;
+                                        }
+                                    `}}
+                                        />
+                                        <i
+                                            className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
+                                            onClick={() => {
+                                                this.setState({
+                                                    like: !this.state.like
+                                                })
+                                            }}
+                                        ></i>
+                                    </div>
+                                }
+                                data={
+                                    [
+                                        {
+                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        },
+                                        {
+                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        },
+                                        {
+                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        },
+                                        {
+                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        },
+                                    ]
+                                }
+                            />
+                        </div>
+                        {
+                            generateArticles(
+                                (
+                                    <h1 className="h1-example">
+                                        <i className="fas fa-atom" />
+                                        {
+                                            trans('reactCodeTitle')
+                                        }
+                                    </h1>
+                                ),
+                                (
+                                    <span>
+                                        <SourceCode
+                                            lineNumber={true}
+                                            layout='dark'
+                                            code={codeExample12}
+                                        />
+                                        <Clipboard
+                                            animation='jump' // scale, jump
+                                            data={(
+                                                <div title={trans('copyToClipboard')} className="button-action">
+                                                    <i className="far fa-clipboard"></i>
+                                                </div>
+                                            )}
+                                            clipboard={codeExample12}
+                                        />
+                                    </span>
+                                )
+                            )
+                        }
+                        {
+                            generateArticles(
+                                (
+                                    <h1
+                                        title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
+                                        className="h1-example"
+                                    >
+                                        <i className="fab fa-node-js" />
+                                        {
+                                            trans('jsCodeTitle')
+                                        }
+                                    </h1>
+                                ),
+                                (
+                                    <span>
+                                        <SourceCode
+                                            lineNumber={true}
+                                            layout='dark'
+                                            code={js12}
+                                        />
+                                        <Clipboard
+                                            animation='jump' // scale, jump
+                                            data={(
+                                                <div title={trans('copyToClipboard')} className="button-action">
+                                                    <i className="far fa-clipboard"></i>
+                                                </div>
+                                            )}
+                                            clipboard={js12}
+                                        />
+                                    </span>
+                                )
+                            )
+                        }
+                    </div>
+                </div>
+                <h1 className="h1-title border-none my-3">
                     {
                         trans('keyUsageTitle')
                     }
@@ -1284,6 +1489,14 @@ class _Slider extends React.Component {
                                     values: 'slider.useLayerX'
                                 },
                                 {
+                                    key: 'onSlideTime',
+                                    values: 'slider.onSlideTime'
+                                },
+                                {
+                                    key: 'staticData',
+                                    values: 'slider.staticData'
+                                },
+                                {
                                     key: 'fsActive',
                                     values: 'fss.fsActive'
                                 },
@@ -1384,13 +1597,9 @@ class _Slider extends React.Component {
                                     values: 'fss.fsCloseOnEsc'
                                 },
                                 {
-                                    key: 'onSlideTime',
-                                    values: 'slider.onSlideTime'
-                                },
-                                {
                                     key: 'fsOnSlideTime',
                                     values: 'slider.onSlideTime'
-                                },           
+                                },
                             ],
                             'rr-slider'
                         )

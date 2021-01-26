@@ -71,6 +71,7 @@ class SliderCards extends React.Component {
             inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : false,
             useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
             onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
+            staticData: props.staticData ? props.staticData : ''
         };
 
         this.slideWidth = 0;
@@ -95,7 +96,7 @@ class SliderCards extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['slideAfterMove', 'useLayerX', 'dotsInside', 'onSlideTime', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'itemsXS', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsXS', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['staticData', 'slideAfterMove', 'useLayerX', 'dotsInside', 'onSlideTime', 'inlineStyle', 'displayDots', 'buttonsAlwaysVisible', 'wrapDirection', 'itemsXS', 'allowMouseTouch', 'autoplay', 'autoplayTime', 'autoplayNext', 'animationTime', 'displayDotsIndex', 'paginationType', 'paginationInside', 'itemsS', 'itemsL', 'itemsXL', 'resizeS', 'resizeL', 'resizeXL', 'slideItemsXS', 'slideItemsS', 'slideItemsL', 'slideItemsXL', 'addClass', 'defaultClass', 'id', 'data', 'next', 'previous', 'displayPagination'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-slider-cards',
@@ -133,6 +134,7 @@ class SliderCards extends React.Component {
                 inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : false,
                 useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
                 onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
+                staticData: props.staticData ? props.staticData : ''
             };
         }
 
@@ -885,11 +887,19 @@ class SliderCards extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, displayDots, dotsInside, displayPagination, isUserCurrentlySliding, onSlideTime, allowMouseTouch, animationTime, paginationType, paginationInside, slidersUuid, slidesWidth, slidesTransform, dataTransform, slideWrapperWidth } = this.state;
+        const { addClass, defaultClass, staticData, id, displayDots, dotsInside, displayPagination, isUserCurrentlySliding, onSlideTime, allowMouseTouch, animationTime, paginationType, paginationInside, slidersUuid, slidesWidth, slidesTransform, dataTransform, slideWrapperWidth } = this.state;
         const data = this.generateCards();
 
         return (
             <div className={`${defaultClass} ${addClass} animate-${animationTime}`} id={id}>
+                {
+                    staticData &&
+                    <div className='static-data' key={`static-data-${slidersUuid}`}>
+                        {
+                            staticData
+                        }
+                    </div>
+                }
                 {
                     !paginationInside && displayPagination && 1 == paginationType && this.getButtonPreviousJsx()
                 }

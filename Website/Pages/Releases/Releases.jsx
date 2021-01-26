@@ -1574,6 +1574,43 @@ class Releases extends React.Component {
                             },
                         },
                     ]
+                },
+                '5.0.6': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new key\n\nstaticData',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Added new key\n\nstaticData',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Added new key\n\nstaticData',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
                 }
             }
         }

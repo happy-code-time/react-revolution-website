@@ -1710,6 +1710,11 @@ const PL = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.staticData' : {
+        "description": "Dane w sliderze.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
     'slider.onSlideTime' : {
         "description": "Czas transformacji suwaków podczas AKTYWNEGO poruszania slajderem poprzez ruchy myszka lub palcem po ekranie dotykowym. Możliwe wartości to '0' i od: '01' do '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",

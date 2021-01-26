@@ -1707,6 +1707,11 @@ const DE = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.staticData' : {
+        "description": "Statische Daten innerhalb des Sliders.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
     'slider.onSlideTime' : {
         "description": "Sliders Tranformationszeit wärend eines AKTIVEN Mauß/Touch slides. Mögliche Werte sind '0' und von: '01' bis '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",

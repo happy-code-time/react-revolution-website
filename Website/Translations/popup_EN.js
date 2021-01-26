@@ -1709,6 +1709,11 @@ const EN = {
         "type": "String",
         "default": "<empty string>"
     },
+    'slider.staticData' : {
+        "description": "Static data inside the slider.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
     'slider.onSlideTime' : {
         "description": "Sliders transformation time during an ACTIVE mouse / touch slide. Possible values ​​are '0' and from: '01' to '30' (01 = 100ms, 20 = 2000ms, 30 = 3000ms).",
         "type": "String",
