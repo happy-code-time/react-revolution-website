@@ -24,6 +24,7 @@ class Accordion extends React.Component {
 
         this.refNode = React.createRef();
         this.intervalToCloseMenu = undefined;
+        this.wip = false;
     }
 
     /**
@@ -178,6 +179,12 @@ class Accordion extends React.Component {
      * @param {string} uniqueId 
      */
     toggle(uniqueId, keyProvided) {
+
+        if(this.wip){
+            return;
+        }
+
+        this.wip = true;
         const allowedAnimations = ['height', 'scale', 'opacity'];
         const { data, animationTimeout } = this.state;
         let { animation } = this.state;
@@ -251,6 +258,7 @@ class Accordion extends React.Component {
                                                     datas[x].classListText = '';
                                                     datas[x].maxheight = undefined;
                                                     clearInterval(this.intervalToCloseMenu);
+                                                    this.wip = false;
                                                     return this.setState({ data });
                                                 }
 
@@ -276,6 +284,7 @@ class Accordion extends React.Component {
                                     datas[x].maxheight = undefined;
 
                                     this.setState({ data });
+                                    this.wip = false;
                                 }, timeouterForAnimationBack);
                             });
                         }
@@ -300,6 +309,7 @@ class Accordion extends React.Component {
                                 datas[x].maxheight = undefined;
 
                                 this.setState({ data });
+                                this.wip = false;
                             }, timeouterForAnimationBack);
                         });
                     }
@@ -315,6 +325,12 @@ class Accordion extends React.Component {
     }
 
     toggleAllBack() {
+
+        if(this.wip){
+            return;
+        }
+
+        this.wip = true;
         const allowedAnimations = ['height', 'scale', 'opacity'];
         const { data, animationTimeout } = this.state;
         let { animation } = this.state;
@@ -457,6 +473,7 @@ class Accordion extends React.Component {
                     }
 
                     closeChildrens(data);
+                    this.wip = false;
                     this.setState({ data });
 
                 }, timeouterForAnimationBack);

@@ -45,7 +45,7 @@ class Menu extends React.Component {
         };
 
         this.refNode = React.createRef();
-        this.isToggling = false;
+        this.wip = false;
     }
 
     /**
@@ -358,6 +358,12 @@ class Menu extends React.Component {
      * @param {string} uniqueId 
      */
     toggle(uniqueId) {
+
+        if(this.wip){
+            return;
+        }
+
+        this.wip = true;
         const { data, forceClose, forceCloseAll, toggledClassName, activeClassName, animationStart, animationPersist, animationStop, animationTime } = this.state;
 
         /**
@@ -498,6 +504,7 @@ class Menu extends React.Component {
                             target.classList = ''; // No animation to perform
                             target.toggled = false; // Set toggle to false after the animation has been done
                             target.classListChildren = '';
+                            this.wip = false;
 
                             this.setState({
                                 data
@@ -523,7 +530,8 @@ class Menu extends React.Component {
                         setTimeout(() => {
                             target.classList = `parent-toggled`;
                             target.classListChildren = animationPersist;
-
+                            this.wip = false;
+                            
                             this.setState({
                                 data
                             });
@@ -533,6 +541,8 @@ class Menu extends React.Component {
                 }
                 else{
                     attachActiveClass(target);
+                    this.wip = false;
+
                     this.setState({
                         data
                     });

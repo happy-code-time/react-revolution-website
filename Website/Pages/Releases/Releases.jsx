@@ -1667,6 +1667,32 @@ class Releases extends React.Component {
                             },
                         },
                     ]
+                },
+                '5.0.10': {
+                    data: [
+                        {
+                            key: 'Accordion',
+                            value: 'Style improvement. The click event is suppressed when the animation is running.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'MenuHeight',
+                            value: 'Style improvement. The click event is suppressed when the animation is running.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
                 }
             }
         }

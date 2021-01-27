@@ -12,6 +12,7 @@
   .single-entry {
     box-sizing: border-box;
     border-radius: $border-radius;
+    overflow: hidden;
 
     a {
       text-decoration: none;
