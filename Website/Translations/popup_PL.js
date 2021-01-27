@@ -85,6 +85,11 @@ const PL = {
         "type": "String",
         "default": "undefined"
     },
+    "accordion.animationTimeout": {
+        "description": "Jak długo trwa animacja. Na podstawie animacji CSS. Istotne, jeśli wartość powinna być inna niż 300 ms.",
+        "type": "Number",
+        "domyślny": "300"
+    },
     "accordion.data": {
         "description": "główne dane.",
         "type": "[]",
@@ -810,6 +815,7 @@ const PL = {
     "accordion.description.1": "Przykład z pojedynczymi zagnieżdżonymi elementami potomnymi.",
     "accordion.description.2": "Przykład z 4 zagnieżdżonymi dziećmi.",
     "accordion.description.3": "Przykład z obsługą kliknięcia (poza modułem) dostarczonym przez klucz: 'closeOnClickOutside' ustawiony na true (wszystkie elementy potomne są zamykane rekurencyjnie).",
+    "accordion.description.4": "Przykład z animowaną ikoną.",
     "cards.scroll.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div.",
     "cards.scrollCallback.description": "Moduł Karty załaduje więcej elementów, jeśli osiągnięty zostanie dół nadrzędnego elementu div. Załaduj więcej kart opiera się na niestandardowej funkcji wywołania zwrotnego. Jeśli wartość to „break”, to nasłuchiwanie przewijania jest usuwane.",
     "cards.scrollCallback.example1" : "Przykład width Promise.resolve (), LoadingBoxTop ze stałą pozycją i 'break' na zdarzeniu 4 scroll.",

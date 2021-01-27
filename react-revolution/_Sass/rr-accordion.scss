@@ -13,30 +13,21 @@
         }
     }
 
-    .toggled .children,
-    .toggling .children{
-        margin-top: 10px;
-    }
-
-    .single-entry.hasChildren{
-        border: 1px solid rgba(122,122,122, .33);
-        border-radius: $border-radius;
-    }
-
     .text.hasChildren:hover,
     .text.hasData:hover{
         cursor: pointer;
     }
 
     // Animation: height
-    .toggling.animation-height .children{
+    .toggling.animation-height .children,
+    .toggling.animation-height .static-data{
 
         @keyframes toggleMenuEntriesHeight {
             0%{
                 max-height: 0px;
             }
             100%{
-                max-height: 300px;
+                max-height: 500px;
                 overflow: visible;
             }
         }
@@ -46,25 +37,28 @@
         animation: toggleMenuEntriesHeight $default-transition ease-in forwards;
     }
 
-    .animation-height .children{
-        max-height: 1000px;
+    .animation-height .children,
+    .animation-height .static-data{
+        max-height: 3000px;
     }
 
-    .animation-height-back .children{
+    .animation-height-back .children,
+    .animation-height-back .static-data{
         @keyframes toggleMenuEntriesHeightBack {
             0%{
-                max-height: 100px;
+                max-height: 250px;
             }
             100%{
                 max-height: 0px;
             }
         }
-        overflow: hidden;
+        max-height: 250px;
         animation: toggleMenuEntriesHeightBack $default-transition ease-in forwards;
     }
 
     // Animation: scale
-    .toggling.animation-scale .children{
+    .toggling.animation-scale .children,
+    .toggling.animation-scale .static-data{
 
         @keyframes toggleMenuEntriesScale {
             0%{
@@ -79,11 +73,13 @@
         animation: toggleMenuEntriesScale $default-transition ease-in forwards;
     }
 
-    .animation-scale .children{
+    .animation-scale .children
+    .animation-scale .static-data{
         transform: scaleY(1);
     }
 
-    .animation-scale-back .children{
+    .animation-scale-back .children,
+    .animation-scale-back .static-data{
         @keyframes toggleMenuEntriesScaleBack {
             0%{
                 transform: scaleY(1);
@@ -98,7 +94,8 @@
     }
 
     // Animation: opacity
-    .toggling.animation-opacity .children{
+    .toggling.animation-opacity .children,
+    .toggling.animation-opacity .static-data{
 
         @keyframes toggleMenuEntriesOpacity {
             0%{
@@ -112,11 +109,13 @@
         animation: toggleMenuEntriesOpacity $default-transition ease-in forwards;
     }
 
-    .animation-opacity .children{
+    .animation-opacity .children,
+    .animation-opacity .static-data{
         opacity: 1;
     }
 
-    .animation-opacity-back .children {
+    .animation-opacity-back .children,
+    .animation-opacity-back .static-data{
         @keyframes toggleMenuEntriesOpacityBack {
             0%{
                 opacity: 1;

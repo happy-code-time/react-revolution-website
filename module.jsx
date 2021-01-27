@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Slider, SliderCards, SliderItems } from './react-revolution/react-revolution';
-import './react-revolution/_Sass/rr-slider.scss';
-import './react-revolution/_Sass/rr-slider-cards.scss';
-import './react-revolution/_Sass/rr-slider-items.scss';
+import { Accordion } from './react-revolution/react-revolution';
+import './react-revolution/_Sass/react-revolution.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -40,138 +38,62 @@ class App extends React.Component {
     render() {
         return (
             <div style={{ margin: '100px' }}>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '500px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <Slider
-                        staticData={
-                            <div className='user-actions'>
-                                <style dangerouslySetInnerHTML={{
-                                    __html: ` 
-                                        .static-data{
-                                            top:10px;
-                                            right:20px;                                            
-                                        }                                        
-                                        .static-data i {
-                                            color: red;
-                                            cursor: pointer;
-                                        }
-                                    `}}
-                                />
-                                <i
-                                    className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
-                                    onClick={() => {
-                                        this.setState({
-                                            like: !this.state.like
-                                        })
-                                    }}
-                                ></i>
-                            </div>
-                        }
+                <span>
+                    <style dangerouslySetInnerHTML={{
+                        __html: `
+                            .single-data.is-toggled .fa-arrow-down{
+                                transform: rotateZ(90deg);
+                            }                            
+                            .single-data.is-not-toggled .fa-arrow-down,
+                            .single-data.is-toggling-back .fa-arrow-down,
+                            .single-data .fa-arrow-down{
+                                display: inline-block;
+                                width: 30px;
+                                height: 30px;
+                                text-align: center;
+                                line-height: 30px;
+                                transition-duration: 300ms;
+                                transform: rotateZ(0deg);
+                            }
+                        `}}
+                    />
+                    <Accordion
+                        animation='height'
+                        closeOnClickOutside={true}
                         data={
                             [
                                 {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
-                                },
-                                {
-                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                                },
+                                    text: 'Accordion',
+                                    icon: <i className='fas fa-arrow-down' />,
+                                    data: [
+                                        {
+                                            text: 'Child 1',
+                                            dataToggle: '"dataToggle" - without nested data'
+                                        },
+                                        {
+                                            text: 'Child 2',
+                                            data: [
+                                                {
+                                                    text: 'Child 3',
+                                                    dataToggle: '"dataToggle" - without nested data'
+                                                },
+                                                {
+                                                    text: 'Child 3',
+                                                    data: [
+                                                        {
+                                                            text: 'Child 4',
+                                                            dataToggle: '"dataToggle" - without nested data'
+                                                        },
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                }
                             ]
                         }
                     />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderCards
-                        staticData={
-                            <div className='user-actions'>
-                                <style dangerouslySetInnerHTML={{
-                                    __html: ` 
-                                        .static-data{
-                                            top:10px;
-                                            right:20px;                                            
-                                        }                                        
-                                        .static-data i {
-                                            color: red;
-                                            cursor: pointer;
-                                        }
-                                    `}}
-                                />
-                                <i
-                                    className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
-                                    onClick={() => {
-                                        this.setState({
-                                            like: !this.state.like
-                                        })
-                                    }}
-                                ></i>
-                            </div>
-                        }
-                        addClass='slider-items-example'
-                        data={this.getCards('😇')}
-                        displayDotsIndex={false}
-                    />
-                </div>
-                <div
-                    style={
-                        {
-                            width: '100%',
-                            maxWidth: '1024px',
-                            height: '300px',
-                            margin: '5vh auto'
-                        }
-                    }
-                >
-                    <SliderItems
-                        staticData={
-                            <div className='user-actions'>
-                                <style dangerouslySetInnerHTML={{
-                                    __html: ` 
-                                                .static-data{
-                                                    top:10px;
-                                                    right:20px;                                            
-                                                }                                        
-                                                .static-data i {
-                                                    color: red;
-                                                    cursor: pointer;
-                                                }
-                                            `}}
-                                />
-                                <i
-                                    className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
-                                    onClick={() => {
-                                        this.setState({
-                                            like: !this.state.like
-                                        })
-                                    }}
-                                ></i>
-                            </div>
-                        }
-                        addClass='slider-items-example'
-                        data={this.getCards()}
-                    />
-                </div>
+                </span>
             </div>
         );
     }

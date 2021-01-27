@@ -130,8 +130,82 @@ const codeExample3 = `import { Accordion } from 'react-revolution';
     }
 />`;
 
-class _Accordion extends React.Component 
-{
+const codeExample4 = `import { Accordion } from 'react-revolution';
+// import Accordion from 'react-revolution/Accordion';
+
+<span>
+    <style dangerouslySetInnerHTML={{
+        __html: \`
+            .single-data.is-toggled .fa-arrow-down{
+                transform: rotateZ(90deg);
+            }                            
+            .single-data.is-not-toggled .fa-arrow-down,
+            .single-data.is-toggling-back .fa-arrow-down,
+            .single-data .fa-arrow-down{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                transition-duration: 400ms;
+                transform: rotateZ(0deg);
+            }
+        \`}}
+    />
+    <Accordion
+        animation='height'
+        animationTimeout={300}
+        data={
+            [
+                {
+                    text: (
+                        <span>
+                            First
+                            <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                        </span>
+                    ),
+                    toggled: true,
+                    data: [
+                        {
+                            text: (
+                                <span>
+                                    Second
+                                    <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                                </span>
+                            ),
+                            data: [
+                                {
+                                    text: 'Third'
+                                },
+                                {
+                                    text: 'Third'
+                                }
+                            ]
+                        },
+                        {
+                            text: (
+                                <span>
+                                    Second
+                                    <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                                </span>
+                            ),
+                            data: [
+                                {
+                                    text: 'Third'
+                                },
+                                {
+                                    text: 'Third'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    />
+</span>`;
+
+class _Accordion extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -153,7 +227,7 @@ class _Accordion extends React.Component
                 html: '',
                 live: (
                     <Accordion
-                        animation='height' 
+                        animation='height'
                         data={
                             [
                                 {
@@ -204,7 +278,7 @@ class _Accordion extends React.Component
                 html: '',
                 live: (
                     <Accordion
-                        animation='height' 
+                        animation='height'
                         data={
                             [
                                 {
@@ -239,7 +313,7 @@ class _Accordion extends React.Component
                         }
                     />
                 )
-            }, 
+            },
             {
                 title: 'Accordion',
                 description: trans('accordion.description.3'),
@@ -252,7 +326,7 @@ class _Accordion extends React.Component
                 live: (
                     <Accordion
                         closeOnClickOutside={true}
-                        animation='scale' 
+                        animation='scale'
                         data={
                             [
                                 {
@@ -292,6 +366,89 @@ class _Accordion extends React.Component
                     />
                 )
             },
+            {
+                title: 'Accordion',
+                description: trans('accordion.description.4'),
+                reactTextBefore: '',
+                react: codeExample4,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <span>
+                        <style dangerouslySetInnerHTML={{
+                            __html: `
+                                .single-data.is-toggled .fa-arrow-down{
+                                    transform: rotateZ(90deg);
+                                }                            
+                                .single-data.is-not-toggled .fa-arrow-down,
+                                .single-data.is-toggling-back .fa-arrow-down,
+                                .single-data .fa-arrow-down{
+                                    display: inline-block;
+                                    width: 30px;
+                                    height: 30px;
+                                    text-align: center;
+                                    line-height: 30px;
+                                    transition-duration: 400ms;
+                                    transform: rotateZ(0deg);
+                                }
+                            `}}
+                        />
+                        <Accordion
+                            animation='height'
+                            animationTimeout={300}
+                            data={
+                                [
+                                    {
+                                        text: (
+                                            <span>
+                                                First
+                                                <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                                            </span>
+                                        ),
+                                        toggled: true,
+                                        data: [
+                                            {
+                                                text: (
+                                                    <span>
+                                                        Second
+                                                        <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                                                    </span>
+                                                ),
+                                                data: [
+                                                    {
+                                                        text: 'Third'
+                                                    },
+                                                    {
+                                                        text: 'Third'
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                text: (
+                                                    <span>
+                                                        Second
+                                                        <i style={{ width: '30px' }} className="fas fa-arrow-down"></i>
+                                                    </span>
+                                                ),
+                                                data: [
+                                                    {
+                                                        text: 'Third'
+                                                    },
+                                                    {
+                                                        text: 'Third'
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        />
+                    </span>
+                )
+            },
         ];
     }
 
@@ -315,9 +472,9 @@ class _Accordion extends React.Component
                     minify={undefined}
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
-                    data={buildModulesJsx(this.examples[0], 1)} 
+                    data={buildModulesJsx(this.examples[0], 1)}
                     fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollBack={true}
                 />
                 <h1 className="h1-title border-none my-3">
                     {
@@ -359,6 +516,10 @@ class _Accordion extends React.Component
                                 {
                                     key: 'animation',
                                     values: 'accordion.animation'
+                                },
+                                {
+                                    key: 'animationTimeout',
+                                    values: 'accordion.animationTimeout'
                                 },
                                 {
                                     key: 'data',

@@ -85,6 +85,11 @@ const EN = {
         "type": "String",
         "default": "undefined"
     },
+    "accordion.animationTimeout": {
+        "description": "How long does the animation take. Based on the CSS animation. Relevant if the value should be other than 300ms.",
+        "type": "Number",
+        "default": "300"
+    },
     "accordion.data": {
         "description": "Main data - Array of Objects.",
         "type": "array",
@@ -810,6 +815,7 @@ const EN = {
     "accordion.description.1": "Example with a single nested childs.",
     "accordion.description.2": "Example with 4 nested childs.",
     "accordion.description.3": "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
+    "accordion.description.4": "Example using an animated icon.",
     "cards.scroll.description": "The Cards module will load more items, if the bottom of the parent div are reached.",
     "cards.scrollCallback.description": "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
     "cards.scrollCallback.example1": "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",

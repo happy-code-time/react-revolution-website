@@ -85,6 +85,11 @@ const DE = {
         "type": "String",
         "default": "undefined"
     },
+    "accordion.animationTimeout": {
+        "description": "Wie lange dauert die Animation. Ausgehend von der CSS Animation. Relevant wenn der Wert anders als 300ms sein soll.",
+        "type": "Number",
+        "default": "300"
+    },
     "accordion.data": {
         "description": "Hauptdaten.",
         "type": "[]",
@@ -805,6 +810,7 @@ const DE = {
     "accordion.description.1": "Beispiel mit einzelnen verschachtelten Kindern.",
     "accordion.description.2": "Beispiel mit 4 verschachtelten Kindern.",
     "accordion.description.3": "Beispiel mit einem Klick-Handler (außerhalb des Moduls), der durch den Schlüssel bereitgestellt wird: 'closeOnClickOutside' wurde auf true gesetzt (alle Kinder rekursiv geschlossen).",
+    "accordion.description.4": "Beispiel mit der Verwendung eines animierten Icons.",
     "cards.scroll.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist.",
     "cards.scrollCallback.description": "Das Kartenmodul lädt mehr Elemente, wenn der untere Rand des übergeordneten Div erreicht ist. Das Laden weiterer Karten basiert auf der benutzerdefinierten Rückruffunktion. Wenn der Wert 'break' ist, wird der Scroll-Listener entfernt.",
     "cards.scrollCallback.example1" : "Beispielbreite Promise.resolve (), LoadingBoxTop mit der festen Position und 'break' im 4-Scroll-Event.",

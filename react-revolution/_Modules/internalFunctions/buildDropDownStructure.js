@@ -32,7 +32,7 @@ const buildDropDownStructure = (data = [], parent = undefined) => {
             }
 
             if(undefined == data[x].key){
-                data[x].key = data[x].text ? `single-entry-${x}-${data[x].text}` : `${getUuid()}`;
+                data[x].key = data[x].text ? `single-entry-${x}-${getUuid()}` : `${getUuid()}`;
             }
 
             if(undefined == data[x].classList){

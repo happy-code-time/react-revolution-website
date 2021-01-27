@@ -1611,6 +1611,62 @@ class Releases extends React.Component {
                             },
                         },
                     ]
+                },
+                '5.0.7': {
+                    data: [
+                        {
+                            key: 'Accordion - part 1',
+                            value: 'Added new key\n\nanimationTimeout',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Accordion - part 2',
+                            value: 'General script improvement special for the animation type "height" and added a <span> tag as holder for the text data to be able to make an animation for example: if an icon has been provided.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.0.8': {
+                    data: [
+                        {
+                            key: 'Accordion',
+                            value: 'Style improvement.',
+                            icon: <i className="fab fa-css3"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.0.9': {
+                    data: [
+                        {
+                            key: 'Accordion',
+                            value: 'Code improvement for outside click handler and for animation type "height" on single entries without nested data.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
                 }
             }
         }
