@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { SliderItems } from './react-revolution/react-revolution';
+import { PopupHover } from './react-revolution/react-revolution';
 import './react-revolution/_Sass/react-revolution.scss';
 
 class App extends React.Component {
@@ -40,46 +40,79 @@ class App extends React.Component {
     }
 
     render() {
-        return (
-            <div
-                style={
-                    {
-                        width: '100%',
-                        maxWidth: '1024px',
-                        height: '300px',
-                        margin: '5vh auto'
+        return (            
+            <div style={{ marginBottom: '30px' }}>
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    .PopupHoverStyle {
+                        float: left;
+                        box-sizing: border-box;
+                        padding: 5px 10px;
+                        margin-right: 10px;
                     }
-                }
-            >
-                <SliderItems
-                    staticData={
-                        <div className='user-actions'>
-                            <style dangerouslySetInnerHTML={{
-                                __html: `  
-                            .static-data{ 
-                                top:10px; 
-                                right:20px;                                             
-                            }                                         
-                            .static-data i { 
-                                color: red; 
-                                cursor: pointer; 
-                                font-size: 3rem; 
-                            } 
-                        `}}
-                            />
-                            <i
-                                className={`${this.state.like ? 'fas fa-heart heart-like' : 'far fa-heart heart-like'}`}
-                                onClick={() => {
-                                    this.setState({
-                                        like: !this.state.like
-                                    })
-                                }}
-                            ></i>
-                        </div>
+                `}} />
+                <PopupHover
+                    addClass='PopupHoverStyle'
+                    direction='center'
+                    holderData='long data holder text'
+                    displayOnHover={true}
+                    hideOnLeave={true}
+                    animation={true}
+                    contentData={
+                        [
+                            {
+                                data: (
+                                    <a href="#">
+                                        link 1
+                                    </a>
+                                )
+                            },
+                            {
+                                data: (
+                                    <a href="#">
+                                        link 2
+                                    </a>
+                                )
+                            }
+                        ]
                     }
-                    addClass='slider-items-example'
-                    data={this.getCards()}
-                    displayDots={true}
+                />
+                <PopupHover
+                    addClass='PopupHoverStyle'
+                    direction='center'
+                    holderData='square'
+                    displayOnHover={true}
+                    hideOnLeave={true}
+                    animation={true}
+                    contentData={
+                        (
+                            <div>
+                                <br />
+                                <h1>First header</h1>
+                                <br />
+                                <hr />
+                                <br />
+                                <p>Menu entry 1</p>
+                                <br />
+                                <p>Menu entry 2</p>
+                                <br />
+                                <p>Menu entry 3</p>
+                                <br />
+                                <hr />
+                                <br />
+                                <h1>Second header</h1>
+                                <br />
+                                <p>Single child entry 1</p>
+                                <br />
+                                <p>Single child entry 2</p>
+                                <br />
+                                <p>Single child entry 3</p>
+                                <br />
+                                <hr />
+                                <br />
+                            </div>
+                        )
+                    }
                 />
             </div>
         );

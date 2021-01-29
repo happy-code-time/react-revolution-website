@@ -1790,6 +1790,21 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.0.13': {
+                    data: [
+                        {
+                            key: 'PopupHover',
+                            value: 'Added new key:\n\nuseMouseEnter',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

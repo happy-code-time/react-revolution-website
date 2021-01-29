@@ -24,6 +24,7 @@ class PopupHover extends React.Component {
             direction: (props.direction && typeof '8' == typeof props.direction && ['left', 'center', 'right'].includes(props.direction)) ? props.direction : 'left',
             animationTimeout: (typeof 8 == typeof props.animationTimeout) ? props.animationTimeout : 300,
             animation: (typeof true == typeof props.animation) ? props.animation : true,
+            useMouseEnter: (typeof true == typeof props.useMouseEnter) ? props.useMouseEnter : true,
         };
     }
 
@@ -34,7 +35,7 @@ class PopupHover extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'animation', 'animationTimeout', 'holderData', 'contentData', 'direction'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'animation', 'animationTimeout', 'holderData', 'contentData', 'direction', 'useMouseEnter'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-popup-hover',
@@ -44,6 +45,7 @@ class PopupHover extends React.Component {
                 direction: (props.direction && typeof '8' == typeof props.direction && ['left', 'center', 'right'].includes(props.direction)) ? props.direction : 'left',
                 animationTimeout: (typeof 8 == typeof props.animationTimeout) ? props.animationTimeout : 300,
                 animation: (typeof true == typeof props.animation) ? props.animation : true,
+                useMouseEnter: (typeof true == typeof props.useMouseEnter) ? props.useMouseEnter : true,
             };
         }
 
@@ -263,6 +265,7 @@ class PopupHover extends React.Component {
                     contentData={this.state.contentData}
                     animationTimeout={this.state.animationTimeout}
                     animation={this.state.animation}
+                    useMouseEnter={this.state.useMouseEnter}
                 />
             );
         }
@@ -278,8 +281,8 @@ class PopupHover extends React.Component {
                     <span
                         className={`data ${dataClass}`}
                         onClick={() => this.toggleMenu()}
-                        onMouseEnter={() => this.displayMenuOnHover()}
-
+                        {...(this.state.useMouseEnter) && { onMouseEnter : () => this.displayMenuOnHover()} }
+                        {...(!this.state.useMouseEnter) && { onMouseOver : () => this.displayMenuOnHover()} }
                     >
                         {
                             holderData

@@ -2735,6 +2735,11 @@ const EN = {
         "type": "JSX | String",
         "default": "undefined"
     },
+    'popupHover.useMouseEnter': {
+        "description": "Use the 'onMouseEnter' event handler to display the data. If the value of this key is 'false' then the event handler 'onMouseOver' is used.",
+        "type": "Boolean",
+        "default": "true"
+    },
     'popupHover.description': "If a user is able to hover over the placeholder, the data to be displayed is displayed. If the key animation = {true}, the data holder <div> also receives the class' menu-active '. If a user navigates away again with the mouse (from the placeholder or the data) and the key is animation = {true}, the data holder <div> also receives the class' menu-inactive'.",
     'popupHover.example1': 'Example with the alignment of the data to be displayed on the left side.',
     'popupHover.example2': 'Example with the alignment of the data to be displayed on the right side.',

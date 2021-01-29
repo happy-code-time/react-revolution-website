@@ -25,6 +25,7 @@ class Center extends React.Component {
             contentData: props.contentData,
             animationTimeout: props.animationTimeout,
             animation: props.animation,
+            useMouseEnter: props.useMouseEnter
         };
 
         this.isproecessing = false;
@@ -37,7 +38,7 @@ class Center extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'animation', 'animationTimeout', 'holderData', 'contentData'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'animation', 'animationTimeout', 'holderData', 'contentData', 'useMouseEnter'], props, state)) {
             return {
                 moduleStyle: props.moduleStyle,
                 globalStyle: props.globalStyle,
@@ -48,6 +49,7 @@ class Center extends React.Component {
                 contentData: props.contentData,
                 animationTimeout: props.animationTimeout,
                 animation: props.animation,
+                useMouseEnter: props.useMouseEnter
             };
         }
 
@@ -311,8 +313,8 @@ class Center extends React.Component {
                     <span
                         className={`data ${dataClass}`}
                         onClick={() => this.toggleMenu()}
-                        onMouseEnter={() => this.displayMenuOnHover()}
-
+                        {...(this.state.useMouseEnter) && { onMouseEnter : () => this.displayMenuOnHover()} }
+                        {...(!this.state.useMouseEnter) && { onMouseOver : () => this.displayMenuOnHover()} }
                     >
                         {
                             holderData

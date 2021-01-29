@@ -591,6 +591,10 @@ class _PopupHover extends React.Component {
                                     key: 'contentData.data',
                                     values: 'popupHover.contentData.data'
                                 },
+                                {
+                                    key: 'useMouseEnter',
+                                    values: 'popupHover.useMouseEnter'
+                                },
                             ],
                             'rr-popup-hover'
                         )

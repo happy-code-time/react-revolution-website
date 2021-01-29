@@ -2736,6 +2736,11 @@ const PL = {
         "type": "JSX | String",
         "default": "undefined"
     },
+    'popupHover.useMouseEnter': {
+        "description": "Użyj procedury obsługi zdarzeń 'onMouseEnter', aby wyświetlić dane. Jeśli wartość tego klucza to 'false', to zostanie użyta procedura obsługi zdarzenia 'onMouseOver'.",
+        "type": "Boolean",
+        "default": "true"
+    },
     'popupHover.description': "Jeśli użytkownik może najechać kursorem na symbol zastępczy, wyświetlane są dane do wyświetlenia. Jeśli animation={true}, wtedy root <div> również otrzymuje klasę 'menu-active' .Jeśli użytkownik opuści mysz (od symbolu zastępczego lub danych), a kluczem jest animation={true}, wtedy root <div> również otrzyma klasę 'menu-inactive'.",
     'popupHover.example1': 'Przykład z wyrównaniem danych do wyświetlenia po lewej stronie.',
     'popupHover.example2': 'Przykład z wyrównaniem danych do wyświetlenia po prawej stronie.',

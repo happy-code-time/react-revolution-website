@@ -2718,6 +2718,11 @@ const DE = {
         "type": "JSX|String",
         "default": "undefined"
     },
+    'popupHover.useMouseEnter' : {
+        "description": "Benutze den 'onMouseEnter' Event Handler um die Daten anzeigen zu lassen. Wenn der Wert dieses Schlüssels 'false' ist, dann wird der Event Handler 'onMouseOver' benutzt.",
+        "type": "Boolean",
+        "default": "true"
+    },
     'popupHover.description' : "Wenn ein Benutzer mit der Mauß ein Hover über den Platzhalter durchführt, werden die anzuzeigenden Daten angezeigt. Wenn der Schlüssel animation={true} ist, bekommt der Daten Haltender <div> zusätzlich die Klasse 'menu-active'. Wenn ein Benutzer mit der Mauß wieder weg navigiert (von dem Platzhalter oder den Daten) und der Schlüssel animation={true} ist, bekommt der Daten Haltender <div> zusätzlich die Klasse 'menu-inactive'.",
     'popupHover.example1' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der linken Seite.',
     'popupHover.example2' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der rechten Seite.',
