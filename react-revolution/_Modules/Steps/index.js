@@ -132,7 +132,12 @@ class Steps extends React.Component {
         const { callbackCheckNavigate } = this.state;
         const { callback, callbackProps, onError, onErrorProps, submit } = this.state.data[this.state.data.length - 1];
 
-        const allowedToSetStep = await (callback)(callbackProps);
+        let allowedToSetStep = true;
+        
+        if(callback){
+            allowedToSetStep = await (callback)(callbackProps);
+        }
+        
         /**
          * Current check returned false (navigate the user to the wrong page)
          */

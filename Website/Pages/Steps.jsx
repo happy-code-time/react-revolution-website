@@ -501,9 +501,9 @@ const jsExample6 = `constructor(props) {
     this.liveGeneration_setValue = this.liveGeneration_setValue.bind(this);
 
     this.state = {
-        username2: '',
-        password2: '',
-        email2: ''
+        username3: '',
+        password3: '',
+        email3: ''
     };
 }
 
@@ -556,7 +556,7 @@ liveGeneration_username() {
                 <input
                     type="text"
                     style={{ width: '100%' }}
-                    onChange={(e) => this.setValue('username3', e.target.value)}
+                    onChange={(e) => this.liveGeneration_setValue('username3', e.target.value)}
                     value={this.state.username3}
                 />
             </div>
@@ -572,7 +572,7 @@ liveGeneration_password() {
                 <input
                     type="password"
                     style={{ width: '100%' }}
-                    onChange={(e) => this.setValue('password3', e.target.value)}
+                    onChange={(e) => this.liveGeneration_setValue('password3', e.target.value)}
                     value={this.state.password3}
                 />
             </div>
@@ -588,7 +588,7 @@ liveGeneration_email() {
                 <input
                     type="email"
                     style={{ width: '100%' }}
-                    onChange={(e) => this.setValue('email3', e.target.value)}
+                    onChange={(e) => this.liveGeneration_setValue('email3', e.target.value)}
                     value={this.state.email3}
                 />
             </div>
@@ -987,7 +987,7 @@ class _Steps extends React.Component {
                     <input
                         type="text"
                         style={{ width: '100%' }}
-                        onChange={(e) => this.setValue('username3', e.target.value)}
+                        onChange={(e) => this.liveGeneration_setValue('username3', e.target.value)}
                         value={this.state.username3}
                     />
                 </div>
@@ -1003,7 +1003,7 @@ class _Steps extends React.Component {
                     <input
                         type="password"
                         style={{ width: '100%' }}
-                        onChange={(e) => this.setValue('password3', e.target.value)}
+                        onChange={(e) => this.liveGeneration_setValue('password3', e.target.value)}
                         value={this.state.password3}
                     />
                 </div>
@@ -1019,7 +1019,7 @@ class _Steps extends React.Component {
                     <input
                         type="email"
                         style={{ width: '100%' }}
-                        onChange={(e) => this.setValue('email3', e.target.value)}
+                        onChange={(e) => this.liveGeneration_setValue('email3', e.target.value)}
                         value={this.state.email3}
                     />
                 </div>

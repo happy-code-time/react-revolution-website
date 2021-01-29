@@ -112,7 +112,7 @@ class SliderFullscreen extends React.Component {
         this.moveTimeoutReset = undefined;
         this.tempTimeout = undefined;
         this.timeouterAutoplay = undefined;
-
+        this.isClickOnActionButton = false;
     }
 
     /**
@@ -351,6 +351,8 @@ class SliderFullscreen extends React.Component {
 
             clearTimeout(this.tempTimeout);
             this.tempTimeout = setTimeout(() => {
+                this.isClickOnActionButton = false;
+
                 this.setState({
                     ulAnimationDisabled: true
                 });
@@ -359,6 +361,7 @@ class SliderFullscreen extends React.Component {
     }
 
     slidePrevious() {
+        this.isClickOnActionButton = true;
         let { index } = this.state;
 
         if (index === 0) {
@@ -378,6 +381,7 @@ class SliderFullscreen extends React.Component {
     }
 
     slideNext() {
+        this.isClickOnActionButton = true;
         let { index } = this.state;
 
         if (index === this.state.data.length - 1) {
@@ -399,6 +403,7 @@ class SliderFullscreen extends React.Component {
     }
 
     setSlide(index, isPreview = false) {
+        this.isClickOnActionButton = true;
 
         if(this.state.autoplay && isPreview){
             return;
@@ -1126,7 +1131,7 @@ class SliderFullscreen extends React.Component {
                     }
                     <div
                         key={`slides-${slidersUuid}`}
-                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding && !this.isClickOnActionButton ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,

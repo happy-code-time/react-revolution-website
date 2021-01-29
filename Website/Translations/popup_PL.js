@@ -2326,6 +2326,46 @@ const PL = {
     },
     'listSwitch.example1': 'Przykład z dostarczaniem danych bezpośrednio podczas ładowania komponentu.',
     'listSwitch.example2': 'Przykład z dostarczeniem danych dopiero po kliknięciu przez użytkownika symbolu zastępczego. Jeśli wartość klucza "resetData" nie jest prawdziwa, dane są ładowane tylko raz, po czym są zawsze dostępne bez konieczności ponownego ładowania danych. ',
+    'stepGen.maxSteps': {
+        "description": "Maksymalna liczba kroków.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    'stepGen.stepsData': {
+        "description": "Tablica obiektów. Każdy pojedynczy indeks tej tablicy jest indeksem kroku.",
+        "type": "{}",
+        "default": "[]"
+    },
+    'stepGen.stepsData.data': {
+        "description": "Niestandardowe dane kroku.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.top': {
+        "description": "Wyświetl dane niestandardowe u góry kroku.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.bottom': {
+        "description": "Wyświetl niestandardowe dane na dole kroku.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.newStepData': {
+        "description": "Funkcja zapewniająca niestandardowe dane dla każdego nowo wygenerowanego kroku. Minimalna struktura zwracanej wartości musi wynosić {data: any = undefined,? top: boolean = false,? bottom: boolean = false}.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'stepGen.mountCallback': {
+        "description": "Funkcja wywołania zwrotnego po komponencie componentDidMount (wywoływana tylko raz) w celu zapisania wygenerowanych identyfikatorów uuid dla każdego pojedynczego kroku. Generowanie identyfikatorów uuid jest dostarczane przez komponent. Wartość zwracana to„ stepsData ”z nowym” uuid '. ",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
+    'stepGen.stepRemovedCallback': {
+        "description": "Funkcja wywołania zwrotnego, jeśli krok został usunięty w celu zaktualizowania dostarczonych 'stepsData'.",
+        "type": "Funkcja",
+        "default": "undefined"
+    },
     'stepGen.callback': {
         "description": "Zdefiniowana przez użytkownika funkcja, która jest wywoływana zawsze po dokonaniu zmiany w jednym z pól wejściowych / tekstowych. Ta funkcja zwraca 2 argumenty. Argument 1: callbackProps, argument 2: bieżące wartości (tablica obiektów) wejścia / Pola tekstowe. ",
         "type": "Function",
@@ -2417,6 +2457,7 @@ const PL = {
         "default": "false"
     },
     'stepGen.example1': 'Przykład z wygenerowaniem 3 pól (na początku), jednego przycisku usuwania i jednego przycisku przesyłania. Otwórz konsolę programisty, aby obserwować zmiany. ',
+    'stepGen.example2': 'Przykład z danymi zdefiniowanymi przez użytkownika dla każdego kroku oprócz drugiego.',
     'stepGenDragDrop.placeholderPosition' : {
         "description": "Jeśli użytkownik zacznie przeciągać element i znajduje się nad pozycją upuszczenia, wygeneruj PLACEHOLDER na stronie elementu najechanego kursorem. Dostępne opcje: 'top' (symbole zastępcze są zawsze na górze elementu najechanego kursorem), ' bottom '(symbole zastępcze są zawsze na dole elementu najechanego kursorem) i' auto '(symbole zastępcze są wykrywane automatycznie). ",
         "type": "String",
@@ -2425,6 +2466,11 @@ const PL = {
     'stepGenDragDrop.placeholder': {
         "description": "Symbol zastępczy do wyświetlenia podczas fazy przeciągania.",
         "type": "String | JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.stepReorderCallback': {
+        "description": "Po wykonaniu operacji przeciągnij i upuść przez użytkownika zdefiniowane przez użytkownika dane 'stepsData' zostaną uporządkowane.",
+        "type": "Funkcja",
         "default": "undefined"
     },
     'stepGenDragDrop.example1': 'Przykład z generacją 3 pól (na początku), przyciskiem usuwania i przesyłania, samodzielnie zdefiniowanym symbolem zastępczym i symbolem zastępczym w kierunku „auto”. Otwórz konsolę programisty, aby obserwować zmiany. ',

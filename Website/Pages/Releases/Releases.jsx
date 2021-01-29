@@ -1693,7 +1693,103 @@ class Releases extends React.Component {
                             },
                         },
                     ]
-                }
+                },
+                '5.0.11': {
+                    data: [
+                        {
+                            key: 'Steps',
+                            value: 'If the last step does not provide a callback function, only a submit function, then the submit function are called.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.0.12': {
+                    data: [
+                        {
+                            key: 'StepsGenerator',
+                            value: 'Added new keys:\n\nmaxSteps\nstepsData\nnewStepData\nmountCallback\nstepRemovedCallback',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'StepsGeneratorDragDrop',
+                            value: 'Added new keys:\n\nmaxSteps\nstepsData\nnewStepData\nmountCallback\nstepRemovedCallback',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Slider',
+                            value: 'Fixed "onSlideTime" that was attached to the slider by the onMouseDown event handler. Now if a click event happens on: dots, previous or next button the "onSlideTime" are ignored and the "animationTime" are applied.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Slider - the fullscreen part',
+                            value: 'Fixed "onSlideTime" that was attached to the slider by the onMouseDown event handler. Now if a click event happens on: dots, previous or next button the "onSlideTime" are ignored and the "animationTime" are applied.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderCards',
+                            value: 'Fixed "onSlideTime" that was attached to the slider by the onMouseDown event handler. Now if a click event happens on: dots, previous or next button the "onSlideTime" are ignored and the "animationTime" are applied.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderFullscreen',
+                            value: 'Fixed "onSlideTime" that was attached to the slider by the onMouseDown event handler. Now if a click event happens on: dots, previous or next button the "onSlideTime" are ignored and the "animationTime" are applied.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'SliderItems',
+                            value: 'Fixed "onSlideTime" that was attached to the slider by the onMouseDown event handler. Now if a click event happens on: dots, previous or next button the "onSlideTime" are ignored and the "animationTime" are applied.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

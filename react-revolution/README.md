@@ -24,12 +24,18 @@ import Breadcrumbs from 'react-revolution/Breadcrumbs';
 
 ### Additional sass file import
 ```
-@import 'react-revolution/Breadcrumbs/scss/index.scss';
+// Global file
+@import 'react-revolution/scss/react-revolution.scss';
+// Single module file
+@import 'react-revolution/scss/rr-breadcrumbs.scss';
 ```
 
 ### Additional compiled sass file import
 ```
-@import 'react-revolution/Breadcrumbs/css/index.scss';
+// Global file
+@import 'react-revolution/css/react-revolution.css';
+// Single module file
+@import 'react-revolution/css/rr-breadcrumbs.css';
 ```
 
 ### Example
@@ -62,7 +68,7 @@ import { Breadcrumbs } from 'react-revolution';
     DarkLines404
     DragDropArea
     DragDropList
-    FullScreenListArrays
+    FullScreenListArray
     FullScreenListObject
     FullScreenOverlay
     GlobalMessages
@@ -88,6 +94,7 @@ import { Breadcrumbs } from 'react-revolution';
     Picture404
     PopupBox
     PopupData
+    PopupHover
     ReadMore
     ReadMoreCallback
     Ribbon

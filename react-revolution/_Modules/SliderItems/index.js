@@ -79,6 +79,7 @@ class SliderItems extends React.Component {
         this.oldX = 0;
         this.mouseDirection = 'r';
         this.abs = 0;
+        this.isClickOnActionButton = false;
     }
 
     /**
@@ -239,6 +240,7 @@ class SliderItems extends React.Component {
      * ##############################
      */
     setSlide(activeIndex) {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
 
         if (typeof '8' == typeof activeIndex) {
@@ -270,10 +272,12 @@ class SliderItems extends React.Component {
             slidesTransform: `translate3d(-${width}px,0,0)`,
         }, () => {
             this.userMoving = false;
+            this.isClickOnActionButton = false;
         });
     }
 
     slidePrevious() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         let { index } = this.state;
 
@@ -296,6 +300,7 @@ class SliderItems extends React.Component {
     }
 
     slideNext() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         let { index } = this.state;
 
@@ -866,7 +871,7 @@ class SliderItems extends React.Component {
                     <div
                         ref={(node) => (this.transformer = node)}
                         key={`slides-transform-${slidersUuid}`}
-                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding && !this.isClickOnActionButton ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,

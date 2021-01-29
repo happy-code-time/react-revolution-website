@@ -33,6 +33,11 @@ class StepsGenerator extends React.Component {
             submitCallback: props.submitCallback && typeof function () { } == typeof props.submitCallback ? props.submitCallback : undefined,
             submitCallbackProps: props.submitCallbackProps ? props.submitCallbackProps : undefined,
             resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
+            stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
+            newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
+            maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
+            mountCallback: props.mountCallback && typeof function () { } == typeof props.mountCallback ? props.mountCallback : undefined,
+            stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
         };
     }
 
@@ -43,7 +48,7 @@ class StepsGenerator extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'maxSteps', 'stepRemovedCallback', 'defaultClass', 'id', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps', 'stepsData', 'newStepData'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps-generator',
@@ -62,6 +67,10 @@ class StepsGenerator extends React.Component {
                 submitCallback: props.submitCallback && typeof function () { } == typeof props.submitCallback ? props.submitCallback : undefined,
                 submitCallbackProps: props.submitCallbackProps ? props.submitCallbackProps : undefined,
                 resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
+                stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
+                newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
+                maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
+                stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
             };
         }
 
@@ -69,7 +78,7 @@ class StepsGenerator extends React.Component {
     }
 
     componentDidMount() {
-        this.generateDefaultSteps()
+        this.generateDefaultSteps();
     }
 
     getNewData() {
@@ -80,9 +89,9 @@ class StepsGenerator extends React.Component {
     }
 
     generateDefaultSteps(reset = false) {
-        let { current, defaultSteps } = this.state;
+        let { current, defaultSteps, stepsData, mountCallback } = this.state;
 
-        if(reset){
+        if (reset) {
             current = {};
         }
 
@@ -90,61 +99,109 @@ class StepsGenerator extends React.Component {
             const i = `${internalUuid()}`;
 
             if (undefined === current[i]) {
-                current[`${internalUuid()}`] = this.getNewData();
+                const unique = `${internalUuid()}`
+                current[unique] = this.getNewData();
+
+                if (stepsData && undefined !== stepsData[x]) {
+                    stepsData[x].uuid = unique;
+                }
             }
+        }
+
+        // Return uuids for the developer
+        if (stepsData && mountCallback) {
+            (mountCallback)(stepsData, 'mount');
+        }
+
+        if (stepsData) {
+            return this.setState({ current, stepsData });
         }
 
         this.setState({ current });
     }
 
     addStep(ref = null) {
-        const { current } = this.state;
+        const { current, maxSteps } = this.state;
+
+        if (maxSteps && Object.keys(current).length >= maxSteps) {
+            return;
+        }
+
         const i = `${internalUuid()}`;
 
         if (undefined !== current[i]) {
             return this.addStep(ref);
         }
 
+        const { newStepData } = this.state;
         current[i] = this.getNewData();
 
-        this.setState({
+        if (!newStepData) {
+            return this.setState({
+                current
+            }, () => {
+                if (ref && ref.current) {
+                    ref.current.focus();
+                }
+            });
+        }
+
+        return this.setState({
             current
         }, () => {
-            if (ref && ref.current) {
-                ref.current.focus();
-            }
+            (newStepData)(i);
         });
     }
 
-    removeStep(uuid) {
-        const { current } = this.state;
+    removeStep(unique) {
+        const { current, stepsData, stepRemovedCallback } = this.state;
         const newObject = {};
+        const newUserData = [];
         const currentKeys = Object.keys(current);
 
         for (let x = 0; x <= currentKeys.length - 1; x++) {
-            if (currentKeys[x] !== uuid) {
+            if (currentKeys[x] !== unique) {
                 newObject[currentKeys[x]] = current[currentKeys[x]];
             }
         }
 
+        for (let x = 0; x <= stepsData.length - 1; x++) {
+            if (stepsData[x].uuid !== unique) {
+                newUserData.push(stepsData[x]);
+            }
+        }
+
+        if(stepRemovedCallback){
+            (stepRemovedCallback)(newUserData, 'remove');
+        }
+
         this.setState({
-            current: newObject
+            current: newObject,
+            stepsData: newUserData
         }, () => {
             this.callback();
         });
     }
 
-    getUserCallbackData(){
-        const { current } = this.state;
+    getUserCallbackData() {
+        const { current, stepsData } = this.state;
         const userCallbackData = [];
         const currentKeys = Object.keys(current);
 
         for (let x = 0; x <= currentKeys.length - 1; x++) {
             const { value } = current[currentKeys[x]];
 
+            let userProps = {};
+
+            if(stepsData && undefined !== stepsData[x] && typeof {} === typeof stepsData[x]){
+                userProps = stepsData[x];
+            }
+
             userCallbackData.push(
                 {
-                    value
+                    ...userProps,
+                    value,
+                    uuid: currentKeys[x]
                 }
             );
         }
@@ -156,7 +213,7 @@ class StepsGenerator extends React.Component {
         const { callback, callbackProps } = this.state;
 
         if (callback) {
-            const userCallbackData= this.getUserCallbackData();
+            const userCallbackData = this.getUserCallbackData();
             (callback)(callbackProps, userCallbackData);
         }
     }
@@ -203,7 +260,7 @@ class StepsGenerator extends React.Component {
     }
 
     getCurrentData() {
-        const { current, removeStep, stepPrefix, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc } = this.state;
+        const { current, removeStep, stepPrefix, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc, stepsData } = this.state;
         const jsx = [];
         const currentKeys = Object.keys(current);
 
@@ -213,13 +270,39 @@ class StepsGenerator extends React.Component {
             const removeJsx = (
                 <span
                     className='action action-remove'
-                    onClick={() => this.removeStep(currentKeys[x])}
+                    onClick={() => this.removeStep(currentKeys[x], x)}
                 >
                     {
                         removeStep
                     }
                 </span>
             );
+
+            let userCustomData = '';
+            let prefix = false;
+            let suffix = false;
+
+            if (stepsData) {
+                for (let i = 0; i <= stepsData.length - 1; i++) {
+                    if (stepsData[i].uuid === currentKeys[x] && typeof {} === typeof stepsData[i]) {
+                        try {
+                            const { data, top, bottom } = stepsData[x];
+                            userCustomData = data;
+
+                            if (typeof true == typeof top && top) {
+                                prefix = true;
+                            }
+
+                            if (typeof true == typeof bottom && bottom && !prefix) {
+                                suffix = true;
+                            }
+                        }
+                        catch (e) {
+                            userCustomData = '';
+                        }
+                    }
+                }
+            }
 
             jsx.push(
                 <div
@@ -252,6 +335,14 @@ class StepsGenerator extends React.Component {
                     {
                         !stepPrefix && removeStepAlignTop && x >= defaultSteps && removeStep && removeJsx
                     }
+                    {
+                        userCustomData && prefix &&
+                        <span className='data-prefix'>
+                            {
+                                userCustomData
+                            }
+                        </span>
+                    }
                     <span className='input-area'>
                         {
                             useInput &&
@@ -274,6 +365,14 @@ class StepsGenerator extends React.Component {
                         }
                     </span>
                     {
+                        userCustomData && suffix &&
+                        <span className='data-suffix'>
+                            {
+                                userCustomData
+                            }
+                        </span>
+                    }
+                    {
                         !removeStepAlignTop && x >= defaultSteps && removeStep && removeJsx
                     }
                 </div>
@@ -283,21 +382,30 @@ class StepsGenerator extends React.Component {
         return jsx;
     }
 
-    submitSteps(){
+    submitSteps() {
         const { submitCallback, submitCallbackProps, resetOnSubmit } = this.state;
 
-        if(submitCallback){
-            const userCallbackData= this.getUserCallbackData();
+        if (submitCallback) {
+            const userCallbackData = this.getUserCallbackData();
             (submitCallback)(submitCallbackProps, userCallbackData);
 
-            if(resetOnSubmit){
+            if (resetOnSubmit) {
                 this.generateDefaultSteps(true);
             }
         }
     }
 
     render() {
-        const { defaultClass, addClass, id, addStep, submit } = this.state;
+        const { defaultClass, addClass, id, addStep, submit, maxSteps, current } = this.state;
+        let dispalyAddStep = false;
+        
+        if(addStep){
+            dispalyAddStep = true;
+        }
+
+        if(addStep && maxSteps && current && Object.keys(current).length >= maxSteps){
+            dispalyAddStep = false;
+        }
 
         return (
             <div className={`${defaultClass} ${addClass}`} id={id}>
@@ -305,7 +413,7 @@ class StepsGenerator extends React.Component {
                     this.getCurrentData()
                 }
                 {
-                    addStep &&
+                    addStep && dispalyAddStep &&
                     <span
                         className='action action-add'
                         onClick={() => this.addStep()}
@@ -316,7 +424,7 @@ class StepsGenerator extends React.Component {
                     </span>
                 }
                 {
-                    submit && 
+                    submit &&
                     <span
                         className='action action-submit'
                         onClick={() => this.submitSteps()}

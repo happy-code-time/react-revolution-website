@@ -266,8 +266,9 @@ const js11 = `constructor(props) {
     this.state = {
         like: false
     };
+}
     
-    getCards(dot = '') {
+getCards(dot = '') {
     const items = 10;
     const data = [];
 

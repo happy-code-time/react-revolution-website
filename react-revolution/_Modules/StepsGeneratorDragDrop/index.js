@@ -57,6 +57,13 @@ class StepsGeneratorDragDrop extends React.Component {
             resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
             placeholder: props.placeholder ? props.placeholder : undefined,
             placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
+
+            stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
+            newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
+            maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
+            mountCallback: props.mountCallback && typeof function () { } == typeof props.mountCallback ? props.mountCallback : undefined,
+            stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
+            stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
         };
     }
 
@@ -67,7 +74,7 @@ class StepsGeneratorDragDrop extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['stepsData', 'stepReorderCallback', 'newStepData', 'maxSteps', 'mountCallback', 'addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps-generator-drag-drop',
@@ -88,6 +95,12 @@ class StepsGeneratorDragDrop extends React.Component {
                 resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
                 placeholder: props.placeholder ? props.placeholder : undefined,
                 placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
+
+                stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
+                newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
+                maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
+                stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
+                stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
             };
         }
 
@@ -192,15 +205,16 @@ class StepsGeneratorDragDrop extends React.Component {
         }
     }
 
-    rebuildData(uuid){
-        const { current, placeholderPosition, overLiIndex } = this.state;
+    rebuildData(unique){
+        const { current, placeholderPosition, overLiIndex, stepReorderCallback} = this.state;
+        let { stepsData } = this.state;
         const temp = [];
         const newData = {};
         const currentKeys = Object.keys(current);
         let saveData = undefined;
 
         for (let x = 0; x <= currentKeys.length - 1; x++) {
-            if(currentKeys[x] === uuid){
+            if(currentKeys[x] === unique){
                 saveData = current[currentKeys[x]];
             }
         }
@@ -210,13 +224,13 @@ class StepsGeneratorDragDrop extends React.Component {
             if ((x == overLiIndex && 'top' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'top' == this.mouseMove)) {
                 temp.push(
                     {
-                        key: uuid,
+                        key: unique,
                         data: saveData
                     }
                 );
             }
 
-            if (currentKeys[x] !== uuid) {
+            if (currentKeys[x] !== unique) {
                 temp.push(
                     {
                         key: currentKeys[x],
@@ -228,7 +242,7 @@ class StepsGeneratorDragDrop extends React.Component {
             if ((x == overLiIndex && 'bottom' == placeholderPosition) || ('auto' == placeholderPosition && x == overLiIndex && 'bottom' == this.mouseMove)) {
                 temp.push(
                     {
-                        key: uuid,
+                        key: unique,
                         data: saveData
                     }
                 );
@@ -239,7 +253,29 @@ class StepsGeneratorDragDrop extends React.Component {
             newData[temp[x].key] = temp[x].data;
         }
 
+        if(stepsData && stepsData.length){
+            let n = [];
+            const k = Object.keys(newData);
+
+            for(let x = 0; x <= k.length-1; x++){
+
+                for(let i = 0; i <= stepsData.length-1; i++){
+
+                    if(stepsData[i].uuid === k[x]){
+                        n.push(stepsData[i]);
+                    }
+                }
+            }
+
+            stepsData = n;
+
+            if(stepReorderCallback){
+                (stepReorderCallback)(stepsData);
+            }
+        }
+        
         this.setState({
+            stepsData,
             current: newData,
             dragging: false,
             sourceIndex: undefined,
@@ -268,7 +304,7 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     generateDefaultSteps(reset = false) {
-        let { current, defaultSteps } = this.state;
+        let { current, defaultSteps, stepsData, mountCallback } = this.state;
 
         if(reset){
             current = {};
@@ -278,61 +314,109 @@ class StepsGeneratorDragDrop extends React.Component {
             const i = `${internalUuid()}`;
 
             if (undefined === current[i]) {
-                current[`${internalUuid()}`] = this.getNewData();
+                const unique = `${internalUuid()}`
+                current[unique] = this.getNewData();
+
+                if (stepsData && undefined !== stepsData[x]) {
+                    stepsData[x].uuid = unique;
+                }
             }
+        }
+
+        // Return uuids for the developer
+        if (stepsData && mountCallback) {
+            (mountCallback)(stepsData, 'mount');
+        }
+
+        if (stepsData) {
+            return this.setState({ current, stepsData });
         }
 
         this.setState({ current });
     }
 
     addStep(ref = null) {
-        const { current } = this.state;
+        const { current, maxSteps } = this.state;
+
+        if (maxSteps && Object.keys(current).length >= maxSteps) {
+            return;
+        }
+
         const i = `${internalUuid()}`;
 
         if (undefined !== current[i]) {
             return this.addStep(ref);
         }
 
+        const { newStepData } = this.state;
         current[i] = this.getNewData();
 
-        this.setState({
+        if (!newStepData) {
+            return this.setState({
+                current
+            }, () => {
+                if (ref && ref.current) {
+                    ref.current.focus();
+                }
+            });
+        }
+
+        return this.setState({
             current
         }, () => {
-            if (ref && ref.current) {
-                ref.current.focus();
-            }
+            (newStepData)(i);
         });
     }
 
-    removeStep(uuid) {
-        const { current } = this.state;
+    removeStep(unique) {
+        const { current, stepsData, stepRemovedCallback } = this.state;
         const newObject = {};
+        const newUserData = [];
         const currentKeys = Object.keys(current);
 
         for (let x = 0; x <= currentKeys.length - 1; x++) {
-            if (currentKeys[x] !== uuid) {
+            if (currentKeys[x] !== unique) {
                 newObject[currentKeys[x]] = current[currentKeys[x]];
             }
         }
 
+        for (let x = 0; x <= stepsData.length - 1; x++) {
+            if (stepsData[x].uuid !== unique) {
+                newUserData.push(stepsData[x]);
+            }
+        }
+
+        if(stepRemovedCallback){
+            (stepRemovedCallback)(newUserData, 'remove');
+        }
+
         this.setState({
-            current: newObject
+            current: newObject,
+            stepsData: newUserData
         }, () => {
             this.callback();
         });
     }
 
     getUserCallbackData(){
-        const { current } = this.state;
+        const { current, stepsData } = this.state;
         const userCallbackData = [];
         const currentKeys = Object.keys(current);
 
         for (let x = 0; x <= currentKeys.length - 1; x++) {
             const { value } = current[currentKeys[x]];
 
+            let userProps = {};
+
+            if(stepsData && undefined !== stepsData[x] && typeof {} === typeof stepsData[x]){
+                userProps = stepsData[x];
+            }
+
             userCallbackData.push(
                 {
-                    value
+                    ...userProps,
+                    value,
+                    uuid: currentKeys[x]
                 }
             );
         }
@@ -391,7 +475,7 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     getCurrentData() {
-        const { current, removeStep, stepPrefix, placeholder, overLiIndex, sourceIndex, dragging, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc } = this.state;
+        const { current, removeStep, stepPrefix, placeholder, overLiIndex, sourceIndex, dragging, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc, stepsData } = this.state;
         const jsx = [];
         const currentKeys = Object.keys(current);
 
@@ -451,6 +535,32 @@ class StepsGeneratorDragDrop extends React.Component {
                 jsx.push(placeholderJsx);
             }
 
+            let userCustomData = '';
+            let prefix = false;
+            let suffix = false;
+
+            if (stepsData) {
+                for (let i = 0; i <= stepsData.length - 1; i++) {
+                    if (stepsData[i].uuid === currentKeys[x] && typeof {} === typeof stepsData[i]) {
+                        try {
+                            const { data, top, bottom } = stepsData[x];
+                            userCustomData = data;
+
+                            if (typeof true == typeof top && top) {
+                                prefix = true;
+                            }
+
+                            if (typeof true == typeof bottom && bottom && !prefix) {
+                                suffix = true;
+                            }
+                        }
+                        catch (e) {
+                            userCustomData = '';
+                        }
+                    }
+                }
+            }
+
             jsx.push(
                 <li
                     key={currentKeys[x]}
@@ -487,6 +597,14 @@ class StepsGeneratorDragDrop extends React.Component {
                     {
                         !stepPrefix && removeStepAlignTop && x >= defaultSteps && removeStep && removeJsx
                     }
+                    {
+                        userCustomData && prefix &&
+                        <span className='data-prefix'>
+                            {
+                                userCustomData
+                            }
+                        </span>
+                    }
                     <span className='input-area'>
                         {
                             useInput &&
@@ -508,6 +626,14 @@ class StepsGeneratorDragDrop extends React.Component {
                             />
                         }
                     </span>
+                    {
+                        userCustomData && suffix &&
+                        <span className='data-suffix'>
+                            {
+                                userCustomData
+                            }
+                        </span>
+                    }
                     {
                         !removeStepAlignTop && x >= defaultSteps && removeStep && removeJsx
                     }
@@ -536,7 +662,16 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     render() {
-        const { defaultClass, addClass, id, addStep, submit } = this.state;
+        const { defaultClass, addClass, id, addStep, submit, current, maxSteps } = this.state;
+        let dispalyAddStep = false;
+        
+        if(addStep){
+            dispalyAddStep = true;
+        }
+
+        if(addStep && maxSteps && current && Object.keys(current).length >= maxSteps){
+            dispalyAddStep = false;
+        }
 
         return (
             <div 
@@ -551,7 +686,7 @@ class StepsGeneratorDragDrop extends React.Component {
                 }
                 </ul>
                 {
-                    addStep &&
+                    addStep && dispalyAddStep &&
                     <span
                         className='action action-add'
                         onClick={() => this.addStep()}

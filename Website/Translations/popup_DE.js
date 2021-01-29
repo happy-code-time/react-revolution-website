@@ -2308,9 +2308,49 @@ const DE = {
     },
     'listSwitch.example1': 'Beispiel mit einer Bereitstellung von Daten direkt bei dem Laden der Komponente.',
     'listSwitch.example2': 'Beispiel mit einer Bereitstellung von Daten, erst nachdem der Benutzer den Platzhalter angeklickt hat. Falls der Wert des Schlüssels "resetData" nicht true ist, dann werden die Daten nur einmal geladen, danach sind die Daten immer verfügbar, ohne das Laden der Daten nochmals anzustoßen.',
+    'stepGen.maxSteps': {
+        "description": "Das Maximum an Schritten.",
+        "type" : "Number",
+        "default": "undefined"
+    },
+    'stepGen.stepsData': {
+        "description": "Array von Objekten. Jeder einzelne Index dieses Arrays ist der Index, wenn der Schritt.",
+        "type": "{}",
+        "default": "[]"
+    },
+    'stepGen.stepsData.data': {
+        "description": "Benutzerdefinierte Daten des Schritts.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.top': {
+        "description": "Benutzerdefinierte Daten oben im Schritt anzeigen.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.bottom': {
+        "description": "Benutzerdefinierte Daten am Ende des Schritts anzeigen.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.newStepData': {
+        "description": "Funktion zum Bereitstellen benutzerdefinierter Daten für jeden neu generierten Schritt. Die minimale Struktur des Rückgabewerts muss {data: any = undefined ,? top: boolean = false ,? bottom: boolean = false} sein.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.mountCallback': {
+        "description": "Rückruffunktion nach componentDidMount (nur einmal aufgerufen) zum Speichern der generierten UUIDs für jeden einzelnen Schritt. Die Generierung der UUIDs wird von der Komponente bereitgestellt. Der Rückgabewert ist 'stepData' mit dem neuen ' uuid '. ",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.stepRemovedCallback': {
+        "description": "Rückruffunktion, wenn ein Schritt entfernt wurde, um Ihre bereitgestellten 'stepData' zu aktualisieren.",
+        "type": "Function",
+        "default": "undefined"
+    },
     'stepGen.callback': {
         "description": "Benutzerdefiniert Funktion die immer aufgerufen wird, sobal eine Änderung im eines der Input/Textare Felder gemacht wird. Diese Funktion liefert 2 Argumnte zurück. Argument 1: callbackProps, Argument 2: die jetztigen Werte (Array aus Objekten) der Input/Textare Felder.",
-        "type": "Funktion",
+        "type": "Function",
         "default": "undefined"
     },
     'stepGen.callbackProps': {
@@ -2399,6 +2439,7 @@ const DE = {
         "default": "false"
     },
     'stepGen.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button. Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',
+    'stepGen.example2' : 'Beispiel mit Benutzerdefinierten Daten für jeden Step auser dem zweiten.',
     'stepGenDragDrop.placeholderPosition' : {
         "description": "Wenn der Benutzer mit dem Ziehen eines Elements beginnt und sich über der Ablageposition befindet, generieren Sie den PLACEHOLDER an der Stelle des schwebenden Elements. Verfügbare Optionen: 'top' (Platzhalter befinden sich immer oben auf einem schwebenden Element), ' bottom '(Platzhalter befinden sich immer am unteren Rand eines schwebenden Elements) und' auto '(Platzhalter werden automatisch erkannt). ",
         "type": "String",
@@ -2407,6 +2448,11 @@ const DE = {
     'stepGenDragDrop.placeholder' : {
         "description": "Anzuzeigender Platzhalter wärend einer Drag Phase.",
         "type": "String | JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.stepReorderCallback': {
+        "description": "Nachdem der Benutzer Drag & Drop getätig hat, werden die Benutzerdefinierten daten 'stepsData' neu geordnet.",
+        "type": "Function",
         "default": "undefined"
     },
     'stepGenDragDrop.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button, eines selbst definiertem Platzhalter und der Platzhalter Richtung "auto". Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',

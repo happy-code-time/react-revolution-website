@@ -87,6 +87,7 @@ class SliderCards extends React.Component {
 
         this.oldX = 0;
         this.mouseDirection = undefined;
+        this.isClickOnActionButton = false;
     }
 
     /**
@@ -239,6 +240,8 @@ class SliderCards extends React.Component {
         this.setState({
             slidesWidth: (this.getSlidersWidth() * this.getDataLength()),
             slideWrapperWidth: (this.getSlidersWidth() * this.getDataLength() - 1) / this.getDataLength() - 1,
+        }, () => {
+            this.isClickOnActionButton = false;
         });
     }
 
@@ -257,6 +260,7 @@ class SliderCards extends React.Component {
      * ##############################
      */
     setSlide(index) {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
 
         if (typeof '8' == typeof index) {
@@ -310,6 +314,7 @@ class SliderCards extends React.Component {
     }
 
     slidePrevious() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         this.setState({ index: this.getIndexDirectionLeft() }, () => {
             this.slide();
@@ -318,6 +323,7 @@ class SliderCards extends React.Component {
     }
 
     slideNext() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         this.setState({ index: this.getIndexDirectionRight() }, () => {
             this.slide();
@@ -923,7 +929,7 @@ class SliderCards extends React.Component {
                     <div
                         ref={(node) => (this.transformer = node)}
                         key={`slides-transform-${slidersUuid}`}
-                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding && !this.isClickOnActionButton ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transform: `${slidesTransform}`,
                             width: `${slidesWidth}px`,

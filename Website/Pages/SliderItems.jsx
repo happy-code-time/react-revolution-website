@@ -321,7 +321,9 @@ const js11 = `constructor(props) {
         like: false
     };
     
-    getCards(dot = '') {
+}
+
+getCards(dot = '') {
     const items = 10;
     const data = [];
 

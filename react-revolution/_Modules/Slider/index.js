@@ -63,6 +63,7 @@ class Slider extends React.Component {
             useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
             autoplayStopOnLast: typeof true == typeof props.autoplayStopOnLast ? props.autoplayStopOnLast : true,
             staticData: props.staticData ? props.staticData : '',
+            onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
             // slider fullscreen
             fsDisplayPreview: typeof true == typeof props.fsDisplayPreview ? props.fsDisplayPreview : true,
             fsWrapDirection: typeof true == typeof props.fsWrapDirection ? props.fsWrapDirection : true,
@@ -89,7 +90,6 @@ class Slider extends React.Component {
             fsAutoplayStopOnLast: typeof true == typeof props.fsAutoplayStopOnLast ? props.fsAutoplayStopOnLast : true,
             fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
             fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
-            onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
             fsOnSlideTime: (props.fsOnSlideTime && typeof '8' == typeof props.fsOnSlideTime) ? props.fsOnSlideTime : '0',
         };
 
@@ -110,6 +110,7 @@ class Slider extends React.Component {
         // Fullscreen slider
         this.moveTimeoutReset = undefined;
         this.wasMove = false;
+        this.isClickOnActionButton = false;
     }
 
     /**
@@ -203,6 +204,7 @@ class Slider extends React.Component {
                 inlineStyle: typeof true == typeof props.inlineStyle ? props.inlineStyle : false,
                 useLayerX: typeof true == typeof props.useLayerX ? props.useLayerX : false,
                 staticData: props.staticData ? props.staticData : '',
+                onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
                 // fullscreen slider
                 fsDisplayPreview: typeof true == typeof props.fsDisplayPreview ? props.fsDisplayPreview : true,
                 fsWrapDirection: typeof true == typeof props.fsWrapDirection ? props.fsWrapDirection : true,
@@ -229,7 +231,6 @@ class Slider extends React.Component {
                 fsDisplayDotsIndex: typeof true == typeof props.fsDisplayDotsIndex ? props.fsDisplayDotsIndex : true,
                 fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
                 fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
-                onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
                 fsOnSlideTime: (props.fsOnSlideTime && typeof '8' == typeof props.fsOnSlideTime) ? props.fsOnSlideTime : '0',
             };
         }
@@ -367,12 +368,18 @@ class Slider extends React.Component {
             // Inline style = avoid flipping while fast mouse moving
             if (inlineStyle) {
                 this.transformer.style.transform = `translate3d(-${this.movex}px,0,0)`;
-                return this.setState({ index });
+                return this.setState({ 
+                    index 
+                }, () => {
+                    this.isClickOnActionButton = false;
+                });
             }
             else {
                 return this.setState({
                     index,
                     slidesTransform: `translate3d(-${this.movex}px,0,0)`,
+                }, () => {
+                    this.isClickOnActionButton = false;
                 });
             }
         }
@@ -380,11 +387,14 @@ class Slider extends React.Component {
             this.setState({
                 index,
                 slidesTransform: `translate3d(-${this.movex}px,0,0)`,
+            }, () => {
+                this.isClickOnActionButton = false;
             });
         }
     }
 
     slidePrevious() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         let { index } = this.state;
 
@@ -410,6 +420,7 @@ class Slider extends React.Component {
     }
 
     slideNext() {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
         let { index } = this.state;
 
@@ -434,6 +445,7 @@ class Slider extends React.Component {
     }
 
     setSlide(index) {
+        this.isClickOnActionButton = true;
         this.autoplay(false);
 
         if (typeof '8' == typeof index) {
@@ -519,12 +531,11 @@ class Slider extends React.Component {
 
     processMouseDown(e) {
         e.preventDefault();
+        this.handleMouseDown(e);
 
         this.setState({
             isUserCurrentlySliding: true
         });
-
-        this.handleMouseDown(e);
     }
 
     handleMouseDown(event) {
@@ -986,7 +997,7 @@ class Slider extends React.Component {
                     <div
                         key={`slides-${slidersUuid}`}
                         ref={(node) => (this.transformer = node)}
-                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding ? `animate-${onSlideTime}` : ''}`}
+                        className={`slides user-select-none animate-${animationTime} ${isUserCurrentlySliding && !this.isClickOnActionButton ? `animate-${onSlideTime}` : ''}`}
                         style={{
                             transitionTimingFunction: 'ease',
                             transform: `${slidesTransform}`,

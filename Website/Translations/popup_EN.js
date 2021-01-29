@@ -2325,6 +2325,46 @@ const EN = {
     },
     'listSwitch.example1': 'Example with a provision of data directly when the component is loaded.',
     'listSwitch.example2': 'Example with a provision of data only after the user has clicked on the placeholder. If the value of the "resetData" key is not true, the data is only loaded once, after which the data is always available without having to load the data again.',
+    'stepGen.maxSteps': {
+        "description": "The maximum of steps.",
+        "type": "Number",
+        "default": "undefined"
+    },
+    'stepGen.stepsData': {
+        "description": "Array of objects. Each single index of this array, are the index if the step.",
+        "type": "{}",
+        "default": "[]"
+    },
+    'stepGen.stepsData.data': {
+        "description": "Custom data of the step.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.top': {
+        "description": "Display custom data on the top of the step.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.stepsData.bottom': {
+        "description": "Display custom data on the bottom of the step.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'stepGen.newStepData': {
+        "description": "Function to provide custom data for each new generated step. The minimal structure of the return value has to be { data: any = undefined, ?top: boolean = false, ?bottom: boolean = false }.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.mountCallback': {
+        "description": "Callback function after componentDidMount (called only once) to save the generated uuid`s for each single step. The generation of the uuid`s are provided by the component. The returning value is 'stepsData' with the new 'uuid'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'stepGen.stepRemovedCallback': {
+        "description": "Callback function if a step has been removed to update your provided 'stepsData'.",
+        "type": "Function",
+        "default": "undefined"
+    },
     'stepGen.callback': {
         "description": "User-defined function that is always called as soon as a change is made in one of the input / text fields. This function returns 2 arguments. Argument 1: callbackProps, argument 2: the current values ​​(array of objects) of the input / Textar fields. ",
         "type": "Function",
@@ -2416,6 +2456,7 @@ const EN = {
         "default": "false"
     },
     'stepGen.example1': 'Example with the generation of 3 fields (at the start), one delete and one submit button. Open your developer console to watch the changes. ',
+    'stepGen.example2': 'Example with user-defined data for every step except the second.',
     'stepGenDragDrop.placeholderPosition': {
         "description": "If the user starts dragging an element and is over the drop position then generate the PLACEHOLDER on the site of the hovered element. Available options: 'top' (placeholder are always on the top of an hovered item), 'bottom' (placeholder are always on the bottom of an hovered item) and 'auto' (placeholder are detected automatically).",
         "type": "String",
@@ -2424,6 +2465,11 @@ const EN = {
     'stepGenDragDrop.placeholder': {
         "description": "Placeholder to be displayed during a drag phase.",
         "type": "String | JSX",
+        "default": "undefined"
+    },
+    'stepGenDragDrop.stepReorderCallback': {
+        "description": "After the user has done drag & drop, the user-defined data 'stepsData' will be rearranged.",
+        "type": "Function",
         "default": "undefined"
     },
     'stepGenDragDrop.example1': 'Example with the generation of 3 fields (at the start), a delete and submit button, a self-defined placeholder and the placeholder in the direction of "auto". Open your developer console to watch the changes.',
