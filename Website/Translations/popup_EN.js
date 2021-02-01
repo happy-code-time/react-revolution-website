@@ -2472,6 +2472,16 @@ const EN = {
         "type": "Function",
         "default": "undefined"
     },
+    'stepGen.data': {
+        "description": "Array of objects to use predefined data. If data is available, the value of the key 'defaultSteps' is ignored.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'stepGen.data.value': {
+        "description": "The value of a single field.",
+        "type": "String | Number",
+        "default": "undefined"
+    },
     'stepGenDragDrop.example1': 'Example with the generation of 3 fields (at the start), a delete and submit button, a self-defined placeholder and the placeholder in the direction of "auto". Open your developer console to watch the changes.',
     'timelineList.direction': {
         "description": "Direction of the timeline. Possible directions: 'right' and 'left'.",

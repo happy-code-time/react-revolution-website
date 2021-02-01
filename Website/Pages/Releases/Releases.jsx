@@ -1805,6 +1805,32 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.0.14': {
+                    data: [
+                        {
+                            key: 'StepsGenerator',
+                            value: 'Added new key:\n\ndata',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'StepsGeneratorDragDrop',
+                            value: 'Added new key:\n\ndata',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

@@ -57,13 +57,13 @@ class StepsGeneratorDragDrop extends React.Component {
             resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
             placeholder: props.placeholder ? props.placeholder : undefined,
             placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
-
             stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
             newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
             maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
             mountCallback: props.mountCallback && typeof function () { } == typeof props.mountCallback ? props.mountCallback : undefined,
             stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
             stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
+            data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
         };
     }
 
@@ -74,7 +74,7 @@ class StepsGeneratorDragDrop extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['stepsData', 'stepReorderCallback', 'newStepData', 'maxSteps', 'mountCallback', 'addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['stepsData', 'stepReorderCallback', 'data', 'newStepData', 'maxSteps', 'mountCallback', 'addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps-generator-drag-drop',
@@ -95,12 +95,12 @@ class StepsGeneratorDragDrop extends React.Component {
                 resetOnSubmit: (typeof true == typeof props.resetOnSubmit) ? props.resetOnSubmit : false,
                 placeholder: props.placeholder ? props.placeholder : undefined,
                 placeholderPosition: (typeof '8' == typeof props.placeholderPosition) ? props.placeholderPosition : 'auto',
-
                 stepsData: props.stepsData && typeof [] === typeof props.stepsData && props.stepsData.length ? props.stepsData : [],
                 newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
                 maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
                 stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
                 stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
+                data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
             };
         }
 
@@ -108,7 +108,52 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     componentDidMount() {
-        this.generateDefaultSteps();
+
+        if(this.state.data && this.state.data.length){
+            const { stepsData, mountCallback } = this.state;
+            
+            const setUniqueUuid = (current) => {
+                const uuid = `${internalUuid()}`;
+
+                if(undefined === current[uuid]){
+                    current[uuid] = this.getNewData();
+                    return uuid;
+                }
+                
+                setUniqueUuid(current);
+            }
+
+            const current = {};
+
+            for(let x = 0; x <= this.state.data.length-1; x++){
+                let { value } = this.state.data[x];
+
+                if(undefined !== value){
+                    const unique = setUniqueUuid(current);
+
+                    if (stepsData && undefined !== stepsData[x]) {
+                        stepsData[x].uuid = unique;
+                    }
+    
+                    current[unique].value = value;
+                }
+            }
+
+            // Return uuids for the developer
+            if (stepsData && mountCallback) {
+                (mountCallback)(stepsData, 'mount');
+            }
+
+            if (stepsData) {
+                this.setState({ current, stepsData });
+            }
+            else{
+                this.setState({ current });
+            }
+        }
+        else{
+            this.generateDefaultSteps();
+        }
 
         this.attachHandleClick();
 
@@ -281,7 +326,7 @@ class StepsGeneratorDragDrop extends React.Component {
             sourceIndex: undefined,
             overLiIndex: undefined,
             isDropping: false
-        });
+        }, this.callback);
     }
 
     handleDrop(e) {
@@ -324,7 +369,7 @@ class StepsGeneratorDragDrop extends React.Component {
         }
 
         // Return uuids for the developer
-        if (stepsData && mountCallback) {
+        if (stepsData && mountCallback && reset) {
             (mountCallback)(stepsData, 'mount');
         }
 
@@ -408,8 +453,12 @@ class StepsGeneratorDragDrop extends React.Component {
 
             let userProps = {};
 
-            if(stepsData && undefined !== stepsData[x] && typeof {} === typeof stepsData[x]){
-                userProps = stepsData[x];
+            if(stepsData){
+                let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
+                    
+                if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
+                    userProps = currentStepsData[0];
+                }
             }
 
             userCallbackData.push(
@@ -540,23 +589,25 @@ class StepsGeneratorDragDrop extends React.Component {
             let suffix = false;
 
             if (stepsData) {
-                for (let i = 0; i <= stepsData.length - 1; i++) {
-                    if (stepsData[i].uuid === currentKeys[x] && typeof {} === typeof stepsData[i]) {
-                        try {
-                            const { data, top, bottom } = stepsData[x];
-                            userCustomData = data;
+                let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
+                    
+                if(0 !== currentStepsData.length){
+                    currentStepsData = currentStepsData[0];
 
-                            if (typeof true == typeof top && top) {
-                                prefix = true;
-                            }
+                    try {
+                        const { data, top, bottom } = currentStepsData;
+                        userCustomData = data;
 
-                            if (typeof true == typeof bottom && bottom && !prefix) {
-                                suffix = true;
-                            }
+                        if (typeof true == typeof top && top) {
+                            prefix = true;
                         }
-                        catch (e) {
-                            userCustomData = '';
+
+                        if (typeof true == typeof bottom && bottom && !prefix) {
+                            suffix = true;
                         }
+                    }
+                    catch (e) {
+                        userCustomData = '';
                     }
                 }
             }

@@ -826,6 +826,14 @@ class _StepsGenerator extends React.Component {
                                     key: 'stepRemovedCallback',
                                     values: 'stepGen.stepRemovedCallback'
                                 },
+                                {
+                                    key: 'data',
+                                    values: 'stepGen.data'
+                                },
+                                {
+                                    key: 'data.value',
+                                    values: 'stepGen.data.value'
+                                },
                             ],
                             'rr-steps-generator'
                         )

@@ -1,120 +1,217 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { PopupHover } from './react-revolution/react-revolution';
+import { StepsGenerator } from './react-revolution/react-revolution';
 import './react-revolution/_Sass/react-revolution.scss';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
+        this.logData = this.logData.bind(this);
+        this.submitSteps = this.submitSteps.bind(this);
+        this.newStepData = this.newStepData.bind(this);
+        this.setUuids = this.setUuids.bind(this);
 
         this.state = {
-            like: false
+            stepsData: [
+                {
+                    top: false,
+                    bottom: true,
+                    data: (
+                        <img
+                            src='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
+                            style={{
+                                display: 'block',
+                                width: '250px',
+                                height: '150px'
+                            }}
+                        />
+                    )
+                },
+                {},
+                {
+                    top: false,
+                    bottom: true,
+                    data: (
+                        <img
+                            src='public/images/chania.jpg'
+                            style={{
+                                display: 'block',
+                                width: '250px',
+                                height: '150px'
+                            }}
+                        />
+                    )
+                }
+            ]
         };
     }
 
-    getCards(dot = '') {
-        const items = 10;
-        const data = [];
 
 
-        for (let x = 0; x < items; x++) {
+    /** 
+     * Callback on componentDidMount  
+     * to set internal uuids 
+     * @param {{}[]} currentStepsData  
+     * @param {string} type 'mount', 'remove' 
+     */
+    setUuids(currentStepsData, type) {
+        this.setState({
+            stepsData: currentStepsData
+        });
+    }
 
 
-            data.push(
-                {
-                    data: (
-                        <span>
-                            {
-                                x + 1
-                            }
-                        </span>
-                    ),
-                    dot
-                }
-            );
-        }
+    /** 
+     *  
+     * @param {any} callbackProps  
+     * @param { {value: string, uuid: number }[] } steps  
+     */
+    logData(callbackProps, steps) {
+        console.info(steps);
+    }
 
 
-        return data;
+    /** 
+     * Each input field change 
+     * @param {any} submitStepsProps  
+     * @param { {value: string, uuid: number }[] } steps  
+     */
+    submitSteps(submitStepsProps, steps) {
+        console.info(steps);
+    }
+
+
+    /** 
+     * Get data for each new step 
+     * @param {number} uuidForThisStep  
+     */
+    newStepData(uuidForThisStep) {
+        const { stepsData } = this.state;
+
+
+        stepsData.push(
+            {
+                top: true,
+                bottom: false,
+                data: (
+                    <img
+                        src='public/images/chania.jpg'
+                        style={{
+                            display: 'block',
+                            width: '250px',
+                            height: '150px'
+                        }}
+                    />
+                ),
+                // Important by adding new step with custom data 
+                // if not provided, the data are not displayed 
+                uuid: uuidForThisStep
+            }
+        );
+
+
+        this.setState({ stepsData });
     }
 
     render() {
-        return (            
-            <div style={{ marginBottom: '30px' }}>
-                <style dangerouslySetInnerHTML={{
-                    __html: `
-                    .PopupHoverStyle {
-                        float: left;
-                        box-sizing: border-box;
-                        padding: 5px 10px;
-                        margin-right: 10px;
-                    }
-                `}} />
-                <PopupHover
-                    addClass='PopupHoverStyle'
-                    direction='center'
-                    holderData='long data holder text'
-                    displayOnHover={true}
-                    hideOnLeave={true}
-                    animation={true}
-                    contentData={
-                        [
-                            {
-                                data: (
-                                    <a href="#">
-                                        link 1
-                                    </a>
-                                )
-                            },
-                            {
-                                data: (
-                                    <a href="#">
-                                        link 2
-                                    </a>
-                                )
+        return (
+            <StepsGenerator
+                placeholder='DROP HERE'
+                callback={this.logData}
+                useInput={true}
+                callbackProps='any'
+                removeStep={
+                    (
+                        <span
+                            style={
+                                {
+                                    display: 'inline-block',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    background: '#FF4459',
+                                    margin: '5px 10px',
+                                    color: 'rgb(255,255,255)'
+                                }
                             }
-                        ]
-                    }
-                />
-                <PopupHover
-                    addClass='PopupHoverStyle'
-                    direction='center'
-                    holderData='square'
-                    displayOnHover={true}
-                    hideOnLeave={true}
-                    animation={true}
-                    contentData={
-                        (
-                            <div>
-                                <br />
-                                <h1>First header</h1>
-                                <br />
-                                <hr />
-                                <br />
-                                <p>Menu entry 1</p>
-                                <br />
-                                <p>Menu entry 2</p>
-                                <br />
-                                <p>Menu entry 3</p>
-                                <br />
-                                <hr />
-                                <br />
-                                <h1>Second header</h1>
-                                <br />
-                                <p>Single child entry 1</p>
-                                <br />
-                                <p>Single child entry 2</p>
-                                <br />
-                                <p>Single child entry 3</p>
-                                <br />
-                                <hr />
-                                <br />
-                            </div>
-                        )
-                    }
-                />
-            </div>
+                        >
+                            remove step
+                        </span>
+                    )
+                }
+                removeStepAtTop={true}
+                defaultSteps={3}
+                addStep={
+                    (
+                        <span
+                            style={
+                                {
+                                    display: 'inline-block',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    background: 'dodgerblue',
+                                    margin: '5px 10px',
+                                    color: 'rgb(255,255,255)'
+                                }
+                            }
+                        >
+                            add new step
+                        </span>
+                    )
+                }
+                displayStepCount={true}
+                addNewStepOn={1}
+                submit={
+                    <span
+                        style={
+                            {
+                                display: 'inline-block',
+                                padding: '5px 10px',
+                                borderRadius: '5px',
+                                cursor: 'pointer',
+                                background: 'rgb(71,180,118)',
+                                margin: '5px 10px',
+                                color: 'rgb(255,255,255)'
+                            }
+                        }
+                    >
+                        submit
+                    </span>
+                }
+                submitCallback={this.submitSteps}
+                submitCallbackProps='any'
+                resetOnSubmit={true}
+                maxSteps={5}
+                // Custom dev data
+                stepsData={this.state.stepsData}
+                newStepData={this.newStepData}
+                mountCallback={this.setUuids}
+                stepRemovedCallback={this.setUuids}
+                // Apply new order
+                // if undefined 'stepsData' are not changed 
+                stepReorderCallback={this.setUuids}
+                data={
+                    [
+                        {
+                            value: '1'
+                        },
+                        {
+                            value: '2'
+                        },
+                        {
+                            value: '3'
+                        },
+                        {
+                            value: '4'
+                        },
+                        {
+                            value: '5'
+                        },
+                    ]
+                }
+            />
         );
     }
 }

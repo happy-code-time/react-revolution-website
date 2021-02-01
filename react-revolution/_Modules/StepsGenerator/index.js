@@ -38,6 +38,7 @@ class StepsGenerator extends React.Component {
             maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
             mountCallback: props.mountCallback && typeof function () { } == typeof props.mountCallback ? props.mountCallback : undefined,
             stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
+            data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
         };
     }
 
@@ -48,7 +49,7 @@ class StepsGenerator extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'maxSteps', 'stepRemovedCallback', 'defaultClass', 'id', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps', 'stepsData', 'newStepData'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'maxSteps', 'data', 'stepRemovedCallback', 'defaultClass', 'id', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps', 'stepsData', 'newStepData'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps-generator',
@@ -71,6 +72,7 @@ class StepsGenerator extends React.Component {
                 newStepData: props.newStepData && typeof function () { } == typeof props.newStepData ? props.newStepData : undefined,
                 maxSteps: props.maxSteps && typeof 8 == typeof props.maxSteps ? props.maxSteps : undefined,
                 stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
+                data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
             };
         }
 
@@ -78,7 +80,53 @@ class StepsGenerator extends React.Component {
     }
 
     componentDidMount() {
-        this.generateDefaultSteps();
+
+        if(this.state.data && this.state.data.length){
+            const { stepsData, mountCallback } = this.state;
+
+            const setUniqueUuid = (current) => {
+                const uuid = `${internalUuid()}`;
+
+                if(undefined === current[uuid]){
+                    current[uuid] = this.getNewData();
+                    return uuid;
+                }
+                
+                setUniqueUuid(current);
+            }
+
+            const current = {};
+
+            for(let x = 0; x <= this.state.data.length-1; x++){
+                let { value } = this.state.data[x];
+                const unique = setUniqueUuid(current);
+
+                if(undefined === value){
+                    value = '';
+                }
+
+                if (stepsData && undefined !== stepsData[x]) {
+                    stepsData[x].uuid = unique;
+                }
+
+                current[unique].value = value;
+            }
+
+            // Return uuids for the developer
+            if (stepsData && mountCallback) {
+                (mountCallback)(stepsData, 'mount');
+            }
+
+            if (stepsData) {
+                return this.setState({ current, stepsData });
+            }
+
+            return this.setState({ current, stepsData });
+
+        }
+        else{
+            this.generateDefaultSteps();
+        }
     }
 
     getNewData() {
@@ -109,7 +157,7 @@ class StepsGenerator extends React.Component {
         }
 
         // Return uuids for the developer
-        if (stepsData && mountCallback) {
+        if (stepsData && mountCallback && reset) {
             (mountCallback)(stepsData, 'mount');
         }
 
@@ -193,8 +241,12 @@ class StepsGenerator extends React.Component {
 
             let userProps = {};
 
-            if(stepsData && undefined !== stepsData[x] && typeof {} === typeof stepsData[x]){
-                userProps = stepsData[x];
+            if(stepsData){
+                let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
+                    
+                if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
+                    userProps = currentStepsData[0];
+                }
             }
 
             userCallbackData.push(

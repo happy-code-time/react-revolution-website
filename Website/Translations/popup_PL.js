@@ -2473,6 +2473,16 @@ const PL = {
         "type": "Funkcja",
         "default": "undefined"
     },
+    'stepGen.data': {
+        "description": "Tablica obiektów do używania predefiniowanych danych. Jeśli dane są dostępne, wartość klucza 'defaultSteps' jest ignorowana.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'stepGen.data.value': {
+        "description": "Wartość pojedynczego pola.",
+        "type": "String | Number",
+        "default": "undefined"
+    },
     'stepGenDragDrop.example1': 'Przykład z generacją 3 pól (na początku), przyciskiem usuwania i przesyłania, samodzielnie zdefiniowanym symbolem zastępczym i symbolem zastępczym w kierunku „auto”. Otwórz konsolę programisty, aby obserwować zmiany. ',
     'timelineList.direction': {
         "description": "Kierunek osi czasu. Możliwe kierunki: 'right' i 'left'.",

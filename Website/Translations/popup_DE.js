@@ -2455,6 +2455,16 @@ const DE = {
         "type": "Function",
         "default": "undefined"
     },
+    'stepGen.data': {
+        "description": "Array aus Objekten um vordefinierte Daten zu verwenden. Falls data vorhanden, wird der Wert des Schlüssels 'defaultSteps' ignoriert.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'stepGen.data.value': {
+        "description": "Der Wert eines einzelnen Feldes.",
+        "type": "String|Number",
+        "default": "undefined"
+    },
     'stepGenDragDrop.example1': 'Beispiel mit der Generierung von 3 Feldern (zum Start), eine Lösch- und Submit Button, eines selbst definiertem Platzhalter und der Platzhalter Richtung "auto". Öffne deine Entwickler Konsole umd die Änderungen zu beobachten.',
     'timelineList.direction': {
         "description": "Richtung der Timeline. Mögliche Richtungen: 'right' und 'left'.",
