@@ -27,8 +27,6 @@ class InputSuggestionArray extends React.Component
             /**
              * User
              */
-            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
-            globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion-array',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -47,6 +45,7 @@ class InputSuggestionArray extends React.Component
             searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
             loading: props.loading ? props.loading : undefined,
             applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
+            singleLiHeight: props.singleLiHeight && typeof 8 === typeof props.singleLiHeight ? props.singleLiHeight : 40,
         };
 
         this.availableSorts = ['asc', 'desc'];
@@ -92,11 +91,13 @@ class InputSuggestionArray extends React.Component
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id','value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'applySelected', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'loading'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'singleLiHeight',  'defaultClass', 'id','value', 'suggestions', 'suggestionsToFilter', 'callback', 'callbackSelection', 'applySelected', 'inputPlaceholder', 'props', 'inputType', 'getValueFromCallback', 'emptySuggestionAfterSelection', 'sortSelected', 'sortSuggestions', 'searchSensitive', 'loading'], props, state)) {
             const getValueFromCallback = (typeof true == typeof props.getValueFromCallback) ? props.getValueFromCallback : false;
 
             if (getValueFromCallback) {
                 return {
+                    addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                    defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion-array',
                     suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
                     plainValue: props.value,
                     callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
@@ -111,10 +112,13 @@ class InputSuggestionArray extends React.Component
                     searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
                     loading: props.loading ? props.loading : undefined,
                     applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
+                    singleLiHeight: props.singleLiHeight && typeof 8 === typeof props.singleLiHeight ? props.singleLiHeight : 40,
                 }
             }
 
             return {
+                addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
+                defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-input-suggestion-array',
                 suggestionsToFilter: (props.suggestions && typeof [] == typeof props.suggestions) ? props.suggestions : [],
                 plainValue: state.plainValue,
                 callback: (props.callback && typeof function(){} == typeof props.callback) ? props.callback : undefined,
@@ -129,6 +133,7 @@ class InputSuggestionArray extends React.Component
                 searchSensitive: (typeof true == typeof props.searchSensitive) ? props.searchSensitive : true,
                 loading: props.loading ? props.loading : undefined,
                 applySelected: (typeof true == typeof props.applySelected) ? props.applySelected : true,
+                singleLiHeight: props.singleLiHeight && typeof 8 === typeof props.singleLiHeight ? props.singleLiHeight : 40,
             };
         }
 
@@ -401,7 +406,7 @@ class InputSuggestionArray extends React.Component
     /**
      * Append choosed user
      */
-    toggleSelection(email) {
+    toggleSelection(email, selectedArrow) {
         let { selected, callbackSelection, emptySuggestionAfterSelection, sortSelected, plainValue, applySelected } = this.state;
 
         if (!selected.includes(email)) {
@@ -430,7 +435,8 @@ class InputSuggestionArray extends React.Component
 
         this.setState({
             selected: applySelected ? selected : [],
-            plainValue: emptySuggestionAfterSelection ? '' : plainValue
+            plainValue: emptySuggestionAfterSelection ? '' : plainValue,
+            selectedArrow
         }, () => {
 
             if(emptySuggestionAfterSelection){
@@ -449,7 +455,7 @@ class InputSuggestionArray extends React.Component
     }
 
     handleKeyDown(event){
-        let { selectedArrow, suggestions, plainValue } = this.state;
+        let { selectedArrow, suggestions, plainValue, singleLiHeight } = this.state;
         event.persist();
 
         if(null == selectedArrow && event.key === 'ArrowDown'){
@@ -461,7 +467,7 @@ class InputSuggestionArray extends React.Component
         }
 
         if (event.key === 'Enter' && -1 !== selectedArrow && null !== selectedArrow && undefined !== suggestions[selectedArrow]) {
-            return this.toggleSelection(suggestions[selectedArrow]);
+            return this.toggleSelection(suggestions[selectedArrow], selectedArrow);
         }
 
         if (event.key === 'ArrowDown' && suggestions.length) {
@@ -489,7 +495,6 @@ class InputSuggestionArray extends React.Component
         }, () => {
             if(this.suggestionsHolder){
                 const { selectedArrow } = this.state;
-                const singleLiHeight = 40;
                 const height = this.suggestionsHolder.getBoundingClientRect().height;
                 
                 if(event.key === 'ArrowDown' && (selectedArrow*singleLiHeight)+(singleLiHeight*2) > height){
@@ -527,14 +532,14 @@ class InputSuggestionArray extends React.Component
                         0 !== selected.length &&
                         <div className="choosed">
                             {
-                                selected.map(data => {
+                                selected.map( (data, i) => {
                                     return (
                                         <div
                                             key={uuid()}
                                             className="item ff-title"
                                         >
                                             <div
-                                                onClick={(e) => this.toggleSelection(data)}
+                                                onClick={(e) => this.toggleSelection(data, i)}
                                                 className="remove">
                                                 x
                                             </div>
@@ -584,7 +589,7 @@ class InputSuggestionArray extends React.Component
                                                 <li
                                                     className={liClassname}
                                                     key={uuid()}
-                                                    onClick={(e) => this.toggleSelection(suggestion)}
+                                                    onClick={(e) => this.toggleSelection(suggestion, i)}
                                                     onMouseEnter={ () => this.setArrow(i) }
                                                 >
                                                     {

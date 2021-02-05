@@ -1831,6 +1831,99 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.1.0': {
+                    data: [
+                        {
+                            key: 'Suggestions',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Pills',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'InputSuggestionArray',
+                            value: 'Added new key:\n\nsingleLiHeight',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'InputSuggestionObject',
+                            value: 'Added new key:\n\nsingleLiHeight',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.1.1': {
+                    data: [
+                        {
+                            key: 'Pills',
+                            value: 'Added new key\n\nselected',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.1.2': {
+                    data: [
+                        {
+                            key: 'Pills',
+                            value: 'Bugfix - back to live of killed in previous version multiple selection support.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.1.3': {
+                    data: [
+                        {
+                            key: 'Pills',
+                            value: 'Improvement of the multi-selection part.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

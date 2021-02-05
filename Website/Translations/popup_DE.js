@@ -2502,7 +2502,7 @@ const DE = {
         "default": "undefined"
     },
     'timelineList.data.callback': {
-        "description": "Callback Funktion nachdem ein Bneutzer das 'Icon' anklickt. Diese Funktion liefert ein einzelnes Argument: 'callbackProps' zurück.",
+        "description": "Callback Funktion nachdem ein Benutzer das 'Icon' anklickt. Diese Funktion liefert ein einzelnes Argument: 'callbackProps' zurück.",
         "type": "Funktion",
         "default": "undefined"
     },
@@ -2737,6 +2737,154 @@ const DE = {
     'popupHover.example1' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der linken Seite.',
     'popupHover.example2' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten auf der rechten Seite.',
     'popupHover.example3' : 'Beispiel mit der Ausrichtung der anzuzeigenden Daten die zentriert werden.',
+    'suggestions.callback' : {
+        "description": "Callback Funktion die nach einer Auswahl innerhalb der Liste aufgerfuen wird. Diese Funktion liefert 3 Argumente zurück. Argument 1: callbackProps, Argument 2: Wert des Input-Feldes, Argument 3: Aktuell ausgewählte Vorschläge (Objekte).",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'suggestions.callbackProps': {
+        "description": "Erstes Argument der 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'suggestions.data': {
+        "description": "Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'suggestions.data.text': {
+        "description": "Der anzuzeigende Text.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.data.key': {
+        "description": "Der string indem eine Suche durchgeführt wird.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.multiple': {
+        "description": "Erlaube eine Multi Select Auswahl.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.sortSelected': {
+        "description": "Sortiere die Benutzerauswahl. Mögliche sortierungs Richtungen: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.sortSuggestions': {
+        "description": "Sortiere die Benutzervorschläge. Mögliche sortierungs Richtungen: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.inputPlaceholder': {
+        "description": "Platzhalter des Input Feldes.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'suggestions.searchSensitive': {
+        "description": "Sensitive Suche.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.removeChar': {
+        "description": "Das JSX von dem 'löschen' Button.",
+        "type": "JSX | String",
+        "default": "x"
+    },
+    'suggestions.removeCharLeft': {
+        "description": "Das JSX von dem 'löschen' Button befindet sich auf der linken Seite.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "Die Höhe eines einzelnen LI Elementes um ein 'arrow-down' und 'arrow-up' exact durchführen zu können.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "Die Höhe eines einzelnen LI Elementes um ein 'arrow-down' und 'arrow-up' exact durchführen zu können.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.dataOnEmpty': {
+        "description": "Daten die bei einer null-Treffersuche angezeigt werden.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
+    'suggestions.allowTyping': {
+        "description": "Erlaube dem Benutzer den Wert des Input Feldes zu modifizieren.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.inputValue': {
+        "description": "Der Wert des Input Feldes. Der Wert des Input Feldes wird immer ge-updated wenn der vorherige Wert anders ist als der neue Wert.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'suggestions.inputType': {
+        "description": "Typ des Input Feldes.",
+        "type": "String",
+        "default": "text"
+    },
+    'suggestions.inputEmpty': {
+        "description": "Nach einer Benutzerauswahl wird der Wert des Input Feldes wieder zurück gesetzt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.suggestionsEmpty': {
+        "description": "Nach einer Benutzerauswahl werden die Vorschläge nicht mehr angezeigt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.example1': 'Beispiel mit multi select Option. Öffne deine Browser-Konsole denn alle ausgewählten Elemente/Änderungen werden mit console.info geloggt - das ist emien callback Funktion.',
+    'suggestions.example2': 'Beispiel mit allowTyping={false} um dem Benutzer es NICHT zu erlauben, den Wert des Input Feldes zu ändern.',
+    'suggestions.example3': 'Beispiel mit dataOnEmpty und sortSuggestions="asc".',
+    'suggestions.example4': 'Beispiel mit multiple={false} um mehrfach Auswahl zu verhindern.',
+    'pills.data' : {
+        "description": "Array aus Objekten.",
+        "type": "{}[]",
+        "default": "[]"
+    },
+    'pills.data.text': {
+        "description": "Der anzuzeigende Text.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'pills.data.cls': {
+        "description": "Mögliche Klassen für die einzelne Pille.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'pills.data.selected': {
+        "description": "Markierung einer Pille als ausgewählt.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.data.callback' : {
+        "description": "Callback Funktion die nach einer Auswahl aufgerfuen wird. Diese Funktion liefert 2 Argumente zurück. Argument 1: callbackProps, Argument 2: Die derzeit ausgewählten Elemente (nur wenn der Schlüssel 'readonly' aus ist).",
+        "type": "Funktion",
+        "default": "undefined"
+    },
+    'pills.data.callbackProps': {
+        "description": "Erstes Argument der 'callback' Funktion.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'pills.multiple': {
+        "description": "Erlaube eine Multi Select Auswahl.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'pills.readonly': {
+        "description": "Erlaube nur das Lesen von den Elementen. Die Callback Funktion wird weiterhin ausgeführt. Die Selection/Auswahl einer Pille wird unterbrochen.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.example1' : 'Beispiel mit einer Mehrfachauswahl. Um die ausgewählten Element sehen zu können, öffne deine Entwickler Konsole.',
+    'pills.example2' : 'Beispiel mit einer unterbundenen Mehrfachauswahl. Um diese Auswahl zu sehen, öffne deine Entwickler Konsole.',
+    'pills.example3' : 'Beispiel mit dem readonly Modus.',
+    'pills.example4' : 'Beispiel mit vorausgewählten Elementen.',
 };
 
 export default DE;

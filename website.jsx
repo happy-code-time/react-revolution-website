@@ -55,6 +55,7 @@ import _Overlay from './Website/Pages/Overlay';
 import _PagerStatic from './Website/Pages/PagerStatic';
 import _PagerDynamic from './Website/Pages/PagerDynamic';
 import _Picture404 from './Website/Pages/Picture404';
+import _Pills from './Website/Pages/Pills';
 import _PopupBox from './Website/Pages/PopupBox';
 import _PopupData from './Website/Pages/PopupData';
 import _PopupHover from './Website/Pages/PopupHover';
@@ -74,6 +75,7 @@ import _Stars from './Website/Pages/Stars';
 import _Steps from './Website/Pages/Steps';
 import _StepsGenerator from './Website/Pages/StepsGenerator';
 import _StepsGeneratorDragDrop from './Website/Pages/StepsGeneratorDragDrop';
+import _Suggestions from './Website/Pages/Suggestions';
 import _Table from './Website/Pages/Table';
 import _TextWriter from './Website/Pages/TextWriter';
 import _Timeline from './Website/Pages/Timeline';
@@ -339,6 +341,11 @@ class App extends React.Component {
     const menu = [];
 
     [
+      {
+        version: '5.1',
+        start: 0,
+        end: 3
+      },
       {
         version: '5.0',
         start: 0,
@@ -750,7 +757,10 @@ class App extends React.Component {
                             },
                           ]
                         },
-
+                        {
+                          text: 'Pills',
+                          href: `${host}#/components/pills`,
+                        },
                         {
                           text: (
                             <span>
@@ -864,32 +874,6 @@ class App extends React.Component {
                           href: `${host}#/components/source-code`,
                         },
                         {
-                          text: (
-                            <span>
-                              <span className="data-title">
-                                Suggestions
-                                </span>
-                              <span className="drop-down-icon">
-                                <i className='fas fa-angle-down'></i>
-                              </span>
-                            </span>
-                          ),
-                          data: [
-                            {
-                              text: 'CustomSuggestion',
-                              href: `${host}#/components/custom-suggestion`,
-                            },
-                            {
-                              text: 'InputSuggestionArray',
-                              href: `${host}#/components/input-suggestion-array`,
-                            },
-                            {
-                              text: 'InputSuggestionObject',
-                              href: `${host}#/components/input-suggestion-object`,
-                            },
-                          ]
-                        },
-                        {
                           text: 'Stars',
                           href: `${host}#/components/stars`,
                         },
@@ -916,6 +900,36 @@ class App extends React.Component {
                             {
                               text: 'StepsGeneratorDragDrop',
                               href: `${host}#/components/steps-generator-drag-drop`,
+                            },
+                          ]
+                        },
+                        {
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Suggestions
+                                </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'CustomSuggestion',
+                              href: `${host}#/components/custom-suggestion`,
+                            },
+                            {
+                              text: 'InputSuggestionArray',
+                              href: `${host}#/components/input-suggestion-array`,
+                            },
+                            {
+                              text: 'InputSuggestionObject',
+                              href: `${host}#/components/input-suggestion-object`,
+                            },
+                            {
+                              text: 'Suggestions',
+                              href: `${host}#/components/suggestions`,
                             },
                           ]
                         },
@@ -1040,6 +1054,7 @@ class App extends React.Component {
               <Route exact path="/components/pager-static" render={(props) => (<_PagerStatic {...props} />)} />
               <Route exact path="/components/pager-dynamic" render={(props) => (<_PagerDynamic {...props} />)} />
               <Route exact path="/components/picture-404" render={(props) => (<_Picture404 {...props} />)} />
+              <Route exact path="/components/pills" render={(props) => (<_Pills {...props} />)} />
               <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
               <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
               <Route exact path="/components/popup-hover" render={(props) => (<_PopupHover {...props} />)} />
@@ -1061,6 +1076,7 @@ class App extends React.Component {
               <Route exact path="/components/steps" render={(props) => (<_Steps {...props} />)} />
               <Route exact path="/components/steps-generator" render={(props) => (<_StepsGenerator {...props} />)} />
               <Route exact path="/components/steps-generator-drag-drop" render={(props) => (<_StepsGeneratorDragDrop {...props} />)} />
+              <Route exact path="/components/suggestions" render={(props) => (<_Suggestions {...props} />)} />
               <Route exact path="/components/table" render={(props) => (<_Table {...props} />)} />
               <Route exact path="/components/text-writer" render={(props) => (<_TextWriter {...props} />)} />
               <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />

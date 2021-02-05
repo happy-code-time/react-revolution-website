@@ -92,6 +92,7 @@ import { Breadcrumbs } from 'react-revolution';
     PagerDynamic
     PagerStatic
     Picture404
+    Pills
     PopupBox
     PopupData
     PopupHover
@@ -110,6 +111,7 @@ import { Breadcrumbs } from 'react-revolution';
     Steps
     StepsGenerator
     StepsGeneratorDragDrop
+    Suggestions
     Table
     TextWriter
     Timeline

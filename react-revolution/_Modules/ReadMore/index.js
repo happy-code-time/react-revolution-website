@@ -17,8 +17,6 @@ class ReadMore extends React.Component
             /**
              * User
              */
-            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
-            globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-read-more',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',

@@ -41,6 +41,7 @@ import Overlay from './_Modules/Overlay';
 import PagerStatic from './_Modules/PagerStatic';
 import PagerDynamic from './_Modules/PagerDynamic';
 import Picture404 from './_Modules/Picture404';
+import Pills from './_Modules/Pills';
 import PopupBox from './_Modules/PopupBox';
 import PopupData from './_Modules/PopupData';
 import PopupHover from './_Modules/PopupHover';
@@ -59,6 +60,7 @@ import Steps from './_Modules/Steps';
 import StepsGenerator from './_Modules/StepsGenerator';
 import StepsGeneratorDragDrop from './_Modules/StepsGeneratorDragDrop';
 import SourceCode from './_Modules/SourceCode';
+import Suggestions from './_Modules/Suggestions';
 import Table from './_Modules/Table';
 import TextWriter from './_Modules/TextWriter';
 import Timeline from './_Modules/Timeline';
@@ -118,6 +120,7 @@ export {
     PagerStatic,
     PagerDynamic,
     Picture404,
+    Pills,
     PopupBox,
     PopupData,
     PopupHover,
@@ -136,6 +139,7 @@ export {
     StepsGenerator,
     StepsGeneratorDragDrop,
     SourceCode,
+    Suggestions,
     Table,
     TextWriter,
     Timeline,

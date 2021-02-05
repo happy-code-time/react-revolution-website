@@ -1,70 +1,74 @@
 @import './globals.scss';
 
-.rr-input-suggestion-object {
+.rr-suggestions {
   width: 100%;
 
-  .input{
+  .input {
     border: 1px solid rgba(69, 69, 69, 0.1);
     border-radius: $border-radius;
+    overflow: visible;
+    min-height: 30px;
   }
 
   input {
-    border: none;
-    min-height: 30px;
-    height: auto;
-    overflow-y: auto;
-    z-index: 2;
-    display: inline-block;
-    line-height: 20px;
-    font-size: 14px;
-    color: rgba(69, 69, 69, 0.7);
-    box-sizing: border-box;
-    padding-left: 2px;
     position: relative;
     box-sizing: border-box;
     padding: 5px 10px;
-    top: 0;
-    transition-duration: $default-transition;
-    min-height: 30px;
+    border: none;
+    height: auto;
+    overflow-y: auto;
+    z-index: 2;
+    margin: 5px;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
   }
 
-  input:focus{
+  input:focus {
     outline: none;
   }
 
+  // Choosed suggestions
   .choosed {
     margin-right: 20px;
     width: 100%;
     clear: both;
 
-    .item {
+    .suggestion {
       float: left;
       box-sizing: border-box;
       padding: 2px 35px 2px 5px;
-      margin: 5px;
+      margin: 5px 0;
       border-radius: 25px;
-      border: 1px solid $orange;
       position: relative;
-      font-size: 14px;
-      color: rgba(69, 69, 69, 0.7);
+      box-sizing: border-box;
+      padding: 3px 5px 3px 10px;
+      background-color: $dodgerblue;
+      color: $white;
+      margin: 8px 4px;
 
-      .remove {
-        width: 12px;
-        height: 12px;
+      .suggestion-text{
         display: inline-block;
-        line-height: 10px;
+        font-size: 0.87rem;
+        box-sizing: border-box;
+        padding:2px 5px;
+      }
+
+      .suggestion-remove {
+        display: inline-block;
+        font-size: 0.67rem;
         text-align: center;
-        font-size: 18px;
-        position: absolute;
-        top: 3px;
-        right: 9px;
-        padding: 1px;
-        color: rgba(69, 69, 69, 0.9);
         border-radius: 50%;
         overflow: hidden;
+        color: $white;
+        margin-left: 5px;
+        padding: 2px;
+        width: 10px;
+        height: 10px;
+        line-height: 10px;
+        border: 1px solid $white;
       }
-      .remove:hover {
-        background-color: $dodgerblue-light-xl;
+      .suggestion-remove:hover {
         cursor: pointer;
       }
     }
@@ -109,32 +113,30 @@
         padding: 0;
         min-height: 30px;
         line-height: 30px;
-        padding: 5px 25px 5px 25px;
-        color: rgb(19, 19, 19);
+        padding: 5px 20px;
         white-space: nowrap;
         overflow: hidden;
-        font-size: 0.87rem;
         text-overflow: ellipsis;
       }
 
-      .active {
+      // Mouse over or selected with an arrow down/up
+      .active{
+        background-color: $dodgerblue-light-xl;
+      }
+
+      // Selected - selection are inside the input area
+      .selected{
         position: relative;
       }
 
-      .selected{
-          background-color: $dodgerblue-light-xl;
-      }
-
-      .active:after {
-        // content: '\2713';
+      .selected:after{
         content: '✔';
-        color: #777;
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
         position: absolute;
-        top: 3px;
-        left: 2px;
+        top: 5px;
+        left: 5px;
+        width: 5px;
+        height: 5px;
+        font-size: 0.77rem;
       }
 
       li:hover {

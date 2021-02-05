@@ -157,6 +157,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/pager-dynamic'
         },
         {
+            name: 'Pills',
+            link: 'components/pills'
+        },
+        {
             name: 'PopupBox',
             link: 'components/popup-box'
         },
@@ -231,6 +235,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'StepsGeneratorDragDrop',
             link: 'components/steps-generator-drag-drop'
+        },
+        {
+            name: 'Suggestions',
+            link: 'components/suggestions'
         },
         {
             name: 'Table',

@@ -7,8 +7,6 @@ class Water404 extends React.Component {
         super(props);
 
         this.state = {
-            moduleStyle: (typeof true == typeof props.moduleStyle) ? props.moduleStyle : false,
-            globalStyle: (typeof true == typeof props.globalStyle) ? props.globalStyle : false,
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-water-404',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',

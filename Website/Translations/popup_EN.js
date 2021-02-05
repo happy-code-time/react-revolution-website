@@ -2754,6 +2754,159 @@ const EN = {
     'popupHover.example1': 'Example with the alignment of the data to be displayed on the left side.',
     'popupHover.example2': 'Example with the alignment of the data to be displayed on the right side.',
     'popupHover.example3': 'Example with the alignment of the data to be displayed which will be centered.',
+    'suggestions.callback': {
+        "description": "Callback function that is called after a selection within the list. This function returns 3 arguments. Argument 1: callbackProps, argument 2: value of the input field, argument 3: currently selected suggestions (objects).",
+        "type": "function",
+        "default": "undefined"
+    },
+    'suggestions.callbackProps': {
+        "description": "First argument of the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'suggestions.data': {
+        "description": "Array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'suggestions.data.text': {
+        "description": "The text to be displayed.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.data.key': {
+        "description": "The string on which a search is performed.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.multiple': {
+        "description": "Allow a multi select selection.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.sortSelected': {
+        "description": "Sort the user selection. Possible sorting directions: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.sortSuggestions': {
+        "description": "Sort the user suggestions. Possible sorting directions: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.inputPlaceholder': {
+        "description": "Placeholder for the input field.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'suggestions.searchSensitive': {
+        "description": "Sensitive search.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.removeChar': {
+        "description": "The JSX from the 'delete' button.",
+        "type": "JSX | String",
+        "default": "x"
+    },
+    'suggestions.removeCharLeft': {
+        "description": "The JSX from the 'delete' button is on the left.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "The height of an individual LI element in order to be able to carry out an 'arrow-down' and 'arrow-up' exactly.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "The height of an individual LI element in order to be able to carry out an 'arrow-down' and 'arrow-up' exactly.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.dataOnEmpty': {
+        "description": "Data that will be displayed in a null hit search.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
+    'suggestions.allowTyping': {
+        "description": "Allow the user to modify the value of the input field.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.inputValue': {
+        "description": "The value of the input field. The value of the input field is always updated if the previous value is different from the new value.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'suggestions.inputType': {
+        "description": "Type of the input field.",
+        "type": "String",
+        "default": "text"
+    },
+    'suggestions.inputEmpty': {
+        "description": "After a user selection, the value of the input field is reset.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.suggestionsEmpty': {
+        "description": "After a user selection, the value of the suggestions are reseted.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.example1': 'Example with multi select option. Open your browser console because all selected elements / changes will be logged with console.info - this is a callback function. ',
+    'suggestions.example2': 'Example with allowTyping = {false} to NOT allow the user to change the value of the input field.',
+    'suggestions.example3': 'Example with dataOnEmpty and sortSuggestions = "asc".',
+    'suggestions.example4': 'Example with multiple = {false} to prevent multiple selection.',
+    'pills.data': {
+        "description": "Array of objects.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'pills.data.text': {
+        "description": "The text to be displayed.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'pills.data.cls': {
+        "description": "Possible classes for the single pill.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'pills.data.selected': {
+        "description": "Mark a pill as selected.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.data.callback': {
+        "description": "Callback function that is called after a selection. This function returns 2 arguments. Argument 1: callbackProps, Argument 2: The currently selected elements (only if the key 'readonly' is off).",
+        "type": "function",
+        "default": "undefined"
+    },
+    'pills.data.callbackProps': {
+        "description": "First argument of the 'callback' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'pills.data.key': {
+        "description": "The string on which a search is performed.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'pills.multiple': {
+        "description": "Allow a multi select selection.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'pills.readonly': {
+        "description": "Only allow reading of the elements. The callback function continues to be executed. The selection / selection of a pill is interrupted.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.example1': 'Example with a multiple choice. To see the selected items, open your developer console. ',
+    'pills.example2': 'Example with suppressed multiple selection. To see this selection, open your developer console. ',
+    'pills.example3': 'Example with the readonly mode.',
+    'pills.example4': 'Example with pre-selected pills.',
 };
 
 export default EN;

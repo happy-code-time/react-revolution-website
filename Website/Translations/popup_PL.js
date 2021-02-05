@@ -320,7 +320,7 @@ const PL = {
         "default": "tekst"
     },
     "callbackRerender": {
-        "description": "Jeśli true, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli fałsz, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
+        "description": "Jeśli true, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli false, moduł oczekuje dalszego przetwarzania danych z wywołania zwrotnego.",
         "type": "Boolean",
         "default": "false"
     },
@@ -565,7 +565,7 @@ const PL = {
         "default": "undefined"
     },
     "getValueFromCallback": {
-        "description": "Jeśli fałsz, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli true, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
+        "description": "Jeśli false, moduł nasłuchuje tylko przesłanego stanu i zmian stanu. Jeśli true, moduł oczekuje, że dane z funkcji zwrotnej będą dalej przetwarzane.",
         "type": "Boolean",
         "default": "false"
     },
@@ -655,7 +655,7 @@ const PL = {
         "default": "true"
     },
     "reactRouter": {
-        "description": "Jeśli true - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli fałsz jest renderowany tag <a>.",
+        "description": "Jeśli true - (wtedy moduł porusza się w routerze Rect) jest renderowany tag <Link>, jeśli false jest renderowany tag <a>.",
         "type": "Boolean",
         "default": "false"
     },
@@ -795,7 +795,7 @@ const PL = {
         "default": ">"
     },
     "bread.overwriteText": {
-        "description": "Musi być używany z kluczem: 'moduleMenu'. Jeśli true, to zamiast ścieżki do bułki tartej wyświetlany jest pierwszy klucz podrzędny menu: 'tekst'. Jeśli fałsz, to pierwsze menu podrzędne: 'tekst' ignorowane. ",
+        "description": "Musi być używany z kluczem: 'moduleMenu'. Jeśli true, to zamiast ścieżki do bułki tartej wyświetlany jest pierwszy klucz podrzędny menu: 'tekst'. Jeśli false, to pierwsze menu podrzędne: 'tekst' ignorowane. ",
         "type": "Boolean",
         "default": "false"
     },
@@ -1039,7 +1039,7 @@ const PL = {
     "breadcrumbs.example3": "Przykład z menu dołączonym do ostatniej pozycji.",
     "pager.dynamic.description": 'To jest przykład z dynamicznym pagerem, więc za każdym razem, gdy strona jest zmieniana, wykonywane jest zapytanie do bazy danych. Ta funkcja z zapytaniem DB zwraca obietnicę (Promise). Musi to być obietnica, ponieważ moduł wewnętrznie zawiera "await" (oczekiwanie), więc zmiana strony nastąpi tylko wtedy, gdy obietnica zostanie rozwiązana (resolve), a dane zostaną dostarczone.',
     "promise": {
-        "description": "Generuj każdą linię kodu jako obietnicę dla lepszej wydajności podczas generowania bardzo długich ciągów do struktury kodu źródłowego. Jeśli fałsz, wówczas moduł generuje kod źródłowy (kod jsx) bez obietnicy.",
+        "description": "Generuj każdą linię kodu jako obietnicę dla lepszej wydajności podczas generowania bardzo długich ciągów do struktury kodu źródłowego. Jeśli false, wówczas moduł generuje kod źródłowy (kod jsx) bez obietnicy.",
         "type": "Boolean",
         "default": "false"
     },
@@ -1473,8 +1473,8 @@ const PL = {
         "default": "undefined"
     },
     "description.dragDrop.1": "Przykład z domyślną funkcją przeciągnij i upuść na podstawie wywołania zwrotnego w celu zastosowania zmian stanu.",
-    "description.dragDrop.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu.",
-    "description.dragDrop.3": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu i niestandardową ikonę ładowania podczas oczekiwania na odpowiedź funkcji callbackAllowDrop. ",
+    "description.dragDrop.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić true/false, aby zastosować lub odrzucić zmiany stanu.",
+    "description.dragDrop.3": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić true/false, aby zastosować lub odrzucić zmiany stanu i niestandardową ikonę ładowania podczas oczekiwania na odpowiedź funkcji callbackAllowDrop. ",
     "description.dragDrop.4": "Przykład z obszarem 'Owoce' - dozwolone tylko upuszczanie i 'Warzywa' - dozwolone tylko przeciąganie.",
     "drag.drop.data": {
         "description": "Obiekt.",
@@ -1567,7 +1567,7 @@ const PL = {
         "default": "<empty string>"
     },
     "description.dragDropList.1": "Przykład z domyślną funkcją przeciągnij i upuść na podstawie wywołania zwrotnego w celu zastosowania zmian stanu.",
-    "description.dragDropList.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić prawda / fałsz, aby zastosować lub odrzucić zmiany stanu.",
+    "description.dragDropList.2": "Przykład z niestandardową funkcją callbackAllowDrop (Promise - musisz rozwiązać lub odrzucić z wartością true lub false), aby zwrócić true/false, aby zastosować lub odrzucić zmiany stanu.",
     "drag.drop.list.placeholder": {
         "description": "Niestandardowe dane JSX do renderowania wewnątrz symbolu zastępczego.",
         "type": "String | JSX",
@@ -1782,7 +1782,7 @@ const PL = {
         "default": "true"
     },
     'slider.paginationInside': {
-        "description": "Przycisk 'następny' i przycisk 'przed' powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli fałsz, przyciski są generowane poza sliderem.",
+        "description": "Przycisk 'następny' i przycisk 'przed' powinny być generowane wewnątrz slidera (ustawienie standardowe). Jeśli false, przyciski są generowane poza sliderem.",
         "type": "Boolean",
         "default": "true"
     },
@@ -1923,7 +1923,7 @@ const PL = {
         "default": "false"
     },
     'steps.callbackCheck': {
-        "description": "Jeśli true, to obietnica (Promise) jest oczekiwana od funkcji 'callback', która zwraca prawdę lub fałsz. Jeśli prawda, użytkownik może przejść dalej.",
+        "description": "Jeśli true, to obietnica (Promise) jest oczekiwana od funkcji 'callback', która zwraca true lub false. Jeśli true, użytkownik może przejść dalej.",
         "type": "Boolean",
         "default": "false"
     },
@@ -1988,12 +1988,12 @@ const PL = {
         "default": "undefined"
     },
     'steps.errorDataInside': {
-        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna być wyświetlana poza obszarem zawartości. Jeśli prawda, wiadomość jest wyświetlana w obszarze zawartości.",
+        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna być wyświetlana poza obszarem zawartości. Jeśli true, wiadomość jest wyświetlana w obszarze zawartości.",
         "type": "Boolean",
         "default": "false"
     },
     'steps.errorAlignTop': {
-        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna zostać wyświetlona poniżej obszaru zawartości. Jeśli prawda, wiadomość jest wyświetlana nad obszarem zawartości.",
+        "description": "Wartość odpowiedzi 'liveGeneration' (komunikat o błędzie) powinna zostać wyświetlona poniżej obszaru zawartości. Jeśli true, wiadomość jest wyświetlana nad obszarem zawartości.",
         "type": "Boolean",
         "default": "false"
     },
@@ -2040,12 +2040,12 @@ const PL = {
         "default": "undefined"
     },
     "menu.data.externalLink": {
-        "description": "Jeśli wartość to prawda, tag <a> jest generowany z atrybutem target = '_ blank'.",
+        "description": "Jeśli wartość to true, tag <a> jest generowany z atrybutem target = '_ blank'.",
         "type": "Boolean",
         "default": "false"
     },
     'Suggestion.applySelected': {
-        "description": "Jeśli wartość jest fałszywa, wybrana wartość (z rozwijanych sugestii) nie zostanie przyjęta, ma to tylko na celu wywołanie funkcji zwrotnej bez zachowania wybranej 'sugestii'.",
+        "description": "Jeśli wartość jest false, wybrana wartość (z rozwijanych sugestii) nie zostanie przyjęta, ma to tylko na celu wywołanie funkcji zwrotnej bez zachowania wybranej 'sugestii'.",
         "type": "Boolean",
         "default": "true"
     },
@@ -2613,7 +2613,7 @@ const PL = {
         "default": "x"
     },
     'fss.fsUseLayerX': {
-        "description": "Jeśli slider (w wersji dla komputerów stacjonarnych) zostanie przesunięty, do przesunięcia slidera używana jest wartość event.layerX. Jeśli wartość tego klucza jest fałszywa, używana jest wartość event.clientX.",
+        "description": "Jeśli slider (w wersji dla komputerów stacjonarnych) zostanie przesunięty, do przesunięcia slidera używana jest wartość event.layerX. Jeśli wartość tego klucza jest false, używana jest wartość event.clientX.",
         "type": "Boolean",
         "default": "true"
     },
@@ -2623,7 +2623,7 @@ const PL = {
         "default": "5000"
     },
     'fss.fsAutoplayNext': {
-        "description": "Jeśli true, kierunek slajdu jest w prawo, jeśli fałsz to w lewo.",
+        "description": "Jeśli true, kierunek slajdu jest w prawo, jeśli false to w lewo.",
         "type": "Boolean",
         "default": "true"
     },
@@ -2755,6 +2755,159 @@ const PL = {
     'popupHover.example1': 'Przykład z wyrównaniem danych do wyświetlenia po lewej stronie.',
     'popupHover.example2': 'Przykład z wyrównaniem danych do wyświetlenia po prawej stronie.',
     'popupHover.example3': 'Przykład z wyrównaniem wyświetlanych danych, które zostaną wyśrodkowane.',
+    'suggestions.callback': {
+        "description": "Funkcja wywołania zwrotnego, która jest wywoływana po dokonaniu selekcji na liście. Ta funkcja zwraca 3 argumenty. Argument 1: callbackProps, argument 2: wartość pola wejściowego, argument 3: aktualnie wybrane sugestie (obiekty).",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'suggestions.callbackProps': {
+        "description": "Pierwszy argument funkcji 'callback'.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'suggestions.data': {
+        "description": "Tablica obiektów.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'suggestions.data.text': {
+        "description": "Tekst do wyświetlenia.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.data.key': {
+        "description": "Ciąg, na którym jest wykonywane wyszukiwanie.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.multiple': {
+        "description": "Zezwalaj na wielokrotny wybór.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.sortSelected': {
+        "description": "Sortuj wybór użytkownika. Możliwe kierunki sortowania: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.sortSuggestions': {
+        "description": "Sortuj sugestie użytkowników. Możliwe kierunki sortowania: 'asc', 'desc'.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'suggestions.inputPlaceholder': {
+        "description": "Symbol zastępczy pola wejściowego.",
+        "type": "String",
+        "default": "<pusty ciąg>"
+    },
+    'suggestions.searchSensitive': {
+        "description": "Wrażliwe wyszukiwanie.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.removeChar': {
+        "description": "JSX z przycisku 'usuń'.",
+        "type": "JSX | String",
+        "default": "x"
+    },
+    'suggestions.removeCharLeft': {
+        "description": "JSX z przycisku 'usuń' jest po lewej stronie.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "Wysokość pojedynczego elementu LI umożliwiająca dokładne wykonanie 'strzałki w dół' i 'strzałki w górę'.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.singleLiHeight': {
+        "description": "Wysokość pojedynczego elementu LI, aby móc dokładnie wykonać 'arrow-down' oraz 'arrow-up'.",
+        "type": "Number",
+        "default": "40"
+    },
+    'suggestions.dataOnEmpty': {
+        "description": "Dane, które zostaną wyświetlone przy wyszukiwaniu zerowym trafieniem.",
+        "type": "JSX | String",
+        "default": "<empty string>"
+    },
+    'suggestions.allowTyping': {
+        "description": "Pozwól użytkownikowi modyfikować wartość pola wejściowego.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'suggestions.inputValue': {
+        "description": "Wartość pola wejściowego. Wartość pola wejściowego jest zawsze aktualizowana, jeśli poprzednia wartość różni się od nowej.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'suggestions.inputType': {
+        "description": "Typ pola.",
+        "type": "String",
+        "default": "text"
+    },
+    'suggestions.inputEmpty': {
+        "description": "Po wyborze użytkownika wartość pola wejściowego jest resetowana.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.suggestionsEmpty': {
+        "description": "Po wyborze użytkownika pola wyboru są resetowana.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'suggestions.example1': 'Przykład z opcją wielokrotnego wyboru. Otwórz konsolę przeglądarki, ponieważ wszystkie wybrane elementy / zmiany zostaną zarejestrowane w console.info - to jest funkcja zwrotna. ',
+    'suggestions.example2': 'Przykład z allowTyping={false}, aby NIE pozwolić użytkownikowi na zmianę wartości pola wejściowego.',
+    'suggestions.example3': 'Przykład z dataOnEmpty i sortSuggestions="asc".',
+    'suggestions.example4': 'Przykład z multiple={false}, aby zapobiec wielokrotnemu wyborowi.',
+    'pills.data': {
+        "description": "Tablica obiektów.",
+        "type": "{} []",
+        "default": "[]"
+    },
+    'pills.data.text': {
+        "description": "Tekst do wyświetlenia.",
+        "type": "JSX | String",
+        "default": "undefined"
+    },
+    'pills.data.cls': {
+        "description": "Możliwe klasy dla pojedynczej pigułki.",
+        "type": "String",
+        "default": "<empty string>"
+    },
+    'pills.data.selected': {
+        "description": "Oznacz pigułkę jako wybraną.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.data.callback': {
+        "description": "Funkcja wywołania zwrotnego, która jest wywoływana po dokonaniu wyboru. Ta funkcja zwraca 2 argumenty. Argument 1: callbackProps, Argument 2: aktualnie wybrane elementy (tylko jeśli klucz 'readonly' jest wyłączony).",
+        "type": "funkcja",
+        "default": "undefined"
+    },
+    'pills.data.callbackProps': {
+        "description": "Pierwszy argument funkcji 'callback'.",
+        "type": "Dowolne",
+        "default": "undefined"
+    },
+    'pills.data.key': {
+        "description": "Ciąg, na którym jest wykonywane wyszukiwanie.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'pills.multiple': {
+        "description": "Zezwalaj na wielokrotny wybór.",
+        "type": "Boolean",
+        "default": "true"
+    },
+    'pills.readonly': {
+        "description": "Zezwalaj tylko na odczyt elementów. Funkcja wywołania zwrotnego jest nadal wykonywana. Wybór pigułki jest przerwany.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    'pills.example1': 'Przykład z wielokrotnym wyborem. Aby zobaczyć wybrane pozycje, otwórz konsolę programisty. ',
+    'pills.example2': 'Przykład z pominiętym wielokrotnym wyborem. Aby zobaczyć ten wybór, otwórz konsolę programisty. ',
+    'pills.example3': 'Przykład z trybem tylko do odczytu.',
+    'pills.example4': 'Przykład z wybranymi elementami.',
 };
 
 export default PL;

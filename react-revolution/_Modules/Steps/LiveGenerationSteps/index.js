@@ -55,15 +55,17 @@ class LiveGenerationSteps extends React.Component {
                 })();
             }
             else{
-                this.setState({ update: false });
+                this.setState({ update: false, liveData: '' });
             }
         }
         else{
-            this.setState({ update: false });
+            this.setState({ update: false, liveData: '' });
         }
     }
 
     render() {
+        console.log(this.state.liveData);
+
         return this.state.liveData;
     }
 };

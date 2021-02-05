@@ -576,6 +576,10 @@ class _InputSuggestionObject extends React.Component {
                                     key: 'applySelected',
                                     values: 'suggestion.applySelected'
                                 },
+                                {
+                                    key: 'singleLiHeight',
+                                    values: 'suggestions.singleLiHeight'
+                                },
                             ],
                             'rr-input-suggestion-object'
                         )

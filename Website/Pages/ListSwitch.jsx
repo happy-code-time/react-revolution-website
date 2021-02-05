@@ -31,9 +31,9 @@ const codeExample2 = `import { ListSwitch } from 'react-revolution';
     }
     >
     <ListSwitch
-        placeholder={
-            <p>⚙</p>
-        }
+        placeholder='🔧'
+        callback={this.callbackGetData}
+        callbackProps='any'
         holderLoading={
             <img
                 style={
