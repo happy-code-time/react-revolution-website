@@ -64,8 +64,6 @@ class LiveGenerationSteps extends React.Component {
     }
 
     render() {
-        console.log(this.state.liveData);
-
         return this.state.liveData;
     }
 };

@@ -309,7 +309,7 @@ h1,
 .Components {
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 10px;
   white-space: pre-wrap; }
   .Components .component-link {
     box-sizing: border-box;

@@ -1,12 +1,10 @@
 @import "./globals";
 
 .Content {
-  z-index: 5 !important;
 
   .data-header {
     width: 100%;
     height: $dashboard_header-height;
-    border-bottom: 1px solid $border-color;
     box-sizing: border-box;
     padding: 10px 20px;
     position: absolute;

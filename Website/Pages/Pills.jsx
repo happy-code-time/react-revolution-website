@@ -3,6 +3,7 @@ import { Table, Pills, LoadOnScroll, LoadingBoxTop } from '../../react-revolutio
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { Pills } from 'react-revolution';
 // import Pills from 'react-revolution/Pills';
@@ -473,13 +474,14 @@ class _Pills extends React.Component {
         ];
     }
 
-    persistSelections(callbackProps, selected) {;
+    persistSelections(callbackProps, selected) {
+        ;
         const { data } = this.state;
-    
-        for(let x = 0; x <= selected.length-1; x++){
+
+        for (let x = 0; x <= selected.length - 1; x++) {
             data[selected[x].index] = selected[x];
         }
-    
+
         this.setState({ data });
     }
 
@@ -504,10 +506,12 @@ class _Pills extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

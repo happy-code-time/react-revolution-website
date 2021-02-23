@@ -7,7 +7,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { LoadOnScroll, LoadingBoxTop } from 'react-revolution';
 // import LoadOnScroll from 'react-revolution/LoadOnScroll';
@@ -470,8 +470,7 @@ const cssExample4 = `.rr-revolution-loadonscroll-example {
 
 let mixed = -1;
 
-class _LoadOnScroll extends React.Component 
-{
+class _LoadOnScroll extends React.Component {
 
     constructor(props) {
         super(props);
@@ -528,21 +527,21 @@ class _LoadOnScroll extends React.Component
                             scrollReference={true}
                             callback={this.callbackReject}
                             callbackProps={'custom data'}
-                            loading={ 
-                                ( 
-                                    <div className="loading"> 
-                                        <img src='./public/images/ajax-loader.gif'/> 
-                                    </div> 
-                                ) 
-                            } 
+                            loading={
+                                (
+                                    <div className="loading">
+                                        <img src='./public/images/ajax-loader.gif' />
+                                    </div>
+                                )
+                            }
                             persistReject={false}
-                            onReject={ 
-                                ( 
-                                    <span className='try-again-button'> 
-                                        try again 
-                                    </span> 
-                                ) 
-                            } 
+                            onReject={
+                                (
+                                    <span className='try-again-button'>
+                                        try again
+                                    </span>
+                                )
+                            }
                             data={this.generateTextBlock()}
                         />
                     </div>
@@ -563,21 +562,21 @@ class _LoadOnScroll extends React.Component
                             scrollReference={true}
                             callback={this.callbackRejectMessage}
                             callbackProps={'custom data'}
-                            loading={ 
-                                ( 
-                                    <div className="loading"> 
-                                        <img src='./public/images/ajax-loader.gif'/> 
-                                    </div> 
-                                ) 
-                            } 
-                            persistReject={true} 
-                            onReject={ 
-                                ( 
-                                    <span className='try-again-button'> 
-                                        try again 
-                                    </span> 
-                                ) 
-                            } 
+                            loading={
+                                (
+                                    <div className="loading">
+                                        <img src='./public/images/ajax-loader.gif' />
+                                    </div>
+                                )
+                            }
+                            persistReject={true}
+                            onReject={
+                                (
+                                    <span className='try-again-button'>
+                                        try again
+                                    </span>
+                                )
+                            }
                             data={this.generateTextBlock()}
                         />
                     </div>
@@ -598,21 +597,21 @@ class _LoadOnScroll extends React.Component
                             scrollReference={true}
                             callback={this.callbackMixed}
                             callbackProps={'custom data'}
-                            loading={ 
-                                ( 
-                                    <div className="loading"> 
-                                        <img src='./public/images/ajax-loader.gif'/> 
-                                    </div> 
-                                ) 
-                            } 
-                            persistReject={true} 
-                            onReject={ 
-                                ( 
-                                    <span className='try-again-button'> 
-                                        try again 
-                                    </span> 
-                                ) 
-                            } 
+                            loading={
+                                (
+                                    <div className="loading">
+                                        <img src='./public/images/ajax-loader.gif' />
+                                    </div>
+                                )
+                            }
+                            persistReject={true}
+                            onReject={
+                                (
+                                    <span className='try-again-button'>
+                                        try again
+                                    </span>
+                                )
+                            }
                             data={this.generateTextBlock()}
                         />
                     </div>
@@ -625,7 +624,7 @@ class _LoadOnScroll extends React.Component
         }
     }
 
-    generateTextBlock(count = 3){
+    generateTextBlock(count = 3) {
         const defaultText = `
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
             sed diam nonumy eirmod tempor invidunt ut labore et dolore
@@ -640,7 +639,7 @@ class _LoadOnScroll extends React.Component
         `;
         let build = '';
 
-        for(let x = 0; x <= count; x++){
+        for (let x = 0; x <= count; x++) {
             build += defaultText;
         }
 
@@ -672,43 +671,43 @@ class _LoadOnScroll extends React.Component
         });
     }
 
-    callbackReject(){
-        return new Promise( (resolve, reject) => {
+    callbackReject() {
+        return new Promise((resolve, reject) => {
             setTimeout(reject, 1500);
         });
     }
 
-    callbackRejectMessage(){
-        return new Promise( (resolve, reject) => {
-            setTimeout(() => { 
+    callbackRejectMessage() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
                 reject(
                     <div className='callback-error'>
                         Scroll to bottom again to try load more data.
                     </div>
-                ); 
-            }, 2500); 
+                );
+            }, 2500);
         });
     }
 
-    callbackMixed(){
+    callbackMixed() {
         const self = this;
         mixed += 1;
 
-        if(0 == mixed || 3 <= mixed){
-            return new Promise( (resolve, reject) => {
+        if (0 == mixed || 3 <= mixed) {
+            return new Promise((resolve, reject) => {
                 setTimeout(reject, 1500);
             });
         }
 
-        if(1 == mixed){
-            return new Promise( (resolve, reject) => {
-                setTimeout(() => { 
+        if (1 == mixed) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
                     reject(
                         <div className='callback-error'>
                             Scroll to bottom again to try load more data.
                         </div>
-                    ); 
-                }, 2500); 
+                    );
+                }, 2500);
             });
         }
 
@@ -740,10 +739,12 @@ class _LoadOnScroll extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

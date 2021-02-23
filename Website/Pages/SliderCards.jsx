@@ -4,6 +4,7 @@ import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import generateArticles from '../Globals/generateArticles';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { SliderCards } from 'react-revolution';
 // import SliderCards from 'react-revolution/SliderCards';
@@ -592,10 +593,11 @@ class _SliderCards extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)}
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     SliderCards
                 </h1>
                 {/* 
@@ -709,7 +711,9 @@ class _SliderCards extends React.Component {
                         }
                     </div>
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

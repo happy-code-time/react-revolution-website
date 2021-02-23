@@ -26,7 +26,7 @@ class RibbonMultiple extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'ribbons', 'content' ], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'ribbons', 'content'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-ribbon-multiple',
@@ -47,46 +47,53 @@ class RibbonMultiple extends React.Component {
                 className={`${defaultClass} ${addClass}`}
                 id={id}
             >
-                <div className='wrapper'>
+                {
+                    ribbons && 0 !== ribbons.length &&
+                    ribbons.map(( o, i) => {
+                        const directionX = o.directionX && typeof '8' === typeof o.directionX && ['left', 'right'].includes(o.directionX) ? o.directionX : 'right';
+                        const directionY = o.directionY && typeof '8' === typeof o.directionY && ['top', 'bottom'].includes(o.directionY) ? o.directionY : 'top';
+                        const background = o.background && typeof '8' === typeof o.background ? o.background : 'rgb(248, 165, 27)';
+                        const backgroundCorner = (o.backgroundCorner && typeof '8' == typeof o.backgroundCorner) ? o.backgroundCorner : 'rgb(122, 122, 122)';
+                        const color = o.color && typeof '8' === typeof o.color ? o.color : '';
+                        const type = o.type && typeof '8' === typeof o.type && ['1', '2'].includes(o.type) ? o.type : '';
+                        const stl = {};
+
+                        if(background){
+                            stl['--rr-ribbon-multiple-background'] = background;
+                        }
+                
+                        if(backgroundCorner){
+                            stl['--rr-ribbon-multiple-corner-background'] = backgroundCorner;
+                        }
+                
+                        if(color){
+                            stl['--rr-ribbon-multiple-color'] = color;
+                        }
+
+                        return (
+                            <div 
+                                key={`ribbon-multiple-holder-${i}-${uuid}`} 
+                                className={`ribbon-multiple-${directionY}-${directionX} ${type ? `ribbon-multiple-type-${type}` : ''}`}
+                                style={stl}
+                            >
+                                <span className='ribbon-multiple-holder'>
+                                    <span className='ribbon-multiple'>
+                                        {
+                                            o.ribbon && o.ribbon
+                                        }
+                                    </span>
+                                </span>
+                                <span className='ribbon-multiple-corners'></span>
+                            </div>
+                        )
+                    })
+                }
+
+                <div className='content-data'>
                     <div className='content'>
                         {
-                            ribbons && 0 !== ribbons.length &&
-                            ribbons.map( (props, i) => {
-                                const ribbon = props.ribbon ? props.ribbon : '';
-                                const directionX = props.directionX && typeof '8' === typeof props.directionX && ['left', 'right'].includes(props.directionX) ? props.directionX : 'right';
-                                const directionY = props.directionY && typeof '8' === typeof props.directionY && ['top', 'bottom'].includes(props.directionY) ? props.directionY : 'top';
-                                const background = props.background && typeof '8' === typeof props.background ? props.background : '';
-                                const color = props.color && typeof '8' === typeof props.color ? props.color : '';
-
-                                let bgStyle = {};
-
-                                if (background) {
-                                    bgStyle.backgroundColor = background;
-                                    bgStyle['--rr-ribbon-multiple-background'] = background;
-                                }
-
-                                if (color) {
-                                    bgStyle.color = color;
-                                }
-
-                                return (
-                                    <div key={`ribbon-holder-${i}-${uuid}`} className={`ribbon-holder ${directionX} ${directionY}`}>
-                                        <div className='ribbon'>
-                                            <div className={`ribbon-data ${directionY}`} style={bgStyle}>
-                                                {
-                                                    ribbon && ribbon
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })
+                            content
                         }
-                        <div className='content-data'>
-                            {
-                                content
-                            }
-                        </div>
                     </div>
                 </div>
             </div>

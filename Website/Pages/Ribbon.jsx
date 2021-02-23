@@ -3,6 +3,7 @@ import { Table, Ribbon, LoadOnScroll, LoadingBoxTop } from '../../react-revoluti
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { Ribbon } from 'react-revolution';
 // import Ribbon from 'react-revolution/Ribbon';
@@ -56,6 +57,37 @@ const codeExample4 = `import { Ribbon } from 'react-revolution';
     directionY='bottom'
     background='#FF4459'
     color='rgb(255,255,255)'
+    ribbon={
+        <span>
+            SALE!
+        </span>
+    }
+    content={this.getJsx()}
+/>`;
+
+const codeExample5 = `import { Ribbon } from 'react-revolution';
+// import Ribbon from 'react-revolution/Ribbon';
+
+<Ribbon
+    type='1'
+    background='#FF4459'
+    color='rgb(255,255,255)'
+    ribbon={
+        <span>
+            SALE!
+        </span>
+    }
+    content={this.getJsx()}
+/>`;
+
+const codeExample6 = `import { Ribbon } from 'react-revolution';
+// import Ribbon from 'react-revolution/Ribbon';
+
+<Ribbon
+    type='2'
+    background='#FF4459'
+    color='rgb(255,255,255)'
+    directionX='left'
     ribbon={
         <span>
             SALE!
@@ -217,6 +249,53 @@ class _Ribbon extends React.Component {
                     />
                 )
             },
+            {
+                title: 'Ribbon',
+                description: trans('ribbon.example5'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: jsExample,
+                css: '',
+                html: '',
+                live: (
+                    <Ribbon
+                        type='1'
+                        background='#FF4459'
+                        color='rgb(255,255,255)'
+                        ribbon={
+                            <span>
+                                SALE!
+                            </span>
+                        }
+                        content={this.getJsx()}
+                    />
+                )
+            },
+            {
+                title: 'Ribbon',
+                description: trans('ribbon.example6'),
+                reactTextBefore: '',
+                react: codeExample6,
+                reactTextAfter: '',
+                js: jsExample,
+                css: '',
+                html: '',
+                live: (
+                    <Ribbon
+                        type='2'
+                        background='#FF4459'
+                        color='rgb(255,255,255)'
+                        directionX='left'
+                        ribbon={
+                            <span>
+                                SALE!
+                            </span>
+                        }
+                        content={this.getJsx()}
+                    />
+                )
+            },
         ];
     }
 
@@ -302,7 +381,9 @@ class _Ribbon extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }
@@ -358,6 +439,10 @@ class _Ribbon extends React.Component {
                                 {
                                     key: 'content',
                                     values: 'ribbon.content'
+                                },
+                                {
+                                    key: 'type',
+                                    values: 'ribbon.type'
                                 },
                             ],
                             'rr-ribbon'

@@ -3,6 +3,7 @@ import { Table, PopupHover, LoadOnScroll, LoadingBoxTop } from '../../react-revo
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { PopupHover } from 'react-revolution';
 // import PopupHover from 'react-revolution/PopupHover';
@@ -534,8 +535,10 @@ class _PopupHover extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
-                    {
+                <StyleImplementation />
+                <h1 className="title-border">
+                     <i className="fab fa-keycdn"></i>                    
+                     {
                         trans('keyUsageTitle')
                     }
                 </h1>

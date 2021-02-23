@@ -9,56 +9,55 @@ class Container extends React.Component {
         this.sideBar = this.sideBar.bind(this);
         this.resizeView = this.resizeView.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.setIntervals = this.setIntervals.bind(this);
+        this.setLocationChecker = this.setLocationChecker.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
 
         this.state = {
             /**
              * App
              */
-            href: window.location.href,
             isMin: (typeof true == typeof props.isMin) ? props.isMin : false,
             isMax: (typeof true == typeof props.isMax) ? props.isMax : false,
             isHidden: (typeof true == typeof props.isHidden) ? props.isHidden : true,
-            isHiddenClass: 'closed',
+            isHiddenClass: 'closed', // default - Mobile first rule
+            href: window.location.href, // current href
+            forceHidingSidebar: {
+                isHiddenClass: 'closed',
+                isMax: false,
+                isMin: false,
+                isHidden: true,
+            },
+            animation: false, // set zIndex on sidebar (header data should not overlap the sidebar)
             /**
              * User
              */
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
+            moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : '',
             maxifyAt: (typeof 8 == typeof props.maxifyAt) ? props.maxifyAt : 1024,
-            minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 720,
-            hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 520,
-            displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
-            // head
+            minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 820,
+            hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 768,
+            displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : false,
             headerProps: (props.headerProps && typeof {} == typeof props.headerProps) ? props.headerProps : {},
-            headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
-            // content
+            headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : '',
             contentProps: (props.contentProps && typeof {} == typeof props.contentProps) ? props.contentProps : {},
-            contentData: props.contentData ? props.contentData : undefined,
-            // foot
-            footerData: props.footerData ? props.footerData : undefined,
+            contentData: props.contentData ? props.contentData : '',
+            footerData: props.footerData ? props.footerData : '',
             footerProps: (props.footerProps && typeof {} == typeof props.footerProps) ? props.footerProps : {},
-            closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : undefined,
-            toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : undefined,
-            // sidebars blacklist
+            closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : '',
+            toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : '',
             minifySidebarOn: props.minifySidebarOn && typeof [] == typeof props.minifySidebarOn && props.minifySidebarOn.length ? props.minifySidebarOn : [],
             align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
-            hideOpenedHiddenSidebar: {
-                isHiddenClass: 'closed',
-                isMax: false,
-                isMin: false,
-                isHidden: true,
-                href: window.location.href
-            },
             headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
-            href: window.location.href,
+            animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
         };
 
         this.nodeSideBar = React.createRef();
-        this.interval = undefined;
         this.containesOldStaffHolder = undefined;
+        this.animationDurationClearTimeout = undefined;
+        this.locationCheckInterval = undefined;        
     }
 
     /**
@@ -68,32 +67,28 @@ class Container extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'href', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'minifyAt', 'animationDuration', 'maxifyAt', 'hideAt', 'displayMinifyMaxifyIcon', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'closeMenuHtml', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : undefined,
+                moduleSidebar: (props.moduleSidebar && typeof {} == typeof props.moduleSidebar) ? props.moduleSidebar : '',
                 maxifyAt: (typeof 8 == typeof props.maxifyAt) ? props.maxifyAt : 1024,
-                minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 720,
-                hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 520,
-                displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : undefined,
-                // head
+                minifyAt: (typeof 8 == typeof props.minifyAt) ? props.minifyAt : 820,
+                hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 768,
+                displayMinifyMaxifyIcon: (typeof true == typeof props.displayMinifyMaxifyIcon) ? props.displayMinifyMaxifyIcon : false,
                 headerProps: (props.headerProps && typeof {} == typeof props.headerProps) ? props.headerProps : {},
-                headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : undefined,
-                // content
+                headerData: (props.headerData && typeof {} == typeof props.headerData) ? props.headerData : '',
                 contentProps: (props.contentProps && typeof {} == typeof props.contentProps) ? props.contentProps : {},
-                contentData: props.contentData ? props.contentData : undefined,
-                // foot
-                footerData: props.footerData ? props.footerData : undefined,
+                contentData: props.contentData ? props.contentData : '',
+                footerData: props.footerData ? props.footerData : '',
                 footerProps: (props.footerProps && typeof {} == typeof props.footerProps) ? props.footerProps : {},
-                closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : undefined,
-                toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : undefined,
-                // sidebars blacklist
+                closeMenuHtml: props.closeMenuHtml ? props.closeMenuHtml : '',
+                toggleMenuHtml: props.toggleMenuHtml ? props.toggleMenuHtml : '',
                 minifySidebarOn: props.minifySidebarOn && typeof [] == typeof props.minifySidebarOn && props.minifySidebarOn.length ? props.minifySidebarOn : [],
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
-                href: window.location.href,
                 headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
+                animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
             };
         }
 
@@ -103,66 +98,95 @@ class Container extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.resizeView);
         window.addEventListener('mousedown', this.handleClick);
+        window.addEventListener('focus', this.handleFocus);
+        window.addEventListener('blur', this.handleBlur);
         this.resizeView();
-        this.setIntervals();
+        this.setLocationChecker();
     }
 
     componentWillUnmount() {
+        this.setLocationChecker(false);
         window.removeEventListener('resize', this.resizeView);
         window.removeEventListener('mousedown', this.handleClick);
-        this.setIntervals(false);
+        window.removeEventListener('focus', this.handleFocus);
+        window.removeEventListener('blur', this.handleBlur);
     }
 
-    setIntervals(reassignInterval = true) {
-        clearInterval(this.interval);
+    handleFocus(){
+        this.setLocationChecker();
+    }
 
-        if (reassignInterval) {
-            this.interval = setInterval(() => {
-                if (this.state.href !== window.location.href) {
-                    this.setState({ href: window.location.href }, (e) => this.resizeView(null, null, true));
-                }
-            }, 500);
+    handleBlur(){
+        this.setLocationChecker(false);
+    }
+
+    setLocationChecker(init = true) {
+        clearInterval(this.locationCheckInterval);
+
+        if(!init){
+            return;
         }
+
+        this.locationCheckInterval = setInterval( () => {
+            if(this.state.href !== window.location.href){
+                this.handleLocationChange();
+            }
+        }, 500);
+    }
+
+    handleLocationChange(){
+        const d = this.state.isHidden ? this.state.forceHidingSidebar : {};
+        return this.setState({
+            ...d,
+            href: window.location.href
+        }, () => {
+            this.resizeView(undefined, false, true)
+        });
     }
 
     handleClick(e) {
-        const { isHidden, href, isHiddenClass } = this.state;
+        const { isHidden, href, isHiddenClass, forceHidingSidebar } = this.state;
 
-        if (this.nodeSideBar && this.nodeSideBar.current && !this.nodeSideBar.current.contains(e.target)) {
-            /**
-             * Hide opened hidden sidebar on location change
-             */
+        /**
+         * Hide opened hidden sidebar on location change
+         */
+        if (e && this.nodeSideBar && this.nodeSideBar.current && !this.nodeSideBar.current.contains(e.target)) {
             setTimeout(() => {
-                if (isHidden) {
-                    if ('opened' == isHiddenClass) {
-                        this.setState(this.state.hideOpenedHiddenSidebar);
-                    }
+                if (isHidden && 'opened' == isHiddenClass) {
+                    return this.setState(forceHidingSidebar);
                 }
             }, 100);
         }
 
         setTimeout(() => {
+            // If is hidden, persist hidden values
             if (href !== window.location.href && isHidden) {
-                this.setState(this.state.hideOpenedHiddenSidebar, this.resizeView);
+                this.setState(this.state.forceHidingSidebar, this.resizeView);
             }
+            // If is not hidden, execute resize callback
             if (href !== window.location.href && !isHidden) {
                 this.setState({ href: window.location.href }, (e) => this.resizeView(e, true));
             }
         }, 300);
     }
 
-    resizeView(event, persistCurrentSelection = false, isInterval = false) {
-        const { minifyAt, maxifyAt, hideAt, minifySidebarOn, hideOpenedHiddenSidebar } = this.state;
-        const documentWidth = document.documentElement.getBoundingClientRect().width;
+    resizeView(e, persistCurrentSelection = false, isInterval = false) {
+        const { minifySidebarOn, forceHidingSidebar } = this.state;
 
+        // If the container should be fullscreen on selected locations
         if (minifySidebarOn && minifySidebarOn.length) {
+            
             for (let x = 0; x <= minifySidebarOn.length - 1; x++) {
+
                 if (typeof '8' == typeof minifySidebarOn[x] && (window.location.href == minifySidebarOn[x] || window.location.hash == minifySidebarOn[x])) {
-                    return this.setState(hideOpenedHiddenSidebar);
+                    return this.setState(forceHidingSidebar);
                 }
             }
         }
 
+        /**
+         * Chandle location change detected by the interval and (re)attach the resize values
+         */
         if (isInterval && this.containesOldStaffHolder) {
             const { isMax, isMin, isHidden, isHiddenClass } = this.containesOldStaffHolder;
             return this.setState({ isMax, isMin, isHidden, isHiddenClass });
@@ -172,12 +196,23 @@ class Container extends React.Component {
             return null;
         }
 
+        this.resize();
+    }
+
+    resize(){
+        const documentWidth = document.documentElement.getBoundingClientRect().width;
+
         /**
-         * Max
+         * Maxify the sidebar
          */
         let data = {};
 
-        if (documentWidth >= maxifyAt) {
+        if (documentWidth >= this.state.maxifyAt) {
+
+            if(true == this.state.isMax){
+                return;
+            }
+
             data = {
                 isMax: true,
                 isMin: false,
@@ -189,9 +224,14 @@ class Container extends React.Component {
         }
 
         /**
-         * Hidden
+         * Hide the sidebar
          */
-        if (documentWidth <= hideAt) {
+        if (documentWidth <= this.state.hideAt) {
+
+            if(true == this.state.isHidden){
+                return;
+            }
+
             data = {
                 isMax: false,
                 isMin: false,
@@ -203,9 +243,14 @@ class Container extends React.Component {
         }
 
         /**
-         * Min
+         * Minify the sidebar
          */
-        if (documentWidth <= minifyAt) {
+        if (documentWidth <= this.state.minifyAt) {
+
+            if(true == this.state.isMin){
+                return;
+            }
+
             data = {
                 isMax: false,
                 isMin: true,
@@ -213,10 +258,8 @@ class Container extends React.Component {
                 isHiddenClass: '',
             };
             this.containesOldStaffHolder = data;
-            return this.setState(data);
+            this.setState(data);
         }
-
-        return null;
     }
 
     /**
@@ -258,11 +301,19 @@ class Container extends React.Component {
      * if the user clicks the menu icon
      */
     sideBar() {
-        const { isMin, isHidden, isHiddenClass } = this.state;
+        const { isMin, isHidden, isHiddenClass, animationDuration } = this.state;
 
         const setCache = () => {
             const { isMin, isMax, isHidden, isHiddenClass } = this.state;
             this.containesOldStaffHolder = { isMin, isMax, isHidden, isHiddenClass };
+
+            // Animation false = to remove the zIndex class 
+            clearTimeout(this.animationDurationClearTimeout);
+            this.animationDurationClearTimeout = setTimeout( () => {
+                this.setState({
+                    animation: false
+                });
+            }, animationDuration);
         };
 
         if (isHidden) {
@@ -273,6 +324,7 @@ class Container extends React.Component {
                     isMax: false,
                     isMin: false,
                     isHidden: true,
+                    animation: true
                 }, setCache);
             }
             else {
@@ -281,6 +333,7 @@ class Container extends React.Component {
                     isMax: false,
                     isMin: false,
                     isHidden: true,
+                    animation: true
                 }, setCache);
             }
         }
@@ -290,6 +343,7 @@ class Container extends React.Component {
                 isMax: true,
                 isMin: false,
                 isHidden: false,
+                animation: true
             }, setCache);
         }
         else {
@@ -297,18 +351,22 @@ class Container extends React.Component {
                 isMin: true,
                 isMax: false,
                 isHidden: false,
+                animation: true
             }, setCache);
         }
     }
 
     render() {
-        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, closeMenuHtml, isHidden, isHiddenClass, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, headerDataRight, align } = this.state;
+        const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, animation, closeMenuHtml, animationDuration, isHidden, isHiddenClass, headerData, headerProps, contentData, contentProps, displayMinifyMaxifyIcon, footerData, footerProps, headerDataRight, align } = this.state;
         const sidebarClassNames = `${this.getClassNamesSidebar()} ${isHiddenClass}`;
         const contentClassNames = this.getClassNamesContent();
         const direction = ['left', 'right'].includes(align) ? align : 'left';
 
         return (
-            <div id={id} className={`${defaultClass} ${direction} ${addClass}`}>
+            <div 
+                id={id} 
+                className={`${defaultClass} ${direction} ${animation ? 'zIndex' : ''} ${!animationDuration ? 'td0' : ''} ${addClass}`}
+            >
                 <div
                     ref={this.nodeSideBar}
                     className={sidebarClassNames}

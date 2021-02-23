@@ -3,6 +3,7 @@ import { Table, LoadOnScroll, LoadingBoxTop, MenuHoverX } from '../../react-revo
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { MenuHoverX } from 'react-revolution';
 // import MenuHoverX from 'react-revolution/MenuHoverX';
@@ -420,10 +421,12 @@ class _MenuHoverX extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

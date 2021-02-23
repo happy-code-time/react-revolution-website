@@ -1,13 +1,9 @@
 import React from 'react';
-
 import { Table, CardsScrollCallback, LoadOnScroll, LoadingBoxTop, uuid } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { CardsScrollCallback, LoadingBoxTop, uuid } from 'react-revolution';
 // import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
@@ -164,7 +160,7 @@ const codeExample3 = `import { CardsScrollCallback } from 'react-revolution';
         }
         persistReject={false}
     />
-</div>`; 
+</div>`;
 
 const codeExample4 = `import { CardsScrollCallback } from 'react-revolution';
 // import CardsScrollCallback from 'react-revolution/CardsScrollCallback';
@@ -223,7 +219,7 @@ const codeExample4 = `import { CardsScrollCallback } from 'react-revolution';
             )
         }
     />
-</div>`; 
+</div>`;
 
 const jsExample1 = `constructor(props) {
         super(props);
@@ -522,8 +518,7 @@ const cssExample4 = `.section-cards-scroll-callback {
     }
 }`;
 
-class _CardsScrollCallback extends React.Component 
-{
+class _CardsScrollCallback extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -645,7 +640,7 @@ class _CardsScrollCallback extends React.Component
                             loading={
                                 (
                                     <div className="cards-callback-loading">
-                                        <img src='./public/images/ajax-loader.gif'/>
+                                        <img src='./public/images/ajax-loader.gif' />
                                     </div>
                                 )
                             }
@@ -705,7 +700,7 @@ class _CardsScrollCallback extends React.Component
                             loading={
                                 (
                                     <div className="cards-callback-loading">
-                                        <img src='./public/images/ajax-loader.gif'/>
+                                        <img src='./public/images/ajax-loader.gif' />
                                     </div>
                                 )
                             }
@@ -765,7 +760,7 @@ class _CardsScrollCallback extends React.Component
                             loading={
                                 (
                                     <div className="cards-callback-loading">
-                                        <img src='./public/images/ajax-loader.gif'/>
+                                        <img src='./public/images/ajax-loader.gif' />
                                     </div>
                                 )
                             }
@@ -803,16 +798,16 @@ class _CardsScrollCallback extends React.Component
     async callbackResolve(event, customData) {
         const { count } = this.state;
 
-        if(4 <= count){
+        if (4 <= count) {
             return Promise.resolve('break');
         }
 
         this.setState({
-            count: this.state.count+1
+            count: this.state.count + 1
         });
 
-        if(3 == count){
-            return new Promise( resolve => {
+        if (3 == count) {
+            return new Promise(resolve => {
                 setTimeout(() => {
                     resolve(
                         [
@@ -864,31 +859,31 @@ class _CardsScrollCallback extends React.Component
         });
     }
 
-    callbackReject(event, customData){
-        return new Promise( (resolve, reject) => {
+    callbackReject(event, customData) {
+        return new Promise((resolve, reject) => {
             setTimeout(reject, 500);
         });
     }
 
-    callbackRejectMessage(event, customData){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => 
+    callbackRejectMessage(event, customData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() =>
                 reject(
                     <div className="callback-error">
                         Please scroll again to the bottom of this div to try to load more data.
                     </div>
-            ),500);
+                ), 500);
         });
     }
 
-    callbackRejectButton(event, customData){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => 
+    callbackRejectButton(event, customData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() =>
                 reject(
                     <div className="callback-error">
                         Please click the button to try to load more data.
                     </div>
-            ),500);
+                ), 500);
         });
     }
 
@@ -901,10 +896,12 @@ class _CardsScrollCallback extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

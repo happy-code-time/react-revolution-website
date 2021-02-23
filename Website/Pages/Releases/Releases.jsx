@@ -1,6 +1,6 @@
 import React from 'react';
 import trans from '../../Translations/trans';
-import { TimelineList } from '../../../react-revolution/react-revolution';
+import { Timeline } from '../../../react-revolution/react-revolution';
 
 class Releases extends React.Component {
     constructor(props) {
@@ -1924,6 +1924,219 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.2.0': {
+                    data: [
+                        {
+                            key: 'Boxes',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Carousel',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ImageBox',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ImageCarousel',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isArray',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isInViewport',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isObject',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Container - code',
+                            value: 'Code improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Container - key',
+                            value: 'Added new key: \n\nanimationDuration',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ListSwitch',
+                            value: 'Code improvement and removed the keys "resetSlides" and "resetData".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'PopupHover',
+                            value: 'Added outside click/ touch support.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Ribbon - code & style',
+                            value: 'Code and style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Ribbon - key',
+                            value: 'Added new key: \n\ntype',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'RibbonMultiple - code & style',
+                            value: 'Code and style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'RibbonMultiple - key',
+                            value: 'Added new key: \n\ntype',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Timeline',
+                            value: 'Component has been removed.',
+                            icon: <i className="fas fa-trash"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'TimelineList',
+                            value: '<TimelineList/> has been renamed to <Timeline/>. Timline root class name has been renamed from "rr-timeline-list" to "rr-timeline".',
+                            icon: <i className="fas fa-trash"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }
@@ -1994,7 +2207,7 @@ class Releases extends React.Component {
                                 `${trans('releaseNotes')} - ${version}`
                             }
                         </h1>
-                        <TimelineList
+                        <Timeline
                             timelineStart='🕛'
                             timelineEnd='🕣'
                             data={data}

@@ -7,7 +7,7 @@ import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { InputFile } from 'react-revolution';
 // import InputFile from 'react-revolution/InputFile';
@@ -84,8 +84,7 @@ callback(file, type) {
     console.info(file);
 }`;
 
-class _InputFile extends React.Component 
-{
+class _InputFile extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -210,8 +209,8 @@ class _InputFile extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
                 <GlobalMessages
                     messageKey='messagesApp'
@@ -232,7 +231,9 @@ class _InputFile extends React.Component
                         },
                     }}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

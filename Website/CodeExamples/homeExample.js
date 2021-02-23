@@ -28,7 +28,18 @@ const code3 = `import { Breadcrumbs } from 'react-revolution';
     domainName='Home' 
 />`;
 
-    const codes = [ code1, code2, code3, code3, code2, code1 ];
+const code4 = `import { ImageBox } from 'react-revolution';
+
+<ImageBox
+    image='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
+    data={
+        <p>
+            Main data
+        </p>
+    }
+/>`;
+
+    const codes = [ code1, code2, code3, code4 ];
     return codes[Math.floor(Math.random() * codes.length)];
     };
     

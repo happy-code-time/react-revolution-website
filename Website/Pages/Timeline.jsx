@@ -1,86 +1,317 @@
 import React from 'react';
-
-import { Table, Timeline, TextWriter, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
-import trans from '../Translations/trans';
-
+import { Table, LoadOnScroll, LoadingBoxTop, Timeline } from '../../react-revolution/react-revolution';
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
+import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
-
-const codeExample1 = `import { Timeline, TextWriter } from 'react-revolution';
+const codeExample1 = `import { Timeline } from 'react-revolution';
 // import Timeline from 'react-revolution/Timeline';
-// import TextWriter from 'react-revolution/TextWriter';
 
 <Timeline
-    lineMiddle={true}
-    lineEntry={true}
-    lineTitle={false}
-    mediaBreak={1024}
-    data={this.generateTimelinesData()}
-/>`;
-
-const codeExample2 = `import { Timeline, TextWriter } from 'react-revolution';
-// import Timeline from 'react-revolution/Timeline';
-// import TextWriter from 'react-revolution/TextWriter';
-
-<Timeline
-    lineMiddle={true}
-    lineTitle={true}
-    colorLineMiddle='dodgerblue'
-    colorLineEntry='dodgerblue'
-    mediaBreak={1024}
-    data={this.generateTimelinesData()}
-/>`;
-
-const codeExample3 = `import { Timeline, TextWriter } from 'react-revolution';
-// import Timeline from 'react-revolution/Timeline';
-// import TextWriter from 'react-revolution/TextWriter';
-
-<Timeline
-    lineMiddle={true}
-    borderStyle='dashed'
-    dashedSize='large'
-    mediaBreak={1024}
-    data={this.generateTimelinesData()}
-/>`;
-
-const jsCode = `generateTimelinesData(){
-    const generatedData = [];
-
-    const years = [
-        '2020', '2017', 
-        '2015', '2012', 
-        '2010', '2009'
-    ];
-
-    for(let x = 0; x < years.length; x++){
-        const modulo =  (0 == x % 2);
-
-        generatedData.push(
-            {
-                title: years[x],
-                align: modulo ? 'left' : 'right',
-                content: (
-                    <ul>
-                        <li>
-                            <TextWriter 
-                                text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr'
-                                speed={(5*(x+2))} 
-                            />
-                        </li>
-                    </ul>
-                )
-            }
-        );
+    timelineStart='🕛'
+    timelineEnd='🕣'
+    data={
+        {
+            'Profile': {
+                data: [
+                    {
+                        icon: '🌏',
+                        data: 'Location has been updated.',
+                        callback: console.info,
+                        callbackProps: 'Location has been updated.'
+                    },
+                    {
+                        icon: '🛡',
+                        data: 'Password request success.',
+                        callback: console.info,
+                        callbackProps: 'Password request success.'
+                    },
+                ]
+            },
+            'Messages': {
+                data: [
+                    {
+                        icon: '📨',
+                        data: '2 new messages.',
+                        callback: console.info,
+                        callbackProps: '2 new messages.'
+                    },
+                    {
+                        icon: '🌫',
+                        data: '1 new weather alert!',
+                        callback: console.info,
+                        callbackProps: '1 new weather alert!'
+                    },
+                ]
+            },
+            'Weather': {
+                data: [
+                    {
+                        icon: '🌥',
+                        data: '10:00 Light cloud',
+                        callback: console.info,
+                        callbackProps: '10:00 Light cloud'
+                    },
+                    {
+                        icon: '🌧',
+                        data: '12:00 Light rain',
+                        callback: console.info,
+                        callbackProps: '12:00 Light rain'
+                    },
+                    {
+                        icon: '🌧',
+                        data: '14:00 Strong rain',
+                        callback: console.info,
+                        callbackProps: '14:00 Strong rain'
+                    },
+                    {
+                        icon: '🌩',
+                        data: '16:00 Stormy',
+                        callback: console.info,
+                        callbackProps: '16:00 Stormy'
+                    },
+                    {
+                        icon: '🌪',
+                        data: '18:00 Storm Warning!',
+                        callback: console.info,
+                        callbackProps: '18:00 Storm Warning!'
+                    },
+                ]
+            },
+        }
     }
+/>`;
 
-    return generatedData;
-}`;
+const codeExample2 = `import { Timeline } from 'react-revolution';
+// import Timeline from 'react-revolution/Timeline';
 
-class _Timeline extends React.Component 
-{
+<Timeline
+    data={
+        {
+            'Profile': {
+                data: [
+                    {
+                        icon: '🌏',
+                        data: 'Location has been updated.',
+                        callback: console.info,
+                        callbackProps: 'Location has been updated.'
+                    },
+                    {
+                        icon: '🛡',
+                        data: 'Password request success.',
+                        callback: console.info,
+                        callbackProps: 'Password request success.'
+                    },
+                ]
+            },
+            'Messages': {
+                data: [
+                    {
+                        icon: '📨',
+                        data: '2 new messages.',
+                        callback: console.info,
+                        callbackProps: '2 new messages.'
+                    },
+                    {
+                        icon: '🌫',
+                        data: '1 new weather alert!',
+                        callback: console.info,
+                        callbackProps: '1 new weather alert!'
+                    },
+                ]
+            },
+            'Weather': {
+                data: [
+                    {
+                        icon: '🌥',
+                        data: '10:00 Light cloud',
+                        callback: console.info,
+                        callbackProps: '10:00 Light cloud'
+                    },
+                    {
+                        icon: '🌧',
+                        data: '12:00 Light rain',
+                        callback: console.info,
+                        callbackProps: '12:00 Light rain'
+                    },
+                    {
+                        icon: '🌧',
+                        data: '14:00 Strong rain',
+                        callback: console.info,
+                        callbackProps: '14:00 Strong rain'
+                    },
+                    {
+                        icon: '🌩',
+                        data: '16:00 Stormy',
+                        callback: console.info,
+                        callbackProps: '16:00 Stormy'
+                    },
+                    {
+                        icon: '🌪',
+                        data: '18:00 Storm Warning!',
+                        callback: console.info,
+                        callbackProps: '18:00 Storm Warning!'
+                    },
+                ]
+            },
+        }
+    }
+/>`;
+
+const codeExample3 = `import { Timeline } from 'react-revolution';
+// import Timeline from 'react-revolution/Timeline';
+
+<Timeline
+    data={
+        {
+            '01-01-2021': {
+                props: {
+                    className: 'adding custom classes',
+                    style:{
+                        background: 'rgb(244,69,89)',
+                        color: 'rgb(255,255,255)',
+                    } 
+                },
+                data: [
+                    {
+                        icon: '🌏',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style:{
+                                background: 'rgb(244,69,89)',
+                            } 
+                        },
+                        data: 'Location has been updated.',
+                        callback: console.info,
+                        callbackProps: 'Location has been updated.'
+                    },
+                    {
+                        icon: '🛡',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style:{
+                                background: 'rgb(244,69,89)',
+                            } 
+                        },
+                        data: 'Password request success.',
+                        callback: console.info,
+                        callbackProps: 'Password request success.'
+                    },
+                ]
+            },
+            '03-01-2021': {
+                props: {
+                    className: 'adding custom classes',
+                    style:{
+                        background: 'rgb(71,180,118)',
+                        color: 'rgb(255,255,255)'
+                    } 
+                },
+                data: [
+                    {
+                        icon: '📨',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style:{
+                                background: 'rgb(71,180,118)',
+                            } 
+                        },
+                        data: '2 new messages.',
+                        callback: console.info,
+                        callbackProps: '2 new messages.'
+                    },
+                    {
+                        icon: '🌫',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style:{
+                                background: 'rgb(71,180,118)',
+                            } 
+                        },
+                        data: '1 new weather alert!',
+                        callback: console.info,
+                        callbackProps: '1 new weather alert!'
+                    },
+                ]
+            },
+            '20-01-2021': {
+                props: {
+                    className: 'adding custom classes',
+                    style:{
+                        background: '#9E005D',
+                        color: 'rgb(255,255,255)'
+                    } 
+                },
+                data: [
+                    {
+                        icon: '🌥',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style: {
+                                background: '#9E005D',
+                            }
+                        },
+                        data: '10:00 Light cloud',
+                        callback: console.info,
+                        callbackProps: '10:00 Light cloud'
+                    },
+                    {
+                        icon: '🌧',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style: {
+                                background: '#9E005D',
+                            }
+                        },
+                        data: '12:00 Light rain',
+                        callback: console.info,
+                        callbackProps: '12:00 Light rain'
+                    },
+                    {
+                        icon: '🌧',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style: {
+                                background: '#9E005D',
+                            }
+                        },
+                        data: '14:00 Strong rain',
+                        callback: console.info,
+                        callbackProps: '14:00 Strong rain'
+                    },
+                    {
+                        icon: '🌩',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style: {
+                                background: '#9E005D',
+                            }
+                        },
+                        data: '16:00 Stormy',
+                        callback: console.info,
+                        callbackProps: '16:00 Stormy'
+                    },
+                    {
+                        icon: '🌪',
+                        iconProps: {
+                            className: 'adding custom classes',
+                            style: {
+                                background: '#9E005D',
+                            }
+                        },
+                        data: '18:00 Storm Warning!',
+                        callback: console.info,
+                        callbackProps: '18:00 Storm Warning!'
+                    },
+                ]
+            },
+        }
+    }
+/>`;
+
+class _Timeline extends React.Component {
+
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -89,99 +320,334 @@ class _Timeline extends React.Component
         this.examples = [
             {
                 title: 'Timeline',
-                description: '',
+                description: trans('timelineList.example1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
-                js: jsCode,
+                js: '',
                 css: '',
                 html: '',
                 live: (
                     <Timeline
-                        addClass='rr-timeline-example'
-                        lineMiddle={true}
-                        lineEntry={true}
-                        lineTitle={false}
-                        mediaBreak={1024}
-                        data={this.generateTimelinesData()}
+                        timelineStart='🕛'
+                        timelineEnd='🕣'
+                        data={
+                            {
+                                'Profile': {
+                                    data: [
+                                        {
+                                            icon: '🌏',
+                                            data: 'Location has been updated.',
+                                            callback: console.info,
+                                            callbackProps: 'Location has been updated.'
+                                        },
+                                        {
+                                            icon: '🛡',
+                                            data: 'Password request success.',
+                                            callback: console.info,
+                                            callbackProps: 'Password request success.'
+                                        },
+                                    ]
+                                },
+                                'Messages': {
+                                    data: [
+                                        {
+                                            icon: '📨',
+                                            data: '2 new messages.',
+                                            callback: console.info,
+                                            callbackProps: '2 new messages.'
+                                        },
+                                        {
+                                            icon: '🌫',
+                                            data: '1 new weather alert!',
+                                            callback: console.info,
+                                            callbackProps: '1 new weather alert!'
+                                        },
+                                    ]
+                                },
+                                'Weather': {
+                                    data: [
+                                        {
+                                            icon: '🌥',
+                                            data: '10:00 Light cloud',
+                                            callback: console.info,
+                                            callbackProps: '10:00 Light cloud'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            data: '12:00 Light rain',
+                                            callback: console.info,
+                                            callbackProps: '12:00 Light rain'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            data: '14:00 Strong rain',
+                                            callback: console.info,
+                                            callbackProps: '14:00 Strong rain'
+                                        },
+                                        {
+                                            icon: '🌩',
+                                            data: '16:00 Stormy',
+                                            callback: console.info,
+                                            callbackProps: '16:00 Stormy'
+                                        },
+                                        {
+                                            icon: '🌪',
+                                            data: '18:00 Storm Warning!',
+                                            callback: console.info,
+                                            callbackProps: '18:00 Storm Warning!'
+                                        },
+                                    ]
+                                },
+                            }
+                        }
                     />
                 )
             },
             {
                 title: 'Timeline',
-                description: '',
+                description: trans('timelineList.example2'),
                 reactTextBefore: '',
                 react: codeExample2,
                 reactTextAfter: '',
-                js: jsCode,
+                js: '',
                 css: '',
                 html: '',
                 live: (
                     <Timeline
-                        addClass='rr-timeline-example'
-                        lineMiddle={true}
-                        lineTitle={true}
-                        colorLineMiddle='dodgerblue'
-                        colorLineEntry='dodgerblue'
-                        mediaBreak={1024}
-                        data={this.generateTimelinesData()}
+                        data={
+                            {
+                                '01-01-2021': {
+                                    data: [
+                                        {
+                                            icon: '🌏',
+                                            data: 'Location has been updated.',
+                                            callback: console.info,
+                                            callbackProps: 'Location has been updated.'
+                                        },
+                                        {
+                                            icon: '🛡',
+                                            data: 'Password request success.',
+                                            callback: console.info,
+                                            callbackProps: 'Password request success.'
+                                        },
+                                    ]
+                                },
+                                '03-01-2021': {
+                                    data: [
+                                        {
+                                            icon: '📨',
+                                            data: '2 new messages.',
+                                            callback: console.info,
+                                            callbackProps: '2 new messages.'
+                                        },
+                                        {
+                                            icon: '🌫',
+                                            data: '1 new weather alert!',
+                                            callback: console.info,
+                                            callbackProps: '1 new weather alert!'
+                                        },
+                                    ]
+                                },
+                                '20-01-2021': {
+                                    data: [
+                                        {
+                                            icon: '🌥',
+                                            data: '10:00 Light cloud',
+                                            callback: console.info,
+                                            callbackProps: '10:00 Light cloud'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            data: '12:00 Light rain',
+                                            callback: console.info,
+                                            callbackProps: '12:00 Light rain'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            data: '14:00 Strong rain',
+                                            callback: console.info,
+                                            callbackProps: '14:00 Strong rain'
+                                        },
+                                        {
+                                            icon: '🌩',
+                                            data: '16:00 Stormy',
+                                            callback: console.info,
+                                            callbackProps: '16:00 Stormy'
+                                        },
+                                        {
+                                            icon: '🌪',
+                                            data: '18:00 Storm Warning!',
+                                            callback: console.info,
+                                            callbackProps: '18:00 Storm Warning!'
+                                        },
+                                    ]
+                                },
+                            }
+                        }
                     />
                 )
             },
             {
                 title: 'Timeline',
-                description: '',
+                description: trans('timelineList.example3'),
                 reactTextBefore: '',
                 react: codeExample3,
                 reactTextAfter: '',
-                js: jsCode,
+                js: '',
                 css: '',
                 html: '',
                 live: (
                     <Timeline
-                        addClass='rr-timeline-example'
-                        lineMiddle={true}
-                        borderStyle='dashed'
-                        dashedSize='large' // only for dashed borderStyle
-                        mediaBreak={1024}
-                        data={this.generateTimelinesData()}
+                        data={
+                            {
+                                '01-01-2021': {
+                                    props: {
+                                        className: 'adding custom classes',
+                                        style:{
+                                            background: 'rgb(244,69,89)',
+                                            color: 'rgb(255,255,255)',
+                                        } 
+                                    },
+                                    data: [
+                                        {
+                                            icon: '🌏',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style:{
+                                                    background: 'rgb(244,69,89)',
+                                                } 
+                                            },
+                                            data: 'Location has been updated.',
+                                            callback: console.info,
+                                            callbackProps: 'Location has been updated.'
+                                        },
+                                        {
+                                            icon: '🛡',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style:{
+                                                    background: 'rgb(244,69,89)',
+                                                } 
+                                            },
+                                            data: 'Password request success.',
+                                            callback: console.info,
+                                            callbackProps: 'Password request success.'
+                                        },
+                                    ]
+                                },
+                                '03-01-2021': {
+                                    props: {
+                                        className: 'adding custom classes',
+                                        style:{
+                                            background: 'rgb(71,180,118)',
+                                            color: 'rgb(255,255,255)'
+                                        } 
+                                    },
+                                    data: [
+                                        {
+                                            icon: '📨',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style:{
+                                                    background: 'rgb(71,180,118)',
+                                                } 
+                                            },
+                                            data: '2 new messages.',
+                                            callback: console.info,
+                                            callbackProps: '2 new messages.'
+                                        },
+                                        {
+                                            icon: '🌫',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style:{
+                                                    background: 'rgb(71,180,118)',
+                                                } 
+                                            },
+                                            data: '1 new weather alert!',
+                                            callback: console.info,
+                                            callbackProps: '1 new weather alert!'
+                                        },
+                                    ]
+                                },
+                                '20-01-2021': {
+                                    props: {
+                                        className: 'adding custom classes',
+                                        style:{
+                                            background: '#9E005D',
+                                            color: 'rgb(255,255,255)'
+                                        } 
+                                    },
+                                    data: [
+                                        {
+                                            icon: '🌥',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style: {
+                                                    background: '#9E005D',
+                                                }
+                                            },
+                                            data: '10:00 Light cloud',
+                                            callback: console.info,
+                                            callbackProps: '10:00 Light cloud'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style: {
+                                                    background: '#9E005D',
+                                                }
+                                            },
+                                            data: '12:00 Light rain',
+                                            callback: console.info,
+                                            callbackProps: '12:00 Light rain'
+                                        },
+                                        {
+                                            icon: '🌧',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style: {
+                                                    background: '#9E005D',
+                                                }
+                                            },
+                                            data: '14:00 Strong rain',
+                                            callback: console.info,
+                                            callbackProps: '14:00 Strong rain'
+                                        },
+                                        {
+                                            icon: '🌩',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style: {
+                                                    background: '#9E005D',
+                                                }
+                                            },
+                                            data: '16:00 Stormy',
+                                            callback: console.info,
+                                            callbackProps: '16:00 Stormy'
+                                        },
+                                        {
+                                            icon: '🌪',
+                                            iconProps: {
+                                                className: 'adding custom classes',
+                                                style: {
+                                                    background: '#9E005D',
+                                                }
+                                            },
+                                            data: '18:00 Storm Warning!',
+                                            callback: console.info,
+                                            callbackProps: '18:00 Storm Warning!'
+                                        },
+                                    ]
+                                },
+                            }
+                        }
                     />
                 )
-            }
+            },
         ];
-    }
-
-    generateTimelinesData(){
-        const generatedData = [];
-
-        const years = [
-            '2020', '2017', 
-            '2015', '2012', 
-            '2010', '2009'
-        ];
-
-        for(let x = 0; x < years.length; x++){
-            const modulo =  (0 == x % 2);
-
-            generatedData.push(
-                {
-                    title: years[x],
-                    align: modulo ? 'left' : 'right',
-                    content: (
-                        <ul>
-                            <li>
-                                <TextWriter 
-                                    text='Lorem ipsum dolor sit amet, consetetur sadipscing elitr'
-                                    speed={(5*(x+2))} 
-                                />
-                            </li>
-                        </ul>
-                    )
-                }
-            );
-        }
-
-        return generatedData;
     }
 
     loadOnScrollCallback() {
@@ -205,11 +671,13 @@ class _Timeline extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
-                    {
+                <StyleImplementation />
+                <h1 className="title-border">
+                     <i className="fab fa-keycdn"></i>                    
+                     {
                         trans('keyUsageTitle')
                     }
                 </h1>
@@ -242,56 +710,52 @@ class _Timeline extends React.Component
                                     values: 'addClass'
                                 },
                                 {
-                                    key: 'mediaBreak',
-                                    values: 'mediaBreak'
-                                },
-                                {
-                                    key: 'lineMiddle',
-                                    values: 'timeline.lineMiddle'
-                                },
-                                {
-                                    key: 'lineTitle',
-                                    values: 'timeline.lineTitle'
-                                },
-                                {
-                                    key: 'lineEntry',
-                                    values: 'timeline.lineEntry'
-                                },
-                                {
-                                    key: 'colorLineMiddle',
-                                    values: 'timeline.colorLineMiddle'
-                                },
-                                {
-                                    key: 'colorLineEntry',
-                                    values: 'timeline.colorLineEntry'
-                                },
-                                {
-                                    key: 'colorBorderEntry',
-                                    values: 'timeline.colorBorderEntry'
-                                },
-                                {
-                                    key: 'borderStyle',
-                                    values: 'timeline.borderStyle'
-                                },
-                                {
-                                    key: 'dashedSize',
-                                    values: 'timeline.dashedSize'
+                                    key: 'direction',
+                                    values: 'timelineList.direction'
                                 },
                                 {
                                     key: 'data',
-                                    values: 'timeline.data'
+                                    values: 'timelineList.data'
                                 },
                                 {
-                                    key: 'data.title',
-                                    values: 'timeline.data.title'
+                                    key: 'data.props',
+                                    values: 'timelineList.data.props'
                                 },
                                 {
-                                    key: 'data.align',
-                                    values: 'timeline.data.align'
+                                    key: 'data.data',
+                                    values: 'timelineList.data.data'
                                 },
                                 {
-                                    key: 'data.content',
-                                    values: 'timeline.data.content'
+                                    key: 'data.data.icon',
+                                    values: 'timelineList.data.icon'
+                                },
+                                {
+                                    key: 'data.data.iconProps',
+                                    values: 'timelineList.data.iconProps'
+                                },
+                                {
+                                    key: 'data.data.callback',
+                                    values: 'timelineList.data.callback'
+                                },
+                                {
+                                    key: 'data.data.callbackProps',
+                                    values: 'timelineList.data.callbackProps'
+                                },
+                                {
+                                    key: 'data.data.data',
+                                    values: 'timelineList.data.data'
+                                },
+                                {
+                                    key: 'data.data.dataProps',
+                                    values: 'timelineList.data.dataProps'
+                                },
+                                {
+                                    key: 'timelineStart',
+                                    values: 'timelineList.timelineStart'
+                                },
+                                {
+                                    key: 'timelineEnd',
+                                    values: 'timelineList.timelineEnd'
                                 },
                             ],
                             'rr-timeline'
@@ -304,3 +768,5 @@ class _Timeline extends React.Component
 };
 
 export default _Timeline;
+
+

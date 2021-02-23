@@ -33,6 +33,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/cards-scroll-callback'
         },
         {
+            name: 'Carousel',
+            link: 'components/carousel'
+        },
+        {
             name: 'Clipboard',
             link: 'components/clipboard'
         },
@@ -47,6 +51,14 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'Container',
             link: 'components/container'
+        },
+        {
+            name: 'ContainerSidebar',
+            link: 'components/container-sidebar'
+        },
+        {
+            name: 'ContainerPopup',
+            link: 'components/container-popup'
         },
         {
             name: 'CustomSuggestion',
@@ -83,6 +95,14 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'Icons',
             link: 'components/icons'
+        },
+        {
+            name: 'ImageBox',
+            link: 'components/image-box'
+        },
+        {
+            name: 'ImageCarousel',
+            link: 'components/image-carousel'
         },
         {
             name: 'InputAnimation',
@@ -253,10 +273,6 @@ const getAllAvailableModulesNames = () => {
             link: 'components/timeline'
         },
         {
-            name: 'TimelineList',
-            link: 'components/timeline-list'
-        },
-        {
             name: 'Water404',
             link: 'components/water-404'
         },
@@ -279,6 +295,18 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'uuid (function)',
             link: 'functions/uuid'
+        },
+        {
+            name: 'isArray (function)',
+            link: 'functions/isArray'
+        },
+        {
+            name: 'isInViewport (function)',
+            link: 'functions/isInViewport'
+        },
+        {
+            name: 'isObject (function)',
+            link: 'functions/isObject'
         },
     ];
 };

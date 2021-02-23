@@ -3,6 +3,7 @@ import { Accordion, Table, LoadOnScroll, LoadingBoxTop } from '../../react-revol
 import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { Accordion } from 'react-revolution';
 // import Accordion from 'react-revolution/Accordion';
@@ -473,10 +474,12 @@ class _Accordion extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)}
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

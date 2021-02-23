@@ -9,7 +9,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import { host } from '../Globals';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { SideBar, Menu } from 'react-revolution';
 // import SideBar from 'react-revolution/SideBar';
@@ -77,8 +77,7 @@ const cssExample = `.rr-revolution-sidebar-example{
     }
 }`;
 
-class _Sidebar extends React.Component 
-{
+class _Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -174,10 +173,12 @@ class _Sidebar extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

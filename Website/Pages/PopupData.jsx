@@ -3,6 +3,7 @@ import { Table, Slider, PopupData, LoadOnScroll, LoadingBoxTop } from '../../rea
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { PopupData } from 'react-revolution';
 // import PopupData from 'react-revolution/PopupData';
@@ -53,16 +54,16 @@ const codeExample1a = `import { PopupData, Slider } from 'react-revolution';
                     data={
                         [
                             {
-                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                             },
                             {
-                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                             },
                             {
-                                image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                             },
                             {
-                                image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                             },
                         ]
                     }
@@ -395,16 +396,16 @@ class _PopupData extends React.Component {
                                         data={
                                             [
                                                 {
-                                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                                 },
                                                 {
-                                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                                 },
                                                 {
-                                                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                                 },
                                                 {
-                                                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                                 },
                                             ]
                                         }
@@ -771,7 +772,9 @@ class _PopupData extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

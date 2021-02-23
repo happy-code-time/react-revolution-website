@@ -8,7 +8,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import toggleZindex from '../Functions/toggleZindex';
 
-
+import StyleImplementation from '../Modules/StyleImplementation';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample = `import { FullScreenOverlay } from 'react-revolution';
@@ -99,7 +99,8 @@ class _FullScreenOverlay extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     FullScreenOverlay
                 </h1>
                 {/* 
@@ -228,7 +229,9 @@ class _FullScreenOverlay extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

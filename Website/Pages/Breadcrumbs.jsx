@@ -1,14 +1,10 @@
 import React from 'react';
-
 import { Table, Breadcrumbs, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
 import { host } from '../Globals';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 
 const codeExample1 = `import { Breadcrumbs } from 'react-revolution';
@@ -121,8 +117,7 @@ const cssExample = `.rr-breadcrumbs-example{
     }
 }`;
 
-class _Breadcrumbs extends React.Component 
-{
+class _Breadcrumbs extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -140,7 +135,7 @@ class _Breadcrumbs extends React.Component
                 html: '',
                 live: (
                     <div className="rr-breadcrumbs-example">
-                        <Breadcrumbs 
+                        <Breadcrumbs
                             removeHashFromDomain={true}
                             hashRouter={true}
                         />
@@ -236,10 +231,12 @@ class _Breadcrumbs extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

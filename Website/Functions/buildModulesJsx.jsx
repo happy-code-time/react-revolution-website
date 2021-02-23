@@ -13,7 +13,8 @@ const buildModulesJsx = (object = {}, count = 1) => {
         <div className="code-example">
             {
                 title &&
-                <h1 className="h1-title border-none">
+                <h1 className="title-border">
+                    <i className="far fa-file-code"></i>
                     {
                         title
                     }

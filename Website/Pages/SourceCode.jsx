@@ -7,7 +7,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { SourceCode } from 'react-revolution';
 // import SourceCode from 'react-revolution/SourceCode';
@@ -175,8 +175,7 @@ const cssExample = `.rr-sourcecode{
     }
 }`;
 
-class _SourceCode extends React.Component 
-{
+class _SourceCode extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -310,10 +309,12 @@ class _SourceCode extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

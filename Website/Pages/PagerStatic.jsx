@@ -8,7 +8,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-
+import StyleImplementation from '../Modules/StyleImplementation';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { PagerStatic } from 'react-revolution';
@@ -538,8 +538,8 @@ class _PagerStatic extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
                 <h1
                     title={`${trans('exampleTitle')} 2`}
@@ -964,7 +964,9 @@ class _PagerStatic extends React.Component {
                         )
                     )
                 }
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

@@ -3,6 +3,7 @@ import { Table, ArticlesImages, LoadOnScroll, LoadingBoxTop } from '../../react-
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { ArticlesImages } from 'react-revolution';
 // import ArticlesImages from 'react-revolution/ArticlesImages';
@@ -143,10 +144,9 @@ const jsCode = `const generateRandomArcticles = (count = 4, border = false) => {
     };
 
     const images = [
-        'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-        'https://cdn.pixabay.com/photo/2015/09/09/16/05/forest-931706_960_720.jpg',
-        'https://cdn.pixabay.com/photo/2015/07/27/19/47/turtle-863336_960_720.jpg',
-        'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg'
+        'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+        'public/images/hello-i-m-nik-n1ccr-zVG68-unsplash.jpg',
+        'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg'
     ];
 
     for(let x = 0; x < count; x++){
@@ -183,17 +183,16 @@ const jsCode = `const generateRandomArcticles = (count = 4, border = false) => {
     return articles;
 };`;
 
-class _ArticlesImages extends React.Component 
-{
+class _ArticlesImages extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
         this.countCallbacks = 0;
 
         const generateRandomArcticles = (count = 2, border = false) => {
-            
+
             const articles = [];
-            
+
             const borderStyle = {
                 site: 'bottom',
                 width: 5,
@@ -201,11 +200,12 @@ class _ArticlesImages extends React.Component
             };
 
             const images = [
-                'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
-                'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg'
+                'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+                'public/images/hello-i-m-nik-n1ccr-zVG68-unsplash.jpg',
+                'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg'
             ];
 
-            for(let x = 0; x < count; x++){
+            for (let x = 0; x < count; x++) {
                 articles.push(
                     {
                         border: border ? borderStyle : undefined,
@@ -218,17 +218,17 @@ class _ArticlesImages extends React.Component
                         `,
                         dataToggle: (
                             <span>
-                                Lorem ipsum dolor sit amet, 
-                                consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor 
-                                invidunt ut labore et dolore 
-                                magna aliquyam erat, 
+                                Lorem ipsum dolor sit amet,
+                                consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore
+                                magna aliquyam erat,
                                 sed diam voluptua.
-                                Lorem ipsum dolor sit amet, 
-                                consetetur sadipscing elitr, 
-                                sed diam nonumy eirmod tempor 
-                                invidunt ut labore et dolore 
-                                magna aliquyam erat, 
+                                Lorem ipsum dolor sit amet,
+                                consetetur sadipscing elitr,
+                                sed diam nonumy eirmod tempor
+                                invidunt ut labore et dolore
+                                magna aliquyam erat,
                                 sed diam voluptua.
                             </span>
                         )
@@ -381,10 +381,12 @@ class _ArticlesImages extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

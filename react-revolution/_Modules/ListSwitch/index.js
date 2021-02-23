@@ -43,8 +43,6 @@ class ListSwitch extends React.Component {
             callback: props.callback && typeof function () { } == typeof props.callback ? props.callback : undefined,
             callbackProps: props.callbackProps ? props.callbackProps : undefined,
             holderLoading: props.holderLoading ? props.holderLoading : '',
-            resetSlides: (typeof true == typeof props.resetSlides) ? props.resetSlides : false,
-            resetData: (typeof true == typeof props.resetData) ? props.resetData : false,
             direction: props.direction && typeof '8' == typeof props.direction && ['right', 'left'].includes(props.direction) ? props.direction : 'left',
         };
     }
@@ -56,7 +54,7 @@ class ListSwitch extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'id', 'resetSlides', 'resetData', 'holderLoading', 'direction', 'callback', 'callbackProps', 'animation', 'animationTimeout', 'closeAfterCallback', 'arrowNextClick', 'defaultClass', 'placeholder', 'data', 'closeOnEsc', 'closeOnOutsideClick', 'previous', 'next', 'title'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'id', 'holderLoading', 'direction', 'callback', 'callbackProps', 'animation', 'animationTimeout', 'closeAfterCallback', 'arrowNextClick', 'defaultClass', 'placeholder', 'data', 'closeOnEsc', 'closeOnOutsideClick', 'previous', 'next', 'title'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
@@ -75,8 +73,6 @@ class ListSwitch extends React.Component {
                 callback: props.callback && typeof function () { } == typeof props.callback ? props.callback : undefined,
                 callbackProps: props.callbackProps ? props.callbackProps : undefined,
                 holderLoading: props.holderLoading ? props.holderLoading : '',
-                resetSlides: (typeof true == typeof props.resetSlides) ? props.resetSlides : false,
-                resetData: (typeof true == typeof props.resetData) ? props.resetData : false,
                 direction: props.direction && typeof '8' == typeof props.direction && ['right', 'left'].includes(props.direction) ? props.direction : 'left',
             };
         }
@@ -141,35 +137,41 @@ class ListSwitch extends React.Component {
     }
 
     hideContext() {
-        if (false == !this.state.display) {
-
-            if (this.state.resetData) {
-                return this.setState({
-                    display: false,
-                    step: 0,
-                    currentData: '',
-                    oldData: '',
-                    data: []
-                });
-            }
-
-            return this.setState({
-                display: false,
-                step: this.state.resetSlides ? 0 : this.state.step,
-                currentData: this.state.resetSlides ? this.generateData(this.state.data) : this.state.currentData,
-                oldData: this.state.resetSlides ? '' : this.state.oldData,
-            });
-        }
+        this.setState({
+            display: false,
+            step: 0,
+            currentData: ''
+        });
     }
 
     toggle() {
 
-        if (this.state.data.length) {
+        /**
+         * Hide
+         */
+        if(false === !this.state.display){
+            return this.hideContext();
+        }
+        
+        /**
+         * Data loaded or data from callback setted
+         */
+        let { data } = this.state;
+
+        if (data.length) {
+            data = this.generateStructure(data);
+
             return this.setState({
-                display: !this.state.display,
+                data,
+                step: 0,
+                display: true,
+                currentData: this.generateData(data),
             });
         }
 
+        /**
+         * Get data from callback
+         */
         if (this.state.callback) {
             this.setState({
                 loading: true,

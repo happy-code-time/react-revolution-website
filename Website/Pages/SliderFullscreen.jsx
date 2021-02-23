@@ -3,6 +3,7 @@ import { SliderFullscreen, Table, SourceCode, Clipboard } from '../../react-revo
 import trans from '../Translations/trans'
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import generateArticles from '../Globals/generateArticles';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample = `import { SliderFullscreen } from 'react-revolution';
 // import SliderFullscreen from 'react-revolution/SliderFullscreen';
@@ -63,10 +64,10 @@ render(){
                             image: 'public/images/chania.jpg',
                         },
                         {
-                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                         },
                         {
-                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                         },
                         {
                             image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
@@ -75,10 +76,10 @@ render(){
                             image: 'public/images/chania.jpg',
                         },
                         {
-                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                         },
                         {
-                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                         },
                     ]
                 }
@@ -123,7 +124,8 @@ class _SliderFullscreen extends React.Component {
     render() {
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     Modal
                 </h1>
                 <p className='description'>
@@ -186,10 +188,10 @@ class _SliderFullscreen extends React.Component {
                                             image: 'public/images/chania.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         },
                                         {
                                             image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
@@ -198,10 +200,10 @@ class _SliderFullscreen extends React.Component {
                                             image: 'public/images/chania.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         },
                                     ]
                                 }
@@ -272,7 +274,9 @@ class _SliderFullscreen extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }
@@ -400,7 +404,7 @@ class _SliderFullscreen extends React.Component {
                                 {
                                     key: 'closeOnEsc',
                                     values: 'fss.fsCloseOnEsc'
-                                },  
+                                },
                                 {
                                     key: 'onSlideTime',
                                     values: 'slider.onSlideTime'

@@ -7,7 +7,7 @@ import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import toggleZindex from '../Functions/toggleZindex';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -115,7 +115,8 @@ class _FullScreenListObject extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     FullScreenListObject
                 </h1>
                 <div className="code-example mt-4">
@@ -227,7 +228,9 @@ class _FullScreenListObject extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

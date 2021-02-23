@@ -6,6 +6,7 @@ import Center from './Center';
 class PopupHover extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
 
         this.state = {
             // App
@@ -48,6 +49,23 @@ class PopupHover extends React.Component {
         }
 
         return null;
+    }
+
+    componentDidMount() {
+        window.addEventListener('click', this.handleClick);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this.handleClick);
+    }
+
+    handleClick(e) {
+        /**
+         * Hide opened hidden sidebar on location change
+         */
+        if (this.refNode && !this.refNode.contains(e.target) && true === this.state.displayMenu) {
+            this.setState({ displayMenu: false });
+        }
     }
 
     getDots() {

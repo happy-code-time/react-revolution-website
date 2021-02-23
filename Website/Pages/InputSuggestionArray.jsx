@@ -5,7 +5,7 @@ import { Table, InputSuggestionArray, SourceCode, Clipboard } from '../../react-
 import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -131,8 +131,7 @@ callbackSelectionLoading(data) {
     console.info("Could redirect user now");
 }`;
 
-class _InputSuggestionArray extends React.Component 
-{
+class _InputSuggestionArray extends React.Component {
     constructor(props) {
         super(props);
         this.setInputValue = this.setInputValue.bind(this);
@@ -188,9 +187,9 @@ class _InputSuggestionArray extends React.Component
 
     staticEmails() {
         return [
-            'viktor.klar@pl', 
-            'david.janitzek@com', 
-            'max.schreiner@de', 
+            'viktor.klar@pl',
+            'david.janitzek@com',
+            'max.schreiner@de',
             'alice.janitzek@com',
         ];
     }
@@ -215,7 +214,8 @@ class _InputSuggestionArray extends React.Component
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     InputSuggestionArray
                 </h1>
                 <p className='description'>
@@ -303,7 +303,8 @@ class _InputSuggestionArray extends React.Component
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     InputSuggestionArray
                 </h1>
                 <p className='description'>
@@ -394,7 +395,9 @@ class _InputSuggestionArray extends React.Component
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

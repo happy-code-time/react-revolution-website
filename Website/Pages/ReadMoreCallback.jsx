@@ -8,7 +8,7 @@ import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
@@ -319,8 +319,7 @@ const cssExample = `.rr-read-more-example{
 
 let errorCount = 0;
 
-class _ReadMoreCallback extends React.Component 
-{
+class _ReadMoreCallback extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -360,7 +359,7 @@ class _ReadMoreCallback extends React.Component
                         callbackProps={'my custom data'}
                         loading={
                             (
-                                <img src='./public/images/ajax-loader.gif'/>
+                                <img src='./public/images/ajax-loader.gif' />
                             )
                         }
                     />
@@ -406,7 +405,7 @@ class _ReadMoreCallback extends React.Component
                         callbackProps={'my custom data'}
                         loading={
                             (
-                                <img src='./public/images/ajax-loader.gif'/>
+                                <img src='./public/images/ajax-loader.gif' />
                             )
                         }
                     />
@@ -460,7 +459,7 @@ class _ReadMoreCallback extends React.Component
                         callbackProps={'my custom data'}
                         loading={
                             (
-                                <img src='./public/images/ajax-loader.gif'/>
+                                <img src='./public/images/ajax-loader.gif' />
                             )
                         }
                     />
@@ -514,7 +513,7 @@ class _ReadMoreCallback extends React.Component
                         callbackProps={'my custom data'}
                         loading={
                             (
-                                <img src='./public/images/ajax-loader.gif'/>
+                                <img src='./public/images/ajax-loader.gif' />
                             )
                         }
                     />
@@ -568,7 +567,7 @@ class _ReadMoreCallback extends React.Component
                         callbackProps={'my custom data'}
                         loading={
                             (
-                                <img src='./public/images/ajax-loader.gif'/>
+                                <img src='./public/images/ajax-loader.gif' />
                             )
                         }
                     />
@@ -577,10 +576,10 @@ class _ReadMoreCallback extends React.Component
         ];
     }
 
-    callbackResolve(clickEvent, customData){
-        return new Promise( (resolve, reject) => {
+    callbackResolve(clickEvent, customData) {
+        return new Promise((resolve, reject) => {
 
-            setTimeout( () => {
+            setTimeout(() => {
                 resolve(
                     `
                     Lorem ipsum dolor sit amet, 
@@ -593,10 +592,10 @@ class _ReadMoreCallback extends React.Component
             }, 2000);
         });
     }
-    
-    callbackReject(clickEvent, customData){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => {
+
+    callbackReject(clickEvent, customData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
                 reject(
                     <div className='error'>
                         ERROR
@@ -606,22 +605,22 @@ class _ReadMoreCallback extends React.Component
         });
     }
 
-    callbackRejectUndefined(clickEvent, customData){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => {
+    callbackRejectUndefined(clickEvent, customData) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
                 reject();
             }, 2000);
         });
     }
 
-    callbackMixed(clickEvent, customData){
+    callbackMixed(clickEvent, customData) {
         errorCount += 1;
 
-        return new Promise( (resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
-            setTimeout( () => {
+            setTimeout(() => {
 
-                if(1 === errorCount){
+                if (1 === errorCount) {
                     reject(
                         <div className='error'>
                             ERROR
@@ -629,11 +628,11 @@ class _ReadMoreCallback extends React.Component
                     );
                 }
 
-                if(2 === errorCount){
+                if (2 === errorCount) {
                     reject();
                 }
 
-                if(3 === errorCount){
+                if (3 === errorCount) {
                     resolve(
                         `
                         Lorem ipsum dolor sit amet, 
@@ -670,10 +669,12 @@ class _ReadMoreCallback extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

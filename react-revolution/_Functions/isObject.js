@@ -1,11 +1,7 @@
 const isObject = (object) => {
     let isObject = true;
-
-    if(!object){
-        isObject = false;
-    }
     
-    if(typeof {} !== typeof object){
+    if(typeof {} !== typeof object || !object){
         isObject = false;
     }
 

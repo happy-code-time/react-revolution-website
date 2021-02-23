@@ -35,6 +35,19 @@
     }
   }
 
+  .change-theme-holder{
+    margin: 5px 10px;
+  }
+  .change-theme{
+    box-sizing: border-box;
+    padding: 10px;
+    color: rgb(172, 172, 172);
+  }
+
+  .change-theme:hover{
+    cursor: pointer;
+  }
+
   .FullScreenLoading{
     position: fixed;
     z-index: 100;
@@ -56,13 +69,14 @@
     }
   }
 
-  .rr-container{
+  .rr-container-sidebar{
     overflow: unset;
 
     .data-header{
-      background-color: #1873cc;
+      background-color: $dodgerblue;
       border-bottom: none;
       z-index: 3;
+      box-shadow: 0px 0px 3px rgba(212, 212, 212, 0.8);
     }
 
     .data-header:hover{
@@ -70,27 +84,27 @@
     }
   }
   
-  .rr-container.right{
+  .rr-container-sidebar.right{
     .component-search{
       margin: 5px;
       margin-left: 0px;
     }
   }
-  .rr-container.right .Content .data-header .minify-menu{
+  .rr-container-sidebar.right .Content .data-header .minify-menu{
     float: right;
   }
 
-  .rr-container.right .SideBar{
+  .rr-container-sidebar.right .SideBar{
     right: 0;
     overflow: hidden;
   }
 
-  .rr-container.right .SideBar-hidden.opened{
+  .rr-container-sidebar.right .SideBar-hidden.opened{
     right: 0;
     overflow: hidden;
   }
 
-  .rr-container.right .SideBar-hidden.closed{
+  .rr-container-sidebar.right .SideBar-hidden.closed{
     right: -300px;
     overflow: hidden;
   }
@@ -103,6 +117,7 @@
     height: 40px;
     border-radius: 10px;
     background-color: rgb(29, 29, 29);
+    right: 10px;
 
     i {
       display: block;
@@ -116,12 +131,12 @@
     }
   }
 
-  .rr-container.left .ScrollTop {
+  .rr-container-sidebar.left .ScrollTop {
     right: 20px;
     left: auto;
   }
 
-  .rr-container.right .ScrollTop {
+  .rr-container-sidebar.right .ScrollTop {
     left: 20px;
     right: auto;
   }
@@ -296,7 +311,7 @@
   .SideBar {
     transition-duration: $default-transition;
     background-color: $white;
-    z-index: 5;
+    z-index: 2;
 
     .rr-menu-height {
       height: calc(100% - 70px);
@@ -547,12 +562,13 @@
   border-radius: 5px;
   background-color: rgba(245, 245, 245, 0.4);
   margin-bottom: 20px;
+  position: relative;
 }
 
 .rr-articles-production {
   .single-entry {
     min-height: 30px;
-    margin: 10px 0;
+    margin: 10px 0 !important;
 
     .rr-clipboard {
       margin: 0 10px;

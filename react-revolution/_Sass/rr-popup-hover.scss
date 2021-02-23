@@ -3,7 +3,9 @@
 // Left site as default
 .rr-popup-hover{
     display: inline-block;
-
+    box-sizing: border-box;
+    padding: 5px 10px;
+    
     // menu outside - does not contain the holder
     .menu-outside-active{
         position: relative;

@@ -9,7 +9,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import { host } from '../Globals';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -356,29 +356,29 @@ class _CustomSuggestion extends React.Component {
         });
     }
 
-    getStaticData(){
+    getStaticData() {
         const suggestions = [];
 
-        for(let x = 0; x <= 4; x++){
+        for (let x = 0; x <= 4; x++) {
             suggestions.push(
                 {
                     href: `${host}#/components/custom-suggestion`,
                     jsx: (
                         <p>
-                            {`Suggestion ${x+1}`} 
+                            {`Suggestion ${x + 1}`}
                         </p>
                     ),
-                    onClickValue: `Suggestion ${x+1}`
+                    onClickValue: `Suggestion ${x + 1}`
                 }
             );
         }
 
-        return suggestions; 
+        return suggestions;
     }
 
-    searchStateLoading(inputValue){
-        return new Promise( (resolve, reject) => {
-            setTimeout( () => {
+    searchStateLoading(inputValue) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
                 resolve(this.getStaticData());
             }, 2000);
         });
@@ -388,7 +388,8 @@ class _CustomSuggestion extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     CustomSuggestion
                 </h1>
                 <LoadOnScroll
@@ -397,10 +398,11 @@ class _CustomSuggestion extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     CustomSuggestion
                 </h1>
                 <p className='description'>
@@ -488,7 +490,8 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     CustomSuggestion
                 </h1>
                 <p className='description'>
@@ -579,7 +582,9 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

@@ -57,13 +57,18 @@ import { Breadcrumbs } from 'react-revolution';
     Articles
     ArticlesImages
     Astronaut404
+    Boxes
     Breadcrumbs
     Cards
     CardsScroll
     CardsScrollCallback
+    Carousel
+    Clipboard
     Clouds404
     CloudsMountains404
     Container
+    ContainerPopup
+    ContainerSidebar
     CustomSuggestion
     DarkLines404
     DragDropArea
@@ -73,6 +78,8 @@ import { Breadcrumbs } from 'react-revolution';
     FullScreenOverlay
     GlobalMessages
     Icons
+    ImageBox
+    ImageCarousel
     InputAnimation
     InputFile
     InputFileDragDrop
@@ -115,7 +122,6 @@ import { Breadcrumbs } from 'react-revolution';
     Table
     TextWriter
     Timeline
-    TimelineList
     Water404
 
 ### Available functions
@@ -123,6 +129,8 @@ import { Breadcrumbs } from 'react-revolution';
     addGlobalMessage
     disableHtmlScroll
     enableHtmlScroll
+    isArray
+    isInViewport
     isObject
     scrollTopListener
     urlExtract

@@ -6,7 +6,7 @@ import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
-
+import StyleImplementation from '../Modules/StyleImplementation';
 import generateArticles from '../Globals/generateArticles';
 
 const codeExample1 = `import { GlobalMessages, addGlobalMessage, uuid } from 'react-revolution';
@@ -100,7 +100,8 @@ class _GlobalMessages extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>             
                     GlobalMessages
                 </h1>
                 <p className='description'>
@@ -209,7 +210,8 @@ class _GlobalMessages extends React.Component {
                     }
                 </div>
                 <div className="code-example">
-                    <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                         GlobalMessages
                     </h1>
                     <p className='description'>
@@ -316,7 +318,9 @@ class _GlobalMessages extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

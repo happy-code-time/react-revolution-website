@@ -1,185 +1,159 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Steps } from './react-revolution/react-revolution';
+import { Ribbon, RibbonMultiple } from './react-revolution/react-revolution';
+// import './react-revolution/_Sass/react-revolution.scss';
 import './react-revolution/_Sass/react-revolution.scss';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.liveGeneration_username = this.liveGeneration_username.bind(this);
-        this.liveGeneration_password = this.liveGeneration_password.bind(this);
-        this.liveGeneration_email = this.liveGeneration_email.bind(this);
-        this.liveGeneration_checkStep = this.liveGeneration_checkStep.bind(this);
-        this.liveGeneration_submit = this.liveGeneration_submit.bind(this);
-        this.liveGeneration_setValue = this.liveGeneration_setValue.bind(this);
-    
+
         this.state = {
-            username3: '',
-            password3: '',
-            email3: ''
         };
     }
-    
-    liveGeneration_setValue(type, v) {
-        this.setState({
-            [type]: v
-        });
-    }
-    
-    liveGeneration_checkStep(type) {
-        return new Promise((resolve, reject) => {
-    
-            if (typeof [] == typeof type) {
-    
-                for (let x = 0; x <= type.length - 1; x++) {
-                    if (!this.state[type[x]]) {
-                        resolve(false);
-                        break;
+
+    getJsx() {
+        return (
+            <div
+                style={
+                    {
+                        borderRadius: '5px',
+                        boxShadow: '0px 0px 9px rgb(233,233,233)',
+                        overflow: 'hidden'
                     }
                 }
-    
-                return resolve(true);
-            }
-            else {
-                if (!this.state[type]) {
-                    return resolve(false);
-                }
-                else {
-                    return resolve(true);
-                }
-            }
-        });
-    }
-    
-    liveGeneration_getErrorText(onErrorProps) {
-        return new Promise((resolve, reject) => {
-            resolve(onErrorProps);
-        });
-    }
-    
-    liveGeneration_submit() {
-        confirm('Well done!');
-    }
-    
-    liveGeneration_username() {
-        return new Promise( async (resolve, reject) => {
-
-            const x = () => {
-                return new Promise( r => {
-                    setTimeout( () => {
-                        r('a')
-                    }, 500);
-                })
-            }
-            const a = await x();
-
-            resolve(
-                <div style={{ margin: '0 auto', width: '300px' }}>
-                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>
+            >
+                <img
+                    src='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
+                    style={
                         {
-                            a
+                            width: '100%',
+                            height: '50%',
                         }
-                    </h1>
-                    <input
-                        type="text"
-                        style={{ width: '100%' }}
-                        onChange={(e) => this.liveGeneration_setValue('username3', e.target.value)}
-                        value={this.state.username3}
-                    />
-                </div>
-            );
-        });
-    }
-    
-    liveGeneration_password() {
-        return new Promise((resolve, reject) => {
-            resolve(
-                <div style={{ margin: '0 auto', width: '300px' }}>
-                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Password</h1>
-                    <input
-                        type="password"
-                        style={{ width: '100%' }}
-                        onChange={(e) => this.liveGeneration_setValue('password3', e.target.value)}
-                        value={this.state.password3}
-                    />
-                </div>
-            );
-        });
-    }
-    
-    liveGeneration_email() {
-        return new Promise((resolve, reject) => {
-            resolve(
-                <div style={{ margin: '0 auto', width: '300px' }}>
-                    <h1 style={{ textAlign: 'center', margin: '20px 0' }}>a</h1>
-                    <input
-                        type="email"
-                        style={{ width: '100%' }}
-                        onChange={(e) => this.liveGeneration_setValue('email3', e.target.value)}
-                        value={this.state.email3}
-                    />
-                </div>
-            );
-        });
+                    }
+                />
+                <p
+                    style={
+                        {
+                            boxSizing: 'border-box',
+                            padding: '10px'
+                        }
+                    }
+                >
+                    Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore
+                    magna aliquyam erat,
+                    sed diam voluptua.
+                    At vero eos et accusam et
+                    justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren,
+                    no sea takimata sanctus est
+                    Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet,
+                    consetetur sadipscing elitr,
+                    sed diam nonumy eirmod tempor
+                    invidunt ut labore et dolore
+                    magna aliquyam erat, sed diam
+                    voluptua. At vero eos et accusam
+                    et justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren, no sea
+                    takimata sanctus est Lorem ipsum
+                    dolor sit amet.
+                </p>
+            </div>
+        );
     }
 
     render() {
 
-        return (            
-            <div
-                style={
-                    {
-                        width: '100%',
-                        maxWidth: '1024px',
-                        height: '500px',
-                        margin: '5vh auto'
+        return (
+            <span>
+                <p>dasdsadasdas</p>
+                <p>dasdsadasdas</p>
+                <p>dasdsadasdas</p>
+                <p>dasdsadasdas</p>
+
+                <Ribbon
+                    background='#FF4459'
+                    backgroundCorner='dodgerblue'
+                    color='rgb(255,255,255)'
+                    directionY='top'
+                    directionX='center'
+                    type='1'
+                    ribbon={
+                        <span>
+                            SALE!
+                        </span>
                     }
-                }
-                >
-                <Steps
-                    progressBar={true}
-                    iconStep={true}
-                    next='Next'
-                    previous='Previous'
-                    submit='Save'
-                    callbackCheck={true}
-                    callbackCheckNavigate={true}
-                    errorDataInside={false}
-                    errorAlignTop={false}
-                    liveGeneration={true}
-                    data={[
-                        {
-                            text: 'Step 1',
-                            icon: <i className="far fa-lemon"></i>,
-                            liveGeneration: this.liveGeneration_username,
-                            callback: this.liveGeneration_checkStep,
-                            callbackProps: 'username3',
-                            onError: this.liveGeneration_getErrorText,
-                            onErrorProps: 'Username is a required field.',
-                        },
-                        {
-                            text: 'Step 2',
-                            icon: <i className="fas fa-balance-scale-right"></i>,
-                            liveGeneration: this.liveGeneration_password,
-                            callback: this.liveGeneration_checkStep,
-                            callbackProps: ['username3', 'password3'],
-                            onError: this.liveGeneration_getErrorText,
-                            onErrorProps: 'Password is a required field.',
-                        },
-                        {
-                            text: 'Step 3',
-                            icon: <i className="fas fa-user"></i>,
-                            liveGeneration: this.liveGeneration_email,
-                            callback: this.liveGeneration_checkStep,
-                            callbackProps: ['username3', 'password3', 'email3'],
-                            onError: this.liveGeneration_getErrorText,
-                            onErrorProps: 'Email is a required field.',
-                            submit: this.liveGeneration_submit
-                        }
-                    ]}
+                    content={this.getJsx()}
                 />
-            </div>
+
+                <RibbonMultiple
+                    ribbons={ 
+                        [ 
+                            { 
+                                type: '2',
+                                background: '#FF4459', 
+                                color: 'rgb(255,255,255)', 
+                                directionY: 'top', 
+                                directionX: 'left', 
+                                ribbon: ( 
+                                    <span> 
+                                        SALE! 
+                                    </span> 
+                                ) 
+                            }, 
+                            { 
+                                type: '2',
+                                background: '#FF4459', 
+                                color: 'rgb(255,255,255)', 
+                                directionY: 'top', 
+                                directionX: 'right', 
+                                ribbon: ( 
+                                    <span> 
+                                        SALE! 
+                                    </span> 
+                                ) 
+                            }, 
+                            { 
+                                type: '2',
+                                background: 'rgb(24,115,204)', 
+                                color: 'rgb(255,255,255)', 
+                                backgroundCorner: 'dodgerblue',
+                                directionY: 'bottom', 
+                                directionX: 'right', 
+                                ribbon: ( 
+                                    <span> 
+                                        -90% 
+                                    </span> 
+                                ) 
+                            },
+                            { 
+                                type: '2',
+                                background: 'rgb(24,115,204)', 
+                                color: 'rgb(255,255,255)', 
+                                backgroundCorner: 'dodgerblue',
+                                directionY: 'bottom', 
+                                directionX: 'left', 
+                                ribbon: ( 
+                                    <span> 
+                                        -90% 
+                                    </span> 
+                                ) 
+                            } 
+                        ] 
+                    } 
+                    ribbon={
+                        <span>
+                            SALE!
+                        </span>
+                    }
+                    content={this.getJsx()}
+                />
+            </span>
         );
     }
 }

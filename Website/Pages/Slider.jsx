@@ -4,6 +4,7 @@ import trans from '../Translations/trans'
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import generateArticles from '../Globals/generateArticles';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { Slider } from 'react-revolution';
 // import Slider from 'react-revolution/Slider';
@@ -22,16 +23,16 @@ const codeExample1 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -56,16 +57,16 @@ const codeExample2 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -91,16 +92,16 @@ const codeExample3 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -127,19 +128,19 @@ const codeExample4 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     dot: '😇',
                 },
             ]
@@ -167,19 +168,19 @@ const codeExample5 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     dot: '😇',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     dot: '😇',
                 },
             ]
@@ -208,25 +209,25 @@ const codeExample6 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     data: this.imageData('Slide 1'),
                     callback: this.callback,
                     callbackProps: 1
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     data: this.imageData('Slide 2'),
                     callback: this.callback,
                     callbackProps: 2
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                     data: this.imageData('Slide 3'),
                     callback: this.callback,
                     callbackProps: 3
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                     data: this.imageData('Slide 4'),
                     callback: this.callback,
                     callbackProps: 4
@@ -314,16 +315,16 @@ const codeExample7 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -356,16 +357,16 @@ const codeExample8 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -398,16 +399,16 @@ const codeExample9 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -438,16 +439,16 @@ const codeExample10 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -500,10 +501,10 @@ const codeExample11 = `import { Slider } from 'react-revolution';
                     image: 'public/images/chania.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
                     image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
@@ -512,10 +513,10 @@ const codeExample11 = `import { Slider } from 'react-revolution';
                     image: 'public/images/chania.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
             ]
         }
@@ -564,16 +565,16 @@ const codeExample12 = `import { Slider } from 'react-revolution';
         data={
             [
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                 },
                 {
-                    image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                 },
             ]
         }
@@ -624,16 +625,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -666,16 +667,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -709,16 +710,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -752,19 +753,19 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         dot: '😇',
                                     },
                                 ]
@@ -799,19 +800,19 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         dot: '😇',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         dot: '😇',
                                     },
                                 ]
@@ -849,25 +850,25 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         data: this.imageData('Slide 1'),
                                         callback: this.callback,
                                         callbackProps: 1
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         data: this.imageData('Slide 2'),
                                         callback: this.callback,
                                         callbackProps: 2
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         data: this.imageData('Slide 3'),
                                         callback: this.callback,
                                         callbackProps: 3
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         data: this.imageData('Slide 4'),
                                         callback: this.callback,
                                         callbackProps: 4
@@ -910,16 +911,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -959,16 +960,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -1009,16 +1010,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -1057,16 +1058,16 @@ class _Slider extends React.Component {
                             data={
                                 [
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -1127,10 +1128,10 @@ class _Slider extends React.Component {
                                         image: 'public/images/chania.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                     {
                                         image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
@@ -1139,10 +1140,10 @@ class _Slider extends React.Component {
                                         image: 'public/images/chania.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                     },
                                     {
-                                        image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                     },
                                 ]
                             }
@@ -1225,10 +1226,11 @@ class _Slider extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)}
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     Slider
                 </h1>
                 {/* 
@@ -1275,16 +1277,16 @@ class _Slider extends React.Component {
                                 data={
                                     [
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2016/03/09/09/43/person-1245959_960_720.jpg',
+                                            image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
                                         },
                                         {
-                                            image: 'https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293_960_720.jpg',
+                                            image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
                                         },
                                     ]
                                 }
@@ -1355,7 +1357,9 @@ class _Slider extends React.Component {
                         }
                     </div>
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

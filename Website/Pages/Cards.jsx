@@ -1,13 +1,9 @@
 import React from 'react';
-
 import { Table, Cards, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample = `import { Cards } from 'react-revolution';
 // import Cards from 'react-revolution/Cards';
@@ -48,7 +44,7 @@ const codeExample = `import { Cards } from 'react-revolution';
     }
 />`;
 
-const cssExample =  `.rr-cards {
+const cssExample = `.rr-cards {
     max-width: 1140px;
     margin: 0 auto;
     
@@ -67,8 +63,7 @@ const cssExample =  `.rr-cards {
     }
 }`;
 
-class _Cards extends React.Component 
-{
+class _Cards extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -146,10 +141,12 @@ class _Cards extends React.Component
                     callback={this.LoadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

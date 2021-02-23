@@ -11,8 +11,18 @@
   overflow: auto;
 
   /*
-    * Main first sidebar
+    * Z-index during an animation - show, hide, maxify, minify sidebar
     */
+  .zIndex{
+    .SideBar,
+    .SideBar-min{
+      z-index: 10;
+    }
+  }
+
+  /*
+  * Main first sidebar
+  */
   .SideBar {
     position: fixed;
     left: 0;
@@ -94,7 +104,8 @@
   }
 
   .SideBar-hidden.closed{
-    left: -$dashboard_menu-width !important;
+    left: calc(-#{$dashboard_menu-width} - 1px) !important;
+    border-right: 1px solid transparent;
   }
 
   .SideBar-hidden.opened {
@@ -109,7 +120,7 @@
     left: $dashboard_menu-width;
     width: calc(100% - #{$dashboard_menu-width});
     z-index: 2;
-    transition-duration: $default-transition;
+    transition-duration: 0ms;
 
     .data-header {
       width: 100%;
@@ -118,6 +129,7 @@
       padding: 10px 20px;
       position: relative;
       z-index: 3;
+      border:none;
 
       i {
         transition-duration: $default-transition;
@@ -165,30 +177,6 @@
       .minify-menu:hover {
         background-color: $hover-gray-background-light;
         cursor: pointer;
-      }
-
-      /*
-       * Popup
-       */
-      .popup-box-main {
-        position: relative;
-        float: right;
-      }
-
-      .popup-box-icon {
-        box-sizing: border-box;
-        padding: 10px;
-        border-radius: 50%;
-        transition-duration: $default-transition;
-        position: relative;
-        font-size: 1.12rem;
-        margin-right: 10px;
-      }
-
-      .popup-box-icon:hover {
-        background-color: $hover-gray-background-light;
-        cursor: pointer;
-        color: rgba(69, 69, 69, 1);
       }
     }
 
@@ -259,7 +247,8 @@
   }
   .SideBar-hidden.closed {
     width: $dashboard_menu-width;
-    right: -$dashboard_menu-width;
+    right: calc(-#{$dashboard_menu-width} - 1px) !important;
+    border-left:1px solid transparent;
   }
   .SideBar-hidden.opened {
     left: auto;
@@ -275,7 +264,20 @@
     right: $dashboard_menu-width-min;
   }
   .Content-hidden {
-    left: auto;
-    right: -12px;
+    left: 0px;
+    right: 0px;
+  }
+}
+
+// Disable css animation time
+.rr-container.td0,
+.rr-container.right.td0{
+  .SideBar,
+  .SideBar-min,
+  .SideBar-hidden,
+  .SideBar-hidden.opened,
+  .data-header,
+  .rr-sidebar{
+    transition-duration: 0ms !important;
   }
 }

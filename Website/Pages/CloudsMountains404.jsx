@@ -1,21 +1,16 @@
 import React from 'react';
-
 import { Table, CloudsMountains404, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { CloudsMountains404 } from 'react-revolution';
 // import CloudsMountains404 from 'react-revolution/CloudsMountains404';
 
 <CloudsMountains404/>`;
 
-class _CloudsMountains404 extends React.Component 
-{
+class _CloudsMountains404 extends React.Component {
     constructor(props) {
         super(props);
         this.loadOnScrollCallback = this.loadOnScrollCallback.bind(this);
@@ -32,7 +27,7 @@ class _CloudsMountains404 extends React.Component
                 css: '',
                 html: '',
                 live: (
-                    <CloudsMountains404/>
+                    <CloudsMountains404 />
                 )
             }
         ];
@@ -59,10 +54,12 @@ class _CloudsMountains404 extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
-                    fireScrollBack={true} 
+                    fireScrollEvent={250}
+                    fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

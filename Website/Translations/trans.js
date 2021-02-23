@@ -1,14 +1,12 @@
-import getTranslations from './index';
-
-const translations = getTranslations();
+import EN from './index'
 
 const trans = (key = '') => {
 
-    if(!key || undefined == translations[key]){
+    if(!key || undefined == EN[key]){
         return '';
     }
 
-    return translations[key];
+    return EN[key];
 };
 
 export default trans;

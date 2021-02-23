@@ -8,13 +8,18 @@ react-revolution/Accordion
 react-revolution/Articles
 react-revolution/ArticlesImages
 react-revolution/Astronaut404
+react-revolution/Boxes
 react-revolution/Breadcrumbs
 react-revolution/Cards
 react-revolution/CardsScroll
 react-revolution/CardsScrollCallback
+react-revolution/Carousel
+react-revolution/Clipboard
 react-revolution/Clouds404
 react-revolution/CloudsMountains404
 react-revolution/Container
+react-revolution/ContainerPopup
+react-revolution/ContainerSidebar
 react-revolution/CustomSuggestion
 react-revolution/DarkLines404
 react-revolution/DragDropArea
@@ -25,6 +30,8 @@ react-revolution/FullScreenOverlay
 react-revolution/Functions
 react-revolution/GlobalMessages
 react-revolution/Icons
+react-revolution/ImageBox
+react-revolution/ImageCarousel
 react-revolution/InputAnimation
 react-revolution/InputFile
 react-revolution/InputFileDragDrop
@@ -44,6 +51,7 @@ react-revolution/Overlay
 react-revolution/PagerDynamic
 react-revolution/PagerStatic
 react-revolution/Picture404
+react-revolution/Pills
 react-revolution/PopupBox
 react-revolution/PopupData
 react-revolution/PopupHover
@@ -63,10 +71,10 @@ react-revolution/Stars
 react-revolution/Steps
 react-revolution/StepsGenerator
 react-revolution/StepsGeneratorDragDrop
+react-revolution/Suggestions
 react-revolution/Table
 react-revolution/TextWriter
 react-revolution/Timeline
-react-revolution/TimelineList
 react-revolution/Water404
 react-revolution/scss
 react-revolution/css

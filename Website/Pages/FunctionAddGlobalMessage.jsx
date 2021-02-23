@@ -1,9 +1,6 @@
 import React from 'react';
-
 import { addGlobalMessage, GlobalMessages, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
 const jsExample1 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
@@ -379,7 +376,7 @@ class _FunctionAddGlobalMessage extends React.Component {
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true}
                 />
                 <GlobalMessages

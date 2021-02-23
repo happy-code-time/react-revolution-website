@@ -432,7 +432,7 @@ h1,
     position: relative;
     min-height: 300px;
     height: 50vh;
-    width: 200px;
+    width: 198px;
     margin: 0 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -605,7 +605,7 @@ h1,
     border: 1px solid silver; }
     #app .Generator .container-example .SideBar {
       position: absolute;
-      width: 150px;
+      width: 200px;
       transition-duration: 200ms; }
       #app .Generator .container-example .SideBar .logo {
         margin-left: 5px; }
@@ -641,7 +641,7 @@ h1,
     #app .Generator .container-example .SideBar.SideBar-min {
       width: 50px; }
     #app .Generator .container-example .SideBar.SideBar-min:hover {
-      width: 150px; }
+      width: 200px; }
     #app .Generator .container-example .Content {
       overflow-y: auto;
       overflow-x: hidden;
@@ -650,10 +650,6 @@ h1,
       height: 100vh;
       width: 100%;
       left: 0px; }
-      @media screen and (min-width: 720px) {
-        #app .Generator .container-example .Content {
-          width: calc(100% - 150px);
-          left: 150px; } }
     #app .Generator .container-example .Content.Content-min {
       width: calc(100% - 50px);
       left: 50px; }
@@ -667,6 +663,18 @@ h1,
       height: calc(80vh - 20px); }
     #app .Generator .container-example .FOOTER {
       height: calc(20vh - 20px); }
+  @media screen and (min-width: 720px) {
+    #app .Generator .rr-container.container-example .Content {
+      width: calc(100% - 200px);
+      left: 200px; } }
+  @media screen and (min-width: 1024px) {
+    #app .Generator .rr-container-sidebar.container-example .Content,
+    #app .Generator .rr-container-popup.container-example .Content {
+      width: calc(100% - 201px);
+      left: 201px; } }
+  #app .Generator .rr-container .Content-min {
+    width: calc(100% - 50px) !important;
+    left: 50px !important; }
   #app .Generator .rr-menu-example {
     border-radius: 5px;
     border: 1px solid #dedede;

@@ -52,7 +52,7 @@ class _FunctionDisableHtmlScroll extends React.Component
                     callback={this.loadOnScrollCallback}
                     loadMoreLoadingIcon={<LoadingBoxTop text={trans('loading')} />}
                     data={buildModulesJsx(this.examples[0], 1)} // Default as the first example
-                    fireScrollEvent={30}
+                    fireScrollEvent={250}
                     fireScrollBack={true} 
                 />
             </div>

@@ -5,7 +5,7 @@ import { Table, InputSuggestionObject, SourceCode, Clipboard } from '../../react
 import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
+import StyleImplementation from '../Modules/StyleImplementation';
 
 import generateArticles from '../Globals/generateArticles';
 
@@ -172,7 +172,7 @@ class _InputSuggestionObject extends React.Component {
 
         this.state = {
             selected: [],
-            inputValue: '',            
+            inputValue: '',
             suggestions: this.randomEmailGenerator(20),
             inputValueLoading: '',
             selectedLoading: [],
@@ -215,14 +215,14 @@ class _InputSuggestionObject extends React.Component {
     }
 
     staticEmails() {
-        
+
         const data = (name) => (
             <div className='flex my-2'>
                 <img src="./public/images/icon-32.png" />
                 <p>
-                {
-                    name
-                }
+                    {
+                        name
+                    }
                 </p>
             </div>
         );
@@ -278,7 +278,8 @@ class _InputSuggestionObject extends React.Component {
 
         return (
             <div className="Generator">
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     InputSuggestionObject
                 </h1>
                 <p className='description'>
@@ -368,7 +369,8 @@ class _InputSuggestionObject extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <h1 className="title-border my-3">
+                    <i className="far fa-file-code"></i>
                     InputSuggestionObject
                 </h1>
                 <p className='description'>
@@ -459,7 +461,9 @@ class _InputSuggestionObject extends React.Component {
                         )
                     }
                 </div>
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }

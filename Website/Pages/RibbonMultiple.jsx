@@ -3,6 +3,7 @@ import { Table, RibbonMultiple, LoadOnScroll, LoadingBoxTop } from '../../react-
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
+import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample1 = `import { RibbonMultiple } from 'react-revolution';
 // import RibbonMultiple from 'react-revolution/RibbonMultiple';
@@ -105,6 +106,120 @@ const codeExample3 = `import { RibbonMultiple } from 'react-revolution';
                 )
             },
             {
+                background: 'rgb(24,115,204)',
+                color: 'rgb(255,255,255)',
+                directionY: 'bottom',
+                directionX: 'left',
+                ribbon: (
+                    <span>
+                        today!
+                    </span>
+                )
+            }
+        ]
+    }
+    content={this.getJsx()}
+/>`;
+
+const codeExample4 = `import { RibbonMultiple } from 'react-revolution';
+// import RibbonMultiple from 'react-revolution/RibbonMultiple';
+
+<RibbonMultiple
+    ribbons={
+        [
+            {
+                type: '1',
+                background: '#FF4459',
+                color: 'rgb(255,255,255)',
+                directionY: 'top',
+                directionX: 'left',
+                ribbon: (
+                    <span>
+                        SALE!
+                    </span>
+                )
+            },
+            {
+                type: '1',
+                background: 'rgb(24,115,204)',
+                color: 'rgb(255,255,255)',
+                directionY: 'top',
+                ribbon: (
+                    <span>
+                        Only
+                    </span>
+                )
+            },
+            {
+                type: '1',
+                background: '#FF4459',
+                color: 'rgb(255,255,255)',
+                directionY: 'bottom',
+                ribbon: (
+                    <span>
+                        -90%
+                    </span>
+                )
+            },
+            {
+                type: '1',
+                background: 'rgb(24,115,204)',
+                color: 'rgb(255,255,255)',
+                directionY: 'bottom',
+                directionX: 'left',
+                ribbon: (
+                    <span>
+                        today!
+                    </span>
+                )
+            }
+        ]
+    }
+    content={this.getJsx()}
+/>`;
+
+const codeExample5 = `import { RibbonMultiple } from 'react-revolution';
+// import RibbonMultiple from 'react-revolution/RibbonMultiple';
+
+<RibbonMultiple
+    ribbons={
+        [
+            {
+                type: '2',
+                background: '#FF4459',
+                color: 'rgb(255,255,255)',
+                directionY: 'top',
+                directionX: 'left',
+                ribbon: (
+                    <span>
+                        SALE!
+                    </span>
+                )
+            },
+            {
+                type: '2',
+                background: 'rgb(24,115,204)',
+                color: 'rgb(255,255,255)',
+                directionY: 'top',
+                ribbon: (
+                    <span>
+                        Only
+                    </span>
+                )
+            },
+            {
+                type: '2',
+                background: '#FF4459',
+                color: 'rgb(255,255,255)',
+                directionY: 'bottom',
+                ribbon: (
+                    <span>
+                        -90%
+                    </span>
+                )
+            },
+            {
+                type: '2',
                 background: 'rgb(24,115,204)',
                 color: 'rgb(255,255,255)',
                 directionY: 'bottom',
@@ -320,6 +435,136 @@ class _RibbonMultiple extends React.Component {
                     />
                 )
             },
+            {
+                title: 'RibbonMultiple',
+                description: trans('ribbon.example5'),
+                reactTextBefore: '',
+                react: codeExample4,
+                reactTextAfter: '',
+                js: jsExample,
+                css: '',
+                html: '',
+                live: (
+                    <RibbonMultiple
+                        ribbons={
+                            [
+                                {
+                                    type: '1',
+                                    background: '#FF4459',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'top',
+                                    directionX: 'left',
+                                    ribbon: (
+                                        <span>
+                                            SALE!
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '1',
+                                    background: 'rgb(24,115,204)',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'top',
+                                    ribbon: (
+                                        <span>
+                                            Only
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '1',
+                                    background: '#FF4459',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'bottom',
+                                    ribbon: (
+                                        <span>
+                                            -90%
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '1',
+                                    background: 'rgb(24,115,204)',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'bottom',
+                                    directionX: 'left',
+                                    ribbon: (
+                                        <span>
+                                            today!
+                                        </span>
+                                    )
+                                }
+                            ]
+                        }
+                        content={this.getJsx()}
+                    />
+                )
+            },
+            {
+                title: 'RibbonMultiple',
+                description: trans('ribbon.example6'),
+                reactTextBefore: '',
+                react: codeExample5,
+                reactTextAfter: '',
+                js: jsExample,
+                css: '',
+                html: '',
+                live: (
+                    <RibbonMultiple
+                        ribbons={
+                            [
+                                {
+                                    type: '2',
+                                    background: '#FF4459',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'top',
+                                    directionX: 'left',
+                                    ribbon: (
+                                        <span>
+                                            SALE!
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '2',
+                                    background: 'rgb(24,115,204)',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'top',
+                                    ribbon: (
+                                        <span>
+                                            Only
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '2',
+                                    background: '#FF4459',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'bottom',
+                                    ribbon: (
+                                        <span>
+                                            -90%
+                                        </span>
+                                    )
+                                },
+                                {
+                                    type: '2',
+                                    background: 'rgb(24,115,204)',
+                                    color: 'rgb(255,255,255)',
+                                    directionY: 'bottom',
+                                    directionX: 'left',
+                                    ribbon: (
+                                        <span>
+                                            today!
+                                        </span>
+                                    )
+                                }
+                            ]
+                        }
+                        content={this.getJsx()}
+                    />
+                )
+            },
         ];
     }
 
@@ -376,7 +621,7 @@ class _RibbonMultiple extends React.Component {
             </div>
         );
     }
-    
+
     callback(clickEvent, icon) {
         console.info(icon);
     }
@@ -405,7 +650,9 @@ class _RibbonMultiple extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <h1 className="h1-title border-none my-3">
+                <StyleImplementation />
+                <h1 className="title-border">
+                    <i className="fab fa-keycdn"></i>
                     {
                         trans('keyUsageTitle')
                     }
@@ -457,6 +704,10 @@ class _RibbonMultiple extends React.Component {
                                 {
                                     key: 'ribbons.color',
                                     values: 'ribbon.color'
+                                },
+                                {
+                                    key: 'ribbons.type',
+                                    values: 'ribbon.type'
                                 },
                                 {
                                     key: 'content',

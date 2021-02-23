@@ -6,32 +6,20 @@ class Timeline extends React.Component {
 
     constructor(props) {
         super(props);
-        this.buildData = this.buildData.bind(this);
-        this.resize = this.resize.bind(this);
-        this.getCircles = this.getCircles.bind(this);
-        this.getLineEntry = this.getLineEntry.bind(this);
 
         this.state = {
-            /**
-             * App
-             */
-            isMinified: false,
-            /**
-             * User
-             */
+            // App
+            uuid: internalUuid(),
+            // User
             addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-timeline',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-            data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
-            mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-            lineMiddle: (typeof true == typeof props.lineMiddle) ? props.lineMiddle : false,
-            lineTitle: (typeof true == typeof props.lineTitle) ? props.lineTitle : false,
-            lineEntry: (typeof true == typeof props.lineEntry) ? props.lineEntry : false,
-            colorLineMiddle: (props.colorLineMiddle && typeof '8' == typeof props.colorLineMiddle) ? props.colorLineMiddle : '#dadce0',
-            colorLineEntry: (props.colorLineEntry && typeof '8' == typeof props.colorLineEntry) ? props.colorLineEntry : '#dadce0',
-            colorBorderEntry: (props.colorBorderEntry && typeof '8' == typeof props.colorBorderEntry) ? props.colorBorderEntry : '#dadce0',
-            borderStyle: (props.borderStyle && typeof '8' == typeof props.borderStyle) && ['solid', 'dashed', 'mixed', '!mixed'].includes(props.borderStyle) ? props.borderStyle : 'solid',
-            dashedSize: (props.dashedSize && typeof '8' == typeof props.dashedSize) && ['small', 'large'].includes(props.dashedSize) ? props.dashedSize : 'small',
+            data: (props.data && typeof {} == typeof props.data) ? props.data : undefined,
+            direction: props.direction && typeof '8' == typeof props.direction && ['left', 'right'].includes(props.direction) ? props.direction : 'left',
+            timelineStart: props.timelineStart ? props.timelineStart : '',
+            timelineEnd: props.timelineEnd ? props.timelineEnd : '',
+            timelineStartProps: props.timelineStartProps && typeof {} === typeof props.timelineStartProps ? props.timelineStartProps : {}, 
+            timelineEndProps: props.timelineEndProps && typeof {} === typeof props.timelineEndProps ? props.timelineEndProps : {}, 
         };
     }
 
@@ -42,268 +30,160 @@ class Timeline extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'data', 'mediaBreak', 'lineMiddle', 'lineTitle', 'lineEntry', 'colorLineMiddle', 'colorLineEntry', 'colorBorderEntry', 'borderStyle', 'dashedSize'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'timelineStartProps', 'timelineEndProps', 'data', 'keysProps', 'direction', 'timelineStart', 'timelineEnd'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-timeline',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
-                data: (props.data && typeof [] == typeof props.data) ? props.data : undefined,
-                mediaBreak: props.mediaBreak && typeof 8 == typeof props.mediaBreak ? props.mediaBreak : undefined,
-                lineMiddle: (typeof true == typeof props.lineMiddle) ? props.lineMiddle : false,
-                lineTitle: (typeof true == typeof props.lineTitle) ? props.lineTitle : false,
-                lineEntry: (typeof true == typeof props.lineEntry) ? props.lineEntry : false,
-                colorLineMiddle: (props.colorLineMiddle && typeof '8' == typeof props.colorLineMiddle) ? props.colorLineMiddle : '#dadce0',
-                colorLineEntry: (props.colorLineEntry && typeof '8' == typeof props.colorLineEntry) ? props.colorLineEntry : '#dadce0',
-                colorBorderEntry: (props.colorBorderEntry && typeof '8' == typeof props.colorBorderEntry) ? props.colorBorderEntry : '#dadce0',
-                borderStyle: (props.borderStyle && typeof '8' == typeof props.borderStyle) && ['solid', 'dashed', 'mixed', '!mixed'].includes(props.borderStyle) ? props.borderStyle : 'solid',
-                dashedSize: (props.dashedSize && typeof '8' == typeof props.dashedSize) && ['small', 'large'].includes(props.dashedSize) ? props.dashedSize : 'small',
+                data: (props.data && typeof {} == typeof props.data) ? props.data : undefined,
+                direction: props.direction && typeof '8' == typeof props.direction && ['left', 'right'].includes(props.direction) ? props.direction : 'left',
+                timelineStart: props.timelineStart ? props.timelineStart : '',
+                timelineEnd: props.timelineEnd ? props.timelineEnd : '',
+                timelineStartProps: props.timelineStartProps && typeof {} === typeof props.timelineStartProps ? props.timelineStartProps : {}, 
+                timelineEndProps: props.timelineEndProps && typeof {} === typeof props.timelineEndProps ? props.timelineEndProps : {}, 
             };
         }
 
         return null;
     }
 
-    componentDidMount() {
-
-        const { mediaBreak } = this.state;
-
-        if (mediaBreak) {
-            window.addEventListener('resize', this.resize);
-            this.resize();
+    callback(callback, callbackProps){
+        if(callback){
+            (callback)(callbackProps);
         }
     }
 
-    resize() {
-        const { mediaBreak, isMinified } = this.state;
-        /**
-         * Media break
-         */
-        if (document.documentElement.getBoundingClientRect().width <= mediaBreak) {
-            if (!isMinified) {
-                this.setState({
-                    isMinified: true
-                });
-            }
-        }
-        /**
-         * Default
-         */
-        else {
-            if (isMinified) {
-                this.setState({
-                    isMinified: false
-                });
-            }
-        }
-    }
+    getData() {
+        let rootKeys = [];
 
-    getLineEntry() {
-        const { borderStyle, colorLineEntry, dashedSize } = this.state;
-
-        if ('solid' == borderStyle || 'mixed' == borderStyle) {
-            return (
-                <div
-                    className='line'
-                    style={
-                        {
-                            backgroundColor: colorLineEntry
-                        }
-                    }
-                >
-                </div>
-            );
+        try {
+            rootKeys = Object.keys(this.state.data);
+        }
+        catch (e) {
+            rootKeys = [];
         }
 
-        return (
-            <div
-                className={`line-dashed-${dashedSize}`}
-                style={
-                    {
-                        backgroundColor: colorLineEntry
-                    }
-                }
-            >
-            </div>
-        );
-    }
+        if (!rootKeys.length) {
+            return null;
+        }
 
-    buildData() {
-        const allowedAligns = ['left', 'right'];
-        const { data, isMinified, lineEntry, colorBorderEntry, lineTitle } = this.state;
-        let dataJsx = [];
+        const { uuid, direction } = this.state;
+        const jsx = [];
 
-        if (data && data.length) {
+        for (let x = 0; x <= rootKeys.length - 1; x++) {
+            const { data, props } = this.state.data[rootKeys[x]];
+            let localData = [];
 
-            try {
-                data.map(object => {
-                    const { title, content } = object;
-                    let { align } = object;
+            if (data && typeof [] === typeof data && data.length) {
 
-                    if (!align || !allowedAligns.includes(align) || isMinified) {
-                        align = 'center';
-                    }
+                data.map((o, i) => {
+                    const { icon, callback, callbackProps, iconProps, dataProps } = o;
 
-                    dataJsx.push(
-                        <div
-                            className={`single-entry single-entry-${align} ${'center' !== align ? 'flex' : ''}`}
-                            key={internalUuid()}
-                        >
-                            {/* Empty div on the right site */}
-                            {
-                                'right' == align && !isMinified &&
-                                <div className='empty' />
-                            }
-                            {/* Main content data with the width: 50% */}
-                            <div className={`content ${'center' == align ? 'w-100' : ''}`}>
+                    const iconJsx = (
+                        <span className='entry-icon'>
+                            <div 
+                                {...(iconProps && typeof {} === typeof iconProps && {...iconProps})}
+                                {...(callback && typeof function(){} === typeof callback) && { onClick: () => this.callback(callback, callbackProps)}}
+                                className={`icon ${iconProps && typeof {} === typeof iconProps && undefined !== iconProps.className ? iconProps.className : ''} ${callback && typeof function(){} === typeof callback ? 'timeline-callback' : ''}`}
+                            >
                                 {
-                                    title &&
-                                    <div className='title'>
-                                        {
-                                            lineTitle && !lineEntry && !isMinified && this.getLineEntry()
-                                        }
-                                        {
-                                            title
-                                        }
-                                    </div>
-                                }
-                                {
-                                    content &&
-                                    <div
-                                        className='data-holder'
-                                        style={
-                                            {
-                                                borderColor: colorBorderEntry,
-                                                borderWidth: '1px',
-                                                borderStyle: 'solid'
-                                            }
-                                        }
-                                    >
-                                        {/* Line on the left site for a right element, with an absolute position */}
-                                        {
-                                            lineEntry && !lineTitle && 'center' !== align && !isMinified && 'right' == align &&
-                                            <div className={`line-entry line-entry-${align} flex`}>
-                                                <div className='empty-2'>
-                                                    {
-                                                        this.getLineEntry()
-                                                    }
-                                                </div>
-                                                <div className='empty-1' />
-                                            </div>
-                                        }
-                                        {/* Line on the right site for a left element, with an absolute position */}
-                                        {
-                                            lineEntry && !lineTitle && 'center' !== align && !isMinified && 'left' == align &&
-                                            <div className={`line-entry line-entry-${align} flex`}>
-                                                <div className='empty-1' />
-                                                <div className='empty-2'>
-                                                    {
-                                                        this.getLineEntry()
-                                                    }
-                                                </div>
-                                            </div>
-                                        }
-                                        {/* Main content data */}
-                                        {
-                                            content && 
-                                            <div className='data'>
-                                                {
-                                                    content
-                                                }
-                                            </div>
-                                        }
-                                    </div>
+                                    icon
                                 }
                             </div>
-                            {/* Empty div on the left site */}
+                        </span>
+                    );
+
+                    localData.push(
+                        <div
+                            key={`timeline-entry-${x}-${i}-${uuid}`}
+                            className='timeline-entry'
+                        >
                             {
-                                'left' == align && !isMinified &&
-                                <div className='empty' />
+                                'left' == direction && icon && iconJsx
+                            }
+                            {
+                                o.data &&
+                                <span className='entry-data'>
+                                    <div 
+                                        {...(dataProps && typeof {} === typeof {dataProps} && {...dataProps})}
+                                        className={`data ${dataProps && typeof {} === typeof dataProps && undefined !== dataProps.className ? dataProps.className : ''}`}
+                                    >
+                                        {
+                                            o.data
+                                        }
+                                    </div>
+                                </span>
+                            }
+                            {
+                                'right' == direction && icon && iconJsx
                             }
                         </div>
                     );
                 });
             }
-            catch (e) {
-                return [];
+
+            if (localData.length) {
+                jsx.push(
+                    <div
+                        key={`timeline-area-${x}-${localData.length}-${uuid}`}
+                        className='timeline-area'
+                    >
+                        <div className='timeline-time'>
+                            <span 
+                                {...(props && typeof {} === typeof props) && {...props}}
+                                className={`time ${props && typeof {} === typeof props && undefined !== props.className ? props.className : ''}`}
+                            >
+                                {
+                                    rootKeys[x]
+                                }
+                            </span>
+                        </div>
+                        {
+                            localData
+                        }
+                    </div>
+                )
             }
         }
 
-        return dataJsx;
-    }
-
-    getCircles(colorLineMiddle) {
-        const items = [];
-
-        for (let x = 0; x <= 200; x++) {
-            items.push(
-                <span
-                    className='circle'
-                    key={internalUuid()}
-                    style={
-                        {
-                            backgroundColor: colorLineMiddle
-                        }
-                    }
-                />
-            );
-        }
-
-        return items;
+        return jsx;
     }
 
     render() {
-        const { addClass, defaultClass, id, lineMiddle, borderStyle, dashedSize, colorLineMiddle } = this.state;
+        const { addClass, defaultClass, id, direction, timelineStart, timelineStartProps, timelineEnd, timelineEndProps } = this.state;
 
         return (
             <div
                 className={`${defaultClass} ${addClass}`}
                 id={id}
             >
-                {
-                    this.buildData()
-                }
-                {
-                    lineMiddle && 'solid' == borderStyle &&
-                    <div
-                        className='line-middle'
-                        style={
+                <span className={`timline-wrapper ${timelineStart ? 'timline-wrapper-has-start' : ''} ${timelineStart ? 'timline-wrapper-has-end' : ''} ${direction}`}>
+                    {
+                        timelineStart &&
+                        <span 
+                            className='timeline-start'
+                            {...(timelineStartProps && typeof {} === typeof {timelineStartProps} && {...timelineStartProps})}
+                        >
                             {
-                                backgroundColor: colorLineMiddle
+                                timelineStart
                             }
-                        }
-                    />
-                }
-                {
-                    lineMiddle && '!mixed' == borderStyle &&
-                    <div
-                        className='line-middle'
-                        style={
+                        </span>
+                    }
+                    {
+                        this.getData()
+                    }
+                    {
+                        timelineEnd &&
+                        <span 
+                            className='timeline-end'
+                            {...(timelineEndProps && typeof {} === typeof {timelineEndProps} && {...timelineEndProps})}
+                        >
                             {
-                                backgroundColor: colorLineMiddle
+                                timelineEnd
                             }
-                        }
-                    />
-                }
-                {
-                    lineMiddle && 'dashed' == borderStyle &&
-                    <div
-                        className={`line-middle line-middle-${dashedSize} flex flex-column`}
-                    >
-                        {
-                            this.getCircles(colorLineMiddle)
-                        }
-                    </div>
-                }
-                {
-                    lineMiddle && 'mixed' == borderStyle &&
-                    <div
-                        className={`line-middle line-middle-${dashedSize} flex flex-column`}
-                    >
-                        {
-                            this.getCircles(colorLineMiddle)
-                        }
-                    </div>
-                }
+                        </span>
+                    }
+                </span>
             </div>
         );
     }
