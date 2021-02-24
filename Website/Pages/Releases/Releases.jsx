@@ -2161,9 +2161,13 @@ class Releases extends React.Component {
                                 }
                             },
                         },
+                    ]
+                },
+                '5.2.2': {
+                    data: [
                         {
-                            key: 'ContainerPopup - code & style',
-                            value: 'Code and style improvement.',
+                            key: 'FullScreenListArray',
+                            value: 'Style improvement.',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
                                 style: {
@@ -2173,35 +2177,13 @@ class Releases extends React.Component {
                             },
                         },
                         {
-                            key: 'ContainerPopup - key',
-                            value: 'Added new key: \n\nsidebarWidth',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
-                                }
-                            },
-                        },
-                        {
-                            key: 'ContainerSidebar - code & style',
-                            value: 'Code and style improvement.',
+                            key: 'FullScreenListObject',
+                            value: 'Style improvement.',
                             icon: <i className="fas fa-tools"></i>,
                             iconProps: {
                                 style: {
                                     color: 'rgb(255,255,255)',
                                     background: 'rgba(71,180,118,1)'
-                                }
-                            },
-                        },
-                        {
-                            key: 'ContainerSidebar - key',
-                            value: 'Added new key: \n\nsidebarWidth',
-                            icon: <i className="fas fa-key"></i>,
-                            iconProps: {
-                                style: {
-                                    color: 'rgb(255,255,255)',
-                                    background: '#ffc107'
                                 }
                             },
                         },

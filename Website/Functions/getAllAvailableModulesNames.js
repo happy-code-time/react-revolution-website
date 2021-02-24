@@ -214,7 +214,7 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'ScrollTo',
-            link: 'rr-scroll-to'
+            link: 'components/scroll-to'
         },
         {
             name: 'SideBar',
