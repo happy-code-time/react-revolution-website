@@ -363,10 +363,6 @@ h1,
 .Content .ContentBody {
   padding-top: 60px; }
 
-.Content-min {
-  left: 50px;
-  width: calc(100% - 50px); }
-
 /*
   * Minified second Content
   */

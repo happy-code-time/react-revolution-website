@@ -1194,6 +1194,16 @@ const EN = {
         "type": "String | JSX",
         "default": "<empty string>"
     },
+    "container.sidebarWidth" : {
+        "description": "The width of the sidebar.",
+        "type": "Number",
+        "default": "250"
+    },
+    "container.sidebarMinWidth" : {
+        "description": "The width of the minified sidebar.",
+        "type": "Number",
+        "default": "50"
+    },
     "closeMenuHtml": {
         "description": "Custom JSX used as close icon on the sidebar if the documents width lower then the value passed to the module with the key 'minifyAt'.",
         "type": "String | JSX",
@@ -3092,6 +3102,11 @@ const EN = {
     "boxes.example2": "Example with the right animation type.",
     "boxes.example3": "Example with the scroll (+ 400px) animation type and 3 items per line.",
     "isInViewport.example": "Check if an HTML (DOM node) element is currently in the documents viewport.",
+    "container.example1" : "This container has the 3 media break points - maxifyAt: to maxify the sidebar, minifyAt - to minify the sidebar (default 50px) and hideAt - to hide the sidebar and display the icon to toggle the sidebar on mobile devices.",
+    "container.example2" : "This container has the key animationDuration set to 300(ms) to execute an animation on media breaks.",
+    "container.popup.example1" : "This container does not have an minified sidebar in mobile version (mobile version specified by the key hideAt - to hide the sidebar) but the MenuHover Component.",
+    "container.sidebar.example1" : "This container has the media break point on (lower then) 1024px to the container to show the minified sidebar.",
+    "container.example2" : "Example with the key animationDuration set to 300(ms) - this is the default transition duration value from the global react-revolution.css file. The animationDuration (if not 0 and grather then 0) executes an animation on the media break point.",
 };
 
 export default EN;

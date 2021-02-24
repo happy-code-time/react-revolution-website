@@ -4,7 +4,7 @@
 
   .data-header {
     width: 100%;
-    height: $dashboard_header-height;
+    height: 60px;
     box-sizing: border-box;
     padding: 10px 20px;
     position: absolute;
@@ -87,18 +87,9 @@
     }
   }
 
-  .head.scrolled{
- 
-  }
-
   .ContentBody{
     padding-top: 60px;
   }
-}
-
-.Content-min {
-  left: $dashboard_menu-width-min;
-  width: calc(100% - #{$dashboard_menu-width-min});
 }
 
 /*

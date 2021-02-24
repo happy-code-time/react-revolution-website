@@ -17,6 +17,71 @@ const codeExample1 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 
 
 <ContainerPopup
     addClass='container-example'
+    sidebarWidth={250} // default value
+    hideAt={1024}
+    animationDuration={0}
+    minifySidebarOn={
+        [
+
+        ]
+    }
+    toggleMenuHtml={
+        (
+            <PopupHover
+                addClass='PopupHoverStyle'
+                direction='left'
+                holderData={
+                    <i className="fas fa-bars " />
+                }
+                displayOnHover={true}
+                hideOnLeave={true}
+                animation={true}
+                contentData={this.getMenu()}
+            />
+        )
+    }
+    closeMenuHtml={
+        <i className="fas fa-angle-left" />
+    }
+    moduleSidebar={
+        <SideBar
+            image={<img alt="image" src='./public/images/icon-48.png' />}
+            textLong='text long'
+            textShort='text short'
+            href={undefined}
+            moduleMenu={this.getMenu()}
+        />
+    }
+    headerProps={undefined}
+    headerData={undefined}
+    contentProps={undefined}
+    contentData={
+        (
+            <div className='CONTENT'>
+                CONTENT
+            </div>
+        )
+    }
+    footerProps={undefined}
+    footerData={
+        (
+            <div className='FOOTER'>
+                FOOTER
+            </div>
+        )
+    }
+/>`;
+
+const codeExample2 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 'react-revolution';
+// import ContainerPopup from 'react-revolution/ContainerPopup';
+// import SideBar from 'react-revolution/SideBar';
+// import Menu from 'react-revolution/Menu';
+// import PopupHover from 'react-revolution/PopupHover';
+
+<ContainerPopup
+    animationDuration={300}
+    sidebarWidth={250} // default value
+    addClass='container-example'
     hideAt={1024}
     animationDuration={0}
     minifySidebarOn={
@@ -146,83 +211,10 @@ const jsExample = `getMenu() {
 }`;
 
 const cssExample = `.container-example {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    border: 1px solid silver;
-
+    overflow-x: hidden;
+        
     .SideBar {
-        width: 150px;
-        transition-duration: $default-transition;
-
-        .logo{
-            margin-left: 5px;
-        }
-
-        .rr-menu-height {
-            height: calc(100% - 60px);
-            overflow-x: hidden;
-            overflow-y: hidden;
-
-            .single-entry {
-                border-radius: 0px;
-                margin: 7px 10px;
-                border: none;
-                display: block;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                transition-duration: $default-transition;
-
-                i{
-                    display: inline-block;
-                    font-size: 1.3rem;
-                    margin: 0 25px 0 5px;
-                }
-
-                .text,
-                a {
-                    color: #7c8695;
-                    font-size: 0.87rem;
-                    letter-spacing: 0.0111rem;
-                    transition-duration: $default-transition;
-                    padding-left: 0px;
-                }
-
-                .hasChildren {
-                    font-weight: bold;
-                }
-            }
-        }
-
-        .rr-menu-height:hover {
-            overflow-y: auto;
-        }
-    }
-    .SideBar.SideBar-min {
-        width: 50px;
-    }
-    .SideBar.SideBar-min:hover {
-        width: 150px;
-    }
-    .Content{
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-color: rgba(122,122,122,.88) transparent;
-        scrollbar-width: thin;
-        height: 100vh;
-
-        @media screen and (min-width: 720px){
-            width: calc(100% - 150px);
-            left: 150px;
-        }
-        width: 100%;
-        left: 0px;
-    }
-    .Content.Content-min{
-        width: calc(100% - 50px);
-        left: 50px;
+        position: absolute;
     }
 
     .CONTENT,
@@ -250,8 +242,8 @@ class _ContainerPopup extends React.Component {
 
         this.examples = [
             {
-                title: 'Container',
-                description: '',
+                title: 'ContainerPopup',
+                description: trans('container.popup.example1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -260,6 +252,74 @@ class _ContainerPopup extends React.Component {
                 html: '',
                 live: (
                     <ContainerPopup
+                        addClass='container-example'
+                        hideAt={1024}
+                        animationDuration={0}
+                        minifySidebarOn={
+                            [
+
+                            ]
+                        }
+                        toggleMenuHtml={
+                            (
+                                <PopupHover
+                                    addClass='PopupHoverStyle'
+                                    direction='left'
+                                    holderData={
+                                        <i className="fas fa-bars " />
+                                    }
+                                    displayOnHover={true}
+                                    hideOnLeave={true}
+                                    animation={true}
+                                    contentData={this.getMenu()}
+                                />
+                            )
+                        }
+                        closeMenuHtml={
+                            <i className="fas fa-angle-left" />
+                        }
+                        moduleSidebar={
+                            <SideBar
+                                image={<img alt="image" src='./public/images/icon-48.png' />}
+                                textLong='text long'
+                                textShort='text short'
+                                href={undefined}
+                                moduleMenu={this.getMenu()}
+                            />
+                        }
+                        headerProps={undefined}
+                        headerData={undefined}
+                        contentProps={undefined}
+                        contentData={
+                            (
+                                <div className='CONTENT'>
+                                    CONTENT
+                                </div>
+                            )
+                        }
+                        footerProps={undefined}
+                        footerData={
+                            (
+                                <div className='FOOTER'>
+                                    FOOTER
+                                </div>
+                            )
+                        }
+                    />
+                )
+            },
+            {
+                title: 'ContainerPopup',
+                description: trans('container.example2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: jsExample,
+                css: cssExample,
+                html: '',
+                live: (
+                    <ContainerPopup
+                        animationDuration={300}
                         addClass='container-example'
                         hideAt={1024}
                         animationDuration={0}
@@ -507,6 +567,10 @@ class _ContainerPopup extends React.Component {
                                 {
                                     key: 'animationDuration',
                                     values: 'container.animationDuration'
+                                },
+                                {
+                                    key: 'sidebarWidth',
+                                    values: 'container.sidebarWidth'
                                 },
                             ],
                             'rr-container-popup'

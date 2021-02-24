@@ -108,84 +108,115 @@ const codeExample1 = `import { Container, SideBar, Menu } from 'react-revolution
     footerData={<div className='FOOTER'> footer data</div>}
 />`;
 
-const cssExample = `.container-example {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    border: 1px solid silver;
+const codeExample2 = `import { Container, SideBar, Menu } from 'react-revolution';
+// import Container from 'react-revolution/Container';
+// import SideBar from 'react-revolution/SideBar';
+// import Menu from 'react-revolution/Menu';
 
-    .SideBar {
-        width: 150px;
-        transition-duration: $default-transition;
-
-        .logo{
-            margin-left: 5px;
-        }
-
-        .rr-menu-height {
-            height: calc(100% - 60px);
-            overflow-x: hidden;
-            overflow-y: hidden;
-
-            .single-entry {
-                border-radius: 0px;
-                margin: 7px 10px;
-                border: none;
-                display: block;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                transition-duration: $default-transition;
-
-                i{
-                    display: inline-block;
-                    font-size: 1.3rem;
-                    margin: 0 25px 0 5px;
-                }
-
-                .text,
-                a {
-                    color: #7c8695;
-                    font-size: 0.87rem;
-                    letter-spacing: 0.0111rem;
-                    transition-duration: $default-transition;
-                    padding-left: 0px;
-                }
-
-                .hasChildren {
-                    font-weight: bold;
-                }
+<Container
+    animationDuration={300}
+    sidebarWidth={250} // default value
+    sidebarMinWidth={50} // default value
+    addClass='container-example'
+    displayMinifyMaxifyIcon={true}
+    toggleMenuHtml={
+        <i className="fas fa-bars " />
+    }
+    closeMenuHtml={
+        <i className="fas fa-angle-left" />
+    }
+    moduleSidebar={
+        <SideBar
+            image={<img alt="image" src='./public/images/icon-48.png' />}
+            textLong='text long'
+            textShort='text short'
+            href={undefined}
+            moduleMenu={
+                <Menu
+                    reactRouter={false}
+                    animation='height'
+                    dropDown={
+                        (
+                            <i className="fas fa-angle-down dropDownIcon"></i>
+                        )
+                    }
+                    data={
+                        [
+                            {
+                                icon: <i className="fas fa-golf-ball"></i>,
+                                text: 'Golf',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-golf-ball"></i>,
+                                        text: 'Golf 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-golf-ball"></i>,
+                                        text: 'Golf 2'
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-pump-soap"></i>,
+                                text: 'Pump Soap',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-pump-soap"></i>,
+                                        text: 'Soap 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-pump-soap"></i>,
+                                        text: 'Soap 2'
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-pizza-slice"></i>,
+                                text: 'Pizza',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-pizza-slice"></i>,
+                                        text: 'Pizza 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-pizza-slice"></i>,
+                                        text: 'Pizza 2'
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-ice-cream"></i>,
+                                text: 'Ice',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-ice-cream"></i>,
+                                        text: 'Ice 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-ice-cream"></i>,
+                                        text: 'Ice 2'
+                                    }
+                                ]
+                            },
+                        ]
+                    }
+                />
             }
-        }
+        />
+    }
+    headerProps={undefined}
+    headerData={undefined}
+    contentProps={undefined}
+    contentData={<div className='CONTENT'>content data</div>}
+    footerProps={undefined}
+    footerData={<div className='FOOTER'> footer data</div>}
+/>`;
 
-        .rr-menu-height:hover {
-            overflow-y: auto;
-        }
-    }
-    .SideBar.SideBar-min {
-        width: 50px;
-    }
-    .SideBar.SideBar-min:hover {
-        width: 150px;
-    }
-    .Content{
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-color: rgba(122,122,122,.88) transparent;
-        scrollbar-width: thin;
-        height: 100vh;
-
-        @media screen and (min-width: 720px){
-            width: calc(100% - 150px);
-            left: 150px;
-        }
-        width: 100%;
-        left: 0px;
-    }
-    .Content.Content-min{
-        width: calc(100% - 50px);
-        left: 50px;
+const cssExample = `.container-example {
+    overflow-x: hidden;
+        
+    .SideBar {
+        position: absolute;
     }
 
     .CONTENT,
@@ -214,7 +245,7 @@ class _Container extends React.Component {
         this.examples = [
             {
                 title: 'Container',
-                description: '',
+                description: trans('container.example1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -224,8 +255,116 @@ class _Container extends React.Component {
                 live: (
                     <Container
                         addClass='container-example'
-                        minifyAt={1024}
-                        maxifyAt={720}
+                        displayMinifyMaxifyIcon={true}
+                        toggleMenuHtml={
+                            <i className="fas fa-bars " />
+                        }
+                        closeMenuHtml={
+                            <i className="fas fa-angle-left" />
+                        }
+                        moduleSidebar={
+                            <SideBar
+                                image={<img alt="image" src='./public/images/icon-48.png' />}
+                                textLong='text long'
+                                textShort='text short'
+                                href={undefined}
+                                moduleMenu={
+                                    <Menu
+                                        reactRouter={false}
+                                        animation='height'
+                                        dropDown={
+                                            (
+                                                <i className="fas fa-angle-down dropDownIcon"></i>
+                                            )
+                                        }
+                                        data={
+                                            [
+                                                {
+                                                    icon: <i className="fas fa-golf-ball"></i>,
+                                                    text: 'Golf',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-golf-ball"></i>,
+                                                            text: 'Golf 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-golf-ball"></i>,
+                                                            text: 'Golf 2'
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-pump-soap"></i>,
+                                                    text: 'Pump Soap',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-pump-soap"></i>,
+                                                            text: 'Soap 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-pump-soap"></i>,
+                                                            text: 'Soap 2'
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-pizza-slice"></i>,
+                                                    text: 'Pizza',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-pizza-slice"></i>,
+                                                            text: 'Pizza 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-pizza-slice"></i>,
+                                                            text: 'Pizza 2'
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-ice-cream"></i>,
+                                                    text: 'Ice',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-ice-cream"></i>,
+                                                            text: 'Ice 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-ice-cream"></i>,
+                                                            text: 'Ice 2'
+                                                        }
+                                                    ]
+                                                },
+                                            ]
+                                        }
+                                    />
+                                }
+                            />
+                        }
+                        headerProps={undefined}
+                        headerData={undefined}
+                        contentProps={undefined}
+                        contentData={<div className='CONTENT'>content data</div>}
+                        footerProps={undefined}
+                        footerData={<div className='FOOTER'> footer data</div>}
+                    />
+                )
+            },
+            {
+                title: 'Container',
+                description: trans('container.example2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <Container
+                        animationDuration={300}
+                        sidebarWidth={250} // default value
+                        sidebarMinWidth={50} // default value
+                        addClass='container-example'
                         displayMinifyMaxifyIcon={true}
                         toggleMenuHtml={
                             <i className="fas fa-bars " />
@@ -450,6 +589,14 @@ class _Container extends React.Component {
                                 {
                                     key: 'animationDuration',
                                     values: 'container.animationDuration'
+                                },
+                                {
+                                    key: 'sidebarWidth',
+                                    values: 'container.sidebarWidth'
+                                },
+                                {
+                                    key: 'sidebarMinWidth',
+                                    values: 'container.sidebarMinWidth'
                                 },
                             ],
                             'rr-container'

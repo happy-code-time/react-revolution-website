@@ -28,6 +28,8 @@ class ContainerSidebar extends React.Component {
             isHiddenSidebar: false,
             hiddenBackwards: false,
             hiddenForwards: false,
+            mounted: false,
+            executeHidden: false,
             /**
              * User
              */
@@ -48,6 +50,7 @@ class ContainerSidebar extends React.Component {
             align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
             headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
             animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
+            sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
         };
 
         this.nodeSideBar = React.createRef();
@@ -64,7 +67,7 @@ class ContainerSidebar extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'closeMenuHtml', 'animationDuration', 'hideAt', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'closeMenuHtml', 'animationDuration', 'hideAt', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight', 'sidebarWidth'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container-sidebar',
@@ -83,6 +86,7 @@ class ContainerSidebar extends React.Component {
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
                 headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
                 animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
+                sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
             };
         }
 
@@ -96,6 +100,12 @@ class ContainerSidebar extends React.Component {
         window.addEventListener('blur', this.handleBlur);
         this.resizeView();
         this.setLocationChecker();
+
+        setTimeout( () => {
+            this.setState({
+                mounted: true
+            });
+        }, this.state.animationDuration);
     }
 
     componentWillUnmount() {
@@ -211,7 +221,10 @@ class ContainerSidebar extends React.Component {
             };
             this.containesOldStaffHolder = data;
             clearTimeout(this.animationTimeoutCloseIcon);
-            return this.setState(data);
+
+            return this.setState({
+                ...data,
+            });
         }
 
         /**
@@ -221,6 +234,7 @@ class ContainerSidebar extends React.Component {
             data = {
                 isHidden: true,
                 isHiddenClass: 'closed',
+                executeHidden: false
             };
             this.containesOldStaffHolder = data;
 
@@ -231,7 +245,8 @@ class ContainerSidebar extends React.Component {
             }, () => {
                 this.animationTimeoutCloseIcon = setTimeout( () => {
                     this.setState({
-                        animation: false
+                        animation: false,
+                        executeHidden: true
                     });
                 }, animationDuration);
             });
@@ -245,10 +260,10 @@ class ContainerSidebar extends React.Component {
         const { isHidden } = this.state;
 
         if (isHidden) {
-            return 'SideBar SideBar-hidden';
+            return `SideBar SideBar-hidden`;
         }
 
-        return 'SideBar';
+        return `SideBar`;
     }
 
     /**
@@ -258,10 +273,10 @@ class ContainerSidebar extends React.Component {
         const { isHidden } = this.state;
 
         if (isHidden) {
-            return 'Content Content-hidden';
+            return `Content Content-hidden`;
         }
 
-        return 'Content';
+        return `Content`;
     }
 
     /**
@@ -271,7 +286,7 @@ class ContainerSidebar extends React.Component {
     sideBar() {
         const { isHidden, isHiddenClass, animationDuration } = this.state;
 
-        const setCache = () => {
+        const setCache = (executeHidden = null) => {
             const { isHidden, isHiddenClass } = this.state;
             this.containesOldStaffHolder = { isHidden, isHiddenClass };
 
@@ -279,7 +294,8 @@ class ContainerSidebar extends React.Component {
             clearTimeout(this.animationDurationClearTimeout);
             this.animationDurationClearTimeout = setTimeout( () => {
                 this.setState({
-                    animation: false
+                    animation: false,
+                    executeHidden: typeof true == typeof executeHidden ? executeHidden : this.state.executeHidden
                 });
             }, animationDuration);
         };
@@ -297,8 +313,11 @@ class ContainerSidebar extends React.Component {
                 return this.setState({
                     isHiddenClass: 'closed',
                     isHidden: true,
-                    animation: true
-                }, setCache);
+                    animation: true,
+                    executeHidden: false
+                }, () => {
+                    setCache(true);
+                });
             }
         }
 
@@ -314,17 +333,22 @@ class ContainerSidebar extends React.Component {
         const contentClassNames = this.getClassNamesContent();
         const direction = ['left', 'right'].includes(align) ? align : 'left';
 
+        const constaineStyle = {};
+        constaineStyle['--rr-container-sidebar-width'] = `${this.state.sidebarWidth}px`;
+        constaineStyle['--rr-container-sidebar-width-hidden'] = `-${this.state.sidebarWidth}px`;
+
         return (
             <div 
                 id={id} 
-                className={`${defaultClass} ${direction} ${animation ? 'zIndex' : ''} ${!animationDuration ? 'td0' : ''} ${isHidden ? 'td0' : ''} ${addClass}`}
-            >
+                className={`${defaultClass} ${direction} ${animation ? 'zIndex' : ''} ${!animationDuration || !this.state.mounted ? 'td0' : ''} ${addClass}`}
+                style={constaineStyle}
+            >   
                 <div
                     ref={this.nodeSideBar}
                     className={sidebarClassNames}
                 >
                     {
-                        isHidden && !animation && 
+                        this.state.executeHidden && isHidden &&
                         <span
                             className='close-side-bar action-icon'
                             onClick={e => this.sideBar()}
@@ -344,7 +368,7 @@ class ContainerSidebar extends React.Component {
                             !headerDataRight && headerData && headerData
                         }
                         {
-                            isHidden &&
+                            isHidden && 
                             <span
                                 className='minify-menu'
                                 onClick={e => this.sideBar()}

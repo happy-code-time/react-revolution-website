@@ -1,11 +1,7 @@
 import React from 'react';
-
 import { Table, ContainerSidebar, SideBar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
@@ -15,9 +11,130 @@ const codeExample1 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
 // import Menu from 'react-revolution/Menu';
 
 <ContainerSidebar
+    sidebarWidth={250} // default value
     addClass='container-example'
     hideAt={1024}
-    animationDuration={0}
+    animationDuration={0} // default value
+    minifySidebarOn={
+        [
+            
+        ]
+    }
+    toggleMenuHtml={
+        <i className="fas fa-bars " />
+    }
+    closeMenuHtml={
+        <i className="fas fa-angle-left" />
+    }
+    moduleSidebar={
+        <SideBar
+            image={<img alt="image" src='./public/images/icon-48.png' />}
+            textLong='text long'
+            textShort='text short'
+            href={undefined}
+            moduleMenu={
+                <Menu
+                    reactRouter={false}
+                    animation='height'
+                    dropDown={
+                        (
+                            <i className="fas fa-angle-down dropDownIcon"></i>
+                        )
+                    }
+                    data={
+                        [
+                            {
+                                icon: <i className="fas fa-golf-ball"></i>,
+                                text: 'Golf',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-golf-ball"></i>,
+                                        text: 'Golf 1',
+                                    },
+                                    {
+                                        icon: <i className="fas fa-golf-ball"></i>,
+                                        text: 'Golf 2',
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-pump-soap"></i>,
+                                text: 'Pump Soap',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-pump-soap"></i>,
+                                        text: 'Soap 1',
+                                    },
+                                    {
+                                        icon: <i className="fas fa-pump-soap"></i>,
+                                        text: 'Soap 2',
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-pizza-slice"></i>,
+                                text: 'Pizza',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-pizza-slice"></i>,
+                                        text: 'Pizza 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-pizza-slice"></i>,
+                                        text: 'Pizza 2'
+                                    }
+                                ]
+                            },
+                            {
+                                icon: <i className="fas fa-ice-cream"></i>,
+                                text: 'Ice',
+                                data: [
+                                    {
+                                        icon: <i className="fas fa-ice-cream"></i>,
+                                        text: 'Ice 1'
+                                    },
+                                    {
+                                        icon: <i className="fas fa-ice-cream"></i>,
+                                        text: 'Ice 2'
+                                    }
+                                ]
+                            },
+                        ]
+                    }
+                />
+            }
+        />
+    }
+    headerProps={undefined}
+    headerData={undefined}
+    contentProps={undefined}
+    contentData={
+        (
+            <div className='CONTENT'>
+                CONTENT
+            </div>
+        )
+    }
+    footerProps={undefined}
+    footerData={
+        (
+            <div className='FOOTER'>
+                FOOTER
+            </div>
+        )
+    }
+/>`;
+
+const codeExample2 = `import { ContainerSidebar, SideBar, Menu } from 'react-revolution';
+// import ContainerSidebar from 'react-revolution/ContainerSidebar';
+// import SideBar from 'react-revolution/SideBar';
+// import Menu from 'react-revolution/Menu';
+
+<ContainerSidebar
+    sidebarWidth={250} // default value
+    animationDuration={300}
+    addClass='container-example'
+    hideAt={1024}
     minifySidebarOn={
         [
             
@@ -129,83 +246,10 @@ const codeExample1 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
 />`;
 
 const cssExample = `.container-example {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    border: 1px solid silver;
-
+    overflow-x: hidden;
+        
     .SideBar {
-        width: 150px;
-        transition-duration: $default-transition;
-
-        .logo{
-            margin-left: 5px;
-        }
-
-        .rr-menu-height {
-            height: calc(100% - 60px);
-            overflow-x: hidden;
-            overflow-y: hidden;
-
-            .single-entry {
-                border-radius: 0px;
-                margin: 7px 10px;
-                border: none;
-                display: block;
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                transition-duration: $default-transition;
-
-                i{
-                    display: inline-block;
-                    font-size: 1.3rem;
-                    margin: 0 25px 0 5px;
-                }
-
-                .text,
-                a {
-                    color: #7c8695;
-                    font-size: 0.87rem;
-                    letter-spacing: 0.0111rem;
-                    transition-duration: $default-transition;
-                    padding-left: 0px;
-                }
-
-                .hasChildren {
-                    font-weight: bold;
-                }
-            }
-        }
-
-        .rr-menu-height:hover {
-            overflow-y: auto;
-        }
-    }
-    .SideBar.SideBar-min {
-        width: 50px;
-    }
-    .SideBar.SideBar-min:hover {
-        width: 150px;
-    }
-    .Content{
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-color: rgba(122,122,122,.88) transparent;
-        scrollbar-width: thin;
-        height: 100vh;
-
-        @media screen and (min-width: 720px){
-            width: calc(100% - 150px);
-            left: 150px;
-        }
-        width: 100%;
-        left: 0px;
-    }
-    .Content.Content-min{
-        width: calc(100% - 50px);
-        left: 50px;
+        position: absolute;
     }
 
     .CONTENT,
@@ -233,8 +277,8 @@ class _ContainerSidebar extends React.Component {
 
         this.examples = [
             {
-                title: 'Container',
-                description: '',
+                title: 'ContainerSidebar',
+                description: trans('container.sidebar.example1'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -245,7 +289,132 @@ class _ContainerSidebar extends React.Component {
                     <ContainerSidebar
                         addClass='container-example'
                         hideAt={1024}
-                        animationDuration={0}
+                        animationDuration={0} // Default value
+                        minifySidebarOn={
+                            [
+
+                            ]
+                        }
+                        toggleMenuHtml={
+                            <i className="fas fa-bars " />
+                        }
+                        closeMenuHtml={
+                            <i className="fas fa-angle-left" />
+                        }
+                        moduleSidebar={
+                            <SideBar
+                                image={<img alt="image" src='./public/images/icon-48.png' />}
+                                textLong='text long'
+                                textShort='text short'
+                                href={undefined}
+                                moduleMenu={
+                                    <Menu
+                                        reactRouter={false}
+                                        animation='height'
+                                        dropDown={
+                                            (
+                                                <i className="fas fa-angle-down dropDownIcon"></i>
+                                            )
+                                        }
+                                        data={
+                                            [
+                                                {
+                                                    icon: <i className="fas fa-golf-ball"></i>,
+                                                    text: 'Golf',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-golf-ball"></i>,
+                                                            text: 'Golf 1',
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-golf-ball"></i>,
+                                                            text: 'Golf 2',
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-pump-soap"></i>,
+                                                    text: 'Pump Soap',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-pump-soap"></i>,
+                                                            text: 'Soap 1',
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-pump-soap"></i>,
+                                                            text: 'Soap 2',
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-pizza-slice"></i>,
+                                                    text: 'Pizza',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-pizza-slice"></i>,
+                                                            text: 'Pizza 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-pizza-slice"></i>,
+                                                            text: 'Pizza 2'
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    icon: <i className="fas fa-ice-cream"></i>,
+                                                    text: 'Ice',
+                                                    data: [
+                                                        {
+                                                            icon: <i className="fas fa-ice-cream"></i>,
+                                                            text: 'Ice 1'
+                                                        },
+                                                        {
+                                                            icon: <i className="fas fa-ice-cream"></i>,
+                                                            text: 'Ice 2'
+                                                        }
+                                                    ]
+                                                },
+                                            ]
+                                        }
+                                    />
+                                }
+                            />
+                        }
+                        headerProps={undefined}
+                        headerData={undefined}
+                        contentProps={undefined}
+                        contentData={
+                            (
+                                <div className='CONTENT'>
+                                    CONTENT
+                                </div>
+                            )
+                        }
+                        footerProps={undefined}
+                        footerData={
+                            (
+                                <div className='FOOTER'>
+                                    FOOTER
+                                </div>
+                            )
+                        }
+                    />
+                )
+            },
+            {
+                title: 'ContainerSidebar',
+                description: trans('container.example2'),
+                reactTextBefore: '',
+                react: codeExample2,
+                reactTextAfter: '',
+                js: '',
+                css: cssExample,
+                html: '',
+                live: (
+                    <ContainerSidebar
+                        animationDuration={300}
+                        addClass='container-example'
+                        hideAt={1024}
                         minifySidebarOn={
                             [
 
@@ -474,6 +643,10 @@ class _ContainerSidebar extends React.Component {
                                 {
                                     key: 'animationDuration',
                                     values: 'container.animationDuration'
+                                },
+                                {
+                                    key: 'sidebarWidth',
+                                    values: 'container.sidebarWidth'
                                 },
                             ],
                             'rr-container-sidebar'

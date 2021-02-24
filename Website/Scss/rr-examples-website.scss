@@ -438,79 +438,10 @@
     }
 
     .container-example {
-        width: 100%;
-        height: 100%;
-        min-height: 100vh;
-        border: 1px solid silver;
-
+        overflow-x: hidden;
+        
         .SideBar {
             position: absolute;
-            width: 200px;
-            transition-duration: $default-transition;
-
-            .logo{
-                margin-left: 5px;
-            }
-
-            .rr-menu {
-                height: calc(100% - 60px);
-                overflow-x: hidden;
-                overflow-y: hidden;
-
-                .single-entry {
-                    border-radius: 0px;
-                    margin: 7px 0;
-                    border: none;
-                    display: block;
-                    width: 100%;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    transition-duration: $default-transition;
-
-                    i{
-                        display: inline-block;
-                        font-size: 1.3rem;
-                        margin: 0 25px 0 5px;
-                    }
-
-                    .text,
-                    a {
-                        color: #7c8695;
-                        font-size: 0.87rem;
-                        letter-spacing: 0.0111rem;
-                        transition-duration: $default-transition;
-                        padding-left: 0px;
-                    }
-
-                    .hasChildren {
-                        font-weight: bold;
-                    }
-                }
-            }
-
-            .rr-menu:hover {
-                overflow-y: auto;
-            }
-        }
-        .SideBar.SideBar-min {
-            width: 50px;
-        }
-        .SideBar.SideBar-min:hover {
-            width: 200px;
-        }
-        .Content{
-            overflow-y: auto;
-            overflow-x: hidden;
-            scrollbar-color: rgba(122,122,122,.88) transparent;
-            scrollbar-width: thin;
-            height: 100vh;
-            width: 100%;
-            left: 0px;
-        }
-        .Content.Content-min{
-            width: calc(100% - 50px);
-            left: 50px;
         }
 
         .CONTENT,
@@ -527,32 +458,6 @@
 
         .FOOTER{
             height: calc(20vh - 20px);
-        }
-    }
-
-    .rr-container.container-example{
-        .Content{
-            @media screen and (min-width: 720px){
-                width: calc(100% - 200px);
-                left: 200px;
-            }
-        }
-    }
-
-    .rr-container-sidebar.container-example,
-    .rr-container-popup.container-example{
-        .Content{
-            @media screen and (min-width: 1024px){
-                width: calc(100% - 201px);
-                left: 201px;
-            }
-        }
-    }
-
-    .rr-container{
-        .Content-min{
-            width: calc(100% - 50px) !important;
-            left: 50px !important; 
         }
     }
 

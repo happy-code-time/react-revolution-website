@@ -26,12 +26,13 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     height: 100vh;
     border-right: 1px solid $border-color;
     overflow: hidden;
     transition-duration: $default-transition;
     z-index: 2;
+    background-color: $white;
 
     .rr-sidebar {
       .logo-text {
@@ -79,34 +80,34 @@
 
   .SideBar-hidden {
     position: fixed;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
+    transition-duration: $default-transition;
+    z-index: 3;
+  }
+
+  .SideBar-hidden.opened {
+    width: var(--rr-container-sidebar-width);
     left: 0px;
     transition-duration: $default-transition;
   }
 
   .SideBar-hidden.closed{
-    left: calc(-#{$dashboard_menu-width} - 1px) !important;
+    left: var(--rr-container-sidebar-width-hidden);
     border-right: 1px solid transparent;
-  }
-
-  .SideBar-hidden.opened {
-    width: $dashboard_menu-width;
-    left: 0px;
-    z-index: 3;
     transition-duration: $default-transition;
   }
 
   .Content {
     position: absolute;
-    left: $dashboard_menu-width;
-    width: calc(100% - #{$dashboard_menu-width});
+    left: calc(var(--rr-container-sidebar-width) + 1px);
+    width: calc(100% - 1px - var(--rr-container-sidebar-width));
     z-index: 2;
     transition-duration: $default-transition;
     border:none;
     
     .data-header {
       width: 100%;
-      height: $dashboard_header-height;
+      height: 60px;
       box-sizing: border-box;
       padding: 10px 20px;
       position: relative;
@@ -114,34 +115,6 @@
 
       i {
         transition-duration: $default-transition;
-      }
-
-      .rr-custom-suggestion {
-        .suggestions-area {
-          .ul {
-            .suggestions {
-              max-height: 50vh;
-            }
-
-            li {
-              transition-duration: $default-transition;
-
-              a,
-              p {
-                transition-duration: $default-transition;
-              }
-            }
-
-            li:hover {
-              background-color: $dodgerblue;
-
-              a,
-              p {
-                color: $white;
-              }
-            }
-          }
-        }
       }
 
       /*
@@ -177,13 +150,10 @@
     }
   }
 
-  /*
-  * Minified second Content
-  */
   .Content-hidden {
     left: 0;
     width: 100vw;
-    transition-duration: 0ms;
+    transition-duration: $default-transition;
   }
 
   .close-side-bar {
@@ -223,8 +193,8 @@
     border-left: 1px solid $border-color;
   }
   .SideBar-hidden.closed {
-    width: $dashboard_menu-width;
-    right: calc(-#{$dashboard_menu-width} - 1px) !important;
+    width: var(--rr-container-sidebar-width);
+    right: calc(var(--rr-container-sidebar-width-hidden) - 1px) !important;
     border-left:1px solid transparent;
   }
   .SideBar-hidden.opened {
@@ -234,7 +204,7 @@
 
   .Content {
     left: auto;
-    right: $dashboard_menu-width;
+    right: var(--rr-container-sidebar-width);
   }
 
   .Content-hidden {
@@ -244,14 +214,15 @@
 }
 
 // Disable css animation time
-.rr-container-sidebar.td0,
-.rr-container-sidebar.right.td0{
+.rr-container-sidebar.td0{
   .SideBar,
   .SideBar-hidden,
   .SideBar-hidden.opened,
   .data-header,
   .rr-sidebar,
-  .Content{
+  .Content,
+  .Content-hidden{
     transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
   }
 }

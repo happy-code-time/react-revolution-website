@@ -2137,6 +2137,76 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.2.1': {
+                    data: [
+                        {
+                            key: 'Container - code & style',
+                            value: 'Code and style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Container - keys',
+                            value: 'Added new keys: \n\nsidebarWidth\nsidebarMinWidth',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup - code & style',
+                            value: 'Code and style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup - key',
+                            value: 'Added new key: \n\nsidebarWidth',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar - code & style',
+                            value: 'Code and style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar - key',
+                            value: 'Added new key: \n\nsidebarWidth',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

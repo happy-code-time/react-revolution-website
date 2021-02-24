@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Ribbon, RibbonMultiple } from './react-revolution/react-revolution';
+import { MenuHeight, Container, ContainerPopup, SideBar, PopupHover } from './react-revolution/react-revolution';
 // import './react-revolution/_Sass/react-revolution.scss';
 import './react-revolution/_Sass/react-revolution.scss';
 
@@ -67,93 +67,140 @@ class App extends React.Component {
         );
     }
 
+    getMenu() {
+        return (
+            <MenuHeight
+                reactRouter={false}
+                animation='height'
+                dropDown={
+                    (
+                        <i className="fas fa-angle-down dropDownIcon"></i>
+                    )
+                }
+                data={
+                    [
+                        {
+                            icon: <i className="fas fa-golf-ball"></i>,
+                            text: 'Golf',
+                            data: [
+                                {
+                                    icon: <i className="fas fa-golf-ball"></i>,
+                                    text: 'Golf 1',
+                                },
+                                {
+                                    icon: <i className="fas fa-golf-ball"></i>,
+                                    text: 'Golf 2',
+                                }
+                            ]
+                        },
+                        {
+                            icon: <i className="fas fa-pump-soap"></i>,
+                            text: 'Pump Soap',
+                            data: [
+                                {
+                                    icon: <i className="fas fa-pump-soap"></i>,
+                                    text: 'Soap 1',
+                                },
+                                {
+                                    icon: <i className="fas fa-pump-soap"></i>,
+                                    text: 'Soap 2',
+                                }
+                            ]
+                        },
+                        {
+                            icon: <i className="fas fa-pizza-slice"></i>,
+                            text: 'Pizza',
+                            data: [
+                                {
+                                    icon: <i className="fas fa-pizza-slice"></i>,
+                                    text: 'Pizza 1'
+                                },
+                                {
+                                    icon: <i className="fas fa-pizza-slice"></i>,
+                                    text: 'Pizza 2'
+                                }
+                            ]
+                        },
+                        {
+                            icon: <i className="fas fa-ice-cream"></i>,
+                            text: 'Ice',
+                            data: [
+                                {
+                                    icon: <i className="fas fa-ice-cream"></i>,
+                                    text: 'Ice 1'
+                                },
+                                {
+                                    icon: <i className="fas fa-ice-cream"></i>,
+                                    text: 'Ice 2'
+                                }
+                            ]
+                        },
+                    ]
+                }
+            />
+        );
+    }
+
     render() {
 
-        return (
-            <span>
-                <p>dasdsadasdas</p>
-                <p>dasdsadasdas</p>
-                <p>dasdsadasdas</p>
-                <p>dasdsadasdas</p>
-
-                <Ribbon
-                    background='#FF4459'
-                    backgroundCorner='dodgerblue'
-                    color='rgb(255,255,255)'
-                    directionY='top'
-                    directionX='center'
-                    type='1'
-                    ribbon={
-                        <span>
-                            SALE!
-                        </span>
-                    }
-                    content={this.getJsx()}
-                />
-
-                <RibbonMultiple
-                    ribbons={ 
-                        [ 
-                            { 
-                                type: '2',
-                                background: '#FF4459', 
-                                color: 'rgb(255,255,255)', 
-                                directionY: 'top', 
-                                directionX: 'left', 
-                                ribbon: ( 
-                                    <span> 
-                                        SALE! 
-                                    </span> 
-                                ) 
-                            }, 
-                            { 
-                                type: '2',
-                                background: '#FF4459', 
-                                color: 'rgb(255,255,255)', 
-                                directionY: 'top', 
-                                directionX: 'right', 
-                                ribbon: ( 
-                                    <span> 
-                                        SALE! 
-                                    </span> 
-                                ) 
-                            }, 
-                            { 
-                                type: '2',
-                                background: 'rgb(24,115,204)', 
-                                color: 'rgb(255,255,255)', 
-                                backgroundCorner: 'dodgerblue',
-                                directionY: 'bottom', 
-                                directionX: 'right', 
-                                ribbon: ( 
-                                    <span> 
-                                        -90% 
-                                    </span> 
-                                ) 
-                            },
-                            { 
-                                type: '2',
-                                background: 'rgb(24,115,204)', 
-                                color: 'rgb(255,255,255)', 
-                                backgroundCorner: 'dodgerblue',
-                                directionY: 'bottom', 
-                                directionX: 'left', 
-                                ribbon: ( 
-                                    <span> 
-                                        -90% 
-                                    </span> 
-                                ) 
+        return (            
+            <ContainerPopup
+                align='right'
+                addClass='container-example' 
+                hideAt={1024} 
+                animationDuration={300} 
+                minifySidebarOn={ 
+                    [ 
+            
+             
+                    ] 
+                } 
+                toggleMenuHtml={ 
+                    ( 
+                        <PopupHover 
+                            addClass='PopupHoverStyle' 
+                            direction='left' 
+                            holderData={ 
+                                <i className="fas fa-bars " /> 
                             } 
-                        ] 
-                    } 
-                    ribbon={
-                        <span>
-                            SALE!
-                        </span>
-                    }
-                    content={this.getJsx()}
-                />
-            </span>
+                            displayOnHover={true} 
+                            hideOnLeave={true} 
+                            animation={true} 
+                            contentData={this.getMenu()} 
+                        /> 
+                    ) 
+                } 
+                closeMenuHtml={ 
+                    <i className="fas fa-angle-left" /> 
+                } 
+                moduleSidebar={ 
+                    <SideBar 
+                        image={<img alt="image" src='./public/images/icon-48.png' />} 
+                        textLong='text long' 
+                        textShort='text short' 
+                        href={undefined} 
+                        moduleMenu={this.getMenu()} 
+                    /> 
+                } 
+                headerProps={undefined} 
+                headerData={undefined} 
+                contentProps={undefined} 
+                contentData={ 
+                    ( 
+                        <div className='CONTENT'> 
+                            CONTENT 
+                        </div> 
+                    ) 
+                } 
+                footerProps={undefined} 
+                footerData={ 
+                    ( 
+                        <div className='FOOTER'> 
+                            FOOTER 
+                        </div> 
+                    ) 
+                } 
+            />
         );
     }
 }

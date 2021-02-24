@@ -41,6 +41,7 @@ class ContainerPopup extends React.Component {
             align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
             headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
             animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
+            sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
         };
 
         this.locationCheckInterval = undefined;
@@ -53,7 +54,7 @@ class ContainerPopup extends React.Component {
      * @param {object} state 
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'animationDuration', 'hideAt', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['addClass', 'defaultClass', 'id', 'moduleSidebar', 'animationDuration', 'hideAt', 'headerProps', 'headerData', 'contentProps', 'contentData', 'footerData', 'footerProps', 'toggleMenuHtml', 'minifySidebarOn', 'align', 'headerDataRight', 'sidebarWidth'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container-popup',
@@ -71,6 +72,7 @@ class ContainerPopup extends React.Component {
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
                 headerDataRight: (typeof true == typeof props.headerDataRight) ? props.headerDataRight : false,
                 animationDuration: (typeof 8 == typeof props.animationDuration && 0 < props.animationDuration) ? props.animationDuration : 0,
+                sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
             };
         }
 
@@ -210,10 +212,15 @@ class ContainerPopup extends React.Component {
         const { addClass, defaultClass, id, moduleSidebar, toggleMenuHtml, animation, animationDuration, isHidden, isHiddenSidebar, hiddenBackwards, hiddenForwards, headerData, headerProps, contentData, contentProps, footerData, footerProps, headerDataRight, align } = this.state;
         const direction = ['left', 'right'].includes(align) ? align : 'left';
 
+        const constaineStyle = {};
+        constaineStyle['--rr-container-sidebar-width'] = `${this.state.sidebarWidth}px`;
+        constaineStyle['--rr-container-sidebar-width-hidden'] = `-${this.state.sidebarWidth}px`;
+
         return (
             <div
                 id={id}
                 className={`${defaultClass} ${direction} ${animation ? 'zIndex' : ''} ${!animationDuration ? 'td0' : ''} ${addClass}`}
+                style={constaineStyle}
             >
                 {
                     !isHiddenSidebar &&
@@ -224,7 +231,7 @@ class ContainerPopup extends React.Component {
                     </div>
                 }
                 <div 
-                    className={`Content ${isHidden ? 'Content-hidden' : ''}`} 
+                    className={`Content ${isHidden ? 'Content-hidden' : ''} ${!isHidden && hiddenForwards ? 'ContentShow' : ''} ${isHidden && hiddenBackwards ? 'ContentHide' : ''}`} 
                     {...contentProps}
                 >
                     <div className={`data-header`} {...headerProps}>

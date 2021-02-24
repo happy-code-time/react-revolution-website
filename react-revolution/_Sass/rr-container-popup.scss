@@ -1,5 +1,11 @@
 @import './globals.scss';
 
+html,
+body{
+  margin: 0;
+  padding: 0;
+}
+
 // default css is for the left site
 // right site are on the bottom of this file
 .rr-container-popup {
@@ -19,14 +25,11 @@
     }
   }
 
-  /*
-  * Main first sidebar
-  */
   .SideBar {
     position: fixed;
     left: 0;
     top: 0;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     height: 100vh;
     overflow: hidden;
     transition-duration: $default-transition;
@@ -34,7 +37,6 @@
     border-right: 1px solid $border-color;
 
     .rr-sidebar {
-      border: none;
       transition-duration: 0ms;
 
       .logo-text {
@@ -80,32 +82,52 @@
     }
   }
 
+  @keyframes ContainerPopupSideBarShowAnimationLeft {
+    0%{
+      left: var(--rr-container-sidebar-width-hidden);
+    }
+    100%{
+      left: 0px;
+    }
+  }
+
   .SideBarShow{
     transition-duration: $default-transition;
     left: 0px;
     z-index: 12;
+    animation: ContainerPopupSideBarShowAnimationLeft $default-transition forwards ease-in;
+  }
+
+  @keyframes ContainerPopupSideBarHideAnimationLeft {
+    0%{
+      left: 0px;
+    }
+    100%{
+      left: var(--rr-container-sidebar-width-hidden);
+    }
   }
 
   .SideBarHide{
     transition-duration: $default-transition;
-    left: -$dashboard_menu-width;
+    left: var(--rr-container-sidebar-width-hidden);
     z-index: 12;
+    animation: ContainerPopupSideBarHideAnimationLeft $default-transition forwards ease-in;
   }
 
   .SideBar-hidden {
     position: fixed;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     left: 0px;
     transition-duration: $default-transition;
   }
 
   .SideBar-hidden.closed{
-    left: calc(-#{$dashboard_menu-width} - 1px) !important;
+    left: calc(var(--rr-container-sidebar-width-hidden) - 1px) !important;
     border-right: 1px solid transparent;
   }
 
   .SideBar-hidden.opened {
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     left: 0px;
     z-index: 3;
     transition-duration: $default-transition;
@@ -113,15 +135,15 @@
 
   .Content {
     position: absolute;
-    left: $dashboard_menu-width;
-    width: calc(100% - 1px - #{$dashboard_menu-width});
+    left: calc(var(--rr-container-sidebar-width) + 1px);
+    width: calc(100% - 1px - var(--rr-container-sidebar-width));
     z-index: 2;
     transition-duration: $default-transition;
     background-color: $white;
     
     .data-header {
       width: 100%;
-      height: $dashboard_header-height;
+      height: 60px;
       box-sizing: border-box;
       padding: 10px 20px;
       position: relative;
@@ -130,34 +152,6 @@
       
       i {
         transition-duration: $default-transition;
-      }
-
-      .rr-custom-suggestion {
-        .suggestions-area {
-          .ul {
-            .suggestions {
-              max-height: 50vh;
-            }
-
-            li {
-              transition-duration: $default-transition;
-
-              a,
-              p {
-                transition-duration: $default-transition;
-              }
-            }
-
-            li:hover {
-              background-color: $dodgerblue;
-
-              a,
-              p {
-                color: $white;
-              }
-            }
-          }
-        }
       }
     }
 
@@ -177,13 +171,36 @@
     }
   }
 
-  /*
-  * Minified second Content
-  */
   .Content-hidden {
     left: 0;
     width: 100vw;
     z-index: 11;
+  }
+
+  @keyframes ContainerPopupContentShowAnimationLeft {
+    0%{
+      left: 0px;
+    }
+    100%{
+      left: var(--rr-container-sidebar-width);
+    }
+  }
+
+  .ContentShow{
+    animation: ContainerPopupContentShowAnimationLeft $default-transition forwards ease-in;
+  }
+
+  @keyframes ContainerPopupContentHideAnimationLeft {
+    0%{
+      left: var(--rr-container-sidebar-width);
+    }
+    100%{
+      left: 0px;
+    }
+  }
+
+  .ContentHide{
+    animation: ContainerPopupContentHideAnimationLeft $default-transition forwards ease-in;
   }
 
   .close-side-bar {
@@ -223,8 +240,8 @@
     border-left: 1px solid $border-color;
   }
   .SideBar-hidden.closed {
-    width: $dashboard_menu-width;
-    right: calc(-#{$dashboard_menu-width} - 1px) !important;
+    width: var(--rr-container-sidebar-width);
+    right: calc(var(--rr-container-sidebar-width-hidden) - 1px) !important;
     border-left:1px solid transparent;
   }
   .SideBar-hidden.opened {
@@ -233,8 +250,8 @@
   }
 
   .Content {
-    left: auto;
-    right: $dashboard_menu-width;
+    left: 0px !important;
+    right: var(--rr-container-sidebar-width);
   }
 
   .Content-hidden {
@@ -242,23 +259,80 @@
     right: 0px;
     z-index: 11;
   }
+
+  @keyframes ContainerPopupSideBarShowAnimationRight {
+    0%{
+      right: var(--rr-container-sidebar-width-hidden);
+    }
+    100%{
+      right: 0px;
+    }
+  }
+
+  .SideBarShow{
+    transition-duration: $default-transition;
+    right: 0px;
+    left: auto;
+    z-index: 12;
+    animation: ContainerPopupSideBarShowAnimationRight $default-transition forwards ease-in;
+  }
+
+  @keyframes ContainerPopupSideBarHideAnimationRight {
+    0%{
+      right: 0px;
+    }
+    100%{
+      right: var(--rr-container-sidebar-width-hidden);
+    }
+  }
+
+  .SideBarHide{
+    transition-duration: $default-transition;
+    right: 0px;
+    z-index: 12;
+    animation: ContainerPopupSideBarHideAnimationRight $default-transition forwards ease-in;
+  }
+
+  @keyframes ContainerPopupContentShowAnimationRight {
+    0%{
+      right: 0px;
+    }
+    100%{
+      right: var(--rr-container-sidebar-width-hidden);
+    }
+  }
+
+  .ContentShow{
+    animation: ContainerPopupContentShowAnimationRight $default-transition forwards ease-in;
+  }
+
+  @keyframes ContainerPopupContentHideAnimationRight {
+    0%{
+      right: var(--rr-container-sidebar-width-hidden);
+    }
+    100%{
+      right: 0px;
+    }
+  }
+
+  .ContentHide{
+    animation: ContainerPopupContentHideAnimationRight $default-transition forwards ease-in;
+  }
 }
 
 // Disable css animation time
-.rr-container-popup.td0,
-.rr-container-popup.right.td0{
+.rr-container-popup.td0{
   .SideBar,
   .SideBar-hidden,
   .SideBar-hidden.opened,
   .data-header,
   .rr-sidebar,
-  .Content{
-    transition-duration: 0ms !important;
-  }
-  .SideBarShow{
-    animation: ContainerPopupSideBarShowAnimation 0ms forwards ease-in;
-  }
+  .Content,
+  .SideBarShow,
+  .ContentShow,
+  .ContentHide,
   .SideBarHide{
-    animation: ContainerPopupSideBarHideAnimation 0ms forwards ease-in;
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
   }
 }

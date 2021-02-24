@@ -1,5 +1,11 @@
 @import './globals.scss';
 
+html,
+body{
+  margin: 0;
+  padding: 0;
+}
+
 // default css is for the left site
 // right site are on the bottom of this file
 .rr-container {
@@ -20,19 +26,17 @@
     }
   }
 
-  /*
-  * Main first sidebar
-  */
   .SideBar {
     position: fixed;
     left: 0;
     top: 0;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     height: 100vh;
     border-right: 1px solid $border-color;
     overflow: hidden;
     transition-duration: $default-transition;
     z-index: 2;
+    background-color: $white;
 
     .rr-sidebar {
       .logo-text {
@@ -78,8 +82,8 @@
     }
   }
 
-  .SideBar-min {
-    width: $dashboard_menu-width-min;
+  .SideBar.SideBar-min {
+    width: var(--rr-container-sidebar-min-width);
     transition-duration: 200ms;
 
     .drop-down {
@@ -87,8 +91,8 @@
     }
   }
 
-  .SideBar-min:hover {
-    width: $dashboard_menu-width;
+  .SideBar.SideBar-min:hover {
+    width: var(--rr-container-sidebar-width);
     z-index: 3;
 
     .drop-down {
@@ -96,20 +100,20 @@
     }
   }
 
-  .SideBar-hidden {
+  .SideBar.SideBar-hidden {
     position: fixed;
-    width: $dashboard_menu-width;
+    width: var(--rr-container-sidebar-width);
     left: 0px;
     transition-duration: $default-transition;
   }
 
-  .SideBar-hidden.closed{
-    left: calc(-#{$dashboard_menu-width} - 1px) !important;
+  .SideBar.SideBar-hidden.closed{
+    left: calc(var(--rr-container-sidebar-width-hidden) - 1px) !important;
     border-right: 1px solid transparent;
   }
 
-  .SideBar-hidden.opened {
-    width: $dashboard_menu-width;
+  .SideBar.SideBar-hidden.opened {
+    width: var(--rr-container-sidebar-width);
     left: 0px;
     z-index: 3;
     transition-duration: $default-transition;
@@ -117,14 +121,14 @@
 
   .Content {
     position: absolute;
-    left: $dashboard_menu-width;
-    width: calc(100% - #{$dashboard_menu-width});
+    left: var(--rr-container-sidebar-width);
+    width: calc(100% - var(--rr-container-sidebar-width));
     z-index: 2;
     transition-duration: 0ms;
 
     .data-header {
       width: 100%;
-      height: $dashboard_header-height;
+      height: 60px;
       box-sizing: border-box;
       padding: 10px 20px;
       position: relative;
@@ -133,34 +137,6 @@
 
       i {
         transition-duration: $default-transition;
-      }
-
-      .rr-custom-suggestion {
-        .suggestions-area {
-          .ul {
-            .suggestions {
-              max-height: 50vh;
-            }
-
-            li {
-              transition-duration: $default-transition;
-
-              a,
-              p {
-                transition-duration: $default-transition;
-              }
-            }
-
-            li:hover {
-              background-color: $dodgerblue;
-
-              a,
-              p {
-                color: $white;
-              }
-            }
-          }
-        }
       }
 
       /*
@@ -196,15 +172,12 @@
     }
   }
 
-  .Content-min {
-    left: $dashboard_menu-width-min;
-    width: calc(100% - #{$dashboard_menu-width-min});
+  .Content.Content-min {
+    left: var(--rr-container-sidebar-min-width);
+    width: calc(100% - var(--rr-container-sidebar-min-width));
   }
 
-  /*
-  * Minified second Content
-  */
-  .Content-hidden {
+  .Content.Content-hidden {
     left: 0;
     width: 100vw;
   }
@@ -246,8 +219,8 @@
     border-left: 1px solid $border-color;
   }
   .SideBar-hidden.closed {
-    width: $dashboard_menu-width;
-    right: calc(-#{$dashboard_menu-width} - 1px) !important;
+    width: var(--rr-container-sidebar-width);
+    right: calc(var(--rr-container-sidebar-width-hidden) - 1px) !important;
     border-left:1px solid transparent;
   }
   .SideBar-hidden.opened {
@@ -257,27 +230,27 @@
 
   .Content {
     left: auto;
-    right: $dashboard_menu-width;
+    right: var(--rr-container-sidebar-width);
   }
-  .Content-min {
+  .Content.Content-min {
     left: auto;
-    right: $dashboard_menu-width-min;
+    right: var(--rr-container-sidebar-min-width);
   }
-  .Content-hidden {
+  .Content.Content-hidden {
     left: 0px;
     right: 0px;
   }
 }
 
 // Disable css animation time
-.rr-container.td0,
-.rr-container.right.td0{
+.rr-container.td0{
   .SideBar,
   .SideBar-min,
   .SideBar-hidden,
   .SideBar-hidden.opened,
   .data-header,
-  .rr-sidebar{
+  .rr-sidebar,
+  .Content{
     transition-duration: 0ms !important;
   }
 }
