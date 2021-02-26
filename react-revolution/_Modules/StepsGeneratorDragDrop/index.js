@@ -1,4 +1,5 @@
 import React from 'react';
+import copyObject from '../../_Functions/copyObject';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import internalUuid from '../internalFunctions/internalUuid';
 class StepsGeneratorDragDrop extends React.Component {
@@ -62,6 +63,7 @@ class StepsGeneratorDragDrop extends React.Component {
             stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
             stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
             data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
+            dragDrop: props.dragDrop ? props.dragDrop : '',
         };
     }
 
@@ -72,7 +74,7 @@ class StepsGeneratorDragDrop extends React.Component {
      * @param {object} state
      */
     static getDerivedStateFromProps(props, state) {
-        if (getDerivedStateFromPropsCheck(['stepsData', 'stepReorderCallback', 'data', 'newStepData', 'maxSteps', 'mountCallback', 'addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
+        if (getDerivedStateFromPropsCheck(['stepsData', 'stepReorderCallback', 'data', 'dragDrop', 'newStepData', 'maxSteps', 'mountCallback', 'addClass', 'defaultClass', 'id', 'placeholder', 'placeholderPosition', 'submit', 'resetOnSubmit', 'submitCallback', 'submitCallbackProps', 'useInput', 'removeStepAlignTop', 'stepPrefix', 'displayStepCount', 'addStep', 'removeStep', 'addNewStepOn', 'callback', 'callbackProps', 'defaultSteps'], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-steps-generator-drag-drop',
@@ -99,6 +101,7 @@ class StepsGeneratorDragDrop extends React.Component {
                 stepRemovedCallback: props.stepRemovedCallback && typeof function () { } == typeof props.stepRemovedCallback ? props.stepRemovedCallback : undefined,
                 stepReorderCallback: props.stepReorderCallback && typeof function () { } == typeof props.stepReorderCallback ? props.stepReorderCallback : undefined,
                 data: props.data && typeof [] === typeof props.data && props.data.length ? props.data : [],
+                dragDrop: props.dragDrop ? props.dragDrop : '',
             };
         }
 
@@ -134,6 +137,7 @@ class StepsGeneratorDragDrop extends React.Component {
                     }
     
                     current[unique].value = value;
+                    current[unique] = { ...this.state.data[x], ...current[unique] };
                 }
             }
 
@@ -449,23 +453,28 @@ class StepsGeneratorDragDrop extends React.Component {
         for (let x = 0; x <= currentKeys.length - 1; x++) {
             const { value } = current[currentKeys[x]];
 
-            let userProps = {};
+            if(value){
+                let userProps = {};
 
-            if(stepsData){
-                let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
-                    
-                if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
-                    userProps = currentStepsData[0];
+                if(stepsData){
+                    let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
+                        
+                    if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
+                        userProps = currentStepsData[0];
+                    }
                 }
+                
+                const publicData = copyObject(current[currentKeys[x]], ['ref']);
+    
+                userCallbackData.push(
+                    {
+                        ...userProps,
+                        ...publicData,
+                        value,
+                        uuid: currentKeys[x],
+                    }
+                );
             }
-
-            userCallbackData.push(
-                {
-                    ...userProps,
-                    value,
-                    uuid: currentKeys[x]
-                }
-            );
         }
 
         return userCallbackData;
@@ -522,7 +531,7 @@ class StepsGeneratorDragDrop extends React.Component {
     }
 
     getCurrentData() {
-        const { current, removeStep, stepPrefix, placeholder, overLiIndex, sourceIndex, dragging, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc, stepsData } = this.state;
+        const { current, removeStep, dragDrop, stepPrefix, placeholder, overLiIndex, sourceIndex, dragging, displayStepCount, removeStepAlignTop, defaultSteps, useInput, onEnter, onEsc, stepsData } = this.state;
         const jsx = [];
         const currentKeys = Object.keys(current);
 
@@ -613,13 +622,28 @@ class StepsGeneratorDragDrop extends React.Component {
             jsx.push(
                 <li
                     key={currentKeys[x]}
-                    className='single-step single-step-li'
-                    {...(1 !== currentKeys.length) && {onDragStart: (e) => this.onDragStart(e, x, currentKeys[x])}}
-                    {...(1 !== currentKeys.length) && {onDragOver: (e) => this.onDragOver(e, x)}}
-                    {...(1 !== currentKeys.length) && {onDragEnter: (e) => this.onDragEnter(e, x)}}
-                    {...(1 !== currentKeys.length) && {onDragLeave: (e) => this.onDragLeave(e)}}
-                    {...(1 !== currentKeys.length) && {draggable: 'true'}}
+                    className={`single-step single-step-li ${dragDrop ? 'drag-drop-handler-li' : ''}`}
+                    {...(1 !== currentKeys.length && !dragDrop) && {onDragStart: (e) => this.onDragStart(e, x, currentKeys[x])}}
+                    {...(1 !== currentKeys.length && !dragDrop) && {onDragOver: (e) => this.onDragOver(e, x)}}
+                    {...(1 !== currentKeys.length && !dragDrop) && {onDragEnter: (e) => this.onDragEnter(e, x)}}
+                    {...(1 !== currentKeys.length && !dragDrop) && {onDragLeave: (e) => this.onDragLeave(e)}}
+                    {...(1 !== currentKeys.length && !dragDrop) && {draggable: 'true'}}
                 >
+                    {
+                        dragDrop && 
+                        <span 
+                            className='drag-drop-handler'
+                            {...(1 !== currentKeys.length) && {onDragStart: (e) => this.onDragStart(e, x, currentKeys[x])}}
+                            {...(1 !== currentKeys.length) && {onDragOver: (e) => this.onDragOver(e, x)}}
+                            {...(1 !== currentKeys.length) && {onDragEnter: (e) => this.onDragEnter(e, x)}}
+                            {...(1 !== currentKeys.length) && {onDragLeave: (e) => this.onDragLeave(e)}}
+                            {...(1 !== currentKeys.length) && {draggable: 'true'}}
+                        >
+                            {
+                                dragDrop
+                            }
+                        </span>
+                    }
                     {
                         stepPrefix &&
                         <div className='step-prefix'>

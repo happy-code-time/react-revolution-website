@@ -2501,6 +2501,11 @@ const EN = {
         "type": "String | Number",
         "default": "undefined"
     },
+    'stepGen.dragDrop': {
+        "description": "Attach all drag events to a custom provided String/ JSX element.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
     'stepGenDragDrop.example1': 'Example with the generation of 3 fields (at the start), a delete and submit button, a self-defined placeholder and the placeholder in the direction of "auto". Open your developer console to watch the changes.',
     'timelineList.direction': {
         "description": "Direction of the timeline. Possible directions: 'right' and 'left'.",

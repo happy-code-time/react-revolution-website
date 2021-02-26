@@ -1,205 +1,111 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { MenuHeight, Container, ContainerPopup, SideBar, PopupHover } from './react-revolution/react-revolution';
+import { StepsGenerator, Container, ContainerPopup, SideBar, PopupHover } from './react-revolution/react-revolution';
 // import './react-revolution/_Sass/react-revolution.scss';
 import './react-revolution/_Sass/react-revolution.scss';
 
-class App extends React.Component {
+class App extends React.Component 
+{
 
     constructor(props) {
         super(props);
-
-        this.state = {
-        };
+        this.logData = this.logData.bind(this);
+        this.submitSteps = this.submitSteps.bind(this);
     }
-
-    getJsx() {
-        return (
-            <div
-                style={
-                    {
-                        borderRadius: '5px',
-                        boxShadow: '0px 0px 9px rgb(233,233,233)',
-                        overflow: 'hidden'
-                    }
-                }
-            >
-                <img
-                    src='public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg'
-                    style={
-                        {
-                            width: '100%',
-                            height: '50%',
-                        }
-                    }
-                />
-                <p
-                    style={
-                        {
-                            boxSizing: 'border-box',
-                            padding: '10px'
-                        }
-                    }
-                >
-                    Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore
-                    magna aliquyam erat,
-                    sed diam voluptua.
-                    At vero eos et accusam et
-                    justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren,
-                    no sea takimata sanctus est
-                    Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore
-                    magna aliquyam erat, sed diam
-                    voluptua. At vero eos et accusam
-                    et justo duo dolores et ea rebum.
-                    Stet clita kasd gubergren, no sea
-                    takimata sanctus est Lorem ipsum
-                    dolor sit amet.
-                </p>
-            </div>
-        );
+    
+    logData(callbackProps, steps) {
+        console.info(steps);
     }
-
-    getMenu() {
-        return (
-            <MenuHeight
-                reactRouter={false}
-                animation='height'
-                dropDown={
-                    (
-                        <i className="fas fa-angle-down dropDownIcon"></i>
-                    )
-                }
-                data={
-                    [
-                        {
-                            icon: <i className="fas fa-golf-ball"></i>,
-                            text: 'Golf',
-                            data: [
-                                {
-                                    icon: <i className="fas fa-golf-ball"></i>,
-                                    text: 'Golf 1',
-                                },
-                                {
-                                    icon: <i className="fas fa-golf-ball"></i>,
-                                    text: 'Golf 2',
-                                }
-                            ]
-                        },
-                        {
-                            icon: <i className="fas fa-pump-soap"></i>,
-                            text: 'Pump Soap',
-                            data: [
-                                {
-                                    icon: <i className="fas fa-pump-soap"></i>,
-                                    text: 'Soap 1',
-                                },
-                                {
-                                    icon: <i className="fas fa-pump-soap"></i>,
-                                    text: 'Soap 2',
-                                }
-                            ]
-                        },
-                        {
-                            icon: <i className="fas fa-pizza-slice"></i>,
-                            text: 'Pizza',
-                            data: [
-                                {
-                                    icon: <i className="fas fa-pizza-slice"></i>,
-                                    text: 'Pizza 1'
-                                },
-                                {
-                                    icon: <i className="fas fa-pizza-slice"></i>,
-                                    text: 'Pizza 2'
-                                }
-                            ]
-                        },
-                        {
-                            icon: <i className="fas fa-ice-cream"></i>,
-                            text: 'Ice',
-                            data: [
-                                {
-                                    icon: <i className="fas fa-ice-cream"></i>,
-                                    text: 'Ice 1'
-                                },
-                                {
-                                    icon: <i className="fas fa-ice-cream"></i>,
-                                    text: 'Ice 2'
-                                }
-                            ]
-                        },
-                    ]
-                }
-            />
-        );
+    
+    submitSteps(submitStepsProps, steps) {
+        console.info(steps);
     }
 
     render() {
 
-        return (            
-            <ContainerPopup
-                align='right'
-                addClass='container-example' 
-                hideAt={1024} 
-                animationDuration={300} 
-                minifySidebarOn={ 
-                    [ 
-            
-             
-                    ] 
-                } 
-                toggleMenuHtml={ 
-                    ( 
-                        <PopupHover 
-                            addClass='PopupHoverStyle' 
-                            direction='left' 
-                            holderData={ 
-                                <i className="fas fa-bars " /> 
-                            } 
-                            displayOnHover={true} 
-                            hideOnLeave={true} 
-                            animation={true} 
-                            contentData={this.getMenu()} 
-                        /> 
-                    ) 
-                } 
-                closeMenuHtml={ 
-                    <i className="fas fa-angle-left" /> 
-                } 
-                moduleSidebar={ 
-                    <SideBar 
-                        image={<img alt="image" src='./public/images/icon-48.png' />} 
-                        textLong='text long' 
-                        textShort='text short' 
-                        href={undefined} 
-                        moduleMenu={this.getMenu()} 
-                    /> 
-                } 
-                headerProps={undefined} 
-                headerData={undefined} 
-                contentProps={undefined} 
-                contentData={ 
-                    ( 
-                        <div className='CONTENT'> 
-                            CONTENT 
-                        </div> 
-                    ) 
-                } 
-                footerProps={undefined} 
-                footerData={ 
-                    ( 
-                        <div className='FOOTER'> 
-                            FOOTER 
-                        </div> 
-                    ) 
-                } 
+        return (                        
+            <StepsGenerator
+                callback={this.logData}
+                useInput={true}
+                callbackProps='any'
+                data={
+                    [
+                        {
+                            value: 'Value of the field 1',
+                            customKey1: 423423,
+                            customKey2: [1, 2, 3],
+                        },
+                        {
+                            value: 'Value of the field 2',
+                            customKey1: 9488723,
+                            customKey2: ['1', '2'],
+                        }
+                    ]
+                }
+                removeStep={
+                    (
+                        <span
+                            style={
+                                {
+                                    display: 'inline-block',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    background: '#FF4459',
+                                    margin: '5px 10px',
+                                    color: 'rgb(255,255,255)'
+                                }
+                            }
+                        >
+                            remove step
+                        </span>
+                    )
+                }
+                removeStepAtTop={true}
+                defaultSteps={3}
+                addStep={
+                    (
+                        <span
+                            style={
+                                {
+                                    display: 'inline-block',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                    cursor: 'pointer',
+                                    background: 'dodgerblue',
+                                    margin: '5px 10px',
+                                    color: 'rgb(255,255,255)'
+                                }
+                            }
+                        >
+                            add new step
+                        </span>
+                    )
+                }
+                dragDrop='🚼'
+                displayStepCount={true}
+                addNewStepOn={1} // defaultSteps - addNewStepOn, 0 = ignore step adding by the component
+                submit={
+                    <span
+                        style={
+                            {
+                                display: 'inline-block',
+                                padding: '5px 10px',
+                                borderRadius: '5px',
+                                cursor: 'pointer',
+                                background: 'rgb(71,180,118)',
+                                margin: '5px 10px',
+                                color: 'rgb(255,255,255)'
+                            }
+                        }
+                    >
+                        submit
+                    </span>
+                }
+                submitCallback={this.submitSteps}
+                submitCallbackProps='any'
+                resetOnSubmit={true}
+                placeholder='PLACEHOLDER' 
             />
         );
     }

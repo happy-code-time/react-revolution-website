@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
         // config.devtool = 'eval-source-map';
         config.devtool = false;
         config.mode = 'development';
-        config.output.filename = '1614181296417617890757270032.js';
+        config.output.filename = '1614255899489154521429288121.js';
         config.performance = {
             hints: 'error'
         };
@@ -85,7 +85,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'production') {
         config.devtool = false;
         config.mode = 'production';
-        config.output.filename = '1614181296417617890757270032.js';
+        config.output.filename = '1614255899489154521429288121.js';
         config.performance = {
             hints: false
         };

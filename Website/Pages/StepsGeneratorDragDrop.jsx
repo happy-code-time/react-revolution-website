@@ -787,6 +787,10 @@ class _StepsGeneratorDragDrop extends React.Component {
                                     values: 'stepGenDragDrop.stepReorderCallback'
                                 },
                                 {
+                                    key: 'dragDrop',
+                                    values: 'stepGenDragDrop.dragDrop'
+                                },
+                                {
                                     key: 'data',
                                     values: 'stepGen.data'
                                 },

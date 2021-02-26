@@ -15,11 +15,13 @@
         list-style: none;
     }
 
-    .single-step:hover{
+    .drag-drop-handler:hover,
+    .drag-drop-handler-li:hover{
         cursor: grab;
     }
 
-    .single-step:active{
+    .drag-drop-handler:active,
+    .drag-drop-handler-li:active{
         cursor: grabbing;
     }
 

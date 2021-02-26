@@ -1,4 +1,4 @@
-const version = '5.2.2';
+const version = '5.2.3';
 
 const appName = `React Revolution`;
 

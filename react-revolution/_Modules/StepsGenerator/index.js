@@ -1,4 +1,5 @@
 import React from 'react';
+import copyObject from '../../_Functions/copyObject';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 import internalUuid from '../internalFunctions/internalUuid';
 
@@ -108,6 +109,7 @@ class StepsGenerator extends React.Component {
                 }
 
                 current[unique].value = value;
+                current[unique] = { ...this.state.data[x], ...current[unique] };
             }
 
             // Return uuids for the developer
@@ -237,23 +239,28 @@ class StepsGenerator extends React.Component {
         for (let x = 0; x <= currentKeys.length - 1; x++) {
             const { value } = current[currentKeys[x]];
 
-            let userProps = {};
+            if(value){
+                let userProps = {};
 
-            if(stepsData){
-                let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
-                    
-                if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
-                    userProps = currentStepsData[0];
+                if(stepsData){
+                    let currentStepsData = stepsData.filter( o => o.uuid === currentKeys[x]);
+                        
+                    if(0 !== currentStepsData.length && typeof {} === typeof currentStepsData[0]){
+                        userProps = currentStepsData[0];
+                    }
                 }
+    
+                const publicData = copyObject(current[currentKeys[x]], ['ref']);
+    
+                userCallbackData.push(
+                    {
+                        ...userProps,
+                        ...publicData,
+                        value,
+                        uuid: currentKeys[x],
+                    }
+                );
             }
-
-            userCallbackData.push(
-                {
-                    ...userProps,
-                    value,
-                    uuid: currentKeys[x]
-                }
-            );
         }
 
         return userCallbackData;

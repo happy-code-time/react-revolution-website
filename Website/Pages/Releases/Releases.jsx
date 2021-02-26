@@ -2189,6 +2189,43 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.2.3': {
+                    data: [
+                        {
+                            key: 'StepsGenerator',
+                            value: 'Code improvement to persist passed other keys (then "value") on each single object from the key data.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'StepsGeneratorDragDrop - code',
+                            value: 'Code improvement to persist passed other keys (then "value") on each single object from the key data.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'StepsGeneratorDragDrop - key',
+                            value: 'Added new key: \n\ndragDrop.',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }
