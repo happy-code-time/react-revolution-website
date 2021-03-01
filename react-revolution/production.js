@@ -26,6 +26,7 @@ import FullScreenListObject from './_Modules/FullScreenListObject';
 import FullScreenOverlay from './_Modules/FullScreenOverlay';
 import GlobalMessages from './_Modules/GlobalMessages';
 import Icons from './_Modules/Icons';
+import ImageBanner from './_Modules/ImageBanner';
 import ImageBox from './_Modules/ImageBox';
 import ImageCarousel from './_Modules/ImageCarousel';
 import InputAnimation from './_Modules/InputAnimation';
@@ -114,6 +115,7 @@ export {
     FullScreenOverlay,
     GlobalMessages,
     Icons,
+    ImageBanner,
     ImageBox,
     ImageCarousel,
     InputAnimation,

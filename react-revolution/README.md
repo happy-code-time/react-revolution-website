@@ -78,6 +78,7 @@ import { Breadcrumbs } from 'react-revolution';
     FullScreenOverlay
     GlobalMessages
     Icons
+    ImageBanner
     ImageBox
     ImageCarousel
     InputAnimation

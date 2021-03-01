@@ -10,11 +10,11 @@
 
     // Make it responsive automatically
     height: 0;
-    padding-bottom: 45vw;
-    max-width: 1024px;
+    padding-bottom: 40vw;
+    max-width: 90vw;
 
-    @media screen and (min-width: 1024px) {
-        padding-bottom: 460px;
+    .wrapper{
+        position: relative;
     }
 
     .data-box,
@@ -35,7 +35,7 @@
         box-sizing: border-box;
         padding: 5px 10px;
         left: 0;
-        top: 10%;
+        top: 15px;
         width: 60%;
         z-index: 1;
         background-color: rgba(218,221,225,.8);
@@ -59,14 +59,14 @@
 
     // Main data box
     .main-data{
-        left: 5%;
-        top: 20%;
-        width: 60%;
+        left: 15%;
+        top: 27px;
+        width: 50%;
         z-index: 4;
         background-color: $white;
         // Make it responsive automatically
         height: 0;
-        padding-bottom: 25%;
+        padding-bottom: 28%;
     }
 
     // Direction left
@@ -87,6 +87,21 @@
             left: 0;
             top: 10%;
             width: 60%;
+        }
+    }
+
+    @media screen and (min-width: 550px) {
+        .main-data{
+            top: 45px;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .wrapper-data{
+            top: 30px;
+        }
+        .main-data{
+            top: 6vw;
         }
     }
 }

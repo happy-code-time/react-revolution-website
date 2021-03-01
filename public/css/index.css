@@ -4184,7 +4184,8 @@ h1,
 
 .rr-articles-production .single-entry {
   min-height: 30px;
-  margin: 10px 0 !important; }
+  margin: 10px 0 !important;
+  overflow: hidden; }
   .rr-articles-production .single-entry .rr-clipboard {
     margin: 0 10px; }
   .rr-articles-production .single-entry .rr-sourcecode {

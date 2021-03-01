@@ -2,7 +2,8 @@ import React from 'react';
 import isObject from '../../_Functions/isObject';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
-class ImageBox extends React.Component {
+class ImageBox extends React.Component 
+{
     constructor(props) {
         super(props);
 

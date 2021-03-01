@@ -41,6 +41,7 @@ import _FullScreenListObject from './Website/Pages/FullScreenListObject';
 import _FullScreenOverlay from './Website/Pages/FullScreenOverlay';
 import _GlobalMessages from './Website/Pages/GlobalMessages';
 import _Icons from './Website/Pages/Icons';
+import _ImageBanner from './Website/Pages/ImageBanner';
 import _ImageBox from './Website/Pages/ImageBox';
 import _ImageCarousel from './Website/Pages/ImageCarousel';
 import _InputAnimation from './Website/Pages/InputAnimation';
@@ -337,6 +338,11 @@ class App extends React.Component {
 
     [
       {
+        version: '5.3',
+        start: 0,
+        end: 0
+      },
+      {
         version: '5.2',
         start: 0,
         end: 3
@@ -504,7 +510,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 Cards
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -568,7 +574,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 DragDrop
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -590,7 +596,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 FullScreen
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -620,6 +626,10 @@ class App extends React.Component {
                           href: `${host}#/components/icons`,
                         },
                         {
+                          text: 'ImageBanner',
+                          href: `${host}#/components/image-banner`,
+                        },
+                        {
                           text: 'ImageBox',
                           href: `${host}#/components/image-box`,
                         },
@@ -632,7 +642,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 Input
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -678,7 +688,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 Menus
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -1071,6 +1081,7 @@ class App extends React.Component {
               <Route exact path="/components/fullscreen-overlay" render={(props) => (<_FullScreenOverlay {...props} />)} />
               <Route exact path="/components/global-messages" render={(props) => (<_GlobalMessages {...props} />)} />
               <Route exact path="/components/icons" render={(props) => (<_Icons {...props} />)} />
+              <Route exact path="/components/image-banner" render={(props) => (<_ImageBanner {...props} />)} />
               <Route exact path="/components/image-box" render={(props) => (<_ImageBox {...props} />)} />
               <Route exact path="/components/image-carousel" render={(props) => (<_ImageCarousel {...props} />)} />
               <Route exact path="/components/input-animation" render={(props) => (<_InputAnimation {...props} />)} />

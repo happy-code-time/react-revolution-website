@@ -2226,6 +2226,32 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.3.0': {
+                    data: [
+                        {
+                            key: 'ImageBanner',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ImageBox',
+                            value: 'Style improvement.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

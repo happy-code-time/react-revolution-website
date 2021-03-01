@@ -3046,12 +3046,12 @@ const EN = {
         "default": "right"
     },
     'imageBox.boxData': {
-        "description": "Dimmed box data.",
+        "description": "Box data.",
         "type": "String | JSX",
         "default": "<empty string>"
     },
     'imageBox.boxProps': {
-        "description": "Dimmed box HTML attributes.",
+        "description": "Box HTML attributes.",
         "type": "Object",
         "default": "{}"
     },
@@ -3112,6 +3112,22 @@ const EN = {
     "container.popup.example1" : "This container does not have an minified sidebar in mobile version (mobile version specified by the key hideAt - to hide the sidebar) but the MenuHover Component.",
     "container.sidebar.example1" : "This container has the media break point on (lower then) 1024px to the container to show the minified sidebar.",
     "container.example2" : "Example with the key animationDuration set to 300(ms) - this is the default transition duration value from the global react-revolution.css file. The animationDuration (if not 0 and grather then 0) executes an animation on the media break point.",
+    "imageBanner.imageAsSource": {
+        "description": "If false then use the given image path as background image. If true then a <img/> tag rendered.",
+        "type": "Boolean",
+        "default": "false"
+    },
+    "imageBanner.direction": {
+        "description": "Direction of the box. Default align the box data to the left. Available directions: left, center, right.",
+        "type": "String",
+        "default": "left"
+    },
+    "imageBanner.example1": "Use the image as background-image.",
+    "imageBanner.example2": "Use the key 'direction' with the value 'center'.",
+    "imageBanner.example3": "Use the key 'direction' with the value 'right'.",
+    "imageBanner.example4": "Use the image as source of an img tag.",
+    "imageBanner.example5": "Use the key 'direction' with the value 'center'.",
+    "imageBanner.example6": "Use the key 'direction' with the value 'right'.",
 };
 
 export default EN;

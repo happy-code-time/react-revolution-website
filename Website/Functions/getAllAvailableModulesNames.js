@@ -97,6 +97,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/icons'
         },
         {
+            name: 'ImageBanner',
+            link: 'components/image-banner'
+        },
+        {
             name: 'ImageBox',
             link: 'components/image-box'
         },

@@ -38,6 +38,7 @@ const modules = [
     "FullScreenOverlay",
     "GlobalMessages",
     "Icons",
+    "ImageBanner",
     "ImageBox",
     "ImageCarousel",
     "InputAnimation",
