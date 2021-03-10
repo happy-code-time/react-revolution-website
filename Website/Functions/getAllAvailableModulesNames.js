@@ -53,6 +53,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/container'
         },
         {
+            name: 'ContainerCompact',
+            link: 'components/container-compact'
+        },
+        {
             name: 'ContainerSidebar',
             link: 'components/container-sidebar'
         },

@@ -30,6 +30,7 @@ import _Clipboard from './Website/Pages/Clipboard';
 import _Clouds404 from './Website/Pages/Clouds404';
 import _CloudsMountains404 from './Website/Pages/CloudsMountains404';
 import _Container from './Website/Pages/Container';
+import _ContainerCompact from './Website/Pages/ContainerCompact';
 import _ContainerPopup from './Website/Pages/ContainerPopup';
 import _ContainerSidebar from './Website/Pages/ContainerSidebar';
 import _CustomSuggestion from './Website/Pages/CustomSuggestion';
@@ -338,6 +339,11 @@ class App extends React.Component {
 
     [
       {
+        version: '5.4',
+        start: 0,
+        end: 0
+      },
+      {
         version: '5.3',
         start: 0,
         end: 0
@@ -554,6 +560,10 @@ class App extends React.Component {
                             {
                               text: 'Container',
                               href: `${host}#/components/container`,
+                            },
+                            {
+                              text: 'ContainerCompact',
+                              href: `${host}#/components/container-compact`,
                             },
                             {
                               text: 'ContainerPopup',
@@ -1070,6 +1080,7 @@ class App extends React.Component {
               <Route exact path="/components/clouds-404" render={(props) => (<_Clouds404 {...props} />)} />
               <Route exact path="/components/clouds-mountains-404" render={(props) => (<_CloudsMountains404 {...props} />)} />
               <Route exact path="/components/container" render={(props) => (<_Container {...props} />)} />
+              <Route exact path="/components/container-compact" render={(props) => (<_ContainerCompact {...props} />)} />
               <Route exact path="/components/container-popup" render={(props) => (<_ContainerPopup {...props} />)} />
               <Route exact path="/components/container-sidebar" render={(props) => (<_ContainerSidebar {...props} />)} />
               <Route exact path="/components/custom-suggestion" render={(props) => (<_CustomSuggestion {...props} />)} />

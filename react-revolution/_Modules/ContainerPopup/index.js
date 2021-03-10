@@ -1,4 +1,5 @@
 import React from 'react';
+import isArray from '../../_Functions/isArray';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class ContainerPopup extends React.Component {
@@ -92,6 +93,14 @@ class ContainerPopup extends React.Component {
         window.removeEventListener('resize', this.resizeView);
         window.removeEventListener('focus', this.handleFocus);
         window.removeEventListener('blur', this.handleBlur);
+    }
+
+    componentDidUpdate(){
+        if (isArray(this.state.minifySidebarOn) && 0 === this.state.minifySidebarOn.length) {
+            return this.setLocationChecker();
+        }
+
+        this.setLocationChecker(true);
     }
 
     handleFocus() {

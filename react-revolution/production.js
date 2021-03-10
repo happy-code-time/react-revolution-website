@@ -16,6 +16,7 @@ import Clipboard from './_Modules/Clipboard';
 import Clouds404 from './_Modules/Clouds404';
 import CloudsMountains404 from './_Modules/CloudsMountains404';
 import Container from './_Modules/Container';
+import ContainerCompact from './_Modules/ContainerCompact';
 import ContainerPopup from './_Modules/ContainerPopup';
 import ContainerSidebar from './_Modules/ContainerSidebar';
 import DarkLines404 from './_Modules/DarkLines404';
@@ -105,6 +106,7 @@ export {
     Clouds404,
     CloudsMountains404,
     Container,
+    ContainerCompact,
     ContainerPopup,
     ContainerSidebar,
     DarkLines404,

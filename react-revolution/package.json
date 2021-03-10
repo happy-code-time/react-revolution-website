@@ -1,6 +1,6 @@
 {
   "name": "react-revolution",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "React Revolution - interactive react components",
   "main": "react-revolution.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "Clouds404",
     "CloudsMountains404",
     "Container",
+    "ContainerCompact",
     "ContainerPopup",
     "ContainerSidebar",
     "CustomSuggestion",

@@ -1220,7 +1220,17 @@ const EN = {
         "default": "<empty string>"
     },
     "headerProps": {
-        "description": "Header div`s properties.",
+        "description": "Header div`s attributes.",
+        "type": "{}",
+        "default": "{}"
+    },
+    "sidebarData": {
+        "description": "Custom JSX inside the sidebars area.",
+        "type": "Module",
+        "default": "<empty string>"
+    },
+    "sidebarProps": {
+        "description": "Sidebar div`s HTML attributes.",
         "type": "{}",
         "default": "{}"
     },
@@ -1230,7 +1240,7 @@ const EN = {
         "default": "<empty string>"
     },
     "contentProps": {
-        "description": "Content div`s properties.",
+        "description": "Content div`s attributes.",
         "type": "{}",
         "default": "{}"
     },
@@ -1240,7 +1250,7 @@ const EN = {
         "default": "<empty string>"
     },
     "footerProps": {
-        "description": "Footer div`s properties.",
+        "description": "Footer div`s attributes.",
         "type": "{}",
         "default": "{}"
     },
@@ -3128,6 +3138,27 @@ const EN = {
     "imageBanner.example4": "Use the image as source of an img tag.",
     "imageBanner.example5": "Use the key 'direction' with the value 'center'.",
     "imageBanner.example6": "Use the key 'direction' with the value 'right'.",
+    "container.compact.callbackShow": {
+        "description" : "Callback function executed after the sidebar are mounted/ displayed. Default the sidebar are hidden - 'Mobile First' rule.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "container.compact.callbackShowProps": {
+        "description" : "User defined argument for the callbackShow function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "container.compact.callbackHide": {
+        "description" : "Callback function executed after the sidebar are unmounted/hidden.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    "container.compact.callbackHideProps": {
+        "description" : "User defined argument for the callbackHide function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    "container.compact.example1" : "Base website container. This component does not includes the sidbear as part of the header.",
 };
 
 export default EN;

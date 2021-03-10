@@ -27,6 +27,7 @@ const modules = [
     "Clouds404",
     "CloudsMountains404",
     "Container",
+    "ContainerCompact",
     "ContainerPopup",
     "ContainerSidebar",
     "CustomSuggestion",

@@ -1,4 +1,5 @@
 import React from 'react';
+import isArray from '../../_Functions/isArray';
 import getDerivedStateFromPropsCheck from '../internalFunctions/getDerivedStateFromPropsCheck';
 
 class ContainerSidebar extends React.Component {
@@ -114,6 +115,14 @@ class ContainerSidebar extends React.Component {
         window.removeEventListener('mousedown', this.handleClick);
         window.removeEventListener('focus', this.handleFocus);
         window.removeEventListener('blur', this.handleBlur);
+    }
+
+    componentDidUpdate(){
+        if (isArray(this.state.minifySidebarOn) && 0 === this.state.minifySidebarOn.length) {
+            return this.setLocationChecker();
+        }
+
+        this.setLocationChecker(true);
     }
 
     handleFocus(){
