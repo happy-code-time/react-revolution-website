@@ -750,3 +750,14 @@ h1,
   display: block;
   max-width: 500px;
   margin: 0 auto; }
+
+.overwrite-for-website .Header {
+  position: relative !important; }
+
+.overwrite-for-website .Sidebar,
+.overwrite-for-website .Content {
+  position: absolute !important; }
+
+.overwrite-for-website .Content,
+.overwrite-for-website .Sidebar {
+  top: 50px !important; }

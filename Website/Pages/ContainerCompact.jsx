@@ -36,20 +36,27 @@ const codeExample1 = `import { ContainerCompact } from 'react-revolution';
         </span>
     }
     sidebarWidth={250}
-    footerProps={
-        {
-            title: 'sidebar'
-        }
-    }
-    footerData={
-        <p>Footer</p>
-    }
     hideAt={720}
     callbackShow={console.info}
     callbackShowProps='show'
     callbackHide={console.info}
     callbackHideProps='hide'
 /> `;
+
+const cssExample1 = `.overwrite-for-website{
+    .Header{
+        position: relative !important;        
+    }
+    .Sidebar,
+    .Content{
+        position: absolute !important;
+    }
+
+    .Content,
+    .Sidebar{
+        top: 50px !important;
+    }
+}`;
 
 
 class _ContainerCompact extends React.Component {
@@ -66,10 +73,11 @@ class _ContainerCompact extends React.Component {
                 react: codeExample1,
                 reactTextAfter: '',
                 js: '',
-                css: '',
+                css: cssExample1,
                 html: '',
                 live: (
                     <ContainerCompact 
+                        addClass="overwrite-for-website"
                         headerProps={
                             {
                                 title: '1'
@@ -97,14 +105,6 @@ class _ContainerCompact extends React.Component {
                             </span>
                         }
                         sidebarWidth={250}
-                        footerProps={
-                            {
-                                title: 'sidebar'
-                            }
-                        }
-                        footerData={
-                            <p>Footer</p>
-                        }
                         hideAt={720}
                         callbackShow={console.info}
                         callbackShowProps='show'
@@ -202,18 +202,6 @@ class _ContainerCompact extends React.Component {
                                 {
                                     key: 'contentData',
                                     values: 'contentData'
-                                },
-                                {
-                                    key: 'footerProps',
-                                    values: 'footerProps'
-                                },
-                                {
-                                    key: 'footerData',
-                                    values: 'footerData'
-                                },
-                                {
-                                    key: 'align',
-                                    values: 'menu.align'
                                 },
                                 {
                                     key: 'sidebarWidth',

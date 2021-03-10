@@ -3158,7 +3158,7 @@ const EN = {
         "type": "Any",
         "default": "undefined"
     },
-    "container.compact.example1" : "Base website container. This component does not includes the sidbear as part of the header.",
+    "container.compact.example1" : "Base website container. This component does not includes the sidbear as part of the header. Default the containers header and sidebar are fixed, for demonstration purposes this feature are overwritten.",
 };
 
 export default EN;

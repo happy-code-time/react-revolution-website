@@ -34,9 +34,6 @@ class ContainerCompact extends React.Component {
             sidebarData: props.sidebarData ? props.sidebarData : '',
             sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
 
-            footerProps: isObject(props.footerProps) ? props.footerProps : {},
-            footerData: props.footerData ? props.footerData : '',
-
             align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
 
             callbackShow: props.callbackShow && typeof function () { } == typeof props.callbackShow ? props.callbackShow : undefined,
@@ -68,8 +65,6 @@ class ContainerCompact extends React.Component {
             'headerData',
             'contentProps',
             'contentData',
-            'footerData',
-            'footerProps',
             'align',
             'sidebarProps',
             'sidebarData',
@@ -95,9 +90,6 @@ class ContainerCompact extends React.Component {
                 sidebarProps: isObject(props.sidebarProps) ? props.sidebarProps : {},
                 sidebarData: props.sidebarData ? props.sidebarData : '',
                 sidebarWidth: (typeof 8 == typeof props.sidebarWidth && 0 < props.sidebarWidth) ? props.sidebarWidth : 250,
-
-                footerProps: isObject(props.footerProps) ? props.footerProps : {},
-                footerData: props.footerData ? props.footerData : '',
 
                 align: (props.align && typeof '8' == typeof props.align) ? props.align : 'left',
 
@@ -235,11 +227,10 @@ class ContainerCompact extends React.Component {
     }
 
     render() {
-        const { addClass, defaultClass, id, headerData, headerProps, contentData, contentProps, footerData, footerProps, align, sidebarProps } = this.state;
+        const { addClass, defaultClass, id, headerData, headerProps, contentData, contentProps, align, sidebarProps } = this.state;
         const direction = ['left', 'right'].includes(align) ? align : 'left';
         const constaineStyle = {};
         constaineStyle['--rr-container-compact-width'] = `${this.state.sidebarWidth}px`;
-        constaineStyle['--rr-container-compact-hidden'] = `-${this.state.sidebarWidth}px`;
 
         return (
             <div
@@ -255,33 +246,23 @@ class ContainerCompact extends React.Component {
                         headerData
                     }
                 </div>
-                <div className='Container'>
-                    {
-                        !this.state.isMinified &&
-                        <div
-                            className={`Sidebar`}
-                            {...(isObject(sidebarProps)) && { ...sidebarProps }}
-                        >
-                            {
-                                this.state.sidebarData
-                            }
-                        </div>
-                    }
+                {
+                    !this.state.isMinified &&
                     <div
-                        className={`Content ${ !this.state.isMinified ? 'w-100' : ''}`}
-                        {...(isObject(contentProps)) && { ...contentProps }}
+                        className={`Sidebar`}
+                        {...(isObject(sidebarProps)) && { ...sidebarProps }}
                     >
                         {
-                            contentData
+                            this.state.sidebarData
                         }
                     </div>
-                </div>
+                }
                 <div
-                    className='Footer'
-                    {...(isObject(footerProps)) && { ...footerProps }}
+                    className={`Content ${this.state.isMinified ? 'w-100' : ''}`}
+                    {...(isObject(contentProps)) && { ...contentProps }}
                 >
                     {
-                        footerData
+                        contentData
                     }
                 </div>
             </div>

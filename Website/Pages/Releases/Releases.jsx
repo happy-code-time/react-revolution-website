@@ -2267,6 +2267,36 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.1': {
+                    data: [
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Add to the Content the "w-100" class name if the (hideAt) media break point are reached.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.4.2': {
+                    data: [
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Style improvement.',
+                            icon: <i className="fab fa-css3"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

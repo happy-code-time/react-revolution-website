@@ -705,3 +705,18 @@
         margin: 0 auto;
     }
 }
+
+.overwrite-for-website{
+    .Header{
+        position: relative !important;        
+    }
+    .Sidebar,
+    .Content{
+        position: absolute !important;
+    }
+
+    .Content,
+    .Sidebar{
+        top: 50px !important;
+    }
+}
