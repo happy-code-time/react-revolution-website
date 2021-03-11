@@ -2297,6 +2297,21 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.3': {
+                    data: [
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Added new keys: \n\nheaderHeight\nlocationInterval.',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

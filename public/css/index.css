@@ -3427,10 +3427,6 @@ h1,
 .overwrite-for-website .Content {
   position: absolute !important; }
 
-.overwrite-for-website .Content,
-.overwrite-for-website .Sidebar {
-  top: 50px !important; }
-
 .bc-a {
   background-color: rgba(0, 105, 148, 0.8); }
 

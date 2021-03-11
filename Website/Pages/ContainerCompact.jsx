@@ -9,6 +9,7 @@ const codeExample1 = `import { ContainerCompact } from 'react-revolution';
 // import ContainerCompact from 'react-revolution/ContainerCompact';
 
 <ContainerCompact 
+    addClass="overwrite-for-website"
     headerProps={
         {
             title: '1'
@@ -17,6 +18,7 @@ const codeExample1 = `import { ContainerCompact } from 'react-revolution';
     headerData={
         <p>Header</p>
     }
+    headerHeight={80}
     contentProps={
         {
             title: 'content'
@@ -51,11 +53,6 @@ const cssExample1 = `.overwrite-for-website{
     .Content{
         position: absolute !important;
     }
-
-    .Content,
-    .Sidebar{
-        top: 50px !important;
-    }
 }`;
 
 
@@ -86,6 +83,7 @@ class _ContainerCompact extends React.Component {
                         headerData={
                             <p>Header</p>
                         }
+                        headerHeight={80}
                         contentProps={
                             {
                                 title: 'content'
@@ -188,6 +186,10 @@ class _ContainerCompact extends React.Component {
                                     values: 'headerData'
                                 },
                                 {
+                                    key: 'headerHeight',
+                                    values: 'container.compact.headerHeight'
+                                },
+                                {
                                     key: 'sidebarProps',
                                     values: 'sidebarProps'
                                 },
@@ -222,6 +224,10 @@ class _ContainerCompact extends React.Component {
                                 {
                                     key: 'callbackHideProps',
                                     values: 'container.compact.callbackHideProps'
+                                },
+                                {
+                                    key: 'locationInterval',
+                                    values: 'container.compact.locationInterval'
                                 },
                             ],
                             'rr-container-compact'

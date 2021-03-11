@@ -3158,6 +3158,16 @@ const EN = {
         "type": "Any",
         "default": "undefined"
     },
+    "container.compact.headerHeight": {
+        "description" : "Height of the header.",
+        "type": "Number",
+        "default": "80"
+    },
+    "container.compact.locationInterval": {
+        "description" : "If the 'minifySidebarOn' array are not empty then check the current location each xxx milliseconds to apply possible container changes.",
+        "type": "Number",
+        "default": "500"
+    },
     "container.compact.example1" : "Base website container. This component does not includes the sidbear as part of the header. Default the containers header and sidebar are fixed, for demonstration purposes this feature are overwritten.",
 };
 

@@ -24,8 +24,10 @@ class ContainerCompact extends React.Component {
             defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container-compact',
             id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
             hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 1024,
+
             headerProps: isObject(props.headerProps) ? props.headerProps : {},
             headerData: props.headerData ? props.headerData : '',
+            headerHeight: props.headerHeight && typeof 8 === typeof props.headerHeight ? props.headerHeight : 80,
 
             contentProps: isObject(props.contentProps) ? props.contentProps : {},
             contentData: props.contentData ? props.contentData : '',
@@ -44,6 +46,7 @@ class ContainerCompact extends React.Component {
 
             minifySidebarOn: isArray(props.minifySidebarOn) ? props.minifySidebarOn : [],
             locationInterval: props.locationInterval && typeof 8 === typeof props.locationInterval ? props.locationInterval : 500,
+
         };
 
         this.locationCheckInterval = null;
@@ -75,14 +78,17 @@ class ContainerCompact extends React.Component {
             'callbackHideProps',
             'minifySidebarOn',
             'locationInterval',
+            'headerHeight'
         ], props, state)) {
             return {
                 addClass: (props.addClass && typeof '8' == typeof props.addClass) ? props.addClass : '',
                 defaultClass: (props.defaultClass && typeof '8' == typeof props.defaultClass) ? props.defaultClass : 'rr-container-compact',
                 id: (props.id && typeof '8' == typeof props.id) ? props.id : '',
                 hideAt: (typeof 8 == typeof props.hideAt) ? props.hideAt : 1024,
+                
                 headerProps: isObject(props.headerProps) ? props.headerProps : {},
                 headerData: props.headerData ? props.headerData : '',
+                headerHeight: props.headerHeight && typeof 8 === typeof props.headerHeight ? props.headerHeight : 80,
 
                 contentProps: isObject(props.contentProps) ? props.contentProps : {},
                 contentData: props.contentData ? props.contentData : '',
@@ -101,6 +107,7 @@ class ContainerCompact extends React.Component {
 
                 minifySidebarOn: isArray(props.minifySidebarOn) ? props.minifySidebarOn : [],
                 locationInterval: props.locationInterval && typeof 8 === typeof props.locationInterval ? props.locationInterval : 500,
+
             };
         }
 
@@ -231,6 +238,7 @@ class ContainerCompact extends React.Component {
         const direction = ['left', 'right'].includes(align) ? align : 'left';
         const constaineStyle = {};
         constaineStyle['--rr-container-compact-width'] = `${this.state.sidebarWidth}px`;
+        constaineStyle['--rr-container-compact-headerHeight'] = `${this.state.headerHeight}px`;
 
         return (
             <div

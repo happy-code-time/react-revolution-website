@@ -757,7 +757,3 @@ h1,
 .overwrite-for-website .Sidebar,
 .overwrite-for-website .Content {
   position: absolute !important; }
-
-.overwrite-for-website .Content,
-.overwrite-for-website .Sidebar {
-  top: 50px !important; }
