@@ -2312,6 +2312,36 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.4': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new keys: \n\ncallbackFsActive\ncallbackFsActiveProps\ncallbackFsInactive\ncallbackFsInactiveProps .',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.4.5': {
+                    data: [
+                        {
+                            key: 'Slider',
+                            value: 'Added new key: \n\ncallbackFsState.',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

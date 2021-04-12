@@ -589,6 +589,80 @@ const js12 = `constructor(props) {
     };
 }`;
 
+const codeExample13 = `import { Slider } from 'react-revolution';
+// import Slider from 'react-revolution/Slider';
+
+<div
+    style={
+        {
+            width: '100%',
+            maxWidth: '1024px',
+            height: '500px',
+            margin: '5vh auto'
+        }
+    }
+    >
+    <Slider
+        addClass='slider-items-example'
+        displayDotsIndex={true}
+        buttonsAlwaysVisible={true}
+        paginationType={2}
+        autoplayStopOnLast={true}
+        //Fullscreen mode
+        fsPrevious='«'
+        fsNext='»'
+        fsUseLayerX={false}
+        fsImageAsBackground={false}
+        fsPreviewToggle='⇩'
+        fsToggleDirection='right'
+        fsCloseIcon='✖'
+        fsAutoplayStopIcon='stop'
+        fsAutoplayTime={3000}
+        fsAutoplayNext={true}
+        fsAnimationTime='05'
+        fsWrapDirection={true}
+        fsSlideAfterMove={true}
+        fsDisplayPreview={true}
+        fsDisplayPagination={true}
+        fsAutoplayStopOnLast={false}
+        fsActive={true}
+
+        callbackFsActive={console.info}
+        callbackFsActiveProps='Fullscreen mode activeted'
+        callbackFsInactive={console.info}
+        callbackFsInactiveProps='Fullscreen mode de-activated'
+
+        data={
+            [
+                {
+                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/chania.jpg',
+                },
+                {
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/chania.jpg',
+                },
+                {
+                    image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+                },
+                {
+                    image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
+                },
+            ]
+        }
+    />
+</div>`;
+
 class _Slider extends React.Component {
     constructor(props) {
         super(props);
@@ -1151,6 +1225,88 @@ class _Slider extends React.Component {
                     </div>
                 )
             },
+            {
+                title: 'Slider',
+                description: trans('fss.example2'),
+                reactTextBefore: '',
+                react: codeExample13,
+                reactTextAfter: '',
+                js: '',
+                css: '',
+                html: '',
+                live: (
+                    <div
+                        style={
+                            {
+                                width: '100%',
+                                maxWidth: '1024px',
+                                height: '500px',
+                                margin: '5vh auto'
+                            }
+                        }
+                    >
+                        <Slider
+                            addClass='slider-items-example'
+                            displayDotsIndex={true}
+                            buttonsAlwaysVisible={true}
+                            paginationType={2}
+                            autoplayStopOnLast={true}
+                            //Fullscreen mode
+                            fsPrevious='«'
+                            fsNext='»'
+                            fsUseLayerX={false}
+                            fsImageAsBackground={false}
+                            fsPreviewToggle='⇩'
+                            fsToggleDirection='right'
+                            fsCloseIcon='✖'
+                            fsAutoplayStopIcon='stop'
+                            fsAutoplayTime={3000}
+                            fsAutoplayNext={true}
+                            fsAnimationTime='05'
+                            fsWrapDirection={true}
+                            fsSlideAfterMove={true}
+                            fsDisplayPreview={true}
+                            fsDisplayPagination={true}
+                            fsAutoplayStopOnLast={false}
+                            fsActive={true}
+
+                            callbackFsActive={console.info}
+                            callbackFsActiveProps='Fullscreen mode activeted'
+                            callbackFsInactive={console.info}
+                            callbackFsInactiveProps='Fullscreen mode de-activated'
+
+                            data={
+                                [
+                                    {
+                                        image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/chania.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/benjamin-voros-phIFdC6lA4E-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/chania.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/lee-yan-SF07ZPPR6Y0-unsplash.jpg',
+                                    },
+                                    {
+                                        image: 'public/images/carolyn-v-yywDVVmHa-M-unsplash.jpg',
+                                    },
+                                ]
+                            }
+                        />
+                    </div>
+                )
+            },
         ];
     }
 
@@ -1499,6 +1655,26 @@ class _Slider extends React.Component {
                                 {
                                     key: 'staticData',
                                     values: 'slider.staticData'
+                                },
+                                {
+                                    key: 'callbackFsActive',
+                                    values: 'fss.callbackFsActive'
+                                },
+                                {
+                                    key: 'callbackFsActiveProps',
+                                    values: 'fss.callbackFsActiveProps'
+                                },
+                                {
+                                    key: 'callbackFsInactive',
+                                    values: 'fss.callbackFsInactive'
+                                },
+                                {
+                                    key: 'callbackFsInactiveProps',
+                                    values: 'fss.callbackFsInactiveProps'
+                                },
+                                {
+                                    key: 'callbackFsState',
+                                    values: 'fss.callbackFsState'
                                 },
                                 {
                                     key: 'fsActive',

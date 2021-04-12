@@ -62,6 +62,10 @@ class Slider extends React.Component {
             autoplayStopOnLast: typeof true == typeof props.autoplayStopOnLast ? props.autoplayStopOnLast : true,
             staticData: props.staticData ? props.staticData : '',
             onSlideTime: (props.onSlideTime && typeof '8' == typeof props.onSlideTime) ? props.onSlideTime : '0',
+            callbackFsActive: props.callbackFsActive && typeof function () { } == typeof props.callbackFsActive ? props.callbackFsActive : undefined,
+            callbackFsActiveProps: props.callbackFsActiveProps,
+            callbackFsInactive: props.callbackFsInactive && typeof function () { } == typeof props.callbackFsInactive ? props.callbackFsInactive : undefined,
+            callbackFsInactiveProps: props.callbackFsInactiveProps,
             // slider fullscreen
             fsDisplayPreview: typeof true == typeof props.fsDisplayPreview ? props.fsDisplayPreview : true,
             fsWrapDirection: typeof true == typeof props.fsWrapDirection ? props.fsWrapDirection : true,
@@ -89,6 +93,7 @@ class Slider extends React.Component {
             fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
             fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
             fsOnSlideTime: (props.fsOnSlideTime && typeof '8' == typeof props.fsOnSlideTime) ? props.fsOnSlideTime : '0',
+            callbackFsState: typeof true == typeof props.callbackFsState ? props.callbackFsState : true,
         };
 
         this.slideWidth = 0;
@@ -172,7 +177,12 @@ class Slider extends React.Component {
             'fsDisplayDotsIndex',
             'fsCloseOnEsc',
             'fsActive',
-            'staticData'
+            'staticData',
+            'callbackFsActive',
+            'callbackFsActiveProps',
+            'callbackFsInactive',
+            'callbackFsInactiveProps',
+            'callbackFsState'
         ], props, state)) {
             return {
                 index: state.index, // to handle indexes made by child fullscreen events
@@ -230,6 +240,11 @@ class Slider extends React.Component {
                 fsCloseOnEsc: typeof true == typeof props.fsCloseOnEsc ? props.fsCloseOnEsc : true,
                 fsActive: typeof true == typeof props.fsActive ? props.fsActive : false,
                 fsOnSlideTime: (props.fsOnSlideTime && typeof '8' == typeof props.fsOnSlideTime) ? props.fsOnSlideTime : '0',
+                callbackFsActive: props.callbackFsActive && typeof function () { } == typeof props.callbackFsActive ? props.callbackFsActive : undefined,
+                callbackFsActiveProps: props.callbackFsActiveProps,
+                callbackFsInactive: props.callbackFsInactive && typeof function () { } == typeof props.callbackFsInactive ? props.callbackFsInactive : undefined,
+                callbackFsInactiveProps: props.callbackFsInactiveProps,
+                callbackFsState: typeof true == typeof props.callbackFsState ? props.callbackFsState : true,
             };
         }
 
@@ -688,10 +703,35 @@ class Slider extends React.Component {
 
         // Click handle to activate the fullscreen slider
         if (this.state.fsActive) {
+
+            if(!this.state.callbackFsState){
+                this.callbackFullscreenActive();
+            }
+
             this.setState({
                 isUserCurrentlySliding: false,
                 fullscreenactive: true
+            }, () => {
+                if(this.state.callbackFsState){
+                    this.callbackFullscreenActive();
+                }
             });
+        }
+    }
+
+    callbackFullscreenActive(){
+        const { callbackFsActive, callbackFsActiveProps } = this.state;
+
+        if(callbackFsActive){
+            (callbackFsActive)(callbackFsActiveProps);
+        }
+    }
+
+    callbackFullscreenDeActive(){
+        const { callbackFsInactive, callbackFsInactiveProps } = this.state;
+
+        if(callbackFsInactive){
+            (callbackFsInactive)(callbackFsInactiveProps);
         }
     }
 
@@ -911,7 +951,16 @@ class Slider extends React.Component {
     }
 
     parent_closeFullscreenSlider() {
-        this.setState({ fullscreenactive: false });
+
+        if(!this.state.callbackFsState){
+            this.callbackFullscreenDeActive();
+        }
+
+        this.setState({ fullscreenactive: false }, () => {
+            if(this.state.callbackFsState){
+                this.callbackFullscreenDeActive();
+            }
+        });
     }
 
     parent_setSlide(index) {

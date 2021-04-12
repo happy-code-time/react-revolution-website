@@ -715,3 +715,11 @@
         position: absolute !important;
     }
 }
+
+.rr-timeline {
+    .timeline-area{
+        .data {
+            white-space: pre-wrap;
+        }
+    }
+}

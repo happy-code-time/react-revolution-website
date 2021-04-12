@@ -2705,8 +2705,33 @@ const EN = {
         "type": "Boolean",
         "default": "false"
     },
+    'fss.callbackFsActive': {
+        "description": "Callback function executed when the Fullscreen mode are activated.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'fss.callbackFsActiveProps': {
+        "description": "Callback argument for the 'callbackFsActive' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'fss.callbackFsInactive': {
+        "description": "Callback function executed when the Fullscreen mode are de-activated.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'fss.callbackFsInactiveProps': {
+        "description": "Callback argument for the 'callbackFsInactive' function.",
+        "type": "Any",
+        "default": "undefined"
+    },
+    'fss.callbackFsState': {
+        "description": "The callback functions 'callbackFsActive', 'callbackFsInactive' shoud be called before the components state changed to render the fullscreen mode. If false, the functions called before the fullscreen mode are rendered.",
+        "type": "Boolean",
+        "default": "true"
+    },
     'fss.example1': 'Slider example with fullscreen support. The full screen is activated as soon as you click on a photo. The slider can be closed with the ESC key or the X button. ',
-    'fss.example2': 'The slider can be closed with the ESC key or the X button.',
+    'fss.example2': 'Execute callback functions on "Fullscreen mode activated" and on "Fullscreen mode de-activated". To se the result of the callback functions, please open the browsers console.',
     'ribbon.directionX': {
         "description": "Side of the ribbon on the X-axis. Possible X-orientations: 'left' and 'right'.",
         "type": "String",

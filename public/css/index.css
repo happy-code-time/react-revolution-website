@@ -3427,6 +3427,9 @@ h1,
 .overwrite-for-website .Content {
   position: absolute !important; }
 
+.rr-timeline .timeline-area .data {
+  white-space: pre-wrap; }
+
 .bc-a {
   background-color: rgba(0, 105, 148, 0.8); }
 
