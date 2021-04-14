@@ -81,6 +81,14 @@ const getAllAvailableModulesNames = () => {
             link: 'components/drag-drop-list'
         },
         {
+            name: 'Filter',
+            link: 'components/filter'
+        },
+        {
+            name: 'FilterMapping',
+            link: 'components/filter-mapping'
+        },
+        {
             name: 'FullScreenListArray',
             link: 'components/fullscreen-list-array'
         },

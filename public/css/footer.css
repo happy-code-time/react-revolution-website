@@ -330,6 +330,9 @@ h1,
       background-color: transparent; }
       .Footer .card .title i {
         margin-right: 10px; }
+    .Footer .card a {
+      text-decoration: none;
+      color: white; }
   .Footer .code {
     margin: 0;
     padding: 0 10px; }

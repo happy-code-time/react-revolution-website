@@ -77,6 +77,23 @@ class Footer extends React.Component
                                 {
                                     title: (
                                         <span>
+                                            <i className="fab fa-github" />
+                                            Git
+                                        </span>
+                                    ),
+                                    content: (
+                                        <div className='text text-center'>
+                                            <div>
+                                                <a href='https://github.com/janitzed/react-revolution.git'>
+                                                    react-revolution.git
+                                                </a>
+                                            </div>
+                                        </div>
+                                    ),
+                                },
+                                {
+                                    title: (
+                                        <span>
                                             <i className="fas fa-gavel" />
                                             {
                                                 trans('rights')

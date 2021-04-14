@@ -1,4 +1,4 @@
-const getDerivedStateFromPropsCheck = (array = [], props = {}, state = {}) => {
+const PropsCheck = (array = [], props = {}, state = {}) => {
     let update = false;
 
     array.map( keyName => {
@@ -10,4 +10,4 @@ const getDerivedStateFromPropsCheck = (array = [], props = {}, state = {}) => {
     return update;
 };
 
-export default getDerivedStateFromPropsCheck;
+export default PropsCheck;

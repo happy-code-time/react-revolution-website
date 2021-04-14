@@ -19,8 +19,7 @@ class Root extends React.Component
         
         const items = [
             'You Are Awesome!',
-            "It's so good to see you!",
-            "Best components ever!"
+            "It's so good to see you!"
         ];
 
         return items[Math.floor(Math.random() * items.length)];

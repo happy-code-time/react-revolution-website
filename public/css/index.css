@@ -2197,6 +2197,9 @@ h1,
       background-color: transparent; }
       .Footer .card .title i {
         margin-right: 10px; }
+    .Footer .card a {
+      text-decoration: none;
+      color: white; }
   .Footer .code {
     margin: 0;
     padding: 0 10px; }
@@ -3427,8 +3430,10 @@ h1,
 .overwrite-for-website .Content {
   position: absolute !important; }
 
-.rr-timeline .timeline-area .data {
-  white-space: pre-wrap; }
+.rr-timeline {
+  padding: 0px 10px; }
+  .rr-timeline .timeline-area .data {
+    white-space: pre-wrap; }
 
 .bc-a {
   background-color: rgba(0, 105, 148, 0.8); }

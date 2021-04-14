@@ -1,5 +1,4 @@
 import React from 'react';
-import trans from '../../Translations/trans';
 import { Timeline } from '../../../react-revolution/react-revolution';
 
 class Releases extends React.Component {
@@ -10,6 +9,7 @@ class Releases extends React.Component {
             lastUrl: window.location.href,
             release: '',
             loaded: false,
+            date: '',
             releases: {
                 '1.1.7': {
                     data: [
@@ -2342,6 +2342,115 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.6': {
+                    date: '14.04.2021',
+                    data: [
+                        {
+                            key: 'Filter',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'FilterMapping',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'copyArray',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'copyObject',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isBoolean',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isFunction',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isNumber',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isString',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.4.7': {
+                    date: '14.04.2021',
+                    data: [
+                        {
+                            key: 'ContainerSidebar',
+                            value: 'Code improvement',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }
@@ -2359,6 +2468,7 @@ class Releases extends React.Component {
                     lastUrl: window.location.href,
                     version: dataFromUrl,
                     data: this.generateStructure(releases[dataFromUrl].data),
+                    date: releases[dataFromUrl].date ? releases[dataFromUrl].date : ''
                 });
             });
         }
@@ -2397,7 +2507,7 @@ class Releases extends React.Component {
     }
 
     render() {
-        const { version, loaded, data, loading } = this.state;
+        const { version, loaded, data, loading, date } = this.state;
 
         return (
             <div className="Generator">
@@ -2407,9 +2517,17 @@ class Releases extends React.Component {
                 {
                     version && !loading &&
                     <span>
-                        <h1 className="h1-example">
+                        {
+                            date &&
+                            <h1 className="h1-example text-center">
+                                {
+                                    `📅 ${date}`
+                                }
+                            </h1>
+                        }
+                        <h1 className="h1-example" style={ { paddingLeft: '10px' } }>
                             {
-                                `${trans('releaseNotes')} - ${version}`
+                                `v${version}`
                             }
                         </h1>
                         <Timeline

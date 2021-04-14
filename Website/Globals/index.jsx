@@ -1,10 +1,10 @@
-const version = '5.4.5';
+const version = '5.4.7';
 
 const appName = `React Revolution`;
 
 const appNameShort = `React Revolution`;
 
-const author = `David Janitzek`
+const author = `David Janitzek`;
 
 const host = ('dev' == process.env.MODE) ? process.env.HOST_DEV : process.env.HOST_PROD;
 

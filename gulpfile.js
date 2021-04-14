@@ -34,6 +34,8 @@ const modules = [
     "DarkLines404",
     "DragDropArea",
     "DragDropList",
+    "Filter",
+    "FilterMapping",
     "FullScreenListArray",
     "FullScreenListObject",
     "FullScreenOverlay",
@@ -94,7 +96,13 @@ const modules = [
     "Functions/isInViewport",
     "Functions/scrollTopListener",
     "Functions/urlExtract",
-    "Functions/uuid"
+    "Functions/uuid",
+    "Functions/copyArray",
+    "Functions/copyObject",
+    "Functions/isBoolean",
+    "Functions/isFunction",
+    "Functions/isNumber",
+    "Functions/isString",
 ];
 
 const removeDirs = [

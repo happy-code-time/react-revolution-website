@@ -758,5 +758,7 @@ h1,
 .overwrite-for-website .Content {
   position: absolute !important; }
 
-.rr-timeline .timeline-area .data {
-  white-space: pre-wrap; }
+.rr-timeline {
+  padding: 0px 10px; }
+  .rr-timeline .timeline-area .data {
+    white-space: pre-wrap; }

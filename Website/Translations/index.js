@@ -3108,6 +3108,13 @@ const EN = {
     'imageBox.example5' : 'Example with the keys "displayData" value: false and left direction.',
     'isObject.example' : 'Check if given value is an object.',
     'isArray.example' : 'Check if given value is an array.',
+    'copyArray.example': 'Copy an array to a fresh variable.',
+    'copyObject.example': 'Copy an object to a fresh variable.',
+    'isBoolean.example': 'Check if given value is an boolean.',
+    'isFunction.example': 'Check if given value is an function.',
+    'isNumber.example': 'Check if given value is an number.',
+    'isString.example': 'Check if given value is an string.',
+
     'boxes.direction': {
         "description": "Animation direction. Available directions: 'left', 'right'.",
         "type": "String",
@@ -3194,6 +3201,129 @@ const EN = {
         "default": "500"
     },
     "container.compact.example1" : "Base website container. This component does not includes the sidbear as part of the header. Default the containers header and sidebar are fixed, for demonstration purposes this feature are overwritten.",
+    'filter.data': {
+        "description": "Array of objects.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'filter.data.text': {
+        "description": "Text to display as placeholder.",
+        "type": "String",
+        "default": "undefined"
+    },
+    'filter.data.arrow': {
+        "description": "Object - render a custom character.",
+        "type": "{}",
+        "default": "{}"
+    },
+    'filter.data.arrow.char': {
+        "description": "Arrow as character to display.",
+        "type": "Jsx | String",
+        "default": "<empty string>"
+    },
+    'filter.data.arrow.direction': {
+        "description": "Direction of the arrow. Available directions: 'left', 'right'.",
+        "type": "String",
+        "default": "right"
+    },
+    'filter.data.options': {
+        "description": "Array of objects.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'filter.data.options.text': {
+        "description": "Text of an single option.",
+        "type": "Jsx | String",
+        "default": "undefined"
+    },
+    'filter.data.options.empty': {
+        "description": "If the value is true, then after the user has clicked this element, the NEXT elements are reseted (if the global option 'reset' are set to true).",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    'filter.dummy': {
+        "description": "Object to create dummy placeholders.",
+        "type": "{}",
+        "default": "{}"
+    },
+    'filter.dummy.count': {
+        "description": "Count of all generated/ displayed elements as NEXT elements if the user does not selected an filter item.",
+        "type": "Number",
+        "default": "0"
+    },
+    'filter.dummy.placeholders': {
+        "description": "Array fo objects.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'filter.dummy.placeholders.placeholder': {
+        "description": "Placeholders custom jsx | string.",
+        "type": "Jsx | String",
+        "default": "undefined"
+    },
+    'filter.dummy.placeholders.arrow': {
+        "description": "Object - render an arrow inside the placeholder.",
+        "type": "{}",
+        "default": "{}"
+    },
+    'filter.dummy.placeholders.arrow.char': {
+        "description": "Arrow as character to display.",
+        "type": "Jsx | String",
+        "default": "<empty string>"
+    },
+    'filter.dummy.placeholders.arrow.direction': {
+        "description": "Direction of the arrow. Available directions: 'left', 'right'.",
+        "type": "String",
+        "default": "right"
+    },
+    'filter.callback': {
+        "description": "Callback function after an element has been changed. The first argument is the current user choosed items. The second argument is the value from the key: 'callbackProps'.",
+        "type": "Function",
+        "default": "undefined"
+    },
+    'filter.callbackProps': {
+        "description": "The second argument of the callback function.",
+        "type": "any",
+        "default": "undefined"
+    },
+    "filter.example1": "Example with 2 filters. Options disabled={false} (all filters are clickable and the user are able to make an interaction) and reset={false} - if the previous choosed item has the option empty: true, then the NEXT filter are not reset.",
+    "filter.example2": "Example with 2 filters. Options disabled={true} (the next filters are displayed but the user are not able to make an interaction) and reset={false} - the user are not able to select the second filter if the previous filter are empty.",
+    "filter.example3": "Example with 2 filters. Options disabled={true} (next filters are not interactive) and reset={true} - if the user choosed and EMPTY (filter item has option empty: true) option, then the NEXT filter are cleared.",
+    'filter.mapping.data': {
+        "description": "Object - root filter element.",
+        "type": "{}",
+        "default": "{}"
+    },
+    'filter.mapping.data.placeholder': {
+        "description": "Placeholders data.",
+        "type": "Jsx | String",
+        "default": "undefined"
+    },
+    'filter.mapping.data.options': {
+        "description": "Array of objects.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'filter.mapping.data.options.text': {
+        "description": "Text of an single option.",
+        "type": "jsx | string",
+        "default": "undefined"
+    },
+    'filter.mapping.data.options.empty': {
+        "description": "If the value is true, then after the user has clicked this element, the NEXT elements are reseted (if the global option 'reset' are set to true).",
+        "type": "Boolean",
+        "default": "undefined"
+    },
+    'filter.mapping.data.options.mapping': {
+        "description": "Array of strings with mapping codes - mapping strings(s) are required to display NEXT filter options with custom specified data - if and mapping key are not defined in the key 'mapping', then the filter end here.",
+        "type": "[]String",
+        "default": "[]"
+    },
+    'filter.mapping.mapping': {
+        "description": "Object with mapping keys - data holders for each parent/ previous mapping code or self mapped.",
+        "type": "{}",
+        "default": "{}"
+    },
 };
 
 export default EN;

@@ -1,6 +1,6 @@
 {
   "name": "davids-react-revolution",
-  "version": "5.4.5",
+  "version": "5.4.7",
   "description": "Create fast, modern and responsive website components",
   "main": "website.jsx",
   "scripts": {
@@ -36,6 +36,8 @@
     "DarkLines404",
     "DragDropArea",
     "DragDropList",
+    "Filter",
+    "FilterMapping",
     "FullScreenListArray",
     "FullScreenListObject",
     "FullScreenOverlay",
@@ -94,10 +96,16 @@
     "Functions/isObject",
     "Functions/scrollTopListener",
     "Functions/urlExtract",
-    "Functions/uuid"
+    "Functions/uuid",
+    "Functions/copyArray",
+    "Functions/copyObject",
+    "Functions/isBoolean",
+    "Functions/isFunction",
+    "Functions/isNumber",
+    "Functions/isString"
   ],
   "author": "David Janitzek",
-  "license": "GNU",
+  "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",

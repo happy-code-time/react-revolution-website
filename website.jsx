@@ -37,6 +37,8 @@ import _CustomSuggestion from './Website/Pages/CustomSuggestion';
 import _DarkLines404 from './Website/Pages/DarkLines404';
 import _DragDropArea from './Website/Pages/DragDropArea';
 import _DragDropList from './Website/Pages/DragDropList';
+import _Filter from './Website/Pages/Filter';
+import _FilterMapping from './Website/Pages/FilterMapping';
 import _FullScreenListArray from './Website/Pages/FullScreenListArray';
 import _FullScreenListObject from './Website/Pages/FullScreenListObject';
 import _FullScreenOverlay from './Website/Pages/FullScreenOverlay';
@@ -101,6 +103,12 @@ import _FunctionUrlExtract from './Website/Pages/FunctionUrlExtract';
 import _FunctionIsOject from './Website/Pages/FunctionIsObject';
 import _FunctionIsArray from './Website/Pages/FunctionIsArray';
 import _FunctionIsInViewport from './Website/Pages/FunctionIsInViewport';
+import _FunctionCopyArray from './Website/Pages/FunctionCopyArray';
+import _FunctionCopyObject from './Website/Pages/FunctionCopyObject';
+import _FunctionIsBoolean from './Website/Pages/FunctionIsBoolean';
+import _FunctionIsFunction from './Website/Pages/FunctionIsFunction';
+import _FunctionIsNumber from './Website/Pages/FunctionIsNumber';
+import _FunctionIsString from './Website/Pages/FunctionIsString';
 /**
  * Releases
  */
@@ -318,14 +326,21 @@ class App extends React.Component {
 
     return [
       'addGlobalMessage',
+      'copyArray',
+      'copyObject',
       'disableHtmlScroll',
       'enableHtmlScroll',
       'isArray',
+      'isBoolean',
+      'isFunction',
       'isInViewport',
+      'isNumber',
       'isObject',
+      'isString',
       'scrollTopListener',
       'urlExtract',
       'uuid',
+
     ].map(fnName => {
       return {
         text: fnName,
@@ -341,7 +356,7 @@ class App extends React.Component {
       {
         version: '5.4',
         start: 0,
-        end: 5
+        end: 7
       },
       {
         version: '5.3',
@@ -601,6 +616,28 @@ class App extends React.Component {
                             }
                           ]
                         },
+                        {
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Filter
+                              </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'Filter',
+                              href: `${host}#/components/filter`,
+                            },
+                            {
+                              text: 'FilterMapping',
+                              href: `${host}#/components/filter-mapping`,
+                            }
+                          ]
+                        },                        
                         {
                           text: (
                             <span>
@@ -1087,6 +1124,8 @@ class App extends React.Component {
               <Route exact path="/components/dark-lines-404" render={(props) => (<_DarkLines404 {...props} />)} />
               <Route exact path="/components/drag-drop-area" render={(props) => (<_DragDropArea {...props} />)} />
               <Route exact path="/components/drag-drop-list" render={(props) => (<_DragDropList {...props} />)} />
+              <Route exact path="/components/filter" render={(props) => (<_Filter {...props} />)} />
+              <Route exact path="/components/filter-mapping" render={(props) => (<_FilterMapping {...props} />)} />
               <Route exact path="/components/fullscreen-list-array" render={(props) => (<_FullScreenListArray {...props} />)} />
               <Route exact path="/components/fullscreen-list-object" render={(props) => (<_FullScreenListObject {...props} />)} />
               <Route exact path="/components/fullscreen-overlay" render={(props) => (<_FullScreenOverlay {...props} />)} />
@@ -1148,6 +1187,13 @@ class App extends React.Component {
               <Route exact path="/functions/isObject" render={(props) => (<_FunctionIsOject {...props} />)} />
               <Route exact path="/functions/isArray" render={(props) => (<_FunctionIsArray {...props} />)} />
               <Route exact path="/functions/isInViewport" render={(props) => (<_FunctionIsInViewport {...props} />)} />
+              <Route exact path="/functions/copyArray" render={(props) => (<_FunctionCopyArray {...props} />)} />
+              <Route exact path="/functions/copyObject" render={(props) => (<_FunctionCopyObject {...props} />)} />
+              <Route exact path="/functions/isBoolean" render={(props) => (<_FunctionIsBoolean {...props} />)} />
+              <Route exact path="/functions/isFunction" render={(props) => (<_FunctionIsFunction {...props} />)} />
+              <Route exact path="/functions/isNumber" render={(props) => (<_FunctionIsNumber {...props} />)} />
+              <Route exact path="/functions/isString" render={(props) => (<_FunctionIsString {...props} />)} />
+
               {/* Releases */}
               <Route exact path="/releases/:release" render={(props) => (<Releases {...props} />)} />
               {/* 404 */}
