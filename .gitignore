@@ -25,6 +25,8 @@ react-revolution/CustomSuggestion
 react-revolution/DarkLines404
 react-revolution/DragDropArea
 react-revolution/DragDropList
+react-revolution/Filter
+react-revolution/FilterMapping
 react-revolution/FullScreenListArray
 react-revolution/FullScreenListObject
 react-revolution/FullScreenOverlay

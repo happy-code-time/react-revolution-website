@@ -1,0 +1,3 @@
+[submodule "react-revolution"]
+	path = react-revolution
+	url = https://github.com/janitzed/react-revolution.git
