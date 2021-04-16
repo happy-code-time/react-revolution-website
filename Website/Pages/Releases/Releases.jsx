@@ -2451,6 +2451,33 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.8': {
+                    date: '16.04.2021',
+                    data: [
+                        {
+                            key: 'scrollTopListener',
+                            value: 'Code improvement',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'scrollToTop',
+                            value: 'New function',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

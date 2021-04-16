@@ -99,6 +99,7 @@ import _FunctionUuid from './Website/Pages/FunctionUuid';
 import _FunctionDisableHtmlScroll from './Website/Pages/FunctionDisableHtmlScroll';
 import _FunctionEnableHtmlScroll from './Website/Pages/FunctionEnableHtmlScroll';
 import _FunctionScrollTopListener from './Website/Pages/FunctionScrollTopListener';
+import _FunctionScrollToTop from './Website/Pages/FunctionScrollToTop';
 import _FunctionUrlExtract from './Website/Pages/FunctionUrlExtract';
 import _FunctionIsOject from './Website/Pages/FunctionIsObject';
 import _FunctionIsArray from './Website/Pages/FunctionIsArray';
@@ -338,6 +339,7 @@ class App extends React.Component {
       'isObject',
       'isString',
       'scrollTopListener',
+      'scrollToTop',
       'urlExtract',
       'uuid',
 
@@ -356,7 +358,7 @@ class App extends React.Component {
       {
         version: '5.4',
         start: 0,
-        end: 7
+        end: 8
       },
       {
         version: '5.3',
@@ -1183,6 +1185,7 @@ class App extends React.Component {
               <Route exact path="/functions/disableHtmlScroll" render={(props) => (<_FunctionDisableHtmlScroll {...props} />)} />
               <Route exact path="/functions/enableHtmlScroll" render={(props) => (<_FunctionEnableHtmlScroll {...props} />)} />
               <Route exact path="/functions/scrollTopListener" render={(props) => (<_FunctionScrollTopListener {...props} />)} />
+              <Route exact path="/functions/scrollToTop" render={(props) => (<_FunctionScrollToTop {...props} />)} />
               <Route exact path="/functions/urlExtract" render={(props) => (<_FunctionUrlExtract {...props} />)} />
               <Route exact path="/functions/isObject" render={(props) => (<_FunctionIsOject {...props} />)} />
               <Route exact path="/functions/isArray" render={(props) => (<_FunctionIsArray {...props} />)} />

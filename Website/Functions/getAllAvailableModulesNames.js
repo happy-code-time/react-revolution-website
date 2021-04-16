@@ -293,6 +293,14 @@ const getAllAvailableModulesNames = () => {
             link: 'components/water-404'
         },
         {
+            name: 'copyArray (function)',
+            link: 'functions/copyArray'
+        },
+        {
+            name: 'copyObject (function)',
+            link: 'functions/copyObject'
+        },
+        {
             name: 'disableHtmlScroll (function)',
             link: 'functions/disableHtmlScroll'
         },
@@ -303,6 +311,10 @@ const getAllAvailableModulesNames = () => {
         {
             name: 'scrollTopListener (function)',
             link: 'functions/scrollTopListener'
+        },
+        {
+            name: 'scrollToTop (function)',
+            link: 'functions/scrollToTop'
         },
         {
             name: 'urlExtract (function)',
@@ -317,12 +329,28 @@ const getAllAvailableModulesNames = () => {
             link: 'functions/isArray'
         },
         {
+            name: 'isBoolean (function)',
+            link: 'functions/isBoolean'
+        },
+        {
+            name: 'isFunction (function)',
+            link: 'functions/isFunction'
+        },
+        {
             name: 'isInViewport (function)',
             link: 'functions/isInViewport'
         },
         {
             name: 'isObject (function)',
             link: 'functions/isObject'
+        },
+        {
+            name: 'isNumber (function)',
+            link: 'functions/isNumber'
+        },
+        {
+            name: 'isString (function)',
+            link: 'functions/isString'
         },
     ];
 };

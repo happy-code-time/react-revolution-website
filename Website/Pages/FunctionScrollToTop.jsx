@@ -3,23 +3,15 @@ import { LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolu
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const codeExample1 = `import { scrollTopListener } from 'react-revolution';
-//import scrollTopListener from 'react-revolution/Functions/scrollTopListener';`;
+const codeExample1 = `import { scrollToTop } from 'react-revolution';
+//import scrollToTop from 'react-revolution/Functions/scrollToTop';`;
 
-const jsExample1 = `componentDidMount() {
-    const scrollTopTime = 0;
-
-    scrollTopListener(scrollTopTime);
-
-    /**
-     * Remove the scrollTop Listener after 5 seconds
-     */
-    setTimeout( () => {
-        scrollTopListener(scrollTopTime, '', true);
-    }, 5000);
+const jsExample1 = `componentDidMount() 
+{
+    scrollToTop(100, 'smooth');
 }`;
 
-class _FunctionScrollTopListener extends React.Component 
+class _FunctionScrollToTop extends React.Component 
 {
     constructor(props) {
         super(props);
@@ -28,8 +20,8 @@ class _FunctionScrollTopListener extends React.Component
 
         this.examples = [
             {
-                title: 'scrollTopListener',
-                description: trans('description_scrollTopListener'),
+                title: 'scrollToTop',
+                description: trans('description_scrollToTop'),
                 reactTextBefore: '',
                 react: codeExample1,
                 reactTextAfter: '',
@@ -71,4 +63,4 @@ class _FunctionScrollTopListener extends React.Component
     }
 };
 
-export default _FunctionScrollTopListener;
+export default _FunctionScrollToTop;

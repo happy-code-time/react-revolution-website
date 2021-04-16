@@ -95,6 +95,7 @@ const modules = [
     "Functions/isArray",
     "Functions/isInViewport",
     "Functions/scrollTopListener",
+    "Functions/scrollToTop",
     "Functions/urlExtract",
     "Functions/uuid",
     "Functions/copyArray",
