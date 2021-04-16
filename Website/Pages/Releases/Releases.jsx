@@ -2478,6 +2478,22 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.4.9': {
+                    date: '16.04.2021',
+                    data: [
+                        {
+                            key: 'scrollTopListener',
+                            value: 'Bugfix on main initialisation time. Removed negation of the removeListener passed (as third) argument.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }
