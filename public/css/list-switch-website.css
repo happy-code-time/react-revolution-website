@@ -1,0 +1,29 @@
+.list-switch-website .data-list-switch {
+  width: 200px;
+  top: -10px; }
+
+.list-switch-website .text {
+  box-sizing: border-box;
+  padding: 12px 13px;
+  border-radius: 50%;
+  color: white !important; }
+
+.list-switch-website .text:hover {
+  background-color: rgba(199, 199, 199, 0.2);
+  cursor: pointer; }
+
+.list-switch-website .navigation-previous {
+  border-radius: 5px; }
+
+.list-switch-website .slide-wrapper {
+  border-radius: 10px;
+  top: 10px;
+  border: none;
+  box-shadow: 0px 0px 6px darkgray; }
+  .list-switch-website .slide-wrapper .area-entry,
+  .list-switch-website .slide-wrapper .area-title {
+    box-sizing: border-box;
+    padding: 10px;
+    color: #7a7a7a !important; }
+  .list-switch-website .slide-wrapper .area-entry:hover {
+    background-color: #f2f2f2; }
