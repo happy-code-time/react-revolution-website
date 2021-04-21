@@ -2494,6 +2494,22 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.5.0': {
+                    date: '21.04.2021',
+                    data: [
+                        {
+                            key: 'Preloader',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

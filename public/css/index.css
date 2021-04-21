@@ -144,6 +144,9 @@ html {
   word-wrap: none;
   text-overflow: ellipsis; }
 
+.pre-wrap {
+  white-space: pre-wrap; }
+
 .block {
   display: block; }
 
@@ -678,6 +681,9 @@ h1,
   word-wrap: none;
   text-overflow: ellipsis; }
 
+.pre-wrap {
+  white-space: pre-wrap; }
+
 .block {
   display: block; }
 
@@ -1065,6 +1071,9 @@ h1,
   white-space: nowrap;
   word-wrap: none;
   text-overflow: ellipsis; }
+
+.pre-wrap {
+  white-space: pre-wrap; }
 
 .block {
   display: block; }
@@ -1527,6 +1536,9 @@ h1,
   word-wrap: none;
   text-overflow: ellipsis; }
 
+.pre-wrap {
+  white-space: pre-wrap; }
+
 .block {
   display: block; }
 
@@ -1958,6 +1970,9 @@ h1,
   word-wrap: none;
   text-overflow: ellipsis; }
 
+.pre-wrap {
+  white-space: pre-wrap; }
+
 .block {
   display: block; }
 
@@ -2313,6 +2328,9 @@ h1,
   white-space: nowrap;
   word-wrap: none;
   text-overflow: ellipsis; }
+
+.pre-wrap {
+  white-space: pre-wrap; }
 
 .block {
   display: block; }
@@ -2762,6 +2780,9 @@ h1,
   white-space: nowrap;
   word-wrap: none;
   text-overflow: ellipsis; }
+
+.pre-wrap {
+  white-space: pre-wrap; }
 
 .block {
   display: block; }
@@ -3527,6 +3548,9 @@ h1,
   white-space: nowrap;
   word-wrap: none;
   text-overflow: ellipsis; }
+
+.pre-wrap {
+  white-space: pre-wrap; }
 
 .block {
   display: block; }

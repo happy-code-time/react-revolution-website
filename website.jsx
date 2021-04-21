@@ -69,6 +69,7 @@ import _Pills from './Website/Pages/Pills';
 import _PopupBox from './Website/Pages/PopupBox';
 import _PopupData from './Website/Pages/PopupData';
 import _PopupHover from './Website/Pages/PopupHover';
+import _Preloader from './Website/Pages/Preloader';
 import _LoadOnScroll from './Website/Pages/LoadOnScroll';
 import _ReadMore from './Website/Pages/ReadMore';
 import _ReadMoreCallback from './Website/Pages/ReadMoreCallback';
@@ -355,6 +356,11 @@ class App extends React.Component {
     const menu = [];
 
     [
+      {
+        version: '5.5',
+        start: 0,
+        end: 0
+      },
       {
         version: '5.4',
         start: 0,
@@ -821,7 +827,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 Pagination
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -869,11 +875,15 @@ class App extends React.Component {
                           ]
                         },
                         {
+                          text: 'Preloader',
+                          href: `${host}#/components/preloader`,
+                        },
+                        {
                           text: (
                             <span>
                               <span className="data-title">
                                 ReadMore
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -895,7 +905,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 Ribbons
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -967,7 +977,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 StepsGenerators
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -1156,6 +1166,7 @@ class App extends React.Component {
               <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
               <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
               <Route exact path="/components/popup-hover" render={(props) => (<_PopupHover {...props} />)} />
+              <Route exact path="/components/preloader" render={(props) => (<_Preloader {...props} />)} />
               <Route exact path="/components/load-on-scroll" render={(props) => (<_LoadOnScroll {...props} />)} />
               <Route exact path="/components/lightbulb-404" render={(props) => (<_Lightbulb404 {...props} />)} />
               <Route exact path="/components/list-switch" render={(props) => (<_ListSwitch {...props} />)} />

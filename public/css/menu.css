@@ -91,6 +91,9 @@
   word-wrap: none;
   text-overflow: ellipsis; }
 
+.pre-wrap {
+  white-space: pre-wrap; }
+
 .block {
   display: block; }
 

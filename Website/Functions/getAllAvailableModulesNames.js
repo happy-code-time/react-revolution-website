@@ -213,6 +213,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/picture-404'
         },
         {
+            name: 'Preloader',
+            link: 'components/preloader'
+        },
+        {
             name: 'ReadMore',
             link: 'components/read-more'
         },

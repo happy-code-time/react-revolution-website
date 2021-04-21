@@ -73,7 +73,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             }
             {
                 reactTextAfter &&
-                <p className="description">
+                <p className="description pre-wrap">
                     {
                         reactTextAfter
                     }

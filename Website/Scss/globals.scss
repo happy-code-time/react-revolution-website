@@ -45,6 +45,11 @@ $boder-radius: 5px;
   text-overflow: ellipsis;
 }
 
+.pre-wrap
+{
+  white-space: pre-wrap;
+}
+
 .block {
   display: block;
 }

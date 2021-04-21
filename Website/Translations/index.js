@@ -3325,6 +3325,77 @@ const EN = {
         "type": "{}",
         "default": "{}"
     },
+    // Preloader
+    'preloader.data': {
+        "description": "Array of objects with available keys: count, type, jsx, data, flexColumn, props, width, height, backgroundColor and backgroundLoader.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'preloader.data.count': {
+        "description": "How many items of given type should be generated.",
+        "type": "number",
+        "default": "1"
+    },
+    'preloader.data.type': {
+        "description": "Type of item to generate. Available types: square, rectangle, text, title and circle",
+        "type": "string",
+        "default": "square"
+    },
+    'preloader.data.jsx': {
+        "description": "Custom JSX inside an element.",
+        "type": "string»jsx",
+        "default": "<empty string>"
+    },
+    'preloader.data.data': {
+        "description": "Array of objects - nested items with available keys: count, type, jsx, data, flexColumn, props, width, height, backgroundColor and backgroundLoader.",
+        "type": "[]{}",
+        "default": "[]"
+    },
+    'preloader.data.flexColumn': {
+        "description": "Display items in flex with the direction: 'column'. Default the value is set to false, it`s mean items display in the flex direction 'row'.",
+        "type": "boolean",
+        "default": "false"
+    },
+    'preloader.data.props': {
+        "description": "Custom HTML attributes for each single item.",
+        "type": "{}",
+        "default": "{}"
+    },
+    'preloader.data.width': {
+        "description": "Custom width of an single element. HTML atribute 'width' used as inline style. For example '100px', '33vw' or '33%'.",
+        "type": "string",
+        "default": "Size base on passed type"
+    },
+    'preloader.data.height': {
+        "description": "Custom height of an single element. HTML atribute 'height' used as inline style. For example '100px', '33vw' or '33%'.",
+        "type": "string",
+        "default": "Size base on passed type"
+    },
+    'preloader.data.backgroundColor': {
+        "description": "The background-color of each single entry.",
+        "type": "string",
+        "default": "rgb(226,226,226)"
+    },
+    'preloader.data.backgroundLoader': {
+        "description": "The background-color of each single entries animation.",
+        "type": "string",
+        "default": "rgba(255, 255, 255, 0.2)"
+    },
+    'preloader.size': {
+        "description": "The size of each single item. Available sizes: 'xs', 's', 'l', 'xl' and 'xxl'.",
+        "type": "string",
+        "default": "base size"
+    },
+    'preloader.backgroundColor': {
+        "description": "Root background-color of each single entry - can be overwritten for each single item.",
+        "type": "string",
+        "default": "rgb(226,226,226)"
+    },
+    'preloader.backgroundLoader': {
+        "description": "Root background-color of each single entries animation -  can be overwritten for each single item.",
+        "type": "string",
+        "default": "rgba(255, 255, 255, 0.2)"
+    },
 };
 
 export default EN;
