@@ -3396,6 +3396,86 @@ const EN = {
         "type": "string",
         "default": "rgba(255, 255, 255, 0.2)"
     },
+    'range.min': {
+        "description": "Integer value to start the range. Cannot be lower then 0.",
+        "type": "number",
+        "default": "0"
+    },
+    'range.max': {
+        "description": "Integer value to end the range. Cannot be lower then 0.",
+        "type": "number",
+        "default": "100"
+    },
+    'range.size': {
+        "description": "The size of the range items. Available sizes: 'xs', 's', 'l' and 'xl'.",
+        "type": "string",
+        "default": "l"
+    },
+    'range.callback': {
+        "description": "Callback function after an element has been changed. The first argument is the hoosed min value, the second is the choosed max value, the last value is the value of the passed key 'callbackProps'.",
+        "type": "function",
+        "default": "undefined"
+    },
+    'range.callbackProps': {
+        "description": "The last argument of the callback function.",
+        "type": "any",
+        "default": "undefined"
+    },
+    'range.minMaxDisplay': {
+        "description": "Display the min and max JSX as readonly.",
+        "type": "boolean",
+        "default": "true"
+    },
+    'range.minMaxInput': {
+        "description": "Display the min and max JSX as editable input fields.",
+        "type": "boolean",
+        "default": "true"
+    },
+    'range.minMaxY': {
+        "description": "Min and max items should appear on top or bottom of the range slider. Available options: 'top' and 'bottom'.",
+        "type": "string",
+        "default": "bottom"
+    },
+    'range.minInputProps': {
+        "description": "HTML attributes of the 'min' input field (left site).",
+        "type": "object",
+        "default": "{}"
+    },
+    'range.maxInputProps': {
+        "description": "HTML attributes of the 'max' input field (right site).",
+        "type": "object",
+        "default": "{}"
+    },
+    'range.format': {
+        "description": "Type of the range slider. Currently supported types: 'integer' and 'float'.",
+        "type": "string",
+        "default": "integer"
+    },
+    'range.toFixed': {
+        "description": "If the type of format is 'float' then the number are converted with the build in toFixed function. You can specify the argument for this function.",
+        "type": "number",
+        "default": "2"
+    },
+    'range.minMaxInputAutoWidth': {
+        "description": "Set auto width of the input fields (string.length * 10px = inputs width).",
+        "type": "boolean",
+        "default": "true"
+    },
+    'range.callbackOnEnter': {
+        "description": "If the option minMaxInput={true} then the callback function can be executed by the user on keypress 'Enter'.", 
+        "type": "boolean",
+        "default": "true"
+    },
+    'range.backgroundLine': {
+        "description": "The background of the range line.", 
+        "type": "string",
+        "default": "<empty string>"
+    },
+    'range.backgroundMinMax': {
+        "description": "The background of the min max buttons.", 
+        "type": "string",
+        "default": "<empty string>"
+    },
 };
 
 export default EN;

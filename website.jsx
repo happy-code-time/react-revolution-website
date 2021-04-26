@@ -87,6 +87,7 @@ import _Steps from './Website/Pages/Steps';
 import _StepsGenerator from './Website/Pages/StepsGenerator';
 import _StepsGeneratorDragDrop from './Website/Pages/StepsGeneratorDragDrop';
 import _Suggestions from './Website/Pages/Suggestions';
+import _Range from './Website/Pages/Range';
 import _Table from './Website/Pages/Table';
 import _TextWriter from './Website/Pages/TextWriter';
 import _Timeline from './Website/Pages/Timeline';
@@ -290,11 +291,11 @@ class App extends React.Component {
   getSidebarDirectionsJsx() {
     const data = [];
 
-    ['left', 'right'].map( r => {
+    ['left', 'right'].map(r => {
       data.push(
-        <p 
+        <p
           className='change-theme'
-          key={`sidebar-direction-${r}`} 
+          key={`sidebar-direction-${r}`}
           onClick={() => this.setSidebarDirection(r)}
         >
           {`Sidebar ${r}`}
@@ -310,9 +311,9 @@ class App extends React.Component {
 
     possibleLayouts.map(name => {
       data.push(
-        <p 
+        <p
           className='change-theme'
-          key={`skin-${name}`} 
+          key={`skin-${name}`}
           onClick={() => this.setLayout(name)}
         >
           {`${trans(`${name}Theme`)} skin`}
@@ -356,6 +357,11 @@ class App extends React.Component {
     const menu = [];
 
     [
+      {
+        version: '5.6',
+        start: 0,
+        end: 2
+      },
       {
         version: '5.5',
         start: 0,
@@ -645,7 +651,7 @@ class App extends React.Component {
                               href: `${host}#/components/filter-mapping`,
                             }
                           ]
-                        },                        
+                        },
                         {
                           text: (
                             <span>
@@ -1025,6 +1031,10 @@ class App extends React.Component {
                           ]
                         },
                         {
+                          text: 'Range',
+                          href: `${host}#/components/range`,
+                        },
+                        {
                           text: 'Table',
                           href: `${host}#/components/table`,
                         },
@@ -1186,6 +1196,7 @@ class App extends React.Component {
               <Route exact path="/components/steps-generator" render={(props) => (<_StepsGenerator {...props} />)} />
               <Route exact path="/components/steps-generator-drag-drop" render={(props) => (<_StepsGeneratorDragDrop {...props} />)} />
               <Route exact path="/components/suggestions" render={(props) => (<_Suggestions {...props} />)} />
+              <Route exact path="/components/range" render={(props) => (<_Range {...props} />)} />
               <Route exact path="/components/table" render={(props) => (<_Table {...props} />)} />
               <Route exact path="/components/text-writer" render={(props) => (<_TextWriter {...props} />)} />
               <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />

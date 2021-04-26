@@ -39,7 +39,15 @@ const code4 = `import { ImageBox } from 'react-revolution';
     }
 />`;
 
-    const codes = [ code1, code2, code3, code4 ];
+const code5 = `import { Range } from 'react-revolution';
+
+<Range 
+    min={1}
+    max={8} 
+/>`;
+
+
+    const codes = [ code1, code2, code3, code4, code5];
     return codes[Math.floor(Math.random() * codes.length)];
     };
     

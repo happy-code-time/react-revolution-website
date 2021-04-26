@@ -68,6 +68,7 @@ const modules = [
     "PopupData",
     "PopupHover",
     "Preloader",
+    "Range",
     "ReadMore",
     "ReadMoreCallback",
     "Ribbon",

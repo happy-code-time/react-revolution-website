@@ -1,6 +1,6 @@
 {
   "name": "davids-react-revolution",
-  "version": "5.5.0",
+  "version": "5.6.2",
   "description": "Create fast, modern and responsive website components",
   "main": "website.jsx",
   "scripts": {
@@ -69,6 +69,7 @@
     "PopupData",
     "PopupHover",
     "Preloader",
+    "Range",
     "ReadMore",
     "ReadMoreCallback",
     "Ribbon",

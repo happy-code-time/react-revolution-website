@@ -2510,6 +2510,54 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '5.6.0': {
+                    date: '25.04.2021',
+                    data: [
+                        {
+                            key: 'Range',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                    ]
+                },
+                '5.6.1': {
+                    date: '25.04.2021',
+                    data: [
+                        {
+                            key: 'Containers',
+                            value: 'Bugfix ON main initialisation time for the sidebar rendering in combination with the key "minifySidebarOn" for all Container Components.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        }
+                    ]
+                },
+                '5.6.2': {
+                    date: '26.04.2021',
+                    data: [
+                        {
+                            key: 'Containers',
+                            value: 'Bugfix AFTER main initialisation time for the sidebar rendering in combination with the key "minifySidebarOn" for all Container Components.',
+                            icon: <i className="fas fa-bug"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        }
+                    ]
+                },
             }
         }
     }

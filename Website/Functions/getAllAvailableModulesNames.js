@@ -217,6 +217,10 @@ const getAllAvailableModulesNames = () => {
             link: 'components/preloader'
         },
         {
+            name: 'Range',
+            link: 'components/range'
+        },
+        {
             name: 'ReadMore',
             link: 'components/read-more'
         },
