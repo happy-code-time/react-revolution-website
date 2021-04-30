@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, addGlobalMessage, GlobalMessages, InputFile, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, addGlobalMessage, GlobalMessage, InputFile, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -212,7 +212,7 @@ class _InputFile extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <GlobalMessages
+                <GlobalMessage
                     messageKey='messagesApp'
                     timer={1000}
                     codeMapping={{
@@ -231,7 +231,9 @@ class _InputFile extends React.Component {
                         },
                     }}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -240,7 +242,7 @@ class _InputFile extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -303,7 +305,7 @@ class _InputFile extends React.Component {
                                     values: 'multiple'
                                 },
                             ],
-                            'rr-input-file'
+                            'InputFile'
                         )
                     }
                 />

@@ -370,7 +370,7 @@ const codeExample3 = `import { Menu } from 'react-revolution';
     }
 />`;
 
-const cssExample = `.rr-menu-example{
+const cssExample = `.Menu-example{
     border-radius: 5px;
     border: 1px solid rgb(222,222,222);
     width: 250px;
@@ -805,7 +805,9 @@ class _Menu extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -814,7 +816,7 @@ class _Menu extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -921,7 +923,7 @@ class _Menu extends React.Component {
                                     values: 'menu.alignIcon'
                                 },
                             ],
-                            'rr-menu'
+                            'Menu'
                         )
                     }
                 />

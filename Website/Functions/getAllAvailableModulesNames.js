@@ -5,32 +5,32 @@ const getAllAvailableModulesNames = () => {
             link: 'components/accordion'
         },
         {
-            name: 'Articles',
-            link: 'components/articles'
+            name: 'Article',
+            link: 'components/article'
         },
         {
-            name: 'ArticlesImages',
-            link: 'components/articles-images'
+            name: 'ArticleImage',
+            link: 'components/articleimage'
         },
         {
             name: 'Astronaut404',
-            link: 'components/astronaut-404'
+            link: 'components/astronaut404'
         },
         {
-            name: 'Breadcrumbs',
-            link: 'components/breadcrumbs'
+            name: 'Breadcrumb',
+            link: 'components/breadcrumb'
         },
         {
-            name: 'Cards',
-            link: 'components/cards'
+            name: 'Card',
+            link: 'components/card'
         },
         {
-            name: 'CardsScroll',
-            link: 'components/cards-scroll'
+            name: 'CardScroll',
+            link: 'components/cardscroll'
         },
         {
-            name: 'CardsScrollCallback',
-            link: 'components/cards-scroll-callback'
+            name: 'CardScrollCallback',
+            link: 'components/cardsscrollcallback'
         },
         {
             name: 'Carousel',
@@ -41,12 +41,12 @@ const getAllAvailableModulesNames = () => {
             link: 'components/clipboard'
         },
         {
-            name: 'Clouds404',
-            link: 'components/clouds-404'
+            name: 'Cloud404',
+            link: 'components/cloud404'
         },
         {
-            name: 'CloudsMountains404',
-            link: 'components/clouds-mountains-404'
+            name: 'CloudMountain404',
+            link: 'components/cloudmountain404'
         },
         {
             name: 'Container',
@@ -54,31 +54,31 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'ContainerCompact',
-            link: 'components/container-compact'
+            link: 'components/containercompact'
         },
         {
             name: 'ContainerSidebar',
-            link: 'components/container-sidebar'
+            link: 'components/containersidebar'
         },
         {
             name: 'ContainerPopup',
-            link: 'components/container-popup'
+            link: 'components/containerpopup'
         },
         {
             name: 'CustomSuggestion',
-            link: 'components/custom-suggestion'
+            link: 'components/customsuggestion'
         },
         {
-            name: 'DarkLines404',
-            link: 'components/dark-lines-404'
+            name: 'DarkLine404',
+            link: 'components/darkline404'
         },
         {
             name: 'DragDropArea',
-            link: 'components/drag-drop-area'
+            link: 'components/dragdroparea'
         },
         {
             name: 'DragDropList',
-            link: 'components/drag-drop-list'
+            link: 'components/dragdroplist'
         },
         {
             name: 'Filter',
@@ -86,75 +86,79 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'FilterMapping',
-            link: 'components/filter-mapping'
+            link: 'components/filtermapping'
         },
         {
             name: 'FullScreenListArray',
-            link: 'components/fullscreen-list-array'
+            link: 'components/fullscreenlistarray'
         },
         {
             name: 'FullScreenListObject',
-            link: 'components/fullscreen-list-object'
+            link: 'components/fullscreenlistobject'
         },
         {
             name: 'FullScreenOverlay',
-            link: 'components/fullscreen-overlay'
+            link: 'components/fullscreenoverlay'
         },
         {
-            name: 'GlobalMessages',
-            link: 'components/global-messages'
+            name: 'GlobalMessage',
+            link: 'components/globalmessage'
         },
         {
-            name: 'Icons',
-            link: 'components/icons'
+            name: 'Icon',
+            link: 'components/icon'
+        },
+        {
+            name: 'IconText',
+            link: 'components/icontext'
         },
         {
             name: 'ImageBanner',
-            link: 'components/image-banner'
+            link: 'components/imagebanner'
         },
         {
             name: 'ImageBox',
-            link: 'components/image-box'
+            link: 'components/imagebox'
         },
         {
             name: 'ImageCarousel',
-            link: 'components/image-carousel'
+            link: 'components/imagecarousel'
         },
         {
             name: 'InputAnimation',
-            link: 'components/input-animation'
+            link: 'components/inputanimation'
         },
         {
             name: 'InputFile',
-            link: 'components/input-file'
+            link: 'components/inputfile'
         },
         {
             name: 'InputFileDragDrop',
-            link: 'components/input-file-drag-drop'
+            link: 'components/inputfiledragdrop'
         },
         {
             name: 'InputSuggestionArray',
-            link: 'components/input-suggestion-array'
+            link: 'components/inputsuggestionarray'
         },
         {
             name: 'InputSuggestionObject',
-            link: 'components/input-suggestion-object'
+            link: 'components/inputsuggestionobject'
         },
         {
             name: 'Lightbulb404',
-            link: 'components/lightbulb-404'
+            link: 'components/lightbulb404'
         },
         {
             name: 'ListSwitch',
-            link: 'components/list-switch'
+            link: 'components/listswitch'
         },
         {
             name: 'LoadingBoxTop',
-            link: 'components/loading-box-top'
+            link: 'components/loadingboxtop'
         },
         {
             name: 'LoadOnScroll',
-            link: 'components/load-on-scroll'
+            link: 'components/loadonscroll'
         },
         {
             name: 'Menu',
@@ -162,19 +166,19 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'MenuDropDown',
-            link: 'components/menu-dropdown'
+            link: 'components/menudropdown'
         },
         {
             name: 'MenuHeight',
-            link: 'components/menu-height'
+            link: 'components/menuheight'
         },
         {
             name: 'MenuHoverX',
-            link: 'components/menu-hover-x'
+            link: 'components/menuhoverx'
         },
         {
             name: 'MenuHoverY',
-            link: 'components/menu-hover-y'
+            link: 'components/menuhovery'
         },
         {
             name: 'Modal',
@@ -186,31 +190,31 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'PagerStatic',
-            link: 'components/pager-static'
+            link: 'components/pagerstatic'
         },
         {
             name: 'PagerDynamic',
-            link: 'components/pager-dynamic'
+            link: 'components/pagerdynamic'
         },
         {
-            name: 'Pills',
-            link: 'components/pills'
+            name: 'Pill',
+            link: 'components/pill'
         },
         {
             name: 'PopupBox',
-            link: 'components/popup-box'
+            link: 'components/popupbox'
         },
         {
             name: 'PopupData',
-            link: 'components/popup-data'
+            link: 'components/popupdata'
         },
         {
             name: 'PopupHover',
-            link: 'components/popup-hover'
+            link: 'components/popuphover'
         },
         {
             name: 'Picture404',
-            link: 'components/picture-404'
+            link: 'components/picture404'
         },
         {
             name: 'Preloader',
@@ -222,11 +226,11 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'ReadMore',
-            link: 'components/read-more'
+            link: 'components/readmore'
         },
         {
             name: 'ReadMoreCallback',
-            link: 'components/read-more-callback'
+            link: 'components/readmorecallback'
         },
         {
             name: 'Ribbon',
@@ -234,14 +238,14 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'RibbonMultiple',
-            link: 'components/Ribbon-multiple'
+            link: 'components/Ribbonmultiple'
         },
         {
             name: 'ScrollTo',
-            link: 'components/scroll-to'
+            link: 'components/scrollto'
         },
         {
-            name: 'SideBar',
+            name: 'Sidebar',
             link: 'components/sidebar'
         },
         {
@@ -249,40 +253,40 @@ const getAllAvailableModulesNames = () => {
             link: 'components/slider'
         },
         {
-            name: 'SliderCards',
-            link: 'components/slider-cards'
+            name: 'SliderCard',
+            link: 'components/slidercard'
         },
         {
             name: 'SliderFullscreen',
-            link: 'components/slider-fullscreen'
+            link: 'components/sliderfullscreen'
         },
         {
-            name: 'SliderItems',
-            link: 'components/slider-items'
+            name: 'SliderItem',
+            link: 'components/slideritem'
         },
         {
             name: 'SourceCode',
-            link: 'components/source-code'
+            link: 'components/sourcecode'
         },
         {
-            name: 'Stars',
-            link: 'components/stars'
+            name: 'Star',
+            link: 'components/star'
         },
         {
-            name: 'Steps',
-            link: 'components/steps'
+            name: 'Step',
+            link: 'components/step'
         },
         {
-            name: 'StepsGenerator',
-            link: 'components/steps-generator'
+            name: 'StepGenerator',
+            link: 'components/stepgenerator'
         },
         {
-            name: 'StepsGeneratorDragDrop',
-            link: 'components/steps-generator-drag-drop'
+            name: 'StepGeneratorDragDrop',
+            link: 'components/stepgeneratordragdrop'
         },
         {
-            name: 'Suggestions',
-            link: 'components/suggestions'
+            name: 'Suggestion',
+            link: 'components/suggestion'
         },
         {
             name: 'Table',
@@ -290,7 +294,7 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'TextWriter',
-            link: 'components/text-writer'
+            link: 'components/textwriter'
         },
         {
             name: 'Timeline',
@@ -298,7 +302,7 @@ const getAllAvailableModulesNames = () => {
         },
         {
             name: 'Water404',
-            link: 'components/water-404'
+            link: 'components/water404'
         },
         {
             name: 'copyArray (function)',

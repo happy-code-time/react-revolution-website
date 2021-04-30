@@ -95,7 +95,7 @@ const cssExample = `.rr-revolution-popupbox-example{
     margin:0 auto;
     text-align: center;
 
-    .rr-popupbox{
+    .PopupBox{
         float: left;
     }
     .icon{
@@ -261,7 +261,9 @@ class _PopupBox extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -270,7 +272,7 @@ class _PopupBox extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -317,7 +319,7 @@ class _PopupBox extends React.Component {
                                     values: 'popupbox.data'
                                 },
                             ],
-                            'rr-popupbox'
+                            'Popupbox'
                         )
                     }
                 />

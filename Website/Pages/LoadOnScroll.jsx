@@ -742,7 +742,9 @@ class _LoadOnScroll extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -751,7 +753,7 @@ class _LoadOnScroll extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -791,7 +793,7 @@ class _LoadOnScroll extends React.Component {
                                 },
                                 {
                                     key: 'loading',
-                                    values: 'cards.loading'
+                                    values: 'card.loading'
                                 },
                                 {
                                     key: 'minify',
@@ -803,11 +805,11 @@ class _LoadOnScroll extends React.Component {
                                 },
                                 {
                                     key: 'persistReject',
-                                    values: 'cards.callback.persistReject'
+                                    values: 'card.callback.persistReject'
                                 },
                                 {
                                     key: 'onReject',
-                                    values: 'cards.callback.onReject'
+                                    values: 'card.callback.onReject'
                                 },
                                 {
                                     key: 'fireScrollBack',
@@ -822,7 +824,7 @@ class _LoadOnScroll extends React.Component {
                                     values: 'loadonscroll.scrolledToBottom'
                                 },
                             ],
-                            'rr-load-on-scroll'
+                            'LoadOnScroll'
                         )
                     }
                 />

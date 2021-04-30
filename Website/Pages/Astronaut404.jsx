@@ -74,7 +74,9 @@ class _Astronaut404 extends React.Component {
                     fireScrollBack={true}
                 />
 
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -83,7 +85,7 @@ class _Astronaut404 extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -146,7 +148,7 @@ class _Astronaut404 extends React.Component {
                                     values: '404.text2'
                                 },
                             ],
-                            'rr-astronaut-404'
+                            'Astronaut404'
                         )
                     }
                 />

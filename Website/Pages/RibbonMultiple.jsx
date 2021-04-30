@@ -650,7 +650,9 @@ class _RibbonMultiple extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -659,7 +661,7 @@ class _RibbonMultiple extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -714,7 +716,7 @@ class _RibbonMultiple extends React.Component {
                                     values: 'ribbon.content'
                                 },
                             ],
-                            'rr-ribbon-multiple'
+                            'RibbonMultiple'
                         )
                     }
                 />

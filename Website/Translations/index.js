@@ -65,7 +65,7 @@ const EN = {
         "type": 'String',
         "default": '<empty string>'
     },
-    "class": {
+    "defaultClass": {
         "description": 'Replace the main class with your own. If this is used, the standard styles that the module brings with it no longer apply.',
         "type": 'String',
         "default": '<empty string>'
@@ -145,22 +145,22 @@ const EN = {
         "type": "array",
         "default": "[]"
     },
-    "cards.data": {
+    "card.data": {
         "description": "Main data - Array of Objects.",
         "type": "array",
         "default": "[]"
     },
-    "cards.data.title": {
+    "card.data.title": {
         "description": "Custom cards header data.",
         "type": "String | JSX",
         "default": "undefined"
     },
-    "cards.data.content": {
+    "card.data.content": {
         "description": "Custom cards content data.",
         "type": "String | JSX",
         "default": "undefined"
     },
-    "cards.data.footer": {
+    "card.data.footer": {
         "description": "Custom cards footer data.",
         "type": "String | JSX",
         "default": "undefined"
@@ -199,22 +199,22 @@ const EN = {
         "type": "Number",
         "default": "0"
     },
-    "cards.callback": {
+    "card.callback": {
         "description": "If the root element has been scrolled all the way down, data can be reloaded. If the callback returns 'break', the scroll event is removed from the root element. There are 2 arguments passed to this function. Argument 1: event (scroll, click: for the 'onReject' data), argument 2: custom data provided by the key 'callbackProps'.",
         "type": "Function",
         "default": "undefined"
     },
-    "cards.callback.persistReject": {
+    "card.callback.persistReject": {
         "description": "If true then if the Promise has been rejected, then the scroll event are removed.",
         "type": "Boolean",
         "default": "false"
     },
-    "cards.callback.onReject": {
+    "card.callback.onReject": {
         "description": "Custom data to display after an Promise was rejected and the user should be able to load more data again. To this data the click event are attached.",
         "type": "String | JSX",
         "default": "<empty string>"
     },
-    "cards.loading": {
+    "card.loading": {
         "description": "While additional elements are being loaded, a self-defined JSX element can be rendered.",
         "type": "String | JSX",
         "default": "<empty string>"
@@ -816,15 +816,40 @@ const EN = {
     "accordion.description.2": "Example with 4 nested childs.",
     "accordion.description.3": "Example with click handler (outside the module) provided by the key: 'closeOnClickOutside' setted to true (all childs closed recursively).",
     "accordion.description.4": "Example using an animated icon.",
-    "cards.scroll.description": "The Cards module will load more items, if the bottom of the parent div are reached.",
-    "cards.scrollCallback.description": "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
-    "cards.scrollCallback.example1": "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
-    "cards.scrollCallback.example2": "Example width Promise.reject() (default returns undefined), custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed and the callback function not called again on a scroll event.",
-    "cards.scrollCallback.example3": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={false}' (default the value is false) it`s mean the scrollEvent listener are NOT removed! The user can scroll down back and the callback function are called again.",
-    "cards.scrollCallback.example4": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed! This example provides the key 'onReject' with a custom JSX - to this HTML are attached an click event. This click event call the custom 'callback' function.",
-    "icons.description": "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
-    "icons.description2": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
-    "icons.description3": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
+    "card.scroll.description": "The Cards module will load more items, if the bottom of the parent div are reached.",
+    "card.scrollCallback.description": "The Cards module will load more items, if the bottom of the parent div are reached. Load more cards are base on the custom provided callback function. If the value is 'break', then the scroll listener are removed.",
+    "card.scrollCallback.example1": "Example width Promise.resolve(), LoadingBoxTop with the fixed position and 'break' on the 4 scroll Event.",
+    "card.scrollCallback.example2": "Example width Promise.reject() (default returns undefined), custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed and the callback function not called again on a scroll event.",
+    "card.scrollCallback.example3": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={false}' (default the value is false) it`s mean the scrollEvent listener are NOT removed! The user can scroll down back and the callback function are called again.",
+    "card.scrollCallback.example4": "Example width Promise.reject() width custom JSX as error message, custom loading JSX passed by the key 'loading' and with the key 'persistReject={true}' it`s mean the scrollEvent listener are removed! This example provides the key 'onReject' with a custom JSX - to this HTML are attached an click event. This click event call the custom 'callback' function.",
+    "icon.description": "Icons module with all icons set, NO translations and default selected icons set: Smileys. After the click event, look into the console for an icon.",
+    "icon.description2": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects, NO translations yet and default selected icons set: Activity. After the click event, look into the console for an icon.",
+    "icon.description3": "Icons module with selected icons set: Smileys, Activity, Travel, Peoples, Objects and 2 translated icons titles. After the click event, look into the console for an icon.",
+    "icon.itemsPerLine": {
+        "description": "How many items should be rendered in a single line. Value has to be grather then 0.",
+        "type": "Number",
+        "default": "0"
+    },
+    "icon.noData": {
+        "description": "If the passed data (array for specific icons) are empty, then render an custom message.",
+        "type": "jsx | string",
+        "default": "<empty string>"
+    },
+    "icon.text": {
+        "description": "Object with text to display for each single icon. Parent key has to be an key name of the available types (or passed custom type). Each key has to be an array with single text/ jsx. The (object keys) array loop index are the icons text. The first text index is for the first icon. The second array entry are the text/ jsx for the second icon.",
+        "type": "jsx | string",
+        "default": "<empty string>"
+    },
+    "icon.noText": {
+        "description": "If no text available in the key 'text' this value is used as default text to display.",
+        "type": "jsx | string",
+        "default": "<empty string>"
+    },
+    "icon.textDirection": {
+        "description": "Direction of the text. available directions: 'top', 'right', 'bottom' and 'left'.",
+        "type": "string",
+        "default": "bottom"
+    },
     /**
      * 
      */
@@ -1860,22 +1885,22 @@ const EN = {
         "type": "String | Jsx",
         "default": "undefined"
     },
-    'slider.cards.slideItemsXS': {
+    'slider.card.slideItemsXS': {
         "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeS'.",
         "type": "Number",
         "default": "1"
     },
-    'slider.cards.slideItemsS': {
+    'slider.card.slideItemsS': {
         "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeL' but larger than (the value of) 'resizeS'.",
         "type": "Number",
         "default": "2"
     },
-    'slider.cards.slideItemsL': {
+    'slider.card.slideItemsL': {
         "description": "Number of elements to be moved (individual cards) if the width of the document is smaller than (the value of) 'resizeXL' but larger than (the value of) 'resizeL'.",
         "type": "Number",
         "default": "3"
     },
-    'slider.cards.slideItemsXL': {
+    'slider.card.slideItemsXL': {
         "description": "Number of elements to be moved (individual cards) if the width of the document is larger than (the value of) 'resizeXL'.",
         "type": "Number",
         "default": "4"
@@ -2083,17 +2108,17 @@ const EN = {
         "type": "Boolean",
         "default": "true"
     },
-    'slider.cards.cardWidthS': {
+    'slider.card.cardWidthS': {
         "description": "The width of the card (in px) with the value of the document resizeS={xxx}.",
         "type": "Number",
         "default": "2"
     },
-    'slider.cards.cardWidthL': {
+    'slider.card.cardWidthL': {
         "description": "The width of the card (in px) with the value of the document resizeL={xxx}.",
         "type": "Number",
         "default": "2"
     },
-    'slider.cards.cardWidthXL': {
+    'slider.card.cardWidthXL': {
         "description": "The width of the card (in px) with the value of the document resizeXL={xxx}.",
         "type": "Number",
         "default": "3"
@@ -2355,7 +2380,7 @@ const EN = {
     },
     'listSwitch.example1': 'Example with a provision of data directly when the component is loaded.',
     'listSwitch.example2': 'Example with a provision of data only after the user has clicked on the placeholder. If the value of the "resetData" key is not true, the data is only loaded once, after which the data is always available without having to load the data again.',
-    'stepGen.maxSteps': {
+    'stepGen.maxStep': {
         "description": "The maximum of steps.",
         "type": "Number",
         "default": "undefined"
@@ -2405,7 +2430,7 @@ const EN = {
         "type": "Any",
         "default": "undefined"
     },
-    'stepGen.defaultSteps': {
+    'stepGen.defaultStep': {
         "description": "Number of fields to be generated.",
         "type": "Number",
         "default": "3"
@@ -2639,7 +2664,7 @@ const EN = {
     'fss.fsAutoplayIcon': {
         "description": "Custom JSX to start a slideshow.",
         "type": "String | JSX",
-        "default": "🎞"
+        "default": "🎥"
     },
     'fss.fsCloseIcon': {
         "description": "Custom JSX to close the slider.",
@@ -2856,7 +2881,7 @@ const EN = {
         "type": "String",
         "default": "undefined"
     },
-    'suggestions.sortSuggestions': {
+    'suggestions.sortSuggestion': {
         "description": "Sort the user suggestions. Possible sorting directions: 'asc', 'desc'.",
         "type": "String",
         "default": "undefined"
@@ -2925,55 +2950,55 @@ const EN = {
     'suggestions.example2': 'Example with allowTyping = {false} to NOT allow the user to change the value of the input field.',
     'suggestions.example3': 'Example with dataOnEmpty and sortSuggestions = "asc".',
     'suggestions.example4': 'Example with multiple = {false} to prevent multiple selection.',
-    'pills.data': {
+    'pill.data': {
         "description": "Array of objects.",
         "type": "{} []",
         "default": "[]"
     },
-    'pills.data.text': {
+    'pill.data.text': {
         "description": "The text to be displayed.",
         "type": "JSX | String",
         "default": "undefined"
     },
-    'pills.data.cls': {
+    'pill.data.cls': {
         "description": "Possible classes for the single pill.",
         "type": "String",
         "default": "<empty string>"
     },
-    'pills.data.selected': {
+    'pill.data.selected': {
         "description": "Mark a pill as selected.",
         "type": "Boolean",
         "default": "false"
     },
-    'pills.data.callback': {
+    'pill.data.callback': {
         "description": "Callback function that is called after a selection. This function returns 2 arguments. Argument 1: callbackProps, Argument 2: The currently selected elements (only if the key 'readonly' is off).",
         "type": "function",
         "default": "undefined"
     },
-    'pills.data.callbackProps': {
+    'pill.data.callbackProps': {
         "description": "First argument of the 'callback' function.",
         "type": "Any",
         "default": "undefined"
     },
-    'pills.data.key': {
+    'pill.data.key': {
         "description": "The string on which a search is performed.",
         "type": "String",
         "default": "undefined"
     },
-    'pills.multiple': {
+    'pill.multiple': {
         "description": "Allow a multi select selection.",
         "type": "Boolean",
         "default": "true"
     },
-    'pills.readonly': {
+    'pill.readonly': {
         "description": "Only allow reading of the elements. The callback function continues to be executed. The selection / selection of a pill is interrupted.",
         "type": "Boolean",
         "default": "false"
     },
-    'pills.example1': 'Example with a multiple choice. To see the selected items, open your developer console. ',
-    'pills.example2': 'Example with suppressed multiple selection. To see this selection, open your developer console. ',
-    'pills.example3': 'Example with the readonly mode.',
-    'pills.example4': 'Example with pre-selected pills.',
+    'pill.example1': 'Example with a multiple choice. To see the selected items, open your developer console. ',
+    'pill.example2': 'Example with suppressed multiple selection. To see this selection, open your developer console. ',
+    'pill.example3': 'Example with the readonly mode.',
+    'pill.example4': 'Example with pre-selected pill.',
     'carousel.data': {
         "description": "Array of objects.",
         "type": "Array",

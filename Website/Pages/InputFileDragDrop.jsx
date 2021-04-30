@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, addGlobalMessage, GlobalMessages, InputFileDragDrop, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, addGlobalMessage, GlobalMessage, InputFileDragDrop, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -214,7 +214,7 @@ class _InputFileDragDrop extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <GlobalMessages
+                <GlobalMessage
                     messageKey='messagesApp'
                     timer={1000}
                     codeMapping={{
@@ -233,7 +233,9 @@ class _InputFileDragDrop extends React.Component {
                         },
                     }}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -242,7 +244,7 @@ class _InputFileDragDrop extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -309,7 +311,7 @@ class _InputFileDragDrop extends React.Component {
                                     values: 'uploadOnClick'
                                 },
                             ],
-                            'rr-input-file'
+                            'InputFileDragDrop'
                         )
                     }
                 />

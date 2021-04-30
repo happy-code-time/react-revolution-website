@@ -1,13 +1,13 @@
 import React from 'react';
-import { Table, ContainerSidebar, SideBar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, ContainerSidebar, Sidebar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-const codeExample1 = `import { ContainerSidebar, SideBar, Menu } from 'react-revolution';
+const codeExample1 = `import { ContainerSidebar, Sidebar, Menu } from 'react-revolution';
 // import ContainerSidebar from 'react-revolution/ContainerSidebar';
-// import SideBar from 'react-revolution/SideBar';
+// import Sidebar from 'react-revolution/Sidebar';
 // import Menu from 'react-revolution/Menu';
 
 <ContainerSidebar
@@ -27,7 +27,7 @@ const codeExample1 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
         <i className="fas fa-angle-left" />
     }
     moduleSidebar={
-        <SideBar
+        <Sidebar
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong='text long'
             textShort='text short'
@@ -125,9 +125,9 @@ const codeExample1 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
     }
 />`;
 
-const codeExample2 = `import { ContainerSidebar, SideBar, Menu } from 'react-revolution';
+const codeExample2 = `import { ContainerSidebar, Sidebar, Menu } from 'react-revolution';
 // import ContainerSidebar from 'react-revolution/ContainerSidebar';
-// import SideBar from 'react-revolution/SideBar';
+// import Sidebar from 'react-revolution/Sidebar';
 // import Menu from 'react-revolution/Menu';
 
 <ContainerSidebar
@@ -147,7 +147,7 @@ const codeExample2 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
         <i className="fas fa-angle-left" />
     }
     moduleSidebar={
-        <SideBar
+        <Sidebar
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong='text long'
             textShort='text short'
@@ -248,7 +248,7 @@ const codeExample2 = `import { ContainerSidebar, SideBar, Menu } from 'react-rev
 const cssExample = `.container-example {
     overflow-x: hidden;
         
-    .SideBar {
+    .area-sidebar{
         position: absolute;
     }
 
@@ -302,7 +302,7 @@ class _ContainerSidebar extends React.Component {
                             <i className="fas fa-angle-left" />
                         }
                         moduleSidebar={
-                            <SideBar
+                            <Sidebar
                                 image={<img alt="image" src='./public/images/icon-48.png' />}
                                 textLong='text long'
                                 textShort='text short'
@@ -427,7 +427,7 @@ class _ContainerSidebar extends React.Component {
                             <i className="fas fa-angle-left" />
                         }
                         moduleSidebar={
-                            <SideBar
+                            <Sidebar
                                 image={<img alt="image" src='./public/images/icon-48.png' />}
                                 textLong='text long'
                                 textShort='text short'
@@ -553,7 +553,9 @@ class _ContainerSidebar extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -562,7 +564,7 @@ class _ContainerSidebar extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -649,7 +651,7 @@ class _ContainerSidebar extends React.Component {
                                     values: 'container.sidebarWidth'
                                 },
                             ],
-                            'rr-container-sidebar'
+                            'ContainerSidebar'
                         )
                     }
                 />

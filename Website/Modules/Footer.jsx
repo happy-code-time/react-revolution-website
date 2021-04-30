@@ -1,18 +1,21 @@
 import React from 'react';
-
-import { Cards, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
-
-import { author } from '../Globals';
-
+import { Card } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans';
 
 class Footer extends React.Component 
 {
     constructor(props) {
         super(props);
+
+        this.state = {
+            hash: window.location.hash
+        };
+
+        this.checkHash = null;
     }
 
-    getCurrentYearText() {
+    getCurrentYearText() 
+    {
         const DATE = new Date();
         const year = DATE.getFullYear();
 
@@ -23,57 +26,52 @@ class Footer extends React.Component
         return '2020';
     }
 
-    render() {
+    componentDidMount()
+    {
+        this.interval();
+    }
+
+    componentWillUnmount()
+    {
+        this.interval(false);
+    }
+
+    interval(attach = true)
+    {
+        clearInterval(this.checkHash);
+
+        if(attach)
+        {
+            this.checkHash = setInterval( () => {
+
+                if(this.state.hash !== window.location.hash)
+                {
+                    this.setState({
+                        hash: window.location.hash
+                    });
+                }
+
+            }, 1000);
+        }
+    }
+
+    render() 
+    {
+
+        if('#/' !== this.state.hash)
+        {
+            return null;
+        }
+
         return (
             <div className="Footer">
 
                 <div className="content">
-                    <Cards
-                        itemsPerLine={4}
+                    <Card
+                        itemsPerLine={2}
                         mediaBreak={1024}
                         data={
                             [
-                                {
-                                    title: (
-                                        <span>
-                                            <i className="fas fa-user" />
-                                            {
-                                                trans('author')
-                                            }
-                                        </span>
-                                    ),
-                                    content: (
-                                        <div className='text text-center'>
-                                            <div>
-                                                {
-                                                    author
-                                                }
-                                            </div>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    title: (
-                                        <span>
-                                            <i className="fas fa-comment-dots" />
-                                            {
-                                                trans('feedback')
-                                            }
-                                        </span>
-                                    ),
-                                    content: (
-                                        <Clipboard
-                                            animation='jump' // scale, jump
-                                            data={(
-                                                <SourceCode
-                                                    layout='dark'
-                                                    code={'david.janitzek@gmail.com'}
-                                                />
-                                            )}
-                                            clipboard='david.janitzek@gmail.com'
-                                        />
-                                    ),
-                                },
                                 {
                                     title: (
                                         <span>

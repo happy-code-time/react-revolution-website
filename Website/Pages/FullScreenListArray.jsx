@@ -1,15 +1,10 @@
 import React from 'react';
-
 import { Table, FullScreenListArray, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-
 import toggleZindex from '../Functions/toggleZindex';
 import StyleImplementation from '../Modules/StyleImplementation';
-
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const codeExample = `import { FullScreenListArray } from 'react-revolution';
 // import FullScreenListArray from 'react-revolution/FullScreenListArray';
@@ -146,7 +141,7 @@ class _FullScreenListArray extends React.Component {
                         </span>
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1 className="h1-example">
                                     <i className="fas fa-atom" />
@@ -176,7 +171,7 @@ class _FullScreenListArray extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
@@ -209,7 +204,9 @@ class _FullScreenListArray extends React.Component {
                         )
                     }
                 </div>
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -218,7 +215,7 @@ class _FullScreenListArray extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -302,7 +299,7 @@ class _FullScreenListArray extends React.Component {
                                     values: 'listarray.data'
                                 },
                             ],
-                            'rr-fullscreenlist'
+                            'FullScreenListArray'
                         )
                     }
                 />

@@ -5,7 +5,7 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import Root from './Website/Pages/Root';
 import ScrollTop from './Website/Modules/ScrollTop';
-import { ContainerSidebar, Astronaut404, MenuHeight, SideBar, InputSuggestionObject, PopupHover } from './react-revolution/react-revolution';
+import { ContainerSidebar, Astronaut404, MenuHeight, Sidebar, InputSuggestionObject, PopupHover } from './react-revolution/react-revolution';
 import { appNameShort, version } from './Website/Globals';
 import trans from './Website/Translations/trans';
 import possibleLayouts from './Website/Functions/possibleLayouts';
@@ -17,24 +17,24 @@ import setDataLocalStorage from './Website/Functions/setDataLocalStorage';
  * React Revolution Modules
  */
 import _Accordion from './Website/Pages/Accordion';
-import _Articles from './Website/Pages/Articles';
-import _ArticlesImages from './Website/Pages/ArticlesImages';
+import _Article from './Website/Pages/Article';
+import _ArticleImage from './Website/Pages/ArticleImage';
 import _Astronaut404 from './Website/Pages/Astronaut404';
-import _Boxes from './Website/Pages/Boxes';
-import _Breadcrumbs from './Website/Pages/Breadcrumbs';
-import _Cards from './Website/Pages/Cards';
-import _CardsScroll from './Website/Pages/CardsScroll';
-import _CardsScrollCallback from './Website/Pages/CardsScrollCallback';
+import _Box from './Website/Pages/Box';
+import _Breadcrumb from './Website/Pages/Breadcrumb';
+import _Card from './Website/Pages/Card';
+import _CardScroll from './Website/Pages/CardScroll';
+import _CardScrollCallback from './Website/Pages/CardScrollCallback';
 import _Carousel from './Website/Pages/Carousel';
 import _Clipboard from './Website/Pages/Clipboard';
-import _Clouds404 from './Website/Pages/Clouds404';
-import _CloudsMountains404 from './Website/Pages/CloudsMountains404';
+import _Cloud404 from './Website/Pages/Cloud404';
+import _CloudMountain404 from './Website/Pages/CloudMountain404';
 import _Container from './Website/Pages/Container';
 import _ContainerCompact from './Website/Pages/ContainerCompact';
 import _ContainerPopup from './Website/Pages/ContainerPopup';
 import _ContainerSidebar from './Website/Pages/ContainerSidebar';
 import _CustomSuggestion from './Website/Pages/CustomSuggestion';
-import _DarkLines404 from './Website/Pages/DarkLines404';
+import _DarkLine404 from './Website/Pages/DarkLine404';
 import _DragDropArea from './Website/Pages/DragDropArea';
 import _DragDropList from './Website/Pages/DragDropList';
 import _Filter from './Website/Pages/Filter';
@@ -42,8 +42,9 @@ import _FilterMapping from './Website/Pages/FilterMapping';
 import _FullScreenListArray from './Website/Pages/FullScreenListArray';
 import _FullScreenListObject from './Website/Pages/FullScreenListObject';
 import _FullScreenOverlay from './Website/Pages/FullScreenOverlay';
-import _GlobalMessages from './Website/Pages/GlobalMessages';
-import _Icons from './Website/Pages/Icons';
+import _GlobalMessage from './Website/Pages/GlobalMessage';
+import _Icon from './Website/Pages/Icon';
+import _IconText from './Website/Pages/IconText';
 import _ImageBanner from './Website/Pages/ImageBanner';
 import _ImageBox from './Website/Pages/ImageBox';
 import _ImageCarousel from './Website/Pages/ImageCarousel';
@@ -65,7 +66,7 @@ import _Overlay from './Website/Pages/Overlay';
 import _PagerStatic from './Website/Pages/PagerStatic';
 import _PagerDynamic from './Website/Pages/PagerDynamic';
 import _Picture404 from './Website/Pages/Picture404';
-import _Pills from './Website/Pages/Pills';
+import _Pill from './Website/Pages/Pill';
 import _PopupBox from './Website/Pages/PopupBox';
 import _PopupData from './Website/Pages/PopupData';
 import _PopupHover from './Website/Pages/PopupHover';
@@ -79,14 +80,14 @@ import _ScrollTo from './Website/Pages/ScrollTo';
 import _SourceCode from './Website/Pages/SourceCode';
 import _Sidebar from './Website/Pages/Sidebar';
 import _Slider from './Website/Pages/Slider';
-import _SliderCards from './Website/Pages/SliderCards'
+import _SliderCard from './Website/Pages/SliderCard'
 import _SliderFullscreen from './Website/Pages/SliderFullscreen'
-import _SliderItems from './Website/Pages/SliderItems';
-import _Stars from './Website/Pages/Stars';
-import _Steps from './Website/Pages/Steps';
-import _StepsGenerator from './Website/Pages/StepsGenerator';
-import _StepsGeneratorDragDrop from './Website/Pages/StepsGeneratorDragDrop';
-import _Suggestions from './Website/Pages/Suggestions';
+import _SliderItem from './Website/Pages/SliderItem';
+import _Star from './Website/Pages/Star';
+import _Step from './Website/Pages/Step';
+import _StepGenerator from './Website/Pages/StepGenerator';
+import _StepGeneratorDragDrop from './Website/Pages/StepGeneratorDragDrop';
+import _Suggestion from './Website/Pages/Suggestion';
 import _Range from './Website/Pages/Range';
 import _Table from './Website/Pages/Table';
 import _TextWriter from './Website/Pages/TextWriter';
@@ -119,14 +120,14 @@ import Releases from './Website/Pages/Releases/Releases';
 import Components from './Website/Modules/Components';
 import Footer from './Website/Modules/Footer';
 // Style
-import './react-revolution/css/react-revolution.css';
+// import './react-revolution/css/react-revolution.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.setOnClickEvent = this.setOnClickEvent.bind(this);
     this.checkLocation = this.checkLocation.bind(this);
-    this.getSuggestions = this.getSuggestions.bind(this);
+    this.getSuggestion = this.getSuggestion.bind(this);
     this.getSidebarDirectionsJsx = this.getSidebarDirectionsJsx.bind(this);
     this.setLayout = this.setLayout.bind(this);
 
@@ -233,7 +234,7 @@ class App extends React.Component {
     }
   }
 
-  getSuggestions() {
+  getSuggestion() {
     const { host } = this.state;
     const allModules = getAllAvailableModulesNames();
     const suggestions = [];
@@ -358,6 +359,11 @@ class App extends React.Component {
 
     [
       {
+        version: '6.0',
+        start: 0,
+        end: 0
+      },
+      {
         version: '5.6',
         start: 0,
         end: 2
@@ -471,7 +477,7 @@ class App extends React.Component {
 
     return (
       <ContainerSidebar
-        id="rr-container"
+        id="Container"
         hideAt={1024}
         minifySidebarOn={
           [
@@ -485,7 +491,7 @@ class App extends React.Component {
         headerDataRight={true}
         animationDuration={200}
         moduleSidebar={
-          <SideBar
+          <Sidebar
             // image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong={appNameShort}
             textShort={`v${version}`}
@@ -514,8 +520,8 @@ class App extends React.Component {
                           text: (
                             <span>
                               <span className="data-title">
-                                Articles
-                                              </span>
+                                Article
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -523,28 +529,28 @@ class App extends React.Component {
                           ),
                           data: [
                             {
-                              text: 'Articles',
-                              href: `${host}#/components/articles`,
+                              text: 'Article',
+                              href: `${host}#/components/article`,
                             },
                             {
-                              text: 'ArticlesImages',
-                              href: `${host}#/components/articles-images`,
+                              text: 'ArticleImage',
+                              href: `${host}#/components/articleimage`,
                             },
                           ]
                         },
                         {
-                          text: 'Boxes',
-                          href: `${host}#/components/boxes`,
+                          text: 'Box',
+                          href: `${host}#/components/box`,
                         },
                         {
-                          text: 'Breadcrumbs',
-                          href: `${host}#/components/breadcrumbs`,
+                          text: 'Breadcrumb',
+                          href: `${host}#/components/breadcrumb`,
                         },
                         {
                           text: (
                             <span>
                               <span className="data-title">
-                                Cards
+                                Card
                               </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
@@ -553,16 +559,16 @@ class App extends React.Component {
                           ),
                           data: [
                             {
-                              text: 'Cards',
-                              href: `${host}#/components/cards`,
+                              text: 'Card',
+                              href: `${host}#/components/card`,
                             },
                             {
-                              text: 'CardsScroll',
-                              href: `${host}#/components/cards-scroll`,
+                              text: 'CardScroll',
+                              href: `${host}#/components/cardscroll`,
                             },
                             {
-                              text: 'CardsScrollCallback',
-                              href: `${host}#/components/cards-scroll-callback`,
+                              text: 'CardScrollCallback',
+                              href: `${host}#/components/cardscrollcallback`,
                             },
                           ]
                         },
@@ -578,8 +584,8 @@ class App extends React.Component {
                           text: (
                             <span>
                               <span className="data-title">
-                                Containers
-                                              </span>
+                                Container
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -592,21 +598,21 @@ class App extends React.Component {
                             },
                             {
                               text: 'ContainerCompact',
-                              href: `${host}#/components/container-compact`,
+                              href: `${host}#/components/containercompact`,
                             },
                             {
                               text: 'ContainerPopup',
-                              href: `${host}#/components/container-popup`,
+                              href: `${host}#/components/containerpopup`,
                             },
                             {
                               text: 'ContainerSidebar',
-                              href: `${host}#/components/container-sidebar`,
+                              href: `${host}#/components/containersidebar`,
                             }
                           ]
                         },
                         {
                           text: 'CustomSuggestion',
-                          href: `${host}#/components/custom-suggestion`,
+                          href: `${host}#/components/customsuggestion`,
                         },
                         {
                           text: (
@@ -622,11 +628,11 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'DragDropArea',
-                              href: `${host}#/components/drag-drop-area`,
+                              href: `${host}#/components/dragdroparea`,
                             },
                             {
                               text: 'DragDropList',
-                              href: `${host}#/components/drag-drop-list`,
+                              href: `${host}#/components/dragdroplist`,
                             }
                           ]
                         },
@@ -648,7 +654,7 @@ class App extends React.Component {
                             },
                             {
                               text: 'FilterMapping',
-                              href: `${host}#/components/filter-mapping`,
+                              href: `${host}#/components/filtermapping`,
                             }
                           ]
                         },
@@ -666,37 +672,55 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'FullScreenListArray',
-                              href: `${host}#/components/fullscreen-list-array`,
+                              href: `${host}#/components/fullscreenlistarray`,
                             },
                             {
                               text: 'FullScreenListObject',
-                              href: `${host}#/components/fullscreen-list-object`,
+                              href: `${host}#/components/fullscreenlistobject`,
                             },
                             {
                               text: 'FullScreenOverlay',
-                              href: `${host}#/components/fullscreen-overlay`,
+                              href: `${host}#/components/fullscreenoverlay`,
                             }
                           ]
                         },
                         {
-                          text: 'GlobalMessages',
-                          href: `${host}#/components/global-messages`,
+                          text: 'GlobalMessage',
+                          href: `${host}#/components/globalmessage`,
                         },
                         {
-                          text: 'Icons',
-                          href: `${host}#/components/icons`,
+                          text: (
+                            <span>
+                              <span className="data-title">
+                                Icon
+                              </span>
+                              <span className="drop-down-icon">
+                                <i className='fas fa-angle-down'></i>
+                              </span>
+                            </span>
+                          ),
+                          data: [
+                            {
+                              text: 'Icon',
+                              href: `${host}#/components/icon`,
+                            },
+                            {
+                              text: 'IconText',
+                              href: `${host}#/components/icontext`,
+                            },
+                          ]
                         },
                         {
                           text: 'ImageBanner',
-                          href: `${host}#/components/image-banner`,
+                          href: `${host}#/components/imagebanner`,
                         },
                         {
                           text: 'ImageBox',
-                          href: `${host}#/components/image-box`,
+                          href: `${host}#/components/imagebox`,
                         },
                         {
                           text: 'ImageCarousel',
-                          href: `${host}#/components/image-carousel`,
+                          href: `${host}#/components/imagecarousel`,
                         },
                         {
                           text: (
@@ -712,43 +736,43 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'InputAnimation',
-                              href: `${host}#/components/input-animation`,
+                              href: `${host}#/components/inputanimation`,
                             },
                             {
                               text: 'InputFile',
-                              href: `${host}#/components/input-file`,
+                              href: `${host}#/components/inputfile`,
                             },
                             {
                               text: 'InputFileDragDrop',
-                              href: `${host}#/components/input-file-drag-drop`,
+                              href: `${host}#/components/inputfiledragdrop`,
                             },
                             {
                               text: 'InputSuggestionArray',
-                              href: `${host}#/components/input-suggestion-array`,
+                              href: `${host}#/components/inputsuggestionarray`,
                             },
                             {
                               text: 'InputSuggestionObject',
-                              href: `${host}#/components/input-suggestion-object`,
+                              href: `${host}#/components/inputsuggestionobject`,
                             },
                           ]
                         },
                         {
                           text: 'ListSwitch',
-                          href: `${host}#/components/list-switch`,
+                          href: `${host}#/components/listswitch`,
                         },
                         {
                           text: 'LoadingBoxTop',
-                          href: `${host}#/components/loading-box-top`,
+                          href: `${host}#/components/loadingboxtop`,
                         },
                         {
                           text: 'LoadOnScroll',
-                          href: `${host}#/components/load-on-scroll`,
+                          href: `${host}#/components/loadonscroll`,
                         },
                         {
                           text: (
                             <span>
                               <span className="data-title">
-                                Menus
+                                Menu
                               </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
@@ -762,19 +786,19 @@ class App extends React.Component {
                             },
                             {
                               text: 'MenuDropDown',
-                              href: `${host}#/components/menu-dropdown`,
+                              href: `${host}#/components/menudropdown`,
                             },
                             {
                               text: 'MenuHeight',
-                              href: `${host}#/components/menu-height`,
+                              href: `${host}#/components/menuheight`,
                             },
                             {
                               text: 'MenuHoverX',
-                              href: `${host}#/components/menu-hover-x`,
+                              href: `${host}#/components/menuhoverx`,
                             },
                             {
                               text: 'MenuHoverY',
-                              href: `${host}#/components/menu-hover-y`,
+                              href: `${host}#/components/menuhovery`,
                             },
                           ]
                         },
@@ -791,7 +815,7 @@ class App extends React.Component {
                             <span>
                               <span className="data-title">
                                 404
-                                              </span>
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -800,31 +824,31 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'Astronaut404',
-                              href: `${host}#/components/astronaut-404`,
+                              href: `${host}#/components/astronaut404`,
                             },
                             {
-                              text: 'Clouds404',
-                              href: `${host}#/components/clouds-404`,
+                              text: 'Cloud404',
+                              href: `${host}#/components/cloud404`,
                             },
                             {
-                              text: 'CloudsMountains404',
-                              href: `${host}#/components/clouds-mountains-404`,
+                              text: 'CloudMountain404',
+                              href: `${host}#/components/cloudmountain404`,
                             },
                             {
-                              text: 'DarkLines404',
-                              href: `${host}#/components/dark-lines-404`,
+                              text: 'DarkLine404',
+                              href: `${host}#/components/darkline404`,
                             },
                             {
                               text: 'Lightbulb404',
-                              href: `${host}#/components/lightbulb-404`,
+                              href: `${host}#/components/lightbulb404`,
                             },
                             {
                               text: 'Picture404',
-                              href: `${host}#/components/picture-404`,
+                              href: `${host}#/components/picture404`,
                             },
                             {
                               text: 'Water404',
-                              href: `${host}#/components/water-404`,
+                              href: `${host}#/components/water404`,
                             },
                           ]
                         },
@@ -842,24 +866,24 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'PagerStatic',
-                              href: `${host}#/components/pager-static`,
+                              href: `${host}#/components/pagerstatic`,
                             },
                             {
                               text: 'PagerDynamic',
-                              href: `${host}#/components/pager-dynamic`,
+                              href: `${host}#/components/pagerdynamic`,
                             },
                           ]
                         },
                         {
-                          text: 'Pills',
-                          href: `${host}#/components/pills`,
+                          text: 'Pill',
+                          href: `${host}#/components/pill`,
                         },
                         {
                           text: (
                             <span>
                               <span className="data-title">
-                                Popups
-                                              </span>
+                                Popup
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -868,15 +892,15 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'PopupBox',
-                              href: `${host}#/components/popup-box`,
+                              href: `${host}#/components/popupbox`,
                             },
                             {
                               text: 'PopupData',
-                              href: `${host}#/components/popup-data`,
+                              href: `${host}#/components/popupdata`,
                             },
                             {
                               text: 'PopupHover',
-                              href: `${host}#/components/popup-hover`,
+                              href: `${host}#/components/popuphover`,
                             },
                           ]
                         },
@@ -898,11 +922,11 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'ReadMore',
-                              href: `${host}#/components/read-more`,
+                              href: `${host}#/components/readmore`,
                             },
                             {
                               text: 'ReadMoreCallback',
-                              href: `${host}#/components/read-more-callback`,
+                              href: `${host}#/components/readmorecallback`,
                             }
                           ],
                         },
@@ -910,7 +934,7 @@ class App extends React.Component {
                           text: (
                             <span>
                               <span className="data-title">
-                                Ribbons
+                                Ribbon
                               </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
@@ -924,24 +948,24 @@ class App extends React.Component {
                             },
                             {
                               text: 'RibbonMultiple',
-                              href: `${host}#/components/ribbon-multiple`,
+                              href: `${host}#/components/ribbonmultiple`,
                             },
                           ],
                         },
                         {
                           text: 'ScrollTo',
-                          href: `${host}#/components/scroll-to`,
+                          href: `${host}#/components/scrollto`,
                         },
                         {
-                          text: 'SideBar',
+                          text: 'Sidebar',
                           href: `${host}#/components/sidebar`,
                         },
                         {
                           text: (
                             <span>
                               <span className="data-title">
-                                Sliders
-                                              </span>
+                                Slider
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -953,36 +977,36 @@ class App extends React.Component {
                               href: `${host}#/components/slider`,
                             },
                             {
-                              text: 'SliderCards',
-                              href: `${host}#/components/slider-cards`,
+                              text: 'SliderCard',
+                              href: `${host}#/components/slidercard`,
                             },
                             {
                               text: 'SliderFullscreen',
-                              href: `${host}#/components/slider-fullscreen`,
+                              href: `${host}#/components/sliderfullscreen`,
                             },
                             {
-                              text: 'SliderItems',
-                              href: `${host}#/components/slider-items`,
+                              text: 'SliderItem',
+                              href: `${host}#/components/slideritem`,
                             }
                           ]
                         },
                         {
                           text: 'SourceCode',
-                          href: `${host}#/components/source-code`,
+                          href: `${host}#/components/sourcecode`,
                         },
                         {
-                          text: 'Stars',
-                          href: `${host}#/components/stars`,
+                          text: 'Star',
+                          href: `${host}#/components/star`,
                         },
                         {
-                          text: 'Steps',
-                          href: `${host}#/components/steps`,
+                          text: 'Step',
+                          href: `${host}#/components/step`,
                         },
                         {
                           text: (
                             <span>
                               <span className="data-title">
-                                StepsGenerators
+                                StepGenerator
                               </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
@@ -991,12 +1015,12 @@ class App extends React.Component {
                           ),
                           data: [
                             {
-                              text: 'StepsGenerator',
-                              href: `${host}#/components/steps-generator`,
+                              text: 'StepGenerator',
+                              href: `${host}#/components/stepgenerator`,
                             },
                             {
-                              text: 'StepsGeneratorDragDrop',
-                              href: `${host}#/components/steps-generator-drag-drop`,
+                              text: 'StepGeneratorDragDrop',
+                              href: `${host}#/components/stepgeneratordragdrop`,
                             },
                           ]
                         },
@@ -1004,8 +1028,8 @@ class App extends React.Component {
                           text: (
                             <span>
                               <span className="data-title">
-                                Suggestions
-                                              </span>
+                                Suggestion
+                              </span>
                               <span className="drop-down-icon">
                                 <i className='fas fa-angle-down'></i>
                               </span>
@@ -1014,19 +1038,19 @@ class App extends React.Component {
                           data: [
                             {
                               text: 'CustomSuggestion',
-                              href: `${host}#/components/custom-suggestion`,
+                              href: `${host}#/components/customsuggestion`,
                             },
                             {
                               text: 'InputSuggestionArray',
-                              href: `${host}#/components/input-suggestion-array`,
+                              href: `${host}#/components/inputsuggestionarray`,
                             },
                             {
                               text: 'InputSuggestionObject',
-                              href: `${host}#/components/input-suggestion-object`,
+                              href: `${host}#/components/inputsuggestionobject`,
                             },
                             {
-                              text: 'Suggestions',
-                              href: `${host}#/components/suggestions`,
+                              text: 'Suggestion',
+                              href: `${host}#/components/suggestion`,
                             },
                           ]
                         },
@@ -1040,11 +1064,11 @@ class App extends React.Component {
                         },
                         {
                           text: 'TextWriter',
-                          href: `${host}#/components/text-writer`,
+                          href: `${host}#/components/textwriter`,
                         },
                         {
                           text: 'Timeline',
-                          href: `${host}#/components/Timeline`,
+                          href: `${host}#/components/timeline`,
                         },
                       ]
                     },
@@ -1109,7 +1133,7 @@ class App extends React.Component {
               <InputSuggestionObject
                 addClass='rr-custom-suggestion-website'
                 inputPlaceholder={`${trans('searchForModule')}`}
-                suggestions={this.getSuggestions()}
+                suggestions={this.getSuggestion()}
                 callbackSelection={this.callbackSelection}
                 value={inputValue}
                 searchSensitive={false}
@@ -1126,81 +1150,82 @@ class App extends React.Component {
               <Route exact path="/" render={(props) => (<Root {...props} />)} />
               {/* Components */}
               <Route exact path="/components/accordion" render={(props) => (<_Accordion {...props} />)} />
-              <Route exact path="/components/articles" render={(props) => (<_Articles {...props} />)} />
-              <Route exact path="/components/articles-images" render={(props) => (<_ArticlesImages {...props} />)} />
-              <Route exact path="/components/astronaut-404" render={(props) => (<_Astronaut404 {...props} />)} />
-              <Route exact path="/components/boxes" render={(props) => (<_Boxes {...props} />)} />
-              <Route exact path="/components/breadcrumbs" render={(props) => (<_Breadcrumbs {...props} />)} />
-              <Route exact path="/components/cards" render={(props) => (<_Cards {...props} />)} />
-              <Route exact path="/components/cards-scroll" render={(props) => (<_CardsScroll {...props} />)} />
-              <Route exact path="/components/cards-scroll-callback" render={(props) => (<_CardsScrollCallback {...props} />)} />
+              <Route exact path="/components/article" render={(props) => (<_Article {...props} />)} />
+              <Route exact path="/components/articleimage" render={(props) => (<_ArticleImage {...props} />)} />
+              <Route exact path="/components/astronaut404" render={(props) => (<_Astronaut404 {...props} />)} />
+              <Route exact path="/components/box" render={(props) => (<_Box {...props} />)} />
+              <Route exact path="/components/breadcrumb" render={(props) => (<_Breadcrumb {...props} />)} />
+              <Route exact path="/components/card" render={(props) => (<_Card {...props} />)} />
+              <Route exact path="/components/cardscroll" render={(props) => (<_CardScroll {...props} />)} />
+              <Route exact path="/components/cardscrollcallback" render={(props) => (<_CardScrollCallback {...props} />)} />
               <Route exact path="/components/carousel" render={(props) => (<_Carousel {...props} />)} />
               <Route exact path="/components/clipboard" render={(props) => (<_Clipboard {...props} />)} />
-              <Route exact path="/components/clouds-404" render={(props) => (<_Clouds404 {...props} />)} />
-              <Route exact path="/components/clouds-mountains-404" render={(props) => (<_CloudsMountains404 {...props} />)} />
+              <Route exact path="/components/cloud404" render={(props) => (<_Cloud404 {...props} />)} />
+              <Route exact path="/components/cloudmountain404" render={(props) => (<_CloudMountain404 {...props} />)} />
               <Route exact path="/components/container" render={(props) => (<_Container {...props} />)} />
-              <Route exact path="/components/container-compact" render={(props) => (<_ContainerCompact {...props} />)} />
-              <Route exact path="/components/container-popup" render={(props) => (<_ContainerPopup {...props} />)} />
-              <Route exact path="/components/container-sidebar" render={(props) => (<_ContainerSidebar {...props} />)} />
-              <Route exact path="/components/custom-suggestion" render={(props) => (<_CustomSuggestion {...props} />)} />
-              <Route exact path="/components/dark-lines-404" render={(props) => (<_DarkLines404 {...props} />)} />
-              <Route exact path="/components/drag-drop-area" render={(props) => (<_DragDropArea {...props} />)} />
-              <Route exact path="/components/drag-drop-list" render={(props) => (<_DragDropList {...props} />)} />
+              <Route exact path="/components/containercompact" render={(props) => (<_ContainerCompact {...props} />)} />
+              <Route exact path="/components/containerpopup" render={(props) => (<_ContainerPopup {...props} />)} />
+              <Route exact path="/components/containersidebar" render={(props) => (<_ContainerSidebar {...props} />)} />
+              <Route exact path="/components/customsuggestion" render={(props) => (<_CustomSuggestion {...props} />)} />
+              <Route exact path="/components/darkline404" render={(props) => (<_DarkLine404 {...props} />)} />
+              <Route exact path="/components/dragdroparea" render={(props) => (<_DragDropArea {...props} />)} />
+              <Route exact path="/components/dragdroplist" render={(props) => (<_DragDropList {...props} />)} />
               <Route exact path="/components/filter" render={(props) => (<_Filter {...props} />)} />
-              <Route exact path="/components/filter-mapping" render={(props) => (<_FilterMapping {...props} />)} />
-              <Route exact path="/components/fullscreen-list-array" render={(props) => (<_FullScreenListArray {...props} />)} />
-              <Route exact path="/components/fullscreen-list-object" render={(props) => (<_FullScreenListObject {...props} />)} />
-              <Route exact path="/components/fullscreen-overlay" render={(props) => (<_FullScreenOverlay {...props} />)} />
-              <Route exact path="/components/global-messages" render={(props) => (<_GlobalMessages {...props} />)} />
-              <Route exact path="/components/icons" render={(props) => (<_Icons {...props} />)} />
-              <Route exact path="/components/image-banner" render={(props) => (<_ImageBanner {...props} />)} />
-              <Route exact path="/components/image-box" render={(props) => (<_ImageBox {...props} />)} />
-              <Route exact path="/components/image-carousel" render={(props) => (<_ImageCarousel {...props} />)} />
-              <Route exact path="/components/input-animation" render={(props) => (<_InputAnimation {...props} />)} />
-              <Route exact path="/components/input-file" render={(props) => (<_InputFile {...props} />)} />
-              <Route exact path="/components/input-file-drag-drop" render={(props) => (<_InputFileDragDrop {...props} />)} />
-              <Route exact path="/components/input-suggestion-array" render={(props) => (<_InputSuggestionArray {...props} />)} />
-              <Route exact path="/components/input-suggestion-object" render={(props) => (<_InputSuggestionObject {...props} />)} />
-              <Route exact path="/components/loading-box-top" render={(props) => (<_LoadingBoxTop {...props} />)} />
+              <Route exact path="/components/filtermapping" render={(props) => (<_FilterMapping {...props} />)} />
+              <Route exact path="/components/fullscreenlistarray" render={(props) => (<_FullScreenListArray {...props} />)} />
+              <Route exact path="/components/fullscreenlistobject" render={(props) => (<_FullScreenListObject {...props} />)} />
+              <Route exact path="/components/fullscreenoverlay" render={(props) => (<_FullScreenOverlay {...props} />)} />
+              <Route exact path="/components/globalmessage" render={(props) => (<_GlobalMessage {...props} />)} />
+              <Route exact path="/components/icon" render={(props) => (<_Icon {...props} />)} />
+              <Route exact path="/components/icontext" render={(props) => (<_IconText {...props} />)} />
+              <Route exact path="/components/imagebanner" render={(props) => (<_ImageBanner {...props} />)} />
+              <Route exact path="/components/imagebox" render={(props) => (<_ImageBox {...props} />)} />
+              <Route exact path="/components/imagecarousel" render={(props) => (<_ImageCarousel {...props} />)} />
+              <Route exact path="/components/inputanimation" render={(props) => (<_InputAnimation {...props} />)} />
+              <Route exact path="/components/inputfile" render={(props) => (<_InputFile {...props} />)} />
+              <Route exact path="/components/inputfiledragdrop" render={(props) => (<_InputFileDragDrop {...props} />)} />
+              <Route exact path="/components/inputsuggestionarray" render={(props) => (<_InputSuggestionArray {...props} />)} />
+              <Route exact path="/components/inputsuggestionobject" render={(props) => (<_InputSuggestionObject {...props} />)} />
+              <Route exact path="/components/loadingboxtop" render={(props) => (<_LoadingBoxTop {...props} />)} />
               <Route exact path="/components/menu" render={(props) => (<_Menu {...props} />)} />
-              <Route exact path="/components/menu-dropdown" render={(props) => (<_MenuDropDown {...props} />)} />
-              <Route exact path="/components/menu-height" render={(props) => (<_MenuHeight {...props} />)} />
-              <Route exact path="/components/menu-hover-x" render={(props) => (<_MenuHoverX {...props} />)} />
-              <Route exact path="/components/menu-hover-y" render={(props) => (<_MenuHoverY {...props} />)} />
+              <Route exact path="/components/menudropdown" render={(props) => (<_MenuDropDown {...props} />)} />
+              <Route exact path="/components/menuheight" render={(props) => (<_MenuHeight {...props} />)} />
+              <Route exact path="/components/menuhoverx" render={(props) => (<_MenuHoverX {...props} />)} />
+              <Route exact path="/components/menuhovery" render={(props) => (<_MenuHoverY {...props} />)} />
               <Route exact path="/components/modal" render={(props) => (<_Modal {...props} />)} />
               <Route exact path="/components/overlay" render={(props) => (<_Overlay {...props} />)} />
-              <Route exact path="/components/pager-static" render={(props) => (<_PagerStatic {...props} />)} />
-              <Route exact path="/components/pager-dynamic" render={(props) => (<_PagerDynamic {...props} />)} />
-              <Route exact path="/components/picture-404" render={(props) => (<_Picture404 {...props} />)} />
-              <Route exact path="/components/pills" render={(props) => (<_Pills {...props} />)} />
-              <Route exact path="/components/popup-box" render={(props) => (<_PopupBox {...props} />)} />
-              <Route exact path="/components/popup-data" render={(props) => (<_PopupData {...props} />)} />
-              <Route exact path="/components/popup-hover" render={(props) => (<_PopupHover {...props} />)} />
+              <Route exact path="/components/pagerstatic" render={(props) => (<_PagerStatic {...props} />)} />
+              <Route exact path="/components/pagerdynamic" render={(props) => (<_PagerDynamic {...props} />)} />
+              <Route exact path="/components/picture404" render={(props) => (<_Picture404 {...props} />)} />
+              <Route exact path="/components/pill" render={(props) => (<_Pill {...props} />)} />
+              <Route exact path="/components/popupbox" render={(props) => (<_PopupBox {...props} />)} />
+              <Route exact path="/components/popupdata" render={(props) => (<_PopupData {...props} />)} />
+              <Route exact path="/components/popuphover" render={(props) => (<_PopupHover {...props} />)} />
               <Route exact path="/components/preloader" render={(props) => (<_Preloader {...props} />)} />
-              <Route exact path="/components/load-on-scroll" render={(props) => (<_LoadOnScroll {...props} />)} />
-              <Route exact path="/components/lightbulb-404" render={(props) => (<_Lightbulb404 {...props} />)} />
-              <Route exact path="/components/list-switch" render={(props) => (<_ListSwitch {...props} />)} />
-              <Route exact path="/components/read-more" render={(props) => (<_ReadMore {...props} />)} />
-              <Route exact path="/components/read-more-callback" render={(props) => (<_ReadMoreCallback {...props} />)} />
+              <Route exact path="/components/loadonscroll" render={(props) => (<_LoadOnScroll {...props} />)} />
+              <Route exact path="/components/lightbulb404" render={(props) => (<_Lightbulb404 {...props} />)} />
+              <Route exact path="/components/listswitch" render={(props) => (<_ListSwitch {...props} />)} />
+              <Route exact path="/components/readmore" render={(props) => (<_ReadMore {...props} />)} />
+              <Route exact path="/components/readmorecallback" render={(props) => (<_ReadMoreCallback {...props} />)} />
               <Route exact path="/components/ribbon" render={(props) => (<_Ribbon {...props} />)} />
-              <Route exact path="/components/ribbon-multiple" render={(props) => (<_RibbonMultiple {...props} />)} />
+              <Route exact path="/components/ribbonmultiple" render={(props) => (<_RibbonMultiple {...props} />)} />
               <Route exact path="/components/sidebar" render={(props) => (<_Sidebar {...props} />)} />
               <Route exact path="/components/slider" render={(props) => (<_Slider {...props} />)} />
-              <Route exact path="/components/slider-cards" render={(props) => (<_SliderCards {...props} />)} />
-              <Route exact path="/components/slider-fullscreen" render={(props) => (<_SliderFullscreen {...props} />)} />
-              <Route exact path="/components/slider-items" render={(props) => (<_SliderItems {...props} />)} />
-              <Route exact path="/components/scroll-to" render={(props) => (<_ScrollTo {...props} />)} />
-              <Route exact path="/components/source-code" render={(props) => (<_SourceCode {...props} />)} />
-              <Route exact path="/components/stars" render={(props) => (<_Stars {...props} />)} />
-              <Route exact path="/components/steps" render={(props) => (<_Steps {...props} />)} />
-              <Route exact path="/components/steps-generator" render={(props) => (<_StepsGenerator {...props} />)} />
-              <Route exact path="/components/steps-generator-drag-drop" render={(props) => (<_StepsGeneratorDragDrop {...props} />)} />
-              <Route exact path="/components/suggestions" render={(props) => (<_Suggestions {...props} />)} />
+              <Route exact path="/components/slidercard" render={(props) => (<_SliderCard {...props} />)} />
+              <Route exact path="/components/sliderfullscreen" render={(props) => (<_SliderFullscreen {...props} />)} />
+              <Route exact path="/components/slideritem" render={(props) => (<_SliderItem {...props} />)} />
+              <Route exact path="/components/scrollto" render={(props) => (<_ScrollTo {...props} />)} />
+              <Route exact path="/components/sourcecode" render={(props) => (<_SourceCode {...props} />)} />
+              <Route exact path="/components/star" render={(props) => (<_Star {...props} />)} />
+              <Route exact path="/components/step" render={(props) => (<_Step {...props} />)} />
+              <Route exact path="/components/stepgenerator" render={(props) => (<_StepGenerator {...props} />)} />
+              <Route exact path="/components/stepgeneratordragdrop" render={(props) => (<_StepGeneratorDragDrop {...props} />)} />
+              <Route exact path="/components/suggestion" render={(props) => (<_Suggestion {...props} />)} />
               <Route exact path="/components/range" render={(props) => (<_Range {...props} />)} />
               <Route exact path="/components/table" render={(props) => (<_Table {...props} />)} />
-              <Route exact path="/components/text-writer" render={(props) => (<_TextWriter {...props} />)} />
+              <Route exact path="/components/textwriter" render={(props) => (<_TextWriter {...props} />)} />
               <Route exact path="/components/timeline" render={(props) => (<_Timeline {...props} />)} />
-              <Route exact path="/components/water-404" render={(props) => (<_Water404 {...props} />)} />
+              <Route exact path="/components/water404" render={(props) => (<_Water404 {...props} />)} />
               {/* Functions */}
               <Route exact path="/functions/addGlobalMessage" render={(props) => (<_FunctionAddGlobalMessage {...props} />)} />
               <Route exact path="/functions/uuid" render={(props) => (<_FunctionUuid {...props} />)} />

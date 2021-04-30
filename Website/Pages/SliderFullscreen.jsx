@@ -2,7 +2,7 @@ import React from 'react';
 import { SliderFullscreen, Table, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans'
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 import StyleImplementation from '../Modules/StyleImplementation';
 
 const codeExample = `import { SliderFullscreen } from 'react-revolution';
@@ -211,7 +211,7 @@ class _SliderFullscreen extends React.Component {
                         }
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1 className="h1-example">
                                     <i className="fas fa-atom" />
@@ -241,7 +241,7 @@ class _SliderFullscreen extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
@@ -274,7 +274,9 @@ class _SliderFullscreen extends React.Component {
                         )
                     }
                 </div>
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -283,7 +285,7 @@ class _SliderFullscreen extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -410,7 +412,7 @@ class _SliderFullscreen extends React.Component {
                                     values: 'slider.onSlideTime'
                                 },
                             ],
-                            'rr-slider-fullscreen'
+                            'SliderFullscreen'
                         )
                     }
                 />

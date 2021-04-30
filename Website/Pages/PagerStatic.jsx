@@ -9,7 +9,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import StyleImplementation from '../Modules/StyleImplementation';
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const codeExample1 = `import { PagerStatic } from 'react-revolution';
 // import PagerStatic from 'react-revolution/PagerStatic';
@@ -270,7 +270,7 @@ getDataExample3() {
     return newStructure;
 }`;
 
-const cssExample = `.rr-pager-static {
+const cssExample = `.PagerStatic {
 
     ul{
         box-sizing: border-box;
@@ -628,7 +628,7 @@ class _PagerStatic extends React.Component {
                     />
                 </div>
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -661,7 +661,7 @@ class _PagerStatic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -694,7 +694,7 @@ class _PagerStatic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -866,7 +866,7 @@ class _PagerStatic extends React.Component {
                     />
                 </div>
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 3`}
@@ -899,7 +899,7 @@ class _PagerStatic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 3`}
@@ -932,7 +932,7 @@ class _PagerStatic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 3`}
@@ -964,7 +964,9 @@ class _PagerStatic extends React.Component {
                         )
                     )
                 }
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -973,7 +975,7 @@ class _PagerStatic extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -1133,7 +1135,7 @@ class _PagerStatic extends React.Component {
                                 },
 
                             ],
-                            'rr-pager-static'
+                            'PagerStatic'
                         )
                     }
                 />

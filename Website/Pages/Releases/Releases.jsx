@@ -2558,6 +2558,154 @@ class Releases extends React.Component {
                         }
                     ]
                 },
+                '6.0.0': {
+                    date: '01.05.2021',
+                    data: [
+                        {
+                            key: 'Attribute id',
+                            value: 'All components are affected. \n\nDefault the attribute id (for the root element) was rendered based on the passed (string) id parameter. Now if the id is not passed to the component or the value is an empty string, the attribute id are not attached to the rendered component (root element).',
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Names',
+                            value: 'Renamed components to (from): \n\nArticle (Articles) \n\nArticleImage (ArticlesImages)\n\nBox (Boxes)\n\nBreadcrumb (Breadcrumbs)\n\nCard (Cards)\n\nCardScroll (CardsScroll)\n\nCardScrollCallback (CardsScrollCallback)\n\nCloud404 (Clouds404)\n\nCloudMountain404 (CloudsMountains404)\n\nDarkLine404 (DarkLines404)\n\nGlobalMessage (GlobalMessages)\n\nIcon (Icons)\n\nPill (Pills)\n\nSliderCard (SliderCards)\n\nSliderItem (SliderItems)\n\nStar (Stars)\n\nStep (Steps)\n\nStepGenerator (StepsGenerator)\n\nStepGeneratorDragDrop (StepsGeneratorDragDrop)\n\nSuggestion (Suggestions)',
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'CSS/SCSS file names',
+                            value: 'All components are affected. \n\nRenamed style file names.\n\nFor example: \n\nOLD filename: rr-article.scss (for the <Article/> component)\nNEW filename: Article.scss \n\nOLD filename: rr-star.scss (for the <Star/> component)\nNEW filename: Star.scss',
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Default class name',
+                            value: 'All components are affected. \n\nRenamed all default class names to the components name.\n\nFor example: \n\nOLD default class: .rr-article (for the <Article/> component)\nNEW  default class: .Article \n\nOLD default class: .rr-star (for the <Star/> component)\nNEW default class: .Star',
+                            icon: <i className="fas fa-exclamation-triangle"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#FF4459'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Renamed class:\n\nFROM: header\nTO: area-header',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Container',
+                            value: 'Renamed classes:\n\nFROM: SideBar\nTO: area-sidebar\n\nFROM: Content\nTO: area-content',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Renamed classes:\n\nFROM: SideBar\nTO: area-sidebar\n\nFROM: Content\nTO: area-content',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar',
+                            value: 'Renamed classes:\n\nFROM: SideBar\nTO: area-sidebar\n\nFROM: Content\nTO: area-content',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup',
+                            value: 'Renamed classes:\n\nFROM: SideBar\nTO: area-sidebar\n\nFROM: Content\nTO: area-content',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Card',
+                            value: 'Renamed all classes:\n\nFROM: .cards\nTO: .card',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup',
+                            value: 'Renamed all classes:\n\nFROM: .cards-group\nTO: card-group',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'Icon',
+                            value: 'Code improvement and added new keys: \n\nitemsPerLine\nnoData',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'IconText',
+                            value: 'New component',
+                            icon: <i className="fas fa-box"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgb(24,115,204)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }

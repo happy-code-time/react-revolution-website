@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Table, Overlay, Icons, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
+import { Table, Overlay, Icon, SourceCode, Clipboard } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
-const codeExample = `import { Overlay, Icons } from 'react-revolution';
+const codeExample = `import { Overlay, Icon } from 'react-revolution';
 // import Overlay from 'react-revolution/Overlay';
-// import Icons from 'react-revolution/Icons';
+// import Icon from 'react-revolution/Icon';
  
 <span>
     <button
@@ -39,7 +39,7 @@ const codeExample = `import { Overlay, Icons } from 'react-revolution';
         callbackProps='any'
         data={
             (
-                <Icons
+                <Icon
                     displayTabs={true}
                     iconsType='Smileys'
                     callback={this.toggleOverlay}
@@ -116,7 +116,7 @@ class _Overlay extends React.Component {
                                 callbackProps='any'
                                 data={
                                     (
-                                        <Icons
+                                        <Icon
                                             displayTabs={true}
                                             iconsType='Smileys'
                                             callback={this.toggleOverlay}
@@ -128,7 +128,7 @@ class _Overlay extends React.Component {
                         </span>
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1 className="h1-example">
                                     <i className="fas fa-atom" />
@@ -158,7 +158,7 @@ class _Overlay extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
@@ -191,7 +191,9 @@ class _Overlay extends React.Component {
                         )
                     }
                 </div>
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -200,7 +202,7 @@ class _Overlay extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -243,7 +245,7 @@ class _Overlay extends React.Component {
                                     values: 'overlay.data'
                                 },
                             ],
-                            'rr-overlay'
+                            'Overlay'
                         )
                     }
                 />

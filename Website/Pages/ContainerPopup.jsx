@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, ContainerPopup, SideBar, Menu, PopupHover, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, ContainerPopup, Sidebar, Menu, PopupHover, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -9,9 +9,9 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-const codeExample1 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 'react-revolution';
+const codeExample1 = `import { ContainerPopup, Sidebar, Menu, PopupHover } from 'react-revolution';
 // import ContainerPopup from 'react-revolution/ContainerPopup';
-// import SideBar from 'react-revolution/SideBar';
+// import Sidebar from 'react-revolution/Sidebar';
 // import Menu from 'react-revolution/Menu';
 // import PopupHover from 'react-revolution/PopupHover';
 
@@ -44,7 +44,7 @@ const codeExample1 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 
         <i className="fas fa-angle-left" />
     }
     moduleSidebar={
-        <SideBar
+        <Sidebar
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong='text long'
             textShort='text short'
@@ -72,9 +72,9 @@ const codeExample1 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 
     }
 />`;
 
-const codeExample2 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 'react-revolution';
+const codeExample2 = `import { ContainerPopup, Sidebar, Menu, PopupHover } from 'react-revolution';
 // import ContainerPopup from 'react-revolution/ContainerPopup';
-// import SideBar from 'react-revolution/SideBar';
+// import Sidebar from 'react-revolution/Sidebar';
 // import Menu from 'react-revolution/Menu';
 // import PopupHover from 'react-revolution/PopupHover';
 
@@ -108,7 +108,7 @@ const codeExample2 = `import { ContainerPopup, SideBar, Menu, PopupHover } from 
         <i className="fas fa-angle-left" />
     }
     moduleSidebar={
-        <SideBar
+        <Sidebar
             image={<img alt="image" src='./public/images/icon-48.png' />}
             textLong='text long'
             textShort='text short'
@@ -213,7 +213,7 @@ const jsExample = `getMenu() {
 const cssExample = `.container-example {
     overflow-x: hidden;
         
-    .SideBar {
+    .area-sidebar{
         position: absolute;
     }
 
@@ -279,7 +279,7 @@ class _ContainerPopup extends React.Component {
                             <i className="fas fa-angle-left" />
                         }
                         moduleSidebar={
-                            <SideBar
+                            <Sidebar
                                 image={<img alt="image" src='./public/images/icon-48.png' />}
                                 textLong='text long'
                                 textShort='text short'
@@ -347,7 +347,7 @@ class _ContainerPopup extends React.Component {
                             <i className="fas fa-angle-left" />
                         }
                         moduleSidebar={
-                            <SideBar
+                            <Sidebar
                                 image={<img alt="image" src='./public/images/icon-48.png' />}
                                 textLong='text long'
                                 textShort='text short'
@@ -477,7 +477,9 @@ class _ContainerPopup extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -486,7 +488,7 @@ class _ContainerPopup extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -573,7 +575,7 @@ class _ContainerPopup extends React.Component {
                                     values: 'container.sidebarWidth'
                                 },
                             ],
-                            'rr-container-popup'
+                            'ContainerPopup'
                         )
                     }
                 />

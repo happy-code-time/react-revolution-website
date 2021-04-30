@@ -6,14 +6,28 @@ const buildTableKeysStructure = (keys, defaultClass) => {
     keys.map( object => {
         const { key, values } = object;
 
-        structure.push(
-            {
-                key,
-                value: trans(values).description,
-                type: trans(values).type,
-                default: key == 'defaultClass' ? defaultClass : trans(values).default
-            }
-        )
+        if(key == 'defaultClass' && defaultClass)
+        {
+            structure.push(
+                {
+                    key,
+                    value: trans('defaultClass').description,
+                    type: trans('defaultClass').type,
+                    default: defaultClass
+                }
+            )
+        }
+        else
+        {
+            structure.push(
+                {
+                    key,
+                    value: trans(values).description,
+                    type: trans(values).type,
+                    default: trans(values).default
+                }
+            )
+        }
     });
 
     return structure;

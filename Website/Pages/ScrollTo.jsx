@@ -32,7 +32,7 @@ const codeExample2 = `import { ScrollTo } from 'react-revolution';
     navigationTarget='#uuid-2'
 />`;
 
-const cssExample = `.rr-scroll-to{
+const cssExample = `.ScrollTo{
     .to-bottom,
     .to-top{
         margin: auto;
@@ -115,7 +115,9 @@ class _ScrollTo extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -124,7 +126,7 @@ class _ScrollTo extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -163,7 +165,7 @@ class _ScrollTo extends React.Component {
                                     values: 'html'
                                 },
                             ],
-                            'rr-scroll-to'
+                            'ScrollTo'
                         )
                     }
                 />

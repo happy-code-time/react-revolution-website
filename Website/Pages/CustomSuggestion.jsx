@@ -11,7 +11,7 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import { host } from '../Globals';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const codeExample1 = `import { CustomSuggestion } from 'react-revolution';
 // import CustomSuggestion from 'react-revolution/CustomSuggestion';
@@ -36,13 +36,13 @@ const jsExample1 = `async search(inputValue, isClickEvent) {
     return new Promise( (resolve, reject) => {
         const allModules = [
             'Accordion',
-            'Cards',
+            'Card',
             'CustomSuggestion',
             'FullScreenListArray',
             'FullScreenListObject',
             'FullScreenOverlay',
-            'GlobalMessages',
-            'Icons',
+            'GlobalMessage',
+            'Icon',
             'InputAnimation',
             'InputFile',
             'InputFileDragDrop',
@@ -120,13 +120,13 @@ const jsExample2 = `searchState(inputValue, isClickEvent) {
 
     const allModules = [
         'Accordion',
-        'Cards',
+        'Card',
         'CustomSuggestion',
         'FullScreenListArray',
         'FullScreenListObject',
         'FullScreenOverlay',
-        'GlobalMessages',
-        'Icons',
+        'GlobalMessage',
+        'Icon',
         'InputAnimation',
         'InputFile',
         'InputFileDragDrop',
@@ -243,13 +243,13 @@ class _CustomSuggestion extends React.Component {
         return new Promise((resolve, reject) => {
             const allModules = [
                 'Accordion',
-                'Cards',
+                'Card',
                 'CustomSuggestion',
                 'FullScreenListArray',
                 'FullScreenListObject',
                 'FullScreenOverlay',
-                'GlobalMessages',
-                'Icons',
+                'GlobalMessage',
+                'Icon',
                 'InputAnimation',
                 'InputFile',
                 'InputFileDragDrop',
@@ -310,13 +310,13 @@ class _CustomSuggestion extends React.Component {
 
         const allModules = [
             'Accordion',
-            'Cards',
+            'Card',
             'CustomSuggestion',
             'FullScreenListArray',
             'FullScreenListObject',
             'FullScreenOverlay',
-            'GlobalMessages',
-            'Icons',
+            'GlobalMessage',
+            'Icon',
             'InputAnimation',
             'InputFile',
             'InputFileDragDrop',
@@ -424,7 +424,7 @@ class _CustomSuggestion extends React.Component {
                         />
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -457,7 +457,7 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -516,7 +516,7 @@ class _CustomSuggestion extends React.Component {
                         />
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -549,7 +549,7 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -582,7 +582,9 @@ class _CustomSuggestion extends React.Component {
                         )
                     }
                 </div>
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -591,7 +593,7 @@ class _CustomSuggestion extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -674,7 +676,7 @@ class _CustomSuggestion extends React.Component {
                                     values: 'customsuggestion.suggestions.onClickValue'
                                 },
                             ],
-                            'rr-custom-suggestion'
+                            'CustomSuggestion'
                         )
                     }
                 />

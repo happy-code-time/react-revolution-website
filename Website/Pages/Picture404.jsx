@@ -75,7 +75,9 @@ class _Picture404 extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -84,7 +86,7 @@ class _Picture404 extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -151,7 +153,7 @@ class _Picture404 extends React.Component {
                                     values: '404.imagePath'
                                 }
                             ],
-                            'rr-picture-404'
+                            'Picture404'
                         )
                     }
                 />

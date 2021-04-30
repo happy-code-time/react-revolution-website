@@ -1,12 +1,7 @@
-
 import React from 'react';
-
 import { Table, ReadMoreCallback, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
@@ -14,7 +9,7 @@ const codeExample1 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
 
 <ReadMoreCallback
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='height'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -45,7 +40,7 @@ const codeExample2 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
 
 <ReadMoreCallback
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='height'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -83,7 +78,7 @@ const codeExample3 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
 
 <ReadMoreCallback
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='height'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -129,7 +124,7 @@ const codeExample4 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
 
 <ReadMoreCallback
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='height'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -175,7 +170,7 @@ const codeExample5 = `import { ReadMoreCallback } from 'react-revolution';
 // import ReadMoreCallback from 'react-revolution/readMoreCallback';
 
 <ReadMoreCallback
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='height'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -293,7 +288,7 @@ callbackMixed(clickEvent, customData){
     });
 }`;
 
-const cssExample = `.rr-read-more-example{
+const cssExample = `.ReadMore-example{
     line-height: 30px;
 
     .read-more-button,
@@ -337,7 +332,7 @@ class _ReadMoreCallback extends React.Component {
                 html: '',
                 live: (
                     <ReadMoreCallback
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='height'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -376,7 +371,7 @@ class _ReadMoreCallback extends React.Component {
                 html: '',
                 live: (
                     <ReadMoreCallback
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='height'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -422,7 +417,7 @@ class _ReadMoreCallback extends React.Component {
                 html: '',
                 live: (
                     <ReadMoreCallback
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='height'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -476,7 +471,7 @@ class _ReadMoreCallback extends React.Component {
                 html: '',
                 live: (
                     <ReadMoreCallback
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='height'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -530,7 +525,7 @@ class _ReadMoreCallback extends React.Component {
                 html: '',
                 live: (
                     <ReadMoreCallback
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='height'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -672,7 +667,9 @@ class _ReadMoreCallback extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -681,7 +678,7 @@ class _ReadMoreCallback extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -748,7 +745,7 @@ class _ReadMoreCallback extends React.Component {
                                     values: 'readmore.callback.loading'
                                 },
                             ],
-                            'rr-read-more-callback'
+                            'ReadMoreCallback'
                         )
                     }
                 />

@@ -2,15 +2,15 @@ const exampleHome = () => {
 
 const code1 = `import { Stars } from 'react-revolution';
 
-<Stars 
+<Star 
     count={5} 
     filled={2} 
     color='orange-yellow' 
 />`;
 
-const code2 = `import { Icons } from 'react-revolution';
+const code2 = `import { Icon } from 'react-revolution';
 
-<Icons
+<Icon
     displayTabs={true}
     iconsType='Smileys'
     renderItems={
@@ -22,9 +22,9 @@ const code2 = `import { Icons } from 'react-revolution';
     }
 />`;
 
-const code3 = `import { Breadcrumbs } from 'react-revolution';
+const code3 = `import { Breadcrumb } from 'react-revolution';
 
-<Breadcrumbs 
+<Breadcrumb 
     domainName='Home' 
 />`;
 

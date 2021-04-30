@@ -7,7 +7,7 @@ import trans from '../Translations/trans';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const codeExample = `import { LoadingBoxTop } from 'react-revolution';
 // import LoadingBoxTop from 'react-revolution/LoadingBoxTop';
@@ -75,7 +75,7 @@ class _LoadingBoxTop extends React.Component {
                         />
                     </div>
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1 className="h1-example">
                                     <i className="fas fa-atom" />
@@ -105,7 +105,7 @@ class _LoadingBoxTop extends React.Component {
                         )
                     }
                     {
-                        generateArticles(
+                        generateArticle(
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 1`}
@@ -138,7 +138,9 @@ class _LoadingBoxTop extends React.Component {
                         )
                     }
                 </div>
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -147,7 +149,7 @@ class _LoadingBoxTop extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -182,7 +184,7 @@ class _LoadingBoxTop extends React.Component {
                                     values: 'display'
                                 },
                             ],
-                            'rr-loading-box-top'
+                            'LoadingBoxTop'
                         )
                     }
                 />

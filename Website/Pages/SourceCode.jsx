@@ -103,7 +103,7 @@ const codeExample1 = `import { SourceCode } from 'react-revolution';
     }
 />`;
 
-const cssExample = `.rr-sourcecode{
+const cssExample = `.SourceCode{
     width: calc(100% - 20px);
   
     .code{
@@ -312,7 +312,9 @@ class _SourceCode extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -321,7 +323,7 @@ class _SourceCode extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -412,7 +414,7 @@ class _SourceCode extends React.Component {
                                     values: 'code'
                                 }
                             ],
-                            'rr-sourcecode'
+                            'SourceCode'
                         )
                     }
                 />

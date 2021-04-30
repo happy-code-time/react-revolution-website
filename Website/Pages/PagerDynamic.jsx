@@ -9,7 +9,7 @@ import buildModulesJsx from '../Functions/buildModulesJsx';
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 
 import StyleImplementation from '../Modules/StyleImplementation';
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const codeExample1 = `import { PagerDynamic, LoadingBoxTop } from 'react-revolution';
 // import PagerDynamic from 'react-revolution/PagerDynamic';
@@ -197,7 +197,7 @@ getData(site = 1) {
     return structure;
 }`;
 
-const cssExample = `.rr-pager-dynamic {
+const cssExample = `.PagerDynamic {
 
     ul{
         box-sizing: border-box;
@@ -233,7 +233,7 @@ const cssExample = `.rr-pager-dynamic {
     }
 }
 
-.rr-pager-dynamic{
+.PagerDynamic{
     ul{
         position: relative;
 
@@ -443,7 +443,7 @@ class _PagerDynamic extends React.Component {
                     />
                 </div>
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -476,7 +476,7 @@ class _PagerDynamic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -509,7 +509,7 @@ class _PagerDynamic extends React.Component {
                     )
                 }
                 {
-                    generateArticles(
+                    generateArticle(
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
@@ -541,7 +541,9 @@ class _PagerDynamic extends React.Component {
                         )
                     )
                 }
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -550,7 +552,7 @@ class _PagerDynamic extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -710,7 +712,7 @@ class _PagerDynamic extends React.Component {
                                 },
 
                             ],
-                            'rr-pager-dynamic'
+                            'PagerDynamic'
                         )
                     }
                 />

@@ -477,7 +477,9 @@ class _Accordion extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -486,7 +488,7 @@ class _Accordion extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -545,7 +547,7 @@ class _Accordion extends React.Component {
                                     values: 'props'
                                 }
                             ],
-                            'rr-accordion'
+                            'Accordion'
                         )
                     }
                 />

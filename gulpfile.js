@@ -14,24 +14,24 @@ const randomHash = `${timestamp}${Math.floor(Math.random() * 1000000)}${Math.flo
 
 const modules = [
     "Accordion",
-    "Articles",
-    "ArticlesImages",
+    "Article",
+    "ArticleImage",
     "Astronaut404",
-    "Boxes",
-    "Breadcrumbs",
-    "Cards",
-    "CardsScroll",
-    "CardsScrollCallback",
+    "Box",
+    "Breadcrumb",
+    "Card",
+    "CardScroll",
+    "CardScrollCallback",
     "Carousel",
     "Clipboard",
-    "Clouds404",
-    "CloudsMountains404",
+    "Cloud404",
+    "CloudMountain404",
     "Container",
     "ContainerCompact",
     "ContainerPopup",
     "ContainerSidebar",
     "CustomSuggestion",
-    "DarkLines404",
+    "DarkLine404",
     "DragDropArea",
     "DragDropList",
     "Filter",
@@ -39,8 +39,9 @@ const modules = [
     "FullScreenListArray",
     "FullScreenListObject",
     "FullScreenOverlay",
-    "GlobalMessages",
-    "Icons",
+    "GlobalMessage",
+    "Icon",
+    "IconText",
     "ImageBanner",
     "ImageBox",
     "ImageCarousel",
@@ -63,7 +64,7 @@ const modules = [
     "PagerDynamic",
     "PagerStatic",
     "Picture404",
-    "Pills",
+    "Pill",
     "PopupBox",
     "PopupData",
     "PopupHover",
@@ -74,17 +75,17 @@ const modules = [
     "Ribbon",
     "RibbonMultiple",
     "ScrollTo",
-    "SideBar",
+    "Sidebar",
     "Slider",
-    "SliderCards",
+    "SliderCard",
     "SliderFullscreen",
-    "SliderItems",
+    "SliderItem",
     "SourceCode",
-    "Stars",
-    "Steps",
-    "StepsGenerator",
-    "StepsGeneratorDragDrop",
-    "Suggestions",
+    "Star",
+    "Step",
+    "StepGenerator",
+    "StepGeneratorDragDrop",
+    "Suggestion",
     "Table",
     "TextWriter",
     "Timeline",
@@ -184,6 +185,19 @@ gulp.task('copy:css:scss:modules', (done) => {
     done();
 });
 
+gulp.task('buildSass', () => 
+{
+    return gulp
+        .src(['Website/Scss/react-revolution-website.scss'])
+        .pipe(gulpSass({outputStyle: 'compressed'}).on('error', gulpSass.logError))
+        .pipe(gulp.dest('public/css'))
+    ;
+});
+
+
+gulp.task('watchSass', function (done) {
+    return gulp.watch('Website/Scss/**/*', gulp.series('buildSass'));
+});
 
 const buildModuleProduction = (filename, cb) => {
     return new Promise( (resolve, reject) => {
@@ -579,7 +593,7 @@ const htmlData = `
     <meta name="author" content="David Janitzek">
     <link rel="stylesheet" href="./public/fontawesome-free-5.12.1-web/css/all.css" />
     <link rel="stylesheet" href="./public/css/react-revolution.css" />
-    <link rel="stylesheet" href="./public/css/index.css" />
+    <link rel="stylesheet" href="./public/css/react-revolution-website.css" />
 </head>
 <body>
     <div id="app"></div>
@@ -594,6 +608,27 @@ gulp.task('copy:css:rr', function (done) {
     gulp.src("Website/Scss/react-revolution.css").pipe(gulpSass({ outputStyle: "compressed" }).on("error", gulpSass.logError)).pipe(gulp.dest("public/css"));
     done();
 });
+
+/**
+ * Multiple task runner
+ */
+ gulp.task('compile', function (callback) {
+    runSequence(
+        [
+            'clean',
+            'buildSass',
+            'copy:ff',
+            'copy:css:rr',
+            'compress:images',
+            'create:websites:webpack',
+            'create:module:webpack',
+            'create:websites:html',
+            'copy:css:scss:modules',
+            'create:webpack:files',
+        ],
+        callback);
+});
+
 /**
  * Multiple task runner
  */
@@ -601,6 +636,7 @@ gulp.task('compile', function (callback) {
     runSequence(
         [
             'clean',
+            'buildSass',
             'copy:ff',
             'copy:css:rr',
             'compress:images',
@@ -620,6 +656,7 @@ gulp.task('module', function (callback) {
     runSequence(
         [
             'clean',
+            'buildSass',
             'copy:ff',
             'copy:css:rr',
             'compress:images',

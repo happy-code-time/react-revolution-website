@@ -772,7 +772,9 @@ class _PopupData extends React.Component {
                     fireScrollEvent={300}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -781,7 +783,7 @@ class _PopupData extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -832,7 +834,7 @@ class _PopupData extends React.Component {
                                     values: 'popupData.contentData.data'
                                 },
                             ],
-                            'rr-popup-data'
+                            'PopupData'
                         )
                     }
                 />

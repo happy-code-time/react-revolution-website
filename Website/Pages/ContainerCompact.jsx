@@ -46,12 +46,20 @@ const codeExample1 = `import { ContainerCompact } from 'react-revolution';
 /> `;
 
 const cssExample1 = `.overwrite-for-website{
-    .Header{
-        position: relative !important;        
-    }
-    .Sidebar,
-    .Content{
+    position: relative !important;
+
+    .area-header,
+    .area-sidebar,
+    .area-content{
         position: absolute !important;
+    }
+
+    .area-header
+    {
+        @media screen and (min-width: 720px) {
+            left: 250px;
+            width: calc(100% - 250px);
+        }
     }
 }`;
 
@@ -138,7 +146,9 @@ class _ContainerCompact extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -147,7 +157,7 @@ class _ContainerCompact extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -230,7 +240,7 @@ class _ContainerCompact extends React.Component {
                                     values: 'container.compact.locationInterval'
                                 },
                             ],
-                            'rr-container-compact'
+                            'ContainerCompact'
                         )
                     }
                 />

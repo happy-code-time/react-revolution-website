@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, SideBar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { Table, Sidebar, Menu, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
@@ -11,12 +11,12 @@ import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import { host } from '../Globals';
 import StyleImplementation from '../Modules/StyleImplementation';
 
-const codeExample1 = `import { SideBar, Menu } from 'react-revolution';
-// import SideBar from 'react-revolution/SideBar';
+const codeExample1 = `import { Sidebar, Menu } from 'react-revolution';
+// import Sidebar from 'react-revolution/Sidebar';
 // import Menu from 'react-revolution/Menu';
 
 <div className="rr-revolution-sidebar-example">
-    <SideBar
+    <Sidebar
         image={<img alt="image" src='./public/images/icon-48.png' />}
         textLong='text long'
         textShort='text short'
@@ -69,7 +69,7 @@ const cssExample = `.rr-revolution-sidebar-example{
     box-sizing: border-box;
     padding: 2px;
 
-    .rr-sidebar{
+    .Sidebar{
         border: 1px solid #dadce0;
         border-radius: 3px;
         height: calc(100% - 2px); // to see the border
@@ -85,7 +85,7 @@ class _Sidebar extends React.Component {
 
         this.examples = [
             {
-                title: 'SideBar',
+                title: 'Sidebar',
                 description: '',
                 reactTextBefore: '',
                 react: codeExample1,
@@ -95,7 +95,7 @@ class _Sidebar extends React.Component {
                 html: '',
                 live: (
                     <div className="rr-revolution-sidebar-example">
-                        <SideBar
+                        <Sidebar
                             image={<img alt="image" src='./public/images/icon-48.png' />}
                             textLong='text long'
                             textShort='text short'
@@ -176,7 +176,9 @@ class _Sidebar extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -185,7 +187,7 @@ class _Sidebar extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -236,7 +238,7 @@ class _Sidebar extends React.Component {
                                     values: 'hrefProps'
                                 },
                             ],
-                            'rr-sidebar'
+                            'Sidebar'
                         )
                     }
                 />

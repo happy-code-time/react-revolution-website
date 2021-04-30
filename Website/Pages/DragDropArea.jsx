@@ -14,7 +14,7 @@ const codeExample1 = `import { DragDropArea } from 'react-revolution';
 // import DragDropArea from 'react-revolution/DragDropArea';
 
 <DragDropArea
-    addClass='rr-drag-drop-area-example'
+    addClass='DragDropArea-example'
     itemsPerLine={4}
     mediaBreak={1024}
     data={this.state.data}
@@ -26,7 +26,7 @@ const codeExample2 = `import { DragDropArea } from 'react-revolution';
 // import DragDropArea from 'react-revolution/DragDropArea';
 
 <DragDropArea
-    addClass='rr-drag-drop-area-example'
+    addClass='DragDropArea-example'
     itemsPerLine={4}
     mediaBreak={1024}
     data={this.state.data2}
@@ -39,7 +39,7 @@ const codeExample3 = `import { DragDropArea } from 'react-revolution';
 // import DragDropArea from 'react-revolution/DragDropArea';
 
 <DragDropArea
-    addClass='rr-drag-drop-area-example'
+    addClass='DragDropArea-example'
     itemsPerLine={4}
     mediaBreak={1024}
     data={this.state.data3}
@@ -52,7 +52,7 @@ const codeExample4 = `import { DragDropArea } from 'react-revolution';
 // import DragDropArea from 'react-revolution/DragDropArea';
 
 <DragDropArea
-    addClass='rr-drag-drop-area-example'
+    addClass='DragDropArea-example'
     itemsPerLine={4}
     mediaBreak={1024}
     data={this.state.data4}
@@ -289,7 +289,7 @@ callbackAllowDropLoadingIcon(prevData, nextData, change, allowDropProps) {
     });
 }`;
 
-const cssExample12 = `.rr-drag-drop-area-example{
+const cssExample12 = `.DragDropArea-example{
 
     .area-box{
         box-sizing: border-box;
@@ -322,7 +322,7 @@ const cssExample12 = `.rr-drag-drop-area-example{
     }
 }`;
 
-const cssExample34 = `.rr-drag-drop-area-example{
+const cssExample34 = `.DragDropArea-example{
 
     .area-box{
         box-sizing: border-box;
@@ -541,7 +541,7 @@ class _DragDropArea extends React.Component {
                 html: '',
                 live: (
                     <DragDropArea
-                        addClass='rr-drag-drop-area-example'
+                        addClass='DragDropArea-example'
                         itemsPerLine={4}
                         mediaBreak={1024}
                         data={this.state.data}
@@ -560,7 +560,7 @@ class _DragDropArea extends React.Component {
                 html: '',
                 live: (
                     <DragDropArea
-                        addClass='rr-drag-drop-area-example'
+                        addClass='DragDropArea-example'
                         itemsPerLine={4}
                         mediaBreak={1024}
                         data={this.state.data2}
@@ -580,7 +580,7 @@ class _DragDropArea extends React.Component {
                 html: '',
                 live: (
                     <DragDropArea
-                        addClass='rr-drag-drop-area-example'
+                        addClass='DragDropArea-example'
                         itemsPerLine={4}
                         mediaBreak={1024}
                         data={this.state.data3}
@@ -600,7 +600,7 @@ class _DragDropArea extends React.Component {
                 html: '',
                 live: (
                     <DragDropArea
-                        addClass='rr-drag-drop-area-example'
+                        addClass='DragDropArea-example'
                         itemsPerLine={4}
                         mediaBreak={1024}
                         data={this.state.data4}
@@ -676,7 +676,9 @@ class _DragDropArea extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -685,7 +687,7 @@ class _DragDropArea extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -780,7 +782,7 @@ class _DragDropArea extends React.Component {
                                     values: 'drag.drop.lineNumberChar'
                                 },
                             ],
-                            'rr-drag-drop-area'
+                            'DragDropArea'
                         )
                     }
                 />

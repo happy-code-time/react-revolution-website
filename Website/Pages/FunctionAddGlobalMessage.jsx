@@ -1,10 +1,10 @@
 import React from 'react';
-import { addGlobalMessage, GlobalMessages, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
+import { addGlobalMessage, GlobalMessage, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
 import trans from '../Translations/trans';
 import buildModulesJsx from '../Functions/buildModulesJsx';
 
-const jsExample1 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
-//import GlobalMessages from 'react-revolution/GlobalMessages';
+const jsExample1 = `import { GlobalMessage, addGlobalMessage } from 'react-revolution';
+//import GlobalMessage from 'react-revolution/GlobalMessage';
 //import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
 
 target_1() {
@@ -43,7 +43,7 @@ render(){
             >
                 Run example 1
             </button>
-            <GlobalMessages
+            <GlobalMessage
                 messageKey='listener_1'
                 addClass='rr-global-messages-example'
                 timer={1000}
@@ -62,8 +62,8 @@ render(){
     );
 }`;
 
-const jsExample2 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
-//import GlobalMessages from 'react-revolution/GlobalMessages';
+const jsExample2 = `import { GlobalMessage, addGlobalMessage } from 'react-revolution';
+//import GlobalMessage from 'react-revolution/GlobalMessage';
 //import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
 
 target_2() {
@@ -106,7 +106,7 @@ render(){
             >
                 Run example 2
             </button>
-            <GlobalMessages
+            <GlobalMessage
                 messageKey='listener_2'
                 addClass='rr-global-messages-example'
                 timer={1000}
@@ -125,8 +125,8 @@ render(){
     );
 }`;
 
-const jsExample3 = `import { GlobalMessages, addGlobalMessage } from 'react-revolution';
-//import GlobalMessages from 'react-revolution/GlobalMessages';
+const jsExample3 = `import { GlobalMessage, addGlobalMessage } from 'react-revolution';
+//import GlobalMessage from 'react-revolution/GlobalMessage';
 //import addGlobalMessage from 'react-revolution/Functions/addGlobalMessage';
 
 target_3() {
@@ -169,7 +169,7 @@ render(){
             >
                 Run example 3
             </button>
-            <GlobalMessages
+            <GlobalMessage
                 messageKey='listener_3'
                 addClass='rr-global-messages-example'
                 timer={1000}
@@ -188,7 +188,7 @@ render(){
     );
 }`;
 
-const cssExample1 = `.rr-global-messages-example{
+const cssExample1 = `.GlobalMessage-example{
     .single-error{
         background-color: #FF4469;
     }
@@ -379,7 +379,7 @@ class _FunctionAddGlobalMessage extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <GlobalMessages
+                <GlobalMessage
                     messageKey='listener_1'
                     addClass='rr-global-messages-example'
                     timer={1000}
@@ -395,7 +395,7 @@ class _FunctionAddGlobalMessage extends React.Component {
                     }}
                 />
                 <span>
-                    <GlobalMessages
+                    <GlobalMessage
                         messageKey='listener_2'
                         addClass='rr-global-messages-example'
                         timer={1000}
@@ -412,7 +412,7 @@ class _FunctionAddGlobalMessage extends React.Component {
                     />
                 </span>
                 <span>
-                    <GlobalMessages
+                    <GlobalMessage
                         messageKey='listener_3'
                         addClass='rr-global-messages-example'
                         timer={1000}

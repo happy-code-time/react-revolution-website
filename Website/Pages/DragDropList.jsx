@@ -14,7 +14,7 @@ const codeExample1 = `import { DragDropList } from 'react-revolution';
 // import DragDropList from 'react-revolution/DragDropList';
 
 <DragDropList
-    addClass='rr-drag-drop-list-example'
+    addClass='DragDropList-example'
     data={this.state.data}
     callback={this.callback}
     dropLoading='LAODING'
@@ -27,7 +27,7 @@ const codeExample2 = `import { DragDropList } from 'react-revolution';
 // import DragDropList from 'react-revolution/DragDropList';
 
 <DragDropList
-    addClass='rr-drag-drop-list-example'
+    addClass='DragDropList-example'
     data={this.state.data2}
     callback={this.callback2}
     callbackAllowDrop={this.callbackAllowDrop}
@@ -98,7 +98,7 @@ callbackAllowDrop(prevData, nextData, change, allowDropProps) {
     });
 }`;
 
-const cssExample1 = `.rr-drag-drop-list-example{
+const cssExample1 = `.DragDropList-example{
     max-width: 720px;
     margin: 0 auto;
 
@@ -128,7 +128,7 @@ const cssExample1 = `.rr-drag-drop-list-example{
     }
 }`;
 
-const cssExample2 = `.rr-drag-drop-list-example{
+const cssExample2 = `.DragDropList-example{
     max-width: 720px;
     margin: 0 auto;
 
@@ -216,7 +216,7 @@ class _DragDropList extends React.Component {
                 html: '',
                 live: (
                     <DragDropList
-                        addClass='rr-drag-drop-list-example'
+                        addClass='DragDropList-example'
                         data={this.state.data}
                         callback={this.callback}
                         dropLoading='LAODING'
@@ -236,7 +236,7 @@ class _DragDropList extends React.Component {
                 html: '',
                 live: (
                     <DragDropList
-                        addClass='rr-drag-drop-list-example'
+                        addClass='DragDropList-example'
                         data={this.state.data2}
                         callback={this.callback2}
                         callbackAllowDrop={this.callbackAllowDrop}
@@ -293,7 +293,9 @@ class _DragDropList extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -302,7 +304,7 @@ class _DragDropList extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -377,7 +379,7 @@ class _DragDropList extends React.Component {
                                     values: 'drag.drop.lineNumberChar'
                                 },
                             ],
-                            'rr-drag-drop-list'
+                            'DragDropList'
                         )
                     }
                 />

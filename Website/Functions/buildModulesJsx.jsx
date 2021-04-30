@@ -4,7 +4,7 @@ import { Clipboard, SourceCode } from '../../react-revolution/react-revolution';
 
 import trans from '../Translations/trans';
 
-import generateArticles from '../Globals/generateArticles';
+import generateArticle from '../Globals/generateArticle';
 
 const buildModulesJsx = (object = {}, count = 1) => {
     const { title, reactTextBefore, react, reactTextAfter, js, css, html, description, live, isFunction } = object;
@@ -42,7 +42,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
                 </p>
             }
             {
-                react && generateArticles(
+                react && generateArticle(
                     (
                         <h1 className="h1-example">
                             <i className="fas fa-atom" />
@@ -80,7 +80,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
                 </p>
             }
             {
-                js && generateArticles(
+                js && generateArticle(
                     (
                         <h1 className="h1-example">
                             <i className="fab fa-node-js" />
@@ -117,7 +117,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
                 />
             }
             {
-                css && generateArticles(
+                css && generateArticle(
                     (
                         <h1 className="h1-example">
                             <i className="fab fa-css3" />

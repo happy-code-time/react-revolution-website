@@ -1,12 +1,7 @@
-
 import React from 'react';
-
 import { Table, ReadMore, LoadOnScroll, LoadingBoxTop } from '../../react-revolution/react-revolution';
-
 import trans from '../Translations/trans';
-
 import buildModulesJsx from '../Functions/buildModulesJsx';
-
 import buildTableKeysStructure from '../Functions/buildTableKeysStructure';
 import StyleImplementation from '../Modules/StyleImplementation';
 
@@ -14,7 +9,7 @@ const codeExample1 = `import { ReadMore } from 'react-revolution';
 // import ReadMore from 'react-revolution/readMore';
 
 <ReadMore
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='opacity'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -44,7 +39,7 @@ const codeExample1 = `import { ReadMore } from 'react-revolution';
 const codeExample2 = `import { ReadMore } from 'react-revolution';
 
 <ReadMore
-    addClass='rr-read-more-example'
+    addClass='ReadMore-example'
     animation='opacity'
     data={\`
         Lorem ipsum dolor sit amet, 
@@ -78,7 +73,7 @@ const codeExample2 = `import { ReadMore } from 'react-revolution';
     }
 />`;
 
-const cssExample = `.rr-read-more-example{
+const cssExample = `.ReadMore-example{
     line-height: 30px;
 
     .read-more-button,
@@ -120,7 +115,7 @@ class _ReadMore extends React.Component {
                 html: '',
                 live: (
                     <ReadMore
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='opacity'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -159,7 +154,7 @@ class _ReadMore extends React.Component {
                 html: '',
                 live: (
                     <ReadMore
-                        addClass='rr-read-more-example'
+                        addClass='ReadMore-example'
                         animation='opacity'
                         data={`
                             Lorem ipsum dolor sit amet, 
@@ -225,7 +220,9 @@ class _ReadMore extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                <StyleImplementation />
+                                <StyleImplementation 
+                    className={this.constructor.name}
+                />
                 <h1 className="title-border">
                     <i className="fab fa-keycdn"></i>
                     {
@@ -234,7 +231,7 @@ class _ReadMore extends React.Component {
                 </h1>
                 <Table
                     mediaBreak={1024}
-                    addClass='rr-table-website'
+                    addClass='Table-website'
                     keysToRead={
                         [
                             'key', 'value', 'type', 'default'
@@ -281,7 +278,7 @@ class _ReadMore extends React.Component {
                                     values: 'readmore.dataToggle'
                                 },
                             ],
-                            'rr-read-more'
+                            'ReadMore'
                         )
                     }
                 />
