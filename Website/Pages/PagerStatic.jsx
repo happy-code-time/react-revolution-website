@@ -543,7 +543,7 @@ class _PagerStatic extends React.Component {
                 />
                 <h1
                     title={`${trans('exampleTitle')} 2`}
-                    className="h1-example"
+                    className="h1-example p-0  m-0"
                 >
                     <i className="fas fa-user" />
                     {
@@ -632,7 +632,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fas fa-atom" />
                                 {
@@ -665,7 +665,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fab fa-node-js" />
                                 {
@@ -698,7 +698,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fab fa-node-js" />
                                 {
@@ -728,7 +728,7 @@ class _PagerStatic extends React.Component {
                 }
                 <h1
                     title={`${trans('exampleTitle')} 3`}
-                    className="h1-example"
+                    className="h1-example p-0  m-0"
                 >
                     <i className="fas fa-user" />
                     {
@@ -870,7 +870,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 3`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fas fa-atom" />
                                 {
@@ -903,7 +903,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 3`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fab fa-node-js" />
                                 {
@@ -936,7 +936,7 @@ class _PagerStatic extends React.Component {
                         (
                             <h1
                                 title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 3`}
-                                className="h1-example"
+                                className="h1-example p-0  m-0"
                             >
                                 <i className="fab fa-node-js" />
                                 {

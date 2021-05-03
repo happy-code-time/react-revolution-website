@@ -428,7 +428,7 @@ class _CustomSuggestion extends React.Component {
                             (
                                 <h1
                                     title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                    className="h1-example"
+                                    className="h1-example p-0  m-0"
                                 >
                                     <i className="fas fa-atom" />
                                     {
@@ -461,7 +461,7 @@ class _CustomSuggestion extends React.Component {
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                    className="h1-example"
+                                    className="h1-example p-0  m-0"
                                 >
                                     <i className="fab fa-node-js" />
                                     {
@@ -520,7 +520,7 @@ class _CustomSuggestion extends React.Component {
                             (
                                 <h1
                                     title={`${trans('reactCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                    className="h1-example"
+                                    className="h1-example p-0  m-0"
                                 >
                                     <i className="fas fa-atom" />
                                     {
@@ -553,7 +553,7 @@ class _CustomSuggestion extends React.Component {
                             (
                                 <h1
                                     title={`${trans('jsCodeTitle')} - ${trans('exampleTitle')} 2`}
-                                    className="h1-example"
+                                    className="h1-example p-0  m-0"
                                 >
                                     <i className="fab fa-node-js" />
                                     {

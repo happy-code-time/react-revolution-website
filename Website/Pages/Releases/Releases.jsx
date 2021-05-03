@@ -2706,6 +2706,33 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '6.0.1': {
+                    date: '03.05.2021',
+                    data: [
+                        {
+                            key: 'ContainerPopup',
+                            value: 'Style improvement.',
+                            icon: <i className="fab fa-css3"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar',
+                            value: 'Style improvement.',
+                            icon: <i className="fab fa-css3"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        }
+                    ]
+                },
             }
         }
     }

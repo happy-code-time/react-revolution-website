@@ -44,7 +44,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 react && generateArticle(
                     (
-                        <h1 className="h1-example">
+                        <h1 className="h1-example p-0  m-0">
                             <i className="fas fa-atom" />
                             {
                                 isFunction ? trans('reactFunctionTitle') : trans('reactCodeTitle')
@@ -82,7 +82,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 js && generateArticle(
                     (
-                        <h1 className="h1-example">
+                        <h1 className="h1-example p-0  m-0">
                             <i className="fab fa-node-js" />
                             {
                                 trans('jsCodeTitle')
@@ -119,7 +119,7 @@ const buildModulesJsx = (object = {}, count = 1) => {
             {
                 css && generateArticle(
                     (
-                        <h1 className="h1-example">
+                        <h1 className="h1-example p-0 m-0">
                             <i className="fab fa-css3" />
                             {
                                 trans('cssCodeTitle')

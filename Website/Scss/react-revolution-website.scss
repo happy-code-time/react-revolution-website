@@ -565,6 +565,15 @@
   position: relative;
 }
 
+.Accordion
+{
+  .single-data,
+  .children{
+    display: inline-block;
+    margin-top: 5px;
+  }
+}
+
 .Article-production {
   .single-entry {
     min-height: 30px;

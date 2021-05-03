@@ -361,7 +361,7 @@ class App extends React.Component {
       {
         version: '6.0',
         start: 0,
-        end: 0
+        end: 1
       },
       {
         version: '5.6',
