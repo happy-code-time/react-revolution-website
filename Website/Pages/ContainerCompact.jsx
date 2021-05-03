@@ -239,6 +239,10 @@ class _ContainerCompact extends React.Component {
                                     key: 'locationInterval',
                                     values: 'container.compact.locationInterval'
                                 },
+                                {
+                                    key: 'minifySidebarOnSwap',
+                                    values: 'container.minifySidebarOnSwap'
+                                },
                             ],
                             'ContainerCompact'
                         )

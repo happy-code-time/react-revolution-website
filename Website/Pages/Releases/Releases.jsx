@@ -2733,6 +2733,55 @@ class Releases extends React.Component {
                         }
                     ]
                 },
+                '6.0.2': {
+                    date: '03.05.2021',
+                    data: [
+                        {
+                            key: 'Container',
+                            value: 'Added new key: minifySidebarOnSwap - Hide the sidebar on all pages and DISPLAY the sidebar based on all URL`s (HASH) entries in the key "minifySidebarOn".',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerCompact',
+                            value: 'Added new key: minifySidebarOnSwap - Hide the sidebar on all pages and DISPLAY the sidebar based on all URL`s (HASH) entries in the key "minifySidebarOn".',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerPopup',
+                            value: 'Added new key: minifySidebarOnSwap - Hide the sidebar on all pages and DISPLAY the sidebar based on all URL`s (HASH) entries in the key "minifySidebarOn".',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        },
+                        {
+                            key: 'ContainerSidebar',
+                            value: 'Added new key: minifySidebarOnSwap - Hide the sidebar on all pages and DISPLAY the sidebar based on all URL`s (HASH) entries in the key "minifySidebarOn".',
+                            icon: <i className="fas fa-key"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: '#ffc107'
+                                }
+                            },
+                        }
+                    ]
+                },
             }
         }
     }

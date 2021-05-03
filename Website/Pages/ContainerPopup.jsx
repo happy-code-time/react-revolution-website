@@ -477,7 +477,7 @@ class _ContainerPopup extends React.Component {
                     fireScrollEvent={250}
                     fireScrollBack={true}
                 />
-                                <StyleImplementation 
+                <StyleImplementation 
                     className={this.constructor.name}
                 />
                 <h1 className="title-border">
@@ -573,6 +573,10 @@ class _ContainerPopup extends React.Component {
                                 {
                                     key: 'sidebarWidth',
                                     values: 'container.sidebarWidth'
+                                },
+                                {
+                                    key: 'minifySidebarOnSwap',
+                                    values: 'container.minifySidebarOnSwap'
                                 },
                             ],
                             'ContainerPopup'

@@ -1210,6 +1210,11 @@ const EN = {
         "type": "String | JSX",
         "default": "<empty string>"
     },
+    "container.minifySidebarOnSwap": {
+        "description": "Hide the sidebar on all pages and DISPLAY the sidebar based on all URL`s (HASH) entries in the key 'minifySidebarOn'.",
+        "type": "String | JSX",
+        "default": "<empty string>"
+    },
     "containerSidebar.toggleMenuHtml": {
         "description": "Custom JSX used as toggling icon for the sidebar - only displayed if the documents width smaller then the value provided by the key 'hideAt'. This HTML are located inside the headers content.",
         "type": "String | JSX",

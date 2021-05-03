@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IconText } from './react-revolution/react-revolution';
-import './react-revolution/_Sass/IconText.scss';
+import { Accordion } from './react-revolution/react-revolution';
+import './react-revolution/_Sass/Accordion.scss';
 
 class App extends React.Component 
 {
@@ -38,7 +38,57 @@ class App extends React.Component
                         }
                     }
                 >
-
+<Accordion
+    animation='height'
+    data={
+        [
+            {
+                text: (
+                    <span>
+                        <i style={{ width: '30px' }} className="fas fa-car"></i>
+                        Mercedes
+                    </span>
+                ),
+                data: [
+                    {
+                        text: 'A - Class',
+                        data: [
+                            {
+                                text: '- A 200'
+                            },
+                            {
+                                text: '- A 35 AMG'
+                            },
+                            {
+                                text: '- A 200'
+                            },
+                            {
+                                text: '- A 35 AMG'
+                            },
+                            {
+                                text: '- A 200'
+                            },
+                            {
+                                text: '- A 35 AMG'
+                            },
+                        ]
+                    },
+                    {
+                        text: 'B - Class',
+                        data: [
+                            {
+                                text: '- B 150'
+                            },
+                            {
+                                text: '- B 250'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+/>
                 </div>
             </span>
         );

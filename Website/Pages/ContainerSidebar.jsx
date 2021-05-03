@@ -650,6 +650,10 @@ class _ContainerSidebar extends React.Component {
                                     key: 'sidebarWidth',
                                     values: 'container.sidebarWidth'
                                 },
+                                {
+                                    key: 'minifySidebarOnSwap',
+                                    values: 'container.minifySidebarOnSwap'
+                                },
                             ],
                             'ContainerSidebar'
                         )

@@ -206,16 +206,6 @@ const codeExample4 = `import { Accordion } from 'react-revolution';
     />
 </span>`;
 
-const css = `.Accordion
-{
-  .single-data,
-  .children{
-    display: inline-block;
-    margin-top: 5px;
-  }
-}`;
-
-
 class _Accordion extends React.Component {
     constructor(props) {
         super(props);
@@ -234,7 +224,7 @@ class _Accordion extends React.Component {
                 react: codeExample1,
                 reactTextAfter: '',
                 js: '',
-                css: css,
+                css: '',
                 html: '',
                 live: (
                     <Accordion
@@ -285,7 +275,7 @@ class _Accordion extends React.Component {
                 react: codeExample2,
                 reactTextAfter: '',
                 js: '',
-                css: css,
+                css: '',
                 html: '',
                 live: (
                     <Accordion
@@ -332,7 +322,7 @@ class _Accordion extends React.Component {
                 react: codeExample3,
                 reactTextAfter: '',
                 js: '',
-                css: css,
+                css: '',
                 html: '',
                 live: (
                     <Accordion
@@ -384,7 +374,7 @@ class _Accordion extends React.Component {
                 react: codeExample4,
                 reactTextAfter: '',
                 js: '',
-                css: css,
+                css: '',
                 html: '',
                 live: (
                     <span>
