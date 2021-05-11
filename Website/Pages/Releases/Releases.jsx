@@ -2782,6 +2782,66 @@ class Releases extends React.Component {
                         }
                     ]
                 },
+                '6.0.3': {
+                    date: '11.05.2021',
+                    data: [
+                        {
+                            key: 'isArray',
+                            value: 'Improved type check for "isArray".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isBoolean',
+                            value: 'Improved type check for "isBoolean".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isFunction',
+                            value: 'Improved type check for "isFunction".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isNumber',
+                            value: 'Improved type check for "isNumber".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                        {
+                            key: 'isObject',
+                            value: 'Improved type check for "isObject".',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        },
+                    ]
+                },
             }
         }
     }
