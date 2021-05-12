@@ -2842,6 +2842,22 @@ class Releases extends React.Component {
                         },
                     ]
                 },
+                '6.0.4': {
+                    date: '12.05.2021',
+                    data: [
+                        {
+                            key: 'Migration',
+                            value: 'Changed free hosting service from cba.pl to byethost33.com.',
+                            icon: <i className="fas fa-tools"></i>,
+                            iconProps: {
+                                style: {
+                                    color: 'rgb(255,255,255)',
+                                    background: 'rgba(71,180,118,1)'
+                                }
+                            },
+                        }
+                    ]
+                },
             }
         }
     }

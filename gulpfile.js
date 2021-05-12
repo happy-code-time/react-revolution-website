@@ -586,9 +586,9 @@ const htmlData = `
     <title>React Revolution</title>
     <meta charset="utf-8">
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
-    <link rel="canonical" href="http://react-revolution.j.pl/">
-    <link rel="alternate" href="http://react-revolution.j.pl/" hreflang="x-default">
-    <link rel="alternate" href="https://react-revolution.j.pl/" hreflang="en">
+    <link rel="canonical" href="http://react-revolution.byethost33.com/">
+    <link rel="alternate" href="http://react-revolution.byethost33.com/" hreflang="x-default">
+    <link rel="alternate" href="http://react-revolution.byethost33.com/" hreflang="en">
     <meta name="description" content="React Revolution for React">
     <meta name="author" content="David Janitzek">
     <link rel="stylesheet" href="./public/fontawesome-free-5.12.1-web/css/all.css" />

@@ -17,7 +17,7 @@ const jsExample1 = `const data = urlExtract();
 {
     "href": {
       "name": "href",
-      "origin": "https://react-revolution.j.pl/#/functions/urlextract",
+      "origin": "http://react-revolution.byethost33.com/#/functions/urlextract",
       "paths": [
         {
           "path": "functions",
