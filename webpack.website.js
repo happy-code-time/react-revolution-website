@@ -7,21 +7,19 @@ const config = {
         extensions: ['.js', '.jsx'],
     },
     cache: false,
-    entry: path.resolve(__dirname, 'website.jsx'),
+    entry: path.resolve(__dirname, 'website.tsx'),
     output: {
         path: path.resolve(__dirname, 'public'),
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js']
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx|ts|tsx)?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-react', '@babel/preset-env'],
-                    }
-                }
+                use: 'ts-loader'
             },
             {
                 test: /\.css$/,

@@ -7,21 +7,19 @@ const config = {
         extensions: ['.js', '.jsx'],
     },
     cache: false,
-    entry: path.resolve(__dirname, 'module.jsx'),
+    entry: path.resolve(__dirname, 'module.tsx'),
     output: {
         path: path.resolve(__dirname, 'public'),
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js']
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx|ts|tsx)?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-react', '@babel/preset-env'],
-                    }
-                }
+                use: 'ts-loader'
             },
             {
                 test: /\.css$/,
@@ -98,22 +96,6 @@ module.exports = (env, argv) => {
             flagIncludedChunks: true,
             concatenateModules: true,
             nodeEnv: 'production',
-            minimizer: [
-                new TerserPlugin({
-                    test: /\.jsx|.js(\?.*)?$/i,
-                    exclude: /node_modules/,
-                    parallel: true,
-                    terserOptions: {
-                        nameCache: null,
-                        ie8: true,
-                        keep_fnames: false,
-                        safari10: true,
-                        keep_classnames: false,
-                        extractComments: true,
-                        ecma: 6
-                    },
-                }),
-            ],
         }
     }
 
